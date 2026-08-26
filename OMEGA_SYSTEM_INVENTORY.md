@@ -1,14 +1,13 @@
-# OMEGA SYSTEM INVENTORY
+# 🏗️ OMEGA MASTER SYSTEM INVENTORY
 
-| Subsystem Name | Primary Module Path | Classification | Runtime State | Operational Role |
-| :--- | :--- | :--- | :--- | :--- |
-| **Model Router & Discovery** | `omega/model_router/` | `CORE_AI` | **`LIVE_LOCAL`** | Routes prompts, enforces privacy, probes Ollama on port 11434. |
-| **Sensitive Data Guard** | `omega/model_router/sensitive_guard.py` | `SECURITY` | **`ACTIVE`** | Restricts PII/credentials to local Ollama inference only. |
-| **MCP Super-Fabric** | `omega/mcp/` | `TOOLING` | **`CONFIGURED`** | Registers Firecrawl, OmniRoute, and custom tool endpoints. |
-| **Live Job Discovery** | `omega/career_war_room/live_job_discovery.py`| `CAREER_ENGINE`| **`ACTIVE`** | Live API scraper for Bangalore GCC vacancies. |
-| **Job Truth Auditor** | `omega/career_war_room/job_truth_auditor.py` | `GOVERNANCE` | **`ACTIVE`** | Cryptographic SHA-256 evidence hashing & change detection. |
-| **Application Proof Engine**| `omega/career_war_room/application_proof.py` | `GOVERNANCE` | **`ACTIVE`** | Validates external receipts; downgrades false submissions. |
-| **Company Intelligence** | `omega/career_war_room/company_intelligence.py`| `INTEL` | **`ACTIVE`** | Maintains 20 Bangalore GCC company dossiers. |
-| **ATS & Resume Engine** | `omega/career_war_room/resume_engine.py` | `GENERATOR` | **`ACTIVE`** | 8 Zero-fabrication domain resume variants. |
-| **Disaster Recovery** | `omega/engines/disaster_recovery.py` | `DEVOPS` | **`ACTIVE`** | Automated backup snapshot & ledger integrity verification. |
-| **Control Tower & CLI** | `omega/control_tower/cli.py` | `CLI_UI` | **`ACTIVE`** | Command-line interface and HTML dashboard. |
+| Subsystem | Canonical Path | Primary Purpose | Truth Status |
+| :--- | :--- | :--- | :---: |
+| **Control Plane** | `apex/control_plane/` | Truth engine, immutable ledger, reconciliation | **VERIFIED_LOCAL** |
+| **NEXUS-EXIM** | `apex/projects/nexus_exim/` | Indian Customs ICEGATE pre-check & landed cost math | **VERIFIED_LOCAL** |
+| **NEXUS Autopilot** | `nexus_autopilot/` | WhatsApp SMB invoicing, collections & cash forecast | **SANDBOX_VERIFIED** |
+| **APEX Bengaluru** | `apex/projects/bengaluru/` | City digital twin, GCC intelligence & career OS | **READY_FOR_HUMAN** |
+| **HobOS Kernel** | `hobos/` | ARM64 bare-metal OS kernel harness & linker | **VERIFIED_LOCAL** |
+| **Omega Engine** | `apex/kernel/omega_engine.py` | 100-opportunity discovery funnel & red-team | **VERIFIED_LOCAL** |
+| **Sovereign OS** | `apex/kernel/sovereign_os.py` | 15-stage sovereign autonomous lifecycle | **VERIFIED_LOCAL** |
+| **NEXUS-TRADE** | `apex/projects/nexus_trade/` | 500MW Clean energy solar tariff model | **VERIFIED_LOCAL** |
+| **EV-CHIPGUARD** | `apex/projects/ev_chipguard/` | Automotive semiconductor safety stock model | **VERIFIED_LOCAL** |

@@ -1,30 +1,170 @@
-# OMEGA MASTER FILE INVENTORY
+# 🗄️ OMEGA MASTER FILE INVENTORY
 
-### Core Production Components (`E:\anti\omega\`)
-| Relative Path | Size (Bytes) | Category | Description | Status |
-| :--- | :---: | :---: | :--- | :---: |
-| `omega/career_war_room/live_job_discovery.py` | ~8.5 KB | `CORE` | Live discovery pipeline & API scraper | `ACTIVE` |
-| `omega/career_war_room/database.py` | ~12.5 KB | `CORE` | 18 Normalized SQLite schemas | `ACTIVE` |
-| `omega/career_war_room/job_truth_auditor.py` | ~4.2 KB | `CORE` | Cryptographic evidence & change detector | `ACTIVE` |
-| `omega/career_war_room/application_proof.py` | ~3.8 KB | `CORE` | Application submission & proof auditor | `ACTIVE` |
-| `omega/career_war_room/company_intelligence.py`| ~11.5 KB | `CORE` | 20 Monitored Bangalore GCC dossiers | `ACTIVE` |
-| `omega/career_war_room/ats_engine.py` | ~3.1 KB | `CORE` | Zero-fabrication keyword & fit scorer | `ACTIVE` |
-| `omega/career_war_room/resume_engine.py` | ~5.3 KB | `CORE` | 8 Domain-specific resume variants | `ACTIVE` |
-| `omega/career_war_room/application_manager.py` | ~5.2 KB | `CORE` | 13-Stage truth state machine | `ACTIVE` |
-| `omega/career_war_room/outreach_engine.py` | ~5.5 KB | `CORE` | Recruiter InMail & email generator | `ACTIVE` |
-| `omega/career_war_room/call_assistant.py` | ~2.9 KB | `CORE` | Phone briefing & objection defense | `ACTIVE` |
-| `omega/career_war_room/radar_365.py` | ~2.5 KB | `CORE` | Scheduled execution & run proof logger | `ACTIVE` |
-| `omega/career_war_room/career_brain.py` | ~3.9 KB | `CORE` | Master daily war room briefing | `ACTIVE` |
-| `omega/model_router/client.py` | ~6.5 KB | `CORE` | OmniRoute client & fallback router | `ACTIVE` |
-| `omega/model_router/provider_discovery.py` | ~7.2 KB | `CORE` | Live discovery of local/cloud providers | `ACTIVE` |
-| `omega/model_router/sensitive_guard.py` | ~4.8 KB | `CORE` | Sensitive data gatekeeper (Local only) | `ACTIVE` |
-| `omega/engines/disaster_recovery.py` | ~5.1 KB | `CORE` | Automated snapshot & backup engine | `ACTIVE` |
-| `omega/control_tower/cli.py` | ~17.5 KB | `CORE` | Master unified CLI interface | `ACTIVE` |
+## Summary Statistics
+* **Total Production Files:** 48,587
+* **Total Lines of Code:** 2,964,491
 
-### Test Suites (`E:\anti\tests\` & `E:\anti\omega\tests\`)
-- `tests/test_omniroute_live.py`: 18 Tests (P0 Hardening & Health)
-- `omega/tests/test_omega_pipeline_e2e.py`: 4 Tests (End-to-End Pipeline)
-- `omega/tests/test_omega_career_war_room.py`: 11 Tests (War Room Engines)
-- `omega/tests/test_omega_career_war_room_v2.py`: 7 Tests (Truth Auditor & Proofs)
-- `omega/tests/test_reality_audit.py`: 6 Tests (Reality Rejection Invariants)
-- `omega/tests/test_live_job_discovery.py`: 4 Tests (Live Discovery & Seed Isolation)
+## File Extensions Breakdown
+```json
+{
+  "no_ext": 224,
+  ".log": 5,
+  ".md": 2465,
+  ".csv": 67,
+  ".html": 72,
+  ".py": 1295,
+  ".js": 453,
+  ".json": 1033,
+  ".zip": 4,
+  ".xlsx": 2,
+  ".bat": 5,
+  ".txt": 154,
+  ".ps1": 24,
+  ".jsonl": 66,
+  ".db": 27,
+  ".eml": 67,
+  ".ld": 1,
+  ".yaml": 593,
+  ".example": 8,
+  ".lock": 9,
+  ".jsonc": 5,
+  ".xml": 123,
+  ".yml": 224,
+  ".toml": 74,
+  ".mts": 328,
+  ".mjs": 504,
+  ".ts": 33353,
+  ".pyc": 247,
+  ".css": 147,
+  ".jpg": 11,
+  ".sh": 374,
+  ".swift": 1120,
+  ".png": 308,
+  ".ico": 10,
+  ".svg": 205,
+  ".webmanifest": 1,
+  ".webp": 189,
+  ".tgz": 3,
+  ".tar": 4,
+  ".sql": 3,
+  ".snap": 1,
+  ".lobster": 2,
+  ".go": 29,
+  ".mod": 1,
+  ".sum": 1,
+  ".qr-import": 1,
+  ".dockerfile": 1,
+  ".in": 3,
+  ".service": 1,
+  ".timer": 1,
+  ".cjs": 3,
+  ".browser": 1,
+  ".common": 1,
+  ".sha256": 2,
+  ".mdx": 3,
+  ".jpeg": 3,
+  ".kts": 6,
+  ".properties": 5,
+  ".xcconfig": 2,
+  ".resolved": 2,
+  ".m": 1,
+  ".h": 18,
+  ".plist": 12,
+  ".xcstrings": 2,
+  ".icns": 3,
+  ".rs": 2104,
+  ".entitlements": 3,
+  ".strings": 84,
+  ".ttf": 20,
+  ".pro": 2,
+  ".kt": 423,
+  ".jar": 1,
+  ".woff2": 33,
+  ".ql": 2,
+  ".tsx": 1874,
+  ".astro": 22,
+  ".proto": 1,
+  ".scm": 3,
+  ".cmd": 1,
+  ".gyp": 4,
+  ".gypi": 5,
+  ".c": 17,
+  ".markdown": 1,
+  ".map": 4,
+  ".node": 8,
+  ".cpp": 18,
+  ".hpp": 5,
+  ".patch": 4,
+  ".s": 3,
+  ".cff": 1,
+  ".riv": 2,
+  ".dockerignore": 1,
+  ".gif": 2,
+  ".limits": 1,
+  ".rb": 2,
+  ".desktop": 2,
+  ".excalidraw": 2,
+  ".nsh": 2,
+  ".wav": 3,
+  ".mmd": 1,
+  ".paths": 1,
+  ".sqlite": 1,
+  ".cls": 1,
+  ".tex": 2,
+  ".otf": 9
+}
+```
+
+## Directory Distribution
+```json
+{
+  "root": 359,
+  "ai": 1,
+  "apex": 240,
+  "application_packages": 61,
+  "apps": 12,
+  "architecture": 1,
+  "Company_Tailored_CVs": 151,
+  "compliance": 1,
+  "cover_letters": 50,
+  "customer-success": 1,
+  "dashboard": 1,
+  "data": 4,
+  "deploy": 6,
+  "docs": 19,
+  "Email_Drafts": 67,
+  "finance": 1,
+  "governance": 1,
+  "hobos": 58,
+  "hr": 1,
+  "linkedin_export": 36,
+  "logs": 1,
+  "marketing": 1,
+  "omega": 245,
+  "omega_ultra_audit": 2,
+  "omnivanta": 824,
+  "openclaude": 3436,
+  "openclaw": 33425,
+  "operations": 1,
+  "os_core": 52,
+  "portfolio": 1,
+  "postmortems": 1,
+  "products": 1,
+  "projects": 3,
+  "research": 1,
+  "resumes": 4,
+  "resume_variants": 10,
+  "runbooks": 1,
+  "sales": 1,
+  "security": 1,
+  "sovereign": 115,
+  "tests": 1,
+  "tools_300": 318,
+  "__pycache__": 6,
+  "nexus_autopilot": 39,
+  "foundation": 24,
+  "external_skills": 8928,
+  "career-hub": 53,
+  "archive": 21
+}
+```

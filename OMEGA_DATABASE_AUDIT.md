@@ -1,26 +1,600 @@
-# OMEGA DATABASE AUDIT
+# 🗄️ OMEGA DATABASE AUDIT (27 DATABASES INSPECTED)
 
-**Database Path**: `E:\anti\omega\data\omega_master.db`  
-**Total Tables**: 18 Normalized Schemas  
-
-### Table Inventory & Row Counts:
-| Table Name | Row Count | Primary Key | Verification Standard |
-| :--- | :---: | :--- | :--- |
-| `companies` | 20 | `company_id` | Verified Bangalore GCC Campuses |
-| `jobs` | 44 | `job_id` | 24 Confirmed Live, 11 Seeded, 9 Errors |
-| `job_sources` | 8 | `source_id` | Active Portal & API Registry |
-| `job_evidence`| 24 | `evidence_id` | SHA-256 Hashes & HTTP 200 Telemetry |
-| `job_changes` | 24 | `change_id` | `NEW` / `CHANGED` Transition Logs |
-| `job_runs` | 1 | `run_id` | Live Discovery Run Telemetry |
-| `applications`| 4 | `application_id` | 4 `READY_FOR_HUMAN`, 0 `SUBMITTED` |
-| `outreach` | 3 | `outreach_id` | 3 `DRAFT`, 0 `SENT` |
-| `followups` | 3 | `followup_id` | 7-Day / 14-Day Scheduled Radar |
-| `interviews` | 1 | `interview_id` | STAR Preparation Briefing |
-| `offers` | 0 | `offer_id` | Negotiation Modeling Engine Ready |
-| `skills` | 14 | `skill_id` | Verified Candidate Competencies |
-| `documents` | 8 | `document_id` | 8 Tailored Resume Variants |
-| `model_runs` | 2 | `run_id` | Local Ollama Warm Latency Runs |
-| `tool_runs` | 8 | `tool_run_id` | Probe & Discovery Tool Telemetry |
-| `truth_events`| 28 | `event_id` | Immutable Delusion Prevention Audit Log |
-| `approvals` | 3 | `approval_id` | Human Gatekeeping Request Queue |
-| `contacts` | 3 | `contact_id` | Verified Recruiter Directory |
+```json
+[
+  {
+    "path": "test_nexus.db",
+    "size_bytes": 28672,
+    "tables": {
+      "events": 4,
+      "sponsors": 0,
+      "run_of_show": 20,
+      "sqlite_sequence": 1
+    }
+  },
+  {
+    "path": "data\\omega_approvals.db",
+    "size_bytes": 12288,
+    "tables": {
+      "approvals": 1
+    }
+  },
+  {
+    "path": "data\\omega_ledger.db",
+    "size_bytes": 28672,
+    "tables": {
+      "transactions": 4,
+      "transaction_events": 34,
+      "sqlite_sequence": 1
+    }
+  },
+  {
+    "path": "data\\omega_master_core.db",
+    "size_bytes": 159744,
+    "tables": {
+      "people": 0,
+      "companies": 0,
+      "jobs": 0,
+      "applications": 0,
+      "contacts": 0,
+      "outreach": 0,
+      "interviews": 0,
+      "offers": 0,
+      "transactions": 0,
+      "gateways": 0,
+      "agents": 0,
+      "tasks": 0,
+      "projects": 0,
+      "skills": 0,
+      "documents": 0,
+      "events": 2,
+      "sqlite_sequence": 1,
+      "metrics": 0,
+      "experiments": 0
+    }
+  },
+  {
+    "path": "omega\\omega_platform.db",
+    "size_bytes": 921600,
+    "tables": {
+      "missions": 6,
+      "tasks": 0,
+      "agents": 23,
+      "memories": 36,
+      "audit_logs": 20,
+      "sqlite_sequence": 3,
+      "telemetry": 12,
+      "skills_catalog": 3300,
+      "opportunities": 61,
+      "daemon_telemetry": 1
+    }
+  },
+  {
+    "path": "sovereign\\sovereign_platform.db",
+    "size_bytes": 49152,
+    "tables": {
+      "projects": 0,
+      "agents": 10,
+      "tasks": 4,
+      "memories": 8,
+      "audit_logs": 8,
+      "sqlite_sequence": 2,
+      "telemetry": 4
+    }
+  },
+  {
+    "path": "omnivanta\\data\\omnivanta.db",
+    "size_bytes": 684032,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 19,
+      "workflows": 16,
+      "tasks": 14,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 421,
+      "connectors": 3,
+      "agent_memory": 11,
+      "billing_usage": 0,
+      "service_tickets": 11,
+      "swarm_missions": 8,
+      "agent_messages": 16,
+      "knowledge_documents": 8,
+      "knowledge_chunks": 8,
+      "custom_apps": 11,
+      "app_records": 10,
+      "omega_missions": 17,
+      "universal_evidence": 50,
+      "omega_ledger": 33,
+      "sqlite_sequence": 1,
+      "unified_memory": 8,
+      "healing_incidents": 8,
+      "connector_certifications": 8,
+      "agent_identities": 0,
+      "authorizations": 0,
+      "improvement_proposals": 2,
+      "webhook_subscriptions": 1,
+      "webhook_deliveries": 3
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T09-36-12-024Z.db",
+    "size_bytes": 368640,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 15,
+      "workflows": 12,
+      "tasks": 10,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 145,
+      "connectors": 3,
+      "agent_memory": 3,
+      "billing_usage": 0,
+      "service_tickets": 7,
+      "swarm_missions": 4,
+      "agent_messages": 8,
+      "knowledge_documents": 4,
+      "knowledge_chunks": 4,
+      "custom_apps": 4,
+      "app_records": 4,
+      "omega_missions": 1,
+      "universal_evidence": 2,
+      "omega_ledger": 1,
+      "sqlite_sequence": 1,
+      "unified_memory": 1,
+      "healing_incidents": 1
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T09-45-45-068Z.db",
+    "size_bytes": 438272,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 16,
+      "workflows": 13,
+      "tasks": 11,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 187,
+      "connectors": 3,
+      "agent_memory": 5,
+      "billing_usage": 0,
+      "service_tickets": 8,
+      "swarm_missions": 5,
+      "agent_messages": 10,
+      "knowledge_documents": 5,
+      "knowledge_chunks": 5,
+      "custom_apps": 5,
+      "app_records": 5,
+      "omega_missions": 3,
+      "universal_evidence": 7,
+      "omega_ledger": 5,
+      "sqlite_sequence": 1,
+      "unified_memory": 2,
+      "healing_incidents": 2,
+      "connector_certifications": 1,
+      "agent_identities": 0,
+      "authorizations": 0
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T11-18-01-211Z.db",
+    "size_bytes": 475136,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 17,
+      "workflows": 14,
+      "tasks": 12,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 229,
+      "connectors": 3,
+      "agent_memory": 6,
+      "billing_usage": 0,
+      "service_tickets": 9,
+      "swarm_missions": 6,
+      "agent_messages": 12,
+      "knowledge_documents": 6,
+      "knowledge_chunks": 6,
+      "custom_apps": 6,
+      "app_records": 6,
+      "omega_missions": 5,
+      "universal_evidence": 12,
+      "omega_ledger": 9,
+      "sqlite_sequence": 1,
+      "unified_memory": 3,
+      "healing_incidents": 3,
+      "connector_certifications": 2,
+      "agent_identities": 0,
+      "authorizations": 0
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T11-26-43-904Z.db",
+    "size_bytes": 524288,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 18,
+      "workflows": 15,
+      "tasks": 13,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 275,
+      "connectors": 3,
+      "agent_memory": 7,
+      "billing_usage": 0,
+      "service_tickets": 10,
+      "swarm_missions": 7,
+      "agent_messages": 14,
+      "knowledge_documents": 7,
+      "knowledge_chunks": 7,
+      "custom_apps": 7,
+      "app_records": 7,
+      "omega_missions": 8,
+      "universal_evidence": 18,
+      "omega_ledger": 14,
+      "sqlite_sequence": 1,
+      "unified_memory": 4,
+      "healing_incidents": 4,
+      "connector_certifications": 3,
+      "agent_identities": 0,
+      "authorizations": 0
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T12-48-59-064Z.db",
+    "size_bytes": 544768,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 18,
+      "workflows": 15,
+      "tasks": 13,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 300,
+      "connectors": 3,
+      "agent_memory": 8,
+      "billing_usage": 0,
+      "service_tickets": 10,
+      "swarm_missions": 7,
+      "agent_messages": 14,
+      "knowledge_documents": 7,
+      "knowledge_chunks": 7,
+      "custom_apps": 7,
+      "app_records": 7,
+      "omega_missions": 10,
+      "universal_evidence": 23,
+      "omega_ledger": 18,
+      "sqlite_sequence": 1,
+      "unified_memory": 5,
+      "healing_incidents": 5,
+      "connector_certifications": 4,
+      "agent_identities": 0,
+      "authorizations": 0
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T12-49-27-963Z.db",
+    "size_bytes": 602112,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 18,
+      "workflows": 15,
+      "tasks": 13,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 325,
+      "connectors": 3,
+      "agent_memory": 9,
+      "billing_usage": 0,
+      "service_tickets": 10,
+      "swarm_missions": 7,
+      "agent_messages": 14,
+      "knowledge_documents": 7,
+      "knowledge_chunks": 7,
+      "custom_apps": 7,
+      "app_records": 7,
+      "omega_missions": 12,
+      "universal_evidence": 28,
+      "omega_ledger": 22,
+      "sqlite_sequence": 1,
+      "unified_memory": 6,
+      "healing_incidents": 6,
+      "connector_certifications": 5,
+      "agent_identities": 0,
+      "authorizations": 0,
+      "improvement_proposals": 2,
+      "webhook_subscriptions": 1,
+      "webhook_deliveries": 0
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T12-49-51-896Z.db",
+    "size_bytes": 630784,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 18,
+      "workflows": 15,
+      "tasks": 13,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 354,
+      "connectors": 3,
+      "agent_memory": 10,
+      "billing_usage": 0,
+      "service_tickets": 10,
+      "swarm_missions": 7,
+      "agent_messages": 14,
+      "knowledge_documents": 7,
+      "knowledge_chunks": 7,
+      "custom_apps": 8,
+      "app_records": 7,
+      "omega_missions": 14,
+      "universal_evidence": 36,
+      "omega_ledger": 26,
+      "sqlite_sequence": 1,
+      "unified_memory": 7,
+      "healing_incidents": 7,
+      "connector_certifications": 6,
+      "agent_identities": 0,
+      "authorizations": 0,
+      "improvement_proposals": 2,
+      "webhook_subscriptions": 1,
+      "webhook_deliveries": 1
+    }
+  },
+  {
+    "path": "omnivanta\\data\\backups\\omnivanta_backup_restore_test_2026-08-26T12-50-06-200Z.db",
+    "size_bytes": 667648,
+    "tables": {
+      "organizations": 1,
+      "users": 0,
+      "agents": 19,
+      "workflows": 16,
+      "tasks": 14,
+      "customers": 1,
+      "accounts": 1,
+      "products": 2,
+      "contracts": 1,
+      "outcomes": 0,
+      "events": 0,
+      "audit_log": 402,
+      "connectors": 3,
+      "agent_memory": 11,
+      "billing_usage": 0,
+      "service_tickets": 11,
+      "swarm_missions": 8,
+      "agent_messages": 16,
+      "knowledge_documents": 8,
+      "knowledge_chunks": 8,
+      "custom_apps": 10,
+      "app_records": 9,
+      "omega_missions": 16,
+      "universal_evidence": 44,
+      "omega_ledger": 30,
+      "sqlite_sequence": 1,
+      "unified_memory": 8,
+      "healing_incidents": 8,
+      "connector_certifications": 7,
+      "agent_identities": 0,
+      "authorizations": 0,
+      "improvement_proposals": 2,
+      "webhook_subscriptions": 1,
+      "webhook_deliveries": 2
+    }
+  },
+  {
+    "path": "omega\\data\\omega_master.db",
+    "size_bytes": 1359872,
+    "tables": {
+      "opportunities": 3012,
+      "pipeline_records": 5,
+      "interview_records": 2,
+      "learning_metrics": 4,
+      "jobs": 44,
+      "applications": 4,
+      "outreach": 3,
+      "followups": 1,
+      "interviews": 0,
+      "offers": 0,
+      "skills": 0,
+      "documents": 0,
+      "model_runs": 0,
+      "tool_runs": 0,
+      "truth_events": 179,
+      "approvals": 0,
+      "companies": 20,
+      "contacts": 3,
+      "job_sources": 8,
+      "job_evidence": 24,
+      "job_changes": 24,
+      "job_runs": 1
+    }
+  },
+  {
+    "path": "omega\\data\\backups\\snapshot_20260826_214611\\omega_master.db",
+    "size_bytes": 1122304,
+    "tables": {
+      "companies": 85,
+      "contacts": 15,
+      "opportunities": 3012,
+      "pipeline_records": 5,
+      "interview_records": 2,
+      "learning_metrics": 4
+    }
+  },
+  {
+    "path": "omega\\apps\\nexus_omega\\nexus_event.db",
+    "size_bytes": 28672,
+    "tables": {
+      "events": 1,
+      "sponsors": 0,
+      "run_of_show": 5,
+      "sqlite_sequence": 1
+    }
+  },
+  {
+    "path": "nexus_autopilot\\data\\nexus.db",
+    "size_bytes": 69632,
+    "tables": {
+      "organizations": 1,
+      "customers": 5,
+      "invoices": 5,
+      "payments": 32,
+      "messages": 0,
+      "collections_queue": 3,
+      "audit_logs": 2
+    }
+  },
+  {
+    "path": "external_skills\\openhuman\\tests\\fixtures\\memory_golden\\workspace\\memory\\memory.db",
+    "size_bytes": 241664,
+    "tables": {
+      "memory_docs": 2,
+      "kv_global": 1,
+      "kv_namespace": 1,
+      "graph_global": 0,
+      "graph_namespace": 1,
+      "vector_chunks": 2,
+      "episodic_log": 1,
+      "sqlite_sequence": 1,
+      "episodic_fts": 1,
+      "episodic_fts_data": 3,
+      "episodic_fts_idx": 1,
+      "episodic_fts_docsize": 1,
+      "episodic_fts_config": 1,
+      "conversation_segments": 1,
+      "segment_embeddings": 1,
+      "event_log": 1,
+      "event_fts": 1,
+      "event_fts_data": 3,
+      "event_fts_idx": 1,
+      "event_fts_docsize": 1,
+      "event_fts_config": 1,
+      "event_embeddings": 1,
+      "user_profile": 1
+    }
+  },
+  {
+    "path": "external_skills\\openhuman\\tests\\fixtures\\memory_golden\\workspace\\memory_tree\\chunks.db",
+    "size_bytes": 270336,
+    "tables": {
+      "mem_tree_chunks": 1,
+      "mem_tree_chunk_embeddings": 1,
+      "mem_tree_chunk_reembed_skipped": 0,
+      "mem_tree_score": 0,
+      "mem_tree_entity_index": 0,
+      "mem_tree_entity_edges": 0,
+      "mem_tree_trees": 1,
+      "mem_tree_summaries": 1,
+      "mem_tree_summary_embeddings": 1,
+      "mem_tree_summary_reembed_skipped": 0,
+      "mem_tree_buffers": 0,
+      "mem_tree_entity_hotness": 0,
+      "mem_tree_jobs": 0,
+      "mem_tree_ingested_sources": 0,
+      "mcp_writes": 0,
+      "sqlite_sequence": 0
+    }
+  },
+  {
+    "path": "apex\\projects\\omniverse\\data\\omniverse.db",
+    "size_bytes": 16384,
+    "tables": {
+      "system_telemetry": 0,
+      "sqlite_sequence": 1,
+      "enterprise_transactions": 14
+    }
+  },
+  {
+    "path": "apex\\projects\\nexus_trade\\data\\nexus_trade.db",
+    "size_bytes": 12288,
+    "tables": {
+      "procurement_contracts": 2
+    }
+  },
+  {
+    "path": "apex\\projects\\nexus_exim\\data\\exim.db",
+    "size_bytes": 20480,
+    "tables": {
+      "entities": 2,
+      "shipments": 2
+    }
+  },
+  {
+    "path": "apex\\projects\\ev_chipguard\\data\\chipguard.db",
+    "size_bytes": 12288,
+    "tables": {
+      "critical_ic_inventory": 3
+    }
+  },
+  {
+    "path": "apex\\projects\\bengaluru\\data\\bengaluru.db",
+    "size_bytes": 110592,
+    "tables": {
+      "companies": 8,
+      "startups": 5,
+      "gccs": 4,
+      "job_postings": 5,
+      "skills_taxonomy": 5,
+      "investors": 3,
+      "funding_rounds": 0,
+      "neighborhoods": 4,
+      "intelligence_signals": 4,
+      "policies_programs": 2,
+      "time_series_metrics": 0,
+      "sqlite_sequence": 0,
+      "user_career_pipeline": 0
+    }
+  },
+  {
+    "path": "apex\\projects\\alpha_quant\\data\\alpha_quant.db",
+    "size_bytes": 16384,
+    "tables": {
+      "orders": 3,
+      "risk_metrics": 0
+    }
+  }
+]
+```

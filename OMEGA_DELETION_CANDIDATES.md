@@ -1,8 +1,27 @@
-# OMEGA DELETION & ARCHIVAL CANDIDATES
+# ANTIGRAVITY OMEGA ULTRA — DELETION & ARCHIVE CANDIDATES
 
-The following legacy scripts from August 24-25 are superseded by the OMEGA War Room and may be archived:
-1. `run_daily_execution_loop.js` (Superseded by `live_job_discovery.py`)
-2. `v20_agent_integration_tester.js` (Superseded by `test_omega_career_war_room_v2.py`)
-3. `v22_hiring_truth_engine.js` (Superseded by `JobTruthAuditor`)
-4. `run_master_os_tests.js` (Superseded by unified Python test suites)
-5. `test_nexus.db` (Superseded by `omega_master.db`)
+**Document ID:** OMEGA-DELETION-2026-FINAL  
+**Standard:** Zero-Risk Staging, Archival First, No Irreversible Destructive Actions  
+
+---
+
+## ⚠️ 1. DELETION & ARCHIVAL POLICY
+- **Policy Rule**: Never delete files during an audit phase without an explicit user instruction.
+- **Action**: Identify dead, duplicate, stubbed, or superseded files and mark them as candidates for moving to `e:/anti/archive/`.
+
+---
+
+## 🗂️ 2. CANDIDATE CLASSIFICATION
+
+| Target Path | Current Size | Reason for Archival Candidate | Recommended Disposition |
+| :--- | :---: | :--- | :--- |
+| `e:/anti/artifacts/` | 0 B | Empty legacy directory created in v28. | Safe to delete. |
+| `e:/anti/backups/` (Root) | 0 B | Empty legacy backup directory; superseded by `omnivanta/data/backups/`. | Safe to delete. |
+| `e:/anti/company/` | 0 B | Empty legacy directory; superseded by `omnivanta/` ontology. | Safe to delete. |
+| `e:/anti/customers/` | 0 B | Empty legacy directory; superseded by `omnivanta.db` customers table. | Safe to delete. |
+| `e:/anti/datasets/` | 0 B | Empty legacy directory; CSVs reside in root. | Safe to delete. |
+| `e:/anti/reports/` (Root) | 0 B | Empty directory; master reports reside in root. | Safe to delete. |
+| `e:/anti/test.txt` | 5 B | Scratch temporary text file. | Safe to delete. |
+| `e:/anti/run_247_career_loop.py` | 1.4 KB | Superseded by `omnivanta/omega/daily_loop.js`. | Move to `archive/`. |
+| `e:/anti/run_all_autopilot.bat` | 2.3 KB | Superseded by unified CLI and `npm start`. | Move to `archive/`. |
+| `e:/anti/run_job_apply.js` | 5.7 KB | Superseded by `omnivanta/omega/action_engine.js`. | Move to `archive/`. |

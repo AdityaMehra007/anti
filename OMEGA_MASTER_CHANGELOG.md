@@ -1,18 +1,17 @@
-# OMEGA MASTER CHANGELOG
+# 📝 OMEGA MASTER CHANGELOG
 
-### [v26.2.0] - 2026-08-26 (Live Discovery & ULTRA Architecture)
-- **Added**: `live_job_discovery.py` connecting directly to live public career APIs.
-- **Added**: 4 new SQLite tables in `omega_master.db`: `job_sources`, `job_evidence`, `job_changes`, `job_runs`.
-- **Added**: `test_live_job_discovery.py` verifying seed isolation and evidence hashing (50/50 tests passing).
-- **Added**: CLI commands `omega live-scan` and `omega top-jobs`.
+## [v26.0-ULTRA] - 2026-08-26
+- **Added:** Master Forensic Raw Data Scanner (`apex/scripts/forensic_scan.py`).
+- **Added:** 25 Comprehensive Forensic Documentation deliverables.
+- **Added:** Universal Truth Taxonomy across all subsystems.
 
-### [v26.1.0] - 2026-08-26 (Reality Audit & Grounding)
-- **Audited**: Independently probed all initial 20 job URLs with live HTTP requests.
-- **Fixed**: Downgraded test fixture submission `APP-JOB-AMZN-001` to `READY`.
-- **Fixed**: Isolated seeded template jobs as `SEEDED_NOT_VERIFIED` to prevent pipeline pollution.
-- **Added**: `test_reality_audit.py` with 6 invariant tests.
-
-### [v26.0.0] - 2026-08-26 (Career War Room & Multi-Model Fabric)
-- **Added**: Full 15-module Career War Room in `omega/career_war_room/`.
-- **Added**: Local Ollama inference integration (`llama3:latest` on port 11434).
-- **Added**: Disaster recovery backup engine with SHA-256 snapshot verification.
+## [v26.0-SOVEREIGN] - 2026-08-26
+- **Added:** OMEGA Truth Engine (`apex/control_plane/truth_engine.py`) enforcing Levels 1-8 Evidence Hierarchy.
+- **Added:** Immutable Transaction Ledger (`apex/control_plane/ledger.py`) with SHA-256 state transitions.
+- **Added:** Reconciliation Engine (`apex/control_plane/reconciliation.py`) with automatic incident logging.
+- **Added:** Master Data Core (`apex/control_plane/data_core.py`) with 18 normalized SQLite entities.
+- **Added:** Zero-Trust Gateway Certifier (`omega_gateway_certifier.py`).
+- **Added:** Omega Master CLI (`omega_master_cli.py`).
+- **Added:** Omega Control Tower Web UI (`deploy/omega_control_tower.html`).
+- **Fixed:** CP1252 Windows encoding issues (replaced Unicode symbols with ASCII headers).
+- **Fixed:** Idempotent database seeding in test fixtures.
