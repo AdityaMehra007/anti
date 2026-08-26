@@ -1,10 +1,6 @@
 """
 CAREER ANALYTICS ENGINE
-Computes high-integrity career funnel metrics and ROI:
-- Jobs Discovered vs Confirmed
-- Applications Ready vs Submitted
-- Outreach Drafts vs Dispatched
-- Conversion rates across each stage
+Computes real funnel conversions and reality-audited metrics.
 """
 from typing import Dict, Any
 from .database import war_room_db
@@ -18,37 +14,34 @@ class CareerAnalyticsEngine:
             cur = conn.cursor()
             cur.execute("SELECT COUNT(*) FROM jobs")
             total_jobs = cur.fetchone()[0]
-            
             cur.execute("SELECT COUNT(*) FROM jobs WHERE verification_status = 'CONFIRMED_OPENING'")
             confirmed_jobs = cur.fetchone()[0]
-            
+            cur.execute("SELECT COUNT(*) FROM jobs WHERE verification_status = 'SEEDED_NOT_VERIFIED'")
+            seeded_jobs = cur.fetchone()[0]
+            cur.execute("SELECT COUNT(*) FROM jobs WHERE verification_status = 'SOURCE_ERROR'")
+            error_jobs = cur.fetchone()[0]
+            cur.execute("SELECT COUNT(*) FROM companies")
+            comp_count = cur.fetchone()[0]
             cur.execute("SELECT COUNT(*) FROM applications WHERE current_stage = 'READY'")
             ready_apps = cur.fetchone()[0]
-            
             cur.execute("SELECT COUNT(*) FROM applications WHERE current_stage = 'SUBMITTED'")
             submitted_apps = cur.fetchone()[0]
-            
             cur.execute("SELECT COUNT(*) FROM outreach WHERE status = 'DRAFT'")
-            draft_outreach = cur.fetchone()[0]
-            
+            outreach_drafts = cur.fetchone()[0]
             cur.execute("SELECT COUNT(*) FROM outreach WHERE status = 'SENT'")
-            sent_outreach = cur.fetchone()[0]
-            
-            cur.execute("SELECT COUNT(*) FROM companies WHERE tier IN ('TIER_S', 'TIER_A')")
-            priority_companies = cur.fetchone()[0]
+            outreach_sent = cur.fetchone()[0]
 
         return {
             "jobs_discovered": total_jobs,
             "jobs_confirmed_openings": confirmed_jobs,
-            "priority_companies_monitored": priority_companies,
+            "jobs_seeded_templates": seeded_jobs,
+            "jobs_source_errors": error_jobs,
+            "priority_companies_monitored": comp_count,
             "applications_ready_for_human": ready_apps,
             "applications_actually_submitted": submitted_apps,
-            "outreach_drafts_ready": draft_outreach,
-            "outreach_actually_sent": sent_outreach,
-            "interviews_scheduled": 0,
-            "offers_received": 0,
-            "truth_delusions_prevented": 0,
-            "truth_standard": "STRICT_EVIDENCE_GROUNDED"
+            "outreach_drafts_ready": outreach_drafts,
+            "outreach_actually_sent": outreach_sent,
+            "truth_standard": "STRICT_REALITY_AUDITED"
         }
 
 career_analytics = CareerAnalyticsEngine()

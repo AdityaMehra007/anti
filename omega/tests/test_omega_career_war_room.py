@@ -72,7 +72,7 @@ class TestOmegaCareerWarRoom(unittest.TestCase):
             "source": "Amazon Official Jobs Portal",
             "application_url": "https://amazon.jobs/en/jobs/2648192/apply"
         }
-        res_auth = job_verifier.verify_job_record(job_auth)
+        res_auth = job_verifier.verify_job_record(job_auth, live_http_verified=True)
         self.assertEqual(res_auth["status"], VerificationStatus.CONFIRMED_OPENING.value)
         self.assertTrue(res_auth["is_confirmed"])
 
@@ -135,6 +135,8 @@ class TestOmegaCareerWarRoom(unittest.TestCase):
         res_pass = application_manager.transition_stage(app_id, ApplicationStage.SUBMITTED, proof_ref="PORTAL_RECEIPT_REF_#88921")
         self.assertTrue(res_pass["success"])
         self.assertEqual(res_pass["new_stage"], "SUBMITTED")
+        # Clean up / reset to READY to preserve zero-delusion baseline
+        application_manager.transition_stage(app_id, ApplicationStage.READY)
 
     def test_08_outreach_approval_gating(self):
         drafts = outreach_engine.list_outreach(status="DRAFT")
@@ -172,16 +174,16 @@ class TestOmegaCareerWarRoom(unittest.TestCase):
 
         # Career analytics
         metrics = career_analytics.get_funnel_metrics()
-        self.assertGreaterEqual(metrics["jobs_confirmed_openings"], 1)
-        self.assertEqual(metrics["truth_standard"], "STRICT_EVIDENCE_GROUNDED")
+        self.assertEqual(metrics["jobs_confirmed_openings"], 0) # Reality standard: 0 until live-scraped
+        self.assertEqual(metrics["truth_standard"], "STRICT_REALITY_AUDITED")
 
     def test_11_career_war_room_daily_loop(self):
         loop_res = self.brain.run_daily_loop()
         self.assertEqual(loop_res["status"], "DAILY_LOOP_EXECUTED")
-        self.assertGreaterEqual(loop_res["total_confirmed_jobs"], 1)
+        self.assertEqual(loop_res["total_confirmed_jobs"], 0)
         
         brief = self.brain.get_morning_briefing()
-        self.assertIn("OMEGA CAREER WAR ROOM DAILY BRIEFING", brief)
+        self.assertIn("OMEGA CAREER WAR ROOM REALITY BRIEFING", brief)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

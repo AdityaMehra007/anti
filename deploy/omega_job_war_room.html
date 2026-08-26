@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMEGA JOB WAR ROOM // Sovereign Career Operating System v26.0</title>
+    <title>OMEGA JOB WAR ROOM // Reality Audited Sovereign OS v26.1</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -82,11 +82,6 @@
             grid-template-columns: 1.2fr 0.8fr;
             gap: 18px;
         }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -118,274 +113,114 @@
         .badge-local { background: rgba(0,240,255,0.15); color: var(--primary); border: 1px solid var(--primary); }
         .badge-sandbox { background: rgba(255,170,0,0.15); color: var(--warning); border: 1px solid var(--warning); }
         .badge-human { background: rgba(176,38,255,0.15); color: var(--accent); border: 1px solid var(--accent); }
+        .badge-danger { background: rgba(255,0,85,0.15); color: var(--danger); border: 1px solid var(--danger); }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
         th, td { padding: 9px 11px; border-bottom: 1px solid var(--border); text-align: left; }
         th { color: var(--text-muted); font-size: 11px; }
-        .nl-console {
-            background: #020408;
-            border: 1px solid var(--primary);
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 10px;
-        }
-        .nl-input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: var(--primary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            outline: none;
-        }
-        .nl-output {
-            margin-top: 10px;
-            font-size: 12px;
-            color: var(--text);
-            font-family: 'JetBrains Mono', monospace;
-            line-height: 1.5;
-        }
     </style>
 </head>
 <body>
     <div class="sidebar">
         <div class="logo">
             <h2>🎯 OMEGA CAREER WAR ROOM</h2>
-            <p>SOVEREIGN CAREER OS v26.0</p>
+            <p>REALITY AUDITED v26.1</p>
         </div>
         <nav style="display:flex; flex-direction:column; gap:6px;">
-            <button class="nav-btn active">📊 War Room Telemetry</button>
-            <button class="nav-btn" onclick="alert('Top 10 Priority Openings in Bangalore GCCs loaded.')">🔥 Top Opportunities</button>
-            <button class="nav-btn" onclick="alert('8 Priority Target Companies: Amazon, Maersk, Schneider, Target, Google, Microsoft, DHL, Accenture.')">🏢 Company Intelligence</button>
-            <button class="nav-btn" onclick="alert('3 Tailored STAR Applications Ready (Human Gated).')">📑 Application Funnel</button>
-            <button class="nav-btn" onclick="alert('3 Personalized Recruiter InMails Drafted.')">✉️ Recruiter Outreach</button>
-            <button class="nav-btn" onclick="alert('7-Day Followup Cadence Active.')">⏰ Follow-up Radar</button>
-            <button class="nav-btn" onclick="alert('STAR Interview Preparation & Objection Defense Ready.')">🎙️ Interview Lab</button>
-            <button class="nav-btn" onclick="alert('Offer Negotiation & Benchmark Modeling Active.')">💼 Offer Engine</button>
+            <button class="nav-btn active">📊 Reality Telemetry</button>
+            <button class="nav-btn" onclick="alert('0 confirmed openings currently live. 20 monitored hubs.')">🏢 Monitored Companies (20)</button>
+            <button class="nav-btn" onclick="alert('4 Application Dossiers Ready for Human Review.')">📑 Application Dossiers (4)</button>
+            <button class="nav-btn" onclick="alert('3 Recruiter InMail Drafts (0 Sent).')">✉️ Recruiter Outreach (3 Drafts)</button>
             <button class="nav-btn" onclick="alert('Local Ollama Llama 3 8B: LIVE (4.06s latency).')">🧠 AI Fabric Telemetry</button>
         </nav>
         <div style="margin-top:auto; font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">
-            <div>TRUTH PROTOCOL: <span style="color:var(--success);">STRICT</span></div>
+            <div>TRUTH PROTOCOL: <span style="color:var(--success);">REALITY AUDITED</span></div>
             <div>LOCAL INFERENCE: <span style="color:var(--success);">LLAMA3 (LIVE)</span></div>
-            <div>APPLICATIONS: <span style="color:var(--accent);">READY_FOR_HUMAN</span></div>
-            <div>DELUSIONS: <span style="color:var(--success);">0 DETECTED</span></div>
+            <div>APPLICATIONS SENT: <span style="color:var(--text-muted);">0 (NEVER ASSUMED)</span></div>
+            <div>FALSE CLAIMS: <span style="color:var(--success);">0 (ALL DOWNGRADED)</span></div>
         </div>
     </div>
 
     <div class="main-content">
         <header class="top-bar">
             <div>
-                <h1 style="font-size:19px; font-weight:800; font-family:'JetBrains Mono',monospace;">OMEGA CAREER WAR ROOM // COMMAND & EXECUTION</h1>
-                <p style="color:var(--text-muted); font-size:12px;">BBA International Business &middot; Bangalore GCCs & MNCs &middot; Zero-Delusion Funnel</p>
+                <h1 style="font-size:19px; font-weight:800; font-family:'JetBrains Mono',monospace;">OMEGA CAREER WAR ROOM // REALITY AUDIT TELEMETRY</h1>
+                <p style="color:var(--text-muted); font-size:12px;">Zero False Claims &middot; Evidence-Grounded Pipeline &middot; Bangalore GCCs & MNCs</p>
             </div>
             <div>
-                <span class="badge badge-live" style="padding:6px 12px; font-size:11px;">● WAR ROOM: ACTIVE & GROUNDED</span>
+                <span class="badge badge-live" style="padding:6px 12px; font-size:11px;">● TRUTH ENGINE: ENFORCED</span>
             </div>
         </header>
 
-        <!-- KPI SUMMARY -->
+        <!-- KPI SUMMARY (GROUND TRUTH) -->
         <div class="grid-4">
             <div class="card">
-                <h3>CONFIRMED OPENINGS</h3>
-                <div class="kpi-val" style="color:var(--success);">6 ACTIVE</div>
-                <small style="color:var(--text-muted);"><span class="badge badge-live">PORTAL_VERIFIED</span></small>
+                <h3>CONFIRMED LIVE JOBS</h3>
+                <div class="kpi-val" style="color:var(--warning);">0 LIVE</div>
+                <small style="color:var(--text-muted);"><span class="badge badge-sandbox">AWAITING_LIVE_SCRAPING</span></small>
             </div>
             <div class="card">
-                <h3>APPLICATIONS READY</h3>
-                <div class="kpi-val" style="color:var(--accent);">3 DOSSIERS</div>
-                <small style="color:var(--text-muted);"><span class="badge badge-human">READY_FOR_HUMAN</span></small>
+                <h3>MONITORED HUBS</h3>
+                <div class="kpi-val" style="color:var(--success);">20 HUBS</div>
+                <small style="color:var(--text-muted);"><span class="badge badge-live">BANGALORE_GCC_VERIFIED</span></small>
             </div>
             <div class="card">
-                <h3>RECRUITER INMAILS</h3>
-                <div class="kpi-val" style="color:var(--primary);">3 DRAFTS</div>
-                <small style="color:var(--text-muted);"><span class="badge badge-local">APPROVAL_GATED</span></small>
+                <h3>APPLICATIONS SUBMITTED</h3>
+                <div class="kpi-val" style="color:var(--text-muted);">0 SUBMITTED</div>
+                <small style="color:var(--text-muted);"><span class="badge badge-human">4 READY_FOR_HUMAN</span></small>
             </div>
             <div class="card">
-                <h3>LOCAL INFERENCE</h3>
-                <div class="kpi-val" style="color:var(--success);">4,060 ms</div>
-                <small style="color:var(--text-muted);"><span class="badge badge-live">LLAMA3:8B LIVE</span></small>
+                <h3>OUTREACH SENT</h3>
+                <div class="kpi-val" style="color:var(--text-muted);">0 SENT</div>
+                <small style="color:var(--text-muted);"><span class="badge badge-local">3 DRAFTS_GATED</span></small>
             </div>
         </div>
 
-        <!-- TOP OPPORTUNITIES & PRIORITY COMPANIES -->
+        <!-- REALITY PROBE FINDINGS & MONITORED HUBS -->
         <div class="grid-2">
             <div class="card">
-                <h3>🔥 TOP CONFIRMED OPPORTUNITIES (BANGALORE GCC / MNC)</h3>
+                <h3>🔍 URL REALITY PROBE FORENSICS (20 AUDITED)</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Company</th>
-                            <th>Role Title</th>
-                            <th>Location</th>
-                            <th>ECV Score</th>
-                            <th>Status</th>
+                            <th>Probe Status</th>
+                            <th>Truth Classification</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><strong>Amazon Global Ops</strong></td>
-                            <td>Global Trade Compliance Analyst</td>
-                            <td>Bengaluru (WTC)</td>
-                            <td><span style="color:var(--success);">94.0</span></td>
-                            <td><span class="badge badge-live">CONFIRMED</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>A.P. Moller - Maersk</strong></td>
-                            <td>Intl Logistics & Cross-Border Ops</td>
-                            <td>Bengaluru (EcoWorld)</td>
-                            <td><span style="color:var(--success);">92.5</span></td>
-                            <td><span class="badge badge-live">CONFIRMED</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Target in India</strong></td>
-                            <td>Global Inventory & Merch Ops</td>
-                            <td>Bengaluru (Manyata)</td>
-                            <td><span style="color:var(--success);">90.0</span></td>
-                            <td><span class="badge badge-live">CONFIRMED</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Schneider Electric</strong></td>
-                            <td>Supply Chain & Procurement Analyst</td>
-                            <td>Bengaluru (Hybrid)</td>
-                            <td><span style="color:var(--primary);">88.0</span></td>
-                            <td><span class="badge badge-live">CONFIRMED</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Accenture Solutions</strong></td>
-                            <td>Intl Business Operations Analyst</td>
-                            <td>Bengaluru (Ecospace)</td>
-                            <td><span style="color:var(--primary);">86.5</span></td>
-                            <td><span class="badge badge-live">CONFIRMED</span></td>
-                        </tr>
+                        <tr><td>Amazon Global Ops</td><td><span class="badge badge-danger">HTTP 404</span></td><td>Synthetic Seed Requisition</td></tr>
+                        <tr><td>Target in India</td><td><span class="badge badge-sandbox">HTTP 200</span></td><td>Generic Portal Root</td></tr>
+                        <tr><td>A.P. Moller - Maersk</td><td><span class="badge badge-danger">HTTP 404</span></td><td>Synthetic Seed Slug</td></tr>
+                        <tr><td>Microsoft IDC</td><td><span class="badge badge-sandbox">HTTP 200</span></td><td>Job Portal Root</td></tr>
+                        <tr><td>Google India GCC</td><td><span class="badge badge-danger">Apply 404</span></td><td>Synthetic Seed Slug</td></tr>
+                        <tr><td>Schneider Electric</td><td><span class="badge badge-danger">HTTP 403</span></td><td>Automated Probe Blocked</td></tr>
+                        <tr><td>DHL Global Forwarding</td><td><span class="badge badge-danger">HTTP 410</span></td><td>Requisition Expired / Gone</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="card">
-                <h3>🏢 STRATEGIC TARGET COMPANIES (TIER S / A)</h3>
+                <h3>🏢 20 MONITORED BANGALORE HUBS (VERIFIED)</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Company</th>
                             <th>Tier</th>
-                            <th>Bangalore Hub</th>
-                            <th>Career Value</th>
+                            <th>Bangalore Hub Campus</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>Amazon</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Bagmane WTC</td><td>96.5/100</td></tr>
-                        <tr><td><strong>Microsoft IDC</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Prestige Ferns Galaxy</td><td>97.0/100</td></tr>
-                        <tr><td><strong>Google India GCC</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Bagmane Constellation</td><td>98.0/100</td></tr>
-                        <tr><td><strong>Maersk Logistics</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>RMZ EcoWorld</td><td>95.0/100</td></tr>
-                        <tr><td><strong>Target in India</strong></td><td><span class="badge badge-local">TIER_A</span></td><td>Manyata Tech Park</td><td>92.0/100</td></tr>
-                        <tr><td><strong>Schneider Electric</strong></td><td><span class="badge badge-local">TIER_A</span></td><td>Bagmane Tech Park</td><td>91.0/100</td></tr>
+                        <tr><td><strong>Amazon</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Bagmane WTC Malleshwaram</td></tr>
+                        <tr><td><strong>Google</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Bagmane Constellation</td></tr>
+                        <tr><td><strong>Microsoft</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Prestige Ferns Galaxy</td></tr>
+                        <tr><td><strong>Maersk</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>RMZ EcoWorld</td></tr>
+                        <tr><td><strong>Goldman Sachs</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Helios Business Park</td></tr>
+                        <tr><td><strong>Walmart Global Tech</strong></td><td><span class="badge badge-live">TIER_S</span></td><td>Cessna Business Park</td></tr>
+                        <tr><td><strong>Target in India</strong></td><td><span class="badge badge-local">TIER_A</span></td><td>Manyata Tech Park</td></tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-
-        <!-- APPLICATION PIPELINE TRUTH FUNNEL & RECRUITER OUTREACH -->
-        <div class="grid-2">
-            <div class="card">
-                <h3>📑 APPLICATION PIPELINE TRUTH FUNNEL</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Application ID</th>
-                            <th>Target Role</th>
-                            <th>Resume Variant</th>
-                            <th>Stage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>APP-AMZN-001</strong></td>
-                            <td>Global Trade Compliance Analyst</td>
-                            <td>International Business</td>
-                            <td><span class="badge badge-human">READY_FOR_HUMAN</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>APP-MAERSK-002</strong></td>
-                            <td>Intl Logistics & Freight Ops</td>
-                            <td>Supply Chain & Logistics</td>
-                            <td><span class="badge badge-human">READY_FOR_HUMAN</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>APP-TGT-004</strong></td>
-                            <td>Inventory Operations Specialist</td>
-                            <td>Operations & Analytics</td>
-                            <td><span class="badge badge-human">READY_FOR_HUMAN</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p style="margin-top:10px; font-size:11px; color:var(--text-muted);">
-                    ⚠️ <em>Truth Invariant: READY != SUBMITTED. No application is marked submitted without real human proof reference.</em>
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>✉️ GOVERNED RECRUITER OUTREACH QUEUE</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Company</th>
-                            <th>Target Recruiter</th>
-                            <th>Channel</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Amazon</strong></td>
-                            <td>Senior Talent Acquisition (Ops)</td>
-                            <td>LinkedIn InMail</td>
-                            <td><span class="badge badge-local">DRAFT_PREPARED</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Maersk</strong></td>
-                            <td>Talent Lead - Logistics Hub</td>
-                            <td>LinkedIn InMail</td>
-                            <td><span class="badge badge-local">DRAFT_PREPARED</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Target</strong></td>
-                            <td>Lead Recruiter - Supply Chain</td>
-                            <td>Email Draft</td>
-                            <td><span class="badge badge-local">DRAFT_PREPARED</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- NATURAL LANGUAGE WAR ROOM QUERY CONSOLE -->
-        <div class="card">
-            <h3>⚡ WAR ROOM TRUTH QUERY & EXECUTION CONSOLE</h3>
-            <div class="nl-console">
-                <input type="text" id="warRoomInput" class="nl-input" value="Show top confirmed opening and ATS preparation strategy." onkeydown="if(event.key==='Enter') executeWarRoomQuery()">
-                <div id="warRoomOutput" class="nl-output">
-                    👉 <strong>WAR ROOM TRUTH REPORT:</strong><br>
-                    • <strong>Top Opportunity</strong>: Global Trade Compliance Analyst @ Amazon Global Operations (WTC Bengaluru).<br>
-                    • <strong>ATS Match Score</strong>: 88.0/100 (Strong match on HS Tariff Classification, Incoterms 2020, and Cross-Border Trade Compliance).<br>
-                    • <strong>Application Dossier</strong>: Tailored International Business resume generated. Awaiting human dispatch.
-                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        function executeWarRoomQuery() {
-            const q = document.getElementById('warRoomInput').value.toLowerCase();
-            const out = document.getElementById('warRoomOutput');
-            if (q.includes('amazon') || q.includes('trade')) {
-                out.innerHTML = '👉 <strong>AMAZON TRADE ANALYST:</strong> Requisition Confirmed (Amazon Jobs 2648192). ATS Score: 88.0. Tailored STAR resume and recruiter InMail ready for approval.';
-            } else if (q.includes('maersk') || q.includes('logistics')) {
-                out.innerHTML = '👉 <strong>MAERSK FREIGHT OPS:</strong> Requisition Confirmed (RMZ EcoWorld Bengaluru). ECV Score: 92.5. Focus on ocean freight forwarding and cross-border customs documentation.';
-            } else if (q.includes('applied') || q.includes('submitted')) {
-                out.innerHTML = '👉 <strong>TRUTH AUDIT:</strong> 0 applications currently marked SUBMITTED. 3 applications are in READY_FOR_HUMAN state awaiting explicit user action.';
-            } else {
-                out.innerHTML = '👉 <strong>WAR ROOM TELEMETRY:</strong> 6 confirmed openings across Tier S/A companies. Local inference active on Ollama llama3:latest. All outreach gated behind human approval.';
-            }
-        }
-    </script>
 </body>
 </html>

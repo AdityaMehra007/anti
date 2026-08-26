@@ -46,7 +46,6 @@ class JobDiscoveryEngine:
         self.db = war_room_db
         self.verifier = JobVerificationEngine()
         self.scorer = OpportunityScoringEngine()
-        self._seed_20_confirmed_opportunities()
 
     def _seed_20_confirmed_opportunities(self):
         seeds = [
@@ -433,7 +432,7 @@ class JobDiscoveryEngine:
                     s["employment_type"], s["experience_required"], json.dumps(s["skills"]), s["salary_text"],
                     s["salary_min"], s["salary_max"], s["source"], s["source_url"], s["application_url"],
                     dedup, time.strftime("%Y-%m-%d"), time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-                    verif["status"], 88.0, score_dict["opportunity_score"],
+                    "SEEDED_NOT_VERIFIED", 88.0, score_dict["opportunity_score"],
                     time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
                 ))
             conn.commit()
