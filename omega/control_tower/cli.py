@@ -240,6 +240,51 @@ def cmd_backup():
     print(f"Timestamp         : {snap['timestamp']}")
     print(f"Ledger Integrity  : {'VERIFIED' if snap['ledger_integrity_preserved'] else 'FAILED'}")
 
+def cmd_war_room():
+    from ..career_war_room.career_brain import career_war_room_brain
+    print(career_war_room_brain.get_morning_briefing())
+
+def cmd_top_jobs():
+    from ..career_war_room.job_discovery import job_discovery
+    jobs = job_discovery.list_jobs(confirmed_only=True, limit=10)
+    print(f"\n=======================================================")
+    print(f"      TOP CONFIRMED OPPORTUNITIES (BANGALORE GCC / MNC)")
+    print(f"=======================================================")
+    print(f"{'Company':<24} | {'Role Title':<45} | {'ECV':<5} | {'Location'}")
+    print("-" * 100)
+    for j in jobs:
+        print(f"{j['company_name'][:24]:<24} | {j['role_title'][:45]:<45} | {j['opportunity_score']:<5} | {j['location']}")
+
+def cmd_target_companies():
+    from ..career_war_room.company_intelligence import company_intelligence
+    comps = company_intelligence.list_companies()
+    print(f"\n=======================================================")
+    print(f"       STRATEGIC TARGET COMPANIES (TIER S / TIER A)")
+    print(f"=======================================================")
+    print(f"{'Company':<30} | {'Tier':<8} | {'ECV':<5} | {'Bangalore Hub'}")
+    print("-" * 90)
+    for c in comps:
+        print(f"{c['name'][:30]:<30} | {c['tier']:<8} | {c['estimated_career_value']:<5} | {c['bangalore_office'][:40]}")
+
+def cmd_funnel_status():
+    from ..career_war_room.career_analytics import career_analytics
+    from ..career_war_room.application_manager import application_manager
+    m = career_analytics.get_funnel_metrics()
+    apps = application_manager.list_applications()
+    print(f"\n=======================================================")
+    print(f"          CAREER PIPELINE TRUTH FUNNEL STATUS")
+    print(f"=======================================================")
+    print(f"Jobs Discovered        : {m['jobs_discovered']}")
+    print(f"Confirmed Openings     : {m['jobs_confirmed_openings']}")
+    print(f"Target Companies       : {m['priority_companies_monitored']}")
+    print(f"Applications (Ready)   : {m['applications_ready_for_human']} (Gated for Human Review)")
+    print(f"Applications (Sent)    : {m['applications_actually_submitted']} (Never Assumed Without Proof)")
+    print(f"Recruiter InMail Drafts: {m['outreach_drafts_ready']}")
+    print("-" * 60)
+    print("Active Application Packages:")
+    for a in apps:
+        print(f"  • [{a['current_stage']}] {a['role_title']} @ {a['company_name']} (Variant: {a['resume_variant']})")
+
 def main():
     if len(sys.argv) > 1:
         cmd = sys.argv[1].lower().replace("omega-", "").replace("omega_", "")
@@ -265,13 +310,18 @@ def main():
             "audit": cmd_audit,
             "truth": cmd_truth,
             "certify": cmd_certify,
-            "backup": cmd_backup
+            "backup": cmd_backup,
+            "war-room": cmd_war_room,
+            "top-jobs": cmd_top_jobs,
+            "target-companies": cmd_target_companies,
+            "morning-brief": cmd_war_room,
+            "funnel-status": cmd_funnel_status
         }
         if cmd in cmds:
             cmds[cmd]()
         else:
             print(f"Unknown command: {cmd}")
-            print("Available commands: status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify, backup")
+            print("Available commands: status, war-room, top-jobs, target-companies, funnel-status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify, backup")
     else:
         cmd_status()
 
