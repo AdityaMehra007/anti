@@ -245,15 +245,36 @@ def cmd_war_room():
     print(career_war_room_brain.get_morning_briefing())
 
 def cmd_top_jobs():
-    from ..career_war_room.job_discovery import job_discovery
-    jobs = job_discovery.list_jobs(confirmed_only=True, limit=10)
+    from ..career_war_room.live_job_discovery import live_job_discovery
+    jobs = live_job_discovery.list_confirmed_jobs(limit=15)
     print(f"\n=======================================================")
-    print(f"      TOP CONFIRMED OPPORTUNITIES (BANGALORE GCC / MNC)")
+    print(f"      LIVE CONFIRMED OPPORTUNITIES ({len(jobs)})")
     print(f"=======================================================")
-    print(f"{'Company':<24} | {'Role Title':<45} | {'ECV':<5} | {'Location'}")
-    print("-" * 100)
-    for j in jobs:
-        print(f"{j['company_name'][:24]:<24} | {j['role_title'][:45]:<45} | {j['opportunity_score']:<5} | {j['location']}")
+    if not jobs:
+        print("No live confirmed openings in database. Run 'omega live-scan' to query live public endpoints.")
+    else:
+        print(f"{'Company':<24} | {'Role Title':<45} | {'Location':<20} | {'Status'}")
+        print("-" * 105)
+        for j in jobs:
+            print(f"{j['company_name'][:24]:<24} | {j['role_title'][:45]:<45} | {j['location'][:20]:<20} | {j['verification_status']}")
+
+def cmd_live_scan():
+    from ..career_war_room.live_job_discovery import live_job_discovery
+    print(f"\n=======================================================")
+    print(f"         EXECUTING LIVE JOB DISCOVERY SCAN")
+    print(f"=======================================================")
+    res = live_job_discovery.execute_live_discovery_run()
+    print(f"Run ID          : {res['run_id']}")
+    print(f"Status          : {res['status']}")
+    print(f"Sources Scanned : {res['sources_checked']}")
+    print(f"Jobs Found      : {res['jobs_found']}")
+    print(f"Jobs Verified   : {res['jobs_verified']}")
+    print(f"Jobs Changed    : {res['jobs_changed']}")
+    print(f"Next Scan       : {res['next_run']}")
+    if res['errors']:
+        print(f"Errors Logged   : {len(res['errors'])}")
+        for e in res['errors']:
+            print(f"  • {e}")
 
 def cmd_target_companies():
     from ..career_war_room.company_intelligence import company_intelligence
@@ -276,6 +297,8 @@ def cmd_funnel_status():
     print(f"=======================================================")
     print(f"Jobs Discovered        : {m['jobs_discovered']}")
     print(f"Confirmed Openings     : {m['jobs_confirmed_openings']}")
+    print(f"Seeded Templates       : {m.get('jobs_seeded_templates', 0)} (Isolated from pipeline)")
+    print(f"Source Errors          : {m.get('jobs_source_errors', 0)}")
     print(f"Target Companies       : {m['priority_companies_monitored']}")
     print(f"Applications (Ready)   : {m['applications_ready_for_human']} (Gated for Human Review)")
     print(f"Applications (Sent)    : {m['applications_actually_submitted']} (Never Assumed Without Proof)")
@@ -313,6 +336,7 @@ def main():
             "backup": cmd_backup,
             "war-room": cmd_war_room,
             "top-jobs": cmd_top_jobs,
+            "live-scan": cmd_live_scan,
             "target-companies": cmd_target_companies,
             "morning-brief": cmd_war_room,
             "funnel-status": cmd_funnel_status
@@ -321,7 +345,7 @@ def main():
             cmds[cmd]()
         else:
             print(f"Unknown command: {cmd}")
-            print("Available commands: status, war-room, top-jobs, target-companies, funnel-status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify, backup")
+            print("Available commands: status, war-room, top-jobs, live-scan, target-companies, funnel-status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify, backup")
     else:
         cmd_status()
 

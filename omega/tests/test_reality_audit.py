@@ -41,10 +41,20 @@ class TestOmegaRealityAudit(unittest.TestCase):
     def test_02_database_contains_zero_false_confirmed_jobs(self):
         with self.db.get_connection() as conn:
             cur = conn.cursor()
-            cur.execute("SELECT COUNT(*) FROM jobs WHERE verification_status = 'CONFIRMED_OPENING'")
-            confirmed_count = cur.fetchone()[0]
-            # Since all 20 jobs originated from seed templates and failed live requisition proof, confirmed count must be 0
-            self.assertEqual(confirmed_count, 0, f"Expected 0 confirmed jobs without live proof, found {confirmed_count}")
+            # 1. Seeded templates must NEVER be confirmed
+            cur.execute("SELECT COUNT(*) FROM jobs WHERE job_id LIKE 'JOB-%' AND verification_status = 'CONFIRMED_OPENING'")
+            seeded_confirmed = cur.fetchone()[0]
+            self.assertEqual(seeded_confirmed, 0, f"Expected 0 seeded jobs in confirmed status, found {seeded_confirmed}")
+
+            # 2. Every confirmed job must have a verified live evidence record with HTTP 200
+            cur.execute("SELECT job_id FROM jobs WHERE verification_status = 'CONFIRMED_OPENING'")
+            confirmed_ids = [r[0] for r in cur.fetchall()]
+            for jid in confirmed_ids:
+                cur.execute("SELECT http_status, evidence_hash FROM job_evidence WHERE job_id = ?", (jid,))
+                ev = cur.fetchone()
+                self.assertIsNotNone(ev, f"Confirmed job {jid} is missing job_evidence record")
+                self.assertEqual(ev["http_status"], 200, f"Confirmed job {jid} does not have HTTP 200 proof")
+                self.assertEqual(len(ev["evidence_hash"]), 64)
 
     def test_03_unverified_submissions_strictly_downgraded(self):
         with self.db.get_connection() as conn:

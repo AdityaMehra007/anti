@@ -1,7 +1,9 @@
 """
 OMEGA CAREER WAR ROOM DATABASE
-Normalized SQLite storage for the 14 core entities of the career operating system.
-Enforces created_at, updated_at, source, and verification_status across all tables.
+Normalized SQLite storage for the 18 core entities of the career operating system:
+1. companies, 2. jobs, 3. contacts, 4. applications, 5. outreach, 6. followups,
+7. interviews, 8. offers, 9. skills, 10. documents, 11. model_runs, 12. tool_runs,
+13. truth_events, 14. approvals, 15. job_sources, 16. job_evidence, 17. job_changes, 18. job_runs
 """
 import sqlite3
 import os
@@ -27,7 +29,6 @@ class CareerWarRoomDB:
             cur = conn.cursor()
             
             # 1. Companies
-            cur.execute("DROP TABLE IF EXISTS companies_old;")
             cur.execute("""
             CREATE TABLE IF NOT EXISTS companies (
                 company_id TEXT PRIMARY KEY,
@@ -48,32 +49,6 @@ class CareerWarRoomDB:
                 updated_at TEXT NOT NULL
             );
             """)
-
-            # Ensure 'tier' and other columns exist if table already existed with older schema
-            cur.execute("PRAGMA table_info(companies);")
-            cols = [r[1] for r in cur.fetchall()]
-            if "tier" not in cols:
-                cur.execute("DROP TABLE companies;")
-                cur.execute("""
-                CREATE TABLE companies (
-                    company_id TEXT PRIMARY KEY,
-                    name TEXT NOT NULL,
-                    industry TEXT,
-                    tier TEXT,
-                    bangalore_office TEXT,
-                    other_india_offices TEXT,
-                    global_presence TEXT,
-                    career_page_url TEXT,
-                    active_hiring_signal BOOLEAN,
-                    departments TEXT,
-                    estimated_career_value REAL,
-                    source TEXT NOT NULL,
-                    source_evidence TEXT,
-                    verification_status TEXT NOT NULL,
-                    created_at TEXT NOT NULL,
-                    updated_at TEXT NOT NULL
-                );
-                """)
 
             # 2. Jobs
             cur.execute("""
@@ -105,10 +80,6 @@ class CareerWarRoomDB:
             """)
 
             # 3. Contacts
-            cur.execute("PRAGMA table_info(contacts);")
-            c_cols = [r[1] for r in cur.fetchall()]
-            if "company_name" not in c_cols:
-                cur.execute("DROP TABLE IF EXISTS contacts;")
             cur.execute("""
             CREATE TABLE IF NOT EXISTS contacts (
                 contact_id TEXT PRIMARY KEY,
@@ -331,6 +302,66 @@ class CareerWarRoomDB:
                 verification_status TEXT NOT NULL,
                 created_at TEXT NOT NULL,
                 updated_at TEXT NOT NULL
+            );
+            """)
+
+            # 15. Job Sources (Live discovery endpoints)
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS job_sources (
+                source_id TEXT PRIMARY KEY,
+                name TEXT NOT NULL,
+                source_type TEXT NOT NULL,
+                base_url TEXT NOT NULL,
+                target_company TEXT,
+                health_status TEXT NOT NULL,
+                last_scanned_at TEXT,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            );
+            """)
+
+            # 16. Job Evidence (Cryptographic verification logs)
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS job_evidence (
+                evidence_id TEXT PRIMARY KEY,
+                job_id TEXT NOT NULL,
+                source_url TEXT NOT NULL,
+                final_url TEXT NOT NULL,
+                page_title TEXT,
+                retrieved_at TEXT NOT NULL,
+                http_status INTEGER,
+                evidence_hash TEXT NOT NULL,
+                raw_payload_snippet TEXT,
+                created_at TEXT NOT NULL
+            );
+            """)
+
+            # 17. Job Changes (Audit trail of job modifications)
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS job_changes (
+                change_id TEXT PRIMARY KEY,
+                job_id TEXT NOT NULL,
+                change_type TEXT NOT NULL,
+                previous_state TEXT,
+                new_state TEXT,
+                detected_at TEXT NOT NULL
+            );
+            """)
+
+            # 18. Job Runs (Discovery execution telemetry)
+            cur.execute("""
+            CREATE TABLE IF NOT EXISTS job_runs (
+                run_id TEXT PRIMARY KEY,
+                start_time TEXT NOT NULL,
+                end_time TEXT NOT NULL,
+                status TEXT NOT NULL,
+                sources_checked INTEGER NOT NULL,
+                jobs_found INTEGER NOT NULL,
+                jobs_verified INTEGER NOT NULL,
+                jobs_changed INTEGER NOT NULL,
+                jobs_removed INTEGER NOT NULL,
+                errors TEXT,
+                next_run TEXT NOT NULL
             );
             """)
 
