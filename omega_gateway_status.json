@@ -1,0 +1,46 @@
+{
+  "timestamp": 1787736820.5265498,
+  "health_score": {
+    "omega_system_health_score": 100.0,
+    "grade": "A+ (CERTIFIED)",
+    "test_pass_rate_pct": 100.0,
+    "unverified_claim_count": 0,
+    "critical_reconciliation_incidents": 0,
+    "status": "OPERATIONAL"
+  },
+  "gateways": {
+    "nexus_exim": {
+      "gateway": "NEXUS-EXIM",
+      "environment": "LOCAL_SIMULATED",
+      "local_engine": "PASS",
+      "pre_check": "PASS",
+      "auth_state": "NO_CBIC_DSC_TOKEN_REQUIRED_FOR_LOCAL",
+      "external_connectivity": "LOCAL_SIMULATION_ONLY",
+      "acknowledgement": "LOCAL_PRECHECK_PASSED",
+      "reconciliation": "PASS",
+      "certification": "VERIFIED_LOCAL",
+      "real_government_filing": false
+    },
+    "razorpay": {
+      "gateway": "RAZORPAY",
+      "environment": "SANDBOX",
+      "local_engine": "PASS",
+      "sandbox_generation": "PASS",
+      "live_connectivity": "NOT_CONFIGURED (Sandbox Key Active)",
+      "transaction_test": "SANDBOX_MOCK_READY",
+      "reconciliation": "MATCH",
+      "certification": "SANDBOX_VERIFIED",
+      "real_money": false
+    },
+    "apex_career": {
+      "gateway": "APEX_CAREER",
+      "environment": "LOCAL_DATASET",
+      "job_engine": "PASS",
+      "application_state": "READY_FOR_HUMAN_SUBMISSION",
+      "external_submission": "NO_LIVE_ATS_TOKEN (Manual Dispatch Required)",
+      "confirmation": "LOCAL_PROFILE_MATCHED",
+      "certification": "READY_FOR_HUMAN_SUBMISSION",
+      "automated_submission": false
+    }
+  }
+}
