@@ -105,6 +105,10 @@ class CareerWarRoomDB:
             """)
 
             # 3. Contacts
+            cur.execute("PRAGMA table_info(contacts);")
+            c_cols = [r[1] for r in cur.fetchall()]
+            if "company_name" not in c_cols:
+                cur.execute("DROP TABLE IF EXISTS contacts;")
             cur.execute("""
             CREATE TABLE IF NOT EXISTS contacts (
                 contact_id TEXT PRIMARY KEY,

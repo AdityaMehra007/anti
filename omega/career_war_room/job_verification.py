@@ -42,7 +42,9 @@ class JobVerificationEngine:
         is_official = any(domain in app_url.lower() for domain in [
             "amazon.jobs", "microsoft.com", "google.com", "maersk.com",
             "se.com", "dhl.com", "accenture.com", "target.com", "myworkdayjobs.com",
-            "taleo.net", "greenhouse.io", "lever.co", "smartrecruiters.com", "icims.com"
+            "taleo.net", "greenhouse.io", "lever.co", "smartrecruiters.com", "icims.com",
+            "dell.com", "walmart.com", "cisco.com", "goldmansachs.com", "oraclecloud.com",
+            "shell.com", "ibm.com", "flipkartcareers.com", "workday.com", "successfactors.com"
         ])
 
         if is_official:

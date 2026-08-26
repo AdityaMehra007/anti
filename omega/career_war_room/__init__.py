@@ -1,6 +1,6 @@
 """
-OMEGA CAREER WAR ROOM PACKAGE
-Master exports for the entire career operating system.
+OMEGA CAREER WAR ROOM PACKAGE v2
+Master exports for the sovereign career operating system.
 """
 from .database import war_room_db, CareerWarRoomDB
 from .company_intelligence import company_intelligence, CompanyIntelligenceEngine
@@ -16,3 +16,10 @@ from .interview_engine import interview_engine, InterviewEngine
 from .offer_engine import offer_engine, OfferEngine
 from .career_analytics import career_analytics, CareerAnalyticsEngine
 from .career_brain import career_war_room_brain, CareerWarRoomBrain
+
+# v2 Additions
+from .job_truth_auditor import job_truth_auditor, JobTruthAuditor
+from .application_proof import application_proof_engine, ApplicationProofEngine
+from .contact_intelligence import contact_intelligence, ContactIntelligenceEngine
+from .call_assistant import call_assistant, CallPreparationAssistant
+from .radar_365 import radar_365, Radar365Engine

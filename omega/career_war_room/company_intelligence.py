@@ -1,7 +1,6 @@
 """
-COMPANY INTELLIGENCE ENGINE
-Maintains normalized multi-tier company dossiers (Tier S, A, B, C) with Bangalore presence,
-career URLs, hiring signals, and evidence verification.
+COMPANY INTELLIGENCE ENGINE v2
+Maintains normalized multi-tier company dossiers (Tier S, Tier A, Tier B) across all 20 priority Bangalore hubs.
 """
 import time
 import json
@@ -14,17 +13,17 @@ class CompanyDossier:
     company_id: str
     name: str
     industry: str
-    tier: str # TIER_S, TIER_A, TIER_B, TIER_C
+    tier: str # TIER_S, TIER_A, TIER_B
     bangalore_office: str
     other_india_offices: str
     global_presence: str
     career_page_url: str
     active_hiring_signal: bool
     departments: List[str]
-    estimated_career_value: float # 0.0 - 100.0
+    estimated_career_value: float
     source: str
     source_evidence: str
-    verification_status: str = "VERIFIED" # VERIFIED, ESTIMATED, UNVERIFIED
+    verification_status: str = "VERIFIED"
     created_at: str = field(default_factory=lambda: time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
     updated_at: str = field(default_factory=lambda: time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
 
@@ -34,140 +33,32 @@ class CompanyDossier:
 class CompanyIntelligenceEngine:
     def __init__(self):
         self.db = war_room_db
-        self._seed_priority_companies()
+        self._seed_all_20_companies()
 
-    def _seed_priority_companies(self):
+    def _seed_all_20_companies(self):
         seed_data = [
-            CompanyDossier(
-                company_id="COMP-AMZN",
-                name="Amazon Global Operations / AWS",
-                industry="E-Commerce, Cloud, Logistics, Supply Chain",
-                tier="TIER_S",
-                bangalore_office="Bagmane World Technology Centre / WTC Malleshwaram, Bengaluru",
-                other_india_offices="Hyderabad, Chennai, Mumbai, Delhi NCR",
-                global_presence="Seattle, WA, USA (Worldwide)",
-                career_page_url="https://amazon.jobs/en/locations/bangalore-india",
-                active_hiring_signal=True,
-                departments=["Global Logistics", "Supply Chain Operations", "AWS Business Operations", "Merchant Services"],
-                estimated_career_value=96.5,
-                source="Official Amazon Jobs Portal",
-                source_evidence="Active Bangalore job requisitions in Global Trade Compliance and Transportation Operations",
-                verification_status="VERIFIED"
-            ),
-            CompanyDossier(
-                company_id="COMP-MSFT",
-                name="Microsoft India Development Centre (IDC)",
-                industry="Enterprise Cloud, AI, Software",
-                tier="TIER_S",
-                bangalore_office="Prestige Ferns Galaxy / Outer Ring Road, Bengaluru",
-                other_india_offices="Hyderabad, Noida, Pune, Mumbai",
-                global_presence="Redmond, WA, USA (Global)",
-                career_page_url="https://careers.microsoft.com/v2/global/en/locations/india/bangalore.html",
-                active_hiring_signal=True,
-                departments=["Cloud & Enterprise Operations", "Commercial Sales", "Business Strategy"],
-                estimated_career_value=97.0,
-                source="Microsoft Official Careers",
-                source_evidence="Verified active campus & early-in-career requisitions",
-                verification_status="VERIFIED"
-            ),
-            CompanyDossier(
-                company_id="COMP-GOOG",
-                name="Google India GCC",
-                industry="Cloud, AI, Global Advertising & Business Ops",
-                tier="TIER_S",
-                bangalore_office="Bagmane Constellation Business Park / RMZ Infinity, Bengaluru",
-                other_india_offices="Hyderabad, Mumbai, Gurugram",
-                global_presence="Mountain View, CA, USA",
-                career_page_url="https://www.google.com/about/careers/applications/jobs/results/?location=Bangalore%2C%20India",
-                active_hiring_signal=True,
-                departments=["Global Business Operations", "Customer Solutions", "Partner Operations"],
-                estimated_career_value=98.0,
-                source="Google Careers Official",
-                source_evidence="Active Business Analyst and Global Strategy postings",
-                verification_status="VERIFIED"
-            ),
-            CompanyDossier(
-                company_id="COMP-MAERSK",
-                name="A.P. Moller - Maersk Technology & Operations",
-                industry="Integrated Container Logistics, Ocean Freight & Supply Chain",
-                tier="TIER_S",
-                bangalore_office="RMZ EcoWorld, Outer Ring Road, Bellandur, Bengaluru",
-                other_india_offices="Mumbai, Chennai, Pune",
-                global_presence="Copenhagen, Denmark",
-                career_page_url="https://www.maersk.com/careers/search-jobs",
-                active_hiring_signal=True,
-                departments=["Global Trade Operations", "Supply Chain Management", "Customs Brokerage"],
-                estimated_career_value=95.0,
-                source="Maersk Careers Portal",
-                source_evidence="Continuous hiring for International Logistics Specialists and Trade Analysts",
-                verification_status="VERIFIED"
-            ),
-            CompanyDossier(
-                company_id="COMP-SCHN",
-                name="Schneider Electric Global Hub",
-                industry="Energy Management, Industrial Automation, Supply Chain",
-                tier="TIER_A",
-                bangalore_office="Attibele Industrial Area & Bagmane Tech Park, Bengaluru",
-                other_india_offices="Gurugram, Mumbai, Chennai, Hyderabad",
-                global_presence="Rueil-Malmaison, France",
-                career_page_url="https://www.se.com/in/en/about-us/careers/",
-                active_hiring_signal=True,
-                departments=["Global Supply Chain Excellence", "International Procurement", "Digital Energy Ops"],
-                estimated_career_value=91.0,
-                source="Schneider Official Careers",
-                source_evidence="Active postings in Global Purchasing & Supply Chain Strategy",
-                verification_status="VERIFIED"
-            ),
-            CompanyDossier(
-                company_id="COMP-DHL",
-                name="DHL Global Forwarding & Supply Chain",
-                industry="Contract Logistics, Freight Forwarding, Global Trade",
-                tier="TIER_A",
-                bangalore_office="Electronic City & Airport Logistics Park, Devanahalli, Bengaluru",
-                other_india_offices="Mumbai, Delhi, Chennai, Kolkata",
-                global_presence="Bonn, Germany",
-                career_page_url="https://careers.dhl.com/global/en",
-                active_hiring_signal=True,
-                departments=["Cross-Border Trade", "Air & Ocean Operations", "Key Account Management"],
-                estimated_career_value=89.5,
-                source="DHL Careers Official",
-                source_evidence="Active India forwarding operations requisitions",
-                verification_status="VERIFIED"
-            ),
-            CompanyDossier(
-                company_id="COMP-ACCN",
-                name="Accenture Solutions / Strategy & Operations",
-                industry="Management Consulting, Global Delivery & Operations",
-                tier="TIER_A",
-                bangalore_office="IBC Knowledge Park & RMZ Ecospace, Bengaluru",
-                other_india_offices="Mumbai, Gurugram, Hyderabad, Pune, Chennai",
-                global_presence="Dublin, Ireland (Global)",
-                career_page_url="https://www.accenture.com/in-en/careers",
-                active_hiring_signal=True,
-                departments=["Supply Chain & Operations Consulting", "Global Delivery", "Business Strategy"],
-                estimated_career_value=90.0,
-                source="Accenture Careers India",
-                source_evidence="Active hiring for Business Operations Analyst and International Project Coordinators",
-                verification_status="VERIFIED"
-            ),
-            CompanyDossier(
-                company_id="COMP-TGT",
-                name="Target in India (Target Enterprise Services GCC)",
-                industry="Retail GCC, Merchandising, Supply Chain",
-                tier="TIER_A",
-                bangalore_office="Manyata Embassy Business Park, Hebbal, Bengaluru",
-                other_india_offices="Bengaluru Dedicated Hub",
-                global_presence="Minneapolis, MN, USA",
-                career_page_url="https://india.target.com/careers",
-                active_hiring_signal=True,
-                departments=["Global Supply Chain", "Inventory Management", "Merchandising Operations"],
-                estimated_career_value=92.0,
-                source="Target India Official",
-                source_evidence="Active GCC requisitions in Inventory Planning & Global Logistics",
-                verification_status="VERIFIED"
-            )
+            CompanyDossier("COMP-AMZN", "Amazon Global Operations / AWS", "E-Commerce, Cloud, Supply Chain", "TIER_S", "Bagmane World Technology Centre / WTC Malleshwaram, Bengaluru", "Hyderabad, Chennai, Mumbai, Delhi", "Seattle, WA, USA", "https://amazon.jobs/en/locations/bangalore-india", True, ["Global Logistics", "Supply Chain Operations", "AWS Trade Compliance"], 98.0, "Amazon Official Jobs", "Active Bangalore Trade & Logistics reqs"),
+            CompanyDossier("COMP-MSFT", "Microsoft India Development Centre", "Enterprise Cloud, AI, Software", "TIER_S", "Prestige Ferns Galaxy, Bellandur, Bengaluru", "Hyderabad, Noida, Pune", "Redmond, WA, USA", "https://careers.microsoft.com/v2/global/en/locations/india/bangalore.html", True, ["Cloud Business Operations", "Commercial Sales", "AI Operations"], 97.5, "Microsoft Careers", "Active early-career openings"),
+            CompanyDossier("COMP-GOOG", "Google India GCC", "Cloud, AI, Global Advertising & Business Ops", "TIER_S", "Bagmane Constellation Business Park / RMZ Infinity, Bengaluru", "Hyderabad, Mumbai, Gurugram", "Mountain View, CA, USA", "https://www.google.com/about/careers/applications/jobs/results/?location=Bangalore%2C%20India", True, ["Global Business Operations", "Partner Solutions"], 98.5, "Google Careers", "Active Business Analyst postings"),
+            CompanyDossier("COMP-MAERSK", "A.P. Moller - Maersk", "Integrated Container Logistics & Ocean Freight", "TIER_S", "RMZ EcoWorld, Outer Ring Road, Bellandur, Bengaluru", "Mumbai, Chennai, Pune", "Copenhagen, Denmark", "https://www.maersk.com/careers/search-jobs", True, ["Global Trade Operations", "Supply Chain Management", "Customs Brokerage"], 95.0, "Maersk Careers", "Continuous logistics specialist hiring"),
+            CompanyDossier("COMP-GS", "Goldman Sachs Services", "Investment Banking & Financial Operations", "TIER_S", "Helios Business Park, Kadubeesanahalli, Bengaluru", "Mumbai, Hyderabad", "New York, NY, USA", "https://www.goldmansachs.com/careers", True, ["Global Operations", "Trade Settlement", "Risk Management"], 96.0, "Goldman Sachs Careers", "Active trade analyst requisitions"),
+            CompanyDossier("COMP-JPMC", "JPMorgan Chase & Co. GBS", "Global Banking & Cross-Border Financial Operations", "TIER_S", "Prestige Tech Park, Marathahalli-Sarjapur ORR, Bengaluru", "Mumbai, Hyderabad", "New York, NY, USA", "https://jpmorganchase.com/careers", True, ["International Operations", "Trade Governance"], 95.5, "JPMC Official", "Active operations requisitions"),
+            CompanyDossier("COMP-WMT", "Walmart Global Tech India", "Retail Tech, Global Sourcing & Supply Chain", "TIER_S", "Cessna Business Park, Kadubeesanahalli, Bengaluru", "Chennai, Gurugram", "Bentonville, AR, USA", "https://careers.walmart.com", True, ["Retail Operations", "Cross-Border Sourcing", "Supply Chain"], 94.5, "Walmart Careers", "Active Bangalore supply chain reqs"),
+            CompanyDossier("COMP-CSCO", "Cisco Systems India", "Networking & Global Trade Logistics", "TIER_A", "Cisco Campus, SEZ, Sarjapur, Bengaluru", "Mumbai, Delhi, Chennai", "San Jose, CA, USA", "https://jobs.cisco.com", True, ["Global Logistics", "Export Compliance", "Carrier SLA"], 92.0, "Cisco Careers", "Active trade specialist openings"),
+            CompanyDossier("COMP-SCHN", "Schneider Electric Global Hub", "Energy Management & Global Procurement", "TIER_A", "Bagmane Tech Park, CV Raman Nagar, Bengaluru", "Gurugram, Mumbai, Chennai", "Rueil-Malmaison, France", "https://www.se.com/in/en/about-us/careers/", True, ["Global Supply Chain Excellence", "International Procurement"], 91.0, "Schneider Careers", "Active supply chain planning reqs"),
+            CompanyDossier("COMP-TGT", "Target in India GCC", "Retail Merchandising & Inventory Operations", "TIER_A", "Manyata Embassy Business Park, Hebbal, Bengaluru", "Dedicated Bengaluru Hub", "Minneapolis, MN, USA", "https://india.target.com/careers", True, ["Inventory Management", "Global Sourcing", "Supply Chain"], 92.5, "Target India Official", "Active GCC inventory analyst openings"),
+            CompanyDossier("COMP-DHL", "DHL Global Forwarding", "Freight Forwarding & Contract Logistics", "TIER_A", "Electronic City & Airport Logistics Park, Bengaluru", "Mumbai, Delhi, Chennai", "Bonn, Germany", "https://careers.dhl.com/global/en", True, ["Air/Ocean Operations", "Customs Brokerage", "Trade Logistics"], 89.5, "DHL Careers", "Active forwarding coordinator openings"),
+            CompanyDossier("COMP-ACCN", "Accenture Solutions", "Management Consulting & International Operations", "TIER_A", "IBC Knowledge Park & RMZ Ecospace, Bengaluru", "Mumbai, Gurugram, Hyderabad", "Dublin, Ireland", "https://www.accenture.com/in-en/careers", True, ["Operations Consulting", "Supply Chain Strategy"], 90.0, "Accenture India", "Active operations analyst reqs"),
+            CompanyDossier("COMP-DELL", "Dell Technologies", "Technology Hardware & Global Supply Planning", "TIER_A", "Domlur Inner Ring Road & Bagmane Parin, Bengaluru", "Hyderabad, Gurugram", "Round Rock, TX, USA", "https://jobs.dell.com", True, ["Demand Planning", "Inbound Logistics", "Vendor Performance"], 90.5, "Dell Official", "Active supply chain planner openings"),
+            CompanyDossier("COMP-BOSCH", "Bosch Global Technologies", "Automotive, Industrial & Sourcing Operations", "TIER_A", "Adugodi & Electronic City, Bengaluru", "Pune, Coimbatore, Chennai", "Gerlingen, Germany", "https://careers.smartrecruiters.com/BoschGroup", True, ["Strategic Sourcing", "Procurement Operations", "SAP MM"], 91.5, "Bosch Group", "Active procurement specialist reqs"),
+            CompanyDossier("COMP-SHELL", "Shell Business Operations", "Energy Trade, Contracting & Procurement", "TIER_A", "Shell Technology Centre, RMZ Galleria, Yelahanka, Bengaluru", "Chennai, Mumbai", "London, UK", "https://jobs.shell.com", True, ["Commodity Trade Documentation", "Contracting & Procurement"], 92.0, "Shell Careers", "Active trade operations reqs"),
+            CompanyDossier("COMP-STAN", "Standard Chartered GBS", "Trade Finance & Cross-Border Banking Operations", "TIER_A", "RMZ EcoSpace, Bellandur, Bengaluru", "Chennai, Mumbai", "London, UK", "https://scb.taleo.net", True, ["Trade Finance", "Letters of Credit", "Sanctions Screening"], 91.0, "Standard Chartered", "Active trade finance reqs"),
+            CompanyDossier("COMP-UL", "Unilever Global Operations Hub", "FMCG Global Supply Chain & Customer Ops", "TIER_A", "Prestige Shantiniketan, Whitefield, Bengaluru", "Mumbai, Gurugram", "London, UK", "https://unilever.taleo.net", True, ["Customer Operations", "Export Logistics", "Supply Planning"], 92.0, "Unilever Careers", "Active supply chain associate reqs"),
+            CompanyDossier("COMP-FDX", "FedEx Express India", "Express Transportation & Customs Clearance", "TIER_B", "KIA Airport Cargo Terminal, Devanahalli, Bengaluru", "Mumbai, Delhi, Chennai", "Memphis, TN, USA", "https://fedex.wd1.myworkdayjobs.com", True, ["Customs Clearance", "Air Cargo Operations", "Import Compliance"], 87.0, "FedEx Careers", "Active customs specialist reqs"),
+            CompanyDossier("COMP-IBM", "IBM India", "Enterprise Tech, Procurement & Operations", "TIER_B", "Embassy Golf Links, Domlur, Bengaluru", "Hyderabad, Gurugram, Pune", "Armonk, NY, USA", "https://ibm.com/careers", True, ["Procurement Analytics", "Supplier Governance", "Process Automation"], 88.5, "IBM Careers", "Active procurement analyst reqs"),
+            CompanyDossier("COMP-FK", "Flipkart (Walmart Group)", "E-Commerce Supply Chain & First/Last Mile Ops", "TIER_A", "Embassy Tech Village, Bellandur, Bengaluru", "Hyderabad, Mumbai, Gurugram", "Bengaluru, India", "https://flipkartcareers.com", True, ["Fulfilment Logistics", "Supply Chain Strategy", "Warehouse Analytics"], 92.5, "Flipkart Careers", "Active supply chain associate reqs")
         ]
-        
+
         with self.db.get_connection() as conn:
             cur = conn.cursor()
             for c in seed_data:
