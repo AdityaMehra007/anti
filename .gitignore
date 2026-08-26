@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Environment Variables & Secrets
+.env
+.env.local
+*.secret
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Database Wal & Temp
+*.db-journal
+*.sqlite3-journal
+
+# Submodules / Embedded Repositories
+wshobson-agents/
+external/
+.agents/

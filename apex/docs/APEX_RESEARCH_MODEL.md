@@ -1,0 +1,2 @@
+# APEX Deep Research & Intelligence Model
+Systematic research pipeline: QUESTION -> SEARCH STRATEGY -> DISCOVERY -> EXTRACTION -> CROSS-CHECK -> CONTRADICTION DETECTION -> SYNTHESIS -> CITATION.

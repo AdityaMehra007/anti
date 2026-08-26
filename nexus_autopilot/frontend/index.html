@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS AUTOPILOT // The WhatsApp Business Operating System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h2>⚡ NEXUS</h2>
+            <p>AUTOPILOT OS v26.0</p>
+            <div class="company-badge">ABC Industrial Distributors</div>
+        </div>
+        <nav>
+            <button class="nav-btn active" onclick="switchTab('overview')">📊 Business Overview</button>
+            <button class="nav-btn" onclick="switchTab('whatsapp')">💬 WhatsApp Terminal</button>
+            <button class="nav-btn" onclick="switchTab('collections')">🎯 Collections Radar</button>
+            <button class="nav-btn" onclick="switchTab('invoices')">📑 Invoices & Links</button>
+            <button class="nav-btn" onclick="switchTab('cashflow')">💰 Cash Forecast</button>
+            <button class="nav-btn" onclick="switchTab('agents')">🤖 Agent Control Plane</button>
+        </nav>
+        <div class="autopilot-status">
+            <span class="pulse-dot"></span>
+            <div>
+                <small>AUTOPILOT ENGINE</small>
+                <strong>ACTIVE (LEVEL 2 GATED)</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div>
+                <h1>NEXUS AUTOPILOT // FOUNDER COMMAND CENTER</h1>
+                <p>The AI operating system for businesses that already live on WhatsApp</p>
+            </div>
+            <div class="header-badges">
+                <button class="btn btn-accent" onclick="simulateInboundWebhook()">⚡ Simulate ₹1.2L Razorpay Payment</button>
+                <span class="badge badge-success">● RAZORPAY CONNECTED</span>
+            </div>
+        </header>
+
+        <!-- OVERVIEW TAB -->
+        <section id="overview-tab" class="tab-content active">
+            <div class="grid-4">
+                <div class="card stat-card">
+                    <h3>TOTAL REVENUE</h3>
+                    <div class="val" id="stat-revenue">₹7.70L</div>
+                    <small>Billed Invoices (5)</small>
+                </div>
+                <div class="card stat-card">
+                    <h3>COLLECTIONS</h3>
+                    <div class="val" id="stat-collected" style="color:var(--success);">₹2.50L</div>
+                    <small>Realized Inflows</small>
+                </div>
+                <div class="card stat-card">
+                    <h3>OUTSTANDING</h3>
+                    <div class="val" id="stat-outstanding" style="color:var(--warning);">₹5.20L</div>
+                    <small>Receivables Backlog</small>
+                </div>
+                <div class="card stat-card">
+                    <h3>OVERDUE RISK</h3>
+                    <div class="val" id="stat-overdue" style="color:var(--danger);">₹4.00L</div>
+                    <small>3 Critical Debtors</small>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>30-Day Cash Flow Forecast (Base vs Stress Scenarios)</h3>
+                    <canvas id="cashForecastChart" height="120"></canvas>
+                </div>
+                <div class="card">
+                    <h3>🎯 Top AI Autonomous Recommendations</h3>
+                    <div class="rec-list" id="recList">
+                        <div class="rec-card">
+                            <div class="rec-head">
+                                <strong>1. Critical Overdue Alert: Ramesh Traders (₹1.40L)</strong>
+                                <span class="badge badge-danger">RISK: 78.0</span>
+                            </div>
+                            <p>Invoice INV/2026/1001 is 10 days overdue. Ramesh promised to pay by Aug 28.</p>
+                            <button class="btn btn-sm btn-primary" onclick="sendQuickReminder('CUST-001')">Approve WhatsApp Reminder</button>
+                        </div>
+                        <div class="rec-card" style="margin-top:12px;">
+                            <div class="rec-head">
+                                <strong>2. Payment Due Today: Kumar Enterprises (₹1.20L)</strong>
+                                <span class="badge badge-warning">DUE TODAY</span>
+                            </div>
+                            <p>Invoice INV/2026/1002 payment link active. Customer payment score is healthy (22.0).</p>
+                            <button class="btn btn-sm btn-accent" onclick="simulateInboundWebhook()">Simulate Payment Settlement</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHATSAPP TERMINAL TAB -->
+        <section id="whatsapp-tab" class="tab-content">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>💬 WhatsApp AI Business Assistant Terminal</h3>
+                    <div class="chat-container" id="chatBox">
+                        <div class="msg msg-ai">
+                            <strong>NEXUS Autopilot:</strong> Namaste! I am your autonomous business assistant for ABC Industrial Distributors. How can I help you run your business today?
+                        </div>
+                    </div>
+                    <div class="chat-input-row">
+                        <input type="text" id="chatInput" placeholder="e.g. 'Who owes me money?' or 'Send Ramesh quote for 250 boxes at ₹420'..." onkeypress="handleChatKey(event)">
+                        <button class="btn btn-primary" onclick="sendChatCommand()">Send</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>⚡ Quick WhatsApp Commands Library</h3>
+                    <div class="quick-btns">
+                        <button class="btn btn-outline" onclick="runQuickPrompt('Give me today\'s business summary')">📊 "Give me today's business summary"</button>
+                        <button class="btn btn-outline" onclick="runQuickPrompt('Who hasn\'t paid me?')">🚨 "Who hasn't paid me?"</button>
+                        <button class="btn btn-outline" onclick="runQuickPrompt('Send Ramesh the quotation for 250 boxes at ₹420')">📑 "Send Ramesh the quotation for 250 boxes at ₹420"</button>
+                        <button class="btn btn-outline" onclick="runQuickPrompt('Start collections')">🎯 "Start collections"</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLLECTIONS RADAR TAB -->
+        <section id="collections-tab" class="tab-content">
+            <div class="card">
+                <h3>Customer Receivables & Payment Risk Radar</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Phone</th>
+                            <th>Outstanding</th>
+                            <th>Avg Delay</th>
+                            <th>Risk Score</th>
+                            <th>Promise Date</th>
+                            <th>Autonomous Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="debtorTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- INVOICES TAB -->
+        <section id="invoices-tab" class="tab-content">
+            <div class="card">
+                <h3>Billed Invoices & Razorpay Payment Links</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Invoice #</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Due Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Payment Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CASHFLOW TAB -->
+        <section id="cashflow-tab" class="tab-content">
+            <div class="card">
+                <h3>Multi-Scenario Cash Flow Forecasting (90-Day Runway Projection)</h3>
+                <div class="grid-3" style="margin:20px 0;">
+                    <div style="background:#0b111c; padding:15px; border-radius:6px;"><strong>Current Bank Cash</strong><div style="font-size:24px; color:var(--accent); margin-top:5px;">₹3,85,000</div></div>
+                    <div style="background:#0b111c; padding:15px; border-radius:6px;"><strong>30-Day Base Forecast</strong><div style="font-size:24px; color:var(--success); margin-top:5px;">₹5,15,000</div></div>
+                    <div style="background:#0b111c; padding:15px; border-radius:6px;"><strong>30-Day Stress Forecast</strong><div style="font-size:24px; color:var(--danger); margin-top:5px;">₹2,55,000</div></div>
+                </div>
+                <canvas id="cashRunwayChart" height="90"></canvas>
+            </div>
+        </section>
+
+        <!-- AGENTS CONTROL PLANE TAB -->
+        <section id="agents-tab" class="tab-content">
+            <div class="card">
+                <h3>🤖 Multi-Agent Permission Matrix & Control Plane</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Agent Role</th>
+                            <th>Permitted Tools</th>
+                            <th>Forbidden Actions</th>
+                            <th>Approval Gate</th>
+                            <th>Active Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CEO Agent</strong></td><td>Read all, Generate reports, Propose strategy</td><td>Unauthorized payments</td><td>Level 2 (Owner)</td><td><span class="badge badge-success">ACTIVE</span></td></tr>
+                        <tr><td><strong>Collections Agent</strong></td><td>Read invoices, Draft reminders, Send approved templates</td><td>Waive debt, Modify bank info</td><td>Level 2 (Owner)</td><td><span class="badge badge-success">ACTIVE</span></td></tr>
+                        <tr><td><strong>Sales Agent</strong></td><td>Qualify leads, Draft quotes, Create orders</td><td>Issue >15% discounts</td><td>Level 2 (Owner)</td><td><span class="badge badge-success">ACTIVE</span></td></tr>
+                        <tr><td><strong>Finance Agent</strong></td><td>Compute cashflow, Reconcile payments, Forecast risk</td><td>Transfer funds, Write-off debt</td><td>Level 3 (Finance)</td><td><span class="badge badge-success">ACTIVE</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

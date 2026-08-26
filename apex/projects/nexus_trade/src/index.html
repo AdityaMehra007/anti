@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEXUS-TRADE // Cross-Border Energy Arbitrage Terminal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --bg: #090d16; --card: #111726; --accent: #00f0ff; --success: #00ff88; --danger: #ff0055; --text: #e2e8f0; }
+        body { font-family: 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); margin: 0; padding: 25px; }
+        .header { display: flex; justify-content: space-between; border-bottom: 2px solid #1e293b; padding-bottom: 15px; }
+        .badge { background: #00ff8822; color: var(--success); padding: 5px 12px; border-radius: 4px; font-weight: bold; border: 1px solid var(--success); }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 25px 0; }
+        .card { background: var(--card); border: 1px solid #1e293b; border-radius: 8px; padding: 20px; }
+        .card h3 { margin: 0 0 10px; font-size: 13px; color: #94a3b8; }
+        .card .val { font-size: 26px; font-weight: bold; color: var(--accent); }
+        .chart-container { background: var(--card); border: 1px solid #1e293b; border-radius: 8px; padding: 20px; margin-bottom: 25px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1 style="margin:0; font-size:24px; color:#fff;">⚡ NEXUS-TRADE SUPPLY-CHAIN ARBITRAGE TERMINAL</h1>
+            <p style="margin:5px 0 0; color:#64748b; font-size:13px;">Autonomous 500MW Clean Energy Tariff Optimization // APEX Sovereign Engine</p>
+        </div>
+        <div><span class="badge">● ARBITRAGE ACTIVE</span></div>
+    </div>
+    <div class="grid">
+        <div class="card"><h3>PORTFOLIO SCALE</h3><div class="val">500 MW</div></div>
+        <div class="card"><h3>ARBITRAGE SAVINGS</h3><div class="val" style="color:var(--success);">$8,588,235</div></div>
+        <div class="card"><h3>DOMESTIC NET COST</h3><div class="val">$0.1750 / Wp</div></div>
+        <div class="card"><h3>IMPORT LANDED COST</h3><div class="val" style="color:var(--danger);">$0.1578 / Wp</div></div>
+    </div>
+    <div class="chart-container">
+        <h3 style="margin-top:0;">Global Corridor Landed Cost Comparison ($/Wp)</h3>
+        <canvas id="arbitrageChart" height="80"></canvas>
+    </div>
+    <script>
+        const ctx = document.getElementById('arbitrageChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['India Domestic (Gross)', 'India (Net PLI)', 'China (Import Base)', 'China + BCD 40%', 'China Landed (Duty+Freight)'],
+                datasets: [{
+                    label: 'Cost per Watt-peak ($/Wp)',
+                    data: [0.220, 0.175, 0.110, 0.154, 0.1578],
+                    backgroundColor: ['#3b82f6', '#00ff88', '#eab308', '#f97316', '#ff0055']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { labels: { color: '#94a3b8' } } },
+                scales: {
+                    x: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } },
+                    y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

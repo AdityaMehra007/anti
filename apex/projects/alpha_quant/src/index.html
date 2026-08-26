@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ALPHA-QUANT // Autonomous Risk & Liquidity Terminal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --bg: #090d16; --card: #111726; --accent: #00f0ff; --danger: #ff0055; --text: #e2e8f0; }
+        body { font-family: 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); margin: 0; padding: 25px; }
+        .header { display: flex; justify-content: space-between; border-bottom: 2px solid #1e293b; padding-bottom: 15px; }
+        .badge { background: #00f0ff22; color: var(--accent); padding: 5px 12px; border-radius: 4px; font-weight: bold; border: 1px solid var(--accent); }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 25px 0; }
+        .card { background: var(--card); border: 1px solid #1e293b; border-radius: 8px; padding: 20px; }
+        .card h3 { margin: 0 0 10px; font-size: 13px; color: #94a3b8; }
+        .card .val { font-size: 26px; font-weight: bold; color: var(--accent); }
+        .chart-container { background: var(--card); border: 1px solid #1e293b; border-radius: 8px; padding: 20px; margin-bottom: 25px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #1e293b; font-size: 13px; }
+        th { color: #94a3b8; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1 style="margin:0; font-size:24px; color:#fff;">ALPHA-QUANT LIQUIDITY CONTROL TOWER</h1>
+            <p style="margin:5px 0 0; color:#64748b; font-size:13px;">Autonomous High-Frequency Algorithmic Risk Engine // APEX v26.0</p>
+        </div>
+        <div><span class="badge">LIVE 99% VaR MONITORED</span></div>
+    </div>
+
+    <div class="grid">
+        <div class="card"><h3>PORTFOLIO AUM</h3><div class="val">$50,000,000</div></div>
+        <div class="card"><h3>1-DAY 99% VaR</h3><div class="val" style="color:var(--danger);">$1,311,755</div></div>
+        <div class="card"><h3>LIQUIDITY COVERAGE</h3><div class="val">184.2%</div></div>
+        <div class="card"><h3>EXECUTION LATENCY</h3><div class="val">0.42 ms</div></div>
+    </div>
+
+    <div class="chart-container">
+        <h3 style="margin-top:0;">Real-Time Liquidity Depth & Volatility Curve</h3>
+        <canvas id="quantChart" height="80"></canvas>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-top:0;">Settled Institutional Orders</h3>
+        <table>
+            <thead><tr><th>Order ID</th><th>Symbol</th><th>Side</th><th>Quantity</th><th>Price</th><th>Value</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr><td>ORD-0001</td><td>BTC/USDT</td><td><b style="color:#00ff88;">BUY</b></td><td>15</td><td>$64,250.00</td><td>$963,750.00</td><td>FILLED</td></tr>
+                <tr><td>ORD-0002</td><td>ETH/USDT</td><td><b style="color:#00ff88;">BUY</b></td><td>120</td><td>$3,450.00</td><td>$414,000.00</td><td>FILLED</td></tr>
+                <tr><td>ORD-0003</td><td>NVDA</td><td><b style="color:#00ff88;">BUY</b></td><td>2,500</td><td>$128.50</td><td>$321,250.00</td><td>FILLED</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('quantChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00'],
+                datasets: [{
+                    label: 'Calculated 99% VaR ($M)',
+                    data: [1.15, 1.22, 1.18, 1.35, 1.42, 1.31, 1.28, 1.25, 1.39, 1.45, 1.31, 1.29, 1.33, 1.31],
+                    borderColor: '#ff0055',
+                    backgroundColor: '#ff005522',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { labels: { color: '#94a3b8' } } },
+                scales: {
+                    x: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } },
+                    y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

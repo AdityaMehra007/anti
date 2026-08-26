@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEX BENGALURU // City-Scale AI Operating System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h2>⚡ APEX BLR</h2>
+            <p>CITY-SCALE AI OS v26.0</p>
+        </div>
+        <nav>
+            <button class="nav-btn active" onclick="switchTab('dashboard')">🏛️ City Overview</button>
+            <button class="nav-btn" onclick="switchTab('gcc')">🏢 GCC Intelligence</button>
+            <button class="nav-btn" onclick="switchTab('startups')">🚀 Startups & VC</button>
+            <button class="nav-btn" onclick="switchTab('career')">💼 Career & Jobs OS</button>
+            <button class="nav-btn" onclick="switchTab('business')">🏭 Business Factory</button>
+            <button class="nav-btn" onclick="switchTab('markets')">🗺️ Micro-Markets</button>
+        </nav>
+        <div class="status-indicator">
+            <span class="pulse-dot"></span>
+            <div>
+                <small>DIGITAL TWIN STATUS</small>
+                <strong>100% SYNCHRONIZED</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div>
+                <h1>BENGALURU AI SUPERPLATFORM</h1>
+                <p>Universal City-Scale Agentic Enterprise, GCC, Startup, Talent & Automation Operating System</p>
+            </div>
+            <div class="header-badges">
+                <span class="badge badge-accent">ELEVATION: 920M</span>
+                <span class="badge badge-success">38.5% NATIONAL IT EXP</span>
+                <span class="badge badge-purple">45+ UNICORNS</span>
+            </div>
+        </header>
+
+        <!-- DASHBOARD TAB -->
+        <section id="dashboard-tab" class="tab-content active">
+            <div class="grid-4">
+                <div class="card stat-card">
+                    <h3>COMPANIES INDEXED</h3>
+                    <div class="val" id="kpi-companies">8</div>
+                    <small>GCCs, MNCs, Enterprises</small>
+                </div>
+                <div class="card stat-card">
+                    <h3>TRACKED GCCS</h3>
+                    <div class="val" id="kpi-gccs" style="color:var(--accent);">4</div>
+                    <small>Tier-1 Innovation Hubs</small>
+                </div>
+                <div class="card stat-card">
+                    <h3>TRACKED STARTUPS</h3>
+                    <div class="val" id="kpi-startups" style="color:var(--success);">5</div>
+                    <small>Unicorns & DeepTech</small>
+                </div>
+                <div class="card stat-card">
+                    <h3>ACTIVE SIGNALS</h3>
+                    <div class="val" id="kpi-signals" style="color:var(--purple);">4</div>
+                    <small>Hiring, Funding & Expansions</small>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card chart-card">
+                    <h3>GCC Core Function Distribution in Bengaluru</h3>
+                    <canvas id="gccFunctionChart" height="120"></canvas>
+                </div>
+                <div class="card">
+                    <h3>⚡ Real-Time City Intelligence Signals</h3>
+                    <div class="signal-feed" id="signalFeed">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GCC TAB -->
+        <section id="gcc-tab" class="tab-content">
+            <div class="card">
+                <h3>Global Capability Center (GCC) Momentum Radar</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Parent Company</th>
+                            <th>Origin</th>
+                            <th>Headcount</th>
+                            <th>Campus Locations</th>
+                            <th>Momentum Score</th>
+                            <th>Product Ownership</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gccTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- STARTUPS TAB -->
+        <section id="startups-tab" class="tab-content">
+            <div class="card">
+                <h3>Bengaluru Startup & DeepTech Powerhouse</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Startup Name</th>
+                            <th>Founders</th>
+                            <th>Sector</th>
+                            <th>Stage</th>
+                            <th>Total Funding</th>
+                            <th>Neighborhood</th>
+                            <th>Momentum</th>
+                        </tr>
+                    </thead>
+                    <tbody id="startupTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CAREER TAB -->
+        <section id="career-tab" class="tab-content">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎯 Career Profile Matcher (BBA / Tech Focus)</h3>
+                    <div class="form-group">
+                        <label>Target Degree</label>
+                        <select id="userDegree">
+                            <option value="BBA">BBA (International Business / Finance)</option>
+                            <option value="BTech">BTech / BE (Computer Science / AI)</option>
+                            <option value="MBA">MBA (Strategy / Operations)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Verified Skills (comma separated)</label>
+                        <input type="text" id="userSkillsInput" value="Incoterms, Supply Chain Analytics, SQL, Excel, Trade Settlement">
+                    </div>
+                    <button class="btn btn-primary" onclick="runCareerMatching()">Find Best-Fit Bengaluru Roles</button>
+                    <div id="careerMatchResults" style="margin-top:20px;"></div>
+                </div>
+
+                <div class="card">
+                    <h3>📈 Bengaluru Role Demand & Salary Benchmark</h3>
+                    <canvas id="salaryChart" height="140"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUSINESS FACTORY TAB -->
+        <section id="business-tab" class="tab-content">
+            <div class="card">
+                <h3>🚀 Bengaluru High-Potential Startup Opportunity Blueprint</h3>
+                <div class="opp-box" id="businessOppBox">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- MICRO-MARKETS TAB -->
+        <section id="markets-tab" class="tab-content">
+            <div class="card">
+                <h3>🗺️ Bengaluru Micro-Market Real Estate & Corridor Dynamics</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Micro-Market</th>
+                            <th>Cluster Type</th>
+                            <th>Office Rent (₹/sqft)</th>
+                            <th>2BHK Rent (₹/mo)</th>
+                            <th>Congestion (1-10)</th>
+                            <th>Metro Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marketsTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

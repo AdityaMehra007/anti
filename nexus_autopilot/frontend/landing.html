@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS AUTOPILOT // Run Your Business From WhatsApp</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .landing-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .hero { text-align: center; padding: 60px 0 40px; }
+        .hero h1 { font-size: 44px; margin-bottom: 15px; color: #fff; }
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
+        .cta-box { display: flex; justify-content: center; gap: 15px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 50px 0; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 50px 0; }
+        .pricing-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 30px; text-align: center; }
+        .pricing-card.featured { border-color: var(--accent); box-shadow: 0 0 20px rgba(0,240,255,0.15); }
+        .price { font-size: 32px; font-weight: bold; color: var(--accent); margin: 15px 0; }
+    </style>
+</head>
+<body style="background:var(--bg-main); color:var(--text-main); display:block;">
+    <div class="landing-container">
+        <!-- TOP NAV -->
+        <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:20px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <h2 style="margin:0; color:var(--accent);">⚡ NEXUS AUTOPILOT</h2>
+            </div>
+            <div>
+                <a href="index.html" class="btn btn-primary">Open Live Command Center</a>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <span class="badge badge-accent" style="margin-bottom:15px; display:inline-block;">THE AI OPERATING SYSTEM FOR INDIAN SMBs</span>
+            <h1>Run your business from WhatsApp.</h1>
+            <p>Turn WhatsApp conversations into sales, invoices, collections, accounting workflows, and management intelligence with zero manual admin.</p>
+            <div class="cta-box">
+                <a href="index.html" class="btn btn-accent" style="padding:14px 28px; font-size:15px;">Start Your 14-Day Free Trial</a>
+                <a href="index.html#whatsapp" class="btn btn-outline" style="padding:14px 28px; font-size:15px;">Watch 60-Second Demo</a>
+            </div>
+        </section>
+
+        <!-- 3 CORE PILLARS -->
+        <section class="feature-grid">
+            <div class="card">
+                <h3 style="color:var(--accent);">🎯 Autonomous Collections</h3>
+                <p style="color:var(--text-muted); font-size:13px; margin-top:10px;">Identifies overdue invoices, scores customer payment risk, and sends firm, professional WhatsApp payment links that reconcile automatically via Razorpay.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--success);">💬 Conversational Invoicing</h3>
+                <p style="color:var(--text-muted); font-size:13px; margin-top:10px;">Say: <em>"Send Ramesh quote for 250 boxes at ₹420"</em>. NEXUS parses the intent, generates the GST estimate, and sends the payment link in 3 seconds.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--purple);">💰 30-Day Cash Forecasting</h3>
+                <p style="color:var(--text-muted); font-size:13px; margin-top:10px;">Real-time cash flow simulations (Base, Upside, Stress) to ensure your business never runs out of working capital or gets blindsided by supplier deadlines.</p>
+            </div>
+        </section>
+
+        <!-- PRICING TIERS -->
+        <section>
+            <h2 style="text-align:center; font-size:28px; margin-bottom:10px;">Simple, Transparent Pricing</h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom:30px;">Built to deliver 10x ROI in recovered collections in your first 30 days.</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>STARTER</h3>
+                    <p style="color:var(--text-muted); font-size:12px;">For Small Traders & Solo Operators</p>
+                    <div class="price">₹1,499 <small style="font-size:13px; color:var(--text-muted);">/ month</small></div>
+                    <ul style="text-align:left; font-size:12px; color:var(--text-muted); line-height:2; padding-left:20px;">
+                        <li>Up to 100 Active Customers</li>
+                        <li>WhatsApp Invoicing & Payment Links</li>
+                        <li>Razorpay Webhook Auto-Reconcile</li>
+                        <li>Daily Morning Summary</li>
+                    </ul>
+                    <a href="index.html" class="btn btn-outline" style="width:100%; margin-top:20px; display:inline-block; box-sizing:border-box;">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="badge badge-accent" style="margin-bottom:10px; display:inline-block;">MOST POPULAR</span>
+                    <h3>GROWTH</h3>
+                    <p style="color:var(--text-muted); font-size:12px;">For Growing Distributors & Agencies</p>
+                    <div class="price">₹4,999 <small style="font-size:13px; color:var(--text-muted);">/ month</small></div>
+                    <ul style="text-align:left; font-size:12px; color:var(--text-muted); line-height:2; padding-left:20px;">
+                        <li>Up to 500 Active Customers</li>
+                        <li>Autonomous Collections Radar</li>
+                        <li>30-Day Cash Flow Forecasting</li>
+                        <li>Multi-Agent Permission Control</li>
+                        <li>Voice Message Command Ingestion</li>
+                    </ul>
+                    <a href="index.html" class="btn btn-primary" style="width:100%; margin-top:20px; display:inline-block; box-sizing:border-box;">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>PRO</h3>
+                    <p style="color:var(--text-muted); font-size:12px;">For Multi-Location Enterprises & CAs</p>
+                    <div class="price">₹14,999 <small style="font-size:13px; color:var(--text-muted);">/ month</small></div>
+                    <ul style="text-align:left; font-size:12px; color:var(--text-muted); line-height:2; padding-left:20px;">
+                        <li>Up to 2,500 Active Customers</li>
+                        <li>CA Partner Console & GST Auditing</li>
+                        <li>Zoho & Tally Bi-Directional Sync</li>
+                        <li>Dedicated Account Manager</li>
+                    </ul>
+                    <a href="index.html" class="btn btn-outline" style="width:100%; margin-top:20px; display:inline-block; box-sizing:border-box;">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

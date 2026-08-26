@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNIVERSE — The Autonomous Global Computing Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🪐</span>
+            <span class="logo-text">OMNIVERSE</span>
+        </div>
+        <div class="nav-section">MAIN NAVIGATION</div>
+        <ul class="nav-links">
+            <li class="active"><a href="#overview">📊 System Overview</a></li>
+            <li><a href="#fabric">🌐 10K Agent Fabric</a></li>
+            <li><a href="#financials">💰 Financial DCF Engine</a></li>
+            <li><a href="#terminal">⚡ Kernel Mission Dispatch</a></li>
+            <li><a href="#resilience">🛡️ Self-Healing Matrix</a></li>
+        </ul>
+        <div class="system-status-pill">
+            <span class="pulse-dot"></span>
+            KERNEL ACTIVE (v3.0)
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="top-header">
+            <div>
+                <h1>OMNIVERSE FLAGSHIP PLATFORM</h1>
+                <p class="subtitle">Autonomous Enterprise Agentic Operating System</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="triggerAutonomousMission()">🚀 Run Mission</button>
+                <button class="btn btn-secondary" onclick="simulateSelfHealing()">🧪 Chaos Test</button>
+            </div>
+        </header>
+
+        <!-- KPI CARDS -->
+        <section class="kpi-grid">
+            <div class="card kpi-card">
+                <div class="kpi-title">Dynamic Specialists</div>
+                <div class="kpi-value" id="kpi-specialists">10,000</div>
+                <div class="kpi-sub positive">Across 100 Verticals</div>
+            </div>
+            <div class="card kpi-card">
+                <div class="kpi-title">Amplification Vectors</div>
+                <div class="kpi-value" id="kpi-vectors">3,000</div>
+                <div class="kpi-sub positive">10 Master Dimensions</div>
+            </div>
+            <div class="card kpi-card">
+                <div class="kpi-title">Mean Recovery Latency</div>
+                <div class="kpi-value" id="kpi-recovery">0.42 ms</div>
+                <div class="kpi-sub positive">100% Self-Healing</div>
+            </div>
+            <div class="card kpi-card">
+                <div class="kpi-title">Projected Annual Revenue</div>
+                <div class="kpi-value" id="kpi-revenue">$3.42M</div>
+                <div class="kpi-sub positive">+28.4% MoM CAGR</div>
+            </div>
+        </section>
+
+        <!-- CHARTS & VISUALIZERS -->
+        <section class="visualizer-grid">
+            <div class="card chart-card">
+                <h3>📈 Financial Trajectory & Capital Growth</h3>
+                <canvas id="financialChart"></canvas>
+            </div>
+            <div class="card chart-card">
+                <h3>🌐 Multi-Portfolio Domain Distribution</h3>
+                <canvas id="domainChart"></canvas>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE LIVE CONSOLE -->
+        <section class="card terminal-section">
+            <div class="terminal-header">
+                <span>⚡ OMNIVERSE LIVE AGENT STREAM</span>
+                <span class="badge-terminal">REAL-TIME TELEMETRY</span>
+            </div>
+            <div class="terminal-body" id="terminal-feed">
+                <div class="log-line">[SYSTEM_BOOT] Omniverse Core Engine initialized with 10,000 Dynamic Agent Profiles.</div>
+                <div class="log-line">[DB_SYNC] SQLite persistence layer active at apex/projects/omniverse/data/omniverse.db.</div>
+                <div class="log-line">[KERNEL_READY] APEX V3 Execution Kernel ready for multi-agent autonomous goal dispatch.</div>
+            </div>
+            <div class="terminal-input-bar">
+                <input type="text" id="goal-input" placeholder="Enter high-level autonomous goal (e.g. 'Optimize global freight logistics')...">
+                <button class="btn btn-primary" onclick="submitCustomGoal()">Execute</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
