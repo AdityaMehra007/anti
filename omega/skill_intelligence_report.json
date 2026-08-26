@@ -1,0 +1,765 @@
+{
+  "domains": [
+    {
+      "domain": "b2b-sales",
+      "skill_id": "SKL-3K-1201",
+      "category": "B2B Sales & Pipeline Operations",
+      "associated_agent": "AGT-3K-1201 (b2b-sales-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for B2B Sales & Pipeline Operations specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to B2B Sales & Pipeline Operations protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Pipeline deal metadata and CRM stage parameters",
+        "Target account firmographics and decision-maker profiles",
+        "Workspace context and validated primary revenue metrics"
+      ],
+      "outputs": [
+        "Structured B2B sales pipeline JSON reports",
+        "Verifiable execution signatures and cryptographic provenance tokens",
+        "Audit logs and deterministic deal progression records"
+      ],
+      "tools": [
+        "Certified workspace reading and validation tools",
+        "MCP sales & CRM connectors",
+        "Deterministic data provenance authenticators"
+      ],
+      "patterns": [
+        "Zero-fiction revenue data pipeline execution",
+        "Deterministic lead qualification and scoring framework",
+        "Verifiable audit trail generation for enterprise sales governance"
+      ]
+    },
+    {
+      "domain": "market-intel",
+      "skill_id": "SKL-3K-1001",
+      "category": "Research & Market Intelligence",
+      "associated_agent": "AGT-3K-1001 (market-intel-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Research & Market Intelligence specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Research & Market Intelligence protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Market research queries and target industry taxonomy",
+        "Primary competitive telemetry and secondary data feeds",
+        "Workspace research parameters and validation constraints"
+      ],
+      "outputs": [
+        "Structured market intelligence synthesis JSON",
+        "Competitive landscape matrices with source attribution",
+        "Execution signatures with verified data provenance"
+      ],
+      "tools": [
+        "Certified workspace search and indexing tools",
+        "MCP market intelligence connectors",
+        "Data validation and citation engines"
+      ],
+      "patterns": [
+        "Deterministic competitive intelligence gathering",
+        "Multi-source market signal normalization",
+        "Zero-fiction citation and evidence anchoring"
+      ]
+    },
+    {
+      "domain": "ai-infra",
+      "skill_id": "SKL-3K-0001",
+      "category": "AI & Agent Infrastructure",
+      "associated_agent": "AGT-3K-0001 (ai-infra-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for AI & Agent Infrastructure specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to AI & Agent Infrastructure protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Agent execution parameters and runtime configurations",
+        "Model endpoint configurations and token quota policies",
+        "Workspace context and compute cluster telemetry"
+      ],
+      "outputs": [
+        "Agent runtime health and orchestration JSON manifests",
+        "Execution signature logs and audit records",
+        "Infrastructure throughput and latency telemetry"
+      ],
+      "tools": [
+        "Certified workspace management tools",
+        "MCP model connectors and agent SDKs",
+        "Hardware runtime monitors and token trackers"
+      ],
+      "patterns": [
+        "Deterministic autonomous agent lifecycle management",
+        "Zero-fiction inference monitoring and rate-limiting",
+        "Verifiable execution signature chains"
+      ]
+    },
+    {
+      "domain": "cloud-infra",
+      "skill_id": "SKL-3K-2601",
+      "category": "Cloud & Systems Infrastructure",
+      "associated_agent": "AGT-3K-2601 (cloud-infra-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Cloud & Systems Infrastructure specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Cloud & Systems Infrastructure protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Cloud resource definitions and IaC configuration files",
+        "Network topology and security group specifications",
+        "Cluster workload requirements and environment state"
+      ],
+      "outputs": [
+        "Infrastructure state JSON reports",
+        "Verifiable deployment audit trails",
+        "Resource utilization and cost telemetry summaries"
+      ],
+      "tools": [
+        "Certified workspace cloud tools",
+        "MCP cloud provider connectors",
+        "Infrastructure linting and provisioning checkers"
+      ],
+      "patterns": [
+        "Declarative and deterministic infrastructure reconciliation",
+        "Immutable systems deployment patterns",
+        "Verifiable infrastructure state governance"
+      ]
+    },
+    {
+      "domain": "customer-success",
+      "skill_id": "SKL-3K-2001",
+      "category": "Customer Success & Support Ops",
+      "associated_agent": "AGT-3K-2001 (customer-success-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Customer Success & Support Ops specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Customer Success & Support Ops protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Customer account health metrics and support ticket feeds",
+        "SLA definitions and escalation thresholds",
+        "User retention and sentiment telemetry data"
+      ],
+      "outputs": [
+        "Customer health and churn risk assessment JSONs",
+        "Automated support resolution plans",
+        "Verifiable audit trails and execution signatures"
+      ],
+      "tools": [
+        "Certified workspace search and reading tools",
+        "MCP customer support and CRM connectors",
+        "Sentiment analysis and SLA tracking modules"
+      ],
+      "patterns": [
+        "Deterministic SLA breach prevention and alert dispatch",
+        "Zero-fiction customer satisfaction scoring",
+        "Systematic account expansion trigger identification"
+      ]
+    },
+    {
+      "domain": "data-intel",
+      "skill_id": "SKL-3K-0801",
+      "category": "Data & Intelligence Fabric",
+      "associated_agent": "AGT-3K-0801 (data-intel-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Data & Intelligence Fabric specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Data & Intelligence Fabric protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Raw structured and unstructured data feeds",
+        "Schema definitions and data catalog metadata",
+        "Data quality validation rules and pipeline parameters"
+      ],
+      "outputs": [
+        "Normalized data assets and intelligence fabric JSON",
+        "Data lineage and transformation audit records",
+        "Cryptographic execution verification signatures"
+      ],
+      "tools": [
+        "Certified workspace data processing tools",
+        "MCP database and lakehouse connectors",
+        "Schema validation and data lineage engines"
+      ],
+      "patterns": [
+        "Deterministic schema evolution and contract validation",
+        "End-to-end data provenance tracking",
+        "Automated data quality remediation loops"
+      ]
+    },
+    {
+      "domain": "exec-strategy",
+      "skill_id": "SKL-3K-2801",
+      "category": "Executive Strategy & Scaling",
+      "associated_agent": "AGT-3K-2801 (exec-strategy-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Executive Strategy & Scaling specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Executive Strategy & Scaling protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Corporate OKRs, strategic priorities, and KPIs",
+        "Business unit financial and operational summaries",
+        "Market dynamics and scenario modeling assumptions"
+      ],
+      "outputs": [
+        "Executive strategic briefing JSON reports",
+        "Scenario analysis models and capital allocation forecasts",
+        "Execution signatures with governance audit logs"
+      ],
+      "tools": [
+        "Certified workspace reporting tools",
+        "MCP enterprise planning connectors",
+        "Decision matrix and risk modeling engines"
+      ],
+      "patterns": [
+        "Deterministic scenario modeling for capital allocation",
+        "Strategic OKR cascade and alignment verification",
+        "Executive decision provenance and auditability"
+      ]
+    },
+    {
+      "domain": "exim-trade",
+      "skill_id": "SKL-3K-2201",
+      "category": "International Trade & EXIM Logistics",
+      "associated_agent": "AGT-3K-2201 (exim-trade-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for International Trade & EXIM Logistics specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to International Trade & EXIM Logistics protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Harmonized System (HS) codes and tariff schedules",
+        "Commercial invoices, packing lists, and bills of lading",
+        "Jurisdiction trade regulations and customs guidelines"
+      ],
+      "outputs": [
+        "Trade compliance manifests and customs filings JSON",
+        "Landed cost calculations and duty assessments",
+        "Execution signatures and regulatory compliance audit records"
+      ],
+      "tools": [
+        "Certified workspace reading tools",
+        "MCP customs and international trade connectors",
+        "Tariff lookup and trade compliance validators"
+      ],
+      "patterns": [
+        "Deterministic HS code classification and duty calculation",
+        "Zero-friction cross-border document reconciliation",
+        "Immutable trade compliance audit trailing"
+      ]
+    },
+    {
+      "domain": "finance-treasury",
+      "skill_id": "SKL-3K-1601",
+      "category": "Corporate Finance & Treasury",
+      "associated_agent": "AGT-3K-1601 (finance-treasury-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Corporate Finance & Treasury specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Corporate Finance & Treasury protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "General ledger records, bank statements, and cash accounts",
+        "FX currency pairs and hedging policy guidelines",
+        "Working capital metrics and debt maturity schedules"
+      ],
+      "outputs": [
+        "Treasury position and liquidity forecasting JSON",
+        "Cash flow reconciliation and variance analysis reports",
+        "Verifiable execution signatures and financial audit logs"
+      ],
+      "tools": [
+        "Certified workspace financial analysis tools",
+        "MCP treasury and banking API connectors",
+        "Deterministic reconciliation and double-entry validation engines"
+      ],
+      "patterns": [
+        "Deterministic multi-account cash sweeping and reconciliation",
+        "Automated FX risk exposure modeling",
+        "Auditable financial ledger state verification"
+      ]
+    },
+    {
+      "domain": "growth-seo",
+      "skill_id": "SKL-3K-1401",
+      "category": "Marketing Automation & Growth SEO",
+      "associated_agent": "AGT-3K-1401 (growth-seo-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Marketing Automation & Growth SEO specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Marketing Automation & Growth SEO protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Keyword research clusters and search intent signals",
+        "Technical site crawl telemetry and Core Web Vitals",
+        "Marketing campaign conversion funnels and UTM logs"
+      ],
+      "outputs": [
+        "SEO architecture and technical audit JSON reports",
+        "Programmatic content optimization matrices",
+        "Execution signatures with attribution audit trails"
+      ],
+      "tools": [
+        "Certified workspace search and indexing tools",
+        "MCP marketing automation and web crawling connectors",
+        "SERP performance and backlink analyzers"
+      ],
+      "patterns": [
+        "Deterministic programmatic SEO page generation",
+        "Technical search indexing audit loops",
+        "Closed-loop attribution and conversion tracking"
+      ]
+    },
+    {
+      "domain": "mcp-conn",
+      "skill_id": "SKL-3K-0201",
+      "category": "MCP & Connector Platform",
+      "associated_agent": "AGT-3K-0201 (mcp-conn-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for MCP & Connector Platform specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to MCP & Connector Platform protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Model Context Protocol tool schemas and server definitions",
+        "Transport specifications (stdio / SSE / HTTP)",
+        "Authentication credentials and security scope configs"
+      ],
+      "outputs": [
+        "Connector registry manifests and health status JSON",
+        "Tool invocation traces and payload validation logs",
+        "Execution signatures with interface verification tokens"
+      ],
+      "tools": [
+        "Certified workspace MCP platform tools",
+        "MCP SDK and schema validators",
+        "Protocol debugging and proxy bridges"
+      ],
+      "patterns": [
+        "Deterministic JSON-RPC tool discovery and registration",
+        "Dynamic tool capability routing and fallbacks",
+        "Cryptographic protocol message tracing"
+      ]
+    },
+    {
+      "domain": "product-ux",
+      "skill_id": "SKL-3K-0601",
+      "category": "Product & UX Engineering",
+      "associated_agent": "AGT-3K-0601 (product-ux-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Product & UX Engineering specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Product & UX Engineering protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "User journey maps, persona definitions, and feature specs",
+        "Design token systems and component hierarchy definitions",
+        "Usability metrics and session replay telemetry"
+      ],
+      "outputs": [
+        "UX specification and design system JSON tokens",
+        "Interactive component state machines and flow diagrams",
+        "Verifiable execution signatures and UX audit logs"
+      ],
+      "tools": [
+        "Certified workspace design inspection tools",
+        "MCP design system and Figma connectors",
+        "Accessibility (a11y) and UX compliance checkers"
+      ],
+      "patterns": [
+        "Deterministic UI component contract enforcement",
+        "Automated accessibility compliance validation",
+        "Design token synchronization across codebases"
+      ]
+    },
+    {
+      "domain": "security-gov",
+      "skill_id": "SKL-3K-2401",
+      "category": "Security, Privacy & Governance",
+      "associated_agent": "AGT-3K-2401 (security-gov-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Security, Privacy & Governance specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Security, Privacy & Governance protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "IAM role definitions, security policies, and posture configs",
+        "Vulnerability scan results and CVE databases",
+        "Regulatory compliance frameworks (SOC2, ISO27001, GDPR, HIPAA)"
+      ],
+      "outputs": [
+        "Security posture assessment and compliance JSON manifests",
+        "Vulnerability remediation priority lists",
+        "Immutable governance audit logs and execution signatures"
+      ],
+      "tools": [
+        "Certified workspace security scanning tools",
+        "MCP security and compliance connectors",
+        "Static application security testing (SAST) and policy engines"
+      ],
+      "patterns": [
+        "Zero-trust deterministic permission verification",
+        "Automated security policy drift detection",
+        "Cryptographic compliance attestation"
+      ]
+    },
+    {
+      "domain": "software",
+      "skill_id": "SKL-3K-0401",
+      "category": "Software Factory & DevOps",
+      "associated_agent": "AGT-3K-0401 (software-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for Software Factory & DevOps specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to Software Factory & DevOps protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Source code repositories, abstract syntax trees (ASTs), and diffs",
+        "Build configurations, dependency trees, and lockfiles",
+        "Test suites, coverage thresholds, and linting rules"
+      ],
+      "outputs": [
+        "Deterministic build and code synthesis JSON manifests",
+        "Refactoring patches and formatted code changes",
+        "Execution signatures with verifiable test and compilation logs"
+      ],
+      "tools": [
+        "Certified workspace software development tools",
+        "MCP Git and version control connectors",
+        "Compilers, linters, test runners, and AST analyzers"
+      ],
+      "patterns": [
+        "Deterministic code refactoring and test-driven synthesis",
+        "Automated regression avoidance pipelines",
+        "Immutable build artifact signature generation"
+      ]
+    },
+    {
+      "domain": "talent-people",
+      "skill_id": "SKL-3K-1801",
+      "category": "HR, People & Talent Acquisition",
+      "associated_agent": "AGT-3K-1801 (talent-people-skill-001-agent)",
+      "verification_level": "Deterministic / Verified Data Provenance",
+      "capability": "Autonomous standard operating procedure and deterministic execution capability for HR, People & Talent Acquisition specialization #1.",
+      "sops": [
+        "Ingest & Normalize: Ingest parameters and validated primary data from workspace context.",
+        "Deterministic Processing: Execute domain logic adhering to HR, People & Talent Acquisition protocols.",
+        "Audit & Trace: Generate structured JSON outputs with verifiable execution signatures."
+      ],
+      "inputs": [
+        "Job leveling rubrics and role competencies",
+        "Candidate CVs, evaluation rubrics, and interview transcripts",
+        "Headcount plans and compensation benchmark ranges"
+      ],
+      "outputs": [
+        "Structured candidate evaluation and scorecard JSON",
+        "Talent pipeline velocity and diversity telemetry",
+        "Execution signatures and compliance audit records"
+      ],
+      "tools": [
+        "Certified workspace reading tools",
+        "MCP ATS and HRIS platform connectors",
+        "Competency evaluation and compensation modeling engines"
+      ],
+      "patterns": [
+        "Deterministic rubric-based candidate scoring",
+        "Compensation band parity enforcement",
+        "Structured and zero-fiction onboarding workflows"
+      ]
+    },
+    {
+      "domain": "analytics",
+      "skill_id": "SKILL-0091",
+      "category": "Data Analytics, BI & Financial Modeling",
+      "associated_agent": "AGT-0091 (analytics-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for Data Analytics, BI & Financial Modeling specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "Quantitative time-series and tabular business data",
+        "Statistical parameters and forecasting horizons",
+        "Workspace context and metric definitions"
+      ],
+      "outputs": [
+        "Structured analytical markdown summaries and BI reports",
+        "Deterministic statistical forecast tables",
+        "Audit trails and execution logs"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "Certified workspace analytical utilities",
+        "Data transformation and BI calculators"
+      ],
+      "patterns": [
+        "Strict zero-fiction data validation",
+        "Deterministic financial and operational metric modeling",
+        "Verifiable statistical analysis logging"
+      ]
+    },
+    {
+      "domain": "devops",
+      "skill_id": "SKILL-0211",
+      "category": "Software Engineering, Cloud & DevOps",
+      "associated_agent": "AGT-0211 (devops-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for Software Engineering, Cloud & DevOps specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "CI/CD pipeline definitions and deployment manifests",
+        "Infrastructure health telemetry and alert parameters",
+        "Workspace environment configurations"
+      ],
+      "outputs": [
+        "DevOps operational reports and deployment logs",
+        "System reliability and MTTR assessment markdown",
+        "Audit trails and pipeline execution records"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "Container and cloud deployment utilities",
+        "System observability and log parsers"
+      ],
+      "patterns": [
+        "Deterministic pipeline stage verification",
+        "Zero-fiction error diagnosis and log tracing",
+        "Automated deployment safety check validation"
+      ]
+    },
+    {
+      "domain": "events",
+      "skill_id": "SKILL-0061",
+      "category": "Event Operations & Brand Activation",
+      "associated_agent": "AGT-0061 (events-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for Event Operations & Brand Activation specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "Event schedules, speaker agendas, and attendee lists",
+        "Vendor deliverables, budget line items, and SLA contracts",
+        "Venue logistical constraints and spatial parameters"
+      ],
+      "outputs": [
+        "Master event run-of-show schedules and operational checklists",
+        "Vendor SLA tracking and budget reconciliation markdown",
+        "Audit trails and event milestone completion logs"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "Event operations and scheduling utilities",
+        "Logistics tracking and inventory monitors"
+      ],
+      "patterns": [
+        "Deterministic timeline and contingency scheduling",
+        "Vendor deliverable contract verification",
+        "Zero-fiction on-site execution checklists"
+      ]
+    },
+    {
+      "domain": "exim",
+      "skill_id": "SKILL-0001",
+      "category": "International Trade, EXIM & Global Logistics",
+      "associated_agent": "AGT-0001 (exim-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for International Trade, EXIM & Global Logistics specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "Export/import cargo declarations and consignment parameters",
+        "Incoterms, freight rates, and transit schedules",
+        "Customs compliance documents and certificates of origin"
+      ],
+      "outputs": [
+        "Global logistics tracking and trade compliance reports",
+        "Freight route optimization and customs clearance logs",
+        "Audit trails and verifiable shipping documentation summaries"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "Shipping manifest and tracking connectors",
+        "Customs tariff and regulatory databases"
+      ],
+      "patterns": [
+        "Deterministic Incoterms compliance validation",
+        "Supply chain transit milestone verification",
+        "Zero-fiction international trade auditing"
+      ]
+    },
+    {
+      "domain": "finance",
+      "skill_id": "SKILL-0181",
+      "category": "Corporate Finance, Cost Optimization & Governance",
+      "associated_agent": "AGT-0181 (finance-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for Corporate Finance, Cost Optimization & Governance specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "Corporate expense logs, vendor invoices, and cost centers",
+        "Budget allocation rules and departmental burn rates",
+        "Corporate governance policies and authorization limits"
+      ],
+      "outputs": [
+        "Cost optimization and spend analysis reports",
+        "Budget variance matrices and governance audits",
+        "Audit trails and deterministic financial execution logs"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "Financial calculation and spreadsheet engines",
+        "Spend classification and compliance checkers"
+      ],
+      "patterns": [
+        "Deterministic OPEX/CAPEX variance decomposition",
+        "Zero-fiction financial governance adherence",
+        "Automated anomalous spend detection"
+      ]
+    },
+    {
+      "domain": "genai",
+      "skill_id": "SKILL-0121",
+      "category": "Generative AI, Agentic Workflows & SDK",
+      "associated_agent": "AGT-0121 (genai-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for Generative AI, Agentic Workflows & SDK specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "Agent prompt templates and tool calling schemas",
+        "Context window constraints and retrieval embeddings",
+        "Workflow graph definitions and evaluation rubrics"
+      ],
+      "outputs": [
+        "Agentic workflow execution plans and prompt benchmark reports",
+        "SDK integration guides and trace diagnostics",
+        "Audit trails and deterministic LLM interaction logs"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "LLM SDK and prompt orchestration libraries",
+        "Deterministic eval harness and embedding utilities"
+      ],
+      "patterns": [
+        "Deterministic tool calling and argument validation",
+        "Zero-fiction hallucination prevention pipelines",
+        "Multi-agent state graph orchestration"
+      ]
+    },
+    {
+      "domain": "growth",
+      "skill_id": "SKILL-0151",
+      "category": "Digital Marketing, SEO & Growth Marketing",
+      "associated_agent": "AGT-0151 (growth-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for Digital Marketing, SEO & Growth Marketing specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "Web traffic analytics, CAC/LTV parameters, and channel spend",
+        "Conversion funnel drop-off metrics and A/B test parameters",
+        "Search engine indexing status and keyword ranking data"
+      ],
+      "outputs": [
+        "Growth experiment roadmaps and funnel optimization reports",
+        "Channel ROI performance summaries and CAC analysis",
+        "Audit trails and verifiable marketing execution logs"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "Web analytics and conversion tracking utilities",
+        "SEO crawler and keyword density analyzers"
+      ],
+      "patterns": [
+        "Deterministic marketing funnel unit economics modeling",
+        "Zero-fiction experiment hypothesis validation",
+        "Auditable conversion attribution tracking"
+      ]
+    },
+    {
+      "domain": "talent",
+      "skill_id": "SKILL-0241",
+      "category": "Talent Acquisition & People Operations",
+      "associated_agent": "AGT-0241 (talent-skill-01-agent)",
+      "verification_level": "Deterministic / Primary Verified Data",
+      "capability": "Autonomous standard operating procedure and execution capability for Talent Acquisition & People Operations specialization #1.",
+      "sops": [
+        "Ingest context and parameters from workspace.",
+        "Execute deterministic analysis using verified primary data.",
+        "Produce structured markdown outputs, logs, and audit trails."
+      ],
+      "inputs": [
+        "Job requisitions, headcount forecasts, and hiring timelines",
+        "Interview feedback forms, skill matrices, and candidate dossiers",
+        "Employee retention data and performance appraisal parameters"
+      ],
+      "outputs": [
+        "Hiring pipeline analytics and candidate scorecards",
+        "People operations audit reports and leveling benchmarks",
+        "Audit trails and verifiable talent management logs"
+      ],
+      "tools": [
+        "Reading, search, and validation tools",
+        "HRIS and talent pipeline monitors",
+        "Performance evaluation and leveling rubrics"
+      ],
+      "patterns": [
+        "Deterministic competency-based evaluation criteria",
+        "Zero-fiction hiring pipeline tracking",
+        "Auditable employee lifecycle progression"
+      ]
+    }
+  ],
+  "total_domains_analyzed": 23,
+  "extraction_timestamp": "2026-08-26T01:08:00+05:30"
+}
