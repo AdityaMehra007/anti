@@ -80,7 +80,7 @@ class OmegaMcpRegistry:
         # 2. OmniRoute Model Router Gateway
         omniroute_record = McpServerRecord(
             server_name="omniroute",
-            version="3.8.49",
+            version="CONFIGURED_GATEWAY",
             source="github.com/diegosouzapw/OmniRoute",
             transport="openai_compatible_http",
             endpoint="http://localhost:20128/v1",

@@ -228,6 +228,18 @@ def cmd_certify():
     print(f"Local Inference   : VERIFIED (llama3:latest on port 11434)")
     print(f"Canonical Root    : E:\\anti")
 
+def cmd_backup():
+    from ..engines.disaster_recovery import DisasterRecoveryEngine
+    snap = DisasterRecoveryEngine.create_snapshot()
+    print(f"\n=======================================================")
+    print(f"         OMEGA SYSTEM BACKUP SNAPSHOT")
+    print(f"=======================================================")
+    print(f"Status            : {snap['status']}")
+    print(f"Snapshot Path     : {snap['snapshot_path']}")
+    print(f"Files Backed Up   : {', '.join(snap['files_backed_up']) if snap['files_backed_up'] else 'None'}")
+    print(f"Timestamp         : {snap['timestamp']}")
+    print(f"Ledger Integrity  : {'VERIFIED' if snap['ledger_integrity_preserved'] else 'FAILED'}")
+
 def main():
     if len(sys.argv) > 1:
         cmd = sys.argv[1].lower().replace("omega-", "").replace("omega_", "")
@@ -252,13 +264,14 @@ def main():
             "followups": cmd_followups,
             "audit": cmd_audit,
             "truth": cmd_truth,
-            "certify": cmd_certify
+            "certify": cmd_certify,
+            "backup": cmd_backup
         }
         if cmd in cmds:
             cmds[cmd]()
         else:
             print(f"Unknown command: {cmd}")
-            print("Available commands: status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify")
+            print("Available commands: status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify, backup")
     else:
         cmd_status()
 
