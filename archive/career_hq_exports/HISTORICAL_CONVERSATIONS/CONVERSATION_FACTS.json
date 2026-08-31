@@ -1,0 +1,68 @@
+{
+  "conversation_id": "8b755f4d-1d03-4782-8543-b1f490a888cf",
+  "export_timestamp": "2026-08-31T15:07:04Z",
+  "candidate": {
+    "full_name": "Aditya Mehra",
+    "email": "adityamehra799@gmail.com",
+    "phone": "+91 7003456624",
+    "linkedin": "linkedin.com/in/aditya-mehra-b8644b326",
+    "location": "Bengaluru, Karnataka, India",
+    "education": {
+      "degree": "Bachelor of Business Administration (BBA)",
+      "specialization": "International Business",
+      "institution": "Dayananda Sagar University, Bengaluru",
+      "duration": "2023-2026"
+    },
+    "target_roles": [
+      "Operations Analyst",
+      "Global Trade Compliance Analyst",
+      "Supply Chain Specialist",
+      "Logistics Coordinator",
+      "Business Operations Associate",
+      "CADP / New Analyst (2026)"
+    ]
+  },
+  "hardware_and_environment": {
+    "os": "Windows 10 Home (Build 19045), x64",
+    "cpu": "Intel Core i7-6700HQ @ 2.60GHz (4 Cores, 8 Threads)",
+    "ram_gb": 15.9,
+    "gpu": "NVIDIA GeForce GTX 960M (2.0 GB VRAM, Driver 546.33)",
+    "python_version": "3.13 / 3.11",
+    "local_ai": {
+      "provider": "ollama",
+      "model": "llama3:latest",
+      "endpoint": "http://127.0.0.1:11434",
+      "measured_warm_latency_ms": 4060.0,
+      "status": "LIVE"
+    },
+    "omniroute_gateway": {
+      "endpoint": "http://127.0.0.1:20128",
+      "status": "OFFLINE"
+    }
+  },
+  "database_state": {
+    "engine": "sqlite3",
+    "path": "E:/anti/omega/data/omega_master.db",
+    "tables_count": 18,
+    "confirmed_jobs_count": 24,
+    "monitored_companies_count": 20,
+    "ready_applications_count": 4,
+    "submitted_applications_count": 0,
+    "outreach_drafts_count": 3,
+    "outreach_sent_count": 0
+  },
+  "test_suite_status": {
+    "total_tests": 50,
+    "passed": 50,
+    "failed": 0,
+    "pass_rate_percent": 100.0,
+    "suites": [
+      "test_omniroute_live.py (18 tests)",
+      "test_omega_pipeline_e2e.py (4 tests)",
+      "test_omega_career_war_room.py (11 tests)",
+      "test_omega_career_war_room_v2.py (7 tests)",
+      "test_reality_audit.py (6 tests)",
+      "test_live_job_discovery.py (4 tests)"
+    ]
+  }
+}

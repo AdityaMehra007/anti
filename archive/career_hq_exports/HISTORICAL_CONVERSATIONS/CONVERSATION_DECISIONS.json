@@ -1,0 +1,44 @@
+[
+  {
+    "decision_id": "DEC-001",
+    "decision": "Standardize on 18 normalized SQLite tables in omega_master.db",
+    "date": "2026-08-26",
+    "rationale": "ACID compliance, zero external dependencies, persistent audit trail.",
+    "status": "ACTIVE"
+  },
+  {
+    "decision_id": "DEC-002",
+    "decision": "Local-First Sovereign AI via Ollama llama3:latest for sensitive data",
+    "date": "2026-08-26",
+    "rationale": "Zero candidate PII, resume text, or credentials leaked to external cloud.",
+    "status": "ACTIVE"
+  },
+  {
+    "decision_id": "DEC-003",
+    "decision": "Enforce strict zero-delusion policy & isolate seed records as SEEDED_NOT_VERIFIED",
+    "date": "2026-08-26",
+    "rationale": "Prevents synthetic development fixtures from polluting the active job application queue.",
+    "status": "ACTIVE"
+  },
+  {
+    "decision_id": "DEC-004",
+    "decision": "Cryptographic SHA-256 evidence hashing for confirmed job openings",
+    "date": "2026-08-26",
+    "rationale": "Ensures every confirmed opening has tamper-proof HTTP 200 verification proof.",
+    "status": "ACTIVE"
+  },
+  {
+    "decision_id": "DEC-005",
+    "decision": "Strict human approval gating for outbound applications and outreach",
+    "date": "2026-08-26",
+    "rationale": "Never allow autonomous uncontrolled dispatch to external hiring portals.",
+    "status": "ACTIVE"
+  },
+  {
+    "decision_id": "DEC-006",
+    "decision": "Dual root separation: E:\\anti (Operational OS) & E:\\OMNI_OS\\CAREER_HQ (Permanent Memory)",
+    "date": "2026-08-31",
+    "rationale": "Separates executable engine code from persistent long-term knowledge.",
+    "status": "ACTIVE"
+  }
+]

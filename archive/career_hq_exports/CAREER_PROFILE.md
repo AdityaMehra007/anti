@@ -1,0 +1,16 @@
+# CANONICAL CAREER PROFILE (VERIFIED FACTS ONLY)
+- **Full Name:** Aditya Mehra
+- **Email:** adityamehra799@gmail.com
+- **Phone:** +91 7003456624
+- **LinkedIn:** linkedin.com/in/aditya-mehra-b8644b326
+- **Location:** Bengaluru, Karnataka, India
+- **Education:** BBA International Business (2023–2026), Dayananda Sagar University, Bengaluru
+- **Work & Operations History:**
+  - Event Coordinator — TRILOGY Live Music (Bangalore Club, Jan 2026)
+  - Business Development Intern — Pencil Mark Interior Solutions LLP (Jul-Aug 2025, Management Commendation)
+  - Exhibition Operations Lead — AERO India 2025 (Salt in My Coca, Feb 2025)
+  - Freelance Event Operations Lead — Tata Communications, Puma, VH1 Supersonic, Aero India (2021–2023)
+  - Operations & General Management — Family Enterprise, Kolkata (2018–2020)
+- **Skills:** Operations Management, Budgeting & Cost Control, Client Relationship Management, Vendor Coordination, MS Excel, AI Tools.
+- **Certifications:** Google Digital Marketing (2024), IIT Kharagpur NPTEL Service Marketing (2025), Outskill Generative AI (2025).
+- **Languages:** English (Fluent), Hindi (Fluent), Bengali (Native).
