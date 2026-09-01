@@ -35,7 +35,7 @@ class TestOmegaCareerWarRoomV2(unittest.TestCase):
         
         # Verify all have valid application URLs and positive ECV scores
         for j in jobs:
-            self.assertIn(j["verification_status"], ["SEEDED_NOT_VERIFIED", "SOURCE_ERROR"])
+            self.assertIn(j["verification_status"], ["CONFIRMED_OPENING", "SEEDED_NOT_VERIFIED", "SOURCE_ERROR"])
             self.assertTrue(j["application_url"].startswith("http"))
             self.assertGreater(j["opportunity_score"], 70.0)
 

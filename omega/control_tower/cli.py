@@ -308,6 +308,17 @@ def cmd_funnel_status():
     for a in apps:
         print(f"  • [{a['current_stage']}] {a['role_title']} @ {a['company_name']} (Variant: {a['resume_variant']})")
 
+def cmd_prepare_apps():
+    from ..career_war_room.job_application_automator import job_application_automator
+    print(f"\n=======================================================")
+    print(f"      PREPARING TAILORED APPLICATION DOSSIERS")
+    print(f"=======================================================")
+    dossiers = job_application_automator.prepare_all_confirmed_applications()
+    print(f"Prepared {len(dossiers)} tailored application dossiers in E:/OMNI_OS/CAREER_HQ/APPLICATION_PACKAGES/")
+    for idx, d in enumerate(dossiers[:10], 1):
+        print(f"  [{idx}] {d['role']} @ {d['company']} (ATS: {d['ats_score']}%, Variant: {d['variant']})")
+        print(f"       Apply: {d['application_url']}")
+
 def main():
     if len(sys.argv) > 1:
         cmd = sys.argv[1].lower().replace("omega-", "").replace("omega_", "")
@@ -337,6 +348,8 @@ def main():
             "war-room": cmd_war_room,
             "top-jobs": cmd_top_jobs,
             "live-scan": cmd_live_scan,
+            "prepare-apps": cmd_prepare_apps,
+            "automator": cmd_prepare_apps,
             "target-companies": cmd_target_companies,
             "morning-brief": cmd_war_room,
             "funnel-status": cmd_funnel_status
@@ -345,7 +358,7 @@ def main():
             cmds[cmd]()
         else:
             print(f"Unknown command: {cmd}")
-            print("Available commands: status, war-room, top-jobs, live-scan, target-companies, funnel-status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify, backup")
+            print("Available commands: status, war-room, top-jobs, live-scan, prepare-apps, target-companies, funnel-status, models, models-live, providers, model-health, gateway-test, route-test, failover-test, security-test, mcp, firecrawl, agents, career, jobs, companies, applications, outreach, followups, audit, truth, certify, backup")
     else:
         cmd_status()
 
