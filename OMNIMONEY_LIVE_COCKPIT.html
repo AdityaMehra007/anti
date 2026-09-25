@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMNIMONEY OS — Live Cockpit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-card: #111827;
+      --bg-card-hover: #172033;
+      --border-subtle: #1f293d;
+      --border-accent: #3b82f6;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --accent-green: #10b981;
+      --accent-emerald: #059669;
+      --accent-cyan: #06b6d4;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 24px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 18px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .brand h1 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .brand p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .header-metrics {
+      display: flex;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      align-items: center;
+    }
+
+    .metric-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+    
+    .status-dot.offline {
+      background: var(--accent-rose);
+      box-shadow: 0 0 8px var(--accent-rose);
+      animation: none;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    .btn-refresh {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      color: var(--accent-blue);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 12px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .btn-refresh:hover {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+
+    /* SECTION 153 BANNER */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "SECTION 153 DIRECTIVE";
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.15);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .hero-banner h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .hero-banner h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .hero-box {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .hero-box-title {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hero-box-val {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* INCOME LADDER */
+    .ladder-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .ladder-title {
+      font-size: 14px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ladder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .ladder-card {
+      background: rgba(10, 14, 23, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .ladder-card.active {
+      border-color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.05);
+    }
+
+    .ladder-level {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .ladder-amount {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin: 4px 0;
+    }
+
+    .ladder-monthly {
+      font-size: 12px;
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+    }
+
+    .ladder-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* TABS */
+    .tabs-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-card-hover);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-bottom: 2px solid var(--accent-blue);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* CARDS & GRIDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .card-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-score {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-category {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .card-target {
+      font-size: 12px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      margin-bottom: 12px;
+    }
+
+    .card-problem {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 10px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-amber);
+    }
+
+    .card-offer {
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .card-meta-row {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .card-price {
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .card-speed {
+      color: var(--accent-cyan);
+    }
+
+    .card-action-box {
+      margin-top: 12px;
+      padding: 10px;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .card-action-title {
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* KANBAN PIPELINE */
+    .pipeline-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      overflow-x: auto;
+    }
+
+    .pipeline-col {
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px;
+      min-height: 420px;
+    }
+
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .col-count {
+      background: var(--bg-card-hover);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .lead-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lead-card:hover {
+      border-color: var(--accent-cyan);
+    }
+
+    .lead-biz {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .lead-cat {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .lead-val {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-green);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .lead-notes {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* OUTREACH SCRIPT MODAL / DRAWER */
+    .script-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+
+    .script-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .script-content {
+      background: #000;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #e5e7eb;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      border: 1px solid #1f2937;
+    }
+
+    .btn-copy {
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-copy:hover {
+      background: #2563eb;
+    }
+    
+    /* MORNING BRIEF MARKDOWN STYLES */
+    .markdown-body {
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+    .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+      color: #fff;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    .markdown-body h1 { font-size: 1.5em; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; }
+    .markdown-body h2 { font-size: 1.2em; color: var(--accent-cyan); }
+    .markdown-body p, .markdown-body li {
+      color: var(--text-main);
+      margin-bottom: 0.8em;
+      line-height: 1.6;
+    }
+    .markdown-body ul, .markdown-body ol {
+      padding-left: 20px;
+      margin-bottom: 1em;
+    }
+    .markdown-body strong { color: var(--accent-green); }
+    .markdown-body pre {
+      background: #000;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      border: 1px solid var(--border-subtle);
+      margin: 1em 0;
+    }
+    .markdown-body code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      color: var(--accent-amber);
+    }
+    
+    .loading-state, .error-state {
+      padding: 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .error-state {
+      color: var(--accent-rose);
+      border: 1px dashed var(--accent-rose);
+      border-radius: 8px;
+      background: rgba(244, 63, 94, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="logo-badge">OMNI</div>
+        <div>
+          <h1>OMNIMONEY OS: LIVE COCKPIT</h1>
+          <p>Live Server Connection: <span id="server-url">http://127.0.0.1:8000</span></p>
+        </div>
+      </div>
+      <div class="header-metrics">
+        <button class="btn-refresh" onclick="refreshAllData()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path></svg>
+          REFRESH
+        </button>
+        <div class="metric-pill" id="status-pill">
+          <div class="status-dot offline" id="status-dot"></div>
+          <span id="status-text">OFFLINE</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 153 IMMEDIATE ACTION -->
+    <section class="hero-banner" id="hero-action" style="display:none;">
+      <h2>Section 153 Priority Action</h2>
+      <h3 id="hero-title">--</h3>
+      <p id="hero-problem" style="color: var(--text-muted); font-size: 14px;">--</p>
+      
+      <div class="hero-grid">
+        <div class="hero-box">
+          <div class="hero-box-title">Offer & Pricing</div>
+          <div class="hero-box-val" id="hero-offer">--</div>
+        </div>
+        <div class="hero-box">
+          <div class="hero-box-title">Target Customer</div>
+          <div class="hero-box-val" id="hero-customer">--</div>
+        </div>
+        <div class="hero-box">
+          <div class="hero-box-title">Acquisition Channel</div>
+          <div class="hero-box-val" id="hero-channel">--</div>
+        </div>
+        <div class="hero-box">
+          <div class="hero-box-title">Exact Next Action Today</div>
+          <div class="hero-box-val" id="hero-next" style="color: var(--accent-green);">--</div>
+        </div>
+      </div>
+    </section>
+    
+    <div id="offline-banner" class="error-state" style="margin-bottom: 24px;">
+      Server offline - connect to http://127.0.0.1:8000
+    </div>
+
+    <!-- TABS NAVIGATION -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('tab-morning-brief')">Morning Brief</button>
+      <button class="tab-btn" onclick="switchTab('tab-radar')">Opportunity Radar</button>
+      <button class="tab-btn" onclick="switchTab('tab-live-prospects')">Live Prospects</button>
+      <button class="tab-btn" onclick="switchTab('tab-pipeline')">CRM Pipeline</button>
+      <button class="tab-btn" onclick="switchTab('tab-services')">Services</button>
+      <button class="tab-btn" onclick="switchTab('tab-categories')">Verticals</button>
+      <button class="tab-btn" onclick="switchTab('tab-scripts')">Outreach</button>
+      <button class="tab-btn" onclick="switchTab('tab-plans')">Roadmap</button>
+    </div>
+
+    <!-- TAB: MORNING BRIEF -->
+    <div id="tab-morning-brief" class="tab-content active">
+      <div id="morning-brief-content" class="markdown-body">
+        <div class="loading-state">Loading morning brief...</div>
+      </div>
+    </div>
+
+    <!-- TAB: OPPORTUNITY RADAR -->
+    <div id="tab-radar" class="tab-content">
+      <div class="cards-grid" id="opp-grid">
+        <div class="loading-state">Loading opportunities...</div>
+      </div>
+    </div>
+    
+    <!-- TAB: LIVE PROSPECTS -->
+    <div id="tab-live-prospects" class="tab-content">
+      <div class="cards-grid" id="live-prospects-grid">
+        <div class="loading-state">Loading live prospects...</div>
+      </div>
+    </div>
+
+    <!-- TAB: CRM PIPELINE -->
+    <div id="tab-pipeline" class="tab-content">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 16px; align-items: center;">
+        <h3 style="font-size: 16px; color: #fff; font-family: var(--font-mono);">ACTIVE DEALS PIPELINE</h3>
+      </div>
+      <div class="pipeline-board" id="pipeline-board">
+        <div class="loading-state">Loading CRM pipeline...</div>
+      </div>
+    </div>
+
+    <!-- TAB: SERVICES -->
+    <div id="tab-services" class="tab-content">
+      <div class="cards-grid" id="services-grid">
+        <div class="loading-state">Loading services...</div>
+      </div>
+    </div>
+
+    <!-- TAB: CATEGORIES -->
+    <div id="tab-categories" class="tab-content">
+      <div class="cards-grid" id="categories-grid">
+        <div class="loading-state">Loading categories...</div>
+      </div>
+    </div>
+
+    <!-- TAB: SCRIPTS -->
+    <div id="tab-scripts" class="tab-content">
+      <div class="script-box">
+        <div class="script-title">1. WHATSAPP AUDIT OUTREACH (Clinics / Gyms / Aesthetic Hubs)</div>
+        <div class="script-content" id="script-clinic">Hi [Doctor/Owner Name], quick observation from your Meta ads for [Clinic Name] in Bengaluru.
+
+I noticed patients clicking your ad in the evening wait 2–4 hours for appointment confirmation. Most book with a nearby competitor within 15 minutes.
+
+I built a 60-second AI WhatsApp scheduler that automatically answers treatment questions, checks doctor calendar availability, and confirms booking slots instantly 24/7.
+
+I recorded a 45-second screen demo showing how it works with [Clinic Name]'s services. Can I send the link over here?</div>
+        <button class="btn-copy" onclick="copyText('script-clinic')">Copy Script</button>
+      </div>
+
+      <div class="script-box">
+        <div class="script-title">2. REAL ESTATE LEAD QUALIFIER (Whitefield & Sarjapur Brokers)</div>
+        <div class="script-content" id="script-re">Hi [Broker Name], saw your luxury property listings across Whitefield.
+
+Most brokers tell us they waste 4+ hours a day calling portal leads who 'just wanted the price' or have no budget.
+
+We set up an automated WhatsApp qualifier: as soon as a lead inquires on 99acres or your site, it asks 3 questions (Budget, Timeline, Unit type) and only rings your phone when someone has ₹1.8Cr+ pre-qualified capital ready for a site visit.
+
+Happy to set this up for you for 3 days completely free to show you the difference. Would tomorrow morning work for a quick 5-min walk-through?</div>
+        <button class="btn-copy" onclick="copyText('script-re')">Copy Script</button>
+      </div>
+    </div>
+
+    <!-- TAB: 7/30/90-DAY PLANS -->
+    <div id="tab-plans" class="tab-content">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+        <div class="card">
+          <div>
+            <div class="badge badge-score" style="margin-bottom: 8px;">PHASE 1: DAYS 1–7</div>
+            <h3 class="card-title">First ₹20,000 Cash Flow Sprint</h3>
+            <p class="card-offer"><strong>Target:</strong> Close 1 paying local business client for AI WhatsApp Lead Automation.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div class="badge badge-category" style="margin-bottom: 8px;">PHASE 2: DAYS 8–30</div>
+            <h3 class="card-title">Scaling to ₹60,000 – ₹1,00,000/Month</h3>
+            <p class="card-offer"><strong>Target:</strong> Retain 4 recurring clients across Dental, Gyms, and Real Estate.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div class="badge badge-score" style="margin-bottom: 8px; background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); border-color: rgba(139, 92, 246, 0.3);">PHASE 3: DAYS 31–90</div>
+            <h3 class="card-title">Productization & Micro-SaaS Factory</h3>
+            <p class="card-offer"><strong>Target:</strong> Transition from service agency to productized software + AI agent workforce.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = 'http://127.0.0.1:8000/api';
+
+    async function apiGet(endpoint) {
+      try {
+        const res = await fetch(API_BASE + endpoint, { 
+            headers: { 'Accept': 'application/json' },
+            mode: 'cors'
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        
+        // Handle content-type (morning-brief might be plain text/markdown)
+        const contentType = res.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+            return await res.json();
+        } else {
+            return await res.text();
+        }
+      } catch (e) {
+        console.error('API Error:', endpoint, e);
+        throw e;
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function copyText(elemId) {
+      const text = document.getElementById(elemId).innerText;
+      navigator.clipboard.writeText(text).then(() => alert('Copied to clipboard!'));
+    }
+    
+    function setConnectionStatus(isOnline) {
+        const dot = document.getElementById('status-dot');
+        const text = document.getElementById('status-text');
+        const banner = document.getElementById('offline-banner');
+        const hero = document.getElementById('hero-action');
+        
+        if (isOnline) {
+            dot.classList.remove('offline');
+            text.innerText = 'CONNECTED';
+            banner.style.display = 'none';
+            hero.style.display = 'block';
+        } else {
+            dot.classList.add('offline');
+            text.innerText = 'OFFLINE';
+            banner.style.display = 'block';
+            hero.style.display = 'none';
+        }
+    }
+
+    async function refreshAllData() {
+      try {
+        // 1. Check Status
+        await apiGet('/status');
+        setConnectionStatus(true);
+        
+        // 2. Fetch Data Concurrently
+        Promise.allSettled([
+            apiGet('/today'),
+            apiGet('/opportunities?limit=10'),
+            apiGet('/services'),
+            apiGet('/categories'),
+            apiGet('/crm/prospects'),
+            apiGet('/prospects/mine'),
+            apiGet('/morning-brief')
+        ]).then((results) => {
+            const [today, opps, svcs, cats, crm, livePros, brief] = results.map(r => r.status === 'fulfilled' ? r.value : null);
+            
+            // Render Hero (Today)
+            if (today && today.section_153_highest_action) {
+                const a = today.section_153_highest_action;
+                document.getElementById('hero-title').innerText = a.opportunity || '--';
+                document.getElementById('hero-problem').innerText = a.problem || '--';
+                document.getElementById('hero-offer').innerText = a.price_inr ? `₹${a.price_inr.toLocaleString()}` : '--';
+                document.getElementById('hero-customer').innerText = a.customer || '--';
+                document.getElementById('hero-channel').innerText = a.acquisition_channel || '--';
+                document.getElementById('hero-next').innerText = a.exact_next_action || '--';
+            }
+            
+            // Render Morning Brief
+            const briefEl = document.getElementById('morning-brief-content');
+            if (brief) {
+                // Parse markdown
+                let mdContent = typeof brief === 'string' ? brief : (brief.content || JSON.stringify(brief, null, 2));
+                if (window.marked) {
+                    briefEl.innerHTML = marked.parse(mdContent);
+                } else {
+                    briefEl.innerText = mdContent;
+                }
+            } else {
+                briefEl.innerHTML = '<div class="error-state">Failed to load morning brief.</div>';
+            }
+
+            // Render Opportunities
+            const oppGrid = document.getElementById('opp-grid');
+            if (opps && Array.isArray(opps)) {
+                oppGrid.innerHTML = opps.map(o => `
+                  <div class="card">
+                    <div>
+                      <div class="card-badge-row">
+                        <span class="badge badge-score">SCORE: ${o.score || 'N/A'}</span>
+                        <span class="badge badge-category">${o.category || 'N/A'}</span>
+                      </div>
+                      <h4 class="card-title">${o.title || 'Untitled'}</h4>
+                      <div class="card-target">🎯 ${o.target_customer || '--'}</div>
+                      <div class="card-problem">⚠️ ${o.problem || '--'}</div>
+                      <div class="card-offer">💡 <strong>Offer:</strong> ${o.offer || '--'}</div>
+                    </div>
+                    <div>
+                      <div class="card-meta-row">
+                        <span class="card-price">${o.pricing_model || '--'}</span>
+                        <span class="card-speed">⚡ First ₹: ${o.time_to_first_rupee_days || '?'} Days</span>
+                      </div>
+                    </div>
+                  </div>
+                `).join('');
+            } else { oppGrid.innerHTML = '<div class="error-state">No opportunities found.</div>'; }
+
+            // Render Live Prospects
+            const liveGrid = document.getElementById('live-prospects-grid');
+            if (livePros && Array.isArray(livePros) && livePros.length > 0) {
+                liveGrid.innerHTML = livePros.map(p => `
+                  <div class="card">
+                    <div>
+                      <h4 class="card-title">${p.business_name || p.name || 'Unknown'}</h4>
+                      <div class="card-target">${p.contact || p.phone || '--'}</div>
+                      <div class="card-problem">${p.notes || p.description || '--'}</div>
+                    </div>
+                  </div>
+                `).join('');
+            } else { liveGrid.innerHTML = '<div class="loading-state">No live prospects available.</div>'; }
+
+            // Render CRM Pipeline
+            const crmBoard = document.getElementById('pipeline-board');
+            if (crm && Array.isArray(crm)) {
+                const stages = ['NEW', 'AUDIT_SENT', 'CONTACTED', 'CALL_SCHEDULED', 'WON'];
+                crmBoard.innerHTML = stages.map(st => {
+                  const leadsInStage = crm.filter(p => p.status === st);
+                  return `
+                    <div class="pipeline-col">
+                      <div class="col-header">
+                        <span>${st.replace('_', ' ')}</span>
+                        <span class="col-count">${leadsInStage.length}</span>
+                      </div>
+                      ${leadsInStage.map(l => `
+                        <div class="lead-card">
+                          <div class="lead-biz">${l.business_name || l.name}</div>
+                          <div class="lead-cat">${l.category || 'General'}</div>
+                          <div class="lead-val">₹${(l.deal_value_inr || 0).toLocaleString()}</div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  `;
+                }).join('');
+            } else { crmBoard.innerHTML = '<div class="error-state">No pipeline data found.</div>'; }
+
+            // Render Services
+            const svcsGrid = document.getElementById('services-grid');
+            if (svcs && Array.isArray(svcs)) {
+                svcsGrid.innerHTML = svcs.map(s => `
+                  <div class="card">
+                    <div>
+                      <h4 class="card-title">${s.name || s.title || '--'}</h4>
+                      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">${s.description || s.deliverable || '--'}</p>
+                    </div>
+                  </div>
+                `).join('');
+            } else { svcsGrid.innerHTML = '<div class="error-state">No services found.</div>'; }
+            
+            // Render Categories
+            const catGrid = document.getElementById('categories-grid');
+            if (cats && Array.isArray(cats)) {
+                catGrid.innerHTML = cats.map(c => `
+                  <div class="card">
+                    <div>
+                      <h4 class="card-title">${c.name || '--'}</h4>
+                    </div>
+                  </div>
+                `).join('');
+            } else { catGrid.innerHTML = '<div class="error-state">No categories found.</div>'; }
+            
+        });
+
+      } catch (err) {
+        console.error("Dashboard failed to refresh", err);
+        setConnectionStatus(false);
+      }
+    }
+
+    // Auto-refresh on load
+    window.addEventListener('DOMContentLoaded', refreshAllData);
+  </script>
+</body>
+</html>

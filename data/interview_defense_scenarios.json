@@ -1,0 +1,62 @@
+﻿[
+  {
+    "scenario_id": "SCEN-001-AERO-INDIA-RUN-OF-SHOW",
+    "title": "Aero India 2025: VIP Protocol & High-Footfall Logistics",
+    "target_roles": ["Operations Analyst", "Event Operations Lead", "Global Delivery Specialist"],
+    "target_companies": ["Accenture", "Puma India", "Deloitte", "Boeing India"],
+    "situation": "Managing operations at Yelahanka Air Force Station during Aero India 2025 with 100,000+ attendees and strict Ministry of Defence access control.",
+    "tough_interviewer_probe": "A tier-1 audio-visual fabrication vendor is delayed by 90 minutes at the security gate due to missing vehicle passes on Day 1 at 06:00 AM. Show opens at 08:00 AM. What do you do?",
+    "star_response": {
+      "situation": "On Day 1 of Aero India 2025, our AV staging supplier was stalled at Gate 4 with security personnel demanding physical pass endorsements for a secondary transport vehicle.",
+      "task": "Ensure 100% booth readiness and VIP sound test completion by 07:30 AM without violating Ministry of Defence air base security protocols.",
+      "action": "I immediately deployed our pre-staged contingency buffer: dispatched our accredited liaison officer with the master liaison manifest to Gate 4, while simultaneously directing the booth crew to execute secondary electrical and branding setups using on-site backup gear. I authorized manual unloading at the gate perimeter to expedite hand-carry clearance.",
+      "result": "The staging was completed and certified at 07:22 AM (8 minutes ahead of deadline). The exhibition achieved 100% operational uptime, zero inventory shrinkage across ₹12.5L in display inventory, and zero security non-conformances across 7 days."
+    },
+    "key_metrics_to_recite": ["100,000+ footfall", "₹12.5L inventory with 0.0% shrinkage", "100% on-time readiness", "07:22 AM sign-off"]
+  },
+  {
+    "scenario_id": "SCEN-002-VENDOR-RATE-CARD-RECONCILIATION",
+    "title": "Contractual Rate Card Variance & Margin Recovery",
+    "target_roles": ["Risk Advisory Analyst", "Supply Chain Consultant", "Business Operations Lead"],
+    "target_companies": ["Deloitte", "KPMG", "PwC", "Cisco Systems", "Amazon"],
+    "situation": "Reconciling vendor billing against master contracted rate sheets where suppliers routinely inflate turnaround surcharges.",
+    "tough_interviewer_probe": "A long-term merchandise supplier submits an invoice 12.5% over the agreed master rate card, claiming emergency raw material price surges. They refuse to release shipment for your next activation unless paid in full. How do you handle it?",
+    "star_response": {
+      "situation": "A supplier submitted an invoice for ₹1,35,000 against a contracted rate of ₹1,20,000, alleging last-minute supply chain inflation, and threatened delivery hold.",
+      "task": "Protect company gross margins, prevent operational shutdown of the upcoming client activation, and enforce contract integrity.",
+      "action": "I decoupled the operational release from the commercial dispute: I issued an immediate partial disbursement voucher for the undisputed contracted amount (₹1,20,000), invoking clause 4.2 of our master services agreement which mandates continuous performance upon payment of undisputed sums. Concurrently, I initiated an algorithmic rate audit comparing their raw material claims against published index prices.",
+      "result": "The vendor released goods on time for the 6:00 AM activation. During the post-event audit, the vendor conceded the ₹15,000 overcharge was unsupported by contractual index clauses. We preserved the ₹15,000 margin (11.1% cost avoidance) while preserving a long-term strategic vendor relationship."
+    },
+    "key_metrics_to_recite": ["₹36,937.50 recovered across sample batch", "10.26% margin preservation", "100% on-time delivery maintained"]
+  },
+  {
+    "scenario_id": "SCEN-003-AI-DATA-QUALITY-ARBITRATION",
+    "title": "Instawork AI Data Operations: Multi-Pass Precision & Arbitration",
+    "target_roles": ["Data Operations Analyst", "Global Markets Associate", "Quality Assurance Lead"],
+    "target_companies": ["Goldman Sachs", "JP Morgan Chase", "Swiss Re", "Google India"],
+    "situation": "Leading data quality pipelines for automated labor platforms where manual tagging discrepancies degrade algorithm performance.",
+    "tough_interviewer_probe": "Two independent annotators provide contradictory metadata labels on a high-stakes shift reliability record. The system confidence drops below the 85% threshold. How do you prevent downstream corruptions?",
+    "star_response": {
+      "situation": "In our data pipeline, high-variance label disagreement between primary and secondary annotators caused model confidence to drop to 78%, risking erroneous shift allocations.",
+      "task": "Achieve 99%+ operational accuracy standard while preventing pipeline throughput bottlenecks.",
+      "action": "I engineered a 3-tier arbitration logic: First, the record was automatically quarantined into an arbitration queue. Second, the system extracted historical ground-truth performance scores for both annotators to weight the input. Third, edge cases exceeding standard variance were routed to a calibrated senior lead with a golden-record evaluation rubric.",
+      "result": "Achieved a verified 100% post-arbitration dataset accuracy across 10,000+ entries with a mean time to resolution under 4 minutes, establishing a gold-standard data hygiene framework directly applicable to financial STP trade settlement."
+    },
+    "key_metrics_to_recite": ["99%+ pipeline accuracy", "100% post-arbitration integrity", "<4 min mean resolution time"]
+  },
+  {
+    "scenario_id": "SCEN-004-EXIM-INCOTERMS-LOGISTICS",
+    "title": "International Trade: FCA Bengaluru Air Cargo vs FOB Maritime",
+    "target_roles": ["EXIM Operations Associate", "Trade Finance Analyst", "Logistics Trainee"],
+    "target_companies": ["DHL Express", "Maersk Line", "HSBC EDPI", "Grant Thornton INDUS"],
+    "situation": "Evaluating transit liability, demurrage exposure, and cash conversion cycles for cross-border electronics and aerospace components.",
+    "tough_interviewer_probe": "Why would an Indian enterprise importing time-critical components insist on FCA at origin airport rather than standard maritime FOB?",
+    "star_response": {
+      "situation": "Under FOB maritime terms, an importer bears catastrophic inventory holding costs, port congestion demurrage, and container turnaround delays at gateway ports like Chennai or JNPT.",
+      "task": "Minimize transit lead time and eliminate unnecessary ocean demurrage liability for high-value components.",
+      "action": "I conducted an Incoterms 2020 risk matrix analysis recommending FCA (Free Carrier) at origin international airport with air cargo direct routing to Kempegowda International Airport (BLR). Under FCA, risk transfers to the buyer immediately upon handover to the first carrier, enabling parallel electronic customs filing via ICEGATE while the aircraft is in transit.",
+      "result": "Reduced total transit cycle from 24 days to 48 hours, accelerated bill of entry assessment by 18 hours, and eliminated port demurrage penalties entirely."
+    },
+    "key_metrics_to_recite": ["Transit reduction from 24 days to 48 hours", "18-hour customs clearance acceleration", "Incoterms 2020 FCA protocol"]
+  }
+]

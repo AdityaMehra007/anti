@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMNIMONEY OS — Money Radar Bengaluru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="omnimoney_data.js"></script>
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-card: #111827;
+      --bg-card-hover: #172033;
+      --border-subtle: #1f293d;
+      --border-accent: #3b82f6;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --accent-green: #10b981;
+      --accent-emerald: #059669;
+      --accent-cyan: #06b6d4;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 24px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 18px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .brand h1 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+
+    .brand p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .header-metrics {
+      display: flex;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .metric-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* SECTION 153 BANNER */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "SECTION 153 DIRECTIVE";
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.15);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .hero-banner h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .hero-banner h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .hero-box {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .hero-box-title {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hero-box-val {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* INCOME LADDER */
+    .ladder-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .ladder-title {
+      font-size: 14px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ladder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .ladder-card {
+      background: rgba(10, 14, 23, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .ladder-card.active {
+      border-color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.05);
+    }
+
+    .ladder-level {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .ladder-amount {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin: 4px 0;
+    }
+
+    .ladder-monthly {
+      font-size: 12px;
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+    }
+
+    .ladder-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* TABS */
+    .tabs-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-card-hover);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-bottom: 2px solid var(--accent-blue);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* CARDS & GRIDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .card-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-score {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-category {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .card-target {
+      font-size: 12px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      margin-bottom: 12px;
+    }
+
+    .card-problem {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 10px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-amber);
+    }
+
+    .card-offer {
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .card-meta-row {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .card-price {
+      color: var(--accent-green);
+      font-weight: 700;
+    }
+
+    .card-speed {
+      color: var(--accent-cyan);
+    }
+
+    .card-action-box {
+      margin-top: 12px;
+      padding: 10px;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .card-action-title {
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* KANBAN PIPELINE */
+    .pipeline-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      overflow-x: auto;
+    }
+
+    .pipeline-col {
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px;
+      min-height: 420px;
+    }
+
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .col-count {
+      background: var(--bg-card-hover);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .lead-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lead-card:hover {
+      border-color: var(--accent-cyan);
+    }
+
+    .lead-biz {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .lead-cat {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .lead-val {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-green);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .lead-notes {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* OUTREACH SCRIPT MODAL / DRAWER */
+    .script-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+
+    .script-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .script-content {
+      background: #000;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #e5e7eb;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      border: 1px solid #1f2937;
+    }
+
+    .btn-copy {
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-copy:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="logo-badge">OMNI</div>
+        <div>
+          <h1>OMNIMONEY OS: MONEY RADAR BENGALURU</h1>
+          <p>Economic Opportunity, B2B Cash Flow & Capital Compounding System</p>
+        </div>
+      </div>
+      <div class="header-metrics">
+        <div class="metric-pill">
+          <div class="status-dot"></div>
+          <span>SQLITE TRUTH LAYER: CONNECTED</span>
+        </div>
+        <div class="metric-pill">
+          <span id="stat-contacts">7,500</span> CONTACTS
+        </div>
+        <div class="metric-pill">
+          <span id="stat-gaps">4,500</span> COMPANY GAPS
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 153 IMMEDIATE ACTION -->
+    <section class="hero-banner" id="hero-action">
+      <h2>Section 153 Priority Action</h2>
+      <h3 id="hero-title">AI WhatsApp Inbound Qualifier for Indiranagar & Koramangala Aesthetic Clinics</h3>
+      <p id="hero-problem" style="color: var(--text-muted); font-size: 14px;">Clinics spend ₹50,000–₹2,00,000/month on ads but lose 60%+ of evening inquiries due to slow manual response times.</p>
+      
+      <div class="hero-grid">
+        <div class="hero-box">
+          <div class="hero-box-title">Offer & Pricing</div>
+          <div class="hero-box-val" id="hero-offer">₹20,000 Setup + ₹12,000/mo Retainer</div>
+        </div>
+        <div class="hero-box">
+          <div class="hero-box-title">Target Customer</div>
+          <div class="hero-box-val" id="hero-customer">100+ Aesthetic & Dental Clinics (Bengaluru)</div>
+        </div>
+        <div class="hero-box">
+          <div class="hero-box-title">Acquisition Channel</div>
+          <div class="hero-box-val" id="hero-channel">Direct WhatsApp / Loom Video Demo to Managing Doctor</div>
+        </div>
+        <div class="hero-box">
+          <div class="hero-box-title">Exact Next Action Today</div>
+          <div class="hero-box-val" id="hero-next" style="color: var(--accent-green);">Record 60s demo on WhatsApp booking bot, dispatch to 10 verified clinics.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCOME LADDER -->
+    <section class="ladder-section">
+      <div class="ladder-title">
+        <span>DAILY CASH FLOW LADDER (SECTIONS 58–63)</span>
+        <span style="font-size: 11px; color: var(--accent-green);">TARGET: ₹50,000/MONTH BASELINE</span>
+      </div>
+      <div class="ladder-grid" id="ladder-grid">
+        <!-- populated via js -->
+      </div>
+    </section>
+
+    <!-- TABS NAVIGATION -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('tab-radar')">Opportunity Radar (Top 5)</button>
+      <button class="tab-btn" onclick="switchTab('tab-pipeline')">B2B CRM Pipeline (<span id="tab-lead-count">5</span> Leads)</button>
+      <button class="tab-btn" onclick="switchTab('tab-services')">10 Sellable Services</button>
+      <button class="tab-btn" onclick="switchTab('tab-categories')">20 Bengaluru Verticals</button>
+      <button class="tab-btn" onclick="switchTab('tab-scripts')">Outreach Scripts & Cold Copy</button>
+      <button class="tab-btn" onclick="switchTab('tab-plans')">7/30/90-Day Execution Roadmaps</button>
+    </div>
+
+    <!-- TAB 1: OPPORTUNITY RADAR -->
+    <div id="tab-radar" class="tab-content active">
+      <div class="cards-grid" id="opp-grid">
+        <!-- populated via js -->
+      </div>
+    </div>
+
+    <!-- TAB 2: CRM PIPELINE -->
+    <div id="tab-pipeline" class="tab-content">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 16px; align-items: center;">
+        <h3 style="font-size: 16px; color: #fff; font-family: var(--font-mono);">ACTIVE DEALS PIPELINE</h3>
+        <div style="font-family: var(--font-mono); font-size: 13px; color: var(--accent-green);">
+          TOTAL PIPELINE VALUE: <span id="pipeline-val-header">₹1,05,000</span>
+        </div>
+      </div>
+      <div class="pipeline-board" id="pipeline-board">
+        <!-- populated via js -->
+      </div>
+    </div>
+
+    <!-- TAB 3: 10 SERVICES -->
+    <div id="tab-services" class="tab-content">
+      <div class="cards-grid" id="services-grid">
+        <!-- populated via js -->
+      </div>
+    </div>
+
+    <!-- TAB 4: 20 CATEGORIES -->
+    <div id="tab-categories" class="tab-content">
+      <div class="cards-grid" id="categories-grid">
+        <!-- populated via js -->
+      </div>
+    </div>
+
+    <!-- TAB 5: SCRIPTS -->
+    <div id="tab-scripts" class="tab-content">
+      <div class="script-box">
+        <div class="script-title">1. WHATSAPP AUDIT OUTREACH (Clinics / Gyms / Aesthetic Hubs)</div>
+        <div class="script-content" id="script-clinic">Hi [Doctor/Owner Name], quick observation from your Meta ads for [Clinic Name] in Bengaluru.
+
+I noticed patients clicking your ad in the evening wait 2–4 hours for appointment confirmation. Most book with a nearby competitor within 15 minutes.
+
+I built a 60-second AI WhatsApp scheduler that automatically answers treatment questions, checks doctor calendar availability, and confirms booking slots instantly 24/7.
+
+I recorded a 45-second screen demo showing how it works with [Clinic Name]'s services. Can I send the link over here?</div>
+        <button class="btn-copy" onclick="copyText('script-clinic')">Copy Script</button>
+      </div>
+
+      <div class="script-box">
+        <div class="script-title">2. REAL ESTATE LEAD QUALIFIER (Whitefield & Sarjapur Brokers)</div>
+        <div class="script-content" id="script-re">Hi [Broker Name], saw your luxury property listings across Whitefield.
+
+Most brokers tell us they waste 4+ hours a day calling portal leads who 'just wanted the price' or have no budget.
+
+We set up an automated WhatsApp qualifier: as soon as a lead inquires on 99acres or your site, it asks 3 questions (Budget, Timeline, Unit type) and only rings your phone when someone has ₹1.8Cr+ pre-qualified capital ready for a site visit.
+
+Happy to set this up for you for 3 days completely free to show you the difference. Would tomorrow morning work for a quick 5-min walk-through?</div>
+        <button class="btn-copy" onclick="copyText('script-re')">Copy Script</button>
+      </div>
+
+      <div class="script-box">
+        <div class="script-title">3. B2B EXIM BUYER INTELLIGENCE (Peenya Industrial Exporters)</div>
+        <div class="script-content" id="script-exim">Respected [Managing Director Name],
+
+We analyzed European customs clearance records for precision engineering components exported from Peenya.
+
+We identified 18 tier-2 machinery distributors in Germany and Netherlands currently purchasing HS Code 8483 parts who are diversifying supply away from China.
+
+We have compiled a complete Trade Buyer Intelligence Sheet with verified procurement contacts and annual import volumes. Would you like us to share the 1-page sample docket with your office?</div>
+        <button class="btn-copy" onclick="copyText('script-exim')">Copy Script</button>
+      </div>
+    </div>
+
+    <!-- TAB 6: 7/30/90-DAY PLANS -->
+    <div id="tab-plans" class="tab-content">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+        <div class="card">
+          <div>
+            <div class="badge badge-score" style="margin-bottom: 8px;">PHASE 1: DAYS 1–7</div>
+            <h3 class="card-title">First ₹20,000 Cash Flow Sprint</h3>
+            <p class="card-offer"><strong>Target:</strong> Close 1 paying local business client for AI WhatsApp Lead Automation.</p>
+            <ul style="font-size: 12px; color: var(--text-muted); margin: 12px 0 12px 18px; line-height: 1.8;">
+              <li><strong>Day 1-2:</strong> Build 60-sec demo bot on WhatsApp Business API / Make.com.</li>
+              <li><strong>Day 3-4:</strong> Direct WhatsApp audit drops to 20 Bengaluru clinics.</li>
+              <li><strong>Day 5:</strong> Conduct 3 demo calls via Google Meet.</li>
+              <li><strong>Day 6-7:</strong> Offer ₹15k-₹20k setup + 7-day money-back guarantee; collect 50% deposit.</li>
+            </ul>
+          </div>
+          <div class="card-action-box">
+            <div class="card-action-title">Milestone</div>
+            <div>₹15,000 – ₹20,000 in bank account</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="badge badge-category" style="margin-bottom: 8px;">PHASE 2: DAYS 8–30</div>
+            <h3 class="card-title">Scaling to ₹60,000 – ₹1,00,000/Month</h3>
+            <p class="card-offer"><strong>Target:</strong> Retain 4 recurring clients across Dental, Gyms, and Real Estate.</p>
+            <ul style="font-size: 12px; color: var(--text-muted); margin: 12px 0 12px 18px; line-height: 1.8;">
+              <li>Standardize setup SOPs into reusable templates.</li>
+              <li>Charge ₹10,000 – ₹15,000 monthly retainer for CRM upkeep & lead analytics.</li>
+              <li>Turn client 1 into a video case study: "How Dr. Rao booked 28 new consultations in 14 days".</li>
+              <li>Daily prospecting quota: 10 personalized outreach messages per day.</li>
+            </ul>
+          </div>
+          <div class="card-action-box">
+            <div class="card-action-title">Milestone</div>
+            <div>Stable recurring cash flow ₹60k+/mo (Daily equivalent ₹2,000/day)</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="badge badge-score" style="margin-bottom: 8px; background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); border-color: rgba(139, 92, 246, 0.3);">PHASE 3: DAYS 31–90</div>
+            <h3 class="card-title">Productization & Micro-SaaS Factory</h3>
+            <p class="card-offer"><strong>Target:</strong> Transition from service agency to productized software + AI agent workforce.</p>
+            <ul style="font-size: 12px; color: var(--text-muted); margin: 12px 0 12px 18px; line-height: 1.8;">
+              <li>Package the WhatsApp booking bot into a multi-tenant web app (Micro-SaaS).</li>
+              <li>Launch self-serve onboarding at ₹2,999/month per clinic.</li>
+              <li>Integrate global EXIM intelligence into export consultancy dockets.</li>
+              <li>Target: ₹3,00,000/month recurring (Daily equivalent ₹10,000/day).</li>
+            </ul>
+          </div>
+          <div class="card-action-box">
+            <div class="card-action-title">Milestone</div>
+            <div>Self-sustaining economic operating system & equity ownership</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function renderDashboard() {
+      const data = window.OMNIMONEY_DATA || {};
+      
+      // Header Stats
+      if (data.database_stats) {
+        document.getElementById('stat-contacts').innerText = (data.database_stats.verified_contacts || 7500).toLocaleString();
+        document.getElementById('stat-gaps').innerText = (data.database_stats.company_gaps_identified || 4500).toLocaleString();
+      }
+
+      // Hero Section 153
+      if (data.section_153_highest_action) {
+        const a = data.section_153_highest_action;
+        document.getElementById('hero-title').innerText = a.opportunity;
+        document.getElementById('hero-problem').innerText = a.problem;
+        document.getElementById('hero-offer').innerText = '₹' + a.price_inr.toLocaleString() + ' (' + a.offer.slice(0, 70) + '...)';
+        document.getElementById('hero-customer').innerText = a.customer;
+        document.getElementById('hero-channel').innerText = a.acquisition_channel;
+        document.getElementById('hero-next').innerText = a.exact_next_action;
+      }
+
+      // Income Ladder
+      const ladderGrid = document.getElementById('ladder-grid');
+      if (ladderGrid && data.income_ladder) {
+        ladderGrid.innerHTML = data.income_ladder.map((step, idx) => `
+          <div class="ladder-card ${idx === 1 ? 'active' : ''}">
+            <div class="ladder-level">${step.level}</div>
+            <div class="ladder-amount">₹${step.daily.toLocaleString()}/day</div>
+            <div class="ladder-monthly">₹${step.monthly.toLocaleString()}/mo</div>
+            <div class="ladder-desc">${step.label}</div>
+          </div>
+        `).join('');
+      }
+
+      // Tab 1: Opportunities
+      const oppGrid = document.getElementById('opp-grid');
+      if (oppGrid && data.opportunities) {
+        oppGrid.innerHTML = data.opportunities.map(o => `
+          <div class="card">
+            <div>
+              <div class="card-badge-row">
+                <span class="badge badge-score">SCORE: ${o.score}/100</span>
+                <span class="badge badge-category">${o.category}</span>
+              </div>
+              <h4 class="card-title">${o.title}</h4>
+              <div class="card-target">🎯 ${o.target_customer}</div>
+              <div class="card-problem">⚠️ ${o.problem}</div>
+              <div class="card-offer">💡 <strong>Offer:</strong> ${o.offer}</div>
+            </div>
+            <div>
+              <div class="card-meta-row">
+                <span class="card-price">${o.pricing_model}</span>
+                <span class="card-speed">⚡ First ₹: ${o.time_to_first_rupee_days} Days</span>
+              </div>
+              <div class="card-action-box">
+                <div class="card-action-title">Exact Next Action</div>
+                <div>${o.exact_next_action}</div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Tab 2: CRM Pipeline
+      const pipelineBoard = document.getElementById('pipeline-board');
+      if (pipelineBoard && data.crm_pipeline) {
+        const summary = data.crm_pipeline.summary;
+        document.getElementById('pipeline-val-header').innerText = '₹' + summary.pipeline_value_inr.toLocaleString();
+        document.getElementById('tab-lead-count').innerText = summary.total_leads;
+
+        const stages = ['NEW', 'AUDIT_SENT', 'CONTACTED', 'CALL_SCHEDULED', 'WON'];
+        const prospects = data.crm_pipeline.prospects || [];
+
+        pipelineBoard.innerHTML = stages.map(st => {
+          const leadsInStage = prospects.filter(p => p.status === st);
+          return `
+            <div class="pipeline-col">
+              <div class="col-header">
+                <span>${st.replace('_', ' ')}</span>
+                <span class="col-count">${leadsInStage.length}</span>
+              </div>
+              ${leadsInStage.map(l => `
+                <div class="lead-card">
+                  <div class="lead-biz">${l.business_name}</div>
+                  <div class="lead-cat">${l.category} • ${l.location.split(',')[0]}</div>
+                  <div class="lead-val">₹${l.deal_value_inr.toLocaleString()}</div>
+                  <div class="lead-notes">${l.notes}</div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Tab 3: Services
+      const srvGrid = document.getElementById('services-grid');
+      if (srvGrid && data.monetizable_services) {
+        srvGrid.innerHTML = data.monetizable_services.map(s => `
+          <div class="card">
+            <div>
+              <div class="badge badge-category" style="margin-bottom: 8px;">${s.id}</div>
+              <h4 class="card-title">${s.name}</h4>
+              <div class="card-target">Target: ${s.target}</div>
+              <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">${s.deliverable}</p>
+            </div>
+            <div class="card-meta-row">
+              <span class="card-price">${s.pricing}</span>
+              <span class="card-speed">Setup: ${s.days_to_deliver} Days</span>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Tab 4: Categories
+      const catGrid = document.getElementById('categories-grid');
+      if (catGrid && data.customer_categories) {
+        catGrid.innerHTML = data.customer_categories.map(c => `
+          <div class="card">
+            <div>
+              <div class="badge badge-score" style="margin-bottom: 8px;">${c.id}</div>
+              <h4 class="card-title">${c.name}</h4>
+              <div style="font-size: 13px; color: var(--accent-cyan); font-family: var(--font-mono); margin-bottom: 6px;">Budget: ${c.budget}</div>
+              <div style="font-size: 12px; color: var(--text-dim);">Hubs: ${c.density_hubs}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function copyText(elemId) {
+      const text = document.getElementById(elemId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard!');
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', renderDashboard);
+  </script>
+</body>
+</html>

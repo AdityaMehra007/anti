@@ -12,6 +12,8 @@ venv/
 .env
 .env.local
 *.secret
+n8n/.env
+n8n/local_files/
 
 # IDE & OS
 .vscode/
@@ -22,8 +24,34 @@ Thumbs.db
 # Database Wal & Temp
 *.db-journal
 *.sqlite3-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# Large Binary Databases (use data seeding scripts instead)
+BANGALORE_APEX_GLOBAL_CAREER_DATABASE.sqlite
 
 # Submodules / Embedded Repositories
 wshobson-agents/
 external/
 .agents/
+
+# Runtime Logs
+*.log
+logs/*.log
+
+# Node
+node_modules/
+
+# Tool configs (per-machine)
+.clinerules/
+.codex/
+.cursor/
+.cursorrules
+.opencode/
+.opencodereview/
+.windsurf/
+.mcp.json
+.scratch/
+
+# Gemini agent state
+.gemini/

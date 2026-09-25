@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Glow Skin & Laser Clinic — AI Patient Booking Assistant Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f172a;
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 440px;
+      width: 100%;
+    }
+    .header-banner {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      width: 100%;
+      text-align: center;
+    }
+    .header-banner h1 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 4px;
+    }
+    .header-banner p {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .phone-frame {
+      background: #000;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 2px #334155;
+      width: 100%;
+      max-width: 380px;
+    }
+    .screen {
+      background: #0b141a;
+      border-radius: 32px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+      position: relative;
+    }
+    .status-bar {
+      background: #1f2c34;
+      padding: 8px 16px 4px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #8696a0;
+    }
+    .wa-header {
+      background: #1f2c34;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #00a884;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+    }
+    .chat-info h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e9edef;
+    }
+    .chat-info span {
+      font-size: 11px;
+      color: #25d366;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .chat-info span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #25d366;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .chat-body {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-image: radial-gradient(#1f2c34 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    .msg {
+      max-width: 82%;
+      padding: 9px 13px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.4;
+      position: relative;
+      animation: fadeIn 0.25s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .msg-bot {
+      background: #202c33;
+      color: #e9edef;
+      align-self: flex-start;
+      border-top-left-radius: 2px;
+    }
+    .msg-user {
+      background: #005c4b;
+      color: #e9edef;
+      align-self: flex-end;
+      border-top-right-radius: 2px;
+    }
+    .msg-time {
+      font-size: 10px;
+      color: #8696a0;
+      text-align: right;
+      margin-top: 4px;
+    }
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .btn-pill {
+      background: #2a3942;
+      color: #00a884;
+      border: 1px solid #00a884;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .btn-pill:hover {
+      background: #00a884;
+      color: #fff;
+    }
+    .chat-footer {
+      background: #1f2c34;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chat-input {
+      flex: 1;
+      background: #2a3942;
+      border: none;
+      border-radius: 20px;
+      padding: 9px 14px;
+      color: #e9edef;
+      font-size: 13px;
+      outline: none;
+    }
+    .btn-send {
+      background: #00a884;
+      color: #fff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .badge-roi {
+      margin-top: 16px;
+      background: #1e293b;
+      border: 1px solid #10b981;
+      color: #10b981;
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="header-banner">
+    <h1>⚡ 60-Second AI Inbound Qualifier Demo</h1>
+    <p>Simulating 24/7 Patient Booking for Aesthetic Clinics</p>
+  </div>
+
+  <div class="phone-frame">
+    <div class="screen">
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>5G • 100%</span>
+      </div>
+
+      <div class="wa-header">
+        <div class="avatar">AG</div>
+        <div class="chat-info">
+          <h2>Aura Glow Skin Clinic</h2>
+          <span>Online (Instant AI)</span>
+        </div>
+      </div>
+
+      <div class="chat-body" id="chatBody">
+        <div class="msg msg-bot">
+          Hello! Welcome to <b>Aura Glow Skin & Laser Clinic</b> (Indiranagar, Bengaluru). 👋
+          <br><br>
+          I can help you check pricing, consult with Dr. Sneha Rao, or book an appointment. Which treatment are you interested in today?
+          <div class="quick-replies">
+            <button class="btn-pill" onclick="sendReply('HydraFacial Glow (₹3,500)')">HydraFacial Glow</button>
+            <button class="btn-pill" onclick="sendReply('Acne & Scar Laser (₹5,000)')">Acne & Scar Laser</button>
+            <button class="btn-pill" onclick="sendReply('Hair PRP Treatment (₹4,500)')">Hair PRP</button>
+          </div>
+          <div class="msg-time">Just now</div>
+        </div>
+      </div>
+
+      <div class="chat-footer">
+        <input type="text" id="userInput" class="chat-input" placeholder="Type a message..." onkeypress="handleKey(event)">
+        <button class="btn-send" onclick="sendCustom()">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="badge-roi">
+    💰 <b>Client Pitch:</b> "Never lose an evening Meta ad lead again. 22% conversion vs 8% manual receptionist."
+  </div>
+</div>
+
+<script>
+  const chatBody = document.getElementById('chatBody');
+  const userInput = document.getElementById('userInput');
+  let step = 1;
+
+  function appendMsg(text, sender) {
+    const d = document.createElement('div');
+    d.className = `msg msg-${sender}`;
+    d.innerHTML = text + `<div class="msg-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>`;
+    chatBody.appendChild(d);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function sendReply(text) {
+    appendMsg(text, 'user');
+    processBot(text);
+  }
+
+  function sendCustom() {
+    const t = userInput.value.trim();
+    if (!t) return;
+    appendMsg(t, 'user');
+    userInput.value = '';
+    processBot(t);
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter') sendCustom();
+  }
+
+  function processBot(input) {
+    setTimeout(() => {
+      if (step === 1) {
+        step = 2;
+        appendMsg(`Great choice! Our <b>${input}</b> is conducted by senior dermatologists using US-FDA approved tech. ✨<br><br>Have you had this procedure before, or is this your first consultation?
+          <div class="quick-replies">
+            <button class="btn-pill" onclick="sendReply('First time consultation')">First time</button>
+            <button class="btn-pill" onclick="sendReply('Done it before')">Done it before</button>
+          </div>`, 'bot');
+      } else if (step === 2) {
+        step = 3;
+        appendMsg(`Understood! We have 2 consultation slots open tomorrow at our <b>Indiranagar 100ft Road</b> center:<br><br>
+          📅 <b>Tomorrow (Tuesday)</b><br>
+          • 4:30 PM (Dr. Sneha Rao)<br>
+          • 6:15 PM (Dr. Sneha Rao)<br><br>
+          Which slot works best for you?
+          <div class="quick-replies">
+            <button class="btn-pill" onclick="sendReply('Tomorrow 4:30 PM')">Tomorrow 4:30 PM</button>
+            <button class="btn-pill" onclick="sendReply('Tomorrow 6:15 PM')">Tomorrow 6:15 PM</button>
+          </div>`, 'bot');
+      } else if (step === 3) {
+        step = 4;
+        appendMsg(`🎉 <b>Slot Reserved!</b><br><br>
+          ✅ <b>Appointment:</b> ${input}<br>
+          📍 <b>Location:</b> Aura Glow Clinic, 100ft Rd, Indiranagar<br>
+          👨‍⚕️ <b>Consultant:</b> Dr. Sneha Rao, MD<br><br>
+          A confirmation SMS & calendar invite has been dispatched. See you tomorrow!`, 'bot');
+      } else {
+        appendMsg("Thank you! Our clinic team has noted your response. For emergencies call +91-98450-XXXXX.", 'bot');
+      }
+    }, 600);
+  }
+</script>
+
+</body>
+</html>
