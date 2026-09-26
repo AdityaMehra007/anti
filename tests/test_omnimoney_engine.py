@@ -65,3 +65,13 @@ def test_b2b_sales_engine():
     assert "Dr. Rao" in script
     assert "WhatsApp" in script
 
+def test_master_scoring_system():
+    from omnimoney.scoring_system import compute_master_scorecard, generate_markdown_scorecard
+    scorecard = compute_master_scorecard()
+    assert scorecard["composite_score"] >= 90.0
+    assert scorecard["grade"] in ["A", "A+"]
+    assert len(scorecard["opportunities"]) == 5
+    path = generate_markdown_scorecard("reports/SYSTEM_MASTER_SCORECARD.md")
+    assert os.path.exists(path)
+
+

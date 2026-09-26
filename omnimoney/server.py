@@ -248,3 +248,9 @@ def api_generate_invoice(req: GenerateInvoiceRequest):
 def api_prepare_dispatch(batch_size: int = 10):
     return dispatcher.prepare_daily_dispatch_batch(batch_size=batch_size)
 
+@app.get("/api/scorecard")
+def api_get_scorecard():
+    from omnimoney.scoring_system import compute_master_scorecard
+    return compute_master_scorecard()
+
+
