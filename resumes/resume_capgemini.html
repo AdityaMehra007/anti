@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mehra - Resume (Capgemini India)</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 10mm 12mm 10mm 12mm;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.35;
+        }
+        body {
+            background: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        @media screen {
+            body {
+                background: #f1f5f9;
+                padding: 40px 20px;
+            }
+            .resume-sheet {
+                background: #fff;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                border-radius: 4px;
+                padding: 35px 40px;
+            }
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #0f172a;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+            text-transform: uppercase;
+        }
+        .target-role {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-top: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .contact-bar {
+            font-size: 11px;
+            color: #475569;
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .contact-bar a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 3px;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .summary-text {
+            font-size: 10.5px;
+            color: #334155;
+            text-align: justify;
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .skill-tag {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            font-size: 9.5px;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 3px;
+            color: #1e293b;
+        }
+        .job-block {
+            margin-bottom: 9px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .job-title {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .job-org {
+            font-size: 11px;
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .job-date {
+            font-size: 10px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .bullets {
+            list-style-type: disc;
+            margin-left: 16px;
+            margin-top: 3px;
+        }
+        .bullets li {
+            font-size: 10px;
+            color: #334155;
+            margin-bottom: 2px;
+            text-align: justify;
+        }
+        .edu-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .edu-degree {
+            font-size: 11px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .edu-inst {
+            font-size: 10.5px;
+            color: #475569;
+        }
+        .edu-year {
+            font-size: 10px;
+            color: #64748b;
+        }
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+        }
+        @media print {
+            .print-btn { display: none; }
+            body { padding: 0; background: #fff; }
+            .resume-sheet { box-shadow: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">??? Print / Save as PDF</button>
+    <div class="resume-sheet">
+        <div class="header">
+            <div class="name">ADITYA MEHRA</div>
+            <div class="target-role">Business Operations & Transformation Associate // Capgemini India</div>
+            <div class="contact-bar">
+                <span>?? Bengaluru, Karnataka, India</span>
+                <span>?? +91 7003456624</span>
+                <span>?? ashishiash007@gmail.com</span>
+                <span>?? <a href="https://www.linkedin.com/">linkedin.com/in/aditya-mehra</a></span>
+            </div>
+        </div>
+
+        <div class="section-title">Professional Profile</div>
+        <p class="summary-text">
+            High-accountability operations and business strategy specialist completing a <strong>BBA in International Business at Dayananda Sagar University (2026)</strong>. Battle-tested execution across Tier-1 defense exhibitions, corporate brand activations, and commercial B2B client acquisition. Proven track record leading on-site stall readiness for <strong>100,000+ attendees at AERO INDIA 2025</strong> with 100% SLA compliance and zero shrinkage. Specialized in <strong>Enterprise Transformation, Run-of-Show Scheduling, Vendor SLA Monitoring & Commercial BD</strong>.
+        </p>
+
+        <div class="section-title">Core Competencies & Keywords</div>
+        <div class="skills-grid">
+            <span class="skill-tag">Business Transformation</span><span class="skill-tag">Operations Scheduling</span><span class="skill-tag">Vendor Governance</span><span class="skill-tag">B2B Outreach</span><span class="skill-tag">Resource Allocation</span><span class="skill-tag">Service Delivery</span><span class="skill-tag">Client Communications</span>
+        </div>
+
+        <div class="section-title">Verified Professional Experience</div>
+
+        <div class="job-block">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Exhibition Operations Lead</span> | <span class="job-org">Salt in My Coca ? AERO INDIA 2025</span>
+                </div>
+                <div class="job-date">Feb 2025 | Yelahanka Air Force Station</div>
+            </div>
+            <ul class="bullets">
+                <li>Directed end-to-end stall operations, daily run-of-show logistics, and high-security delegate protocol for <strong>100,000+ public and aerospace visitors</strong>.</li>
+                <li>Achieved <strong>100% on-time daily opening readiness</strong> by executing staging workflows and badge clearances 24 hours in advance.</li>
+                <li>Governed inventory reconciliation protocols with strict dual-custody verification, eliminating inventory shrinkage (<strong>0% loss</strong>).</li>
+                <li>Managed booth team coordination, de-escalated live operational bottlenecks, and captured <strong>5,000+ qualified touchpoints</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="job-block">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Event Operations Coordinator</span> | <span class="job-org">Strategic Brand Activations</span>
+                </div>
+                <div class="job-date">2023 ? 2025 | Bengaluru, India</div>
+            </div>
+            <ul class="bullets">
+                <li>Managed on-ground staging and vendor SLA governance for marquee enterprise clients including <strong>Tata Communications, Puma Global</strong>, and VH1 Supersonic.</li>
+                <li>Standardized multi-vendor milestone checkpoints, reducing vendor turnaround bottlenecks by <strong>15%</strong>.</li>
+                <li>Supervised crowd flow architecture, emergency accessways, and VIP hospitality corridors ensuring zero safety incidents.</li>
+            </ul>
+        </div>
+
+        <div class="job-block">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Business Development Intern</span> | <span class="job-org">Pencil Mark Interior Solutions LLP</span>
+                </div>
+                <div class="job-date">2024 | Bengaluru, India</div>
+            </div>
+            <ul class="bullets">
+                <li>Originated and qualified B2B commercial pipeline, generating <strong>INR 1.5L+</strong> in secured corporate contract deliverables.</li>
+                <li>Drafted comprehensive commercial scopes of work, client proposals, and governed milestone-based handovers.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Education & Academic Background</div>
+        <div class="edu-block">
+            <div>
+                <span class="edu-degree">Bachelor of Business Administration (BBA) ? International Business</span><br>
+                <span class="edu-inst">Dayananda Sagar University (DSU), Bengaluru, Karnataka</span>
+            </div>
+            <div class="edu-year">2023 ? 2026 (Final Year)</div>
+        </div>
+        <p style="font-size: 9.5px; color: #64748b; margin-top: 2px;">
+            Relevant Coursework: Global Logistics & Supply Chain, Incoterms 2020, International Trade Finance (UCP 600 Letters of Credit), Cross-Border Commercial Law, Business Analytics & Quantitative Decision Modeling.
+        </p>
+
+        <div class="section-title">Technical Skills & Credentials</div>
+        <p style="font-size: 10px; color: #334155;">
+            <strong>Operations & Analytics:</strong> Vendor SLA Auditing, Run-of-Show Scheduling, CRM Pipeline Management, Advanced Excel/Spreadsheets, AI Data Operations (Instawork AI, 99%+ accuracy).<br>
+            <strong>Compliance & Trade:</strong> Incoterms 2020, HS Tariff Code Classification, Customs Regulatory Frameworks, Dual-Custody Inventory Governance.
+        </p>
+    </div>
+</body>
+</html>

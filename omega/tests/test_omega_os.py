@@ -233,7 +233,7 @@ class TestOmegaCareerBrain(unittest.TestCase):
             corridor="Outer Ring Road (Cessna Business Park)",
             compensation_median=1100000,
             gcc_tier="Tier 1 Global GCC",
-            jd_text="Vendor SLA governance, 15% cost savings, run-of-show logistics, Incoterms 2020."
+            jd_text="Vendor SLA governance, tier-1 rate restructuring, run-of-show logistics, Incoterms 2020."
         )
         self.assertIn("ev_score", result)
         self.assertGreaterEqual(result["ev_score"], 80.0)
@@ -278,7 +278,7 @@ class TestOmegaAgentSwarm(unittest.TestCase):
             "corridor": "Outer Ring Road (Cessna)",
             "compensation_median": 1100000,
             "gcc_tier": "Tier 1 Global GCC",
-            "jd_text": "Vendor SLA governance, 15% cost savings, run-of-show logistics, Incoterms 2020."
+            "jd_text": "Vendor SLA governance, tier-1 rate restructuring, run-of-show logistics, Incoterms 2020."
         }
         contact = {"full_name": "Priya Sharma"}
 
@@ -308,7 +308,7 @@ class TestOmegaAgentSwarm(unittest.TestCase):
         out = ats.process(jd_text="Operations analysis and vendor SLA management", role_title="Operations Analyst")
         self.assertEqual(len(out["tailored_bullets"]), 3)
         self.assertTrue(any("AERO India 2025 Lead" in b for b in out["tailored_bullets"]))
-        self.assertTrue(any("15% net operational cost reduction" in b for b in out["tailored_bullets"]))
+        self.assertTrue(any("tier-1 vendor rate negotiations" in b for b in out["tailored_bullets"]))
 
     def test_03_outreach_agent_cadence(self):
         """Verify Outreach agent generates 3-stage personalized cadences."""

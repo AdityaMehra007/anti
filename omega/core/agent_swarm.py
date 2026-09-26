@@ -122,7 +122,7 @@ class ATSAgent:
         # Generate 3 tailored bullets highlighting Aditya Mehra's verified claims
         bullets = [
             "• Orchestrated end-to-end operational deployments for 300+ events including AERO India 2025 Lead (100,000+ attendee throughput, zero inventory shrinkage, 100% on-time daily opening).",
-            "• Spearheaded tier-1 vendor rate renegotiations and procurement restructuring, achieving a verified 15% net operational cost reduction across major commercial activations.",
+            "• Spearheaded tier-1 vendor rate negotiations and procurement restructuring, establishing standardized rate cards and zero-downtime SLA enforcement across major commercial activations.",
             "• Governed cross-border trade documentation, Incoterms 2020 (FOB, CIF, DDP), HS code classification, and UCP 600 Letter of Credit compliance with 99%+ data precision."
         ]
 
@@ -147,13 +147,13 @@ class OutreachAgent:
     def process(self, contact_name: str, company_name: str, role_title: str) -> Dict[str, Any]:
         first_name = contact_name.split()[0] if contact_name else "Hiring Team"
         
-        stage_1_initial = f"""Subject: Aditya Mehra ({role_title} Inquiry) — AERO India Ops Lead / 15% Cost Savings
+        stage_1_initial = f"""Subject: Aditya Mehra ({role_title} Inquiry) — AERO India Ops Lead / Vendor SLA Governance
 
 Hi {first_name},
 
 I’ve been closely following {company_name}’s operational excellence across Bangalore. As a final-year BBA International Business candidate at Dayananda Sagar University ('26), I bring direct experience managing large-scale operational deployments.
 
-Recently, as Operations Lead for AERO India 2025, I governed run-of-show logistics for 100,000+ attendees with zero inventory loss, while delivering a verified 15% cost reduction through vendor contract restructuring. Additionally, I’ve managed cross-border trade compliance (Incoterms 2020 / UCP 600) and AI data operations with 99%+ precision.
+Recently, as Operations Lead for AERO India 2025, I governed run-of-show logistics for 100,000+ attendees with zero inventory loss, while establishing structured supplier rate cards and SLA milestone contracts. Additionally, I’ve managed cross-border trade compliance (Incoterms 2020 / UCP 600) and AI data operations with 99%+ precision.
 
 I would welcome 5 minutes to discuss how my hands-on operations execution can support {company_name}'s {role_title} initiatives.
 
@@ -167,8 +167,8 @@ Hi {first_name},
 Following up on my previous note. I wanted to share a brief metric snapshot that directly aligns with {company_name}’s operational focus:
 
 1. Operations & Logistics: 300+ event deployments (AERO India 2025 Lead, Puma India, Tata Comms).
-2. Cost Efficiency: 15% net savings through SLA renegotiations and load-in restructuring.
-3. Commercial Growth: Generated INR 1.5L+ B2B revenue and executed Incoterms 2020 customs workflows.
+2. Vendor SLA Governance: Standardized supplier rate cards and milestone contracts with zero delivery downtime.
+3. Commercial Execution: Drove enterprise client discovery, 48h proposal velocity, and Incoterms 2020 customs workflows.
 
 Would you be open to a brief call this Thursday or Friday?
 
@@ -237,12 +237,12 @@ class InterviewCoachAgent:
             }
         },
         "cost_savings": {
-            "question": "Describe a scenario where you reduced operational costs without sacrificing quality or vendor relationships.",
+            "question": "Describe a scenario where you restructured supplier agreements to improve delivery reliability.",
             "star_framework": {
                 "Situation": "Managed multi-event activations with escalating tier-1 supplier equipment and venue rate cards.",
-                "Task": "Deliver a minimum 10% cost reduction on logistics and staging procurement.",
+                "Task": "Establish standardized supplier rate cards and enforce milestone delivery SLAs.",
                 "Action": "Conducted quantitative variance analysis, restructured vendor contracts into multi-deployment volume commitments, and enforced strict SLA milestones.",
-                "Result": "Achieved a verified 15% net cost reduction while improving vendor delivery punctuality to 100%."
+                "Result": "Achieved 100% vendor delivery punctuality with zero contractual disputes across all operational deployments."
             }
         },
         "exim_trade": {
@@ -285,7 +285,7 @@ class CareerAnalystAgent:
             "agent": self.NAME,
             "macro_strategy": "AGGRESSIVE_EXPANSION",
             "top_performing_channel": "LinkedIn InMail + High-Context Email (13.6% Positive Conversion)",
-            "top_performing_hook": "Variant B - 15% Cost Savings & AERO India Operations",
+            "top_performing_hook": "Variant B - Vendor SLA Governance & AERO India Operations",
             "funnel_velocity_score": "8.8/10",
             "strategic_recommendation": "Maintain primary outreach focus on Outer Ring Road GCCs and Electronic City hubs; leverage 208-question STAR coach for immediate case study rounds.",
             "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
@@ -413,7 +413,7 @@ if __name__ == "__main__":
         "corridor": "Outer Ring Road (Cessna Business Park)",
         "compensation_median": 1100000,
         "gcc_tier": "Tier 1 Global GCC",
-        "jd_text": "Vendor SLA governance, 15% cost savings, run-of-show supply chain, Incoterms 2020."
+        "jd_text": "Vendor SLA governance, supplier rate restructuring, run-of-show supply chain, Incoterms 2020."
     }
     result = swarm.run_full_pipeline(sample_req)
     print(f"    - Execution ID: {result['correlation_id']}")

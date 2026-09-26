@@ -1,0 +1,121 @@
+{
+  "system_version": "V20_HARDENED",
+  "sources": [
+    {
+      "source_id": "SRC-001",
+      "provider": "Ministry of Corporate Affairs (MCA India) / OpenCorporates",
+      "data_category": "OFFICIAL",
+      "geography": "India / Global",
+      "access_method": "PUBLIC REGISTRY",
+      "api_available": true,
+      "bulk_export": false,
+      "update_frequency": "Monthly",
+      "license_notes": "Public record compliance",
+      "terms_url": "https://www.mca.gov.in/",
+      "reliability_score": 0.99,
+      "coverage_estimate": "High for registered Indian entities",
+      "last_successful_ingestion": "2026-08-24T12:45:34.961Z",
+      "status": "ACTIVE"
+    },
+    {
+      "source_id": "SRC-002",
+      "provider": "Company Official Career Pages (Greenhouse, Lever, Workday, Ashby)",
+      "data_category": "COMPANY",
+      "geography": "Global / India",
+      "access_method": "DIRECT ATS / WEB",
+      "api_available": true,
+      "bulk_export": false,
+      "update_frequency": "Daily",
+      "license_notes": "Robots.txt compliant public job boards",
+      "terms_url": "https://www.greenhouse.io/",
+      "reliability_score": 0.98,
+      "coverage_estimate": "100% accurate for active postings",
+      "last_successful_ingestion": "2026-08-24T12:45:34.963Z",
+      "status": "ACTIVE"
+    },
+    {
+      "source_id": "SRC-003",
+      "provider": "Freehire.me Aggregator REST API",
+      "data_category": "JOB_BOARD",
+      "geography": "Global / Remote / India",
+      "access_method": "REST API",
+      "api_available": true,
+      "bulk_export": true,
+      "update_frequency": "Real-time",
+      "license_notes": "Public API terms",
+      "terms_url": "https://freehire.me/",
+      "reliability_score": 0.94,
+      "coverage_estimate": "50+ ATS platforms aggregated",
+      "last_successful_ingestion": "2026-08-24T12:45:34.963Z",
+      "status": "ACTIVE"
+    },
+    {
+      "source_id": "SRC-004",
+      "provider": "LinkedIn Public Job Listings & Official Company Pages",
+      "data_category": "COMMERCIAL",
+      "geography": "Global / India",
+      "access_method": "PUBLIC CLI SKILLS",
+      "api_available": false,
+      "bulk_export": false,
+      "update_frequency": "Daily",
+      "license_notes": "Public search metadata",
+      "terms_url": "https://www.linkedin.com/",
+      "reliability_score": 0.92,
+      "coverage_estimate": "High recruiter activity signal",
+      "last_successful_ingestion": "2026-08-24T12:45:34.963Z",
+      "status": "ACTIVE"
+    },
+    {
+      "source_id": "SRC-JOBBANK",
+      "provider": "Akademikernes Jobbank (jobbank.dk)",
+      "data_category": "JOB_BOARD",
+      "geography": "Denmark / Nordic / Global",
+      "access_method": "PUBLIC RSS & JSON-LD API",
+      "api_available": true,
+      "bulk_export": false,
+      "update_frequency": "Daily",
+      "license_notes": "Public academic job portal for highly educated candidates",
+      "terms_url": "https://jobbank.dk",
+      "reliability_score": 0.95,
+      "coverage_estimate": "Primary portal for academic & graduate positions in Denmark",
+      "last_successful_ingestion": "2026-08-24T13:14:32.185Z",
+      "status": "ACTIVE"
+    },
+    {
+      "source_id": "SRC-OPENCLAW",
+      "provider": "OpenClaw Autonomous Crawler Engine",
+      "data_category": "JOB_BOARD",
+      "geography": "Global / India / Remote",
+      "access_method": "AUTONOMOUS WEB CRAWLER & SCHEMA PARSER",
+      "api_available": true,
+      "bulk_export": true,
+      "update_frequency": "Real-time",
+      "license_notes": "Robots.txt compliant public scraper engine",
+      "terms_url": "https://github.com/openclaw/openclaw",
+      "reliability_score": 0.96,
+      "coverage_estimate": "High coverage across top MNC ATS portals",
+      "last_successful_ingestion": "2026-08-24T13:20:04.523Z",
+      "status": "ACTIVE"
+    }
+  ],
+  "source_priority_hierarchy": {
+    "company_identity": [
+      "1. Government Registry (MCA India / OpenCorporates)",
+      "2. Official Company Source (Corporate Domain / Annual Filings)",
+      "3. High-Quality Corporate Database (Crunchbase / Tracxn)",
+      "4. Secondary Reporting / Business Media"
+    ],
+    "hiring": [
+      "1. Official Career Page / Direct ATS (Greenhouse, Lever, Workday)",
+      "2. Verified Walk-in Announcements (Infosys BPM Official Drive)",
+      "3. Established Job Platforms (LinkedIn, Freehire.me)",
+      "4. Secondary Job Postings"
+    ],
+    "financials": [
+      "1. Regulatory / MCA / SEC Filings",
+      "2. Official Investor Relations Releases",
+      "3. Verified Corporate Databases",
+      "4. Business Press Reporting"
+    ]
+  }
+}

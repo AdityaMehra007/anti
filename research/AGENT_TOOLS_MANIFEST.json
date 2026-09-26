@@ -1,0 +1,462 @@
+{
+  "title": "Agent Tools Standardized Manifest",
+  "total_unique_tools": 57,
+  "tools": [
+    {
+      "name": "replace_file_content",
+      "provider": "Google/Antigravity",
+      "source_file": "core_canonical",
+      "description": "Atomically replace a single contiguous block of code within a file bounded by StartLine and EndLine.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "write_to_file",
+      "provider": "Google/Antigravity",
+      "source_file": "core_canonical",
+      "description": "Create a new file or completely overwrite an existing file with artifact tracking.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "run_command",
+      "provider": "Google/Antigravity",
+      "source_file": "core_canonical",
+      "description": "Propose and run shell commands in PowerShell/Bash with working directory parameter and async background support.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "manage_task",
+      "provider": "Google/Antigravity",
+      "source_file": "core_canonical",
+      "description": "Manage background tasks: list, status, send_input, or kill.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "invoke_subagent",
+      "provider": "Google/Antigravity",
+      "source_file": "core_canonical",
+      "description": "Spawn one or more autonomous subagents with distinct roles and prompts.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "view_file",
+      "provider": "Google/Antigravity",
+      "source_file": "core_canonical",
+      "description": "View file contents with line slicing and byte offset limits.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "Bash",
+      "provider": "Anthropic/Claude Code",
+      "source_file": "core_canonical",
+      "description": "Execute non-interactive bash commands with execution timeout.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "FileEdit",
+      "provider": "Anthropic/Claude Code",
+      "source_file": "core_canonical",
+      "description": "Perform exact string replacements on existing files.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "Glob",
+      "provider": "Anthropic/Claude Code",
+      "source_file": "core_canonical",
+      "description": "Fast pattern-based file searching across the repository directory tree.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "Grep",
+      "provider": "Anthropic/Claude Code",
+      "source_file": "core_canonical",
+      "description": "Ripgrep-powered exact string or regex search across codebase files.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "Agent",
+      "provider": "Anthropic/Claude Code",
+      "source_file": "core_canonical",
+      "description": "Invoke specialized subagent to perform focused tasks in isolation.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "plan_mode",
+      "provider": "OpenAI/Codex",
+      "source_file": "core_canonical",
+      "description": "Lock file mutations and require approval for proposed execution step DAG.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "apply_patch",
+      "provider": "OpenAI/Codex",
+      "source_file": "core_canonical",
+      "description": "Apply unified diff patches to specified target files.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "control_chrome",
+      "provider": "OpenAI/Codex",
+      "source_file": "core_canonical",
+      "description": "Drive Chrome browser actions via coordinate clicks and DOM selector interactions.",
+      "type": "canonical_tool",
+      "occurrences": 10
+    },
+    {
+      "name": "web_search",
+      "provider": "Misc",
+      "source_file": "Misc/confer.md",
+      "description": "Search the web for current information, news, facts, or any information not in your training data. Use this when the user asks for current events, recent information, or facts you don't know.",
+      "type": "function",
+      "occurrences": 4
+    },
+    {
+      "name": "get_weather",
+      "provider": "Anthropic",
+      "source_file": "Anthropic/claude-code/skills/claude-api/curl/examples.md",
+      "description": "Get current weather for a location",
+      "type": "function",
+      "occurrences": 4
+    },
+    {
+      "name": "media",
+      "provider": "Meta",
+      "source_file": "Meta/meta-spark.md",
+      "description": "Tool for generating and editing media assets such as images, videos, and audio. Supports creation from prompts and editing of existing media.",
+      "type": "function",
+      "occurrences": 2
+    },
+    {
+      "name": "browser",
+      "provider": "Meta",
+      "source_file": "Meta/meta-spark.md",
+      "description": "Tool for browsing web content.",
+      "type": "function",
+      "occurrences": 2
+    },
+    {
+      "name": "meta_1p",
+      "provider": "Meta",
+      "source_file": "Meta/meta-spark.md",
+      "description": "Tools for searching Meta content and accessing social graph data on Instagram, Threads and Facebook.",
+      "type": "function",
+      "occurrences": 2
+    },
+    {
+      "name": "container",
+      "provider": "Meta",
+      "source_file": "Meta/meta-spark.md",
+      "description": "Tool for stateless python code execution.",
+      "type": "function",
+      "occurrences": 2
+    },
+    {
+      "name": "web_extractor",
+      "provider": "Qwen",
+      "source_file": "Qwen/qwen3.6-plus.md",
+      "description": "Crawl webpage content, and if given a goal, further summarize the relevant content of the webpage.",
+      "type": "function",
+      "occurrences": 2
+    },
+    {
+      "name": "code_interpreter",
+      "provider": "Qwen",
+      "source_file": "Qwen/qwen3.6-plus.md",
+      "description": "Python code sandbox, which can be used to execute Python code.",
+      "type": "function",
+      "occurrences": 2
+    },
+    {
+      "name": "search",
+      "provider": "DeepSeek",
+      "source_file": "DeepSeek/deepseek-chat.md",
+      "description": "Web search. Split multiple queries with '||'.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-todo_read",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Use this tool to read the current to-do list for the session. This tool should be used proactively and frequently to ensure awareness of the current task list status.\n\nYou should make use of this tool as often as possible, especially in the following situations:\n- At the beginning of conversations to see what's pending\n- Before starting new tasks to prioritize work\n- When the user asks about previous tasks or plans\n- Whenever you're uncertain about what to do next\n- After completing tasks to update your understanding of remaining work\n- After every few messages to ensure you're on track\n\nUsage:\n- This tool takes in **no parameters**. Leave the input **completely blank**.\n  DO NOT include:\n  - dummy objects\n  - placeholder strings\n  - keys like ",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-todo_write",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Use this tool to create and manage a structured task list for your current coding session. This helps you track progress, organize complex tasks, and demonstrate thoroughness to the user. It also helps the user understand the progress of the task and overall progress of their requests.\n\n## When to Use This Tool\nUse this tool proactively in these scenarios:\n1. Complex multi-step tasks - 3 or more distinct actions\n2. Non-trivial tasks requiring planning/multiple operations\n3. User explicitly requests a todo list\n4. User provides multiple tasks (numbered or comma-separated)\n5. After receiving new instructions - capture them as todos\n6. When starting a task - mark it as `in_progress` (only one at a time)\n7. After finishing a task - mark it as `completed` and add follow-ups if needed\n\n## When NOT to Use This Tool\nSkip using this tool when:\n1. There is only one straightforward task\n2. The task is trivial and tracking it gives no benefit\n3. The task can be completed in <3 trivial steps\n4. The task is purely conversational or informational\n\nNOTE: If there's only one trivial task, just do it directly\u2014no need for a todo list.\n\n## Task States and Management\n1. **Task States**:\n  - `pending`: Not started\n  - `in_progress`: Actively working (only 1 at a time)\n  - `completed`: Finished successfully\n\n2. **Task Management Rules**:\n  - Update status live while working\n  - Complete tasks immediately after finishing\n  - Don't batch completions\n  - Remove irrelevant tasks\n\n3. **Completion Criteria**:\nOnly mark tasks as `completed` when ALL are true:\n  - Fully accomplished\n  - No test failures or errors\n  - Implementation is final\n  - All dependencies/files were found\n\nIf blocked:\n  - Keep task as `in_progress`\n  - Create new task for blocker resolution\n\n4. **Breakdown Guidelines**:\n  - Tasks must be specific and actionable\n  - Decompose large items into smaller ones\n  - Name tasks clearly and descriptively\n\nWhen in doubt, use this tool. Thoughtful task management = better outcomes.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-ipython",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Execute Python code in an IPython environment with full Jupyter Notebook-style interaction.\n\nThis tool provides an interactive Python execution environment similar to Jupyter Notebook, supporting:\n- Standard Python code execution\n- Data analysis and visualization\n- Image processing and editing (based on Pillow and OpenCV)\n\nSpecial features:\n- Use ! prefix to execute bash commands, e.g., !ls -la or !pip install numpy\n- Support matplotlib and other libraries for image generation with automatic display\n- Support Pillow (PIL) image processing: cropping, scaling, filters, format conversion, etc.\n- Support OpenCV (cv2) image processing: edge detection, color space conversion, morphological operations, etc.\n\nReturn values:\n- Text results: Direct text representation of execution results\n- Image results: Automatically display generated images (such as matplotlib charts, Pillow/OpenCV processed images)\n- Error information: Detailed error messages when execution fails\n- If text result is longer than **10000 characters**, it will be truncated.\n\nUsage guidelines:\n- Variables and imports persist across executions.\n- For large code blocks, you must split them into multiple executions for better performance.\n- Chinese fonts are already imported; do not modify 'font.family', 'axes.unicode_minus', or 'font.sans-serif' in plt.rcParams.\n- You must restart the IPython environment after installing new package if you want to use it. **This will cause the variables and imports to be reset.**",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-read_file",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Reads a file from the local filesystem. You can access text, image or video file directly using this tool. Complex binary files (e.g., Microsoft Office files, PDF, etc.) will be converted to markdown. It is assumed this tool has access to all files on the machine.\n\n### Usage Guidelines:\n- `file_path` must be an **absolute path**, not relative.\n- You may **speculatively read multiple files** in a single response if useful.\n- If the user provides a valid file path\u2014even to a **non-existent file**\u2014you may call this tool (an error will be returned for nonexistent files).\n\n### Default Behavior:\n- By default, reads up to **1000 lines** starting from the beginning of the file.\n- You may provide an `offset` and `limit` to read partial contents (recommended for large files).\n- Lines longer than **2000 characters** will be **truncated**.\n- Output is returned in `cat -n` format (line numbers prefixed, starting at 1).\n- Text files must be **<= 200 MB**.\n- Video files must be **<= 100 MB**.\n- Binary files must be **<= 20 MB**.\n\n### Special Support:\n- This tool can read **images** (e.g., PNG, JPG). When reading image files, the output will be displayed to user.\n- This tool can read **videos** (e.g., MP4, MOV, WEBM, MKV, AVI, M4V). `offset` and `limit` are useless for video files.\n- This tool can read complex binary files (e.g., Microsoft Office files, PDF, etc.), the result will be converted to markdown.\n- If the file **exists but is empty**, a **system reminder** will be returned in place of actual content.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-edit_file",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Performs exact string replacements in files.\n\n### Usage Guidelines:\n- You **must use** the `read_file` tool at least once before invoking this tool. Attempting an edit without reading the file will result in an error.\n- When editing content from the read_file tool:\n  - Ensure the `old_string` preserves **exact indentation** (tabs/spaces).\n  - The content to match starts **after** the line number prefix (i.e., spaces + line number + tab). Never include the prefix in `old_string` or `new_string`.\n\n### Best Practices:\n- Always prefer editing **existing** files in the codebase.\n- Never create new files unless **explicitly required** by the user.\n- Do not insert emojis unless explicitly asked.\n\n### Uniqueness and Replace Modes:\n- The tool will **fail** if `old_string` is **not unique** in the file.\n  - To resolve this, provide more context around the string.\n  - Alternatively, use `replace_all: true` to replace **all** instances of `old_string`.\n- The `replace_all` option is ideal for string renaming tasks (e.g., variable/function renames).\n- `old_string` and `new_string` **must not be identical**.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-write_file",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Writes a file to the local filesystem.\n\n### Usage Guidelines:\n- If append is False (default), this tool will **overwrite** the existing file at the provided path.\n- If append is True, this tool will **append** to the existing file at the provided path.\n- If the file already exists, you **MUST** use the `read_file` tool first to retrieve its contents. The write operation will **fail** if you skip the read step.\n- If the content is large, you **MUST** use the `append` option to write the file several times.\n- **Never** write more than 100000 characters at once.\n- **Always** prefer editing existing files in the codebase.\n- **Never** create new files unless the user **explicitly** requests it.\n- **Do not** proactively create documentation files (e.g., `*.md`, `README.md`) unless the user directly asks for them.\n- **Avoid emojis** in file content unless explicitly requested by the user.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-shell",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Execute shell commands in a non-persistent environment with proper security and handling measures.\n\nThis tool provides shell command execution capabilities with the following characteristics:\n- Non-persistent environment: Each command execution starts with a fresh shell session\n- No state preservation: Variables, directory changes, and environment modifications do not persist between calls\n- Single command execution: Each call executes one command or command chain\n- Automatic timeout: Commands timeout after a reasonable duration to prevent hanging\n\nUsage guidelines:\n- For multiple related commands, use && to chain them in a single call (e.g., 'cd /path && ls -la')\n- Use ; to run commands sequentially regardless of success/failure\n- Use || for conditional execution (run second command only if first fails)\n- Pipe operations (|) and redirections (>, >>) work within a single command\n- Always quote file paths containing spaces with double quotes (e.g., cd ",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-web_search",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Web Search API, works like Google Search.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-web_open_url",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Open and read a URL.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "mshtools-website_version_manager",
+      "provider": "Kimi",
+      "source_file": "Kimi/kimi-3.md",
+      "description": "Manage code versions for a website project.\\n\\nActions:\\n- `build_version`: save a snapshot of the final completed project state and return a version ID.\\n- `rollback`: restore the project to a previous saved version using `version_id`.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "p13n_tool",
+      "provider": "Meta",
+      "source_file": "Meta/muse-spark-1.1.md",
+      "description": "Tool for personalization and user context.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "third_party",
+      "provider": "Meta",
+      "source_file": "Meta/muse-spark-1.1.md",
+      "description": "Tools for Gmail, Google Drive, and account linking.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "skills",
+      "provider": "Meta",
+      "source_file": "Meta/muse-spark-1.1.md",
+      "description": "Tool for loading specialized skill instructions.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "subagents",
+      "provider": "Meta",
+      "source_file": "Meta/muse-spark-1.1.md",
+      "description": "Tool for spawning parallel sub-agents.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "page_fetch",
+      "provider": "Misc",
+      "source_file": "Misc/confer.md",
+      "description": "Fetch and extract the full content from one or more webpage URLs (max 20). Use this when you need to read the detailed content of specific pages that were found in search results or mentioned by the user.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "web_search_image",
+      "provider": "Qwen",
+      "source_file": "Qwen/qwen3.6-plus.md",
+      "description": "Search for images from the internet. Returns queries related images along with their urls, titles, and descriptions.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "bio",
+      "provider": "Qwen",
+      "source_file": "Qwen/qwen3.6-plus.md",
+      "description": "An operational memory tool for managing the personalized user memories.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "image_search",
+      "provider": "Qwen",
+      "source_file": "Qwen/qwen3.6-plus.md",
+      "description": "Search for similar images using an image from the conversation (specified by img_idx parameter). Returns similar images along with their URLs, titles, and descriptions.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "image_gen",
+      "provider": "Qwen",
+      "source_file": "Qwen/qwen3.6-plus.md",
+      "description": "An image generation service that takes text descriptions as input and returns a URL of the image.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "image_edit",
+      "provider": "Qwen",
+      "source_file": "Qwen/qwen3.6-plus.md",
+      "description": "An image editing service that takes some image indexs (no more than three) from the dialogue and text instructions to modify the images, returning a URL of the edited result. Capabilities include: modify images with detailed instructions, improve quality, adjust lighting, enhance details, local image enlargement, style changes, add/remove objects.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "code_execution",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Execute Python 3.12.3 code via a stateful REPL.\n- Pre-installed libraries:\n- Basic: tqdm, requests, ecdsa\n- Data processing: numpy, scipy, pandas, seaborn, plotly\n- Math: sympy, mpmath, statsmodels, PuLP\n- Physics: astropy, qutip, control\n- Biology: biopython, pubchempy, dendropy\n- Chemistry: rdkit, pyscf\n- Finance: polygon\n- Game Development: pygame, chess\n- Multimedia: mido, midiutil\n- Machine Learning: networkx, torch\n- Others: snappy\n\n- No internet access, so you cannot install additional packages. But polygon has internet access, with their API keys already preconfigured in the environment.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "browse_page",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Use this tool to request content from any website URL. It will fetch the page and process it via the LLM summarizer, which extracts/summarizes based on the provided instructions.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "view_image",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Look at an image at a given url.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "x_keyword_search",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Advanced search tool for X Posts.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "x_semantic_search",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Fetch X posts that are relevant to a semantic search query.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "x_user_search",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Search for an X user given a search query.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "x_thread_fetch",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Fetch the content of an X post and the context around it, including parent posts and replies.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "search_images",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "This tool searches for a list of images given a description that could potentially enhance the response by providing visual context or illustration. Use this tool when the user's request involves topics, concepts, or objects that can be better understood or appreciated with visual aids, such as descriptions of physical items, places, processes, or creative ideas. Only use this tool when a web-searched image would help the user understand something or see something that is difficult for just text to convey. For example, use it when discussing the news or describing some person or object that will definitely have their image on the web.\nDo not use it for abstract concepts or when visuals add no meaningful value to the response.\n\nOnly trigger image search when the following factors are met:\n- Explicit request: Does the user ask for images or visuals explicitly?\n- Visual relevance: Is the query about something visualizable (e.g., objects, places, animals, recipes) where images enhance understanding, or abstract (e.g., concepts, math) where visuals add values?\n- User intent: Does the query suggest a need for visual context to make the response more engaging or informative?\n\nThis tool returns a list of images, each with a title, webpage url, and image url.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "chatroom_send",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Send a message to other agents in your team. If another agent sends you a message while you are thinking, it will be directly inserted into your context as a function turn. If another agent sends you a message while you are making a function call, the message will be appended to the function response of the tool call that you make.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "wait",
+      "provider": "xAI",
+      "source_file": "xAI/grok-4.2.md",
+      "description": "Wait for a teammate's message or an async tool to return. There is a global timeout of 200.0s across all requests to this tool and a hard limit of 120.0s for each request to this tool.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "send_to_user",
+      "provider": "Anthropic",
+      "source_file": "Anthropic/claude-code/skills/claude-api/shared/model-migration.md",
+      "description": "Display a message directly to the user. Use this for progress updates, partial results, or content the user must see exactly as written before the task finishes.",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "get_forecast",
+      "provider": "Anthropic",
+      "source_file": "Anthropic/claude-code/skills/claude-api/shared/tool-use-concepts.md",
+      "description": "Get 5-day forecast",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "book_flight",
+      "provider": "Anthropic",
+      "source_file": "Anthropic/claude-code/skills/claude-api/python/claude-api/tool-use.md",
+      "description": "Book a flight to a destination",
+      "type": "function",
+      "occurrences": 1
+    },
+    {
+      "name": "search_flights",
+      "provider": "Anthropic",
+      "source_file": "Anthropic/claude-code/skills/claude-api/python/claude-api/tool-use.md",
+      "description": "Search for available flights",
+      "type": "function",
+      "occurrences": 1
+    }
+  ]
+}

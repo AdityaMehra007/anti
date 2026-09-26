@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruiter Outreach & Networking Kanban CRM | Aditya Mehra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --teal: #00d4aa;
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); }
+    .badge { background: rgba(0, 212, 170, 0.15); color: var(--teal); padding: 4px 12px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(0, 212, 170, 0.3); }
+    .kanban-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; overflow-x: auto; }
+    @media (max-width: 1024px) { .kanban-grid { grid-template-columns: 1fr; } }
+    .col { background: #0a1020; border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; min-height: 500px; }
+    .col-hdr { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 0.95rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--card-border); }
+    .col-count { background: #1e293b; padding: 2px 8px; border-radius: 99px; font-size: 0.75rem; }
+    .lead-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px; margin-bottom: 12px; transition: all 0.2s; }
+    .lead-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .co-name { font-weight: 700; font-size: 0.95rem; color: #fff; margin-bottom: 4px; }
+    .lead-name { font-size: 0.85rem; color: var(--teal); margin-bottom: 4px; }
+    .role-tag { display: inline-block; background: rgba(59,130,246,0.15); color: #60a5fa; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; }
+    .nav-back { display: inline-flex; align-items: center; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Back to Sovereign Apps Hub</a>
+    <header>
+      <div>
+        <span class="badge">4,500 RECRUITER CONTACTS INTEGRATED</span>
+        <h1 style="font-size: 1.6rem; font-weight: 800; margin-top: 4px;">🎯 Recruiter Outreach & Networking Kanban CRM</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Track live connection cadences across Tier-1 enterprise recruiters in Bangalore</p>
+      </div>
+    </header>
+
+    <div class="kanban-grid">
+      <div class="col">
+        <div class="col-hdr" style="border-color: #64748b;">
+          <span>📬 Outreach Queued</span>
+          <span class="col-count">100 Leads</span>
+        </div>
+        <div class="lead-card">
+          <div class="co-name">Walmart Global Tech</div>
+          <div class="lead-name">Priya Sharma (Early Careers Lead)</div>
+          <span class="role-tag">Operations Analyst</span>
+        </div>
+        <div class="lead-card">
+          <div class="co-name">Amazon Development Center</div>
+          <div class="lead-name">Rohit Nair (Lead HR Partner)</div>
+          <span class="role-tag">Ops Specialist</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-hdr" style="border-color: var(--blue);">
+          <span>📨 Note & InMail Sent</span>
+          <span class="col-count">42 Active</span>
+        </div>
+        <div class="lead-card">
+          <div class="co-name">A.P. Moller - Maersk</div>
+          <div class="lead-name">Arjun Singhania (EXIM Talent)</div>
+          <span class="role-tag">Trade Coordinator</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-hdr" style="border-color: var(--purple);">
+          <span>💬 In Active Dialogue</span>
+          <span class="col-count">18 Conversations</span>
+        </div>
+        <div class="lead-card">
+          <div class="co-name">Schneider Electric</div>
+          <div class="lead-name">Rahul Deshmukh (SCM Talent Lead)</div>
+          <span class="role-tag">SCM Trainee</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-hdr" style="border-color: var(--teal);">
+          <span>🎯 Referral / Interview Scheduled</span>
+          <span class="col-count">6 Shortlists</span>
+        </div>
+        <div class="lead-card" style="border-color: var(--teal);">
+          <div class="co-name">Puma India</div>
+          <div class="lead-name">Retail Ops Leadership</div>
+          <span class="role-tag">Fast-Track Role</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

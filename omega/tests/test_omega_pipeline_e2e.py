@@ -34,29 +34,64 @@ class TestOmegaPipelineE2E(unittest.TestCase):
         self.swarm = AgentSwarm()
         
     def test_01_sensitive_pipeline_to_local_inference(self):
+        from unittest.mock import patch
+        from omega.model_router.provider_discovery import live_discovery, DiscoveryReport
+        
         task_prompt = "Extract private salary negotiation strategy and confidential offer details."
         
-        # 1. Classification
-        profile = TaskClassifier.classify(task_prompt)
-        verdict = SensitiveDataGuard.evaluate_payload(task_prompt, explicit_class=DataClassification.SENSITIVE)
-        self.assertEqual(verdict.classification, DataClassification.SENSITIVE)
-        self.assertEqual(verdict.target_route, "LOCAL_PRIVATE")
-        
-        # 2. Routing Decision
-        route = self.router.route(task_prompt, explicit_class=DataClassification.SENSITIVE)
-        self.assertEqual(route.primary_provider, "Ollama-Local")
-        self.assertFalse(route.is_blocked)
-        
-        # 3. Transaction Recording
-        trc_id = f"TRC-E2E-{int(time.time()*1000)}"
-        tx = self.ledger.record(
-            trc_id, "SensitivePipeline", route.selected_model, "LIVE",
-            "ROUTE_AUTHORIZED", "Routed confidential task to local inference",
-            "Zero cloud leak policy enforced"
+        # Test Case A: Local private inference daemon active
+        mock_report = DiscoveryReport(
+            gateway_connected=True,
+            gateway_endpoint="http://localhost:20128/v1",
+            gateway_version="3.8.50",
+            discovered_models=[],
+            local_daemon_running=True,
+            local_executable_found=True,
+            local_executable_path="/usr/local/bin/ollama",
+            local_models=["llama3.2:latest"],
+            api_keys_status={},
+            environment_keys_present=[],
+            reconciliation_notes=[]
         )
-        txs = self.ledger.list_transactions()
-        self.assertTrue(any(t["transaction_id"] == tx.transaction_id for t in txs))
-        self.assertTrue(self.ledger.verify_integrity())
+        with patch.object(live_discovery, "discover", return_value=mock_report):
+            profile = TaskClassifier.classify(task_prompt)
+            verdict = SensitiveDataGuard.evaluate_payload(task_prompt, explicit_class=DataClassification.SENSITIVE)
+            self.assertEqual(verdict.classification, DataClassification.SENSITIVE)
+            self.assertEqual(verdict.target_route, "LOCAL_PRIVATE")
+            
+            route = self.router.route(task_prompt, explicit_class=DataClassification.SENSITIVE)
+            self.assertEqual(route.primary_provider, "Ollama-Local")
+            self.assertFalse(route.is_blocked)
+            
+            trc_id = f"TRC-E2E-{int(time.time()*1000)}"
+            tx = self.ledger.record(
+                trc_id, "SensitivePipeline", route.selected_model, "LIVE",
+                "ROUTE_AUTHORIZED", "Routed confidential task to local inference",
+                "Zero cloud leak policy enforced"
+            )
+            txs = self.ledger.list_transactions()
+            self.assertTrue(any(t["transaction_id"] == tx.transaction_id for t in txs))
+            self.assertTrue(self.ledger.verify_integrity())
+
+        # Test Case B: Local private inference offline -> Zero Cloud Leak Block
+        mock_offline = DiscoveryReport(
+            gateway_connected=True,
+            gateway_endpoint="http://localhost:20128/v1",
+            gateway_version="3.8.50",
+            discovered_models=[],
+            local_daemon_running=False,
+            local_executable_found=False,
+            local_executable_path=None,
+            local_models=[],
+            api_keys_status={},
+            environment_keys_present=[],
+            reconciliation_notes=[]
+        )
+        with patch.object(live_discovery, "discover", return_value=mock_offline):
+            verdict_off = SensitiveDataGuard.evaluate_payload(task_prompt, explicit_class=DataClassification.SENSITIVE)
+            self.assertEqual(verdict_off.target_route, "BLOCKED")
+            route_off = self.router.route(task_prompt, explicit_class=DataClassification.SENSITIVE)
+            self.assertTrue(route_off.is_blocked)
 
     def test_02_approval_gate_enforcement(self):
         # Sensitive external action must require approval

@@ -1,0 +1,84 @@
+{
+  "system": "ANTIGRAVITY Ω / AQUA RISK COMMAND CENTER",
+  "version": "1.0.0",
+  "updated_at": "2026-09-16",
+  "risks": [
+    {
+      "id": "RSK-001",
+      "category": "Market",
+      "title": "Traditional Exporter Inertia & Resistance to Uploads",
+      "probability": 4,
+      "impact": 4,
+      "early_warning": "Discovery calls stall after demo without invoice uploads",
+      "mitigation": "Offer on-prem/local OCR parser; position as an error-shield for CHAs rather than software displacement",
+      "contingency": "Provide frictionless WhatsApp/Email draft forwarder with zero web portal login required",
+      "owner": "AGT-CRO"
+    },
+    {
+      "id": "RSK-002",
+      "category": "Regulatory",
+      "title": "Sudden DGFT / EU CBAM Template Gazette Overhauls",
+      "probability": 3,
+      "impact": 5,
+      "early_warning": "Gazette notification issued by CBIC or EU Directorate-General for Taxation",
+      "mitigation": "Automated daily scraper monitoring DGFT, CBIC, and EUR-Lex gazettes",
+      "contingency": "Immediate automated regression run against known commodity line items and alert dispatch",
+      "owner": "AGT-COMPLIANCE-EXIM"
+    },
+    {
+      "id": "RSK-003",
+      "category": "Technology",
+      "title": "Complex Scanned / Multilingual Invoice OCR Extraction Failures",
+      "probability": 3,
+      "impact": 4,
+      "early_warning": "Field extraction confidence drops below 90% on irregular packing list formats",
+      "mitigation": "Dual-engine OCR with fallback to specialized vision models and deterministic bounding-box verification",
+      "contingency": "Flag low-confidence fields for 60-second human-in-the-loop audit before certification",
+      "owner": "AGT-CTO"
+    },
+    {
+      "id": "RSK-004",
+      "category": "Cybersecurity",
+      "title": "Commercial Invoice Pricing & Consignee Data Leakage",
+      "probability": 2,
+      "impact": 5,
+      "early_warning": "Unauthorized access attempt or token anomalies on REST endpoints",
+      "mitigation": "Zero-knowledge encryption at rest (AES-256), isolated client database tenants, ephemeral processing",
+      "contingency": "Immediate endpoint lockout, key rotation, and automated audit trail forensics",
+      "owner": "AGT-CISO"
+    },
+    {
+      "id": "RSK-005",
+      "category": "Competition",
+      "title": "Enterprise Freight Tech (Descartes / Flexport) Launching Indian SME Tier",
+      "probability": 2,
+      "impact": 3,
+      "early_warning": "US/EU forwarders advertising self-serve pricing in India",
+      "mitigation": "Maintain deep India-specific DGFT/ICEGATE/RoDTEP local moats and 10x lower cost structure",
+      "contingency": "Form exclusive channel partnerships with regional Indian CHA associations and port authorities",
+      "owner": "AGT-CSO"
+    },
+    {
+      "id": "RSK-006",
+      "category": "Capital",
+      "title": "Prolonged Pre-Revenue Runway Strain",
+      "probability": 2,
+      "impact": 4,
+      "early_warning": "Monthly cash burn outpaces revenue inflow past Day 60",
+      "mitigation": "Operate strictly on ultra-lean local compute; zero salaried headcount prior to revenue validation",
+      "contingency": "Apply for non-dilutive Startup India DPIIT grant (INR 50 Lakhs) and cloud provider credits",
+      "owner": "AGT-CFO"
+    },
+    {
+      "id": "RSK-007",
+      "category": "Founder Dependency",
+      "title": "Single-Point Failure on Founder Execution Bandwidth",
+      "probability": 4,
+      "impact": 4,
+      "early_warning": "Task queue backlog exceeds 10 items without resolution for >48 hours",
+      "mitigation": "Systematic delegation to autonomous AQUA agents and strict task prioritization ((V*P*U)/E)",
+      "contingency": "Bring on part-time fractional operations operator once MRR crosses INR 1 Lakh",
+      "owner": "AGT-CEO"
+    }
+  ]
+}

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTIGRAVITY OMEGA — 3,300 Skills & Agent Swarm Command Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #030712;
+            --bg-base: #080e1a;
+            --bg-surface: #0f172a;
+            --bg-card: #131d35;
+            --border: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-rose: #f43f5e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 24px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 28px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-wrap: balance;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-wrap: pretty;
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-emerald);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-emerald);
+            white-space: nowrap;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-wrap: balance;
+        }
+
+        .col-4 { grid-column: span 4; }
+        .col-5 { grid-column: span 5; }
+        .col-6 { grid-column: span 6; }
+        .col-7 { grid-column: span 7; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-top: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .table-custom th, .table-custom td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .table-custom th {
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pill {
+            display: inline-block;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin: 4px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.15s ease, text-decoration-color 0.15s ease;
+        }
+        a:hover { text-decoration: underline; }
+        a:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 992px) {
+            .col-4, .col-5, .col-6, .col-7, .col-8, .col-12 {
+                grid-column: span 12;
+            }
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            body { padding: 12px; }
+            .header { padding: 16px; }
+            .header h1 { font-size: 20px; }
+            .stat-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>⚡ ANTIGRAVITY OMEGA — AGENT SWARM & 3,300 SKILLS</h1>
+            <p>Unified Autonomous Swarm Matrix & Knowledge Catalog | Candidate: Aditya Mehra</p>
+        </div>
+        <div class="badge-live">
+            ● 3,300 SKILLS & 23 DOMAIN AGENTS ACTIVE
+        </div>
+    </div>
+
+    <!-- HIGH-LEVEL STATS -->
+    <div class="stat-grid">
+        <div class="stat-box">
+            <div class="stat-label">Total Indexed Skills</div>
+            <div class="stat-val" style="color: var(--accent-emerald);">3,300</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Domain Agent Swarms</div>
+            <div class="stat-val" style="color: var(--accent-blue);">23</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">LinkedIn Connections</div>
+            <div class="stat-val" style="color: var(--accent-purple);">9,223</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Omega Health Score</div>
+            <div class="stat-val" style="color: var(--accent-emerald);">98.5 / 100</div>
+        </div>
+    </div>
+
+    <!-- MASTER CAREER & BANGALORE MISSION CONTROL LAUNCHPAD -->
+    <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95)); border: 1px solid #0284c7; border-radius: 12px; padding: 18px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2);">
+        <div>
+            <div style="font-size: 16px; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                <span>🎯 BANGALORE CAREER & HR PENETRATION SUITE</span>
+                <span style="background: rgba(56, 189, 248, 0.2); color: #7dd3fc; font-size: 11px; padding: 2px 8px; border-radius: 99px; font-family: 'JetBrains Mono', monospace;">4,500 COMPANIES</span>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Direct access to HR leads, founders, corporate gap analysis, and 1-click dispatch pipelines.</p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="../apps/job_application_studio/apex_hud.html" target="_blank" style="background: #0284c7; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">🚀 Apex HUD</a>
+            <a href="../apps/job_application_studio/bangalore_gap_analysis_studio.html" target="_blank" style="background: #d97706; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">💡 Corporate Gaps (4,500)</a>
+            <a href="../apps/job_application_studio/bangalore_non_stop_outreach_studio.html" target="_blank" style="background: #059669; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">⚡ Blitz Outreach</a>
+            <a href="../apps/job_application_studio/strike_300.html" target="_blank" style="background: #7c3aed; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">🎯 300 Strike Leads</a>
+            <a href="../apps/job_application_studio/active_hiring_board.html" target="_blank" style="background: #dc2626; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">🔥 Active Roles (34)</a>
+            <a href="../apps/job_application_studio/interview_simulator_pro.html" target="_blank" style="background: #4338ca; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">🎙️ Voice Simulator</a>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- 1. 23 DOMAIN AGENT SWARMS -->
+        <div class="card col-7">
+            <h2 style="color: var(--accent-blue);">🤖 Manufactured Agent Swarm Fleet (23 Specialized Domains)</h2>
+            <div style="max-height: 480px; overflow-y: auto;">
+                <table class="table-custom">
+                    <thead>
+                        <tr>
+                            <th>Agent ID</th>
+                            <th>Role & Specialization</th>
+                            <th>Permission</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td><code>AGENT-SWARM-EXEC_STRATEGY</code></td>
+                            <td><strong>Omega Executive Strategy & Capital Allocation Advisor</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all exec-strategy dete...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 4</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-SECURITY_GOV</code></td>
+                            <td><strong>Omega Security Governance & Red-Team Defender</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all security-gov deter...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 4</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-AI_INFRA</code></td>
+                            <td><strong>Omega AI Infrastructure & Agentic Core Architect</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all ai-infra determini...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 3</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-SOFTWARE</code></td>
+                            <td><strong>Omega Autonomous Software Factory Chief Engineer</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all software determini...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 3</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-CLOUD_INFRA</code></td>
+                            <td><strong>Omega Cloud DevOps & Resilience Commander</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all cloud-infra determ...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 3</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-FINANCE_TREASURY</code></td>
+                            <td><strong>Omega Finance, Treasury & Billing Officer</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all finance-treasury d...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 3</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-MCP_CONN</code></td>
+                            <td><strong>Omega MCP Connectors & External Protocol Engineer</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all mcp-conn determini...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 3</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-DEVOPS</code></td>
+                            <td><strong>Omega Site Reliability & CI/CD Engineer</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all devops determinist...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 3</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-B2B_SALES</code></td>
+                            <td><strong>Omega B2B Sales & Enterprise Pipeline Director</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all b2b-sales determin...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-EXIM</code></td>
+                            <td><strong>Omega Cross-Border Documentation Specialist</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all exim deterministic...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-CUSTOMER_SUCCESS</code></td>
+                            <td><strong>Omega Customer Success & Retention Strategist</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all customer-success d...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-DATA_INTEL</code></td>
+                            <td><strong>Omega Data Intelligence & Analytics Pipeline Lead</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all data-intel determi...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-GROWTH</code></td>
+                            <td><strong>Omega Digital Marketing & Viral Growth Hacker</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all growth determinist...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-EVENTS</code></td>
+                            <td><strong>Omega Event Operations & High-Stakes Coordinator</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all events determinist...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-TALENT</code></td>
+                            <td><strong>Omega Executive Search & Candidate Matcher</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all talent determinist...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-FINANCE</code></td>
+                            <td><strong>Omega Financial Modeling & Unit Economics Analyst</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all finance determinis...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-GENAI</code></td>
+                            <td><strong>Omega Generative AI Workflows & Prompt Engineer</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all genai deterministi...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-GROWTH_SEO</code></td>
+                            <td><strong>Omega Growth Marketing & SEO Super-Engine Lead</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all growth-seo determi...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-EXIM_TRADE</code></td>
+                            <td><strong>Omega International Trade & EXIM Logistics Specialist</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all exim-trade determi...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-PRODUCT_UX</code></td>
+                            <td><strong>Omega Product UX & Interface Design Specialist</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all product-ux determi...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-TALENT_PEOPLE</code></td>
+                            <td><strong>Omega Talent Acquisition & People Operations Lead</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all talent-people dete...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 2</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-MARKET_INTEL</code></td>
+                            <td><strong>Omega Market Intelligence & Competitive Scout Lead</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all market-intel deter...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 1</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><code>AGENT-SWARM-ANALYTICS</code></td>
+                            <td><strong>Omega Operations & Business Analytics Specialist</strong><br><span style="font-size: 11px; color: var(--text-muted);">Autonomous execution and delegation across all analytics determin...</span></td>
+                            <td><span style="color: var(--accent-cyan);">Level 1</span></td>
+                            <td><span style="color: var(--accent-emerald); font-weight: 700;">ACTIVE</span></td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 2. 3,300 SKILLS DOMAIN BREAKDOWN -->
+        <div class="card col-5">
+            <h2 style="color: var(--accent-cyan);">📊 3,300 Skills Catalog Distribution</h2>
+            <div style="max-height: 480px; overflow-y: auto;">
+                <table class="table-custom">
+                    <thead>
+                        <tr>
+                            <th>Skill Domain</th>
+                            <th>Total Skills</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td><strong>MARKET-INTEL</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">230 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>B2B-SALES</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">230 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>TALENT-PEOPLE</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>SOFTWARE</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>SECURITY-GOV</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>PRODUCT-UX</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>MCP-CONN</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>GROWTH-SEO</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>FINANCE-TREASURY</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>EXIM-TRADE</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>EXEC-STRATEGY</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>DATA-INTEL</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>CUSTOMER-SUCCESS</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>CLOUD-INFRA</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>AI-INFRA</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">200 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>TALENT</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>GROWTH</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>GENAI</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>FINANCE</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>EXIM</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>EVENTS</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>DEVOPS</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                        <tr>
+                            <td><strong>ANALYTICS</strong></td>
+                            <td style="color: var(--accent-emerald); font-weight: 700;">30 skills</td>
+                            <td><span style="font-size: 11px; color: var(--text-muted);">VERIFIED SOP</span></td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

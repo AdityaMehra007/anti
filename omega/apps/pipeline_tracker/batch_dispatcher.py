@@ -14,11 +14,21 @@ import os, sys, json, csv, argparse
 from datetime import datetime
 
 class BatchDispatcher:
-    def __init__(self, state_file=r"e:\anti\outreach_pipeline_state.json"):
-        self.state_file = state_file
-        with open(self.state_file, "r", encoding="utf-8") as f:
-            self.data = json.load(f)
-        self.records = self.data.get("records", [])
+    def __init__(self, state_file=None):
+        if state_file is None:
+            if os.path.exists(r"e:\anti\data\outreach_pipeline_state.json"):
+                self.state_file = r"e:\anti\data\outreach_pipeline_state.json"
+            else:
+                self.state_file = r"e:\anti\outreach_pipeline_state.json"
+        else:
+            self.state_file = state_file
+        if os.path.exists(self.state_file):
+            with open(self.state_file, "r", encoding="utf-8") as f:
+                self.data = json.load(f)
+            self.records = self.data.get("records", [])
+        else:
+            self.data = {"records": []}
+            self.records = []
 
     def list_ready(self, limit=10):
         ready = [r for r in self.records if r.get("current_stage") == "DISPATCH_READY"]

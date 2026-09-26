@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChipFlow AI — Autonomous Fabless Silicon Packaging & Yield Arbitrage</title>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #121826;
+            --border: #232d42;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent: #10b981;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            line-height: 1.6;
+            padding: 0 1.5rem;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-size: 1.25rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+        .logo span { color: var(--primary); }
+        .hero {
+            padding: 5rem 0 3rem;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        h1 span {
+            background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.75rem;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: var(--primary-hover); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .card h3 { margin-bottom: 0.75rem; font-size: 1.25rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .calculator {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        .calculator h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .calc-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.65rem;
+            background: #090d16;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .calc-results {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .stat-val { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-lbl { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">CHIPFLOW <span>AI</span></div>
+            <div>
+                <a href="#demo" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Launch Engine</a>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="badge">Next-Gen Semiconductor OS</div>
+            <h1>Autonomous Silicon Packaging & <span>Yield Arbitrage</span></h1>
+            <p class="subtitle">Connect your fabless Edge AI chip designs directly to global secondary OSAT capacity with real-time negative-binomial defect prediction and dynamic cost arbitrage.</p>
+            <a href="#demo" class="btn">Calculate Wafer Lot Arbitrage</a>
+        </section>
+
+        <section class="calculator" id="demo">
+            <h2>Live Wafer Lot & Packaging Yield Simulator</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Input your chip geometry and target packaging method to see real-time cost-per-good-die (CPGD) and arbitrage savings.</p>
+            
+            <div class="calc-form">
+                <div class="form-group">
+                    <label>Wafer Diameter (mm)</label>
+                    <select id="wafer_dia">
+                        <option value="300" selected>300 mm (12 inch)</option>
+                        <option value="200">200 mm (8 inch)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Die Area (mm²)</label>
+                    <input type="number" id="die_area" value="48.0" step="0.5">
+                </div>
+                <div class="form-group">
+                    <label>Raw Wafer Cost ($)</label>
+                    <input type="number" id="wafer_cost" value="6500">
+                </div>
+                <div class="form-group">
+                    <label>Packaging Technology</label>
+                    <select id="pkg_tech">
+                        <option value="FLIP_CHIP_BGA" selected>Flip-Chip BGA (96.5% Yield)</option>
+                        <option value="2.5D_INTERPOSER_COWOS">2.5D Interposer CoWoS (91.0% Yield)</option>
+                        <option value="STANDARD_WIRE_BOND">Standard Wire Bond (98.5% Yield)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calc-results">
+                <div>
+                    <div class="stat-val" id="res_dpw">1,180</div>
+                    <div class="stat-lbl">Gross Die / Wafer</div>
+                </div>
+                <div>
+                    <div class="stat-val" id="res_yield">96.2%</div>
+                    <div class="stat-lbl">Silicon Yield</div>
+                </div>
+                <div>
+                    <div class="stat-val" id="res_cpgd">$6.85</div>
+                    <div class="stat-lbl">Cost / Good Die (CPGD)</div>
+                </div>
+                <div>
+                    <div class="stat-val" id="res_savings">$48,200</div>
+                    <div class="stat-lbl">25-Wafer Lot Savings</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="card">
+                <h3>Zero-Capex Software Layer</h3>
+                <p>No cleanroom construction or multi-million dollar capital expenditure. ChipFlow aggregates idle secondary OSAT capacity slots worldwide.</p>
+            </div>
+            <div class="card">
+                <h3>Murphy-Model Yield Forecasting</h3>
+                <p>Physics-accurate negative-binomial defect models predict test escapes and packaging stress fractures before committing wafer lots.</p>
+            </div>
+            <div class="card">
+                <h3>Provable Audit Seals</h3>
+                <p>Every yield calculation and pricing arbitrage quote is sealed with tamper-evident SHA-256 cryptographic verification hashes.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 ChipFlow AI. Engineered natively inside the ANTIGRAVITY OMNIVERSE.</p>
+        </footer>
+    </div>
+</body>
+</html>

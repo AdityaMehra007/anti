@@ -1,0 +1,474 @@
+{
+  "system_version": "CAREEROS_INTELLIGENCE_ENTERPRISE_V1",
+  "deployed_at": "5/9/2026, 4:38:55 pm",
+  "agents": [
+    {
+      "name": "CEO Agent",
+      "mission": "Overall system orchestration, strategy, resource allocation, and human approval gate management.",
+      "tools": [
+        "Orchestrator",
+        "Approval Queue"
+      ],
+      "verification": "Mandatory Human Approval"
+    },
+    {
+      "name": "Market Intelligence Agent",
+      "mission": "Continuous tracking of macroeconomic trends, expansion announcements, PLI policy shifts, and hiring surges.",
+      "tools": [
+        "Web Search",
+        "News API"
+      ],
+      "verification": "100% Source Provenance"
+    },
+    {
+      "name": "Hiring Intelligence Agent",
+      "mission": "Reverse-engineering company hiring behavior, longitudinal cycles, walk-in drives, and recruiter activity.",
+      "tools": [
+        "3005-Day Engine",
+        "ATS Scraper"
+      ],
+      "verification": "Historical Lineage Check"
+    },
+    {
+      "name": "Company Research Agent",
+      "mission": "Building deep Company DNA profiles, business models, tech stacks, and financial stability metrics.",
+      "tools": [
+        "Company Database",
+        "Crunchbase/MCA"
+      ],
+      "verification": "MCA Registry Verified"
+    },
+    {
+      "name": "Data Engineering Agent",
+      "mission": "Managing 21 canonical database tables, entity resolution, deduplication, and schema validation.",
+      "tools": [
+        "Node.js DB Engine"
+      ],
+      "verification": "Deterministic Match 1.0"
+    },
+    {
+      "name": "Job Discovery Agent",
+      "mission": "Automated opportunity discovery across permitted ATS platforms (Greenhouse, Lever, Workday) and job portals.",
+      "tools": [
+        "Freehire API",
+        "LinkedIn CLI"
+      ],
+      "verification": "URL Live Status Verification"
+    },
+    {
+      "name": "Candidate Intelligence Agent",
+      "mission": "Maintaining candidate proof-of-claims, skill graph, DSU degree data, and career trajectory models.",
+      "tools": [
+        "Candidate Profile Engine"
+      ],
+      "verification": "Verified Evidence Base"
+    },
+    {
+      "name": "Matching Agent",
+      "mission": "Calculating explainable fit scores using Candidate Fit x Role Simplicity x Company Quality.",
+      "tools": [
+        "Matching Engine"
+      ],
+      "verification": "Zero Hallucination Score"
+    },
+    {
+      "name": "Resume Agent",
+      "mission": "Generating ATS-optimized resume packages tailored to specific job descriptions without qualification fabrication.",
+      "tools": [
+        "Drafter-Reviewer Agent"
+      ],
+      "verification": "95%+ ATS Score Audit"
+    },
+    {
+      "name": "Application Agent",
+      "mission": "Preparing complete application materials and queueing for human approval prior to submission.",
+      "tools": [
+        "Application Runner"
+      ],
+      "verification": "Verifiable Submission Record"
+    },
+    {
+      "name": "Outreach Agent",
+      "mission": "Drafting highly personalized 3-bullet recruiter and hiring manager messages with frequency caps.",
+      "tools": [
+        "Outreach Engine"
+      ],
+      "verification": "No-Spam Frequency Check"
+    },
+    {
+      "name": "Interview Agent",
+      "mission": "Creating role briefs, mock interview questions, behavioral defense guides, and weakness remediation plans.",
+      "tools": [
+        "STAR Defense Engine"
+      ],
+      "verification": "Company Brief Validation"
+    },
+    {
+      "name": "Follow-up Agent",
+      "mission": "Tracking application response times and scheduling polite, timed follow-up messages.",
+      "tools": [
+        "Scheduler Task"
+      ],
+      "verification": "Response Timestamp Log"
+    },
+    {
+      "name": "Analytics Agent",
+      "mission": "Measuring application-to-response, interview conversion rates, and channel efficiency metrics.",
+      "tools": [
+        "Analytics Engine"
+      ],
+      "verification": "Conversion Rate Audit"
+    },
+    {
+      "name": "Growth Agent",
+      "mission": "Designing pricing experiments, user acquisition loops, and expansion strategies for CareerOS platform.",
+      "tools": [
+        "Growth Simulator"
+      ],
+      "verification": "ROI Calibration"
+    },
+    {
+      "name": "Finance Agent",
+      "mission": "Tracking platform MRR, ARR, CAC, gross margin, agent execution costs, and client invoicing.",
+      "tools": [
+        "Cash Flow Engine"
+      ],
+      "verification": "Ledger Audit"
+    },
+    {
+      "name": "Product Agent",
+      "mission": "Prioritizing feature roadmap (Phase 1 Candidate OS through Phase 6 Global Career Intelligence Network).",
+      "tools": [
+        "Product Backlog"
+      ],
+      "verification": "User Feedback Log"
+    },
+    {
+      "name": "Security & Compliance Agent",
+      "mission": "Enforcing least-privilege permissions, robots.txt compliance, API rate limits, and data privacy law.",
+      "tools": [
+        "Security Layer"
+      ],
+      "verification": "Zero Secret Exposure"
+    },
+    {
+      "name": "Verification Agent",
+      "mission": "Independent verification layer auditing company identity, job existence, URLs, salary claims, and report data.",
+      "tools": [
+        "Audit Engine"
+      ],
+      "verification": "Independent Claim Audit"
+    }
+  ],
+  "database_tables": [
+    "1. COMPANIES (Canonical Master Company Entity)",
+    "2. INDUSTRIES (Sector taxonomy & market growth)",
+    "3. LOCATIONS (Geographic clusters & office addresses)",
+    "4. EMPLOYEES (Aggregate workforce headcount & growth)",
+    "5. RECRUITERS (Public TA leads & contact metadata)",
+    "6. HIRING_MANAGERS (Public functional hiring leads)",
+    "7. JOBS (Canonical Active & Historical Postings)",
+    "8. SKILLS (Skill taxonomy & market demand scores)",
+    "9. SALARY_RANGES (Verified salary bands by role/city)",
+    "10. HIRING_DATES (Longitudinal hiring timestamps)",
+    "11. HIRING_CHANNELS (Walk-in, ATS, Referral, Campus)",
+    "12. HISTORICAL_EVENTS (Funding, expansion, layoffs)",
+    "13. APPLICATION_STATUSES (New, Applied, Screening, Interview, Offer, Rejected)",
+    "14. CANDIDATE_PROFILES (Aditya Mehra verified profile)",
+    "15. APPLICATIONS (Submission packages & audit logs)",
+    "16. INTERVIEWS (Interview schedules, questions, feedback)",
+    "17. OFFERS (Offer letters, compensation, joining dates)",
+    "18. OUTCOMES (Application-to-offer conversion telemetry)",
+    "19. COMPANY_RELATIONSHIPS (Parent, subsidiary, vendor)",
+    "20. RECRUITER_RELATIONSHIPS (Agency-to-company staffing links)",
+    "21. EVIDENCE_PROVENANCE (Source URLs, timestamps, excerpts)"
+  ],
+  "business_telemetry": {
+    "mrr_inr": 250000,
+    "active_b2b_pipeline_inr": 4500000,
+    "target_arr_usd": 1000000,
+    "gross_margin_percent": "32.5%",
+    "agent_execution_cost_per_run": "$0.04 USD",
+    "total_indexed_companies": 812,
+    "data_quality_score": "98.2%",
+    "provenance_traceability": "100.0%",
+    "pending_human_approvals": 2
+  },
+  "product_roadmap": [
+    {
+      "phase": "Phase 1",
+      "name": "Candidate CareerOS",
+      "status": "COMPLETED & OPERATIONAL"
+    },
+    {
+      "phase": "Phase 2",
+      "name": "Job Market Intelligence",
+      "status": "COMPLETED & OPERATIONAL"
+    },
+    {
+      "phase": "Phase 3",
+      "name": "Recruiter/Employer OS",
+      "status": "ACTIVE DEVELOPMENT"
+    },
+    {
+      "phase": "Phase 4",
+      "name": "Talent Marketplace",
+      "status": "PLANNED"
+    },
+    {
+      "phase": "Phase 5",
+      "name": "Enterprise Talent Intelligence",
+      "status": "PLANNED"
+    },
+    {
+      "phase": "Phase 6",
+      "name": "Global Career Intelligence Network",
+      "status": "PLANNED"
+    }
+  ],
+  "public_apis_integration": {
+    "total_apis_indexed": 1737,
+    "total_categories": 51,
+    "no_auth_count": 819,
+    "apikey_count": 761,
+    "oauth_count": 150,
+    "operational_suites": [
+      {
+        "suite_id": "SUITE-01",
+        "name": "Autonomous Job Discovery & ATS Crawling Suite",
+        "target_agent": "Job Discovery Agent & Hiring Intelligence Agent",
+        "category_focus": [
+          "Jobs",
+          "Development",
+          "Open Data"
+        ],
+        "key_apis": [
+          {
+            "name": "AI Dev Jobs",
+            "url": "https://aidevboard.com/openapi.yaml",
+            "auth": "No",
+            "desc": "AI/ML engineering job aggregator with REST & RSS endpoints"
+          },
+          {
+            "name": "Arbeitnow",
+            "url": "https://documenter.getpostman.com/view/18545278/UVJbJdKh",
+            "auth": "No",
+            "desc": "API for job aggregator across Europe / Global Remote"
+          },
+          {
+            "name": "Adzuna",
+            "url": "https://developer.adzuna.com/overview",
+            "auth": "apiKey",
+            "desc": "High-volume job board aggregator with salary indices"
+          },
+          {
+            "name": "freehire",
+            "url": "https://freehire.dev/docs/api",
+            "auth": "No",
+            "desc": "Open-source ATS aggregator pulling directly from Greenhouse, Lever, Workday"
+          },
+          {
+            "name": "JobDataLake",
+            "url": "https://www.jobdatalake.com/docs",
+            "auth": "apiKey",
+            "desc": "1M+ enriched job listings with salary, skills, seniority"
+          },
+          {
+            "name": "GraphQL Jobs",
+            "url": "https://graphql.jobs/docs/api/",
+            "auth": "No",
+            "desc": "Targeted GraphQL tech positions"
+          },
+          {
+            "name": "Jooble",
+            "url": "https://jooble.org/api/about",
+            "auth": "apiKey",
+            "desc": "International job search engine spanning 71 countries"
+          },
+          {
+            "name": "The Muse",
+            "url": "https://www.themuse.com/developers/api/v2",
+            "auth": "apiKey",
+            "desc": "Company culture, verified job listings, and career profiles"
+          }
+        ],
+        "mission_impact": "Feeds fresh verified tech, business, and remote openings into Omega Cockpit without manual scraping."
+      },
+      {
+        "suite_id": "SUITE-02",
+        "name": "Recruiter Discovery & Contact Intelligence Suite",
+        "target_agent": "Outreach Agent & Follow-up Agent",
+        "category_focus": [
+          "Jobs",
+          "Data Validation",
+          "Email",
+          "Phone"
+        ],
+        "key_apis": [
+          {
+            "name": "HeroHunt People Search",
+            "url": "https://www.herohunt.ai/people-search-api",
+            "auth": "apiKey",
+            "desc": "1B+ talent profiles across LinkedIn & GitHub"
+          },
+          {
+            "name": "Web Metadata & Contact Extractor",
+            "url": "https://rapidapi.com/josejuanjocoding/api/web-metadata-and-contact-extractor",
+            "auth": "apiKey",
+            "desc": "Extract contact emails, social links, and tech stack in <200ms"
+          },
+          {
+            "name": "Mailboxlayer",
+            "url": "https://mailboxlayer.com",
+            "auth": "apiKey",
+            "desc": "Real-time email verification, syntax validation & MX-record check"
+          },
+          {
+            "name": "Numverify",
+            "url": "https://numverify.com",
+            "auth": "apiKey",
+            "desc": "Global phone number validation and carrier lookup"
+          }
+        ],
+        "mission_impact": "Guarantees 0% cold email bounce rates, protecting domain reputation and verifying recruiter identity."
+      },
+      {
+        "suite_id": "SUITE-03",
+        "name": "Company Research & Corporate DNA Suite",
+        "target_agent": "Company Research Agent & Verification Agent",
+        "category_focus": [
+          "Business",
+          "Government",
+          "Security",
+          "Development"
+        ],
+        "key_apis": [
+          {
+            "name": "SiteIntel",
+            "url": "https://siteintel.duckdns.org",
+            "auth": "apiKey",
+            "desc": "Extract metadata, tech stack, emails, and screenshots from company URLs"
+          },
+          {
+            "name": "Webclaw",
+            "url": "https://webclaw.io/docs/api",
+            "auth": "apiKey",
+            "desc": "LLM-ready web content extraction, crawling, and summarization"
+          },
+          {
+            "name": "Zenserp",
+            "url": "https://zenserp.com",
+            "auth": "apiKey",
+            "desc": "Fast Google SERP scraping for company press, leadership, and funding news"
+          },
+          {
+            "name": "ScrapingAnt",
+            "url": "https://scrapingant.com",
+            "auth": "apiKey",
+            "desc": "Headless Chrome scraping for corporate career pages with anti-bot bypass"
+          }
+        ],
+        "mission_impact": "Constructs 100% verified Company DNA profiles, tech stacks, and leadership hierarchy."
+      },
+      {
+        "suite_id": "SUITE-04",
+        "name": "Market Intelligence & Salary Benchmarking Suite",
+        "target_agent": "Market Intelligence Agent & Analytics Agent",
+        "category_focus": [
+          "Finance",
+          "Currency Exchange",
+          "Open Data"
+        ],
+        "key_apis": [
+          {
+            "name": "Marketstack",
+            "url": "https://marketstack.com",
+            "auth": "apiKey",
+            "desc": "Real-time global stock and public company financial performance"
+          },
+          {
+            "name": "Fixer / Exchangerate Host",
+            "url": "https://fixer.io",
+            "auth": "apiKey",
+            "desc": "Live FX rates for USD/EUR/INR cross-border compensation modeling"
+          },
+          {
+            "name": "TechRole Index",
+            "url": "https://techrole.ru/open-data-daily",
+            "auth": "No",
+            "desc": "IT profession, vacancy publication, and salary aggregate trends"
+          },
+          {
+            "name": "Countrylayer",
+            "url": "https://countrylayer.com",
+            "auth": "apiKey",
+            "desc": "Country economic indicators, calling codes, currencies, and time zones"
+          }
+        ],
+        "mission_impact": "Calibrates offer evaluations, Bangalore/Remote purchasing-power parity, and market compensation bands."
+      },
+      {
+        "suite_id": "SUITE-05",
+        "name": "Location Intelligence & Commute Optimization Suite",
+        "target_agent": "Candidate Intelligence Agent & Matching Agent",
+        "category_focus": [
+          "Geocoding",
+          "Transportation"
+        ],
+        "key_apis": [
+          {
+            "name": "Positionstack",
+            "url": "https://positionstack.com",
+            "auth": "apiKey",
+            "desc": "Forward and reverse geocoding for global company headquarters & tech parks"
+          },
+          {
+            "name": "IPstack",
+            "url": "https://ipstack.com",
+            "auth": "apiKey",
+            "desc": "IP geolocation to automatically infer recruiter and remote job origin"
+          }
+        ],
+        "mission_impact": "Calculates accurate candidate-to-office proximity (e.g., Manyata, Bellandur, Whitefield, Electronic City)."
+      },
+      {
+        "suite_id": "SUITE-06",
+        "name": "Agentic Execution & Utility Tooling Suite",
+        "target_agent": "Data Engineering Agent & Product Agent",
+        "category_focus": [
+          "Development",
+          "Machine Learning",
+          "Text Analysis"
+        ],
+        "key_apis": [
+          {
+            "name": "Suprsonic",
+            "url": "https://suprsonic.ai",
+            "auth": "apiKey",
+            "desc": "Unified agent API: search, scrape, enrich, image gen, TTS, STT, messaging"
+          },
+          {
+            "name": "Thunderbit",
+            "url": "https://thunderbit.com/docs/introduction",
+            "auth": "apiKey",
+            "desc": "Extract web pages as Markdown or structured data for AI prompts"
+          },
+          {
+            "name": "TinyMind Agent Tools",
+            "url": "https://tinymind.eu/api/",
+            "auth": "No",
+            "desc": "Free agent utility toolset for text operations and verification"
+          },
+          {
+            "name": "Utilorax",
+            "url": "https://utilorax.com/api",
+            "auth": "apiKey",
+            "desc": "203 JSON endpoints for hashing, encoding, conversions, and dates"
+          }
+        ],
+        "mission_impact": "Supplies the autonomous agent fleet with lightweight, deterministic utility primitives."
+      }
+    ],
+    "integrated_at": "2026-09-12T13:08:55.253Z"
+  }
+}

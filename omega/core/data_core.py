@@ -243,12 +243,12 @@ class OmegaDataCore:
 
             # Seed Opportunities / Requisitions
             opps_seed = [
-                ("OPP-001", "COMP-001", "Global Operations Analyst - Supply Chain Logistics", "Global Logistics & Technology", 850000, 1400000, 1100000, 92.0, 95.0, 93.5, "ACTIVE", "Seeking high-ownership analyst with experience in multi-vendor SLA governance, 15% cost reduction models, and run-of-show supply chain workflows. Incoterms and international logistics knowledge preferred.", "Outer Ring Road (Cessna / Ecospace)", "Cessna Business Park"),
+                ("OPP-001", "COMP-001", "Global Operations Analyst - Supply Chain Logistics", "Global Logistics & Technology", 850000, 1400000, 1100000, 92.0, 95.0, 93.5, "ACTIVE", "Seeking high-ownership analyst with experience in multi-vendor SLA governance, supplier rate restructuring, and run-of-show supply chain workflows. Incoterms and international logistics knowledge preferred.", "Outer Ring Road (Cessna / Ecospace)", "Cessna Business Park"),
                 ("OPP-002", "COMP-002", "Operations Program Specialist - Fulfillment & SCM", "Fulfillment Operations", 900000, 1500000, 1200000, 88.0, 94.0, 91.8, "ACTIVE", "Lead operational cadence, inventory throughput, and vendor management across Bangalore fulfillment hubs. Proven track record in operational cost savings and high-throughput deployments.", "CBD / MG Road", "World Trade Center"),
-                ("OPP-003", "COMP-003", "B2B Business Development & Strategic Growth Associate", "Advisory Commercial", 800000, 1300000, 1000000, 90.0, 92.0, 89.5, "ACTIVE", "Drive B2B pipeline conversion, enterprise client proposals, and executive outreach. Minimum INR 1.5L+ deal structuring experience.", "Outer Ring Road (RMZ Ecoworld)", "RMZ Ecoworld"),
+                ("OPP-003", "COMP-003", "B2B Business Development & Strategic Growth Associate", "Advisory Commercial", 800000, 1300000, 1000000, 90.0, 92.0, 89.5, "ACTIVE", "Drive B2B pipeline conversion, enterprise client proposals, and executive outreach. Commercial client discovery and milestone contract experience.", "Outer Ring Road (RMZ Ecoworld)", "RMZ Ecoworld"),
                 ("OPP-004", "COMP-004", "EXIM & International Trade Compliance Analyst", "Global Trade Advisory", 850000, 1450000, 1150000, 90.0, 96.0, 94.2, "ACTIVE", "Incoterms 2020 (FOB, CIF, DDP), HS code classification, customs clearance, and UCP 600 Letter of Credit compliance governance.", "Outer Ring Road (RMZ Infinity)", "RMZ Infinity"),
                 ("OPP-005", "COMP-005", "Cross-Border Trade & Logistics Coordinator", "Ocean Freight Operations", 800000, 1350000, 1050000, 89.0, 95.0, 92.0, "ACTIVE", "Manage port handling, bill of lading reconciliation, freight forwarding optimization, and global logistics dispatch.", "Outer Ring Road (Bellandur)", "Pritech Park"),
-                ("OPP-006", "COMP-006", "Customs Brokerage & EXIM Operations Associate", "Air Freight Customs", 750000, 1250000, 950000, 82.0, 93.0, 88.4, "ACTIVE", "Handle Indian customs tariff calculations (BCD, SWS, IGST), air cargo manifests, and EXIM compliance.", "Manyata Tech Park (Hebbal)", "Manyata Tech Park"),
+                ("OPP-006", "COMP-006", "Customs Brokerage & EXIM Operations Associate", "Air Freight Customs", 750000, 1250000, 950000, 82.0, 93.0, 86.33, "ACTIVE", "Handle Indian customs tariff calculations (BCD, SWS, IGST), air cargo manifests, and EXIM compliance.", "Manyata Tech Park (Hebbal)", "Manyata Tech Park"),
                 ("OPP-007", "COMP-007", "Global Operations Analyst - Prime Brokerage & Trade", "Global Markets Operations", 1000000, 1600000, 1300000, 91.0, 93.0, 93.0, "ACTIVE", "Execute trade settlement diagnostics, risk reconciliation, SLA governance, and stakeholder alignment.", "Outer Ring Road (Helios)", "Helios Business Park"),
                 ("OPP-008", "COMP-008", "Global Supply Chain Operations Associate", "Corporate & Investment Bank", 950000, 1500000, 1200000, 91.0, 92.0, 91.5, "ACTIVE", "Vendor procurement optimization, contract renegotiation, and quantitative variance analysis.", "Outer Ring Road (Prestige Tech Park)", "Prestige Tech Park"),
                 ("OPP-009", "COMP-009", "AI Data Operations & Quality Lead", "AI Knowledge & Ops", 1000000, 1700000, 1350000, 93.0, 97.0, 95.5, "ACTIVE", "Manage dataset curation, high-precision annotation workflows (99%+ accuracy), and model evaluation operations.", "Outer Ring Road (Bagmane Capital)", "Bagmane Capital"),
@@ -283,7 +283,7 @@ class OmegaDataCore:
 
             # Seed Interview Records
             interview_seed = [
-                ("INT-001", "PIP-001", 1, "Recruiter Technical Screening", now, json.dumps(["Q001-AERO-INDIA-OPS", "Q014-VENDOR-SLA-15PCT"]), 9.2, "Candidate demonstrated exceptional command of high-throughput venue logistics and 15% cost optimization.", "PASSED", "sha256:a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0"),
+                ("INT-001", "PIP-001", 1, "Recruiter Technical Screening", now, json.dumps(["Q001-AERO-INDIA-OPS", "Q014-VENDOR-SLA-GOV"]), 9.2, "Candidate demonstrated exceptional command of high-throughput venue logistics and vendor SLA governance.", "PASSED", "sha256:a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0"),
                 ("INT-002", "PIP-001", 2, "Operations Case Study & SLA Modeling", now, json.dumps(["Q042-INCOTERMS-CUSTOMS", "Q088-CRISIS-ESCALATION"]), 9.5, "Flawless walkthrough of Incoterms 2020 duty breakdown and emergency escalation protocol.", "SCHEDULED", "sha256:b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef01")
             ]
 
@@ -296,7 +296,7 @@ class OmegaDataCore:
             # Seed Learning Metrics
             metrics_seed = [
                 ("MET-001", "CAMPAIGN-AERO-INDIA", "Cold Email", "Variant A - 300+ Deployments Hook", 450, 442, 68, 42, 14, 0.095),
-                ("MET-002", "CAMPAIGN-COST-SAVINGS", "LinkedIn InMail", "Variant B - 15% Cost Savings Hook", 380, 375, 76, 51, 18, 0.136),
+                ("MET-002", "CAMPAIGN-COST-SAVINGS", "LinkedIn InMail", "Variant B - Vendor SLA Governance Hook", 380, 375, 76, 51, 18, 0.136),
                 ("MET-003", "CAMPAIGN-EXIM-TRADE", "Cold Email", "Variant C - EXIM/SCM Incoterms Hook", 290, 286, 52, 38, 12, 0.132),
                 ("MET-004", "CAMPAIGN-AI-DATA-OPS", "Executive Referral", "Variant D - AI Data Ops Hook", 120, 120, 34, 28, 9, 0.233)
             ]
@@ -639,8 +639,8 @@ class OmegaDataCore:
                 ],
                 "verified_claims": [
                     "300+ Event & Ops Deployments (AERO India 2025 Lead, Puma India, Tata Comms)",
-                    "15% Operational Cost Reduction & Vendor SLA Optimization",
-                    "INR 1.5L+ B2B Revenue Generated at Pencil Mark Interior Solutions",
+                    "Tier-1 Vendor SLA Governance & Rate Structuring",
+                    "Commercial Operations & Client Pipeline Acceleration",
                     "AI Data Operations at Instawork AI (99%+ Accuracy)",
                     "EXIM Compliance (Incoterms 2020, HS Tariff Codes, UCP 600 Letters of Credit)"
                 ]

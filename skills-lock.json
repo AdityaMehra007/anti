@@ -1,0 +1,629 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "computedHash": "80161e6836b3b40f4e83730a290deb40ac14d877d38c97ad5f6d71be37ce74c3"
+    },
+    "ai-cold-outreach": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ai-cold-outreach/SKILL.md",
+      "computedHash": "bc74d31e50d1a0a020c077accd6227433fae76fd53a0bc7e7f60687f719bbb63"
+    },
+    "ai-pricing": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ai-pricing/SKILL.md",
+      "computedHash": "980a55c9f05a15c1915057c2307fa00efc36a75d8ffab65b7908479b0455d784"
+    },
+    "ai-sdr": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ai-sdr/SKILL.md",
+      "computedHash": "ea6a949216f8dd59e5ba71bdb3519f193aee611d236e69794fda33a28d6f5265"
+    },
+    "ai-seo": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ai-seo/SKILL.md",
+      "computedHash": "73419ce8f9c8b710ca7f53158c437d7b13198bcc28e6138996436ec03fd9207e"
+    },
+    "ai-ugc-ads": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ai-ugc-ads/SKILL.md",
+      "computedHash": "5c68338dfefe78020cb0a32ed07cdcb9ab8625afecfd5510d633586210389bda"
+    },
+    "aws-advisor": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/aws-advisor/SKILL.md",
+      "computedHash": "9087d0967c2a834665be3b308d20657d9fd6e1e948c5c907fc11e11d208a1a9d"
+    },
+    "chrome-devtools": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/chrome-devtools/SKILL.md",
+      "computedHash": "d7742933d037059b53f43523cb3d78929af1fadffdddf47ad28ca12b939d84ab"
+    },
+    "cloudflare-deploy": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/cloudflare-deploy/SKILL.md",
+      "computedHash": "7a6ff288b708940c93804a2da371abe84963346f742b69cad11d85993415108f"
+    },
+    "codenavi": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/codenavi/SKILL.md",
+      "computedHash": "432a0a6d499c563c78df4e032475c5ca1cc2f7738d6ef5f561f3d66b47ab85b1"
+    },
+    "coding-guidelines": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/coding-guidelines/SKILL.md",
+      "computedHash": "547c2dd9cd2855607c35bed348c54c9590c09bea94cac94169bf8ecc9a48de02"
+    },
+    "component-common-domain-detection": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/component-common-domain-detection/SKILL.md",
+      "computedHash": "fc21e2e73a0b9adb6da901281ab18130f2890c200670ac074a412d3063497196"
+    },
+    "component-flattening-analysis": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/component-flattening-analysis/SKILL.md",
+      "computedHash": "2da32ab47b0386c1687202f2a95ea75f38080acfcf5c7b9d02fa7bb32ab626ba"
+    },
+    "component-identification-sizing": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/component-identification-sizing/SKILL.md",
+      "computedHash": "e97ed7757931c4acb4a77ac4add7c8b85c871c9a4b092ee74119bd8ae37d2501"
+    },
+    "confluence-assistant": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/confluence-assistant/SKILL.md",
+      "computedHash": "33477db781718175d7346aabf271ce5a5752a100def2b0d60a3d34b3a6fe8f64"
+    },
+    "content-to-pipeline": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/content-to-pipeline/SKILL.md",
+      "computedHash": "81ee29ac4f4a058c6c7b1c12b26cdaa0019ba9b2e93f52f9be2658ac094e426c"
+    },
+    "core-web-vitals": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/core-web-vitals/SKILL.md",
+      "computedHash": "fcafa6bbd67ab64aaf92acfdf128a0720196bcf9c24aad8923902e3a61ff112b"
+    },
+    "coupling-analysis": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/coupling-analysis/SKILL.md",
+      "computedHash": "7d2364b3f9861c7684b4aa2b07c36833eef1a530f998bc05f4f8ac6ce1232d25"
+    },
+    "create-adr": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/create-adr/SKILL.md",
+      "computedHash": "c67910a5767902c5d1dc520e6352efa2c985d19c9d1314aac9cf515413efee11"
+    },
+    "create-rfc": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/create-rfc/SKILL.md",
+      "computedHash": "84d27781217e408f3a6f750154037430a32138d29563010915dd554f220b15d2"
+    },
+    "create-technical-design-doc": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/create-technical-design-doc/SKILL.md",
+      "computedHash": "a8fe7e1df0d32cc709670df80ba41562e0bbdc1327263aa5b716122c235e8f60"
+    },
+    "cursor-subagent-creator": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/cursor-subagent-creator/SKILL.md",
+      "computedHash": "48429476e83af4c163c60787ed3f8c48d5a99bdb9b253d1efbd46252501d52b2"
+    },
+    "decomposition-planning-roadmap": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/decomposition-planning-roadmap/SKILL.md",
+      "computedHash": "df049193c7048cdaa1eb86b4c8c3c95ec388c6f9e65af47b5ba047e87b3376a6"
+    },
+    "deploy-to-vercel": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/deploy-to-vercel/SKILL.md",
+      "computedHash": "3a0481591523c55ecfe2569b6b28b2dcbfa3742367667697219d29170981ad53"
+    },
+    "docs-writer": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/docs-writer/SKILL.md",
+      "computedHash": "e01a1f9fd6a29070627056c6d7ca4002185e06b22437b47b7287e3e33a926c3a"
+    },
+    "domain-analysis": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/domain-analysis/SKILL.md",
+      "computedHash": "13183670941a1cd3bc0fabc36a6b261bb0ba1a36531147184a9bcdc15411ab11"
+    },
+    "domain-identification-grouping": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/domain-identification-grouping/SKILL.md",
+      "computedHash": "f89d3aaa1f707e414da05d27f5cfbdebab3f9ae740f214fc2e694c48a87ef5aa"
+    },
+    "evolutionary-modular-architecture": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/evolutionary-modular-architecture/SKILL.md",
+      "computedHash": "f42265c813a17006ae673f0a8af06c27ddfda1905b8a931ee80c4c2931aa6759"
+    },
+    "excalidraw-studio": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/excalidraw-studio/SKILL.md",
+      "computedHash": "d7cf49062743f4fd6ccff3325a17bfb1ca4c6e812845d21c015aadd2d46c8989"
+    },
+    "expansion-retention": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/expansion-retention/SKILL.md",
+      "computedHash": "9c8f669ce5ad3f3019295a273e3258e1978ce0faffe1e6108d25bbdb1591b4ab"
+    },
+    "figma": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/figma/SKILL.md",
+      "computedHash": "7151d4c22e9330b47fcb9f240b0a242131755f2ef244d49badee4fdbf1f993c6"
+    },
+    "figma-implement-design": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/figma-implement-design/SKILL.md",
+      "computedHash": "6151c17f57fd56b9dc756f8c2a058fea54cec5f120dbe1d01c6b1b24ad3dcdeb"
+    },
+    "frontend-blueprint": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/frontend-blueprint/SKILL.md",
+      "computedHash": "77a5b1ef34093dc5264d45b9d0005c025d6cfe518449abcb85c6c45df9c32916"
+    },
+    "frontend-design": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/frontend-design/SKILL.md",
+      "computedHash": "e175ad9e8f3895549a938e00fc6281ee3be58121fdce0e6a96770aea182e4d24"
+    },
+    "gh-address-comments": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/gh-address-comments/SKILL.md",
+      "computedHash": "a02ff3511bb180d0171168cd6405b2e40dcf1399eda1a717a55c1c4db31ee9bc"
+    },
+    "gh-fix-ci": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/gh-fix-ci/SKILL.md",
+      "computedHash": "94365ff39a1cd8b4bc63792c311720cf3dd6782d3de47570b1566d9903baddb2"
+    },
+    "gtm-engineering": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/gtm-engineering/SKILL.md",
+      "computedHash": "8acf04d6e1b87b930d39e9807828b09e4810fbf1ea03f26abebc99f8dd5070e0"
+    },
+    "gtm-metrics": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/gtm-metrics/SKILL.md",
+      "computedHash": "8cd482a1061802c0ae1ebed0160c6e13f0ddb753951accb15ebd0fe1491f8ed8"
+    },
+    "harness-eval": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/harness-eval/SKILL.md",
+      "computedHash": "50cbe1ef6602ed4aab3ec23fd9d7dbf54f191cc21d4b14d86b33db2dd020d013"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/humanizer/SKILL.md",
+      "computedHash": "c39879e29a7fe8a9e4bcd0ef66339589ba0e85e3893521ecb0d96a277761467c"
+    },
+    "jira-assistant": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/jira-assistant/SKILL.md",
+      "computedHash": "45c3674e161b5db03866addc96ac05ba4370e90970f1f065e0d07b8f0bddc6a7"
+    },
+    "lead-enrichment": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/lead-enrichment/SKILL.md",
+      "computedHash": "4e2ac22a73eae803b94a070a700e8a1044090c6e0b113f9a8ef4b2b2256be09c"
+    },
+    "learning-opportunities": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/learning-opportunities/SKILL.md",
+      "computedHash": "625b20373e3d4c8d6f8000b40117efbc51f00da05e9506963d928a0669bc2ae1"
+    },
+    "legacy-migration-planner": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/legacy-migration-planner/SKILL.md",
+      "computedHash": "a9601eccfa086e8c28e9b2f6ba56d73a7ba4c41228f62ea152617ed9b4b6bf03"
+    },
+    "mermaid-studio": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/mermaid-studio/SKILL.md",
+      "computedHash": "fce1306df953d3d89687646d5cb56e0f68d4f40f27b8ec404ac33242c7d57b60"
+    },
+    "modular-decomposition": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/modular-decomposition/SKILL.md",
+      "computedHash": "930c092e51564789fd304aaca2dcecd1ebacf56d505c14494bc28510d0e3cb66"
+    },
+    "modular-design-principles": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/modular-design-principles/SKILL.md",
+      "computedHash": "65757a9efd6930201edef27daca7f7e148bc0414f0d6903dfa24412cea88d9f5"
+    },
+    "multi-platform-launch": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/multi-platform-launch/SKILL.md",
+      "computedHash": "b693ce5d41ca98a395f0facb340e18aa3dbde9d40eb390f4da869688f9fb62fc"
+    },
+    "nestjs-modular-monolith": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/nestjs-modular-monolith/SKILL.md",
+      "computedHash": "9d60fec573e7cc75c627f73b89a1d9c81f15fb049753a77070c5537bd434485c"
+    },
+    "netlify-deploy": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/netlify-deploy/SKILL.md",
+      "computedHash": "85495d42492ae61cd31a5a0d83d63316a1ae5c44e3977cad9a35577964943ff5"
+    },
+    "not-your-babysitter": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/not-your-babysitter/SKILL.md",
+      "computedHash": "138c4244fabc9ca1af47ece31b409eac94163f2b346dd9ddc38e329710a8b168"
+    },
+    "nx-ci-monitor": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/nx-ci-monitor/SKILL.md",
+      "computedHash": "9f980b1932afde3efaae34250565b28df664fc1186e28562bb34e74a2f7f2fb1"
+    },
+    "nx-generate": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/nx-generate/SKILL.md",
+      "computedHash": "1c1be1f86101362ded1c3d139618d13736d66b17b63a601261be0bcb70306f8b"
+    },
+    "nx-run-tasks": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/nx-run-tasks/SKILL.md",
+      "computedHash": "27fe32c1e07627db240ee2d3b28445cef05902a9d633cc57cfcf78a3c4016ecf"
+    },
+    "nx-workspace": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/nx-workspace/SKILL.md",
+      "computedHash": "4a4644e2a14d937f47889892eb7b54b9298a41f4a84cb6d6c22201155148f688"
+    },
+    "paid-creative-ai": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/paid-creative-ai/SKILL.md",
+      "computedHash": "e4493e22091e673562341d3eb3b2055dd4b5513bc2e9a661cf4663fdb808601f"
+    },
+    "partner-affiliate": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/partner-affiliate/SKILL.md",
+      "computedHash": "d400db2fc539f85e3d235c338e54d4c12043ac35da8a7398722c9b9f0dc154c5"
+    },
+    "perf-astro": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/perf-astro/SKILL.md",
+      "computedHash": "141d57e266e612b65f6947f190e49c4e919c182ea01912a4a713ce1161cf0c0f"
+    },
+    "perf-lighthouse": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/perf-lighthouse/SKILL.md",
+      "computedHash": "d58e254a729ae442280cd60076b2eeebfb8e5032713e2df801463b465cd98427"
+    },
+    "perf-web-optimization": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/perf-web-optimization/SKILL.md",
+      "computedHash": "c9a19e4652cd5120840e042aa83a71d656d482a0c12fc1401c95d3260fe44015"
+    },
+    "playwright-skill": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/playwright-skill/SKILL.md",
+      "computedHash": "fa1e0a8841f825e2c370e4fedb1c1d0810b03879fcbd9f75329e59977e53840f"
+    },
+    "positioning-icp": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/positioning-icp/SKILL.md",
+      "computedHash": "3653b1d7c67be3c60032658bfcd88295be4a30ec0df24edae982d7065b0be637"
+    },
+    "rails-dev": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/rails-dev/SKILL.md",
+      "computedHash": "71c43e268d08ac091bd63997973eeab408c26785504c4e638775cac1a5065177"
+    },
+    "react-best-practices": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/react-best-practices/SKILL.md",
+      "computedHash": "e5d2d7b43572453ba8fb329a6fbb15c5d7c939d4a80adb8d88c17121b2049ae0"
+    },
+    "react-composition-patterns": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/react-composition-patterns/SKILL.md",
+      "computedHash": "0a248e8720fd5f5a0c3e5270910060433ce17f95cd75255875d4ae8eab04ecde"
+    },
+    "react-native-expert": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/react-native-expert/SKILL.md",
+      "computedHash": "b22c188cac58a9ec5324e979cdaebc23b3eac4491a1284e629be327be1655383"
+    },
+    "render-deploy": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/render-deploy/SKILL.md",
+      "computedHash": "6290f717655802c3f3fc8e4278d7bc7bcc6dc6c3874f89ecc3d15e81308830ac"
+    },
+    "sales-motion-design": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sales-motion-design/SKILL.md",
+      "computedHash": "bd87f727a527b45d690abeab337696f519e3420d692bf0476fa7dc9876362fe2"
+    },
+    "security-best-practices": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/security-best-practices/SKILL.md",
+      "computedHash": "53011bb93069dee94930c9f6c4234051e6767d5e5ad1441b432053d8ad398562"
+    },
+    "security-ownership-map": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/security-ownership-map/SKILL.md",
+      "computedHash": "1fb522f7fac0286f1947d636365522c62e0df363a61ab65b185c6c765ead0c13"
+    },
+    "security-threat-model": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/security-threat-model/SKILL.md",
+      "computedHash": "824d2c494e17eccf6e5da409ce78fe2579fb6255d0c1a121cf67c8de7871825c"
+    },
+    "sentry": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/sentry/SKILL.md",
+      "computedHash": "68d30c88b98c1d52b50d111be8339cb0842b1fd908e8285ee19711ce852dceca"
+    },
+    "seo": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/seo/SKILL.md",
+      "computedHash": "bdd97aa54ffe9c82e394ce365298a80b02f01ff5da85d7111bbaefc6a612bd4e"
+    },
+    "shopify-developer": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/shopify-developer/SKILL.md",
+      "computedHash": "6f0595668e4c983bc247ecbd1a49c8d21b698cb21f1704205899aedefb9170de"
+    },
+    "skill-architect": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/skill-architect/SKILL.md",
+      "computedHash": "f18f868ead23869d817224e314aca0e4edd9d287c3cdc061f0213f9bd35f5ff0"
+    },
+    "social-selling": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/social-selling/SKILL.md",
+      "computedHash": "11a0495e2a7b8f3f15f560790658c2f610dd921dd77fd9ebd482c9d492a65613"
+    },
+    "solo-founder-gtm": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/solo-founder-gtm/SKILL.md",
+      "computedHash": "d4f688e07d516741b7f7a7cf93f3fbe3bf27f40f411a5c66eed3a6b3b64cf111"
+    },
+    "spec-driven-eval": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/spec-driven-eval/SKILL.md",
+      "computedHash": "3289f9a99f4b4c24f0ccb91401f55d98a744e3b600e63e79a485761989a3cc31"
+    },
+    "subagent-creator": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/subagent-creator/SKILL.md",
+      "computedHash": "ab1566fd7540ee01b2c245cb7a75d94855e1e9460682d7fb600d1efa93a5d133"
+    },
+    "supabase": {
+      "source": "supabase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/supabase/SKILL.md",
+      "computedHash": "a6260582f48df8ba53380bb9b9e870ed2ae5fe147799e90ed783b8aa25167d50"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "supabase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/supabase-postgres-best-practices/SKILL.md",
+      "computedHash": "128fac78002d916c8ca908245d398e634f540d8bcf20915b2b2359aeb18eba59"
+    },
+    "tactical-ddd": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tactical-ddd/SKILL.md",
+      "computedHash": "034a5d247ff8ebbf1ed7e119a40200627cc96fe1f4b3ae2fe8ccd8959db7c19b"
+    },
+    "the-fool": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/the-fool/SKILL.md",
+      "computedHash": "75c56b3cc12a8801a72374ee095fd964f59c8ea5ea8eef274b3e33559b5a5bfd"
+    },
+    "the-judge": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/the-judge/SKILL.md",
+      "computedHash": "57e096ba92d8f3344f2d4f68f55491111099d35d052404abe31ab904b9f68b12"
+    },
+    "the-jury": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/the-jury/SKILL.md",
+      "computedHash": "b1e30d457a53252d88561198dd5a8ee664758a93cadab89d28353b4cddc7cd2b"
+    },
+    "tlc-discover": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tlc-discover/SKILL.md",
+      "computedHash": "8a500bab3df067f9a788b3f61e2e9eb8fcccae69f96cd1553a7d3feffcf8aba9"
+    },
+    "tlc-generative-engine-optimization": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tlc-generative-engine-optimization/SKILL.md",
+      "computedHash": "1c8974fb39a10681881367125159d57a24e6e9682cffedcf7a8b9169f289c088"
+    },
+    "tlc-implement": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tlc-implement/SKILL.md",
+      "computedHash": "d56a487dd1019d15e24168323513624ced40003dba76d397f6d69b83302272cf"
+    },
+    "tlc-plan": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tlc-plan/SKILL.md",
+      "computedHash": "57222891b4841919c968c21692e0a3d3c8e5b8344d88ca5aa1c717e716478e4e"
+    },
+    "tlc-spec-driven": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tlc-spec-driven/SKILL.md",
+      "computedHash": "bf13d8b2823d0f9a04e0ac0e22939c9f91e06a90a9b51e0df693fcde6f389b0b"
+    },
+    "tlc-spec-lean": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/tlc-spec-lean/SKILL.md",
+      "computedHash": "6525345389a8d88773c12566e6484c0061e9f09c015f286cf6e51b056a3f1420"
+    },
+    "vercel-cli-with-tokens": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/vercel-cli-with-tokens/SKILL.md",
+      "computedHash": "d3ad6e1d6278a4df322ee5bf49211f921f4aaea1148fb127b4e928de04b39fef"
+    },
+    "vercel-composition-patterns": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/composition-patterns/SKILL.md",
+      "computedHash": "10eb4ec94577b79ae98c63ce3e7f35f8a6a06436a4011bff083b397de6960eeb"
+    },
+    "vercel-deploy": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/vercel-deploy/SKILL.md",
+      "computedHash": "0a80fd9b5aa713702f4852df1c584343945cf98c5168d948166ee9515ae19e9b"
+    },
+    "vercel-optimize": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/vercel-optimize/SKILL.md",
+      "computedHash": "fb87d3a135fef30748f772200a9f161f780b5a16830e8e70a3a126195cb16963"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "computedHash": "6b526d013e28073246a36f99b529bc43745d30832ecfa8217b359c34f260ca6b"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-skills/SKILL.md",
+      "computedHash": "a804b4e848059822638c390359976f7021380bcefb1469d473aa4e9202c15ecb"
+    },
+    "vercel-react-view-transitions": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-view-transitions/SKILL.md",
+      "computedHash": "12f8e118b8ca5fa45e3f0b56c269fb2e35251b705d2320b26b0727a0f58adefc"
+    },
+    "video-outreach": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/video-outreach/SKILL.md",
+      "computedHash": "1e068329d6747cf96b8a59380f8e4e7ecee162bed1d04b35a49e5ce59cc40758"
+    },
+    "web-accessibility": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/web-accessibility/SKILL.md",
+      "computedHash": "861b28263ea3b661db6da54c70efd9c0ba553f3ffdce2889849422156313acd3"
+    },
+    "web-best-practices": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/web-best-practices/SKILL.md",
+      "computedHash": "a0e751a9aa34a3249b63e2cd16569df237bf46fd7b3bd75ed0304446be63c26b"
+    },
+    "web-design-guidelines": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/web-design-guidelines/SKILL.md",
+      "computedHash": "a0e45959a490cbb8e6400abb99083ced93cf9fbf16da031c1b8bb4d9b3763725"
+    },
+    "web-quality-audit": {
+      "source": "tech-leads-club/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/web-quality-audit/SKILL.md",
+      "computedHash": "f2cb6e228e8c5617b10a8be936bfcb7672e38852b5526d1e23c586f5dc1e5dc1"
+    },
+    "writing-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/writing-guidelines/SKILL.md",
+      "computedHash": "9c221f46dca7bdf94af9c27ce54a7b4ea323c590333f8bc0a55c65254c646584"
+    }
+  }
+}

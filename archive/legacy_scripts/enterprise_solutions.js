@@ -1,0 +1,73 @@
+const fs = require('fs');
+const path = require('path');
+
+const WORKSPACE = 'e:/anti';
+const OUTPUT_JSON = path.join(WORKSPACE, 'career-hub', 'candidate', 'enterprise_solutions_data.json');
+
+const solutionsData = {
+    system_identifier: "ENTERPRISE_SOLUTIONS_SUITE_V14",
+    built_by: "Aditya Mehra (BBA International Business '26)",
+    target_company_solutions: [
+        {
+            company_group: "Accenture / Deloitte / EY / Amazon",
+            tool_name: "Enterprise Operations & SLA Cost Reduction Optimizer",
+            core_features: [
+                "Real-time SLA compliance tracking across multi-region workflows",
+                "Vendor rate card consolidation engine (15% net cost reduction)",
+                "Process bottleneck identification & throughput optimization"
+            ],
+            metrics_demo: {
+                annual_budget_inr: "10,00,000",
+                savings_pct: "15%",
+                net_savings_inr: "1,50,000",
+                vendors_managed: 300
+            }
+        },
+        {
+            company_group: "Freightify / Maersk / Trade Enterprises",
+            tool_name: "EXIM Trade Compliance & Incoterms 2020 Engine",
+            core_features: [
+                "HSN Tariff classification & customs duty calculator",
+                "FOB vs CIF cost comparator & ocean freight insurance verifier",
+                "Bill of Lading (B/L) & Letter of Credit (LC) documentation audit"
+            ],
+            metrics_demo: {
+                shipment_volume_teu: 150,
+                origin: "Shenzhen Port, China",
+                destination: "ICD Whitefield, Bengaluru",
+                duty_savings_pct: "8.5%"
+            }
+        },
+        {
+            company_group: "Pencil Mark / HubSpot / SaaS Startups",
+            tool_name: "B2B Lead Acquisition & Revenue Pipeline Engine",
+            core_features: [
+                "Automated corporate prospect qualification & CRM data enrichment",
+                "Outbound email draft generator with custom value propositions",
+                "1-Click B2B Tax Invoice & Retainer Agreement generator"
+            ],
+            metrics_demo: {
+                leads_processed: 50,
+                closed_revenue_inr: "1,50,000",
+                conversion_rate: "18.5%"
+            }
+        },
+        {
+            company_group: "Instawork / AI Scale-Ups",
+            tool_name: "AI Data Curation & Quality Audit Pipeline",
+            core_features: [
+                "High-accuracy ML dataset annotation throughput auditor",
+                "Golden standard data verification & error rate minimizer",
+                "Automated data pipeline quality scoring"
+            ],
+            metrics_demo: {
+                items_annotated: 25000,
+                accuracy_pct: "99.4%",
+                audit_speed_multiplier: "3.2x"
+            }
+        }
+    ]
+};
+
+fs.writeFileSync(OUTPUT_JSON, JSON.stringify(solutionsData, null, 2), 'utf-8');
+console.log("✅ Enterprise Solutions Suite dataset written to:", OUTPUT_JSON);

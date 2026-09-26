@@ -1,0 +1,81 @@
+{
+  "name": "OMEGA System Health Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "id": "1",
+      "name": "Every 15 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        260,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:5678/healthz",
+        "options": {
+          "timeout": 5000
+        }
+      },
+      "id": "2",
+      "name": "Check Local Health Endpoint",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const res = $input.first().json;\nconst timestamp = new Date().toISOString();\nreturn [{\n  json: {\n    system: 'OMEGA Automation Node',\n    checked_at: timestamp,\n    status: 'HEALTHY',\n    details: res\n  }\n}];"
+      },
+      "id": "3",
+      "name": "Format Health Audit",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        700,
+        340
+      ]
+    }
+  ],
+  "connections": {
+    "Every 15 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Check Local Health Endpoint",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Local Health Endpoint": {
+      "main": [
+        [
+          {
+            "node": "Format Health Audit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

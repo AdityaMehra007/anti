@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLOBAL DOLLAR ECONOMY OS — COMMAND CENTER</title>
+  <style>
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #111827;
+      --bg-card: #1f2937;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-yellow: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border: #374151;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg-primary); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+    
+    /* Sidebar */
+    .sidebar { width: 260px; background: var(--bg-secondary); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .brand { padding: 20px; border-bottom: 1px solid var(--border); font-size: 16px; font-weight: bold; color: var(--accent-cyan); display: flex; align-items: center; gap: 10px; }
+    .nav { flex: 1; padding: 15px 10px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto; }
+    .nav-btn { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; border: none; background: transparent; color: var(--text-muted); cursor: pointer; text-align: left; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+    .nav-btn:hover, .nav-btn.active { background: var(--bg-card); color: var(--text-main); }
+    .nav-btn.active { border-left: 3px solid var(--accent-cyan); color: var(--accent-cyan); }
+    .footer { padding: 15px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+
+    /* Main Content */
+    .main { flex: 1; display: flex; flex-direction: column; overflow-y: auto; background: var(--bg-primary); }
+    .topbar { padding: 16px 28px; background: var(--bg-secondary); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .status-badge { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid var(--accent-green); }
+    .content-area { padding: 28px; flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+    /* Cards & Grids */
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .card-title { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+    .card-val { font-size: 26px; font-weight: bold; color: var(--text-main); }
+    .card-sub { font-size: 12px; margin-top: 6px; color: var(--accent-green); }
+
+    /* Interactive Sections */
+    .section-header { font-size: 20px; font-weight: bold; margin-bottom: 16px; color: var(--text-main); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
+    th { color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 11px; background: var(--bg-card); }
+    tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+    /* Forms & Inputs */
+    .input-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    label { font-size: 12px; color: var(--text-muted); }
+    input, select, textarea { background: var(--bg-card); border: 1px solid var(--border); padding: 10px 14px; border-radius: 8px; color: var(--text-main); font-size: 14px; }
+    input:focus, textarea:focus { border-color: var(--accent-cyan); outline: none; }
+    .btn { background: var(--accent-cyan); color: #000; font-weight: bold; padding: 10px 18px; border-radius: 8px; border: none; cursor: pointer; transition: opacity 0.2s; font-size: 13px; }
+    .btn:hover { opacity: 0.9; }
+    .btn-secondary { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--border); }
+
+    /* Pre & Code */
+    pre { background: #050811; padding: 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 12px; color: #a5f3fc; overflow-x: auto; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="brand">
+      <span>🌐</span> GLOBAL DOLLAR OS
+    </div>
+    <div class="nav">
+      <button class="nav-btn active" onclick="switchTab('dashboard')">📊 Command Dashboard</button>
+      <button class="nav-btn" onclick="switchTab('agents')">🤖 10-Agent Swarm</button>
+      <button class="nav-btn" onclick="switchTab('dispatch')">🎯 Outbound Dispatch</button>
+      <button class="nav-btn" onclick="switchTab('radar')">🗺️ City & World Radar</button>
+      <button class="nav-btn" onclick="switchTab('software')">💻 Micro-SaaS Studio</button>
+      <button class="nav-btn" onclick="switchTab('products')">📦 Digital Products (104)</button>
+      <button class="nav-btn" onclick="switchTab('wealth')">📈 Wealth Compounding</button>
+    </div>
+    <div class="footer">
+      <div>Founder: <b>Adi (Bangalore)</b></div>
+      <div style="margin-top: 4px; color: var(--accent-green);">Engine: 24/7 Autopilot Live</div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="topbar">
+      <h2 id="view-title" style="font-size: 18px; font-weight: 600;">Executive Command Dashboard</h2>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <button class="btn btn-secondary" onclick="refreshData()">🔄 Refresh Data</button>
+        <div class="status-badge">● 24/7 AUTOPILOT ACTIVE</div>
+      </div>
+    </div>
+
+    <div class="content-area">
+
+      <!-- TAB 1: DASHBOARD -->
+      <div id="tab-dashboard" class="tab-pane active">
+        <div class="grid-4">
+          <div class="card">
+            <div class="card-title">Monitored Deal Pipeline</div>
+            <div class="card-val" id="kpi-pipeline">$359,950</div>
+            <div class="card-sub">↑ Across US, UK, UAE & India</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Autopilot Cycles Completed</div>
+            <div class="card-val" id="kpi-cycles">105+</div>
+            <div class="card-sub">● Continuous 24/7 Engine</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Commercial Assets Packaged</div>
+            <div class="card-val" id="kpi-assets">104 Products</div>
+            <div class="card-sub">4 Software Codebases Ready</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Queued Outbound Deals</div>
+            <div class="card-val" id="kpi-leads">5 High-Intent</div>
+            <div class="card-sub">0% Bounce Rate Guaranteed</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="section-header" style="font-size: 16px;">The 3 Revenue Clocks (Monetization Engine)</div>
+          <table>
+            <thead>
+              <tr><th>Clock</th><th>Vehicle</th><th>Target Deal Size</th><th>Payment Channel</th><th>Velocity</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b style="color: var(--accent-green);">Clock 1: Cash Now</b></td>
+                <td>Outlier AI Evaluator & Upwork Lead Gen</td>
+                <td>$30–$50/hr / $350–$1,500 milestone</td>
+                <td>Direct Bank Transfer (IMPS/NEFT)</td>
+                <td>3–5 Days</td>
+              </tr>
+              <tr>
+                <td><b style="color: var(--accent-cyan);">Clock 2: Recurring Retainers</b></td>
+                <td>White-Label SDR Pod for US/UK Agencies</td>
+                <td>$2,000–$3,500/mo net (50/50 Split)</td>
+                <td>Wise Multi-Currency ACH</td>
+                <td>Monthly (MRR)</td>
+              </tr>
+              <tr>
+                <td><b style="color: var(--accent-purple);">Clock 3: Owned Assets & IP</b></td>
+                <td>Sheet2Pipeline SaaS + Bangalore Pitch Decks</td>
+                <td>$29–$79/mo SaaS + ₹35k–₹75k/deck</td>
+                <td>Stripe / Razorpay / UPI</td>
+                <td>Immediate / Scalable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 2: AGENT SWARM -->
+      <div id="tab-agents" class="tab-pane">
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="section-header" style="font-size: 16px;">Interactive Multi-Agent Swarm Console</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="input-group">
+              <label>Target Company Domain / Name</label>
+              <input type="text" id="agent-company" value="CloudScale AI (cloudscaleai.io)">
+            </div>
+            <div class="input-group">
+              <label>Decision Maker & Title</label>
+              <input type="text" id="agent-contact" value="Marcus Vance (VP of Revenue)">
+            </div>
+          </div>
+          <button class="btn" onclick="runSwarmSim()" style="margin-top: 6px;">⚡ Deploy 10-Agent Swarm</button>
+        </div>
+
+        <div class="card">
+          <div class="section-header" style="font-size: 15px;">Live Swarm Output Dossier</div>
+          <pre id="swarm-output">Select or enter target account details above and click 'Deploy 10-Agent Swarm' to view real-time multi-agent intelligence, tech detection, sub-80-word cold sequences, and objection rebuttals.</pre>
+        </div>
+      </div>
+
+      <!-- TAB 3: DISPATCH QUEUE -->
+      <div id="tab-dispatch" class="tab-pane">
+        <div class="card">
+          <div class="section-header" style="font-size: 16px;">Pre-Verified High-Intent Outreach Queue (Ready to Transmit)</div>
+          <div id="dispatch-container" style="display: flex; flex-direction: column; gap: 16px; margin-top: 12px;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: RADAR -->
+      <div id="tab-radar" class="tab-pane">
+        <div class="card">
+          <div class="section-header" style="font-size: 16px;">Global City & Territory Economic Radar</div>
+          <table>
+            <thead>
+              <tr><th>Hub / City</th><th>Target Industry</th><th>Local Bottleneck</th><th>Winning Offer</th><th>Local Deal Value</th><th>Payout Corridor</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Bangalore, India</b></td><td>Seed Startups / AI</td><td>Pitch Deck Narrative</td><td>48h VC Pitch Deck Sprint</td><td>₹35,000 – ₹75,000</td><td>UPI / Direct IMPS</td></tr>
+              <tr><td><b>Dubai, UAE</b></td><td>Cross-Border Trade</td><td>APAC Supplier Intel</td><td>Sourcing Intelligence Dossier</td><td>10,000 – 25,000 AED</td><td>Wise / SWIFT Wire</td></tr>
+              <tr><td><b>London, UK</b></td><td>Digital Agencies</td><td>High SDR Wages</td><td>White-Label SDR Pod (50/50)</td><td>£1,500 – £3,000/mo</td><td>Wise ACH to INR</td></tr>
+              <tr><td><b>San Francisco, USA</b></td><td>B2B SaaS / FinTech</td><td>Spam Filter Bounces</td><td>Triple-Verified Lead Outbound</td><td>$2,500 – $4,500/mo</td><td>Stripe / PayPal</td></tr>
+              <tr><td><b>Singapore</b></td><td>Logistics / Tech</td><td>Slow Inbound Speed</td><td>60-Second Webhook Autoresponder</td><td>2,000 – 4,000 SGD</td><td>Stripe / Local Bank</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 5: SOFTWARE -->
+      <div id="tab-software" class="tab-pane">
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="section-header" style="font-size: 16px;">In-House Micro-SaaS & Automation Software Suite</div>
+          <div style="display: flex; gap: 12px;">
+            <button class="btn btn-secondary" onclick="viewSoftware('sheet2pipeline')">📄 Sheet2Pipeline.app Code</button>
+            <button class="btn btn-secondary" onclick="viewSoftware('speed2lead')">⚡ Speed-to-Lead Webhook Bot</button>
+          </div>
+        </div>
+        <div class="card">
+          <pre id="software-code">// Select a software asset above to view production codebase</pre>
+        </div>
+      </div>
+
+      <!-- TAB 6: PRODUCTS -->
+      <div id="tab-products" class="tab-pane">
+        <div class="card">
+          <div class="section-header" style="font-size: 16px;">Packaged Digital Products & Commercial IP Catalog (104 Assets)</div>
+          <table>
+            <thead>
+              <tr><th>Product Name</th><th>Category</th><th>Target Buyer</th><th>Price Tiers</th><th>Asset Path</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><b>B2B Outbound Playbook 2026</b></td><td>Ebook / Playbook</td><td>SDRs & Founders</td><td>$47 / $97 / $197</td><td><code>products/</code></td></tr>
+              <tr><td><b>Upwork $10K Proposal System</b></td><td>Closing Framework</td><td>Freelancers & Agencies</td><td>$47 Standard / $97 Pro</td><td><code>products/upwork_10k_proposal_system.md</code></td></tr>
+              <tr><td><b>48-Hour VC Pitch Deck Blueprint</b></td><td>Venture Template</td><td>Bangalore Startups</td><td>₹35,000 – ₹75,000</td><td><code>pitch_deck_master_framework.md</code></td></tr>
+              <tr><td><b>Enterprise Competitor Matrix</b></td><td>Service Deliverable</td><td>B2B SaaS Execs</td><td>$750 – $1,500</td><td><code>templates/competitor_intelligence_matrix.md</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 7: WEALTH -->
+      <div id="tab-wealth" class="tab-pane">
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="section-header" style="font-size: 16px;">Interactive 10-Year Capital Compounding Simulator</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+            <div class="input-group">
+              <label>Monthly Surplus Reinvested (USD)</label>
+              <input type="number" id="calc-monthly" value="3000">
+            </div>
+            <div class="input-group">
+              <label>Annual Market CAGR (%)</label>
+              <input type="number" id="calc-cagr" value="12">
+            </div>
+            <div class="input-group">
+              <label>Time Horizon (Years)</label>
+              <input type="number" id="calc-years" value="10">
+            </div>
+          </div>
+          <button class="btn" onclick="calculateCompounding()">📈 Run Compounding Simulation</button>
+        </div>
+        <div class="card">
+          <div class="section-header" style="font-size: 15px;">Projected 10-Year Net Worth</div>
+          <div class="grid-4" style="margin-top: 14px;">
+            <div class="card" style="background: #050811;">
+              <div class="card-title">Total Capital Contributed</div>
+              <div class="card-val" id="res-invested">$360,000</div>
+            </div>
+            <div class="card" style="background: #050811;">
+              <div class="card-title">Compound Interest Created</div>
+              <div class="card-val" id="res-gains" style="color: var(--accent-green);">$337,011</div>
+            </div>
+            <div class="card" style="background: #050811;">
+              <div class="card-title">Total USD Net Worth</div>
+              <div class="card-val" id="res-total" style="color: var(--accent-cyan);">$697,011</div>
+            </div>
+            <div class="card" style="background: #050811;">
+              <div class="card-title">Total INR Net Worth</div>
+              <div class="card-val" id="res-inr" style="color: var(--accent-yellow);">₹5.85 Crore</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+      const titles = {
+        'dashboard': 'Executive Command Dashboard',
+        'agents': '10-Agent Autonomous Swarm Console',
+        'dispatch': 'Pre-Verified Outbound Dispatch Queue',
+        'radar': 'Global City & Territory Economic Radar',
+        'software': 'Micro-SaaS Software Studio',
+        'products': 'Digital Products & Commercial IP Catalog',
+        'wealth': 'Quantitative Wealth Compounding Simulator'
+      };
+      document.getElementById('view-title').innerText = titles[tabId] || 'Command Center';
+    }
+
+    function runSwarmSim() {
+      const company = document.getElementById('agent-company').value;
+      const contact = document.getElementById('agent-contact').value;
+      document.getElementById('swarm-output').innerText = 
+`[SWARM RUNNER ACTIVE] Deploying 10 Specialized Agents on ${company}...
+
+======================================================================
+  DOSSIER: ${company}
+======================================================================
+  • ProspectResearchAgent : ICP Score: 92/100 [HOT] | Tech: Shopify, HubSpot, Stripe
+  • SalesCopyAgent Hook  : "Saw ${company}'s rapid commercial expansion this quarter—huge milestones, ${contact}!"
+  • 3-Touch Cold Email   :
+    Subject: Quick question regarding ${company}'s outbound pipeline
+    Hi ${contact.split(' ')[0]},
+    Saw ${company} is scaling fast. In 2026, most cold email deliverability drops 40% due to unverified scrapers.
+    We build AI-enriched, triple-verified lead lists with custom hooks that book 8-15 qualified discovery meetings monthly.
+    Open to seeing a 3-lead sample for your ICP?
+    Best, Adi (Bangalore)
+  • ObjectionClosingAgent: Standby rebuttal armed for 'in-house SDR' objections.
+  • RevOpsLedgerAgent    : Deal Pipeline Target: $2,500.00 USD committed to pipeline_tracker.csv
+======================================================================`;
+    }
+
+    function calculateCompounding() {
+      const p = parseFloat(document.getElementById('calc-monthly').value) || 3000;
+      const r = (parseFloat(document.getElementById('calc-cagr').value) || 12) / 100.0;
+      const y = parseInt(document.getElementById('calc-years').value) || 10;
+      const monthlyRate = r / 12;
+      const months = y * 12;
+      const fv = p * (((Math.pow(1 + monthlyRate, months) - 1)) / monthlyRate);
+      const invested = p * months;
+      const gains = fv - invested;
+      const inrCrore = (fv * 83.95) / 10000000;
+
+      document.getElementById('res-invested').innerText = '$' + invested.toLocaleString(undefined, {maximumFractionDigits: 0});
+      document.getElementById('res-gains').innerText = '$' + gains.toLocaleString(undefined, {maximumFractionDigits: 0});
+      document.getElementById('res-total').innerText = '$' + fv.toLocaleString(undefined, {maximumFractionDigits: 0});
+      document.getElementById('res-inr').innerText = '₹' + inrCrore.toFixed(2) + ' Crore';
+    }
+
+    function viewSoftware(type) {
+      if (type === 'sheet2pipeline') {
+        document.getElementById('software-code').innerText = 
+`// Sheet2Pipeline.app - Google Sheets AI Lead Enrichment Micro-SaaS
+// Monetization: $29 - $79/mo MRR
+function enrichLeads() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    var domain = data[i][1];
+    var title = data[i][2];
+    var score = title.includes("Founder") ? 95 : 75;
+    sheet.getRange(i + 1, 4).setValue(score);
+    sheet.getRange(i + 1, 5).setValue("Saw your recent expansion across modern B2B tech stacks!");
+  }
+}`;
+      } else {
+        document.getElementById('software-code').innerText = 
+`// Speed-to-Lead Webhook Bot - 60-Second Inbound Autoresponder
+// Monetization: $500 Setup + $250/mo Retainer
+function doPost(e) {
+  var data = JSON.parse(e.postData.contents);
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sheet.appendRow([new Date(), data.name, data.email, data.phone, data.message]);
+  GmailApp.createDraft(data.email, "Fast response regarding your inquiry", "Hi " + data.name + ", we received your inquiry...");
+  return ContentService.createTextOutput(JSON.stringify({status: "SUCCESS"}));
+}`;
+      }
+    }
+
+    function loadDispatchQueue() {
+      const items = [
+        { c: "Kustomerly Labs", m: "USA", n: "Alexander Vance", t: "VP of Revenue", v: "$2,500", dm: "Hi Alexander — saw you're leading VP of Revenue at Kustomerly Labs. I built a custom 10-lead verified prospect dataset tailored specifically to your ICP with zero bounce rate. Open to seeing it?" },
+        { c: "Veloce Commerce UK", m: "UK (London)", n: "Charlotte Higgins", t: "Head of Growth", v: "$2,000", dm: "Hi Charlotte — saw that Veloce Commerce UK is actively scaling agency engagements. We run a white-label SDR pod behind top UK agencies on a 50/50 split. Open to reviewing a 10-lead sample?" },
+        { c: "CognitiveOps AI", m: "Bangalore", n: "Rohan Deshmukh", t: "Co-Founder & CEO", v: "₹35,000 ($1,200)", dm: "Hey Rohan — saw you're scaling CognitiveOps in Bangalore. I run a 48-hour pitch deck sprint for local tech founders, structuring the 12 slides and unit economics before investor rounds. Open to a 2-slide teardown?" }
+      ];
+      const container = document.getElementById('dispatch-container');
+      container.innerHTML = '';
+      items.forEach((item, idx) => {
+        container.innerHTML += `
+          <div class="card" style="background: #050811; border-left: 3px solid var(--accent-cyan);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <b>#${idx + 1}. ${item.c} (${item.m}) — <span style="color: var(--accent-green);">${item.v}</span></b>
+              <span style="color: var(--text-muted); font-size: 12px;">${item.n} (${item.t})</span>
+            </div>
+            <div style="background: var(--bg-card); padding: 10px 14px; border-radius: 6px; font-size: 13px; margin: 8px 0;">
+              ${item.dm}
+            </div>
+            <button class="btn" style="padding: 6px 12px; font-size: 11px;" onclick="navigator.clipboard.writeText('${item.dm}'); alert('Copied to clipboard!')">📋 Copy Message</button>
+          </div>
+        `;
+      });
+    }
+
+    function refreshData() {
+      loadDispatchQueue();
+      alert('Command Center synchronized with latest 24/7 autopilot logs!');
+    }
+
+    // Init on load
+    loadDispatchQueue();
+  </script>
+</body>
+</html>

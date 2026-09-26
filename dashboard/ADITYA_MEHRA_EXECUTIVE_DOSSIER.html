@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mehra ? Executive Profile & Operations Dossier</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0284c7;
+            --accent-dark: #0369a1;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            line-height: 1.45;
+            padding: 30px 15px;
+        }
+
+        .page {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 44px 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+
+        @media print {
+            body { background: #fff; padding: 0; }
+            .page { box-shadow: none; border: none; padding: 20px 25px; max-width: 100%; }
+            .no-print { display: none !important; }
+        }
+
+        .header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-main h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .header-main .title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--primary);
+            border-bottom: 1.5px solid var(--border);
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .exp-item {
+            margin-bottom: 14px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .exp-role {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .exp-company {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-dark);
+        }
+
+        .exp-date {
+            font-size: 11.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        ul.bullets {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 4px;
+        }
+
+        ul.bullets li {
+            position: relative;
+            padding-left: 14px;
+            font-size: 12px;
+            color: #334155;
+            margin-bottom: 3.5px;
+            line-height: 1.4;
+        }
+
+        ul.bullets li::before {
+            content: "?";
+            position: absolute;
+            left: 2px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 6px;
+        }
+
+        .badge {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            color: var(--secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .stat-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 12px;
+        }
+
+        .stat-num {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0369a1;
+        }
+
+        .stat-label {
+            font-size: 10.5px;
+            font-weight: 600;
+            color: #0c4a6e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .action-bar {
+            max-width: 850px;
+            margin: 0 auto 16px auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="action-bar no-print">
+        <button class="btn" onclick="window.print()">??? Print / Save as PDF</button>
+        <a class="btn" href="ANTIGRAVITY_OMNI_HUB.html" style="background: var(--accent);">?? Open Master Omni Hub</a>
+    </div>
+
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-main">
+                <h1>ADITYA MEHRA</h1>
+                <div class="title">Operations & Strategy Lead // International Business Specialist</div>
+            </div>
+            <div class="contact-info">
+                <div>Bengaluru, Karnataka, India</div>
+                <div>+91 7003456624 | <a href="mailto:ashishiash007@gmail.com">ashishiash007@gmail.com</a></div>
+                <div><a href="https://www.linkedin.com/">linkedin.com/in/aditya-mehra</a></div>
+            </div>
+        </header>
+
+        <!-- GRID LAYOUT -->
+        <div class="grid-layout">
+            <!-- LEFT COLUMN: EXPERIENCE & SUMMARY -->
+            <div class="left-col">
+                <!-- EXECUTIVE SUMMARY -->
+                <div class="section">
+                    <div class="section-title">Executive Summary</div>
+                    <p style="font-size: 12px; color: #334155; line-height: 1.45;">
+                        High-accountability operations and business development specialist with battle-tested leadership across large-scale exhibitions (Aero India 2025), marquee brand activations (Tata Communications, Puma Global, VH1 Supersonic), and commercial enterprise growth. BBA International Business candidate combining rigorous supply chain strategy, Incoterms 2020 governance, and zero-defect operational execution.
+                    </p>
+                </div>
+
+                <!-- VERIFIED EXPERIENCE -->
+                <div class="section">
+                    <div class="section-title">Verified Experience & Operational Engagements</div>
+
+                    <!-- ROLE 1 -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div><span class="exp-role">Exhibition Operations Lead</span> ? <span class="exp-company">Salt in My Coca</span></div>
+                            <div class="exp-date">Feb 2025</div>
+                        </div>
+                        <div style="font-size: 11.5px; font-weight: 600; color: var(--accent); margin-bottom: 2px;">AERO INDIA 2025 // Yelahanka Air Force Station, Bengaluru</div>
+                        <ul class="bullets">
+                            <li>Directed 7-day high-security pavilion operations managing footfall across 100,000+ defense delegates and trade visitors.</li>
+                            <li>Enforced strict defense protocol access control, 24h pre-staged inventory replenishment, and achieved <strong>100% on-time SLA readiness</strong>.</li>
+                            <li>Secured zero inventory shrinkage and captured 5,000+ qualified B2B touchpoints.</li>
+                        </ul>
+                    </div>
+
+                    <!-- ROLE 2 -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div><span class="exp-role">Event Coordinator & Ops Specialist</span> ? <span class="exp-company">Strategic Activations</span></div>
+                            <div class="exp-date">2023 ? 2025</div>
+                        </div>
+                        <div style="font-size: 11.5px; font-weight: 600; color: var(--accent); margin-bottom: 2px;">Tata Communications ? Puma Global ? VH1 Supersonic</div>
+                        <ul class="bullets">
+                            <li>Managed run-of-show scheduling, vendor SLA governance, and technical staging for premier corporate and entertainment activations.</li>
+                            <li>Governed multi-vendor handoffs, stage logistics, artist handling, and crisis escalation protocols with zero compliance infractions.</li>
+                            <li>Orchestrated cross-functional teams of 25+ ground crew to execute seamless experiential deployments.</li>
+                        </ul>
+                    </div>
+
+                    <!-- ROLE 3 -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div><span class="exp-role">Business Development Intern</span> ? <span class="exp-company">Pencil Mark Interior Solutions LLP</span></div>
+                            <div class="exp-date">2024</div>
+                        </div>
+                        <ul class="bullets">
+                            <li>Conducted market research and B2B client acquisition; structured commercial proposals and managed client stakeholder reviews.</li>
+                            <li>Accelerated sales pipeline conversion by 18% through structured follow-up cadences and milestone governance.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- EDUCATION -->
+                <div class="section">
+                    <div class="section-title">Education & Academic Background</div>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div><span class="exp-role">Bachelor of Business Administration (BBA) ? International Business</span></div>
+                            <div class="exp-date">2023 ? 2026</div>
+                        </div>
+                        <div class="exp-company">Dayananda Sagar University, Bengaluru</div>
+                        <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">
+                            Specialization: Cross-Border Trade Compliance, Global Logistics, Incoterms 2020, International Contract Law, Financial Modeling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: STATS, SKILLS, COMPETENCIES -->
+            <div class="right-col">
+                <!-- NETWORK INTEL -->
+                <div class="section">
+                    <div class="section-title">Network Intelligence</div>
+                    <div class="stat-box">
+                        <div class="stat-num">9,223</div>
+                        <div class="stat-label">1st-Degree LinkedIn Connections</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">5,226</div>
+                        <div class="stat-label">Global Companies Represented</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">447</div>
+                        <div class="stat-label">Big 4 & Global Advisory Nodes</div>
+                    </div>
+                </div>
+
+                <!-- CORE COMPETENCIES -->
+                <div class="section">
+                    <div class="section-title">Core Competencies</div>
+                    <div class="badge-list">
+                        <span class="badge">Run-of-Show Scheduling</span>
+                        <span class="badge">Vendor SLA Governance</span>
+                        <span class="badge">High-Security Protocols</span>
+                        <span class="badge">Incoterms 2020</span>
+                        <span class="badge">B2B Contract Negotiation</span>
+                        <span class="badge">Landed Cost Modeling</span>
+                        <span class="badge">Crisis Management</span>
+                        <span class="badge">Stakeholder Alignment</span>
+                        <span class="badge">Cross-Border EXIM</span>
+                    </div>
+                </div>
+
+                <!-- SOFTWARE & AI STACK -->
+                <div class="section">
+                    <div class="section-title">Systems & Tooling</div>
+                    <div class="badge-list">
+                        <span class="badge">Antigravity Career OS</span>
+                        <span class="badge">SQLite & WAL DBs</span>
+                        <span class="badge">STAR Response Framework</span>
+                        <span class="badge">ERP & Logistics CRM</span>
+                        <span class="badge">Excel Financial Modeling</span>
+                        <span class="badge">Zero-Trust Audit Framework</span>
+                    </div>
+                </div>
+
+                <!-- TARGET ROLES -->
+                <div class="section">
+                    <div class="section-title">Target Roles</div>
+                    <ul class="bullets" style="font-size: 11.5px;">
+                        <li>Global Business Operations Analyst</li>
+                        <li>Event Operations & Activation Lead</li>
+                        <li>Supply Chain & Logistics Specialist</li>
+                        <li>B2B Business Development Associate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

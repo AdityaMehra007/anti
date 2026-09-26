@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity LinkedIn 1-Click Autopilot Bookmarklet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05070c;
+      --card-bg: #0b0f19;
+      --card-border: #162033;
+      --primary: #3b82f6;
+      --success: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 32px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .badge {
+      background: #1e1b4b;
+      color: #c4b5fd;
+      border: 1px solid #4338ca;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .drag-box {
+      background: #080c14;
+      border: 2px dashed #2563eb;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .bookmarklet-btn {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+      cursor: move;
+    }
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .step-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .step-num {
+      background: #1e293b;
+      color: #38bdf8;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .code-box {
+      background: #030508;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #e2e8f0;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⚡ Antigravity LinkedIn Autopilot Bookmarklet <span class="badge">PRO EXTENSION</span></h1>
+  <p style="color:var(--text-muted);">Zero-install browser bookmarklet that injects tailored connection pitches directly on any LinkedIn profile in 1 click.</p>
+
+  <div class="card">
+    <div class="drag-box">
+      <div style="font-size:14px; color:var(--text-muted);">Drag this button directly to your browser's Bookmarks Bar:</div>
+      <a class="bookmarklet-btn" href="javascript:(function(){const name=(document.querySelector('h1.inline')||document.querySelector('.text-heading-xlarge')||{{textContent:'there'}}).textContent.trim().split(' ')[0];const pitch=`Hi ${name}, I saw your active operations leadership in Bengaluru. I have led 300+ on-ground deployments (AERO India 2025), enforced Tier-1 vendor SLA governance, and complete my BBA (Intl Business) at DSU in 2026. Would value connecting!`;navigator.clipboard.writeText(pitch).then(()=>{const box=document.createElement('div');box.style.cssText='position:fixed;top:20px;right:20px;z-index:999999;background:#0f172a;color:#fff;padding:18px;border-radius:10px;border:2px solid #3b82f6;box-shadow:0 10px 30px rgba(0,0,0,0.8);max-width:380px;font-family:sans-serif;font-size:13px;';box.innerHTML=`<div style='font-weight:700;color:#38bdf8;margin-bottom:6px;'>⚡ Antigravity Autopilot Active</div><div style='color:#e2e8f0;margin-bottom:10px;'>Copied tailored pitch for <b>${name}</b>! Just hit <b>Connect &gt; Add note</b> and press Ctrl+V.</div><div style='font-size:11px;color:#94a3b8;background:#020617;padding:8px;border-radius:4px;'>${pitch}</div><button onclick='this.parentElement.remove()' style='margin-top:10px;width:100%;background:#2563eb;color:#fff;border:none;padding:6px;border-radius:4px;cursor:pointer;'>Dismiss</button>`;document.body.appendChild(box);setTimeout(()=>box.remove(),8000);});})();">
+        ⚡ InMail Autopilot
+      </a>
+      <div style="font-size:12px; color:#64748b;">(Or right-click &rarr; "Bookmark this link")</div>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div><strong>Make sure your Bookmarks Bar is visible</strong>: In Chrome / Edge, press <kbd style="background:#1e293b; padding:2px 6px; border-radius:4px;">Ctrl + Shift + B</kbd>.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div><strong>Drag the blue "⚡ InMail Autopilot" button</strong> straight up onto your bookmarks bar.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div><strong>Open any LinkedIn profile</strong>: Click the bookmarklet on your bar. An alert floats on top, automatically detecting the recruiter's first name and copying the verified pitch to your clipboard!</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div>Click <strong>Connect &rarr; Add a note</strong>, press <kbd style="background:#1e293b; padding:2px 6px; border-radius:4px;">Ctrl + V</kbd>, and send!</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px; display:flex; justify-content:space-between;">
+    <a href="apex_hud.html" style="color:#38bdf8; text-decoration:none; font-weight:600; font-size:13px;">&larr; Return to Apex Mission Control</a>
+    <a href="strike_300.html" style="color:#38bdf8; text-decoration:none; font-weight:600; font-size:13px;">Open 300 Strike Studio &rarr;</a>
+  </div>
+
+</body>
+</html>

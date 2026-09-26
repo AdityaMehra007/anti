@@ -29,7 +29,7 @@ class OmegaDaemonVerifier:
     }
 
     TARGET_TASKS = [
-        {"task_id": "task-406", "name": "Omega 24/7 Career Engine Daemon", "log_key": "247_career_loop", "claimed_state": "RUNNING"},
+        {"task_id": "task-406", "name": "Hourly Job Application Engine Daemon", "log_key": "hourly_job_application", "claimed_state": "RUNNING"},
         {"task_id": "task-408", "name": "365-Day Perpetual Autonomous Dispatcher", "log_key": "365_days_career_loop", "claimed_state": "RUNNING"},
         {"task_id": "task-410", "name": "Omega Master Autopilot Supervisor", "log_key": "master_autopilot", "claimed_state": "RUNNING"}
     ]

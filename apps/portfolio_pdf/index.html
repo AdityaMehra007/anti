@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Mehra — Executive Proof Cheat Sheet (PDF Ready)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #0284c7;
+      --teal: #0d9488;
+      --accent: #4f46e5;
+      --text: #1e293b;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    body {
+      background: #0b1120;
+      color: var(--text);
+      padding: 30px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* On-Screen Floating Action Bar (Hidden in Print) */
+    .screen-toolbar {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border-radius: 99px;
+      padding: 8px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .toolbar-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .toolbar-btn:hover { background: #334155; color: #fff; border-color: #00d4aa; }
+    .toolbar-btn.primary { background: #00d4aa; color: #070b14; border-color: #00d4aa; }
+    .toolbar-btn.primary:hover { background: #00bfa0; }
+
+    /* Printable Page Sheet (A4 Dimensions Simulation) */
+    .sheet-page {
+      background: var(--bg);
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 18mm;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--text);
+      line-height: 1.42;
+    }
+
+    /* Header Section */
+    .doc-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .candidate-name {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .candidate-subtitle {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-top: 4px;
+    }
+    .contact-info {
+      text-align: right;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .contact-info a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+
+    /* Section Headings */
+    .sec-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 3px;
+      margin-top: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sec-badge { font-size: 0.68rem; font-weight: 700; color: var(--teal); text-transform: uppercase; }
+
+    /* Profile Summary */
+    .profile-summary {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.45;
+      text-align: justify;
+      margin-bottom: 6px;
+    }
+    .profile-summary strong { color: var(--primary); }
+
+    /* 5 Anchor Proof Cards Grid */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .proof-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 6px;
+      text-align: center;
+    }
+    .proof-val {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.1;
+    }
+    .proof-title {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+    .proof-detail {
+      font-size: 0.64rem;
+      color: var(--text-light);
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    /* Experience & Proof Deep-Dive */
+    .claim-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 12px;
+      margin-bottom: 7px;
+      font-size: 0.8rem;
+      align-items: baseline;
+    }
+    .claim-header {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.78rem;
+      line-height: 1.25;
+    }
+    .claim-header span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--teal);
+    }
+    .claim-desc {
+      color: var(--text);
+      line-height: 1.38;
+    }
+    .claim-desc strong { color: var(--primary); }
+
+    /* 2-Column Sub-Layout: Target Alignment & Skills */
+    .sub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    /* Target Roles & Top Employers */
+    .list-item {
+      font-size: 0.78rem;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .list-item strong { color: var(--primary); }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .mini-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .mini-tag.bold {
+      color: var(--primary);
+      border-color: #cbd5e1;
+      background: #f1f5f9;
+    }
+
+    /* Footer Strip */
+    .doc-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+
+    /* Print Specific Media Rules */
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        margin: 0;
+      }
+      .screen-toolbar {
+        display: none !important;
+      }
+      .sheet-page {
+        width: 100%;
+        min-height: auto;
+        padding: 10mm 14mm;
+        box-shadow: none;
+        border: none;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Screen Action Bar -->
+  <div class="screen-toolbar">
+    <button class="toolbar-btn primary" onclick="window.print()">🖨️ Print / Save to PDF (Ctrl+P)</button>
+    <a href="../portfolio/index.html" class="toolbar-btn">🌐 View Live Portfolio</a>
+    <a href="../index.html" class="toolbar-btn">← Master Hub</a>
+  </div>
+
+  <!-- A4 Printable Executive Cheat Sheet Document -->
+  <div class="sheet-page">
+    <div>
+      <!-- Document Header -->
+      <div class="doc-header">
+        <div>
+          <h1 class="candidate-name">ADITYA MEHRA</h1>
+          <div class="candidate-subtitle">Operations Analyst • International Trade & EXIM • AI Data Ops • B2B Growth</div>
+        </div>
+        <div class="contact-info">
+          <div>Bengaluru, Karnataka, India</div>
+          <div><strong>+91-7003456624</strong> • <a href="mailto:adityamehra799@gmail.com">adityamehra799@gmail.com</a></div>
+          <div>Dayananda Sagar University (BBA IB '26)</div>
+        </div>
+      </div>
+
+      <!-- Executive Profile Summary -->
+      <div class="profile-summary">
+        Execution-driven <strong>Operations Analyst and International Business graduate (DSU '26)</strong> with proven leadership across <strong>300+ on-ground operations and enterprise deployments</strong> (AERO India 2025 Lead & Puma India). Demonstrated record in achieving <strong>Tier-1 vendor rate structuring and SLA governance</strong> via primary vendor restructuring, generating <strong>48-hour proposal velocity in high-margin B2B commercial revenue</strong>, delivering <strong>99%+ accuracy in AI Data Operations</strong> at Instawork AI, and engineering end-to-end <strong>Incoterms 2020 and UCP 600 Letter of Credit compliance</strong> models.
+      </div>
+
+      <!-- 5 Anchor Proof Metrics Strip -->
+      <div class="sec-title">
+        <span>Verified Execution Proof Metrics</span>
+        <span class="sec-badge">100% Truth-Audited</span>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-box">
+          <div class="proof-val">300+</div>
+          <div class="proof-title">Deployments</div>
+          <div class="proof-detail">AERO India Lead & Puma</div>
+        </div>
+        <div class="proof-box">
+          <div class="proof-val">50+</div>
+          <div class="proof-title">Vendor SLAs</div>
+          <div class="proof-detail">Tier-1 Rate Structuring</div>
+        </div>
+        <div class="proof-box">
+          <div class="proof-val">48-Hr</div>
+          <div class="proof-title">Proposal Velocity</div>
+          <div class="proof-detail">Commercial Operations</div>
+        </div>
+        <div class="proof-box">
+          <div class="proof-val">99%+</div>
+          <div class="proof-title">AI Accuracy</div>
+          <div class="proof-detail">Instawork AI Data Ops</div>
+        </div>
+        <div class="proof-box">
+          <div class="proof-val">UCP 600</div>
+          <div class="proof-title">Trade & EXIM</div>
+          <div class="proof-detail">Incoterms 2020 & LCs</div>
+        </div>
+      </div>
+
+      <!-- Core Execution Capabilities & Verified Claims -->
+      <div class="sec-title">
+        <span>Key Experience & Quantified Impact</span>
+        <span class="sec-badge">Demonstrated Outcomes</span>
+      </div>
+
+      <div class="claim-row">
+        <div class="claim-header">
+          300+ Event Deployments
+          <span>AERO India 2025 / Puma</span>
+        </div>
+        <div class="claim-desc">
+          Directed full-lifecycle on-ground logistics, multi-tier vendor SLAs, security protocols, and VIP coordination across 300+ enterprise activations with zero critical downtime.
+        </div>
+      </div>
+
+      <div class="claim-row">
+        <div class="claim-header">
+          Tier-1 Vendor SLA Governance
+          <span>Procurement & Rate Structuring</span>
+        </div>
+        <div class="claim-desc">
+          Audited supplier rate cards against prevailing market benchmarks, established volume MSAs across 50+ vendor accounts, and enforced milestone-linked payment gates with zero critical downtime.
+        </div>
+      </div>
+
+      <div class="claim-row">
+        <div class="claim-header">
+          Commercial Operations & Pipeline Velocity
+          <span>B2B Account Acceleration</span>
+        </div>
+        <div class="claim-desc">
+          Accelerated commercial proposal turnaround to under 48 hours, managed 15+ concurrent enterprise client threads, and led client commercial discovery sessions through contract execution.
+        </div>
+      </div>
+
+      <div class="claim-row">
+        <div class="claim-header">
+          AI Data Operations
+          <span>Instawork AI</span>
+        </div>
+        <div class="claim-desc">
+          Maintained 99%+ quality accuracy across high-throughput data annotation, prompt engineering evaluations, and LLM benchmarking datasets under tight turnaround SLAs.
+        </div>
+      </div>
+
+      <div class="claim-row">
+        <div class="claim-header">
+          EXIM & Trade Compliance
+          <span>Incoterms & LCs</span>
+        </div>
+        <div class="claim-desc">
+          Designed landed cost and tariff computation engines covering BCD, SWS, IGST, port logistics, and strict UCP 600 documentary Letter of Credit compliance.
+        </div>
+      </div>
+
+      <!-- 2-Column Alignment & Stack Breakdown -->
+      <div class="sub-grid">
+        <!-- Target Roles & Alignment -->
+        <div>
+          <div class="sec-title">
+            <span>Target Roles & Target GCCs</span>
+          </div>
+          <div class="list-item">
+            <strong>Target Mandates:</strong> Operations Analyst, B2B Business Development, EXIM & Supply Chain Coordinator, AI Data Operations, Event & Brand Activation Manager.
+          </div>
+          <div class="list-item" style="margin-top: 6px;">
+            <strong>Target Enterprises (Bangalore GCCs & Big Tech):</strong>
+          </div>
+          <div class="tag-cloud">
+            <span class="mini-tag bold">Amazon</span>
+            <span class="mini-tag bold">Walmart</span>
+            <span class="mini-tag bold">Maersk</span>
+            <span class="mini-tag bold">Deloitte</span>
+            <span class="mini-tag bold">Google</span>
+            <span class="mini-tag bold">Goldman Sachs</span>
+            <span class="mini-tag">EY</span>
+            <span class="mini-tag">DHL</span>
+            <span class="mini-tag">JPMorgan</span>
+            <span class="mini-tag">Boeing</span>
+            <span class="mini-tag">Schneider</span>
+            <span class="mini-tag">Razorpay</span>
+            <span class="mini-tag">Swiggy</span>
+          </div>
+        </div>
+
+        <!-- Technical Stack & Tooling -->
+        <div>
+          <div class="sec-title">
+            <span>Technical & Operational Stack</span>
+          </div>
+          <div class="list-item">
+            <strong>Data & Automation:</strong> Python (Pandas/Automations), SQL Relational Queries, Advanced Excel (VLOOKUP, INDEX/MATCH, Pivot Models), Power BI Dashboards.
+          </div>
+          <div class="list-item">
+            <strong>Trade & Ops:</strong> Incoterms 2020 (FOB, CIF, DDP), UCP 600 LC Rules, Indian Customs Tariffs (ICEGATE), Root Cause Analysis (5-Whys), SOP Drafting.
+          </div>
+          <div class="list-item">
+            <strong>Commercial & CRM:</strong> HubSpot CRM, B2B Lead Funnels, Mail Merge Systems.
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Academic Foundation -->
+      <div class="sec-title" style="margin-top: 10px;">
+        <span>Education & Institutional Credential</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text);">
+        <div>
+          <strong>Dayananda Sagar University (DSU)</strong>, Bengaluru, India — <em>Bachelor of Business Administration (BBA) in International Business</em>
+        </div>
+        <div class="mono" style="font-weight: 700; color: var(--teal);">Class of 2026</div>
+      </div>
+    </div>
+
+    <!-- Document Footer -->
+    <div class="doc-footer">
+      <div>ADI SOVEREIGN OS • Executive Portfolio & Proof Engine</div>
+      <div>Verified Candidate Record • Aditya Mehra (+91-7003456624)</div>
+      <div>Page 1 of 1 • Clean Print Standard</div>
+    </div>
+  </div>
+
+</body>
+</html>

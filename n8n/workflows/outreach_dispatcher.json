@@ -1,0 +1,115 @@
+{
+  "name": "OMEGA Outreach Event Dispatcher",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "outreach-dispatch",
+        "responseMode": "onReceived",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Inbound Outreach Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        260,
+        320
+      ],
+      "webhookId": "omega-outreach-dispatch-01"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.body.recipient_email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "2",
+      "name": "Validate Recipient",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        480,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Enrich and standardize payload\nconst item = $input.first().json;\nreturn [{\n  json: {\n    status: 'PROCESSED',\n    timestamp: new Date().toISOString(),\n    recipient: item.body.recipient_email,\n    company: item.body.company || 'Unknown',\n    source: item.body.source || 'OMEGA_PIPELINE',\n    tracking_id: 'TRACK_' + Date.now()\n  }\n}];"
+      },
+      "id": "3",
+      "name": "Enrich Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        700,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log dropped items\nconst item = $input.first().json;\nreturn [{\n  json: {\n    status: 'DROPPED',\n    reason: 'Missing recipient email',\n    raw_input: item\n  }\n}];"
+      },
+      "id": "4",
+      "name": "Drop Log",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        700,
+        420
+      ]
+    }
+  ],
+  "connections": {
+    "Inbound Outreach Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Recipient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Recipient": {
+      "main": [
+        [
+          {
+            "node": "Enrich Payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Drop Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

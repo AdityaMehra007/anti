@@ -1,0 +1,27 @@
+{
+  "project_code": "ATLAS-GLOBAL",
+  "version": "1.0.0-PROD",
+  "candidate": "Aditya Mehra",
+  "candidate_university": "Dayananda Sagar University (2026)",
+  "candidate_degree": "BBA International Business",
+  "cgpa": 6.33,
+  "priority_hubs": [
+    "Bengaluru",
+    "Karnataka",
+    "India",
+    "Global"
+  ],
+  "cost_limit_inr": 0.00,
+  "outbound_dispatch_allowed": false,
+  "private_phone_collection_allowed": false,
+  "database": {
+    "path": "database/atlas.db",
+    "engine": "SQLite3",
+    "fts_enabled": true,
+    "virtual_table": "atlas_search_fts"
+  },
+  "cron_schedule": {
+    "interval": "0 * * * *",
+    "is_daemon": true
+  }
+}

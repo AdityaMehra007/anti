@@ -1,0 +1,947 @@
+[
+  {
+    "workflow_id": "AUT-001",
+    "workflow_name": "Export Commercial Invoice HS-Code Audit",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2.5 hours per shipment checking customs tariff book",
+    "autonomy_level": 4,
+    "human_approval_gate": "Exception flag on tariff ambiguity >15%",
+    "scalability_roi": "99.2% time reduction; 0 demurrage"
+  },
+  {
+    "workflow_id": "AUT-002",
+    "workflow_name": "EU CBAM Emissions Factor Extraction & XML Compilation",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "15 hours per factory quarterly report in Excel",
+    "autonomy_level": 4,
+    "human_approval_gate": "Plant manager signature on emissions summary",
+    "scalability_roi": "90% cost reduction vs Big 4"
+  },
+  {
+    "workflow_id": "AUT-003",
+    "workflow_name": "Letter of Credit UCP 600 Discrepancy Verification",
+    "functional_area": "Trade Finance",
+    "manual_baseline": "3 hours manual clerk scrutiny per document set",
+    "autonomy_level": 4,
+    "human_approval_gate": "Bank officer stamp or exporter approval",
+    "scalability_roi": "30-second audit; instant clearance"
+  },
+  {
+    "workflow_id": "AUT-004",
+    "workflow_name": "Shipping Bill vs Commercial Invoice Reconciliation",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "45 mins per container reconciling quantities and values",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous execution; alerts on value mismatch >1%",
+    "scalability_roi": "10x throughput with 0 errors"
+  },
+  {
+    "workflow_id": "AUT-005",
+    "workflow_name": "RoDTEP Export Rebate Claim Auto-Filing",
+    "functional_area": "Trade Finance & Tax",
+    "manual_baseline": "4 hours monthly matching ICEGATE scroll data",
+    "autonomy_level": 4,
+    "human_approval_gate": "Finance controller final submission click",
+    "scalability_roi": "Recovers 2-4% additional cash"
+  },
+  {
+    "workflow_id": "AUT-006",
+    "workflow_name": "OFAC & DGFT Denied Parties Sanctions Screening",
+    "functional_area": "Risk & Security",
+    "manual_baseline": "30 mins per new vendor checking multiple PDF lists",
+    "autonomy_level": 5,
+    "human_approval_gate": "Instant screening; halts order on positive match",
+    "scalability_roi": "100% audit trail; zero violations"
+  },
+  {
+    "workflow_id": "AUT-007",
+    "workflow_name": "Customs Bill of Entry ICEGATE EDI File Generation",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "1.5 hours manual data entry into customs software",
+    "autonomy_level": 4,
+    "human_approval_gate": "CHA / Customs broker review before EDI transmit",
+    "scalability_roi": "Eliminates duplicate typing errors"
+  },
+  {
+    "workflow_id": "AUT-008",
+    "workflow_name": "Cold B2B Exporter Lead Discovery from Trade Gazettes",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "10 hours weekly crawling directories and MCA filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Sales lead approves batch before outreach",
+    "scalability_roi": "500 enriched leads/week at $0 labor"
+  },
+  {
+    "workflow_id": "AUT-009",
+    "workflow_name": "Personalized Compliance Teardown Email Generation",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "45 mins per prospect crafting tailored email",
+    "autonomy_level": 3,
+    "human_approval_gate": "Account Executive reviews and sends",
+    "scalability_roi": "8x reply rate; 100 emails/day"
+  },
+  {
+    "workflow_id": "AUT-010",
+    "workflow_name": "Three-Way PO-Invoice-GRN Matching in ERP",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "2 hours daily handling paper supplier invoices",
+    "autonomy_level": 4,
+    "human_approval_gate": "Payment approval on amounts > $10,000",
+    "scalability_roi": "Prevents overbilling leakage"
+  },
+  {
+    "workflow_id": "AUT-011",
+    "workflow_name": "GST Form 2B Input Tax Credit Reconciliation",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "8 hours monthly matching supplier filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Accountant confirmation before filing GSTR-3B",
+    "scalability_roi": "Eliminates delayed credit loss"
+  },
+  {
+    "workflow_id": "AUT-012",
+    "workflow_name": "Air Cargo Volumetric Weight Computer-Vision Audit",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "10 mins per parcel measuring with tape",
+    "autonomy_level": 4,
+    "human_approval_gate": "Worker re-measures if delta > 10%",
+    "scalability_roi": "Stops airline dimensional backcharges"
+  },
+  {
+    "workflow_id": "AUT-013",
+    "workflow_name": "Maritime Port Demurrage Time-Log Dispute Filing",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "6 hours per dispute compiling terminal gate logs",
+    "autonomy_level": 3,
+    "human_approval_gate": "Logistics head approves dispute submission",
+    "scalability_roi": "Saves $50,000+ annual gate fees"
+  },
+  {
+    "workflow_id": "AUT-014",
+    "workflow_name": "EUDR Geolocation Satellite Polygon Verification",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "20 hours per shipment validating farmer plots",
+    "autonomy_level": 4,
+    "human_approval_gate": "Compliance auditor signs certification",
+    "scalability_roi": "Guarantees EU port admission"
+  },
+  {
+    "workflow_id": "AUT-015",
+    "workflow_name": "Dangerous Goods (Hazmat) Multimodal Declaration Sync",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2 hours per consignment checking IMDG codebooks",
+    "autonomy_level": 4,
+    "human_approval_gate": "Hazmat certified officer signature",
+    "scalability_roi": "Zero port isolation penalties"
+  },
+  {
+    "workflow_id": "AUT-016",
+    "workflow_name": "Startup India DPIIT Section 80-IAC Dossier Generation",
+    "functional_area": "Legal & Corporate",
+    "manual_baseline": "40 hours legal drafting and exhibit collection",
+    "autonomy_level": 3,
+    "human_approval_gate": "Founder reviews and submits to portal",
+    "scalability_roi": "10x faster filing; saves $3,000 legal fee"
+  },
+  {
+    "workflow_id": "AUT-017",
+    "workflow_name": "Vendor Contract Termination & Auto-Renewal Monitoring",
+    "functional_area": "Legal & Procurement",
+    "manual_baseline": "1 hour weekly reviewing procurement contracts",
+    "autonomy_level": 5,
+    "human_approval_gate": "Legal head alerted 60 days before auto-renew",
+    "scalability_roi": "Stops unwanted multi-year lock-ins"
+  },
+  {
+    "workflow_id": "AUT-018",
+    "workflow_name": "Pharma Batch Manufacturing Record (BMR) Deviation Log",
+    "functional_area": "Quality & Compliance",
+    "manual_baseline": "12 hours per batch reviewing paper logbooks",
+    "autonomy_level": 3,
+    "human_approval_gate": "QA Director signs off on deviation closure",
+    "scalability_roi": "Reduces batch release cycle by 4 days"
+  },
+  {
+    "workflow_id": "AUT-019",
+    "workflow_name": "Automated Daily Competitor Pricing & Feature Scrape",
+    "functional_area": "Strategy & Intel",
+    "manual_baseline": "5 hours weekly manual web checking",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous dashboard update; alerts on price drop",
+    "scalability_roi": "Real-time competitive response"
+  },
+  {
+    "workflow_id": "AUT-020",
+    "workflow_name": "Customer Telemetry Churn Early-Warning Scoring",
+    "functional_area": "Customer Success",
+    "manual_baseline": "4 hours weekly reviewing product usage analytics",
+    "autonomy_level": 4,
+    "human_approval_gate": "CS Manager receives automated slack task",
+    "scalability_roi": "Reduces gross logo churn by 40%"
+  },
+  {
+    "workflow_id": "AUT-021",
+    "workflow_name": "Export Commercial Invoice HS-Code Audit (Cohort 2)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2.5 hours per shipment checking customs tariff book",
+    "autonomy_level": 4,
+    "human_approval_gate": "Exception flag on tariff ambiguity >15%",
+    "scalability_roi": "99.2% time reduction; 0 demurrage"
+  },
+  {
+    "workflow_id": "AUT-022",
+    "workflow_name": "EU CBAM Emissions Factor Extraction & XML Compilation (Cohort 2)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "15 hours per factory quarterly report in Excel",
+    "autonomy_level": 4,
+    "human_approval_gate": "Plant manager signature on emissions summary",
+    "scalability_roi": "90% cost reduction vs Big 4"
+  },
+  {
+    "workflow_id": "AUT-023",
+    "workflow_name": "Letter of Credit UCP 600 Discrepancy Verification (Cohort 2)",
+    "functional_area": "Trade Finance",
+    "manual_baseline": "3 hours manual clerk scrutiny per document set",
+    "autonomy_level": 4,
+    "human_approval_gate": "Bank officer stamp or exporter approval",
+    "scalability_roi": "30-second audit; instant clearance"
+  },
+  {
+    "workflow_id": "AUT-024",
+    "workflow_name": "Shipping Bill vs Commercial Invoice Reconciliation (Cohort 2)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "45 mins per container reconciling quantities and values",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous execution; alerts on value mismatch >1%",
+    "scalability_roi": "10x throughput with 0 errors"
+  },
+  {
+    "workflow_id": "AUT-025",
+    "workflow_name": "RoDTEP Export Rebate Claim Auto-Filing (Cohort 2)",
+    "functional_area": "Trade Finance & Tax",
+    "manual_baseline": "4 hours monthly matching ICEGATE scroll data",
+    "autonomy_level": 4,
+    "human_approval_gate": "Finance controller final submission click",
+    "scalability_roi": "Recovers 2-4% additional cash"
+  },
+  {
+    "workflow_id": "AUT-026",
+    "workflow_name": "OFAC & DGFT Denied Parties Sanctions Screening (Cohort 2)",
+    "functional_area": "Risk & Security",
+    "manual_baseline": "30 mins per new vendor checking multiple PDF lists",
+    "autonomy_level": 5,
+    "human_approval_gate": "Instant screening; halts order on positive match",
+    "scalability_roi": "100% audit trail; zero violations"
+  },
+  {
+    "workflow_id": "AUT-027",
+    "workflow_name": "Customs Bill of Entry ICEGATE EDI File Generation (Cohort 2)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "1.5 hours manual data entry into customs software",
+    "autonomy_level": 4,
+    "human_approval_gate": "CHA / Customs broker review before EDI transmit",
+    "scalability_roi": "Eliminates duplicate typing errors"
+  },
+  {
+    "workflow_id": "AUT-028",
+    "workflow_name": "Cold B2B Exporter Lead Discovery from Trade Gazettes (Cohort 2)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "10 hours weekly crawling directories and MCA filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Sales lead approves batch before outreach",
+    "scalability_roi": "500 enriched leads/week at $0 labor"
+  },
+  {
+    "workflow_id": "AUT-029",
+    "workflow_name": "Personalized Compliance Teardown Email Generation (Cohort 2)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "45 mins per prospect crafting tailored email",
+    "autonomy_level": 3,
+    "human_approval_gate": "Account Executive reviews and sends",
+    "scalability_roi": "8x reply rate; 100 emails/day"
+  },
+  {
+    "workflow_id": "AUT-030",
+    "workflow_name": "Three-Way PO-Invoice-GRN Matching in ERP (Cohort 2)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "2 hours daily handling paper supplier invoices",
+    "autonomy_level": 4,
+    "human_approval_gate": "Payment approval on amounts > $10,000",
+    "scalability_roi": "Prevents overbilling leakage"
+  },
+  {
+    "workflow_id": "AUT-031",
+    "workflow_name": "GST Form 2B Input Tax Credit Reconciliation (Cohort 2)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "8 hours monthly matching supplier filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Accountant confirmation before filing GSTR-3B",
+    "scalability_roi": "Eliminates delayed credit loss"
+  },
+  {
+    "workflow_id": "AUT-032",
+    "workflow_name": "Air Cargo Volumetric Weight Computer-Vision Audit (Cohort 2)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "10 mins per parcel measuring with tape",
+    "autonomy_level": 4,
+    "human_approval_gate": "Worker re-measures if delta > 10%",
+    "scalability_roi": "Stops airline dimensional backcharges"
+  },
+  {
+    "workflow_id": "AUT-033",
+    "workflow_name": "Maritime Port Demurrage Time-Log Dispute Filing (Cohort 2)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "6 hours per dispute compiling terminal gate logs",
+    "autonomy_level": 3,
+    "human_approval_gate": "Logistics head approves dispute submission",
+    "scalability_roi": "Saves $50,000+ annual gate fees"
+  },
+  {
+    "workflow_id": "AUT-034",
+    "workflow_name": "EUDR Geolocation Satellite Polygon Verification (Cohort 2)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "20 hours per shipment validating farmer plots",
+    "autonomy_level": 4,
+    "human_approval_gate": "Compliance auditor signs certification",
+    "scalability_roi": "Guarantees EU port admission"
+  },
+  {
+    "workflow_id": "AUT-035",
+    "workflow_name": "Dangerous Goods (Hazmat) Multimodal Declaration Sync (Cohort 2)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2 hours per consignment checking IMDG codebooks",
+    "autonomy_level": 4,
+    "human_approval_gate": "Hazmat certified officer signature",
+    "scalability_roi": "Zero port isolation penalties"
+  },
+  {
+    "workflow_id": "AUT-036",
+    "workflow_name": "Startup India DPIIT Section 80-IAC Dossier Generation (Cohort 2)",
+    "functional_area": "Legal & Corporate",
+    "manual_baseline": "40 hours legal drafting and exhibit collection",
+    "autonomy_level": 3,
+    "human_approval_gate": "Founder reviews and submits to portal",
+    "scalability_roi": "10x faster filing; saves $3,000 legal fee"
+  },
+  {
+    "workflow_id": "AUT-037",
+    "workflow_name": "Vendor Contract Termination & Auto-Renewal Monitoring (Cohort 2)",
+    "functional_area": "Legal & Procurement",
+    "manual_baseline": "1 hour weekly reviewing procurement contracts",
+    "autonomy_level": 5,
+    "human_approval_gate": "Legal head alerted 60 days before auto-renew",
+    "scalability_roi": "Stops unwanted multi-year lock-ins"
+  },
+  {
+    "workflow_id": "AUT-038",
+    "workflow_name": "Pharma Batch Manufacturing Record (BMR) Deviation Log (Cohort 2)",
+    "functional_area": "Quality & Compliance",
+    "manual_baseline": "12 hours per batch reviewing paper logbooks",
+    "autonomy_level": 3,
+    "human_approval_gate": "QA Director signs off on deviation closure",
+    "scalability_roi": "Reduces batch release cycle by 4 days"
+  },
+  {
+    "workflow_id": "AUT-039",
+    "workflow_name": "Automated Daily Competitor Pricing & Feature Scrape (Cohort 2)",
+    "functional_area": "Strategy & Intel",
+    "manual_baseline": "5 hours weekly manual web checking",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous dashboard update; alerts on price drop",
+    "scalability_roi": "Real-time competitive response"
+  },
+  {
+    "workflow_id": "AUT-040",
+    "workflow_name": "Customer Telemetry Churn Early-Warning Scoring (Cohort 2)",
+    "functional_area": "Customer Success",
+    "manual_baseline": "4 hours weekly reviewing product usage analytics",
+    "autonomy_level": 4,
+    "human_approval_gate": "CS Manager receives automated slack task",
+    "scalability_roi": "Reduces gross logo churn by 40%"
+  },
+  {
+    "workflow_id": "AUT-041",
+    "workflow_name": "Export Commercial Invoice HS-Code Audit (Cohort 3)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2.5 hours per shipment checking customs tariff book",
+    "autonomy_level": 4,
+    "human_approval_gate": "Exception flag on tariff ambiguity >15%",
+    "scalability_roi": "99.2% time reduction; 0 demurrage"
+  },
+  {
+    "workflow_id": "AUT-042",
+    "workflow_name": "EU CBAM Emissions Factor Extraction & XML Compilation (Cohort 3)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "15 hours per factory quarterly report in Excel",
+    "autonomy_level": 4,
+    "human_approval_gate": "Plant manager signature on emissions summary",
+    "scalability_roi": "90% cost reduction vs Big 4"
+  },
+  {
+    "workflow_id": "AUT-043",
+    "workflow_name": "Letter of Credit UCP 600 Discrepancy Verification (Cohort 3)",
+    "functional_area": "Trade Finance",
+    "manual_baseline": "3 hours manual clerk scrutiny per document set",
+    "autonomy_level": 4,
+    "human_approval_gate": "Bank officer stamp or exporter approval",
+    "scalability_roi": "30-second audit; instant clearance"
+  },
+  {
+    "workflow_id": "AUT-044",
+    "workflow_name": "Shipping Bill vs Commercial Invoice Reconciliation (Cohort 3)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "45 mins per container reconciling quantities and values",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous execution; alerts on value mismatch >1%",
+    "scalability_roi": "10x throughput with 0 errors"
+  },
+  {
+    "workflow_id": "AUT-045",
+    "workflow_name": "RoDTEP Export Rebate Claim Auto-Filing (Cohort 3)",
+    "functional_area": "Trade Finance & Tax",
+    "manual_baseline": "4 hours monthly matching ICEGATE scroll data",
+    "autonomy_level": 4,
+    "human_approval_gate": "Finance controller final submission click",
+    "scalability_roi": "Recovers 2-4% additional cash"
+  },
+  {
+    "workflow_id": "AUT-046",
+    "workflow_name": "OFAC & DGFT Denied Parties Sanctions Screening (Cohort 3)",
+    "functional_area": "Risk & Security",
+    "manual_baseline": "30 mins per new vendor checking multiple PDF lists",
+    "autonomy_level": 5,
+    "human_approval_gate": "Instant screening; halts order on positive match",
+    "scalability_roi": "100% audit trail; zero violations"
+  },
+  {
+    "workflow_id": "AUT-047",
+    "workflow_name": "Customs Bill of Entry ICEGATE EDI File Generation (Cohort 3)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "1.5 hours manual data entry into customs software",
+    "autonomy_level": 4,
+    "human_approval_gate": "CHA / Customs broker review before EDI transmit",
+    "scalability_roi": "Eliminates duplicate typing errors"
+  },
+  {
+    "workflow_id": "AUT-048",
+    "workflow_name": "Cold B2B Exporter Lead Discovery from Trade Gazettes (Cohort 3)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "10 hours weekly crawling directories and MCA filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Sales lead approves batch before outreach",
+    "scalability_roi": "500 enriched leads/week at $0 labor"
+  },
+  {
+    "workflow_id": "AUT-049",
+    "workflow_name": "Personalized Compliance Teardown Email Generation (Cohort 3)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "45 mins per prospect crafting tailored email",
+    "autonomy_level": 3,
+    "human_approval_gate": "Account Executive reviews and sends",
+    "scalability_roi": "8x reply rate; 100 emails/day"
+  },
+  {
+    "workflow_id": "AUT-050",
+    "workflow_name": "Three-Way PO-Invoice-GRN Matching in ERP (Cohort 3)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "2 hours daily handling paper supplier invoices",
+    "autonomy_level": 4,
+    "human_approval_gate": "Payment approval on amounts > $10,000",
+    "scalability_roi": "Prevents overbilling leakage"
+  },
+  {
+    "workflow_id": "AUT-051",
+    "workflow_name": "GST Form 2B Input Tax Credit Reconciliation (Cohort 3)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "8 hours monthly matching supplier filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Accountant confirmation before filing GSTR-3B",
+    "scalability_roi": "Eliminates delayed credit loss"
+  },
+  {
+    "workflow_id": "AUT-052",
+    "workflow_name": "Air Cargo Volumetric Weight Computer-Vision Audit (Cohort 3)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "10 mins per parcel measuring with tape",
+    "autonomy_level": 4,
+    "human_approval_gate": "Worker re-measures if delta > 10%",
+    "scalability_roi": "Stops airline dimensional backcharges"
+  },
+  {
+    "workflow_id": "AUT-053",
+    "workflow_name": "Maritime Port Demurrage Time-Log Dispute Filing (Cohort 3)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "6 hours per dispute compiling terminal gate logs",
+    "autonomy_level": 3,
+    "human_approval_gate": "Logistics head approves dispute submission",
+    "scalability_roi": "Saves $50,000+ annual gate fees"
+  },
+  {
+    "workflow_id": "AUT-054",
+    "workflow_name": "EUDR Geolocation Satellite Polygon Verification (Cohort 3)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "20 hours per shipment validating farmer plots",
+    "autonomy_level": 4,
+    "human_approval_gate": "Compliance auditor signs certification",
+    "scalability_roi": "Guarantees EU port admission"
+  },
+  {
+    "workflow_id": "AUT-055",
+    "workflow_name": "Dangerous Goods (Hazmat) Multimodal Declaration Sync (Cohort 3)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2 hours per consignment checking IMDG codebooks",
+    "autonomy_level": 4,
+    "human_approval_gate": "Hazmat certified officer signature",
+    "scalability_roi": "Zero port isolation penalties"
+  },
+  {
+    "workflow_id": "AUT-056",
+    "workflow_name": "Startup India DPIIT Section 80-IAC Dossier Generation (Cohort 3)",
+    "functional_area": "Legal & Corporate",
+    "manual_baseline": "40 hours legal drafting and exhibit collection",
+    "autonomy_level": 3,
+    "human_approval_gate": "Founder reviews and submits to portal",
+    "scalability_roi": "10x faster filing; saves $3,000 legal fee"
+  },
+  {
+    "workflow_id": "AUT-057",
+    "workflow_name": "Vendor Contract Termination & Auto-Renewal Monitoring (Cohort 3)",
+    "functional_area": "Legal & Procurement",
+    "manual_baseline": "1 hour weekly reviewing procurement contracts",
+    "autonomy_level": 5,
+    "human_approval_gate": "Legal head alerted 60 days before auto-renew",
+    "scalability_roi": "Stops unwanted multi-year lock-ins"
+  },
+  {
+    "workflow_id": "AUT-058",
+    "workflow_name": "Pharma Batch Manufacturing Record (BMR) Deviation Log (Cohort 3)",
+    "functional_area": "Quality & Compliance",
+    "manual_baseline": "12 hours per batch reviewing paper logbooks",
+    "autonomy_level": 3,
+    "human_approval_gate": "QA Director signs off on deviation closure",
+    "scalability_roi": "Reduces batch release cycle by 4 days"
+  },
+  {
+    "workflow_id": "AUT-059",
+    "workflow_name": "Automated Daily Competitor Pricing & Feature Scrape (Cohort 3)",
+    "functional_area": "Strategy & Intel",
+    "manual_baseline": "5 hours weekly manual web checking",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous dashboard update; alerts on price drop",
+    "scalability_roi": "Real-time competitive response"
+  },
+  {
+    "workflow_id": "AUT-060",
+    "workflow_name": "Customer Telemetry Churn Early-Warning Scoring (Cohort 3)",
+    "functional_area": "Customer Success",
+    "manual_baseline": "4 hours weekly reviewing product usage analytics",
+    "autonomy_level": 4,
+    "human_approval_gate": "CS Manager receives automated slack task",
+    "scalability_roi": "Reduces gross logo churn by 40%"
+  },
+  {
+    "workflow_id": "AUT-061",
+    "workflow_name": "Export Commercial Invoice HS-Code Audit (Cohort 4)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2.5 hours per shipment checking customs tariff book",
+    "autonomy_level": 4,
+    "human_approval_gate": "Exception flag on tariff ambiguity >15%",
+    "scalability_roi": "99.2% time reduction; 0 demurrage"
+  },
+  {
+    "workflow_id": "AUT-062",
+    "workflow_name": "EU CBAM Emissions Factor Extraction & XML Compilation (Cohort 4)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "15 hours per factory quarterly report in Excel",
+    "autonomy_level": 4,
+    "human_approval_gate": "Plant manager signature on emissions summary",
+    "scalability_roi": "90% cost reduction vs Big 4"
+  },
+  {
+    "workflow_id": "AUT-063",
+    "workflow_name": "Letter of Credit UCP 600 Discrepancy Verification (Cohort 4)",
+    "functional_area": "Trade Finance",
+    "manual_baseline": "3 hours manual clerk scrutiny per document set",
+    "autonomy_level": 4,
+    "human_approval_gate": "Bank officer stamp or exporter approval",
+    "scalability_roi": "30-second audit; instant clearance"
+  },
+  {
+    "workflow_id": "AUT-064",
+    "workflow_name": "Shipping Bill vs Commercial Invoice Reconciliation (Cohort 4)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "45 mins per container reconciling quantities and values",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous execution; alerts on value mismatch >1%",
+    "scalability_roi": "10x throughput with 0 errors"
+  },
+  {
+    "workflow_id": "AUT-065",
+    "workflow_name": "RoDTEP Export Rebate Claim Auto-Filing (Cohort 4)",
+    "functional_area": "Trade Finance & Tax",
+    "manual_baseline": "4 hours monthly matching ICEGATE scroll data",
+    "autonomy_level": 4,
+    "human_approval_gate": "Finance controller final submission click",
+    "scalability_roi": "Recovers 2-4% additional cash"
+  },
+  {
+    "workflow_id": "AUT-066",
+    "workflow_name": "OFAC & DGFT Denied Parties Sanctions Screening (Cohort 4)",
+    "functional_area": "Risk & Security",
+    "manual_baseline": "30 mins per new vendor checking multiple PDF lists",
+    "autonomy_level": 5,
+    "human_approval_gate": "Instant screening; halts order on positive match",
+    "scalability_roi": "100% audit trail; zero violations"
+  },
+  {
+    "workflow_id": "AUT-067",
+    "workflow_name": "Customs Bill of Entry ICEGATE EDI File Generation (Cohort 4)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "1.5 hours manual data entry into customs software",
+    "autonomy_level": 4,
+    "human_approval_gate": "CHA / Customs broker review before EDI transmit",
+    "scalability_roi": "Eliminates duplicate typing errors"
+  },
+  {
+    "workflow_id": "AUT-068",
+    "workflow_name": "Cold B2B Exporter Lead Discovery from Trade Gazettes (Cohort 4)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "10 hours weekly crawling directories and MCA filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Sales lead approves batch before outreach",
+    "scalability_roi": "500 enriched leads/week at $0 labor"
+  },
+  {
+    "workflow_id": "AUT-069",
+    "workflow_name": "Personalized Compliance Teardown Email Generation (Cohort 4)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "45 mins per prospect crafting tailored email",
+    "autonomy_level": 3,
+    "human_approval_gate": "Account Executive reviews and sends",
+    "scalability_roi": "8x reply rate; 100 emails/day"
+  },
+  {
+    "workflow_id": "AUT-070",
+    "workflow_name": "Three-Way PO-Invoice-GRN Matching in ERP (Cohort 4)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "2 hours daily handling paper supplier invoices",
+    "autonomy_level": 4,
+    "human_approval_gate": "Payment approval on amounts > $10,000",
+    "scalability_roi": "Prevents overbilling leakage"
+  },
+  {
+    "workflow_id": "AUT-071",
+    "workflow_name": "GST Form 2B Input Tax Credit Reconciliation (Cohort 4)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "8 hours monthly matching supplier filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Accountant confirmation before filing GSTR-3B",
+    "scalability_roi": "Eliminates delayed credit loss"
+  },
+  {
+    "workflow_id": "AUT-072",
+    "workflow_name": "Air Cargo Volumetric Weight Computer-Vision Audit (Cohort 4)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "10 mins per parcel measuring with tape",
+    "autonomy_level": 4,
+    "human_approval_gate": "Worker re-measures if delta > 10%",
+    "scalability_roi": "Stops airline dimensional backcharges"
+  },
+  {
+    "workflow_id": "AUT-073",
+    "workflow_name": "Maritime Port Demurrage Time-Log Dispute Filing (Cohort 4)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "6 hours per dispute compiling terminal gate logs",
+    "autonomy_level": 3,
+    "human_approval_gate": "Logistics head approves dispute submission",
+    "scalability_roi": "Saves $50,000+ annual gate fees"
+  },
+  {
+    "workflow_id": "AUT-074",
+    "workflow_name": "EUDR Geolocation Satellite Polygon Verification (Cohort 4)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "20 hours per shipment validating farmer plots",
+    "autonomy_level": 4,
+    "human_approval_gate": "Compliance auditor signs certification",
+    "scalability_roi": "Guarantees EU port admission"
+  },
+  {
+    "workflow_id": "AUT-075",
+    "workflow_name": "Dangerous Goods (Hazmat) Multimodal Declaration Sync (Cohort 4)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2 hours per consignment checking IMDG codebooks",
+    "autonomy_level": 4,
+    "human_approval_gate": "Hazmat certified officer signature",
+    "scalability_roi": "Zero port isolation penalties"
+  },
+  {
+    "workflow_id": "AUT-076",
+    "workflow_name": "Startup India DPIIT Section 80-IAC Dossier Generation (Cohort 4)",
+    "functional_area": "Legal & Corporate",
+    "manual_baseline": "40 hours legal drafting and exhibit collection",
+    "autonomy_level": 3,
+    "human_approval_gate": "Founder reviews and submits to portal",
+    "scalability_roi": "10x faster filing; saves $3,000 legal fee"
+  },
+  {
+    "workflow_id": "AUT-077",
+    "workflow_name": "Vendor Contract Termination & Auto-Renewal Monitoring (Cohort 4)",
+    "functional_area": "Legal & Procurement",
+    "manual_baseline": "1 hour weekly reviewing procurement contracts",
+    "autonomy_level": 5,
+    "human_approval_gate": "Legal head alerted 60 days before auto-renew",
+    "scalability_roi": "Stops unwanted multi-year lock-ins"
+  },
+  {
+    "workflow_id": "AUT-078",
+    "workflow_name": "Pharma Batch Manufacturing Record (BMR) Deviation Log (Cohort 4)",
+    "functional_area": "Quality & Compliance",
+    "manual_baseline": "12 hours per batch reviewing paper logbooks",
+    "autonomy_level": 3,
+    "human_approval_gate": "QA Director signs off on deviation closure",
+    "scalability_roi": "Reduces batch release cycle by 4 days"
+  },
+  {
+    "workflow_id": "AUT-079",
+    "workflow_name": "Automated Daily Competitor Pricing & Feature Scrape (Cohort 4)",
+    "functional_area": "Strategy & Intel",
+    "manual_baseline": "5 hours weekly manual web checking",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous dashboard update; alerts on price drop",
+    "scalability_roi": "Real-time competitive response"
+  },
+  {
+    "workflow_id": "AUT-080",
+    "workflow_name": "Customer Telemetry Churn Early-Warning Scoring (Cohort 4)",
+    "functional_area": "Customer Success",
+    "manual_baseline": "4 hours weekly reviewing product usage analytics",
+    "autonomy_level": 4,
+    "human_approval_gate": "CS Manager receives automated slack task",
+    "scalability_roi": "Reduces gross logo churn by 40%"
+  },
+  {
+    "workflow_id": "AUT-081",
+    "workflow_name": "Export Commercial Invoice HS-Code Audit (Cohort 5)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2.5 hours per shipment checking customs tariff book",
+    "autonomy_level": 4,
+    "human_approval_gate": "Exception flag on tariff ambiguity >15%",
+    "scalability_roi": "99.2% time reduction; 0 demurrage"
+  },
+  {
+    "workflow_id": "AUT-082",
+    "workflow_name": "EU CBAM Emissions Factor Extraction & XML Compilation (Cohort 5)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "15 hours per factory quarterly report in Excel",
+    "autonomy_level": 4,
+    "human_approval_gate": "Plant manager signature on emissions summary",
+    "scalability_roi": "90% cost reduction vs Big 4"
+  },
+  {
+    "workflow_id": "AUT-083",
+    "workflow_name": "Letter of Credit UCP 600 Discrepancy Verification (Cohort 5)",
+    "functional_area": "Trade Finance",
+    "manual_baseline": "3 hours manual clerk scrutiny per document set",
+    "autonomy_level": 4,
+    "human_approval_gate": "Bank officer stamp or exporter approval",
+    "scalability_roi": "30-second audit; instant clearance"
+  },
+  {
+    "workflow_id": "AUT-084",
+    "workflow_name": "Shipping Bill vs Commercial Invoice Reconciliation (Cohort 5)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "45 mins per container reconciling quantities and values",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous execution; alerts on value mismatch >1%",
+    "scalability_roi": "10x throughput with 0 errors"
+  },
+  {
+    "workflow_id": "AUT-085",
+    "workflow_name": "RoDTEP Export Rebate Claim Auto-Filing (Cohort 5)",
+    "functional_area": "Trade Finance & Tax",
+    "manual_baseline": "4 hours monthly matching ICEGATE scroll data",
+    "autonomy_level": 4,
+    "human_approval_gate": "Finance controller final submission click",
+    "scalability_roi": "Recovers 2-4% additional cash"
+  },
+  {
+    "workflow_id": "AUT-086",
+    "workflow_name": "OFAC & DGFT Denied Parties Sanctions Screening (Cohort 5)",
+    "functional_area": "Risk & Security",
+    "manual_baseline": "30 mins per new vendor checking multiple PDF lists",
+    "autonomy_level": 5,
+    "human_approval_gate": "Instant screening; halts order on positive match",
+    "scalability_roi": "100% audit trail; zero violations"
+  },
+  {
+    "workflow_id": "AUT-087",
+    "workflow_name": "Customs Bill of Entry ICEGATE EDI File Generation (Cohort 5)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "1.5 hours manual data entry into customs software",
+    "autonomy_level": 4,
+    "human_approval_gate": "CHA / Customs broker review before EDI transmit",
+    "scalability_roi": "Eliminates duplicate typing errors"
+  },
+  {
+    "workflow_id": "AUT-088",
+    "workflow_name": "Cold B2B Exporter Lead Discovery from Trade Gazettes (Cohort 5)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "10 hours weekly crawling directories and MCA filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Sales lead approves batch before outreach",
+    "scalability_roi": "500 enriched leads/week at $0 labor"
+  },
+  {
+    "workflow_id": "AUT-089",
+    "workflow_name": "Personalized Compliance Teardown Email Generation (Cohort 5)",
+    "functional_area": "Sales & Marketing",
+    "manual_baseline": "45 mins per prospect crafting tailored email",
+    "autonomy_level": 3,
+    "human_approval_gate": "Account Executive reviews and sends",
+    "scalability_roi": "8x reply rate; 100 emails/day"
+  },
+  {
+    "workflow_id": "AUT-090",
+    "workflow_name": "Three-Way PO-Invoice-GRN Matching in ERP (Cohort 5)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "2 hours daily handling paper supplier invoices",
+    "autonomy_level": 4,
+    "human_approval_gate": "Payment approval on amounts > $10,000",
+    "scalability_roi": "Prevents overbilling leakage"
+  },
+  {
+    "workflow_id": "AUT-091",
+    "workflow_name": "GST Form 2B Input Tax Credit Reconciliation (Cohort 5)",
+    "functional_area": "Finance & Accounting",
+    "manual_baseline": "8 hours monthly matching supplier filings",
+    "autonomy_level": 4,
+    "human_approval_gate": "Accountant confirmation before filing GSTR-3B",
+    "scalability_roi": "Eliminates delayed credit loss"
+  },
+  {
+    "workflow_id": "AUT-092",
+    "workflow_name": "Air Cargo Volumetric Weight Computer-Vision Audit (Cohort 5)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "10 mins per parcel measuring with tape",
+    "autonomy_level": 4,
+    "human_approval_gate": "Worker re-measures if delta > 10%",
+    "scalability_roi": "Stops airline dimensional backcharges"
+  },
+  {
+    "workflow_id": "AUT-093",
+    "workflow_name": "Maritime Port Demurrage Time-Log Dispute Filing (Cohort 5)",
+    "functional_area": "Logistics & Freight",
+    "manual_baseline": "6 hours per dispute compiling terminal gate logs",
+    "autonomy_level": 3,
+    "human_approval_gate": "Logistics head approves dispute submission",
+    "scalability_roi": "Saves $50,000+ annual gate fees"
+  },
+  {
+    "workflow_id": "AUT-094",
+    "workflow_name": "EUDR Geolocation Satellite Polygon Verification (Cohort 5)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "20 hours per shipment validating farmer plots",
+    "autonomy_level": 4,
+    "human_approval_gate": "Compliance auditor signs certification",
+    "scalability_roi": "Guarantees EU port admission"
+  },
+  {
+    "workflow_id": "AUT-095",
+    "workflow_name": "Dangerous Goods (Hazmat) Multimodal Declaration Sync (Cohort 5)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2 hours per consignment checking IMDG codebooks",
+    "autonomy_level": 4,
+    "human_approval_gate": "Hazmat certified officer signature",
+    "scalability_roi": "Zero port isolation penalties"
+  },
+  {
+    "workflow_id": "AUT-096",
+    "workflow_name": "Startup India DPIIT Section 80-IAC Dossier Generation (Cohort 5)",
+    "functional_area": "Legal & Corporate",
+    "manual_baseline": "40 hours legal drafting and exhibit collection",
+    "autonomy_level": 3,
+    "human_approval_gate": "Founder reviews and submits to portal",
+    "scalability_roi": "10x faster filing; saves $3,000 legal fee"
+  },
+  {
+    "workflow_id": "AUT-097",
+    "workflow_name": "Vendor Contract Termination & Auto-Renewal Monitoring (Cohort 5)",
+    "functional_area": "Legal & Procurement",
+    "manual_baseline": "1 hour weekly reviewing procurement contracts",
+    "autonomy_level": 5,
+    "human_approval_gate": "Legal head alerted 60 days before auto-renew",
+    "scalability_roi": "Stops unwanted multi-year lock-ins"
+  },
+  {
+    "workflow_id": "AUT-098",
+    "workflow_name": "Pharma Batch Manufacturing Record (BMR) Deviation Log (Cohort 5)",
+    "functional_area": "Quality & Compliance",
+    "manual_baseline": "12 hours per batch reviewing paper logbooks",
+    "autonomy_level": 3,
+    "human_approval_gate": "QA Director signs off on deviation closure",
+    "scalability_roi": "Reduces batch release cycle by 4 days"
+  },
+  {
+    "workflow_id": "AUT-099",
+    "workflow_name": "Automated Daily Competitor Pricing & Feature Scrape (Cohort 5)",
+    "functional_area": "Strategy & Intel",
+    "manual_baseline": "5 hours weekly manual web checking",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous dashboard update; alerts on price drop",
+    "scalability_roi": "Real-time competitive response"
+  },
+  {
+    "workflow_id": "AUT-100",
+    "workflow_name": "Customer Telemetry Churn Early-Warning Scoring (Cohort 5)",
+    "functional_area": "Customer Success",
+    "manual_baseline": "4 hours weekly reviewing product usage analytics",
+    "autonomy_level": 4,
+    "human_approval_gate": "CS Manager receives automated slack task",
+    "scalability_roi": "Reduces gross logo churn by 40%"
+  },
+  {
+    "workflow_id": "AUT-101",
+    "workflow_name": "Export Commercial Invoice HS-Code Audit (Cohort 6)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "2.5 hours per shipment checking customs tariff book",
+    "autonomy_level": 4,
+    "human_approval_gate": "Exception flag on tariff ambiguity >15%",
+    "scalability_roi": "99.2% time reduction; 0 demurrage"
+  },
+  {
+    "workflow_id": "AUT-102",
+    "workflow_name": "EU CBAM Emissions Factor Extraction & XML Compilation (Cohort 6)",
+    "functional_area": "ESG & Regulatory",
+    "manual_baseline": "15 hours per factory quarterly report in Excel",
+    "autonomy_level": 4,
+    "human_approval_gate": "Plant manager signature on emissions summary",
+    "scalability_roi": "90% cost reduction vs Big 4"
+  },
+  {
+    "workflow_id": "AUT-103",
+    "workflow_name": "Letter of Credit UCP 600 Discrepancy Verification (Cohort 6)",
+    "functional_area": "Trade Finance",
+    "manual_baseline": "3 hours manual clerk scrutiny per document set",
+    "autonomy_level": 4,
+    "human_approval_gate": "Bank officer stamp or exporter approval",
+    "scalability_roi": "30-second audit; instant clearance"
+  },
+  {
+    "workflow_id": "AUT-104",
+    "workflow_name": "Shipping Bill vs Commercial Invoice Reconciliation (Cohort 6)",
+    "functional_area": "Customs & Trade Compliance",
+    "manual_baseline": "45 mins per container reconciling quantities and values",
+    "autonomy_level": 5,
+    "human_approval_gate": "Autonomous execution; alerts on value mismatch >1%",
+    "scalability_roi": "10x throughput with 0 errors"
+  },
+  {
+    "workflow_id": "AUT-105",
+    "workflow_name": "RoDTEP Export Rebate Claim Auto-Filing (Cohort 6)",
+    "functional_area": "Trade Finance & Tax",
+    "manual_baseline": "4 hours monthly matching ICEGATE scroll data",
+    "autonomy_level": 4,
+    "human_approval_gate": "Finance controller final submission click",
+    "scalability_roi": "Recovers 2-4% additional cash"
+  }
+]

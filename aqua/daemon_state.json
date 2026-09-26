@@ -1,0 +1,54 @@
+{
+  "timestamp": 1789627230.0966203,
+  "timestamp_str": "2026-09-17 12:10:30 IST",
+  "status": "OPERATIONAL",
+  "health_status": "HEALTHY",
+  "subsystems_online": 22,
+  "active_ladder_stage": "Stage 1",
+  "ladder_target": "$10M ARR",
+  "pipeline": {
+    "accounts_count": 30,
+    "demurrage_usd": 194700.0,
+    "potential_mrr_inr": 1100000.0,
+    "potential_arr_usd": 155294.12,
+    "weighted_arr_usd": 23294.12
+  },
+  "calibration": {
+    "total_decisions": 23,
+    "reviewed_decisions": 0,
+    "mean_accuracy": null
+  },
+  "pending_founder_actions_count": 30,
+  "top_stale_accounts": [
+    {
+      "account_id": "TGT-21",
+      "company_name": "Bharat Forge Limited",
+      "demurrage_usd": 24000.0,
+      "action_required": "Dispatch personalized outreach email to target executive"
+    },
+    {
+      "account_id": "TGT-24",
+      "company_name": "Ramkrishna Forgings Limited",
+      "demurrage_usd": 15000.0,
+      "action_required": "Dispatch personalized outreach email to target executive"
+    },
+    {
+      "account_id": "TGT-30",
+      "company_name": "Jamna Auto Industries Limited",
+      "demurrage_usd": 9200.0,
+      "action_required": "Dispatch personalized outreach email to target executive"
+    },
+    {
+      "account_id": "TGT-23",
+      "company_name": "Anand Group",
+      "demurrage_usd": 8500.0,
+      "action_required": "Dispatch personalized outreach email to target executive"
+    },
+    {
+      "account_id": "TGT-16",
+      "company_name": "TVS Holdings",
+      "demurrage_usd": 7500.0,
+      "action_required": "Dispatch personalized outreach email to target executive"
+    }
+  ]
+}

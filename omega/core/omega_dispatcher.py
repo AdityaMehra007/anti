@@ -28,7 +28,11 @@ except ImportError:
 class OmegaDispatcher:
     def __init__(self, state_file: Optional[str] = None):
         if state_file is None:
-            state_file = os.path.join(r"e:\anti", "outreach_pipeline_state.json")
+            data_candidate = os.path.join(r"e:\anti", "data", "outreach_pipeline_state.json")
+            if os.path.exists(data_candidate):
+                state_file = data_candidate
+            else:
+                state_file = os.path.join(r"e:\anti", "outreach_pipeline_state.json")
         self.state_file = state_file
         self._load_state()
 

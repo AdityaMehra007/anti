@@ -1,0 +1,78 @@
+{
+  "system": "ANTIGRAVITY Ω∞ MASTER PLATFORM",
+  "version": "1.0.0",
+  "subsystems_22": [
+    { "id": "AQUA-SUB-01", "name": "AQUA CORE", "scope": "Central lifecycle, heartbeat, and subsystem registry" },
+    { "id": "AQUA-SUB-02", "name": "AQUA ORCHESTRATOR", "scope": "Priority task scheduling, agent dispatch, and DAG resolution" },
+    { "id": "AQUA-SUB-03", "name": "AQUA MEMORY", "scope": "Triple memory: Short-term, Operational SQLite, Persistent Vector/KG" },
+    { "id": "AQUA-SUB-04", "name": "AQUA KNOWLEDGE GRAPH", "scope": "Entity-relation graph linking companies, markets, technologies, and people" },
+    { "id": "AQUA-SUB-05", "name": "AQUA RESEARCH", "scope": "Primary source synthesis, evidence verification, and citation logging" },
+    { "id": "AQUA-SUB-06", "name": "AQUA WORLD MODEL", "scope": "Macroeconomic, geopolitical, supply chain, and regulatory environment model" },
+    { "id": "AQUA-SUB-07", "name": "AQUA FUTURE MODEL", "scope": "Multiverse scenario generator (Conservative, Base, Breakthrough, Shocks)" },
+    { "id": "AQUA-SUB-08", "name": "AQUA MARKET INTELLIGENCE", "scope": "Competitor teardowns, pricing indices, and TAM/SAM/SOM modeling" },
+    { "id": "AQUA-SUB-09", "name": "AQUA PRODUCT", "scope": "PRDs, user story specifications, UX wireframes, and feature prioritization" },
+    { "id": "AQUA-SUB-10", "name": "AQUA ENGINEERING", "scope": "Software and hardware factory, CI/CD pipelines, and automated test runners" },
+    { "id": "AQUA-SUB-11", "name": "AQUA DATA", "scope": "ETL pipelines, schema migrations, data lakes, and normalization to 3NF" },
+    { "id": "AQUA-SUB-12", "name": "AQUA FINANCE", "scope": "Operating cash flow, runway, unit economics, and burn rate audits" },
+    { "id": "AQUA-SUB-13", "name": "AQUA CAPITAL", "scope": "Cap table simulations, equity ownership, non-dilutive grants, and valuation ladders" },
+    { "id": "AQUA-SUB-14", "name": "AQUA SALES", "scope": "Outbound sequences, MEDDPICC qualification, deal tracking, and contract closing" },
+    { "id": "AQUA-SUB-15", "name": "AQUA CRM", "scope": "Contact records, buyer interaction logs, account health, and relationship graphs" },
+    { "id": "AQUA-SUB-16", "name": "AQUA MARKETING", "scope": "Programmatic SEO, brand distinctiveness, content engine, and public trust" },
+    { "id": "AQUA-SUB-17", "name": "AQUA OPERATIONS", "scope": "SOPs, vendor management, logistics oversight, and bottleneck elimination" },
+    { "id": "AQUA-SUB-18", "name": "AQUA SECURITY", "scope": "Identity protection, secrets isolation, least privilege enforcement, and defense" },
+    { "id": "AQUA-SUB-19", "name": "AQUA GOVERNANCE", "scope": "Legal compliance, board resolutions, regulatory filings, and ethics guardrails" },
+    { "id": "AQUA-SUB-20", "name": "AQUA SIMULATION", "scope": "Agent-based market modeling, crisis stress-testing, and pre-mortems" },
+    { "id": "AQUA-SUB-21", "name": "AQUA EXPERIMENTS", "scope": "Hypothesis formulation, test harnesses, outcome measurement, and learning rate" },
+    { "id": "AQUA-SUB-22", "name": "AQUA EXECUTIVE COMMAND", "scope": "Founder briefings, high-leverage decision journals, and strategic directives" }
+  ],
+  "executive_agents": [
+    {
+      "id": "AGT-CEO",
+      "name": "Master CEO Orchestrator",
+      "tier": 4,
+      "role": "Program routing, task decomposition, agent delegation, and synthesis",
+      "tools": ["schedule", "run_command", "send_message", "view_file"],
+      "escalation_conditions": ["Unbudgeted capital expense > $500", "Irreversible legal commitments", "Security incidents"]
+    },
+    {
+      "id": "AGT-CSO",
+      "name": "Chief Strategy Officer",
+      "tier": 2,
+      "role": "Scenario planning, moat analysis, opportunity scoring, and thesis destruction",
+      "tools": ["search_web", "view_file", "write_to_file"],
+      "escalation_conditions": ["Conflicting core assumptions", "Major competitor paradigm shift"]
+    },
+    {
+      "id": "AGT-CTO",
+      "name": "Chief Technology Officer",
+      "tier": 4,
+      "role": "System architecture, software engineering, TDD enforcement, and API contracts",
+      "tools": ["view_file", "write_to_file", "replace_file_content", "run_command"],
+      "escalation_conditions": ["Test regressions in critical path", "Security vulnerability detected"]
+    },
+    {
+      "id": "AGT-CFO",
+      "name": "Chief Financial Officer",
+      "tier": 1,
+      "role": "Runway tracking, financial modeling, valuation progression, and unit economics",
+      "tools": ["view_file", "write_to_file"],
+      "escalation_conditions": ["Runway drops below 6 months", "Unit margin drops below 60%"]
+    },
+    {
+      "id": "AGT-CRO",
+      "name": "Chief Revenue Officer",
+      "tier": 3,
+      "role": "Sales pipelines, lead enrichment, pricing proposals, and customer conversion",
+      "tools": ["search_web", "view_file", "write_to_file"],
+      "escalation_conditions": ["Customer contract redline terms", "Pricing discounts > 20%"]
+    },
+    {
+      "id": "AGT-COMPLIANCE-EXIM",
+      "name": "TradeNexus Compliance Specialist",
+      "tier": 4,
+      "role": "HS code classification, CBAM carbon accounting, customs document verification",
+      "tools": ["view_file", "write_to_file", "run_command"],
+      "escalation_conditions": ["HS code confidence < 95%", "Unlisted chemical or dual-use goods identified"]
+    }
+  ]
+}

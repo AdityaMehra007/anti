@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Universal Skills Operating System ? Executive Command Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-card: #111827;
+            --bg-elevated: #1e293b;
+            --border-color: #334155;
+            --border-highlight: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-rose: #f43f5e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 24px;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .header-title h1 {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .header-title p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .system-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-emerald);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-emerald);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 8px var(--accent-emerald);
+        }
+
+        .grid-dashboard {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat-box {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-top: 4px;
+        }
+
+        .funnel-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .funnel-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-elevated);
+            padding: 10px 14px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-cyan);
+            font-size: 13px;
+        }
+
+        .funnel-step.guarded { border-left-color: var(--accent-amber); }
+        .funnel-step.pending { border-left-color: var(--accent-rose); }
+
+        .action-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .action-table th {
+            text-align: left;
+            padding: 10px;
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .action-table td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-approve {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--accent-emerald);
+            color: var(--accent-emerald);
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .code-block {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: var(--bg-elevated);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            color: var(--accent-cyan);
+            overflow-x: auto;
+        }
+
+        a { color: var(--accent-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="header-bar">
+        <div class="header-title">
+            <h1>ANTIGRAVITY UNIVERSAL SKILLS OS</h1>
+            <p>Unified Career, Business, AI, Research & Autonomous Execution Engine | Candidate: Aditya Mehra (BBA-IB)</p>
+        </div>
+        <div class="system-badge">
+            <div class="pulse-dot"></div>
+            SYSTEM STATUS: EVIDENCE-BACKED & OPERATIONALLY READY (GUARDED)
+        </div>
+    </div>
+
+    <div class="grid-dashboard">
+
+        <!-- 1. CAREER RADAR & FUNNEL -->
+        <div class="card col-6">
+            <h2 style="color: var(--accent-blue);">?? Career Pipeline & Funnel (Zero-Trust)</h2>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-label">Target Jobs</div>
+                    <div class="stat-value">61</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Network-Backed</div>
+                    <div class="stat-value" style="color: var(--accent-emerald);">48 <span style="font-size: 13px; color: var(--text-muted);">(78.7%)</span></div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Recruiter Matched</div>
+                    <div class="stat-value" style="color: var(--accent-cyan);">31 <span style="font-size: 13px; color: var(--text-muted);">(50.8%)</span></div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Draft Ready Assets</div>
+                    <div class="stat-value" style="color: var(--accent-purple);">61 <span style="font-size: 13px; color: var(--text-muted);">(100%)</span></div>
+                </div>
+            </div>
+            <div class="funnel-container">
+                <div class="funnel-step"><span>1. Jobs Discovered & Qualified</span><strong>61 / 61 (100%)</strong></div>
+                <div class="funnel-step"><span>2. Direct 1st-Degree Employee Matches</span><strong>48 / 61 (78.7%)</strong></div>
+                <div class="funnel-step"><span>3. High-Confidence Contacts (&ge;70 Score)</span><strong>45 / 61 (73.8%)</strong></div>
+                <div class="funnel-step guarded"><span>4. Human Approval Outreach Queue</span><strong>50 Staged (PENDING_APPROVAL)</strong></div>
+                <div class="funnel-step pending"><span>5. Confirmed Referrals</span><strong>0 (UNKNOWN ? EVIDENCE REQUIRED)</strong></div>
+            </div>
+        </div>
+
+        <!-- 2. NETWORK INTELLIGENCE -->
+        <div class="card col-6">
+            <h2 style="color: var(--accent-cyan);">?? LinkedIn Network Asset (9,223 Connections)</h2>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-label">Total Connections</div>
+                    <div class="stat-value">9,223</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Heuristic Recruiters</div>
+                    <div class="stat-value" style="color: var(--accent-amber);">1,448 <span style="font-size: 13px; color: var(--text-muted);">(15.7%)</span></div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Founders & C-Suite</div>
+                    <div class="stat-value" style="color: var(--accent-rose);">736 <span style="font-size: 13px; color: var(--text-muted);">(8.0%)</span></div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Hiring Managers / Leads</div>
+                    <div class="stat-value" style="color: var(--accent-emerald);">1,117 <span style="font-size: 13px; color: var(--text-muted);">(12.1%)</span></div>
+                </div>
+            </div>
+            <div style="margin-top: 14px;">
+                <div class="stat-label" style="margin-bottom: 6px;">Top Canonical Employers in Network:</div>
+                <p style="font-size: 13px; color: var(--text-muted);">
+                    <strong>EY GDS (206)</strong> &bull; <strong>Accenture (115)</strong> &bull; <strong>Deloitte (106)</strong> &bull; <strong>IBM (81)</strong> &bull; <strong>Goldman Sachs (79)</strong> &bull; <strong>Amazon (38)</strong> &bull; <strong>PwC (34)</strong>
+                </p>
+                <div style="margin-top: 10px; font-size: 12px;">
+                    <a href="file:///e:/anti/linkedin_network_master.csv">Open Master Network CSV</a> &bull; 
+                    <a href="file:///e:/anti/recruiter_evidence.csv">Open Recruiter Evidence CSV</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. HUMAN APPROVAL ACTIONS QUEUE -->
+        <div class="card col-12">
+            <h2 style="color: var(--accent-amber);">??? High-Priority Human Approval Queue (Top Staged Actions)</h2>
+            <table class="action-table">
+                <thead>
+                    <tr>
+                        <th>Action ID</th>
+                        <th>Target Contact</th>
+                        <th>Target Company</th>
+                        <th>Job Role</th>
+                        <th>Channel</th>
+                        <th>Reason / Evidence</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>ACT-0001</code></td>
+                        <td><strong>Syed Sumbul Shahbaz</strong></td>
+                        <td>Ernst & Young (EY)</td>
+                        <td>BLR-JOB-003: Business Operations Analyst</td>
+                        <td>LinkedIn 1st-Degree InMail</td>
+                        <td>Score: 98/100 | Recruiter Match</td>
+                        <td><span style="color: var(--accent-amber);">PENDING_APPROVAL</span></td>
+                        <td><button class="btn-approve">Approve</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>ACT-0002</code></td>
+                        <td><strong>Mariam Mathew</strong></td>
+                        <td>Ernst & Young (EY)</td>
+                        <td>BLR-JOB-003: Management Analyst</td>
+                        <td>LinkedIn 1st-Degree InMail</td>
+                        <td>Score: 98/100 | Recruiter Match</td>
+                        <td><span style="color: var(--accent-amber);">PENDING_APPROVAL</span></td>
+                        <td><button class="btn-approve">Approve</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>ACT-0003</code></td>
+                        <td><strong>Priya Sharma</strong></td>
+                        <td>Accenture</td>
+                        <td>BLR-JOB-001: Management Consulting Analyst</td>
+                        <td>LinkedIn 1st-Degree InMail</td>
+                        <td>Score: 98/100 | Recruiter Match</td>
+                        <td><span style="color: var(--accent-amber);">PENDING_APPROVAL</span></td>
+                        <td><button class="btn-approve">Approve</button></td>
+                    </tr>
+                    <tr>
+                        <td><code>ACT-0004</code></td>
+                        <td><strong>Aditi Roy</strong></td>
+                        <td>Deloitte</td>
+                        <td>BLR-JOB-002: Business Advisory Analyst</td>
+                        <td>LinkedIn 1st-Degree InMail</td>
+                        <td>Score: 98/100 | Recruiter Match</td>
+                        <td><span style="color: var(--accent-amber);">PENDING_APPROVAL</span></td>
+                        <td><button class="btn-approve">Approve</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 12px; font-size: 12px;">
+                <a href="file:///e:/anti/approval_queue.csv">View All 50 Staged Actions in approval_queue.csv</a>
+            </div>
+        </div>
+
+        <!-- 4. BUSINESS & VENTURE BUILDER -->
+        <div class="card col-4">
+            <h2 style="color: var(--accent-purple);">?? Business & Venture Builder</h2>
+            <div class="stat-label">Active Commercial Concept:</div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); margin: 4px 0 8px 0;">
+                B2B Experiential Operations Platform
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">
+                Commercial platform connecting enterprise organizers with vetted vendor protocols & real-time dispatch systems.
+            </p>
+            <div class="stat-box" style="margin-bottom: 8px;">
+                <div class="stat-label">Unit Economics</div>
+                <div style="font-size: 13px; font-weight: 600; color: var(--accent-emerald);">
+                    ?2.5L - ?10.0L / deal | 65% Gross Margin
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">GTM Strategic Leverage</div>
+                <div style="font-size: 12px; color: var(--text-muted);">
+                    Direct access to 736 Founders/CEOs in 1st-degree network.
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SKILL DEVELOPMENT & LEARNING -->
+        <div class="card col-4">
+            <h2 style="color: var(--accent-emerald);">?? Learning & Economic Moats</h2>
+            <div class="funnel-container">
+                <div class="funnel-step" style="border-left-color: var(--accent-emerald);">
+                    <span>Advanced Financial & Ops Modeling</span>
+                    <strong style="color: var(--accent-emerald);">High ROI</strong>
+                </div>
+                <div class="funnel-step" style="border-left-color: var(--accent-blue);">
+                    <span>EXIM Supply Chain & Customs 2026</span>
+                    <strong style="color: var(--accent-blue);">Core IB</strong>
+                </div>
+                <div class="funnel-step" style="border-left-color: var(--accent-purple);">
+                    <span>AI-Augmented Business Operations</span>
+                    <strong style="color: var(--accent-purple);">Critical Moat</strong>
+                </div>
+            </div>
+            <div style="margin-top: 12px; font-size: 12px;">
+                <a href="file:///e:/anti/interview_prep.json">Open STAR Interview Defense JSON</a>
+            </div>
+        </div>
+
+        <!-- 6. SYSTEM HEALTH & INDEPENDENT AUDIT -->
+        <div class="card col-4">
+            <h2 style="color: var(--accent-rose);">?? Zero-Trust Audit Verdict</h2>
+            <div class="code-block" style="margin-bottom: 10px;">
+                STATUS: EVIDENCE-BACKED<br>
+                AUDITOR: independent_system_auditor.py<br>
+                INTEGRITY: 7/7 Files In-Tact<br>
+                5-TIER TESTS: 4/4 Passed (Exit 0)
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted);">
+                Authoritative audit report generated without trusting intermediate state caches.
+            </p>
+            <div style="margin-top: 10px; font-size: 12px;">
+                <a href="file:///e:/anti/INDEPENDENT_AUDIT_REPORT.md">Read Full INDEPENDENT_AUDIT_REPORT.md</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

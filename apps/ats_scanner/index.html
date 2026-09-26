@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATS Resume Matcher & JD Analyzer — ADI SOVEREIGN OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --card-hover: #16223b;
+      --teal: #00d4aa;
+      --teal-glow: rgba(0, 212, 170, 0.15);
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 28px 20px; min-height: 100vh; line-height: 1.5; }
+    .container { max-width: 1380px; margin: 0 auto; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Top Nav Bar */
+    .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); }
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 6px 14px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; transition: all 0.2s; }
+    .nav-back:hover { color: #fff; border-color: var(--teal); background: #131d33; }
+    .status-badge { background: var(--teal-glow); color: var(--teal); padding: 5px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.3); }
+
+    /* Header */
+    header { text-align: center; margin-bottom: 28px; }
+    .hero-badge { background: rgba(0, 212, 170, 0.12); color: var(--teal); padding: 6px 18px; border-radius: 99px; font-size: 0.82rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.3); display: inline-block; margin-bottom: 12px; letter-spacing: 0.5px; }
+    h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+    .subtitle { color: var(--text-muted); font-size: 0.98rem; margin-top: 6px; max-width: 820px; margin-left: auto; margin-right: auto; }
+
+    /* Layout */
+    .analyzer-layout { display: grid; grid-template-columns: 1.05fr 1fr; gap: 24px; margin-bottom: 32px; }
+    @media (max-width: 1050px) { .analyzer-layout { grid-template-columns: 1fr; } }
+
+    /* Cards */
+    .app-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .card-title { font-size: 1.15rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+
+    /* Preset Buttons */
+    .presets-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+    .preset-btn { background: #080d1a; border: 1px solid var(--card-border); color: var(--text-muted); padding: 5px 12px; border-radius: 6px; font-size: 0.76rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .preset-btn:hover { color: #fff; border-color: var(--teal); background: #131e36; }
+
+    /* Textarea */
+    .jd-textarea { width: 100%; height: 320px; background: #080d1a; border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; color: #fff; font-size: 0.88rem; font-family: 'JetBrains Mono', monospace; line-height: 1.6; resize: vertical; outline: none; transition: border-color 0.2s; }
+    .jd-textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 2px var(--teal-glow); }
+    
+    .textarea-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 0.8rem; color: var(--text-dim); }
+    .btn-analyze { background: var(--teal); color: #070b14; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 800; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3); }
+
+    /* Score Gauge Card */
+    .score-summary-box { display: flex; align-items: center; justify-content: space-between; background: #080d1a; border: 1px solid var(--card-border); border-radius: 14px; padding: 20px 24px; margin-bottom: 20px; }
+    .score-big { display: flex; align-items: baseline; gap: 6px; }
+    .score-num { font-size: 3.2rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: var(--teal); line-height: 1; }
+    .score-total { font-size: 1.2rem; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
+    .score-status { font-size: 0.85rem; font-weight: 700; color: #fff; margin-top: 6px; }
+    
+    .score-badges { text-align: right; }
+    .score-grade { font-size: 1.4rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #fff; background: rgba(0, 212, 170, 0.15); border: 1px solid var(--teal); padding: 4px 14px; border-radius: 8px; display: inline-block; margin-bottom: 6px; }
+    .score-grade-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+
+    /* Category Breakdown */
+    .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+    @media (max-width: 600px) { .pillar-grid { grid-template-columns: 1fr; } }
+    .pillar-card { background: #080d1a; border: 1px solid var(--card-border); border-radius: 12px; padding: 12px 14px; }
+    .pillar-top { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; }
+    .pillar-bar-bg { background: #131d33; height: 6px; border-radius: 99px; overflow: hidden; }
+    .pillar-bar-fill { height: 100%; border-radius: 99px; transition: width 0.4s ease; }
+
+    /* Keywords Pill Boxes */
+    .keywords-section { margin-bottom: 20px; }
+    .keywords-title { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .keywords-wrap { display: flex; flex-wrap: wrap; gap: 6px; max-height: 180px; overflow-y: auto; padding-right: 4px; }
+    
+    .kw-pill { font-size: 0.76rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px; }
+    .kw-matched { background: rgba(0, 212, 170, 0.12); color: var(--teal); border: 1px solid rgba(0, 212, 170, 0.3); }
+    .kw-missing { background: rgba(244, 63, 94, 0.12); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+    .kw-count { background: rgba(0,0,0,0.3); font-size: 0.65rem; padding: 1px 5px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; }
+
+    /* Generated Bullets Section */
+    .bullets-container { background: #080d1a; border: 1px solid var(--card-border); border-radius: 14px; padding: 18px; margin-top: 20px; }
+    .bullets-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .bullets-title { font-size: 0.95rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .copy-all-btn { background: #131d33; border: 1px solid var(--card-border); color: var(--teal); padding: 5px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .copy-all-btn:hover { background: var(--teal); color: #070b14; }
+
+    .bullet-item { background: #0c1527; border: 1px solid var(--card-border); border-radius: 10px; padding: 14px; margin-bottom: 10px; position: relative; transition: border-color 0.2s; }
+    .bullet-item:hover { border-color: rgba(0, 212, 170, 0.4); }
+    .bullet-text { font-size: 0.85rem; color: #f1f5f9; line-height: 1.55; padding-right: 32px; }
+    .bullet-copy-btn { position: absolute; top: 12px; right: 12px; background: #131d33; border: 1px solid var(--card-border); color: var(--text-muted); width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.75rem; transition: all 0.2s; }
+    .bullet-copy-btn:hover { color: #fff; border-color: var(--teal); }
+
+    /* Candidate Profile Overview Bar */
+    .profile-strip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+    .profile-left { display: flex; align-items: center; gap: 14px; }
+    .profile-avatar { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #00d4aa, #3b82f6); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: #070b14; }
+    .profile-name { font-size: 1rem; font-weight: 800; color: #fff; }
+    .profile-sub { font-size: 0.78rem; color: var(--text-muted); }
+    .profile-stats { display: flex; gap: 18px; }
+    .p-stat { font-size: 0.8rem; color: var(--text-muted); }
+    .p-stat strong { color: var(--teal); font-family: 'JetBrains Mono', monospace; }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 24px; right: 24px; background: var(--teal); color: #070b14; padding: 10px 20px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 10px 25px rgba(0,0,0,0.5); opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none; z-index: 100; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-dim); font-size: 0.82rem; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <div class="top-nav">
+      <a href="../index.html" class="nav-back">← Back to Master Suite</a>
+      <span class="status-badge">⚡ Real-Time ATS Matcher Engine v2026</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <span class="hero-badge">ADI SOVEREIGN OS • ATS RESUME OPTIMIZER</span>
+      <h1>Interactive ATS Resume Keyword Matcher & JD Analyzer</h1>
+      <p class="subtitle">Paste any employer Job Description to calculate live ATS compatibility score against Aditya Mehra's verified profile, extract high-yield matching keywords, detect skill gaps, and auto-generate 3 customized resume bullet points.</p>
+    </header>
+
+    <!-- Candidate Truth Profile Summary -->
+    <div class="profile-strip">
+      <div class="profile-left">
+        <div class="profile-avatar">AM</div>
+        <div>
+          <div class="profile-name">Aditya Mehra — Verified Executive Baseline</div>
+          <div class="profile-sub">BBA International Business, Dayananda Sagar University '26 • Bangalore</div>
+        </div>
+      </div>
+      <div class="profile-stats">
+        <div class="p-stat">Deployments: <strong>300+ Leads</strong></div>
+        <div class="p-stat">Cost Optimization: <strong>Tier-1 SLAs</strong></div>
+        <div class="p-stat">Proposal Velocity: <strong>48-Hour</strong></div>
+        <div class="p-stat">AI Accuracy: <strong>99%+</strong></div>
+        <div class="p-stat">EXIM: <strong>Incoterms / UCP 600</strong></div>
+      </div>
+    </div>
+
+    <!-- Main Analyzer Layout -->
+    <div class="analyzer-layout">
+      <!-- Left Column: JD Input & Presets -->
+      <div class="app-card">
+        <div class="card-header">
+          <div class="card-title">📝 Job Description (JD) Input</div>
+          <span style="font-size: 0.75rem; color: var(--text-dim);" id="charCount">0 characters • 0 words</span>
+        </div>
+
+        <div style="margin-bottom: 8px; font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">Quick-Load Target Presets:</div>
+        <div class="presets-row">
+          <button class="preset-btn" onclick="loadPreset('amazon_ops')">Amazon — Operations Analyst</button>
+          <button class="preset-btn" onclick="loadPreset('maersk_exim')">Maersk — EXIM & Logistics</button>
+          <button class="preset-btn" onclick="loadPreset('walmart_ops')">Walmart — Process Ops</button>
+          <button class="preset-btn" onclick="loadPreset('google_ai')">Google — AI Data Operations</button>
+          <button class="preset-btn" onclick="loadPreset('deloitte_scm')">Deloitte — Trade & SCM</button>
+          <button class="preset-btn" onclick="loadPreset('puma_events')">Puma — Event Activation</button>
+          <button class="preset-btn" onclick="loadPreset('swiggy_procure')">Swiggy — Vendor Procurement</button>
+          <button class="preset-btn" onclick="loadPreset('goldman_ops')">Goldman Sachs — Risk Ops</button>
+        </div>
+
+        <textarea id="jdInput" class="jd-textarea" placeholder="Paste full Job Description here (Requirements, Responsibilities, Qualifications, Technical Stack, Preferred Skills)..." oninput="analyzeJD()"></textarea>
+
+        <div class="textarea-footer">
+          <span>Real-time semantic & token matching active</span>
+          <button class="btn-analyze" onclick="analyzeJD()">⚡ Re-Analyze JD</button>
+        </div>
+      </div>
+
+      <!-- Right Column: ATS Match Score, Pillars, Keywords & Generated Bullets -->
+      <div class="app-card">
+        <div class="card-header">
+          <div class="card-title">🎯 ATS Match Compatibility Report</div>
+          <span class="status-badge" id="fitRating">Optimal Target Fit</span>
+        </div>
+
+        <!-- Big Score Box -->
+        <div class="score-summary-box">
+          <div>
+            <div class="score-big">
+              <span class="score-num" id="scoreValue">94</span>
+              <span class="score-total">/100</span>
+            </div>
+            <div class="score-status" id="scoreStatus">High Probability ATS Shortlist</div>
+          </div>
+          <div class="score-badges">
+            <div class="score-grade" id="gradeBadge">A+ GRADE</div>
+            <div class="score-grade-label">Keyword Density Match</div>
+          </div>
+        </div>
+
+        <!-- 4 Pillar Breakdown -->
+        <div class="pillar-grid">
+          <div class="pillar-card">
+            <div class="pillar-top">
+              <span>Core Ops & SLA Mastery</span>
+              <span class="mono" id="pillarOps">95%</span>
+            </div>
+            <div class="pillar-bar-bg">
+              <div class="pillar-bar-fill" id="barOps" style="width: 95%; background: var(--teal);"></div>
+            </div>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-top">
+              <span>Trade, EXIM & Supply Chain</span>
+              <span class="mono" id="pillarTrade">90%</span>
+            </div>
+            <div class="pillar-bar-bg">
+              <div class="pillar-bar-fill" id="barTrade" style="width: 90%; background: var(--blue);"></div>
+            </div>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-top">
+              <span>AI Data Ops & Analytics</span>
+              <span class="mono" id="pillarAi">96%</span>
+            </div>
+            <div class="pillar-bar-bg">
+              <div class="pillar-bar-fill" id="barAi" style="width: 96%; background: var(--purple);"></div>
+            </div>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-top">
+              <span>B2B Growth & Vendor Mgmt</span>
+              <span class="mono" id="pillarB2b">92%</span>
+            </div>
+            <div class="pillar-bar-bg">
+              <div class="pillar-bar-fill" id="barB2b" style="width: 92%; background: var(--amber);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matched Keywords -->
+        <div class="keywords-section">
+          <div class="keywords-title">
+            <span style="color: var(--teal);">✓ Matched High-Yield Keywords (<span id="matchedCount">18</span>)</span>
+            <span style="font-size: 0.7rem; color: var(--text-dim);">Green = Verified Proof on File</span>
+          </div>
+          <div class="keywords-wrap" id="matchedContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Missing / Skill Gap Keywords -->
+        <div class="keywords-section" style="margin-bottom: 0;">
+          <div class="keywords-title">
+            <span style="color: var(--rose);">⚠ Gap / Optional Keywords (<span id="missingCount">3</span>)</span>
+            <span style="font-size: 0.7rem; color: var(--text-dim);">Address via Portfolio & Case Studies</span>
+          </div>
+          <div class="keywords-wrap" id="missingContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Tailored Bullet Point Generator -->
+        <div class="bullets-container">
+          <div class="bullets-header">
+            <div class="bullets-title">⚡ 3 Tailored Resume Bullet Points (Copy-Paste Ready)</div>
+            <button class="copy-all-btn" onclick="copyAllBullets()">📋 Copy All 3</button>
+          </div>
+
+          <div id="bulletsContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Copied to clipboard!</div>
+
+    <footer>
+      <p>ADI SOVEREIGN OS — ATS Resume Keyword Matcher & JD Analyzer • Verified Candidate Profile</p>
+      <p style="margin-top: 4px;">Candidate: Aditya Mehra, BBA International Business, Dayananda Sagar University, Bangalore</p>
+    </footer>
+  </div>
+
+  <script>
+    // Candidate Profile Keyword Bank with verification proof
+    const CANDIDATE_PROFILE = {
+      skills: [
+        { kw: "Operations Management", pillar: "ops", weight: 3, proof: "300+ Event & Ops Deployments" },
+        { kw: "Process Optimization", pillar: "ops", weight: 3, proof: "Tier-1 vendor rate restructuring and SLA governance" },
+        { kw: "SLA Management", pillar: "ops", weight: 2, proof: "99.4% On-Time SLA Delivery" },
+        { kw: "Vendor Negotiation", pillar: "b2b", weight: 3, proof: "Tier-1 Vendor Rate Restructuring" },
+        { kw: "Cost Reduction", pillar: "ops", weight: 3, proof: "standardized vendor rate governance across operations" },
+        { kw: "Supply Chain Management", pillar: "trade", weight: 3, proof: "End-to-End logistics tracking" },
+        { kw: "Incoterms 2020", pillar: "trade", weight: 3, proof: "FOB, CIF, DDP, DAP, EXW compliance" },
+        { kw: "Customs Compliance", pillar: "trade", weight: 2, proof: "BCD, SWS, IGST duty calculations" },
+        { kw: "HS Code Classification", pillar: "trade", weight: 2, proof: "Indian Customs tariff engine" },
+        { kw: "Letter of Credit", pillar: "trade", weight: 2, proof: "UCP 600 LC compliance validation" },
+        { kw: "UCP 600", pillar: "trade", weight: 2, proof: "International Banking Commission standards" },
+        { kw: "AI Data Operations", pillar: "ai", weight: 3, proof: "Instawork AI (99%+ Accuracy)" },
+        { kw: "Data Annotation", pillar: "ai", weight: 2, proof: "High-precision LLM training datasets" },
+        { kw: "Prompt Engineering", pillar: "ai", weight: 2, proof: "Autonomous workflow scripting" },
+        { kw: "B2B Business Development", pillar: "b2b", weight: 3, proof: "Commercial Operations & B2B Pipeline Growth" },
+        { kw: "Lead Generation", pillar: "b2b", weight: 2, proof: "4,500+ Recruiter & Enterprise Pipeline" },
+        { kw: "Client Onboarding", pillar: "b2b", weight: 2, proof: "End-to-end B2B sales cycle" },
+        { kw: "Event Management", pillar: "ops", weight: 3, proof: "AERO India 2025 Lead & Puma India" },
+        { kw: "Crisis Logistics", pillar: "ops", weight: 2, proof: "Real-time rapid dispute resolution" },
+        { kw: "VIP Protocol", pillar: "ops", weight: 2, proof: "High-stakes stakeholder management" },
+        { kw: "Advanced Excel", pillar: "ai", weight: 2, proof: "Pivot Tables, VLOOKUP, INDEX/MATCH" },
+        { kw: "Python", pillar: "ai", weight: 2, proof: "Data analytics & workflow automation" },
+        { kw: "SQL", pillar: "ai", weight: 2, proof: "Relational database queries & filtering" },
+        { kw: "Root Cause Analysis", pillar: "ops", weight: 2, proof: "5-Whys & Fishbone operational reviews" },
+        { kw: "SOP Drafting", pillar: "ops", weight: 2, proof: "Standardized deployment protocols" },
+        { kw: "Cross-Functional Leadership", pillar: "b2b", weight: 2, proof: "Team coordination across 50+ personnel" },
+        { kw: "KPI Tracking", pillar: "ops", weight: 2, proof: "Executive dashboard metrics" },
+        { kw: "Inventory Management", pillar: "trade", weight: 2, proof: "Safety stock & FIFO optimization" },
+        { kw: "Freight Forwarding", pillar: "trade", weight: 2, proof: "Port handling & air cargo tracking" },
+        { kw: "CRM Management", pillar: "b2b", weight: 2, proof: "HubSpot & Pipeline management" }
+      ]
+    };
+
+    // Pre-loaded Job Descriptions
+    const PRESETS = {
+      amazon_ops: `Role: Operations Analyst — Supply Chain & Logistics
+Company: Amazon India Global Tech (Bangalore)
+Responsibilities:
+- Drive process optimization, KPI tracking, and root cause analysis across fulfilment center operations.
+- Enforce strict SLA management, vendor negotiation, and cost reduction strategies for regional nodes.
+- Analyze logistics datasets using Advanced Excel, SQL, and Python to identify operational bottlenecks.
+- Coordinate cross-functional team workflows and draft standardized SOP drafting guidelines for on-ground execution.
+- Monitor inventory management, freight forwarding compliance, and end-to-end supply chain reliability.
+Requirements:
+- Bachelor's degree in Business, Operations, Supply Chain or related field.
+- Demonstrated experience in high-volume operations management, crisis logistics, and vendor management.
+- Strong analytical and process optimization skills with a track record of delivering measurable cost savings.`,
+
+      maersk_exim: `Role: Global Ocean EXIM Coordinator & Trade Specialist
+Company: A.P. Moller - Maersk (Bangalore GCC)
+Responsibilities:
+- Execute international trade compliance and logistics documentation under Incoterms 2020 (FOB, CIF, DDP, DAP).
+- Verify Letter of Credit (LC) documentation adhering strictly to UCP 600 rules and international banking standards.
+- Supervise HS Code classification, customs compliance, BCD/SWS/IGST duty computation, and port logistics clearance.
+- Coordinate with freight forwarding partners, shipping lines, and cross-functional supply chain management teams.
+- Manage vendor negotiation, SLA management, and tracking of end-to-end import/export consignments.
+Requirements:
+- Strong understanding of global maritime supply chain, customs compliance, and EXIM trade finance instruments.`,
+
+      walmart_ops: `Role: Senior Operations & Process Analyst
+Company: Walmart Global Tech India
+Responsibilities:
+- Lead operational process optimization, vendor negotiation, and supply chain cost reduction initiatives.
+- Build executive KPI tracking dashboards and automate reporting using SQL, Python, and Advanced Excel.
+- Conduct root cause analysis on fulfilment delays, implement corrective action plans, and refine SOP drafting.
+- Oversee SLA management across tier-1 supplier networks and ensure 99%+ compliance in order fulfilment.
+- Champion cross-functional leadership between supply chain operations, logistics, and tech engineering teams.`,
+
+      google_ai: `Role: AI Data Operations Specialist
+Company: Google India / YouTube Operations
+Responsibilities:
+- Deliver high-quality AI Data Operations, data annotation, and quality assurance for generative LLM pipelines.
+- Formulate prompt engineering methodologies, benchmark accuracy, and maintain 99%+ quality thresholds.
+- Execute SQL queries and Python scripts to curate, clean, and validate massive structured and unstructured datasets.
+- Track workflow KPIs, root cause analysis on annotation discrepancies, and collaborate on SOP drafting.
+- Manage cross-functional team communication and SLA management for high-velocity AI product milestones.`,
+
+      deloitte_scm: `Role: Supply Chain & Trade Compliance Analyst
+Company: Deloitte Touche Tohmatsu India
+Responsibilities:
+- Advise Fortune 500 clients on international trade compliance, Incoterms 2020 restructuring, and customs tariffs.
+- Audit Letter of Credit mechanisms under UCP 600 guidelines, minimizing dispute risk and clearance delays.
+- Evaluate client vendor negotiation practices and design process optimization frameworks yielding 10-standardized vendor rate governance.
+- Perform inventory management analysis, freight forwarding reviews, and supply chain management risk assessments.`,
+
+      puma_events: `Role: Event & Brand Activation Operations Lead
+Company: Puma Sports India (Bangalore)
+Responsibilities:
+- Direct on-ground event management, brand activations, and retail pop-up deployments across Tier-1 Indian markets.
+- Manage vendor negotiation, budgeting, and crisis logistics across staging, fabrication, and VIP protocol management.
+- Achieve standardized vendor rate governance through strategic supplier restructuring without compromising brand fidelity.
+- Coordinate on-site cross-functional leadership teams of 50+ staff, managing real-time security and vendor SLAs.`,
+
+      swiggy_procure: `Role: City Logistics & Vendor Procurement Lead
+Company: Swiggy / Instamart (Bangalore)
+Responsibilities:
+- Spearhead vendor negotiation and procurement operations for regional dark store infrastructure.
+- Implement cost reduction strategies and establish rigorous SLA management protocols with tier-1 suppliers.
+- Optimize city-wide logistics, inventory management, and fast-turnaround replenishment schedules.
+- Leverage Advanced Excel, SQL, and KPI tracking dashboards to monitor daily operational throughput and unit economics.`,
+
+      goldman_ops: `Role: Global Operations & Risk Analyst
+Company: Goldman Sachs (Bangalore Office)
+Responsibilities:
+- Monitor trade lifecycle operations, settlement reconciliation, and regulatory compliance risk controls.
+- Enforce strict SLA management, root cause analysis on trade breaks, and process optimization across global teams.
+- Build automated data validation workflows utilizing SQL, Advanced Excel, and Python data pipelines.
+- Coordinate with international counterparties under established compliance frameworks and banking standards.`
+    };
+
+    function loadPreset(key) {
+      if (PRESETS[key]) {
+        document.getElementById('jdInput').value = PRESETS[key];
+        analyzeJD();
+      }
+    }
+
+    function analyzeJD() {
+      const text = document.getElementById('jdInput').value;
+      const lower = text.toLowerCase();
+
+      // Count stats
+      const chars = text.length;
+      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+      document.getElementById('charCount').textContent = `${chars.toLocaleString()} characters • ${words.toLocaleString()} words`;
+
+      if (!text.trim()) {
+        resetToEmpty();
+        return;
+      }
+
+      // Check matched skills
+      const matched = [];
+      const missing = [];
+      const pillarScores = { ops: 0, opsTotal: 0, trade: 0, tradeTotal: 0, ai: 0, aiTotal: 0, b2b: 0, b2bTotal: 0 };
+
+      CANDIDATE_PROFILE.skills.forEach(skill => {
+        const kwLower = skill.kw.toLowerCase();
+        pillarScores[skill.pillar + 'Total'] += skill.weight;
+
+        // Count frequency or substring match
+        let count = 0;
+        let pos = lower.indexOf(kwLower);
+        while (pos !== -1) {
+          count++;
+          pos = lower.indexOf(kwLower, pos + 1);
+        }
+
+        // Also test partial/synonym matches for flexibility
+        if (count === 0) {
+          const parts = kwLower.split(' ');
+          if (parts.length > 1) {
+            const allMatch = parts.every(p => lower.includes(p) && p.length > 3);
+            if (allMatch) count = 1;
+          }
+        }
+
+        if (count > 0) {
+          matched.push({ ...skill, count });
+          pillarScores[skill.pillar] += skill.weight;
+        } else {
+          missing.push(skill);
+        }
+      });
+
+      // Calculate Scores
+      const opsPct = Math.min(100, Math.round((pillarScores.ops / (pillarScores.opsTotal || 1)) * 100) + 20);
+      const tradePct = Math.min(100, Math.round((pillarScores.trade / (pillarScores.tradeTotal || 1)) * 100) + 15);
+      const aiPct = Math.min(100, Math.round((pillarScores.ai / (pillarScores.aiTotal || 1)) * 100) + 25);
+      const b2bPct = Math.min(100, Math.round((pillarScores.b2b / (pillarScores.b2bTotal || 1)) * 100) + 20);
+
+      const overallScore = Math.min(99, Math.max(68, Math.round((opsPct * 0.35) + (tradePct * 0.25) + (aiPct * 0.2) + (b2bPct * 0.2))));
+
+      // Update Gauge
+      document.getElementById('scoreValue').textContent = overallScore;
+      document.getElementById('pillarOps').textContent = opsPct + '%';
+      document.getElementById('barOps').style.width = opsPct + '%';
+      
+      document.getElementById('pillarTrade').textContent = tradePct + '%';
+      document.getElementById('barTrade').style.width = tradePct + '%';
+
+      document.getElementById('pillarAi').textContent = aiPct + '%';
+      document.getElementById('barAi').style.width = aiPct + '%';
+
+      document.getElementById('pillarB2b').textContent = b2bPct + '%';
+      document.getElementById('barB2b').style.width = b2bPct + '%';
+
+      // Grade badge
+      let grade = 'A+';
+      let statusText = 'Exceptional ATS Keyword Alignment';
+      if (overallScore < 80) { grade = 'B+'; statusText = 'Good Fit • Add Target Keywords'; }
+      else if (overallScore < 90) { grade = 'A'; statusText = 'Strong Match • Ready to Dispatch'; }
+      document.getElementById('gradeBadge').textContent = grade + ' GRADE';
+      document.getElementById('scoreStatus').textContent = statusText;
+
+      // Render Matched Keywords
+      document.getElementById('matchedCount').textContent = matched.length;
+      if (matched.length > 0) {
+        document.getElementById('matchedContainer').innerHTML = matched.map(m => `
+          <span class="kw-pill kw-matched" title="${m.proof}">
+            ✓ ${m.kw} <span class="kw-count">${m.count}x</span>
+          </span>
+        `).join('');
+      } else {
+        document.getElementById('matchedContainer').innerHTML = `<span style="font-size: 0.78rem; color: var(--text-dim);">No direct profile keywords detected yet.</span>`;
+      }
+
+      // Render Missing Keywords (top 6 gaps)
+      document.getElementById('missingCount').textContent = missing.length;
+      document.getElementById('missingContainer').innerHTML = missing.slice(0, 8).map(m => `
+        <span class="kw-pill kw-missing" title="Recommended to highlight if applicable">
+          + ${m.kw}
+        </span>
+      `).join('');
+
+      // Generate 3 Customized Bullet Points
+      generateTailoredBullets(text, matched);
+    }
+
+    function generateTailoredBullets(jdText, matchedSkills) {
+      const lower = jdText.toLowerCase();
+      const bullets = [];
+
+      // Bullet 1: Operations & Cost Optimization
+      if (lower.includes('cost') || lower.includes('vendor') || lower.includes('process') || lower.includes('operations')) {
+        bullets.push(`Spearheaded end-to-end operations management across 300+ enterprise & event deployments (AERO India 2025 Lead & Puma India), restructuring primary vendor contracts to achieve a verified standardized vendor rate structuring and SLA governance while upholding 99.4% SLA adherence.`);
+      } else {
+        bullets.push(`Led cross-functional operations and logistics for 300+ high-stakes deployments, standardizing SOP drafting protocols and driving Tier-1 SLAs cost savings through disciplined vendor negotiation.`);
+      }
+
+      // Bullet 2: Trade / AI / Analytical Stack
+      if (lower.includes('trade') || lower.includes('incoterms') || lower.includes('customs') || lower.includes('supply chain') || lower.includes('logistics')) {
+        bullets.push(`Engineered international EXIM trade compliance models encompassing Incoterms 2020 (FOB, CIF, DDP), HS tariff classification, and UCP 600 Letter of Credit validations, eliminating import clearance delays and mitigating demurrage exposure.`);
+      } else if (lower.includes('ai') || lower.includes('data') || lower.includes('sql') || lower.includes('python') || lower.includes('model')) {
+        bullets.push(`Delivered 99%+ quality accuracy in AI Data Operations at Instawork AI, leveraging SQL, Python data cleaning scripts, and structured prompt engineering to benchmark and annotate massive enterprise datasets under strict SLAs.`);
+      } else {
+        bullets.push(`Utilized Advanced Excel, SQL, and Python analytical models to conduct root-cause bottleneck analysis, automating daily KPI tracking reports and enhancing operational pipeline visibility by 35%.`);
+      }
+
+      // Bullet 3: B2B Growth / Commercial Execution
+      if (lower.includes('revenue') || lower.includes('client') || lower.includes('sales') || lower.includes('business development') || lower.includes('procurement')) {
+        bullets.push(`Generated accelerated B2B commercial pipeline velocity through targeted corporate lead generation, consultative deal structuring, and structured client onboarding workflows.`);
+      } else {
+        bullets.push(`Managed multi-stakeholder communications across 50+ on-ground personnel and Tier-1 corporate partners, implementing crisis logistics safeguards and real-time executive reporting.`);
+      }
+
+      // Render Bullets HTML
+      const html = bullets.map((b, idx) => `
+        <div class="bullet-item">
+          <div class="bullet-text">• ${b}</div>
+          <button class="bullet-copy-btn" onclick="copyBullet('${escapeHtml(b)}')" title="Copy bullet point">📋</button>
+        </div>
+      `).join('');
+
+      document.getElementById('bulletsContainer').innerHTML = html;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    function copyBullet(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Bullet copied to clipboard!");
+      });
+    }
+
+    function copyAllBullets() {
+      const items = document.querySelectorAll('.bullet-text');
+      const allText = Array.from(items).map(i => i.textContent).join('\n\n');
+      navigator.clipboard.writeText(allText).then(() => {
+        showToast("All 3 tailored bullets copied!");
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function resetToEmpty() {
+      document.getElementById('scoreValue').textContent = '0';
+      document.getElementById('pillarOps').textContent = '0%';
+      document.getElementById('barOps').style.width = '0%';
+      document.getElementById('pillarTrade').textContent = '0%';
+      document.getElementById('barTrade').style.width = '0%';
+      document.getElementById('pillarAi').textContent = '0%';
+      document.getElementById('barAi').style.width = '0%';
+      document.getElementById('pillarB2b').textContent = '0%';
+      document.getElementById('barB2b').style.width = '0%';
+      document.getElementById('matchedContainer').innerHTML = `<span style="font-size: 0.78rem; color: var(--text-dim);">Paste a JD to view matched keywords.</span>`;
+      document.getElementById('missingContainer').innerHTML = `<span style="font-size: 0.78rem; color: var(--text-dim);">No JD provided.</span>`;
+      document.getElementById('bulletsContainer').innerHTML = `<span style="font-size: 0.78rem; color: var(--text-dim);">Paste a JD to generate custom bullets.</span>`;
+    }
+
+    // Initialize with default preset
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPreset('amazon_ops');
+    });
+  </script>
+</body>
+</html>

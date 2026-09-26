@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANTIGRAVITY 24/7 REVENUE COMMAND CENTER</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              500: '#10b981',
+              600: '#059669',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-emerald-500 selection:text-black">
+
+  <!-- Top Header Bar -->
+  <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-50 px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-3.5 h-3.5 rounded-full bg-emerald-500 animate-pulse"></div>
+      <div>
+        <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+          ANTIGRAVITY <span class="text-emerald-400 font-mono text-xs px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-800">REVENUE OS 24/7</span>
+        </h1>
+        <p class="text-xs text-slate-400">Founder: Aditya Mehra | Base: Bengaluru, India | Target: India + Global Internet</p>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-4 text-xs font-mono">
+      <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg flex items-center gap-2">
+        <span class="text-slate-400">STATUS:</span>
+        <span class="text-emerald-400 font-semibold" id="sys-status">AUTONOMOUS 24/7 ONLINE</span>
+      </div>
+      <button onclick="fetchState()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg font-sans text-xs font-medium transition shadow-lg shadow-emerald-900/20">
+        Refresh Telemetry
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-6 space-y-6">
+
+    <!-- Top Row: Master Revenue & Cash Flow Telemetry -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+        <span class="text-xs font-mono text-slate-400 uppercase">Revenue Today</span>
+        <div class="text-2xl font-bold text-white mt-1" id="m-rev-today">₹0.00</div>
+        <span class="text-[10px] text-emerald-400 font-mono">Real-time settlement</span>
+      </div>
+      <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+        <span class="text-xs font-mono text-slate-400 uppercase">Revenue MTD</span>
+        <div class="text-2xl font-bold text-emerald-400 mt-1" id="m-rev-month">₹0.00</div>
+        <span class="text-[10px] text-slate-400 font-mono">Active Retainers</span>
+      </div>
+      <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+        <span class="text-xs font-mono text-slate-400 uppercase">Net Profit MTD</span>
+        <div class="text-2xl font-bold text-white mt-1" id="m-profit">₹0.00</div>
+        <span class="text-[10px] text-emerald-400 font-mono">88.5% Net Margin</span>
+      </div>
+      <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+        <span class="text-xs font-mono text-slate-400 uppercase">Weighted Pipeline</span>
+        <div class="text-2xl font-bold text-indigo-400 mt-1" id="m-pipeline">₹0.00</div>
+        <span class="text-[10px] text-slate-400 font-mono" id="m-raw-pipeline">Raw: ₹0</span>
+      </div>
+      <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+        <span class="text-xs font-mono text-slate-400 uppercase">Qualified Leads</span>
+        <div class="text-2xl font-bold text-amber-400 mt-1" id="m-leads">0</div>
+        <span class="text-[10px] text-slate-400 font-mono" id="m-total-leads">Total: 0</span>
+      </div>
+      <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+        <span class="text-xs font-mono text-slate-400 uppercase">Founder Rev / Hr</span>
+        <div class="text-2xl font-bold text-emerald-300 mt-1" id="m-rev-hr">₹0/hr</div>
+        <span class="text-[10px] text-slate-400 font-mono" id="m-founder-hours">Logged: 0 hrs</span>
+      </div>
+    </section>
+
+    <!-- Operational Metrics Grid -->
+    <section class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="bg-slate-900/40 border border-slate-800/80 p-3 rounded-lg">
+        <span class="text-[11px] text-slate-400">Blended CAC</span>
+        <p class="text-lg font-semibold text-slate-200 mt-0.5" id="m-cac">₹2,500.00</p>
+      </div>
+      <div class="bg-slate-900/40 border border-slate-800/80 p-3 rounded-lg">
+        <span class="text-[11px] text-slate-400">Client LTV</span>
+        <p class="text-lg font-semibold text-slate-200 mt-0.5" id="m-ltv">₹1,05,000.00</p>
+      </div>
+      <div class="bg-slate-900/40 border border-slate-800/80 p-3 rounded-lg">
+        <span class="text-[11px] text-slate-400">Conversion Rate</span>
+        <p class="text-lg font-semibold text-slate-200 mt-0.5" id="m-conversion">0.0%</p>
+      </div>
+      <div class="bg-slate-900/40 border border-slate-800/80 p-3 rounded-lg">
+        <span class="text-[11px] text-slate-400">AI Compute Cost</span>
+        <p class="text-lg font-semibold text-slate-200 mt-0.5" id="m-ai-cost">$25.00</p>
+      </div>
+    </section>
+
+    <!-- Strategic Focus Section: Opportunity, Risk, Bottleneck, Top 3 Actions -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- Column 1: Strategic Priorities -->
+      <div class="space-y-4 bg-slate-900/60 border border-slate-800 p-5 rounded-2xl">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-2">
+          <span>🎯</span> Strategic Priorities
+        </h2>
+        
+        <div class="space-y-3 text-sm">
+          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/60">
+            <span class="text-xs font-mono text-emerald-400 uppercase font-semibold">Primary Revenue Engine</span>
+            <p class="font-medium text-slate-200 mt-1" id="m-biggest-opp">Loading...</p>
+          </div>
+          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/60">
+            <span class="text-xs font-mono text-rose-400 uppercase font-semibold">Biggest Risk</span>
+            <p class="text-slate-300 mt-1 text-xs" id="m-biggest-risk">Loading...</p>
+          </div>
+          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/60">
+            <span class="text-xs font-mono text-amber-400 uppercase font-semibold">Active Bottleneck</span>
+            <p class="text-slate-300 mt-1 text-xs" id="m-biggest-bottleneck">Loading...</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono mb-2">Today's Top 3 Actions</h3>
+          <ul class="space-y-2 text-xs text-slate-300" id="top-3-actions-list">
+            <li class="p-2 bg-slate-800/50 rounded-lg">Loading daily actions...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Column 2: Founder Approval Center (Directive 88) -->
+      <div class="lg:col-span-2 space-y-4 bg-slate-900/60 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-2">
+              <span>🛡️</span> Founder Approval Center (Least-Privilege Gate)
+            </h2>
+            <span class="text-xs font-mono px-2 py-0.5 rounded bg-amber-950/80 text-amber-400 border border-amber-800" id="approval-count-badge">
+              0 PENDING
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 mb-4">
+            Autonomous agents prepare, score, and recommend. Financial transfers, contracts, and sensitive outbound require your explicit 1-click human approval.
+          </p>
+
+          <!-- Cards Container -->
+          <div class="space-y-3" id="approval-cards-container">
+            <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl text-center text-xs text-slate-500">
+              No pending approval requests. All autonomous workflows are bounded and operating safely.
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-500 font-mono">
+          <span>ETHICAL CHARTER: ZERO-SPAM & COMPLIANCE ENFORCED</span>
+          <span>HUMAN SOVEREIGNTY: ACTIVE</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Specialist Agents Mesh & Automation Triggers -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      
+      <!-- 10 Specialist Agents -->
+      <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl space-y-4">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-2">
+          <span>🤖</span> 10 Specialist AI Agents (Least-Privilege Tiers)
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs" id="agents-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Automations Runner -->
+      <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl space-y-4">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-2">
+          <span>⚡</span> 10 Autonomous Background Pipelines
+        </h2>
+        <p class="text-xs text-slate-400">Click any pipeline to trigger immediate execution or inspect telemetry:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs" id="automations-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

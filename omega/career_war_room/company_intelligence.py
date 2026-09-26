@@ -99,7 +99,17 @@ class CompanyIntelligenceEngine:
             results = []
             for r in rows:
                 d = dict(r)
-                d["departments"] = json.loads(d["departments"]) if d["departments"] else []
+                val = d.get("departments")
+                if val:
+                    try:
+                        d["departments"] = json.loads(val)
+                    except (json.JSONDecodeError, TypeError):
+                        d["departments"] = [x.strip() for x in str(val).split(",") if x.strip()]
+                else:
+                    d["departments"] = []
+                office = d.get("bangalore_office") or ""
+                if "Bengaluru" not in office:
+                    d["bangalore_office"] = f"{office}, Bengaluru".lstrip(", ") if office else "Bengaluru"
                 results.append(d)
             return results
 

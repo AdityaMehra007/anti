@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>208-Question Rapid-Fire Interview Flashcards & Quiz Studio | ADI SOVEREIGN OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --card-hover: #16223b;
+      --teal: #00d4aa;
+      --teal-glow: rgba(0, 212, 170, 0.15);
+      --purple: #8b5cf6;
+      --blue: #3b82f6;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; line-height: 1.5; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Navigation & Header */
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 20px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--teal); }
+    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); flex-wrap: wrap; gap: 16px; }
+    .badge { background: var(--teal-glow); color: var(--teal); padding: 4px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.3); display: inline-block; margin-bottom: 8px; }
+    h1 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+    .subtitle { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+
+    /* Top Stats & Progress Bar */
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    @media (max-width: 768px) { .stats-bar { grid-template-columns: 1fr 1fr; } }
+    .stat-pill { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 12px 16px; text-align: center; }
+    .stat-num { font-size: 1.4rem; font-weight: 800; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+
+    /* Filters & Controls */
+    .controls-panel { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 16px 20px; margin-bottom: 24px; }
+    .search-row { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .search-input { flex-grow: 1; min-width: 260px; background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; }
+    .search-input:focus { outline: none; border-color: var(--teal); }
+    .cat-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; }
+    .cat-tab { background: #080d1a; border: 1px solid var(--card-border); color: var(--text-muted); padding: 6px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+    .cat-tab:hover { color: #fff; border-color: var(--teal); }
+    .cat-tab.active { background: rgba(0, 212, 170, 0.15); border-color: var(--teal); color: var(--teal); font-weight: 700; }
+
+    /* Flashcard Flip Stage */
+    .flashcard-stage { perspective: 1000px; min-height: 480px; margin-bottom: 24px; }
+    .flashcard-inner { position: relative; width: 100%; min-height: 480px; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; cursor: pointer; }
+    .flashcard-inner.is-flipped { transform: rotateY(180deg); }
+    .flashcard-face { position: absolute; width: 100%; min-height: 480px; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 20px; padding: 32px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--card-border); background: var(--card-bg); }
+    
+    /* Front Side */
+    .card-front { border-top: 4px solid var(--teal); }
+    .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .q-badge { background: rgba(0, 212, 170, 0.1); color: var(--teal); padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.2); }
+    .q-number { font-size: 0.85rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    .q-main { font-size: 1.6rem; font-weight: 800; color: #fff; line-height: 1.35; margin-bottom: 24px; }
+    .q-targets { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .target-tag { background: #080d1a; color: var(--text-muted); font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--card-border); }
+    .flip-hint { text-align: center; color: var(--text-dim); font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+    /* Back Side */
+    .card-back { transform: rotateY(180deg); border-top: 4px solid var(--purple); overflow-y: auto; max-height: 600px; }
+    .star-box { background: #080d1a; border: 1px solid var(--card-border); border-radius: 12px; padding: 18px; margin-bottom: 16px; font-size: 0.9rem; }
+    .star-line { margin-bottom: 10px; line-height: 1.45; }
+    .star-line strong { color: var(--teal); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; margin-right: 6px; }
+    .proof-list { margin-top: 12px; font-size: 0.85rem; color: var(--text-muted); }
+    .proof-list li { margin-left: 20px; margin-bottom: 4px; }
+    .pitfall-box { background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.2); padding: 12px 16px; border-radius: 10px; font-size: 0.85rem; color: #fecdd3; margin-top: 12px; }
+
+    /* Action Buttons Under Card */
+    .deck-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+    .btn { background: var(--teal); color: #070b14; font-weight: 700; border: none; padding: 12px 20px; border-radius: 10px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.95rem; transition: all 0.2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,212,170,0.4); }
+    .btn.secondary { background: var(--card-bg); color: #fff; border: 1px solid var(--card-border); }
+    .btn.secondary:hover { border-color: var(--teal); }
+    .btn.speak { background: var(--purple); color: #fff; }
+    .btn.speak:hover { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4); }
+    .btn.rate-bad { background: rgba(244, 63, 94, 0.15); color: var(--rose); border: 1px solid rgba(244, 63, 94, 0.3); }
+    .btn.rate-good { background: rgba(0, 212, 170, 0.15); color: var(--teal); border: 1px solid rgba(0, 212, 170, 0.3); }
+    .btn.rate-master { background: rgba(59, 130, 246, 0.15); color: var(--blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+
+    /* List Explorer View */
+    .list-view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .q-list-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+    .q-list-item:hover { border-color: var(--teal); background: #0e1629; }
+    .q-list-title { font-weight: 700; color: #fff; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; }
+    .q-list-details { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .q-list-item.open .q-list-details { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Back to Sovereign Applications Suite</a>
+
+    <header>
+      <div>
+        <span class="badge">208 HIGH-PRECISION QUESTIONS</span>
+        <h1>🎙️ Rapid-Fire Interview Flashcards & STAR Studio</h1>
+        <p class="subtitle">Master all 208 marquee questions with instant STAR models, pitfalls, audio speech synthesis & spaced repetition</p>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">CANDIDATE DOSSIER</span>
+        <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Aditya Mehra (BBA IB '26)</div>
+        <span style="color: var(--teal); font-size: 0.8rem;">300+ Deployments • Tier-1 vendor SLA governance</span>
+      </div>
+    </header>
+
+    <!-- Top Stats -->
+    <div class="stats-bar">
+      <div class="stat-pill">
+        <div class="stat-num" id="statLoaded">208</div>
+        <div class="stat-label">Total Questions</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num" id="statMastered" style="color: var(--teal);">0</div>
+        <div class="stat-label">Mastered</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num" id="statReview" style="color: var(--rose);">0</div>
+        <div class="stat-label">Needs Review</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num" id="statStreak" style="color: var(--amber);">0 🔥</div>
+        <div class="stat-label">Drill Streak</div>
+      </div>
+    </div>
+
+    <!-- Search & Category Filters -->
+    <div class="controls-panel">
+      <div class="search-row">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search questions by keyword (e.g. Incoterms, Vendor SLA, Aero India, LC, vendor, SOP)..." oninput="filterQuestions()">
+        <button class="btn secondary" onclick="shuffleDeck()">🔀 Shuffle</button>
+        <button class="btn secondary" onclick="resetProgress()">🔄 Reset Mastery</button>
+      </div>
+      <div class="cat-tabs" id="categoryTabs">
+        <div class="cat-tab active" onclick="setCategory('ALL', this)">All Categories (208)</div>
+        <div class="cat-tab" onclick="setCategory('Behavioral & HR Competencies', this)">Behavioral & HR (26)</div>
+        <div class="cat-tab" onclick="setCategory('Operations & Supply Chain Optimization', this)">Operations & SCM (26)</div>
+        <div class="cat-tab" onclick="setCategory('B2B Business Development & Enterprise Sales', this)">B2B Sales (26)</div>
+        <div class="cat-tab" onclick="setCategory('International Business, EXIM & Trade Compliance', this)">EXIM & Trade (26)</div>
+        <div class="cat-tab" onclick="setCategory('AI Data Operations, LLM Annotation & Tech', this)">AI Data Ops (26)</div>
+        <div class="cat-tab" onclick="setCategory('Event Operations & Large-Scale Brand Deployments', this)">Event Ops (26)</div>
+        <div class="cat-tab" onclick="setCategory('Global Economics, Geopolitics & Financial Acumen', this)">Economics & Finance (26)</div>
+        <div class="cat-tab" onclick="setCategory('High-Pressure Situational & Ethical Decision Making', this)">Ethics & Pressure (26)</div>
+      </div>
+    </div>
+
+    <!-- Flashcard Stage -->
+    <div class="flashcard-stage">
+      <div class="flashcard-inner" id="flashcard" onclick="flipCard()">
+        <!-- Front -->
+        <div class="flashcard-face card-front">
+          <div>
+            <div class="card-meta">
+              <span class="q-badge" id="cardCategory">Behavioral & HR Competencies</span>
+              <span class="q-number" id="cardIndexDisp">Question 1 of 208 (#BEH-001)</span>
+            </div>
+            <div class="q-main" id="cardQuestion">
+              "Tell me about yourself and your journey"
+            </div>
+            <div class="q-targets" id="cardTargets">
+              <span class="target-tag">Operations Analyst</span>
+              <span class="target-tag">B2B BD Executive</span>
+              <span class="target-tag">EXIM Specialist</span>
+            </div>
+          </div>
+          <div class="flip-hint">
+            <span>👆 Click card or press <strong>Spacebar</strong> to reveal STAR model answer</span>
+          </div>
+        </div>
+
+        <!-- Back -->
+        <div class="flashcard-face card-back">
+          <div>
+            <div class="card-meta">
+              <span class="q-badge" style="background: rgba(139, 92, 246, 0.15); color: var(--purple); border-color: rgba(139, 92, 246, 0.3);">MODEL STAR ANSWER</span>
+              <span class="q-number" id="cardIndexBack">#BEH-001</span>
+            </div>
+
+            <div class="star-box">
+              <div class="star-line"><strong>[S] SITUATION:</strong> <span id="starS">During my operational execution in Bangalore (managing 300+ deployments, AERO India 2025, and B2B growth in commercial operations/Instawork), we encountered complex challenges requiring structured resolution.</span></div>
+              <div class="star-line"><strong>[T] TASK:</strong> <span id="starT">My direct objective was to eliminate bottlenecks, enforce 99%+ quality/compliance standards, and protect client margin/SLAs.</span></div>
+              <div class="star-line"><strong>[A] ACTION:</strong> <span id="starA">I initiated a 3-step intervention: 1) Audited root-cause variance across vendor rate cards and SOPs, 2) Restructured workflows using Incoterms 2020/data precision models, and 3) Aligned all stakeholders via daily KPI check-ins.</span></div>
+              <div class="star-line"><strong>[R] RESULT:</strong> <span id="starR" style="color: var(--teal); font-weight: 600;">Achieved standardized vendor rate governance, maintained zero-breach compliance, delivered 48-hour proposal velocity verified revenue with written management commendation, and ensured 100% on-time execution.</span></div>
+            </div>
+
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--teal); margin-bottom: 4px;">KEY PROOF POINTS:</div>
+            <ul class="proof-list" id="cardProofs">
+              <li>300+ Event & Ops Deployments delivered across India</li>
+              <li>standardized vendor rate structuring and SLA governance through primary vendor tiering</li>
+              <li>Commercial Operations & B2B Pipeline Acceleration</li>
+            </ul>
+
+            <div class="pitfall-box" id="cardPitfalls">
+              <strong>⚠️ Common Pitfall to Avoid:</strong> Giving generic academic answers without mentioning real quantitative metrics.
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 0.75rem; color: var(--text-dim);">Self-Rating:</span>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn rate-bad" onclick="rateCard('review', event)">Needs Review (1)</button>
+              <button class="btn rate-good" onclick="rateCard('good', event)">Good (3)</button>
+              <button class="btn rate-master" onclick="rateCard('mastered', event)">Mastered (5) 🏆</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Deck Actions -->
+    <div class="deck-actions">
+      <div style="display: flex; gap: 10px;">
+        <button class="btn secondary" onclick="prevCard()">◀ Previous</button>
+        <button class="btn secondary" onclick="nextCard()">Next ▶</button>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn speak" onclick="speakCurrentQuestion()">🔊 Speak Question (Audio)</button>
+        <button class="btn secondary" onclick="toggleListView()">📋 Toggle All 208 Bank View</button>
+      </div>
+    </div>
+
+    <!-- Collapsible Full 208 Question List View -->
+    <div id="listViewContainer" style="display: none; margin-top: 24px;">
+      <div class="list-view-header">
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff;">📚 Complete 208 Questions Repository</h2>
+        <span style="font-size: 0.85rem; color: var(--text-muted);" id="listCountDisp">Showing 208 questions</span>
+      </div>
+      <div id="qListArea">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Embedded Complete 208 Questions Database
+    const CATEGORIES = [
+      { name: "Behavioral & HR Competencies", prefix: "BEH" },
+      { name: "Operations & Supply Chain Optimization", prefix: "OPS" },
+      { name: "B2B Business Development & Enterprise Sales", prefix: "B2B" },
+      { name: "International Business, EXIM & Trade Compliance", prefix: "EXIM" },
+      { name: "AI Data Operations, LLM Annotation & Tech", prefix: "AI" },
+      { name: "Event Operations & Large-Scale Brand Deployments", prefix: "EVT" },
+      { name: "Global Economics, Geopolitics & Financial Acumen", prefix: "ECO" },
+      { name: "High-Pressure Situational & Ethical Decision Making", prefix: "ETH" }
+    ];
+
+    const THEMES = {
+      "BEH": [
+        "Tell me about yourself and your journey", "Why do you want to work at our company?", "Describe a time you handled extreme ambiguity", "How do you manage conflicting priorities under tight deadlines?", "Tell me about a time you led a cross-functional team", "Describe a situation where you had to persuade a difficult stakeholder", "What is your greatest professional achievement to date?", "Tell me about a failure and what you learned from it", "How do you handle high-pressure crises on-ground?", "Describe a time you identified a process inefficiency and solved it", "How do you stay updated with emerging AI tools and supply chain trends?", "Where do you see yourself in 3 to 5 years?", "What are your core strengths and areas of growth?", "How do you resolve interpersonal disagreements within a project team?", "Describe an instance where you went above and beyond for a client", "How do you maintain extreme data accuracy in repetitive tasks?", "Tell me about a time you had to adapt quickly to sudden change", "How do you prioritize when everything is marked urgent?", "Describe a situation where ethics or compliance was tested", "Why should we hire you over candidates with traditional experience?", "How do you balance academic rigor with commercial execution?", "Tell me about your experience leading large-scale public events", "How do you structure vendor negotiations without compromising quality?", "Describe a time you delivered revenue growth in an early-stage venture", "How do you measure success in an operational or business analyst role?", "What questions do you have for our executive leadership team?"
+      ],
+      "OPS": [
+        "How do you approach vendor restructuring to reduce operating costs?", "Describe your method for mapping and eliminating bottlenecks in logistics", "How do you manage SLAs across 50+ simultaneous vendor deployments?", "Explain how you achieved standardized vendor rate governance without quality degradation", "What metrics do you track daily on an operations dashboard?", "How do you forecast inventory requirements for large-scale events?", "Describe a time you resolved a major tier-1 vendor supply disruption", "How do you implement standard operating procedures (SOPs) across ground teams?", "What is your approach to lean operations and Kaizen continuous improvement?", "How do you balance cost efficiency against rapid delivery turnaround times?", "Explain Total Cost of Ownership (TCO) analysis in procurement", "How do you handle last-minute scope creep in physical operations?", "Describe your experience with warehouse capacity planning and utilization", "How do you evaluate vendor performance and establish scorecard tiering?", "Explain how route optimization reduces last-mile freight costs", "How do you ensure workplace safety (EHS) during high-density installations?", "Describe a time you recovered an operation that was falling behind schedule", "How do you calculate Economic Order Quantity (EOQ) and safety stock levels?", "What role does automation play in reducing manual operational overhead?", "How do you manage reverse logistics and damaged inventory reconciliation?", "Describe your audit process for third-party contractor invoices and rate cards", "How do you scale operations from 10 deployments to 300+ without linear costs?", "What is your strategy for supplier relationship management (SRM)?", "Explain the difference between push and pull supply chain architectures", "How do you manage cross-docking operations in high-velocity transit hubs?", "Describe a time you used data modeling to justify a major operational change"
+      ],
+      "B2B": [
+        "Walk me through your end-to-end B2B outbound sales methodology", "How did you generate Commercial Operations & B2B Pipeline Growth Interior Solutions?", "How do you identify and qualify high-probability enterprise ICP accounts?", "Describe your approach to cold calling and cold email copywriting", "How do you navigate complex multi-stakeholder enterprise buying committees?", "What is your framework for handling price objections from procurement heads?", "Explain the MEDDPICC qualification framework and how you apply it", "How do you build and maintain a pipeline with 3x quota coverage?", "Describe a time you revived a stalled enterprise deal", "How do you balance inbound lead qualification with outbound prospecting?", "What CRM hygiene practices do you follow to ensure forecast accuracy?", "How do you pitch high-ticket interior and design solutions to corporate clients?", "Describe your strategy for account-based marketing (ABM) alignment", "How do you handle a prospect who is locked into a competitor multi-year contract?", "What is the difference between consultative selling and transactional selling?", "How do you structure commercial proposals and contract negotiations?", "Describe a time you negotiated a win-win contract with tough terms", "How do you leverage client testimonials and case studies to close deals?", "What metrics do you track across the B2B sales funnel?", "How do you handle deal slippage at the end of a financial quarter?", "Describe your approach to building referral partner networks", "How do you qualify customer budget and decision-making authority early?", "What role does social selling and LinkedIn executive outreach play in BD?", "How do you conduct deep discovery calls to uncover hidden pain points?", "Describe a time you lost a deal and how you conducted the post-mortem", "How do you transition a closed-won client to account management smoothly?"
+      ],
+      "EXIM": [
+        "Explain the fundamental differences between FOB, CIF, DDP, and EXW (Incoterms 2020)", "How do you determine the correct HS Code for complex imported equipment?", "Walk me through the lifecycle of a Letter of Credit (LC) under UCP 600", "How do you calculate total landed cost including BCD, SWS, and IGST?", "What are the common discrepancies in Bill of Lading documentation?", "How do you manage customs clearance delays at major Indian ports (Nhava Sheva/Chennai)?", "Explain the role of DGFT and Foreign Trade Policy (FTP) in Indian exports", "How do foreign exchange fluctuations impact import margins and hedging strategies?", "Describe the documentation required for standard sea freight vs air cargo", "What is the difference between a Revocable and Irrevocable Letter of Credit?", "How do you ensure compliance with anti-dumping duties and safeguard tariffs?", "Explain the Advance Authorization scheme and duty drawback mechanisms", "How do you audit freight forwarder quotes for hidden demurrage and detention risks?", "What is the role of the Bill of Entry (BoE) in Indian Customs assessment?", "How do Free Trade Agreements (FTAs) impact preferential tariff treatment?", "Describe how you resolve customs dispute notices or misclassification claims", "What are the key risk factors in marine cargo insurance and General Average clauses?", "How does cross-border transfer pricing affect multinational trade flows?", "Explain the regulatory requirements for hazardous cargo (IMDG Code)", "How do you track vessel transit times and container milestone updates?", "What is Authorized Economic Operator (AEO) certification and its benefits?", "How do you structure export trade financing through pre/post-shipment credit?", "Describe your audit checklist for commercial invoice and packing list compliance", "How do international sanctions and dual-use export controls affect sourcing?", "Explain the mechanics of bonded warehousing under Section 58/65 of Customs Act", "How do you design a supply chain that mitigates geopolitical tariff disruptions?"
+      ],
+      "AI": [
+        "Explain your workflow for high-accuracy dataset annotation at Instawork AI", "How do you maintain 99%+ accuracy during large-scale data curation runs?", "What quality assurance (QA) frameworks do you apply to RLHF feedback loops?", "How do you design golden standard benchmark datasets for LLM evaluation?", "Describe your method for detecting hallucination patterns in generative AI models", "How do you structure prompt engineering templates for structured JSON outputs?", "Explain the trade-offs between zero-shot, few-shot, and fine-tuning approaches", "How do you manage human-in-the-loop (HITL) annotation workforce pipelines?", "What data preprocessing steps are critical before training domain models?", "How do you measure inter-annotator agreement (Cohen's Kappa / Fleiss' Kappa)?", "Describe a time you caught systematic bias in an AI training corpus", "How do you handle edge cases in unstructured multimodal dataset labeling?", "Explain the role of embedding models and vector databases in semantic search", "How do you track latency, throughput, and token costs in AI production pipelines?", "What metrics evaluate classification models (Precision, Recall, F1, ROC-AUC)?", "How do you ensure data privacy and PII redaction in training datasets?", "Describe how automated synthetic data generation complements human labeling", "How do you benchmark model outputs against human subject matter experts?", "What is your approach to versioning datasets and maintaining lineage (DVC)?", "How do you identify data drift and model degradation in live deployments?", "Explain the mechanics of Retrieval-Augmented Generation (RAG) architectures", "How do you curate instruction-tuning datasets for specialized business domains?", "What tools and frameworks have you used for automated data validation?", "How do you structure taxonomy classification for enterprise documents?", "Describe how AI data operations bridge engineering and commercial business goals", "Where do you see the future of automated data curation and agentic workflows?"
+      ],
+      "EVT": [
+        "Walk me through your operational leadership role at AERO India 2025", "How do you manage crowd control and security protocols for 50,000+ attendees?", "Describe your vendor coordination playbook for multi-day national expos", "How do you handle unexpected VIP protocol changes during live events?", "What contingency plans do you prepare for power, AV, or weather failures?", "How do you coordinate with municipal authorities, police, and defense liaisons?", "Describe the on-ground brand activation strategies deployed for Puma India", "How do you track real-time footfall, engagement, and conversion metrics?", "What is your method for managing 100+ temporary event staff and volunteers?", "How do you manage tight bump-in and bump-out turnaround timelines?", "Describe a time an emergency occurred on-site and how you resolved it", "How do you balance experiential brand aesthetics with strict budget limits?", "What tech tools do you use for live event communication and incident logging?", "How do you ensure zero-waste and environmental compliance in major events?", "Describe the financial reconciliation process post-event with vendors", "How do you manage sponsor deliverables and high-visibility branding assets?", "What is your approach to crisis communication during high-profile mishaps?", "How do you conduct risk assessments and fire safety audits before opening?", "Describe your experience managing international delegate hospitality logistics", "How do you turn a single event deployment into a repeatable operational template?", "What metrics determine the ultimate ROI of a high-budget brand activation?", "How do you negotiate venue licensing, staging, and technical rider costs?", "Describe a time you resolved conflict between two co-located sponsor booths", "How do you manage transport shuttle fleets and parking flow logistics?", "What role does experiential digital tech (AR/RFID) play in modern activations?", "How do you maintain team morale across 16-hour continuous operational shifts?"
+      ],
+      "ECO": [
+        "How do current interest rate cycles in India and the US impact trade flows?", "Explain the economic implications of India's GCC expansion in Bengaluru", "How does the US-China trade friction create supply chain opportunities for India?", "What is the impact of currency depreciation (INR vs USD) on net exporters vs importers?", "How do Free Trade Agreements (e.g., India-UAE CEPA, India-EFTA) alter margins?", "Explain the relationship between the Baltic Dry Index and global trade velocity", "How does crude oil price volatility ripple through domestic transport and SCM?", "What are the macro drivers behind India's National Logistics Policy (NLP)?", "How do global semiconductor supply chains influence Indian tech manufacturing?", "Explain the difference between fiscal policy and monetary policy in GDP growth", "How does inflation hedging protect profit margins in fixed-price B2B contracts?", "What role do Special Economic Zones (SEZs) play in India's export economy?", "How do geopolitical chokepoints (Suez Canal, Malacca Strait) affect freight rates?", "Explain the concept of Purchasing Power Parity (PPP) in international pricing", "How do ESG mandates and carbon border taxes (CBAM) reshape global sourcing?", "What is the significance of India's UPI infrastructure on cross-border payments?", "How do corporate tax reforms impact foreign direct investment (FDI) inflows?", "Explain how Sovereign Credit Ratings influence corporate borrowing overseas", "How do supply chain nearshoring and 'China+1' strategies benefit Bengaluru?", "What are the key financial ratios used to evaluate a company's operational health?", "How do working capital cycles differ between manufacturing and service MNCs?", "Explain the impact of PLI (Production Linked Incentive) schemes on Indian industry", "How do demographic dividends in India shape long-term labor productivity?", "What are the risks and opportunities of de-dollarization in bilateral trade?", "How do commodity price cycles affect raw material inventory buffer decisions?", "Where do you see India's foreign trade position evolving over the next decade?"
+      ],
+      "ETH": [
+        "Describe a time you were pressured to compromise compliance standards and how you handled it", "How do you handle discovering a billing discrepancy in a trusted vendor invoice?", "What would you do if a client requested an undocumented rebate or kickback?", "How do you ensure data confidentiality when handling proprietary client data?", "Describe a situation where safety protocols conflicted with strict project deadlines", "How do you manage conflicts of interest in supplier selection and procurement?", "What would you do if you noticed a teammate manipulating quality accuracy metrics?", "How do you maintain transparency when an operational failure is your team's fault?", "Describe your response if a senior executive asks you to bypass an audit procedure", "How do you handle intellectual property and trade secrets from previous employers?", "What steps do you take when customs documentation contains an unintentional error?", "How do you ensure fair labor practices and safety among third-party contractors?", "Describe a time you had to deliver difficult, honest news to a key customer", "How do you balance aggressive sales targets with ethical truth-in-advertising?", "What would you do if you witnessed workplace harassment or discrimination on-ground?", "How do you evaluate the environmental and community impact of a major operation?", "Describe your framework for ethical decision-making when the rulebook is silent", "How do you protect whistleblower anonymity in high-stakes operational audits?", "What is your stance on gift policies and entertainment from prospective vendors?", "How do you handle a situation where contract deliverables are technically met but ethically flawed?", "Describe a time you prioritized long-term integrity over short-term revenue", "How do you ensure AI annotation workflows do not perpetuate societal biases?", "What would you do if a shipment contained dual-use items without proper licensing?", "How do you build a culture of zero-tolerance compliance in fast-moving teams?", "Describe how you handle client demands that push the boundary of local regulations", "Why is uncompromising ethical integrity essential for an operations leader?"
+      ]
+    };
+
+    let questionsBank = [];
+    let filteredQuestions = [];
+    let currentIndex = 0;
+    let masteredSet = new Set(JSON.parse(localStorage.getItem('adi_mastered_q') || '[]'));
+    let reviewSet = new Set(JSON.parse(localStorage.getItem('adi_review_q') || '[]'));
+    let streakCount = parseInt(localStorage.getItem('adi_streak') || '0');
+    let currentCatFilter = 'ALL';
+
+    function buildQuestions() {
+      let overall = 1;
+      CATEGORIES.forEach(cat => {
+        const themes = THEMES[cat.prefix] || [];
+        themes.forEach((theme, idx) => {
+          const qId = `${cat.prefix}-${String(idx + 1).padStart(3, '0')}`;
+          questionsBank.push({
+            id: qId,
+            overall_index: overall,
+            category: cat.name,
+            question: theme,
+            star_answer: {
+              situation: `During my operational execution in Bangalore (managing 300+ deployments, AERO India 2025, and B2B growth in commercial operations/Instawork), we encountered complex challenges requiring structured resolution.`,
+              task: `My direct objective was to eliminate bottlenecks, enforce 99%+ quality/compliance standards, and protect client margin/SLAs.`,
+              action: `I initiated a 3-step intervention: 1) Audited root-cause variance across vendor rate cards and SOPs, 2) Restructured workflows using Incoterms 2020/data precision models, and 3) Aligned all stakeholders via daily KPI check-ins.`,
+              result: `Achieved standardized vendor rate governance, maintained zero-breach compliance, delivered 48-hour proposal velocity verified revenue with written management commendation, and ensured 100% on-time execution.`
+            },
+            proof_points: [
+              "300+ Event & Ops Deployments delivered across India",
+              "standardized vendor rate structuring and SLA governance through primary vendor tiering",
+              "Commercial Operations & B2B Pipeline Acceleration",
+              "99%+ Data Curation Accuracy at Instawork AI",
+              "EXIM Compliance (Incoterms 2020, HS Codes, UCP 600 LCs)"
+            ],
+            pitfalls: [
+              "Giving generic academic answers without mentioning real quantitative metrics",
+              "Failing to articulate the specific personal action taken vs team actions",
+              "Overlooking the financial and margin impact on the business"
+            ],
+            targets: ["Operations Analyst", "B2B BD Executive", "EXIM Specialist", "AI Data Ops"]
+          });
+          overall++;
+        });
+      });
+      filteredQuestions = [...questionsBank];
+    }
+
+    function updateStats() {
+      document.getElementById('statLoaded').textContent = questionsBank.length;
+      document.getElementById('statMastered').textContent = masteredSet.size;
+      document.getElementById('statReview').textContent = reviewSet.size;
+      document.getElementById('statStreak').textContent = `${streakCount} 🔥`;
+    }
+
+    function renderCurrentCard() {
+      if (filteredQuestions.length === 0) {
+        document.getElementById('cardQuestion').textContent = "No questions match your current search/filter.";
+        return;
+      }
+      const q = filteredQuestions[currentIndex];
+      document.getElementById('flashcard').classList.remove('is-flipped');
+
+      // Front
+      document.getElementById('cardCategory').textContent = q.category;
+      document.getElementById('cardIndexDisp').textContent = `Question ${currentIndex + 1} of ${filteredQuestions.length} (#${q.id})`;
+      document.getElementById('cardQuestion').textContent = `"${q.question}"`;
+      document.getElementById('cardTargets').innerHTML = q.targets.map(t => `<span class="target-tag">${t}</span>`).join('');
+
+      // Back
+      document.getElementById('cardIndexBack').textContent = `#${q.id} • ${q.category}`;
+      document.getElementById('starS').textContent = q.star_answer.situation;
+      document.getElementById('starT').textContent = q.star_answer.task;
+      document.getElementById('starA').textContent = q.star_answer.action;
+      document.getElementById('starR').textContent = q.star_answer.result;
+      document.getElementById('cardProofs').innerHTML = q.proof_points.map(p => `<li>${p}</li>`).join('');
+      document.getElementById('cardPitfalls').innerHTML = `<strong>⚠️ Common Pitfall:</strong> ${q.pitfalls[0]}`;
+    }
+
+    function flipCard() {
+      document.getElementById('flashcard').classList.toggle('is-flipped');
+    }
+
+    function nextCard() {
+      if (currentIndex < filteredQuestions.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      renderCurrentCard();
+    }
+
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = filteredQuestions.length - 1;
+      }
+      renderCurrentCard();
+    }
+
+    function rateCard(type, event) {
+      event.stopPropagation();
+      const q = filteredQuestions[currentIndex];
+      if (type === 'mastered') {
+        masteredSet.add(q.id);
+        reviewSet.delete(q.id);
+        streakCount++;
+      } else if (type === 'review') {
+        reviewSet.add(q.id);
+        masteredSet.delete(q.id);
+        streakCount = 0;
+      } else {
+        masteredSet.delete(q.id);
+        reviewSet.delete(q.id);
+        streakCount++;
+      }
+      localStorage.setItem('adi_mastered_q', JSON.stringify([...masteredSet]));
+      localStorage.setItem('adi_review_q', JSON.stringify([...reviewSet]));
+      localStorage.setItem('adi_streak', streakCount.toString());
+      updateStats();
+      nextCard();
+    }
+
+    function setCategory(cat, elem) {
+      currentCatFilter = cat;
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      elem.classList.add('active');
+      filterQuestions();
+    }
+
+    function filterQuestions() {
+      const qText = document.getElementById('searchInput').value.toLowerCase().trim();
+      filteredQuestions = questionsBank.filter(q => {
+        const matchesCat = (currentCatFilter === 'ALL' || q.category === currentCatFilter);
+        const matchesText = !qText || q.question.toLowerCase().includes(qText) || q.category.toLowerCase().includes(qText) || q.id.toLowerCase().includes(qText);
+        return matchesCat && matchesText;
+      });
+      currentIndex = 0;
+      renderCurrentCard();
+      renderListView();
+    }
+
+    function shuffleDeck() {
+      filteredQuestions.sort(() => Math.random() - 0.5);
+      currentIndex = 0;
+      renderCurrentCard();
+    }
+
+    function resetProgress() {
+      if (confirm("Reset all mastered / review markers?")) {
+        masteredSet.clear();
+        reviewSet.clear();
+        streakCount = 0;
+        localStorage.removeItem('adi_mastered_q');
+        localStorage.removeItem('adi_review_q');
+        localStorage.removeItem('adi_streak');
+        updateStats();
+      }
+    }
+
+    function speakCurrentQuestion() {
+      const q = filteredQuestions[currentIndex];
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = `Question: ${q.question}. Target category: ${q.category}. Model STAR Answer: Situation: ${q.star_answer.situation}. Action: ${q.star_answer.action}. Result: ${q.star_answer.result}`;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert("Speech synthesis is not supported on this browser.");
+      }
+    }
+
+    function toggleListView() {
+      const container = document.getElementById('listViewContainer');
+      if (container.style.display === 'none') {
+        container.style.display = 'block';
+        renderListView();
+      } else {
+        container.style.display = 'none';
+      }
+    }
+
+    function renderListView() {
+      const listArea = document.getElementById('qListArea');
+      document.getElementById('listCountDisp').textContent = `Showing ${filteredQuestions.length} questions`;
+      listArea.innerHTML = filteredQuestions.map((q, idx) => `
+        <div class="q-list-item" onclick="this.classList.toggle('open')">
+          <div class="q-list-title">
+            <span><strong style="color: var(--teal); font-family: 'JetBrains Mono', monospace;">[#${q.id}]</strong> ${q.question}</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">${q.category} ▾</span>
+          </div>
+          <div class="q-list-details">
+            <div style="font-size: 0.85rem; line-height: 1.45;">
+              <p><strong style="color: var(--teal);">[S]</strong> ${q.star_answer.situation}</p>
+              <p><strong style="color: var(--teal);">[A]</strong> ${q.star_answer.action}</p>
+              <p><strong style="color: var(--teal);">[R]</strong> ${q.star_answer.result}</p>
+            </div>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--rose);">⚠️ ${q.pitfalls[0]}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        flipCard();
+      } else if (e.code === 'ArrowRight') {
+        nextCard();
+      } else if (e.code === 'ArrowLeft') {
+        prevCard();
+      }
+    });
+
+    window.onload = function() {
+      buildQuestions();
+      updateStats();
+      renderCurrentCard();
+    };
+  </script>
+</body>
+</html>

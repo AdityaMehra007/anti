@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adi 1-Click Clipboard & Portal Autofill Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: #0d121f;
+      --border: #1e293b;
+      --primary: #3b82f6;
+      --primary-focus: #60a5fa;
+      --success: #10b981;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      padding: 24px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    h1 { font-size: 22px; font-weight: 800; color: #fff; text-wrap: balance; }
+    p { font-size: 13px; color: var(--muted); margin-top: 4px; text-wrap: pretty; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .item-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .item-label { font-size: 11px; text-transform: uppercase; color: var(--muted); font-weight: 700; letter-spacing: 0.05em; }
+    .item-val { 
+      font-size: 14px; 
+      font-weight: 600; 
+      color: #fff; 
+      font-family: 'JetBrains Mono', monospace; 
+      word-break: break-all; 
+      font-variant-numeric: tabular-nums;
+    }
+    .btn-copy {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #38bdf8;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-copy:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-copy:focus-visible {
+      outline: 2px solid var(--primary-focus);
+      outline-offset: 2px;
+    }
+    .copied { background: var(--success) !important; color: #000 !important; border-color: var(--success) !important; }
+    .section-title { font-size: 15px; font-weight: 700; color: #93c5fd; margin: 20px 0 10px; text-wrap: balance; }
+    .block-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .block-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .block-title { font-size: 13px; font-weight: 700; color: #fff; }
+    .block-content { font-size: 13px; color: #cbd5e1; line-height: 1.5; white-space: pre-wrap; font-family: 'JetBrains Mono', monospace; }
+    
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn-copy {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>⚡ 1-CLICK APPLICATION AUTOFILL & CLIPBOARD ASSISTANT</h1>
+    <p>Click any button below to instantly copy your verified information while filling out Bangalore portal forms.</p>
+  </header>
+
+  <div class="grid">
+    <div class="item-card">
+      <div>
+        <div class="item-label">Full Name</div>
+        <div class="item-val" id="val-name">Aditya Mehra</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy Full Name: Aditya Mehra" onclick="copyText('val-name', this, 'Full Name')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">Email Address</div>
+        <div class="item-val" id="val-email">adityamehra799@gmail.com</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy Email Address: adityamehra799@gmail.com" onclick="copyText('val-email', this, 'Email Address')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">Phone Number</div>
+        <div class="item-val" id="val-phone">+91 70034 56624</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy Phone Number: +91 70034 56624" onclick="copyText('val-phone', this, 'Phone Number')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">Location / City</div>
+        <div class="item-val" id="val-loc">Bengaluru, Karnataka</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy Location: Bengaluru, Karnataka" onclick="copyText('val-loc', this, 'Location')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">University / Degree</div>
+        <div class="item-val" id="val-edu">Dayananda Sagar University (BBA IB ’26)</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy University and Degree: Dayananda Sagar University (BBA IB ’26)" onclick="copyText('val-edu', this, 'University and Degree')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">Degree Status</div>
+        <div class="item-val" id="val-gpa">BBA in International Business (Fresh Graduate)</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy Degree Status" onclick="copyText('val-gpa', this, 'Degree Status')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">Notice Period</div>
+        <div class="item-val" id="val-notice">Immediate (Available to join immediately)</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy Notice Period" onclick="copyText('val-notice', this, 'Notice Period')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">Expected CTC</div>
+        <div class="item-val" id="val-ctc">As per standard company norms for freshers</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy Expected CTC" onclick="copyText('val-ctc', this, 'Expected CTC')">Copy</button>
+    </div>
+    <div class="item-card">
+      <div>
+        <div class="item-label">LinkedIn Profile</div>
+        <div class="item-val" id="val-li">https://www.linkedin.com/in/adityamehra07</div>
+      </div>
+      <button class="btn-copy" aria-label="Copy LinkedIn Profile URL" onclick="copyText('val-li', this, 'LinkedIn Profile URL')">Copy</button>
+    </div>
+  </div>
+
+  <div class="section-title">📝 Standard Screening Responses (Copy with 1-Click)</div>
+
+  <div class="block-box">
+    <div class="block-header">
+      <div class="block-title">Brief Introduction / Summary</div>
+      <button class="btn-copy" aria-label="Copy Brief Introduction text block" onclick="copyText('block-intro', this, 'Brief Introduction')">Copy Block</button>
+    </div>
+    <div class="block-content" id="block-intro">BBA in International Business graduate from Dayananda Sagar University (Bengaluru) with verified ground operations leadership at Aero India 2025 (Air Force Station Yelahanka) and retail/event brand logistics for Puma Global and Tata Communications. Skilled in vendor SLA governance, Incoterms trade compliance, and AI platform data quality operations. Available for immediate joining in Bengaluru.</div>
+  </div>
+
+  <div class="block-box">
+    <div class="block-header">
+      <div class="block-title">Why are you a strong fit for Operations / Supply Chain?</div>
+      <button class="btn-copy" aria-label="Copy Operations and Supply Chain fit text block" onclick="copyText('block-fit', this, 'Operations Fit Summary')">Copy Block</button>
+    </div>
+    <div class="block-content" id="block-fit">My academic foundation in International Business gives me solid grounding in cross-border logistics, Incoterms, and procurement. Operationally, I have proven execution under pressure: as Ground Operations & Protocol Lead for Aero India, I governed multi-vendor SLAs, VIP triage, and crowd logistics with zero security delays. At Instawork, I maintained benchmark accuracy in data operations. I bring structured rigor, zero ramp-up time, and immediate availability in Bangalore.</div>
+  </div>
+
+  <div class="block-box">
+    <div class="block-header">
+      <div class="block-title">Tell me about a time you handled an operational crisis (STAR)</div>
+      <button class="btn-copy" aria-label="Copy STAR operational crisis text block" onclick="copyText('block-crisis', this, 'STAR Operational Crisis Example')">Copy Block</button>
+    </div>
+    <div class="block-content" id="block-crisis">Situation: At Aero India (Air Force Station Yelahanka), peak visitor arrival created a bottleneck at the primary delegation gate, risking security delays for VIP international defense delegates.
+Task: As Ground Operations & Protocol Lead, I had to eliminate the backlog immediately while maintaining strict defense access protocols.
+Action: I deployed a staged triage model: stationed crew ahead to pre-scan RFID credentials, created an express lane for defense dignitaries, and redirected uncredentialed visitors to secondary holding zones.
+Result: Queue throughput cleared rapidly, resolving the bottleneck smoothly with zero security breaches and on-time opening praised by organizers.</div>
+  </div>
+
+</div>
+
+<!-- Live region for accessible feedback per Web Interface Guidelines -->
+<div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+function copyText(elementId, btn, label) {
+  const text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.innerText;
+    btn.innerText = "✓ Copied!";
+    btn.classList.add("copied");
+    const live = document.getElementById("live-region");
+    if (live) {
+      live.textContent = (label || "Item") + " copied to clipboard";
+    }
+    setTimeout(() => {
+      btn.innerText = orig;
+      btn.classList.remove("copied");
+    }, 1500);
+  });
+}
+</script>
+
+</body>
+</html>

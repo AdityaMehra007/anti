@@ -1,0 +1,22 @@
+---
+name: events-skill-23
+description: Autonomous standard operating procedure and execution capability for Event Operations & Brand Activation specialization #23.
+---
+
+# Event Operations & Brand Activation Module #23
+
+**Skill ID:** SKILL-0083  
+**Category:** Event Operations & Brand Activation  
+**Associated Agent:** AGT-0083 (events-skill-23-agent)
+
+## 1. Scope & Objective
+Autonomous standard operating procedure and execution capability for Event Operations & Brand Activation specialization #23.
+
+## 2. Standard Operating Procedure
+1. Ingest context and parameters from workspace.
+2. Execute deterministic analysis using verified primary data.
+3. Produce structured markdown outputs, logs, and audit trails.
+
+## 3. Tool Guidelines
+- Utilize reading, search, and validation tools.
+- Maintain strict zero-fiction data accuracy.

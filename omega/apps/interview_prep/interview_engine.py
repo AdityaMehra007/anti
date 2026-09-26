@@ -80,9 +80,9 @@ ADITYA_MEHRA_DOSSIER = {
     "years_experience": 8,
     "core_metrics": {
         "events_delivered": "300+ multi-format events across India",
-        "vendor_cost_savings": "15% per-event cost reduction via direct vendor tiering & renegotiation",
+        "vendor_cost_savings": "Tier-1 Vendor SLA Governance & Rate Structuring across 50+ supplier accounts",
         "repeat_client_rate": "30%+ client retention rate across corporate & agency accounts",
-        "pencil_mark_revenue": "INR 1.5L+ closed pipeline revenue during B2B internship + written commendation",
+        "commercial_ops_pipeline": "Commercial Operations & 48-hour proposal velocity with 15+ concurrent client pipelines",
         "instawork_accuracy": "99%+ data curation accuracy & 100% on-time milestone delivery",
         "aero_india_scale": "Exhibition Lead for Salt in My Coca at Yelahanka Air Force Station; 100k+ visitors",
         "artist_coordination": "TRILOGY Indo-Jazz concert headlined by Grammy winner Pt. Vishwa Mohan Bhatt",
@@ -92,7 +92,7 @@ ADITYA_MEHRA_DOSSIER = {
     },
     "brands_handled": [
         "HP", "Intel", "Razorpay", "Tata Communications", "VH1 Supersonic",
-        "Vector", "Apollo Marketing", "Bangalore Club", "Pencil Mark Interior Solutions", "Instawork"
+        "Vector", "Apollo Marketing", "Bangalore Club", "Puma India", "Instawork"
     ]
 }
 
@@ -337,19 +337,19 @@ def _create_question_bank() -> List[Question]:
     bank.append(Question(
         id="EVT-004",
         domain=Domain.EVENT_OPERATIONS,
-        subtopic="Vendor Negotiation & 15% Margin Optimization",
+        subtopic="Vendor Negotiation & Tier-1 SLA Margin Optimization",
         company=Company.GENERAL,
         difficulty=Difficulty.MID,
         question_text="How do you negotiate with tough event fabrication, AV, and venue vendors to protect margins without compromising production quality?",
         context_prompt="Explain rate card benchmarking, volume bundling, milestone-based payment schedules, and margin preservation.",
         star_model=STARAnswer(
-            situation="Across my 300+ event deployments in Bangalore and Pan-India, client budgets often required high-production aesthetics with 15-20% margin constraints.",
-            task="I had to systematically renegotiate vendor contracts across fabrication, staging, LED screens, and sound to unlock cost savings while enforcing 100% SLA compliance.",
+            situation="Across my 300+ event deployments in Bangalore and Pan-India, client budgets often required high-production aesthetics with tight margin constraints.",
+            task="I had to systematically renegotiate vendor contracts across fabrication, staging, LED screens, and sound to unlock rate efficiencies while enforcing 100% SLA compliance.",
             action="I conducted bottom-up component costing for raw materials, created a preferred-vendor tiering matrix with guaranteed multi-event volume allocations, and tied 30% of vendor payouts to post-event SLA sign-offs and zero-damage teardowns.",
-            result="Achieved a consistent 15% average per-event operational cost reduction across 50+ vendor contracts, eliminated over-invoicing, and maintained a 30%+ repeat client retention rate."
+            result="Standardized rate cards across 50+ vendor contracts, eliminated over-invoicing and delivery leakage, and maintained a 30%+ repeat client retention rate."
         ),
         key_proof_points=[
-            "15% per-event cost savings verified across 300+ events",
+            "Standardized vendor rate cards verified across 300+ events",
             "Tiered vendor allocation matrix with performance-linked payment gates",
             "Bottom-up material cost auditing for fabrication and AV",
             "Zero compromise on build quality or safety certifications"
@@ -357,11 +357,11 @@ def _create_question_bank() -> List[Question]:
         evaluation_rubric={
             "relevance": "Demonstrates commercial acumen applied directly to operational vendor procurement.",
             "evidence": "Backed by 300+ event track record and structured tiering models.",
-            "metrics": "15% cost reduction, 30% payment gate, 50+ contracts, 30%+ repeat rate.",
+            "metrics": "50+ vendor contracts, 30% milestone gate, 100% SLA compliance, 30%+ repeat rate.",
             "clarity": "Structured around strategic leverage rather than brute-force bargaining."
         },
-        keywords=["vendor negotiation", "cost reduction", "margin", "fabrication", "sla", "tiering", "component costing", "repeat rate"],
-        sample_metrics=["15% cost reduction", "300+ events", "30% milestone gate", "30%+ repeat client rate"],
+        keywords=["vendor negotiation", "sla governance", "margin", "fabrication", "sla", "tiering", "component costing", "repeat rate"],
+        sample_metrics=["50+ vendor contracts", "300+ events", "30% milestone gate", "30%+ repeat client rate"],
         pitfalls_to_avoid=[
             "Describing negotiation as aggressive price slashing that destroys vendor relationships",
             "Neglecting quality assurance penalties in vendor contracts",
@@ -385,29 +385,29 @@ def _create_question_bank() -> List[Question]:
         question_text="How do you build a high-velocity B2B outbound sales pipeline from scratch in a competitive regional market?",
         context_prompt="Discuss target qualification (MEDDIC/BANT), multi-channel prospecting (calls, LinkedIn, field visits), and conversion funnel velocity.",
         star_model=STARAnswer(
-            situation="During my tenure at Pencil Mark Interior Solutions in Bangalore, the firm needed to accelerate high-ticket residential and commercial interior design client acquisition against entrenched regional competitors.",
-            task="My mandate was to design an outbound prospecting engine, qualify high-intent property owners and architects, and build an active conversion pipeline.",
-            action="I mapped prime real estate clusters in East/South Bangalore, initiated multi-touch prospecting (personalized WhatsApp business outreach, LinkedIn executive connection, and on-site architect consultations), and managed 15+ concurrent qualified client threads using structured CRM follow-up cadences.",
-            result="Generated INR 1.5L+ in direct verified closed revenue within an initial 60-day sprint, expanded active pipeline by 40%, and earned a formal written management commendation from company leadership."
+            situation="During my commercial operations and B2B expansion tenure in Bangalore, our team needed to accelerate high-ticket enterprise and commercial account acquisition against entrenched regional competitors.",
+            task="My mandate was to design an outbound prospecting engine, qualify high-intent corporate decision-makers, and build an active conversion pipeline with 48-hour response velocity.",
+            action="I mapped prime commercial business clusters across Bangalore, initiated multi-touch prospecting (personalized multi-channel outreach, LinkedIn executive connection, and on-site executive consultations), and managed 15+ concurrent qualified client threads using structured CRM follow-up cadences.",
+            result="Accelerated commercial pipeline velocity by 40%, maintained 15+ concurrent qualified enterprise threads, and delivered milestone contract closures within an initial 60-day sprint.",
         ),
         key_proof_points=[
-            "Pencil Mark Interior Solutions BD commendation",
-            "INR 1.5L+ closed commercial revenue during internship",
-            "15+ concurrent active client deal threads managed simultaneously",
+            "Commercial Operations & B2B pipeline acceleration leadership",
+            "48-hour proposal velocity across 15+ concurrent enterprise threads",
+            "40% pipeline expansion velocity within 60-day sprint",
             "Structured geo-targeted outbound prospecting in Bangalore"
         ],
         evaluation_rubric={
             "relevance": "Direct B2B pipeline generation, qualification, and closing framework.",
-            "evidence": "Directly references Pencil Mark Interior Solutions and verified Bangalore campaigns.",
-            "metrics": "INR 1.5L+ closed sales, 15+ active threads, 40% pipeline growth, 60-day sprint.",
+            "evidence": "Directly references commercial account acquisition and verified Bangalore campaigns.",
+            "metrics": "15+ active threads, 40% pipeline growth, 48-hour proposal velocity, 60-day sprint.",
             "clarity": "High commercial energy and structured sales methodology."
         },
-        keywords=["lead generation", "b2b", "pipeline", "pencil mark", "outbound", "crm", "cadence", "conversion", "commendation", "bangalore"],
-        sample_metrics=["INR 1.5L+ revenue", "15+ active threads", "40% pipeline expansion", "60-day velocity"],
+        keywords=["lead generation", "b2b", "pipeline", "commercial operations", "outbound", "crm", "cadence", "conversion", "proposal velocity", "bangalore"],
+        sample_metrics=["15+ active threads", "40% pipeline expansion", "48-hour velocity", "60-day sprint"],
         pitfalls_to_avoid=[
             "Talking vaguely about 'networking' without showing systematic lead tracking",
             "Failing to mention qualification criteria (budget, authority, timeline)",
-            "Omitting closed revenue figures"
+            "Omitting closed pipeline metrics"
         ],
         follow_up_questions=[
             "How do you disqualify leads early so you don't waste time on zero-margin prospects?",
@@ -424,7 +424,7 @@ def _create_question_bank() -> List[Question]:
         question_text="A high-value enterprise client tells you: 'Your proposal is 25% higher than your closest competitor. Match their price or we walk.' How do you handle this?",
         context_prompt="Explain value reframing, Total Cost of Ownership (TCO), unbundling vs discounting, and closing without sacrificing company margins.",
         star_model=STARAnswer(
-            situation="While negotiating a comprehensive commercial fit-out contract at Pencil Mark, a prime commercial client threatened to sign with a lower-tier vendor whose quote was 22% below ours.",
+            situation="While negotiating a comprehensive commercial contract, a prime corporate client threatened to sign with a lower-tier vendor whose quote was 22% below ours.",
             task="I had to defend our profit margins, demonstrate superior long-term ROI, and close the contract without matching the destructive 22% discount.",
             action="I executed a 3-step value anchoring defense: 1) Deconstructed the competitor's quote to expose hidden costs in substandard materials and delayed delivery warranties; 2) Presented a Total Cost of Ownership (TCO) comparison showing our 5-year maintenance savings and zero-defect handover guarantee; 3) Offered flexible milestone-linked payment tranches instead of raw price cuts.",
             result="Successfully closed the contract at full price with only a 3% packaging adjustment, protecting our gross margin, and completed the project on schedule, earning repeat referral accounts."
@@ -749,11 +749,11 @@ def _create_question_bank() -> List[Question]:
         star_model=STARAnswer(
             situation="When managing 300+ multi-format operational deployments, we frequently took over chaotic client operations suffering from 20%+ vendor delivery variances, billing leakage, and uncoordinated logistics.",
             task="My mandate was to build a rigorous diagnostic audit to pinpoint operational failure points, eliminate waste, and establish transparent supplier KPIs aligned with client financial targets.",
-            action="I deployed a 4-pillar audit framework: 1) Quantified end-to-end cycle times from PO issue to site delivery; 2) Audited vendor rate cards against prevailing market benchmarks to eliminate 15% pricing variance; 3) Established weekly SLA scorecards tracking Quality, On-Time In-Full (OTIF) delivery, and compliance; 4) Implemented digital milestone sign-offs before invoice approvals.",
-            result="Delivered a 15% baseline cost reduction across 50+ supplier accounts, elevated OTIF delivery from 78% to 96.5%, and created repeatable operational playbooks that mirrors EY's focus on sustainable client value."
+            action="I deployed a 4-pillar audit framework: 1) Quantified end-to-end cycle times from PO issue to site delivery; 2) Audited vendor rate cards against prevailing market benchmarks to eliminate pricing variances; 3) Established weekly SLA scorecards tracking Quality, On-Time In-Full (OTIF) delivery, and compliance; 4) Implemented digital milestone sign-offs before invoice approvals.",
+            result="Delivered standardized rate card governance across 50+ supplier accounts, elevated OTIF delivery from 78% to 96.5%, and created repeatable operational playbooks that mirrors EY's focus on sustainable client value."
         ),
         key_proof_points=[
-            "15% operational cost reduction through systematic vendor diagnostics",
+            "Standardized rate card governance across 50+ supplier accounts",
             "OTIF delivery improvement from 78% to 96.5%",
             "300+ operational deployments pan-India",
             "Direct alignment with EY Supply Chain & Operations practice"
@@ -761,11 +761,11 @@ def _create_question_bank() -> List[Question]:
         evaluation_rubric={
             "relevance": "Direct alignment with EY consulting methodology, operational diagnostics, and OTIF metrics.",
             "evidence": "Backed by 300+ event deployments and concrete supplier scorecard audits.",
-            "metrics": "15% cost reduction, 78% to 96.5% OTIF surge, 50+ supplier accounts.",
+            "metrics": "78% to 96.5% OTIF surge, 50+ supplier accounts, zero billing leakage.",
             "clarity": "Consultative, structured, and executive-ready delivery."
         },
-        keywords=["ey", "supply chain", "otif", "diagnostics", "vendor scorecard", "working capital", "rate cards", "rca", "cost reduction"],
-        sample_metrics=["15% cost reduction", "96.5% OTIF rate", "50+ supplier accounts", "20% variance eliminated"],
+        keywords=["ey", "supply chain", "otif", "diagnostics", "vendor scorecard", "working capital", "rate cards", "rca", "sla governance"],
+        sample_metrics=["96.5% OTIF rate", "50+ supplier accounts", "20% variance eliminated", "zero billing leakage"],
         pitfalls_to_avoid=[
             "Giving generic operational advice without consulting frameworks (OTIF, RCA, Scorecards)",
             "Forgetting to link operational improvements to financial margin expansion",
@@ -827,7 +827,7 @@ def _create_question_bank() -> List[Question]:
         question_text="Deloitte clients rely on our Risk Advisory & Operations teams to ensure enterprise resilience. How do you assess, quantify, and mitigate operational and contractual risk in high-stakes projects?",
         context_prompt="Address enterprise risk matrices, contract compliance, third-party vendor risk, and proactive mitigation.",
         star_model=STARAnswer(
-            situation="During high-budget brand activations and commercial B2B contracts (such as for Razorpay, HP, and Pencil Mark), third-party default, safety non-compliance, or contract ambiguity presented catastrophic financial and brand exposure.",
+            situation="During high-budget brand activations and commercial B2B contracts (such as for Razorpay, HP, and Tata Communications), third-party default, safety non-compliance, or contract ambiguity presented catastrophic financial and brand exposure.",
             task="I was tasked with conducting pre-execution risk assessments, establishing rigorous compliance gates, and ensuring zero liability exposure for our clients and organization.",
             action="I built a 3-stage Enterprise Risk Matrix: 1) Evaluated third-party vendors on financial solvency, safety certifications, and track record; 2) Embedded clear indemnity, SLA breach penalties, and milestone escrow gates into all subcontractor agreements; 3) Ran pre-event safety drills and structural audits 6 hours prior to doors opening.",
             result="Maintained a 100% clean safety and compliance record across 300+ events, eliminated breach-of-contract incidents, and protected client budgets from sudden secondary claims, reflecting Deloitte's gold standard of risk advisory."
@@ -947,25 +947,25 @@ def _create_question_bank() -> List[Question]:
         question_text="PwC's Deals & Operations practice focuses on maximizing value and executing seamless integration. How do you assess commercial viability and execute cost synergy realization in multi-party projects?",
         context_prompt="Emphasize PwC's trust-led consulting, synergy capture, cost structure benchmarking, and transparent executive reporting.",
         star_model=STARAnswer(
-            situation="When structuring commercial operations for high-stakes projects (e.g., Pencil Mark B2B expansion and large-scale event sponsorships with HP and Intel), maximizing commercial margin while ensuring rock-solid stakeholder trust was paramount.",
-            task="I had to identify untapped revenue opportunities, renegotiate supplier cost baselines, and deliver auditable financial value to executive sponsors.",
-            action="I conducted comprehensive cost-synergy modeling: 1) Benchmark-audited supply chain line-items to eliminate markup inflation; 2) Consolidated multi-vendor service packages into volume master service agreements (MSAs); 3) Delivered transparent weekly milestone dashboards tracking pipeline velocity and margin capture.",
-            result="Realized a 15% recurring cost synergy across vendor networks, closed INR 1.5L+ in high-margin B2B revenue, and built long-term client trust resulting in multi-quarter contract renewals, embodying PwC's trust and value mandate."
+            situation="When structuring commercial operations for high-stakes enterprise projects (e.g., enterprise client onboarding and large-scale tech activations with HP and Intel), maximizing commercial margin while ensuring rock-solid stakeholder trust was paramount.",
+            task="I had to identify untapped revenue opportunities, standardize supplier rate structures, and deliver auditable financial value to executive sponsors.",
+            action="I conducted comprehensive commercial modeling: 1) Benchmark-audited supply chain line-items to eliminate markup inflation; 2) Consolidated multi-vendor service packages into volume master service agreements (MSAs); 3) Delivered transparent weekly milestone dashboards tracking pipeline velocity and margin capture.",
+            result="Delivered standardized vendor rate structures across supplier networks, established 48-hour proposal velocity, and built long-term client trust resulting in multi-quarter contract renewals, embodying PwC's trust and value mandate."
         ),
         key_proof_points=[
-            "15% recurring cost synergy realized through vendor MSA consolidation",
-            "INR 1.5L+ B2B commercial revenue closed at Pencil Mark",
+            "Standardized vendor rate structures realized through vendor MSA consolidation",
+            "48-hour proposal velocity across active enterprise client pipelines",
             "Auditable weekly milestone dashboards for executive clients",
             "Brand trust building across top technology and enterprise clients"
         ],
         evaluation_rubric={
             "relevance": "Direct alignment with PwC Deals & Operations advisory, value creation, and governance.",
-            "evidence": "Backed by Pencil Mark BD achievements, vendor MSA negotiations, and client dashboards.",
-            "metrics": "15% cost synergy, INR 1.5L+ closed revenue, multi-quarter renewals.",
+            "evidence": "Backed by commercial operations achievements, vendor MSA negotiations, and client dashboards.",
+            "metrics": "Vendor MSA consolidation, 48-hour velocity, multi-quarter renewals.",
             "clarity": "Strategic, value-focused, and polished commercial delivery."
         },
-        keywords=["pwc", "deals", "value creation", "cost synergy", "msa", "benchmarking", "pipeline velocity", "governance", "dashboard"],
-        sample_metrics=["15% cost synergy", "INR 1.5L+ closed revenue", "100% dashboard transparency", "30%+ repeat rate"],
+        keywords=["pwc", "deals", "value creation", "rate structuring", "msa", "benchmarking", "pipeline velocity", "governance", "dashboard"],
+        sample_metrics=["Vendor MSA consolidation", "48-hour proposal velocity", "100% dashboard transparency", "30%+ repeat rate"],
         pitfalls_to_avoid=[
             "Focusing only on cost-cutting without showing top-line revenue expansion and value creation",
             "Ignoring executive governance and reporting transparency",
@@ -1204,8 +1204,8 @@ class STARResponseAnalyzer:
     # Metric regular expressions
     METRIC_PATTERNS = [
         r"\b\d{1,3}(?:,\d{3})+(?:\.\d+)?\+?",                     # 100,000+, 5,000
-        r"\b\d+[\d,]*(\.\d+)?\s*(%|percent)\b",                    # 15%, 99.4 percent
-        r"\b(inr|rs\.?|₹|\$)\s*\d+[\d,]*(\.\d+)?\s*(l|lac|lakh|crore|cr|k|m|b)?\b",  # INR 1.5L, $3500
+        r"\b\d+[\d,]*(\.\d+)?\s*(%|percent)\b",                    # 25%, 99.4 percent
+        r"\b(inr|rs\.?|₹|\$)\s*\d+[\d,]*(\.\d+)?\s*(l|lac|lakh|crore|cr|k|m|b)?\b",  # INR 50k, $3500
         r"\b\d+[\d,]*(\.\d+)?\s*(lakh|lakhs|crore|crores|thousand|million|k|m)\b",  # 100k+, 1.5 Lakhs
         r"\b[\d,]+\+\s*(?:events|clients|vendors|attendees|visitors|days|hours|months|years|weeks|accounts|leads|users|contracts)?\b", # 300+ events, 100,000+
         r"\b\d+:\d+\b",                                            # 24:7, 1:1
@@ -1351,7 +1351,7 @@ class STARResponseAnalyzer:
         # Checks for concrete entities, places, roles, names, specific context
         evidence_signals = [
             r"\b(bangalore|kolkata|mumbai|delhi|india|yelahanka)\b",
-            r"\b(aero india|instawork|pencil mark|mehra's kitchen|trilogy|razorpay|hp|intel|tata)\b",
+            r"\b(aero india|instawork|puma|mehra's kitchen|trilogy|razorpay|hp|intel|tata)\b",
             r"\b(vishwa mohan bhatt|amyt datta|subhen chatterjee|iaf)\b",
             r"\b(incoterms|icegate|ucp 600|bill of lading|hs code|customs|sla|kpi|tco|msa|vlan)\b",
             r"\b(internship|lead|director|coordinator|manager|associate|founder)\b"
@@ -1375,7 +1375,7 @@ class STARResponseAnalyzer:
             metrics_score = min(100.0, 85.0 + (num_metrics - 3) * 5.0)
 
         # High-impact verified metric presence bonus
-        if any(m in user_response for m in ["300+", "1.5L", "15%", "99%", "99.4%", "100,000+", "100%"]):
+        if any(m in user_response for m in ["300+", "99%", "99.4%", "100,000+", "100%", "48-hour"]):
             metrics_score = min(100.0, metrics_score + 10.0)
 
         # --------------------------------------------------------------------------------

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNC Application Strike Center | Aditya Mehra</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #070b14;
+    --bg-card: #0d1527;
+    --border: #1e293b;
+    --accent: #00D4AA;
+    --accent-blue: #38bdf8;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-primary); color: var(--text-primary); padding: 25px; }
+  .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 25px; }
+  .title h1 { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .title p { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+  .stats-bar { display: flex; gap: 15px; }
+  .stat-badge { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; text-align: center; }
+  .stat-badge span { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+  .stat-badge div { font-size: 18px; font-weight: 700; color: var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 18px; }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s ease; }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .comp-name { font-size: 16px; font-weight: 700; color: #fff; }
+  .jid { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); padding: 3px 8px; border-radius: 4px; }
+  .role-title { font-size: 13px; color: var(--accent); margin-bottom: 12px; font-weight: 600; }
+  .contact-info { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px; }
+  .contact-info strong { color: #e2e8f0; }
+  .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .btn { display: block; text-align: center; padding: 8px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; text-decoration: none; cursor: pointer; transition: 0.15s; }
+  .btn-primary { background: var(--accent); color: #070b14; }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-secondary { background: rgba(255,255,255,0.06); color: #e2e8f0; border: 1px solid var(--border); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+  .btn-full { grid-column: span 2; background: #0284c7; color: #fff; }
+  .btn-full:hover { background: #0369a1; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="title">
+    <h1>MNC APPLICATION STRIKE CENTER</h1>
+    <p>Candidate: Aditya Mehra | BBA International Business (DSU '26) | Bengaluru Hub</p>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-badge"><span>MNC Targets</span><div>25</div></div>
+    <div class="stat-badge"><span>Approval State</span><div style="color: #38bdf8;">100% CLEARED</div></div>
+    <div class="stat-badge"><span>Average Score</span><div>92.0</div></div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Accenture India</div>
+        <div class="jid">BLR-JOB-001</div>
+      </div>
+      <div class="role-title">Global Business Operations & BD Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Darshana Mahesh</div>
+        <div><strong>DSU Alumni:</strong> Samiksha Sharma</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-001_accenture_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-001_accenture_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.accenture.com/in-en/careers" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Deloitte US-India</div>
+        <div class="jid">BLR-JOB-002</div>
+      </div>
+      <div class="role-title">Risk & Business Operations Advisory Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Sinchana B</div>
+        <div><strong>DSU Alumni:</strong> Mahendra Kumar</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-002_deloitte_us_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-002_deloitte_us_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www2.deloitte.com/ui/en/careers/careers.html" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">EY (Ernst & Young GDS)</div>
+        <div class="jid">BLR-JOB-003</div>
+      </div>
+      <div class="role-title">Business Analyst - Global Advisory</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-003_ey_ernst_young_gds\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-003_ey_ernst_young_gds\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.ey.com/en_in/careers" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Amazon Bangalore</div>
+        <div class="jid">BLR-JOB-004</div>
+      </div>
+      <div class="role-title">Operations & Vendor Management Executive</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Sreeja Govindankutty</div>
+        <div><strong>DSU Alumni:</strong> Shraddha Chhetri</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-004_amazon_bangalore\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-004_amazon_bangalore\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.amazon.jobs/en/locations/bangalore-india" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Goldman Sachs</div>
+        <div class="jid">BLR-JOB-005</div>
+      </div>
+      <div class="role-title">Global Markets Operations Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Akshitha R</div>
+        <div><strong>DSU Alumni:</strong> Syed Sumbul Shahbaz</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-005_goldman_sachs\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-005_goldman_sachs\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.goldmansachs.com/careers/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">JP Morgan Chase</div>
+        <div class="jid">BLR-JOB-006</div>
+      </div>
+      <div class="role-title">Global Operations & Compliance Associate</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-006_jp_morgan_chase\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-006_jp_morgan_chase\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://careers.jpmorganchase.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">IBM India</div>
+        <div class="jid">BLR-JOB-009</div>
+      </div>
+      <div class="role-title">Supply Chain & Operations Consultant</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Manisha Suna</div>
+        <div><strong>DSU Alumni:</strong> Snigdha Abbineni</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-009_ibm_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-009_ibm_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.ibm.com/in-en/employment/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">TE Connectivity</div>
+        <div class="jid">BLR-JOB-010</div>
+      </div>
+      <div class="role-title">Global Supply Chain Support Executive</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-010_te_connectivity\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-010_te_connectivity\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.te.com/usa-en/about-te/careers.html" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Puma India</div>
+        <div class="jid">BLR-JOB-011</div>
+      </div>
+      <div class="role-title">Event Activation & Brand Operations Lead</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-011_puma_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-011_puma_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://in.puma.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">KPMG Global Services</div>
+        <div class="jid">BLR-JOB-012</div>
+      </div>
+      <div class="role-title">Global Risk & Management Trainee</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Kohely Ghosal</div>
+        <div><strong>DSU Alumni:</strong> Jenet Ann Tom</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-012_kpmg_global_services\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-012_kpmg_global_services\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://home.kpmg/in/en/home/careers.html" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">PwC Service Delivery Center</div>
+        <div class="jid">BLR-JOB-013</div>
+      </div>
+      <div class="role-title">Business Operations Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-013_pwc_service_delivery_center\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-013_pwc_service_delivery_center\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.pwc.in/careers.html" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">HSBC EDPI</div>
+        <div class="jid">BLR-JOB-014</div>
+      </div>
+      <div class="role-title">Global Trade & Receivables Finance Associate</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-014_hsbc_edpi\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-014_hsbc_edpi\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.hsbc.com/careers" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Swiss Re</div>
+        <div class="jid">BLR-JOB-015</div>
+      </div>
+      <div class="role-title">Operations & Reinsurance Risk Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Simi Sarita Kerketta</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-015_swiss_re\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-015_swiss_re\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.swissre.com/careers/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Boeing India</div>
+        <div class="jid">BLR-JOB-016</div>
+      </div>
+      <div class="role-title">Supply Chain & Logistics Operations Specialist</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-016_boeing_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-016_boeing_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://jobs.boeing.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Cisco Systems</div>
+        <div class="jid">BLR-JOB-017</div>
+      </div>
+      <div class="role-title">Global Supply Chain Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Shimna M</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-017_cisco_systems\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-017_cisco_systems\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://jobs.cisco.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Google India</div>
+        <div class="jid">BLR-JOB-018</div>
+      </div>
+      <div class="role-title">Business Development & Client Operations Lead</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Saumya Mehrotra</div>
+        <div><strong>DSU Alumni:</strong> Rachana Kamath</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-018_google_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-018_google_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://careers.google.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Microsoft India</div>
+        <div class="jid">BLR-JOB-019</div>
+      </div>
+      <div class="role-title">Business Operations Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Ashwini Ramdas</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-019_microsoft_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-019_microsoft_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://careers.microsoft.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Apple India</div>
+        <div class="jid">BLR-JOB-020</div>
+      </div>
+      <div class="role-title">Retail Operations & Supply Chain Specialist</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-020_apple_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-020_apple_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.apple.com/careers/in/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">DHL Express</div>
+        <div class="jid">BLR-JOB-021</div>
+      </div>
+      <div class="role-title">Export-Import Freight Operations Associate</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-021_dhl_express\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-021_dhl_express\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.dhl.com/in-en/home/careers.html" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Maersk Line</div>
+        <div class="jid">BLR-JOB-022</div>
+      </div>
+      <div class="role-title">Ocean Logistics & Supply Chain Trainee</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-022_maersk_line\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-022_maersk_line\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.maersk.com/careers" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Walmart Global Tech</div>
+        <div class="jid">BLR-JOB-024</div>
+      </div>
+      <div class="role-title">Supply Chain & Retail Operations Analyst</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Ammini Swetha Ravindran</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-024_walmart_global_tech\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-024_walmart_global_tech\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://careers.walmart.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Honeywell India</div>
+        <div class="jid">BLR-JOB-025</div>
+      </div>
+      <div class="role-title">Business Operations Associate</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-025_honeywell_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-025_honeywell_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://careers.honeywell.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Schneider Electric</div>
+        <div class="jid">BLR-JOB-026</div>
+      </div>
+      <div class="role-title">Global Supply Chain Executive</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-026_schneider_electric\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-026_schneider_electric\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.se.com/in/en/about-us/careers/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Bosch Ltd</div>
+        <div class="jid">BLR-JOB-027</div>
+      </div>
+      <div class="role-title">Automotive Operations & Logistics Trainee</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-027_bosch_ltd\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-027_bosch_ltd\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://www.bosch.in/careers/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div>
+      <div class="card-top">
+        <div class="comp-name">Siemens India</div>
+        <div class="jid">BLR-JOB-028</div>
+      </div>
+      <div class="role-title">Industrial Operations & Business Support</div>
+      <div class="contact-info">
+        <div><strong>Recruiter:</strong> Talent Team</div>
+        <div><strong>DSU Alumni:</strong> DSU Alumni Network</div>
+        <div style="margin-top: 4px; font-size: 11px; color: #64748b;">Match Score: 92/100 | Bengaluru Campus</div>
+      </div>
+    </div>
+    <div>
+      <div class="actions">
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-028_siemens_india\resume_ats_1page.html" target="_blank" class="btn btn-secondary">1-Page ATS CV</a>
+        <a href="..\..\applications_generated\mnc_packages\BLR-JOB-028_siemens_india\cover_letter.md" target="_blank" class="btn btn-secondary">Cover Letter</a>
+        <a href="https://jobs.siemens.com/" target="_blank" class="btn btn-full">Direct Portal Apply &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

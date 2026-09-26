@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pre-Shipment Customs Audit: Jamna Auto Industries Limited</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f9fafb; margin: 0; padding: 30px; color: #111827; }
+        .card { max-width: 900px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); padding: 32px; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1e3a8a; padding-bottom: 20px; margin-bottom: 24px; }
+        .badge { display: inline-block; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 14px; color: #ffffff; background: #f59e0b; }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+        .stat-box { background: #f3f4f6; border-radius: 6px; padding: 16px; text-align: center; }
+        .stat-val { font-size: 24px; font-weight: 800; color: #1e3a8a; }
+        .stat-label { font-size: 12px; text-transform: uppercase; color: #6b7280; margin-top: 4px; letter-spacing: 0.05em; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; margin-bottom: 24px; }
+        th { background: #f9fafb; padding: 10px; border-bottom: 2px solid #d1d5db; color: #374151; }
+        .seal { border-top: 1px dashed #9ca3af; margin-top: 30px; padding-top: 16px; display: flex; justify-content: space-between; font-size: 11px; color: #6b7280; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div>
+                <h1 style="margin: 0 0 6px 0; font-size: 22px; color: #1e3a8a;">TRADENEXUS AI • REGULATORY AUDIT REPORT</h1>
+                <div style="font-size: 13px; color: #4b5563;">Exporter: <strong>Jamna Auto Industries Limited</strong> | IEC: <code>0588011223</code></div>
+            </div>
+            <div>
+                <span class="badge">REQUIRES_REVIEW</span>
+            </div>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="stat-val">20.0 / 100</div>
+                <div class="stat-label">Regulatory Risk Score</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-val" style="color: #ef4444;">$9,200</div>
+                <div class="stat-label">Potential Demurrage Exposure</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-val">DEHAM, Germany</div>
+                <div class="stat-label">Destination Port</div>
+            </div>
+        </div>
+
+        <h3 style="font-size: 15px; color: #374151; margin-bottom: 12px;">Audited Line Items & HS Code Reconciliation</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Commodity Description</th>
+                    <th>Declared HS</th>
+                    <th>Verified HS</th>
+                    <th style="text-align: center;">CBAM</th>
+                    <th style="text-align: center;">SCOMET</th>
+                    <th style="text-align: center;">Audit Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 10px; font-family: monospace;">ITEM-01</td>
+                <td style="padding: 10px;">Heavy commercial vehicle parabolic leaf springs & air suspension lift axles</td>
+                <td style="padding: 10px; font-family: monospace;">73201011</td>
+                <td style="padding: 10px; font-family: monospace; font-weight: bold; color: #1e3a8a;">87082900</td>
+                <td style="padding: 10px; text-align: center;"><span style="color:#6b7280;">NO</span></td>
+                <td style="padding: 10px; text-align: center;"><span style="color:#6b7280;">NONE</span></td>
+                <td style="padding: 10px; font-weight: bold; color: #f59e0b; text-align: center;">WARNING</td>
+            </tr>
+            
+            </tbody>
+        </table>
+
+        <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px; border-radius: 0 6px 6px 0; margin-bottom: 24px;">
+            <h4 style="margin: 0 0 8px 0; color: #1e3a8a; font-size: 14px;">Statutory Action Items for Export Documentation Desk:</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #1f2937;">
+                <li style='margin-bottom: 6px;'>Reconcile HS code for item ITEM-01: declared '73201011', recommend '87082900'.</li>
+            </ul>
+        </div>
+
+        <div class="seal">
+            <div>AUDIT PASSPORT ID: <strong>REP-EXP-TGT-30-2026</strong></div>
+            <div>CRYPTOGRAPHIC SEAL: <strong>TN-CERT-33E6DF5CF2F444FC</strong></div>
+            <div>VERIFIED VIA ICEGATE/CBAM RULES V2.4</div>
+        </div>
+    </div>
+</body>
+</html>

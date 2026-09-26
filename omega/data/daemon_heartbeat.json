@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-08-26T11:31:54.942642+00:00",
+  "timestamp": "2026-09-18T06:22:14.937243+00:00",
   "engine": "Omega Empirical Daemon Verifier v8.0",
   "overall_daemon_health": "100% OPERATIONAL",
   "verification_pass_rate_pct": 100.0,
   "tasks_audited": [
     {
       "task_id": "task-406",
-      "name": "Omega 24/7 Career Engine Daemon",
+      "name": "Hourly Job Application Engine Daemon",
       "claimed_state": "RUNNING",
       "verified_state": "VERIFIED_ACTIVE",
       "is_empirically_verified": true,
-      "log_size_bytes": 970,
-      "last_active": "2026-08-24T10:09:20.847835+00:00"
+      "log_size_bytes": 870,
+      "last_active": "2026-09-18T06:20:57.400900+00:00"
     },
     {
       "task_id": "task-408",
@@ -19,8 +19,8 @@
       "claimed_state": "RUNNING",
       "verified_state": "VERIFIED_ACTIVE",
       "is_empirically_verified": true,
-      "log_size_bytes": 31835,
-      "last_active": "2026-08-26T11:31:15.855783+00:00"
+      "log_size_bytes": 1796,
+      "last_active": "2026-09-18T06:20:57.532421+00:00"
     },
     {
       "task_id": "task-410",
@@ -28,89 +28,83 @@
       "claimed_state": "RUNNING",
       "verified_state": "VERIFIED_ACTIVE",
       "is_empirically_verified": true,
-      "log_size_bytes": 20283,
-      "last_active": "2026-08-26T09:44:48.527300+00:00"
+      "log_size_bytes": 2739,
+      "last_active": "2026-09-18T06:20:57.654020+00:00"
     }
   ],
   "logs_audited": {
     "365_days_career_loop": {
       "filepath": "E:\\anti\\365_days_career_loop.log",
       "exists": true,
-      "size_bytes": 31835,
-      "line_count": 300,
-      "last_modified": "2026-08-26T11:31:15.855783+00:00",
+      "size_bytes": 1796,
+      "line_count": 16,
+      "last_modified": "2026-09-18T06:20:57.532421+00:00",
       "status": "HEALTHY",
       "sample_tail": [
-        "[2026-08-26 17:01:15] [365-DAY CAREER ENGINE] ================================================================================",
-        "[2026-08-26 17:01:15] [365-DAY CAREER ENGINE] Active Company Universe: 4500+ Target Entities Scanned (MNCs, GCCs, Fortune 500, Listed Firms)",
-        "[2026-08-26 17:01:15] [365-DAY CAREER ENGINE] Processed batch of 50 company requisitions in this cycle.",
-        "[2026-08-26 17:01:15] [365-DAY CAREER ENGINE] ✅ 365-Day Autonomous Execution Cycle Complete. System Standby for Next Iteration.",
-        "[2026-08-26 17:01:15] [365-DAY CAREER ENGINE] ================================================================================"
+        "[2026-09-18 11:50:57] [365-DAY CAREER ENGINE] Active Company Universe: 4500+ Target Entities Scanned (MNCs, GCCs, Fortune 500, Listed Firms)",
+        "[2026-09-18 11:50:57] [365-DAY CAREER ENGINE] Processed batch of 50 company requisitions in this cycle.",
+        "[2026-09-18 11:50:57] [365-DAY CAREER ENGINE] ✅ 365-Day Autonomous Execution Cycle Complete. System Standby for Next Iteration.",
+        "[2026-09-18 11:50:57] [365-DAY CAREER ENGINE] ================================================================================"
       ]
     },
     "247_career_loop": {
       "filepath": "E:\\anti\\247_career_loop.log",
-      "exists": true,
-      "size_bytes": 970,
-      "line_count": 20,
-      "last_modified": "2026-08-24T10:09:20.847835+00:00",
-      "status": "HEALTHY",
-      "sample_tail": [
-        "[2026-08-24 15:38:40] [24/7 CAREER ENGINE] Active 24/7 Autonomous Cycle Executed successfully.",
-        "[2026-08-24 15:39:20] [24/7 CAREER ENGINE] Active 24/7 Autonomous Cycle Executed successfully."
-      ]
+      "exists": false,
+      "size_bytes": 0,
+      "line_count": 0,
+      "last_modified": null,
+      "status": "FILE_NOT_FOUND",
+      "sample_tail": []
     },
     "master_autopilot": {
       "filepath": "E:\\anti\\master_autopilot.log",
       "exists": true,
-      "size_bytes": 20283,
-      "line_count": 225,
-      "last_modified": "2026-08-26T09:44:48.527300+00:00",
+      "size_bytes": 2739,
+      "line_count": 30,
+      "last_modified": "2026-09-18T06:20:57.654020+00:00",
       "status": "HEALTHY",
       "sample_tail": [
-        "[2026-08-26 15:14:47] [AUTOPILOT] [STEP 5/5] Performing System Health & Diagnostics Audit...",
-        "[2026-08-26 15:14:48] [AUTOPILOT]   -> Result: PASS",
-        "[2026-08-26 15:14:48] [AUTOPILOT] ================================================================================",
-        "[2026-08-26 15:14:48] [AUTOPILOT] ✅ MASTER AUTONOMOUS CYCLE COMPLETED SUCCESSFULLY.",
-        "[2026-08-26 15:14:48] [AUTOPILOT] ================================================================================"
+        "[2026-09-18 11:50:57] [AUTOPILOT]   -> Result: PASS (All Tables ACID Verified)",
+        "[2026-09-18 11:50:57] [AUTOPILOT] ================================================================================",
+        "[2026-09-18 11:50:57] [AUTOPILOT] ✅ MASTER AUTONOMOUS CYCLE COMPLETED SUCCESSFULLY.",
+        "[2026-09-18 11:50:57] [AUTOPILOT] ================================================================================"
       ]
     },
     "hourly_job_application": {
       "filepath": "E:\\anti\\hourly_job_application.log",
       "exists": true,
-      "size_bytes": 9938,
-      "line_count": 92,
-      "last_modified": "2026-08-26T11:31:15.814707+00:00",
+      "size_bytes": 870,
+      "line_count": 10,
+      "last_modified": "2026-09-18T06:20:57.400900+00:00",
       "status": "HEALTHY",
       "sample_tail": [
-        "[2026-08-26 15:14:47] [HOURLY APPLICATION ENGINE] === Hourly Application Cycle Complete ===",
-        "[2026-08-26 17:01:15] [HOURLY APPLICATION ENGINE] === Triggering Autonomous Hourly Application Cycle ===",
-        "[2026-08-26 17:01:15] [HOURLY APPLICATION ENGINE] Successfully processed hourly batch of 0 enterprise applications.",
-        "[2026-08-26 17:01:15] [HOURLY APPLICATION ENGINE] Total Registry Size: 3000 requisitions active across 15 sectors.",
-        "[2026-08-26 17:01:15] [HOURLY APPLICATION ENGINE] === Hourly Application Cycle Complete ==="
+        "[2026-09-18 11:50:56] [HOURLY APPLICATION ENGINE] === Triggering Autonomous Hourly Application Cycle ===",
+        "[2026-09-18 11:50:56] [HOURLY APPLICATION ENGINE] Successfully processed hourly batch of 25 enterprise applications.",
+        "[2026-09-18 11:50:56] [HOURLY APPLICATION ENGINE] Total Registry Size: 3062 requisitions active across 15 sectors.",
+        "[2026-09-18 11:50:56] [HOURLY APPLICATION ENGINE] === Hourly Application Cycle Complete ==="
       ]
     },
     "truth_audit_trail": {
       "filepath": "E:\\anti\\omega\\data\\truth_audit_trail.jsonl",
       "exists": true,
-      "size_bytes": 2261,
-      "line_count": 5,
-      "last_modified": "2026-08-26T09:28:06.581529+00:00",
+      "size_bytes": 2465228,
+      "line_count": 4190,
+      "last_modified": "2026-09-18T06:21:35.209320+00:00",
       "status": "HEALTHY",
       "sample_tail": [
-        "{\"audit_id\": \"AUD-0001\", \"timestamp\": \"2026-08-26T10:00:00Z\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-005\", \"from_stage\": \"INITIAL\", \"to_stage\": \"PREPARED\", \"proof_hash\": \"sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"proof_artifact_path\": \"proofs/google_draft_payload.json\", \"payload\": {\"timestamp\": \"2026-08-26T10:00:00Z\", \"payload_type\": \"ATS_MATCH_DRAFT\", \"ats_score\": 97.0}}",
-        "{\"audit_id\": \"AUD-0002\", \"timestamp\": \"2026-08-26T11:00:00Z\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-004\", \"from_stage\": \"PREPARED\", \"to_stage\": \"SENT\", \"proof_hash\": \"sha256:3b6a27bcceb6a42d62a3a8d02a6f0d73653215771de243a63ac048a18b59da29\", \"proof_artifact_path\": \"proofs/ey_outbound_dispatch.eml\", \"payload\": {\"timestamp\": \"2026-08-26T11:00:00Z\", \"message_id\": \"<ey-out-2026@anti.omega>\", \"outbound_channel\": \"Cold Email\"}}",
-        "{\"audit_id\": \"AUD-0003\", \"timestamp\": \"2026-08-26T12:15:00Z\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-003\", \"from_stage\": \"SENT\", \"to_stage\": \"DELIVERED\", \"proof_hash\": \"sha256:9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a\", \"proof_artifact_path\": \"proofs/deloitte_delivery_receipt.json\", \"payload\": {\"timestamp\": \"2026-08-26T12:15:00Z\", \"delivery_receipt\": \"SMTP 250 OK Delivered to mx1.deloitte.com\"}}",
-        "{\"audit_id\": \"AUD-0004\", \"timestamp\": \"2026-08-26T13:30:00Z\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-002\", \"from_stage\": \"DELIVERED\", \"to_stage\": \"REPLIED\", \"proof_hash\": \"sha256:cb8379ac2098aa165029e3938a51da0bcecfc008fd008f49f4f8f780f4f883b0\", \"proof_artifact_path\": \"proofs/amazon_recruiter_reply.eml\", \"payload\": {\"timestamp\": \"2026-08-26T13:30:00Z\", \"reply_text\": \"Hi Aditya, impressive background in 300+ deployments. Would like to connect.\", \"sentiment\": \"POSITIVE\"}}",
-        "{\"audit_id\": \"AUD-0005\", \"timestamp\": \"2026-08-26T14:45:00Z\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-001\", \"from_stage\": \"REPLIED\", \"to_stage\": \"INTERVIEW\", \"proof_hash\": \"sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069\", \"proof_artifact_path\": \"proofs/walmart_interview_invite.eml\", \"payload\": {\"timestamp\": \"2026-08-26T14:45:00Z\", \"interview_round\": \"Operations Case Study & SLA Modeling\", \"invite_artifact\": \"proofs/walmart_interview_invite.eml\"}}"
+        "{\"audit_id\": \"AUD-T1-0046\", \"timestamp\": \"2026-09-18T06:21:34.400572+00:00\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-T1-046\", \"from_stage\": \"INITIAL\", \"to_stage\": \"PREPARED\", \"proof_hash\": \"sha256:3d281bcb370ea7f06b4023f6aee13bdcf326693319e80be819b6069c5e41e4ec\", \"proof_artifact_path\": \"applications_generated/cipla_ltd_supply_chain_&_procuremen/application_manifest.json\", \"payload\": {\"company\": \"Cipla Ltd\", \"role\": \"Supply Chain & Procurement Operations Associate\", \"ats_score\": 96.5, \"ev_score\": 96.6, \"payload_type\": \"COMPLETE_APPLICATION_PACKAGE_PREPARED\"}}",
+        "{\"audit_id\": \"AUD-T1-0047\", \"timestamp\": \"2026-09-18T06:21:34.400572+00:00\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-T1-047\", \"from_stage\": \"INITIAL\", \"to_stage\": \"PREPARED\", \"proof_hash\": \"sha256:f47d8b3d982ebd913aeb40beca619614de80a3bd0c8938da235426f7fde655b5\", \"proof_artifact_path\": \"applications_generated/apollo_hospitals_healthcare_operations_&_p/application_manifest.json\", \"payload\": {\"company\": \"Apollo Hospitals\", \"role\": \"Healthcare Operations & Procurement Coordinator\", \"ats_score\": 96.5, \"ev_score\": 97.7, \"payload_type\": \"COMPLETE_APPLICATION_PACKAGE_PREPARED\"}}",
+        "{\"audit_id\": \"AUD-T1-0048\", \"timestamp\": \"2026-09-18T06:21:34.400572+00:00\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-T1-048\", \"from_stage\": \"INITIAL\", \"to_stage\": \"PREPARED\", \"proof_hash\": \"sha256:5349c2eb403fe5f3570788ff678aa2b25ed7b3795a7f03e9eece7c1d63aae4cb\", \"proof_artifact_path\": \"applications_generated/maruti_suzuki_india_automotive_supply_chain_&/application_manifest.json\", \"payload\": {\"company\": \"Maruti Suzuki India\", \"role\": \"Automotive Supply Chain & Logistics Operations Specialist\", \"ats_score\": 96.5, \"ev_score\": 90.0, \"payload_type\": \"COMPLETE_APPLICATION_PACKAGE_PREPARED\"}}",
+        "{\"audit_id\": \"AUD-T1-0049\", \"timestamp\": \"2026-09-18T06:21:34.400572+00:00\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-T1-049\", \"from_stage\": \"INITIAL\", \"to_stage\": \"PREPARED\", \"proof_hash\": \"sha256:fc1a85e0bc48e628a10eb04830037752123f5a0a71067c7b3add03054b46d405\", \"proof_artifact_path\": \"applications_generated/tata_motors_global_mobility_&_vendor_/application_manifest.json\", \"payload\": {\"company\": \"Tata Motors\", \"role\": \"Global Mobility & Vendor Operations Specialist\", \"ats_score\": 96.5, \"ev_score\": 91.1, \"payload_type\": \"COMPLETE_APPLICATION_PACKAGE_PREPARED\"}}",
+        "{\"audit_id\": \"AUD-T1-0050\", \"timestamp\": \"2026-09-18T06:21:34.400572+00:00\", \"status\": \"COMMITTED_VERIFIED\", \"record_id\": \"PIP-T1-050\", \"from_stage\": \"INITIAL\", \"to_stage\": \"PREPARED\", \"proof_hash\": \"sha256:77bbec831e7448dc2297f05b6334e55e531fa0e1f7cafac24e6567b536326c0a\", \"proof_artifact_path\": \"applications_generated/hindalco_industries_novelis_global_metals_logistics_&/application_manifest.json\", \"payload\": {\"company\": \"Hindalco Industries (Novelis)\", \"role\": \"Global Metals Logistics & EXIM Compliance Analyst\", \"ats_score\": 96.5, \"ev_score\": 92.2, \"payload_type\": \"COMPLETE_APPLICATION_PACKAGE_PREPARED\"}}"
       ]
     },
     "omega_state": {
       "filepath": "E:\\anti\\omega\\data\\omega_state.json",
       "exists": true,
-      "size_bytes": 17940,
-      "line_count": 460,
-      "last_modified": "2026-08-26T09:44:35.240099+00:00",
+      "size_bytes": 38595,
+      "line_count": 750,
+      "last_modified": "2026-09-09T10:24:51.793157+00:00",
       "status": "HEALTHY",
       "sample_tail": [
         "\"conversion_rate\": 0.233,",

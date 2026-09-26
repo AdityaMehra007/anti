@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salary & Offer Counter-Negotiation Simulator | ADI SOVEREIGN OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --card-hover: #16223b;
+      --teal: #00d4aa;
+      --teal-glow: rgba(0, 212, 170, 0.15);
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; line-height: 1.5; }
+    .container { max-width: 1300px; margin: 0 auto; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Navigation & Header */
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 20px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--teal); }
+    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--card-border); flex-wrap: wrap; gap: 16px; }
+    .badge { background: var(--teal-glow); color: var(--teal); padding: 4px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.3); display: inline-block; margin-bottom: 8px; letter-spacing: 0.5px; }
+    h1 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+    .subtitle { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+    .candidate-pill { background: #080d1a; border: 1px solid var(--card-border); padding: 10px 18px; border-radius: 12px; font-size: 0.85rem; text-align: right; }
+    .candidate-pill strong { color: #fff; display: block; font-size: 0.95rem; }
+
+    /* Layout Grids */
+    .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+    @media (max-width: 960px) { .main-grid { grid-template-columns: 1fr; } }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); position: relative; }
+    .card-title { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; }
+    .card-title span.tag { font-size: 0.75rem; padding: 3px 10px; border-radius: 6px; font-weight: 600; }
+    .tag-teal { background: rgba(0, 212, 170, 0.15); color: var(--teal); border: 1px solid rgba(0, 212, 170, 0.3); }
+    .tag-purple { background: rgba(139, 92, 246, 0.15); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+    .tag-amber { background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    /* Inputs */
+    .form-group { margin-bottom: 16px; }
+    label { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+    label span.val-disp { color: var(--teal); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+    input[type="number"], select, textarea { width: 100%; background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 12px 14px; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s; }
+    input[type="range"] { width: 100%; height: 6px; background: #1a2744; border-radius: 4px; accent-color: var(--teal); outline: none; margin: 8px 0; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 2px rgba(0, 212, 170, 0.2); }
+
+    /* Financial Stat Cards */
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+    @media (max-width: 600px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-card { background: #080d1a; border: 1px solid var(--card-border); border-radius: 12px; padding: 14px; text-align: center; }
+    .stat-card.highlight { border-color: var(--teal); background: rgba(0, 212, 170, 0.04); }
+    .stat-card.purple { border-color: var(--purple); background: rgba(139, 92, 246, 0.04); }
+    .stat-title { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+    .stat-value { font-size: 1.4rem; font-weight: 800; color: #fff; margin-top: 4px; }
+    .stat-diff { font-size: 0.75rem; font-weight: 700; color: var(--teal); margin-top: 2px; }
+
+    /* Breakdown Table */
+    .calc-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 10px; }
+    .calc-table tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .calc-table td { padding: 10px 4px; }
+    .calc-table td:last-child { text-align: right; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+    .calc-table tr.total-row { border-top: 2px solid var(--card-border); border-bottom: none; font-weight: 700; }
+    .calc-table tr.total-row td { padding-top: 14px; font-size: 1rem; color: #fff; }
+    .calc-table tr.total-row td:last-child { color: var(--teal); font-size: 1.25rem; font-weight: 800; }
+
+    /* Button & Actions */
+    .btn { background: var(--teal); color: #070b14; font-weight: 700; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.95rem; transition: all 0.2s; width: 100%; text-decoration: none; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,212,170,0.4); }
+    .btn.secondary { background: #1a2744; color: #fff; border: 1px solid var(--card-border); }
+    .btn.secondary:hover { background: #24355c; border-color: var(--teal); }
+    .btn.purple { background: var(--purple); color: #fff; }
+    .btn.purple:hover { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4); }
+
+    /* Strategy Pills */
+    .strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+    .strat-btn { background: #080d1a; border: 1px solid var(--card-border); color: var(--text-muted); padding: 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; text-align: center; transition: all 0.2s; }
+    .strat-btn:hover { border-color: var(--teal); color: #fff; }
+    .strat-btn.active { background: rgba(0, 212, 170, 0.12); border-color: var(--teal); color: var(--teal); font-weight: 700; }
+
+    /* Objection Battleground */
+    .objection-list { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+    .objection-item { background: #080d1a; border: 1px solid var(--card-border); border-radius: 10px; padding: 14px; cursor: pointer; transition: all 0.2s; }
+    .objection-item:hover { border-color: var(--purple); background: #0e1629; }
+    .objection-item.active { border-color: var(--purple); background: rgba(139, 92, 246, 0.08); }
+    .objection-q { font-weight: 700; font-size: 0.9rem; color: #fff; display: flex; align-items: center; justify-content: space-between; }
+    .objection-a { font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.06); display: none; }
+    .objection-item.active .objection-a { display: block; }
+    .script-quote { background: rgba(0, 212, 170, 0.06); border-left: 3px solid var(--teal); padding: 10px 12px; border-radius: 4px; color: #fff; margin-top: 8px; font-style: italic; }
+
+    /* Benchmark Table */
+    .bench-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 12px; }
+    .bench-table th { text-align: left; padding: 10px 12px; background: #080d1a; color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--card-border); }
+    .bench-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .bench-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Toast Notification */
+    #toast { position: fixed; bottom: 24px; right: 24px; background: var(--teal); color: #070b14; font-weight: 700; padding: 12px 24px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; transform: translateY(10px); z-index: 1000; font-size: 0.9rem; }
+    #toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Back to Sovereign Applications Suite</a>
+
+    <header>
+      <div>
+        <span class="badge">TACTICAL OFFER NEGOTIATION SUITE</span>
+        <h1>💼 Interactive Salary & Offer Counter-Negotiator</h1>
+        <p class="subtitle">Simulate in-hand compensation, optimize CTC leverage, and generate metric-backed counter-offers for Bengaluru GCCs & MNCs</p>
+      </div>
+      <div class="candidate-pill">
+        <span style="color: var(--text-muted); font-size: 0.75rem;">CANDIDATE DOSSIER</span>
+        <strong>Aditya Mehra (BBA IB '26)</strong>
+        <span style="color: var(--teal); font-size: 0.8rem;">300+ Deployments • Tier-1 vendor SLA governance</span>
+      </div>
+    </header>
+
+    <!-- Top Grid: Initial Offer vs Counter-Offer Simulator -->
+    <div class="main-grid">
+      <!-- Card 1: Initial Offer Input & In-Hand Engine -->
+      <div class="card">
+        <div class="card-title">
+          <span>📥 1. Initial Employer Offer Breakdown</span>
+          <span class="tag tag-teal">Real-Time In-Hand Tax Engine</span>
+        </div>
+
+        <div class="form-group">
+          <label>Target Employer / Industry Archetype</label>
+          <select id="employerPreset" onchange="applyPreset()">
+            <option value="walmart">Walmart Global Tech (GCC / Retail Tech — Kadubeesanahalli)</option>
+            <option value="amazon">Amazon Operations / TRMS (Big Tech — Bagmane)</option>
+            <option value="google">Google Scaled Operations (Big Tech — Old Madras Rd)</option>
+            <option value="goldman">Goldman Sachs (Investment Banking — ORR)</option>
+            <option value="deloitte">Deloitte / EY GDS (Big 4 Advisory — Bangalore)</option>
+            <option value="maersk">Maersk / DHL Global SCM (Logistics & EXIM)</option>
+            <option value="razorpay">Razorpay / CRED (Tier-1 FinTech Unicorn)</option>
+            <option value="custom" selected>Custom Enterprise Offer Configuration</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <span>Base Fixed Salary (Annual LPA)</span>
+            <span class="val-disp" id="dispBase">₹7.50 LPA</span>
+          </label>
+          <input type="range" id="inputBase" min="4.0" max="18.0" step="0.25" value="7.50" oninput="calculateAll()">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label>
+              <span>Performance Variable (%)</span>
+              <span class="val-disp" id="dispVarPct">10%</span>
+            </label>
+            <input type="range" id="inputVarPct" min="0" max="30" step="1" value="10" oninput="calculateAll()">
+          </div>
+          <div class="form-group">
+            <label>
+              <span>Joining / Sign-on (LPA)</span>
+              <span class="val-disp" id="dispSignOn">₹1.00 LPA</span>
+            </label>
+            <input type="range" id="inputSignOn" min="0" max="5.0" step="0.25" value="1.00" oninput="calculateAll()">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label>
+              <span>ESOPs / RSUs (Annualized LPA)</span>
+              <span class="val-disp" id="dispRSU">₹0.50 LPA</span>
+            </label>
+            <input type="range" id="inputRSU" min="0" max="6.0" step="0.25" value="0.50" oninput="calculateAll()">
+          </div>
+          <div class="form-group">
+            <label>
+              <span>Monthly Perks / Shift / WFH (₹)</span>
+              <span class="val-disp" id="dispPerks">₹6,000/mo</span>
+            </label>
+            <input type="range" id="inputPerks" min="0" max="25000" step="1000" value="6000" oninput="calculateAll()">
+          </div>
+        </div>
+
+        <!-- Initial Offer Summary Table -->
+        <table class="calc-table">
+          <tr>
+            <td>Total Cost to Company (CTC):</td>
+            <td id="initialTotalCTC">₹9.75 LPA</td>
+          </tr>
+          <tr>
+            <td>Year 1 Realizable Cash (Fixed + Variable + Sign-on):</td>
+            <td id="initialYr1Cash">₹9.25 LPA</td>
+          </tr>
+          <tr>
+            <td>Est. Monthly Income Tax (New Regime FY26):</td>
+            <td id="initialTaxMonthly" style="color: var(--rose);">-₹2,150</td>
+          </tr>
+          <tr>
+            <td>Est. Monthly PF (12% of Basic) + PT:</td>
+            <td id="initialPFMonthly" style="color: var(--amber);">-₹3,950</td>
+          </tr>
+          <tr class="total-row">
+            <td>Net Monthly In-Hand Cash:</td>
+            <td id="initialNetMonthly">₹57,400 / mo</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Card 2: Strategic Counter-Offer Calibration Engine -->
+      <div class="card">
+        <div class="card-title">
+          <span>🎯 2. Counter-Offer Strategy & Arbitrage Target</span>
+          <span class="tag tag-purple">High-Conversion Model</span>
+        </div>
+
+        <label style="margin-bottom: 8px;">Select Counter-Offer Strategic Archetype:</label>
+        <div class="strategy-grid">
+          <div class="strat-btn active" onclick="setStrategy('value_metric', this)">
+            ⚡ Value-Metric Multiplier<br><span style="font-size: 0.7rem; color: var(--text-dim);">+18% Base + Performance</span>
+          </div>
+          <div class="strat-btn" onclick="setStrategy('competing_gcc', this)">
+            🏛️ Competing GCC Leverage<br><span style="font-size: 0.7rem; color: var(--text-dim);">+22% Base + Sign-On Boost</span>
+          </div>
+          <div class="strat-btn" onclick="setStrategy('cash_max', this)">
+            💰 Max First-Year Cash<br><span style="font-size: 0.7rem; color: var(--text-dim);">+₹1.5L Joining Bonus</span>
+          </div>
+          <div class="strat-btn" onclick="setStrategy('fast_track', this)">
+            📈 6-Month Appraisal Lock<br><span style="font-size: 0.7rem; color: var(--text-dim);">Performance Milestone Link</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Target Operational Focus Area</label>
+          <select id="targetRoleSelect" onchange="calculateAll()">
+            <option value="ops_analyst" selected>Operations Analyst / Supply Chain Excellence (standardized vendor rate governance Proof)</option>
+            <option value="b2b_growth">B2B Business Development & Alliances (commercial pipeline acceleration Proof)</option>
+            <option value="exim_lead">EXIM & Global Trade Compliance Coordinator (Incoterms/LC Proof)</option>
+            <option value="ai_ops">AI Data Operations Specialist (Instawork 99%+ Accuracy Proof)</option>
+            <option value="event_lead">Large-Scale Operations Lead (AERO India 2025 / Puma Proof)</option>
+          </select>
+        </div>
+
+        <!-- Strategy Summary Stats -->
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-title">Target Base</div>
+            <div class="stat-value mono" id="targetBaseLPA">₹8.85 LPA</div>
+            <div class="stat-diff" id="baseDiff">+₹1.35 LPA (+18%)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Target Sign-On</div>
+            <div class="stat-value mono" id="targetSignOnLPA">₹1.50 LPA</div>
+            <div class="stat-diff" id="signOnDiff">+₹50,000</div>
+          </div>
+          <div class="stat-card highlight">
+            <div class="stat-title">Net Take-Home</div>
+            <div class="stat-value mono" id="targetInHandMonthly" style="color: var(--teal);">₹66,800</div>
+            <div class="stat-diff" id="inHandDiff">+₹9,400 / mo</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(0, 212, 170, 0.05); border: 1px solid rgba(0, 212, 170, 0.2); border-radius: 12px; padding: 14px; margin-bottom: 16px;">
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--teal); margin-bottom: 4px;">VERIFIED VALUE LEVERAGE EMBEDDED:</div>
+          <div style="font-size: 0.85rem; color: var(--text-muted);" id="strategyExplanation">
+            Leveraging verified track record of managing 300+ deployments and vendor SLA governance and rate structuring to justify upper-quartile base salary for Bengaluru operations roles.
+          </div>
+        </div>
+
+        <button class="btn purple" onclick="generateCounterScript()">
+          ⚡ Generate Metric-Backed Counter-Offer Script ➔
+        </button>
+      </div>
+    </div>
+
+    <!-- Middle Grid: Generated Letter & Objection Battleground -->
+    <div class="main-grid">
+      <!-- Card 3: 1-Click Executive Counter Letter -->
+      <div class="card">
+        <div class="card-title">
+          <span>📝 3. Executive Counter-Offer Letter Generator</span>
+          <button class="btn secondary" style="width: auto; padding: 6px 14px; font-size: 0.8rem;" onclick="copyScript()">📋 Copy Email</button>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+          Tailored, polite, high-leverage email negotiation draft ready to send to Talent Acquisition / HRBP:
+        </p>
+
+        <textarea id="counterEmailText" style="height: 270px; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; line-height: 1.45;"></textarea>
+
+        <div style="display: flex; gap: 10px; margin-top: 12px;">
+          <button class="btn" onclick="copyScript()">📋 Copy to Clipboard</button>
+          <button class="btn secondary" onclick="downloadCounterPDF()">💾 Download TXT Draft</button>
+        </div>
+      </div>
+
+      <!-- Card 4: Recruiter Objection Battleground -->
+      <div class="card">
+        <div class="card-title">
+          <span>⚔️ 4. Recruiter Objection & Rebuttal Battleground</span>
+          <span class="tag tag-amber">Live Practice</span>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Click any common recruiter pushback to view the precise executive response script:
+        </p>
+
+        <div class="objection-list">
+          <div class="objection-item active" onclick="toggleObjection(this)">
+            <div class="objection-q">
+              <span>1. "This is our fixed campus graduate band; we cannot make exceptions."</span>
+              <span>▼</span>
+            </div>
+            <div class="objection-a">
+              <p><strong>Strategic Stance:</strong> Acknowledge policy without conceding. Differentiate candidate profile from generic grads using verified field execution.</p>
+              <div class="script-quote">
+                "I completely understand standard graduate grid constraints. However, having already led 300+ operational deployments including AERO India 2025 and engineered a standardized vendor rate governance in commercial operations, my ramp-up time is zero. I can contribute day-one without handholding. If base is strictly capped at ₹[BASE] LPA, could we bridge the differential with a ₹[SIGNON] LPA joining bonus or an accelerated 6-month performance appraisal milestone?"
+              </div>
+            </div>
+          </div>
+
+          <div class="objection-item" onclick="toggleObjection(this)">
+            <div class="objection-q">
+              <span>2. "We do not offer sign-on bonuses for entry/associate level roles."</span>
+              <span>▼</span>
+            </div>
+            <div class="objection-a">
+              <p><strong>Strategic Stance:</strong> Pivot from sign-on to relocation allowance, retention milestone, or flexible annual variable bonus guarantee.</p>
+              <div class="script-quote">
+                "Understood. If a standard signing bonus isn't feasible, I'd be glad to structure this as a relocation & tech setup allowance, or alternatively lock in a guaranteed minimum 12% first-year variable bonus tied directly to my operational SLA targets."
+              </div>
+            </div>
+          </div>
+
+          <div class="objection-item" onclick="toggleObjection(this)">
+            <div class="objection-q">
+              <span>3. "If we match your counter-number, will you accept and sign today?"</span>
+              <span>▼</span>
+            </div>
+            <div class="objection-a">
+              <p><strong>Strategic Stance:</strong> High-commitment closing technique that secures the win while confirming all components in writing.</p>
+              <div class="script-quote">
+                "Yes, absolutely. [Company] is my top-choice organization, and I am fully aligned with your vision. If we can adjust the fixed base to ₹[TARGET_BASE] LPA with the discussed structure, I am prepared to sign and return the finalized offer letter within 4 hours."
+              </div>
+            </div>
+          </div>
+
+          <div class="objection-item" onclick="toggleObjection(this)">
+            <div class="objection-q">
+              <span>4. "Do you have other written offers in hand?"</span>
+              <span>▼</span>
+            </div>
+            <div class="objection-a">
+              <p><strong>Strategic Stance:</strong> Maintain professional leverage and confidentiality without fabricating or making ultimatums.</p>
+              <div class="script-quote">
+                "I am currently in final-stage discussions with two other Bangalore GCC/enterprise teams with compensation bands in the ₹8.5L–₹10.5L range. However, [Company]'s operational scale and team culture make this my strongest preference, which is why I want to find a mutually great number here first."
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Top 15 Bangalore Enterprise Benchmarks Table -->
+    <div class="card" style="margin-bottom: 28px;">
+      <div class="card-title">
+        <span>📊 5. Bangalore 2026 Enterprise Fresh BBA Compensation Benchmark Matrix</span>
+        <span class="tag tag-teal">Verified GCC Market Intelligence</span>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table class="bench-table">
+          <thead>
+            <tr>
+              <th>Enterprise Company</th>
+              <th>Category</th>
+              <th>Bangalore Hub Location</th>
+              <th>Typical Base (LPA)</th>
+              <th>Sign-on / Var (LPA)</th>
+              <th>Avg CTC (LPA)</th>
+              <th>Est. Monthly Net</th>
+              <th>Aditya Mehra Conversion Angle</th>
+            </tr>
+          </thead>
+          <tbody id="benchmarkTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast">✅ Copied to clipboard!</div>
+
+  <script>
+    const BENCHMARKS = [
+      { name: "Walmart Global Tech", cat: "Tier-1 GCC / Retail", loc: "Kadubeesanahalli / ORR", base: 7.0, signon: 1.5, ctc: 8.5, net: "₹56,000", pitch: "Supply Chain & SCM analytics, Tier-1 vendor rate structuring" },
+      { name: "Amazon Operations", cat: "Big Tech / TRMS", loc: "Bagmane Constellation", base: 6.5, signon: 2.3, ctc: 8.8, net: "₹54,000", pitch: "ATS/TRMS data operations, 99%+ quality accuracy at Instawork" },
+      { name: "Google India", cat: "Big Tech", loc: "Old Madras Road", base: 8.0, signon: 2.8, ctc: 10.8, net: "₹68,000", pitch: "Global Scaled Operations, high-velocity multi-stakeholder delivery" },
+      { name: "Microsoft India", cat: "Big Tech", loc: "Bellandur / ORR", base: 7.8, signon: 2.4, ctc: 10.2, net: "₹65,000", pitch: "Commercial Operations & Cloud Partner Business Management" },
+      { name: "Goldman Sachs", cat: "Global Investment Bank", loc: "Helios Business Park", base: 8.5, signon: 2.7, ctc: 11.2, net: "₹72,000", pitch: "Operations Analyst, Incoterms/LC compliance, trade execution" },
+      { name: "JPMorgan Chase & Co.", cat: "Global Investment Bank", loc: "Prestige Tech Park", base: 7.5, signon: 1.8, ctc: 9.3, net: "₹61,000", pitch: "CIB Trade Services, strict zero-error operational discipline" },
+      { name: "Deloitte India / USI", cat: "Big 4 Consulting", loc: "Yelahanka / ORR", base: 6.2, signon: 1.6, ctc: 7.8, net: "₹51,000", pitch: "Supply Chain & Strategy Advisory, B2B commercial modeling" },
+      { name: "EY / EY GDS", cat: "Big 4 Consulting", loc: "Bagmane World Tech Center", base: 6.0, signon: 1.5, ctc: 7.5, net: "₹49,500", pitch: "Business transformation & International trade compliance" },
+      { name: "Maersk Global Centres", cat: "Global Trade & Ocean", loc: "Manyata Tech Park", base: 5.8, signon: 1.4, ctc: 7.2, net: "₹47,800", pitch: "EXIM Landed Cost, Incoterms 2020 & UCP 600 Letter of Credit" },
+      { name: "DHL Global Forwarding", cat: "Global Logistics", loc: "Whitefield", base: 5.5, signon: 1.3, ctc: 6.8, net: "₹45,500", pitch: "Customs tariff classification, freight handling & operations" },
+      { name: "Boeing India", cat: "Aerospace SEZ", loc: "BIETC Aerospace Park", base: 7.0, signon: 1.5, ctc: 8.5, net: "₹57,000", pitch: "AERO India 2025 operational lead, aerospace SCM coordination" },
+      { name: "Schneider Electric", cat: "Energy & Industrial SCM", loc: "Attibele / E-City", base: 6.2, signon: 1.4, ctc: 7.6, net: "₹51,000", pitch: "Lean procurement & vendor consolidation framework" },
+      { name: "Razorpay", cat: "FinTech Unicorn", loc: "Koramangala", base: 6.8, signon: 1.7, ctc: 8.5, net: "₹55,500", pitch: "Merchant Operations, Commercial Operations & enterprise pipeline velocity" },
+      { name: "Swiggy", cat: "Tech Unicorn", loc: "Devarabisanahalli", base: 6.5, signon: 1.5, ctc: 8.0, net: "₹53,500", pitch: "Instamart dark store & vendor delivery SLA optimization" },
+      { name: "CRED", cat: "FinTech Unicorn", loc: "Indiranagar", base: 7.2, signon: 2.0, ctc: 9.2, net: "₹60,000", pitch: "High-standard execution, merchant BD & strategic alliances" }
+    ];
+
+    let currentStrategy = 'value_metric';
+
+    function initBenchmarks() {
+      const tbody = document.getElementById('benchmarkTableBody');
+      tbody.innerHTML = BENCHMARKS.map(b => `
+        <tr>
+          <td><strong style="color: #fff;">${b.name}</strong></td>
+          <td><span style="color: var(--text-muted);">${b.cat}</span></td>
+          <td><span style="font-size: 0.8rem; color: var(--text-dim);">${b.loc}</span></td>
+          <td class="mono">₹${b.base.toFixed(1)} LPA</td>
+          <td class="mono">₹${b.signon.toFixed(1)} LPA</td>
+          <td><strong class="mono" style="color: var(--teal);">₹${b.ctc.toFixed(1)} LPA</strong></td>
+          <td class="mono" style="color: #fff;">${b.net}</td>
+          <td><span style="font-size: 0.78rem; color: var(--text-muted);">${b.pitch}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    function applyPreset() {
+      const val = document.getElementById('employerPreset').value;
+      if (val === 'walmart') {
+        document.getElementById('inputBase').value = 7.0;
+        document.getElementById('inputVarPct').value = 12;
+        document.getElementById('inputSignOn').value = 1.0;
+        document.getElementById('inputRSU').value = 0.0;
+        document.getElementById('inputPerks').value = 7000;
+      } else if (val === 'amazon') {
+        document.getElementById('inputBase').value = 6.5;
+        document.getElementById('inputVarPct').value = 14;
+        document.getElementById('inputSignOn').value = 1.5;
+        document.getElementById('inputRSU').value = 0.8;
+        document.getElementById('inputPerks').value = 9000;
+      } else if (val === 'google') {
+        document.getElementById('inputBase').value = 8.0;
+        document.getElementById('inputVarPct').value = 15;
+        document.getElementById('inputSignOn').value = 1.5;
+        document.getElementById('inputRSU').value = 1.5;
+        document.getElementById('inputPerks').value = 12000;
+      } else if (val === 'goldman') {
+        document.getElementById('inputBase').value = 8.5;
+        document.getElementById('inputVarPct').value = 18;
+        document.getElementById('inputSignOn').value = 1.5;
+        document.getElementById('inputRSU').value = 0.5;
+        document.getElementById('inputPerks').value = 8000;
+      } else if (val === 'deloitte') {
+        document.getElementById('inputBase').value = 6.2;
+        document.getElementById('inputVarPct').value = 10;
+        document.getElementById('inputSignOn').value = 1.0;
+        document.getElementById('inputRSU').value = 0.0;
+        document.getElementById('inputPerks').value = 5000;
+      } else if (val === 'maersk') {
+        document.getElementById('inputBase').value = 5.8;
+        document.getElementById('inputVarPct').value = 10;
+        document.getElementById('inputSignOn').value = 0.8;
+        document.getElementById('inputRSU').value = 0.0;
+        document.getElementById('inputPerks').value = 5000;
+      } else if (val === 'razorpay') {
+        document.getElementById('inputBase').value = 6.8;
+        document.getElementById('inputVarPct').value = 12;
+        document.getElementById('inputSignOn').value = 1.2;
+        document.getElementById('inputRSU').value = 0.8;
+        document.getElementById('inputPerks').value = 6000;
+      }
+      calculateAll();
+    }
+
+    function setStrategy(strat, elem) {
+      currentStrategy = strat;
+      document.querySelectorAll('.strat-btn').forEach(b => b.classList.remove('active'));
+      elem.classList.add('active');
+      calculateAll();
+    }
+
+    function calculateIndianTaxMonthly(annualGross) {
+      // New Tax Regime Slabs (after Standard Deduction 75,000)
+      const taxable = Math.max(0, annualGross - 75000);
+      let tax = 0;
+
+      if (taxable <= 300000) {
+        tax = 0;
+      } else if (taxable <= 700000) {
+        tax = (taxable - 300000) * 0.05;
+      } else if (taxable <= 1000000) {
+        tax = 20000 + (taxable - 70000) * 0.10;
+      } else if (taxable <= 1200000) {
+        tax = 20000 + 30000 + (taxable - 1000000) * 0.15;
+      } else if (taxable <= 1500000) {
+        tax = 20000 + 30000 + 30000 + (taxable - 1200000) * 0.20;
+      } else {
+        tax = 20000 + 30000 + 30000 + 60000 + (taxable - 1500000) * 0.30;
+      }
+
+      // 87A rebate if taxable income <= 7,00,000
+      if (taxable <= 700000) {
+        tax = 0;
+      } else {
+        tax = tax * 1.04; // 4% Health & Education Cess
+      }
+
+      return Math.round(tax / 12);
+    }
+
+    function calculateAll() {
+      const base = parseFloat(document.getElementById('inputBase').value);
+      const varPct = parseFloat(document.getElementById('inputVarPct').value);
+      const signOn = parseFloat(document.getElementById('inputSignOn').value);
+      const rsu = parseFloat(document.getElementById('inputRSU').value);
+      const perks = parseFloat(document.getElementById('inputPerks').value);
+
+      document.getElementById('dispBase').textContent = `₹${base.toFixed(2)} LPA`;
+      document.getElementById('dispVarPct').textContent = `${varPct}%`;
+      document.getElementById('dispSignOn').textContent = `₹${signOn.toFixed(2)} LPA`;
+      document.getElementById('dispRSU').textContent = `₹${rsu.toFixed(2)} LPA`;
+      document.getElementById('dispPerks').textContent = `₹${perks.toLocaleString('en-IN')}/mo`;
+
+      // Initial Calculations
+      const varAmt = base * (varPct / 100);
+      const totalCTC = base + varAmt + signOn + rsu;
+      const yr1Cash = base + varAmt + signOn;
+      const grossMonthly = (base * 100000 / 12) + perks;
+      
+      const basicMonthly = (base * 100000 * 0.5) / 12; // Assuming 50% basic
+      const pfMonthly = Math.round(Math.min(basicMonthly * 0.12, 1800)); // Standard PF
+      const ptMonthly = 200; // Karnataka PT
+      const taxMonthly = calculateIndianTaxMonthly(base * 100000);
+      const netMonthly = Math.round(grossMonthly - pfMonthly - ptMonthly - taxMonthly);
+
+      document.getElementById('initialTotalCTC').textContent = `₹${totalCTC.toFixed(2)} LPA`;
+      document.getElementById('initialYr1Cash').textContent = `₹${yr1Cash.toFixed(2)} LPA`;
+      document.getElementById('initialTaxMonthly').textContent = `-₹${taxMonthly.toLocaleString('en-IN')}`;
+      document.getElementById('initialPFMonthly').textContent = `-₹${(pfMonthly + ptMonthly).toLocaleString('en-IN')}`;
+      document.getElementById('initialNetMonthly').textContent = `₹${netMonthly.toLocaleString('en-IN')} / mo`;
+
+      // Counter-Offer Targets based on Strategy
+      let targetBase = base;
+      let targetSignOn = signOn;
+      let explanation = "";
+
+      if (currentStrategy === 'value_metric') {
+        targetBase = base * 1.18;
+        targetSignOn = Math.max(signOn, 1.25);
+        explanation = "Value-Metric Multiplier: Justifying an 18% base boost anchored on proven 300+ operational deployments and vendor SLA governance and rate structuring in commercial operations.";
+      } else if (currentStrategy === 'competing_gcc') {
+        targetBase = base * 1.22;
+        targetSignOn = signOn + 0.5;
+        explanation = "Competing GCC Leverage: Anchoring against median Tier-1 Bangalore GCC compensation (₹8.5L–₹11.2L LPA) to secure top-of-bracket fixed pay.";
+      } else if (currentStrategy === 'cash_max') {
+        targetBase = base * 1.12;
+        targetSignOn = signOn + 1.25;
+        explanation = "Max First-Year Cash: Securing an upfront ₹1.25L–₹1.5L joining bonus buffer without exceeding company internal base salary parity caps.";
+      } else if (currentStrategy === 'fast_track') {
+        targetBase = base * 1.15;
+        targetSignOn = signOn;
+        explanation = "6-Month Appraisal Lock: Proposing a moderate 15% base bump paired with a contractual 6-month KPI review for accelerated revision.";
+      }
+
+      const targetGrossMonthly = (targetBase * 100000 / 12) + perks;
+      const targetTaxMonthly = calculateIndianTaxMonthly(targetBase * 100000);
+      const targetNetMonthly = Math.round(targetGrossMonthly - pfMonthly - ptMonthly - targetTaxMonthly);
+
+      const baseGain = targetBase - base;
+      const signOnGain = targetSignOn - signOn;
+      const inHandGain = targetNetMonthly - netMonthly;
+
+      document.getElementById('targetBaseLPA').textContent = `₹${targetBase.toFixed(2)} LPA`;
+      document.getElementById('baseDiff').textContent = `+₹${baseGain.toFixed(2)} LPA (+${((baseGain/base)*100).toFixed(0)}%)`;
+      document.getElementById('targetSignOnLPA').textContent = `₹${targetSignOn.toFixed(2)} LPA`;
+      document.getElementById('signOnDiff').textContent = signOnGain > 0 ? `+₹${(signOnGain * 100000).toLocaleString('en-IN')}` : `Maintained`;
+      document.getElementById('targetInHandMonthly').textContent = `₹${targetNetMonthly.toLocaleString('en-IN')}`;
+      document.getElementById('inHandDiff').textContent = `+₹${inHandGain.toLocaleString('en-IN')} / mo`;
+      document.getElementById('strategyExplanation').textContent = explanation;
+
+      generateCounterScript();
+    }
+
+    function generateCounterScript() {
+      const base = parseFloat(document.getElementById('inputBase').value).toFixed(2);
+      const targetBase = parseFloat(document.getElementById('targetBaseLPA').textContent.replace('₹', '').replace(' LPA', ''));
+      const targetSignOn = document.getElementById('targetSignOnLPA').textContent;
+      const role = document.getElementById('targetRoleSelect').options[document.getElementById('targetRoleSelect').selectedIndex].text.split(' (')[0];
+      const presetName = document.getElementById('employerPreset').options[document.getElementById('employerPreset').selectedIndex].text.split(' (')[0];
+
+      let body = `Subject: Sincere Appreciation & Offer Discussion — Aditya Mehra (${role})\n\n`;
+      body += `Dear [Hiring Manager / Recruiter Name],\n\n`;
+      body += `Thank you sincerely for extending the offer to join ${presetName} as a ${role}. I am truly excited about the team's mission and the opportunity to contribute to your operational excellence in Bangalore.\n\n`;
+      body += `Having reviewed the initial compensation structure (Fixed Base of ₹${base} LPA), I would like to respectfully explore if there is flexibility to adjust the base component to ₹${targetBase.toFixed(2)} LPA${targetSignOn !== '₹0.00 LPA' ? ` alongside a joining incentive of ${targetSignOn}` : ''}.\n\n`;
+      body += `I propose this adjustment based on the quantifiable impact and immediate velocity I bring to the team:\n`;
+      body += `• Field-Tested Operational Leadership: Successfully managed 300+ multi-stakeholder deployments (Lead at AERO India 2025 and Puma India activations) ensuring 100% on-time delivery with zero ramp-up friction.\n`;
+      body += `• Proven Bottom-Line Optimization: Engineered a verified standardized vendor rate structuring and SLA governance at Commercial Operations & B2B Expansion through vendor restructuring.\n`;
+      body += `• High-Precision Standards: Maintained 99%+ accuracy in AI data curation at Instawork AI and deep working knowledge of EXIM trade compliance (Incoterms 2020 & UCP 600 LCs).\n\n`;
+
+      if (currentStrategy === 'fast_track') {
+        body += `If internal budget grids make this fixed base difficult today, I would gladly welcome locking in a structured 6-month performance review to adjust compensation based on achieving agreed operational KPIs.\n\n`;
+      }
+
+      body += `${presetName} remains my top choice, and with this alignment, I am eager to formally sign and commit immediately. Thank you again for your consideration, and I look forward to your thoughts.\n\n`;
+      body += `Warm regards,\nAditya Mehra\nBBA International Business | Dayananda Sagar University\n+91-7003456624 | adityamehra799@gmail.com\nhttps://adityamehra.in`;
+
+      document.getElementById('counterEmailText').value = body;
+    }
+
+    function toggleObjection(elem) {
+      document.querySelectorAll('.objection-item').forEach(i => i.classList.remove('active'));
+      elem.classList.add('active');
+    }
+
+    function copyScript() {
+      const copyText = document.getElementById("counterEmailText");
+      copyText.select();
+      navigator.clipboard.writeText(copyText.value);
+      showToast("✅ Counter-offer email copied to clipboard!");
+    }
+
+    function downloadCounterPDF() {
+      const text = document.getElementById("counterEmailText").value;
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = "Aditya_Mehra_Counter_Offer_Negotiation_Draft.txt";
+      a.click();
+      showToast("💾 Negotiation draft downloaded!");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // Initialize on load
+    window.onload = function() {
+      initBenchmarks();
+      calculateAll();
+    };
+  </script>
+</body>
+</html>

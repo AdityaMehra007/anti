@@ -118,7 +118,7 @@ class OmegaCareerBrain:
                     "event": "AERO INDIA 2025",
                     "role": "Exhibition Operations Lead",
                     "organization": "Salt in My Coca",
-                    "highlights": "Led 100k+ attendee ops, zero inventory shrinkage, 100% on-time daily opening, 15% cost reduction"
+                    "highlights": "Led 100k+ attendee ops, zero inventory shrinkage, 100% on-time daily opening, Tier-1 vendor SLA governance"
                 },
                 {
                     "clients": ["Tata Communications", "Puma Global"],
@@ -127,9 +127,9 @@ class OmegaCareerBrain:
                     "highlights": "300+ event and ops deployments, vendor SLA governance"
                 },
                 {
-                    "role": "Business Development Intern",
-                    "organization": "Pencil Mark Interior Solutions LLP",
-                    "highlights": "INR 1.5L+ B2B revenue generated, commercial pipeline management"
+                    "role": "Commercial Operations & BD Specialist",
+                    "organization": "Commercial Projects",
+                    "highlights": "Commercial pipeline management, 48h proposal turnaround, account handovers"
                 },
                 {
                     "role": "AI Data Operations Specialist",
@@ -139,9 +139,9 @@ class OmegaCareerBrain:
             ],
             "core_competencies": [
                 "Operations & Run-of-Show Logistics",
-                "Vendor SLA Management & 15% Cost Reduction",
+                "Tier-1 Vendor SLA Governance & Rate Card Structuring",
                 "EXIM & Customs Compliance (Incoterms 2020, UCP 600, HS Codes)",
-                "B2B Business Development (INR 1.5L+ Revenue)",
+                "B2B Commercial Operations & Client Workflows",
                 "AI Data Operations (99%+ Precision)"
             ]
         }
@@ -252,7 +252,7 @@ class OmegaCareerBrain:
         p_offer = 0.78
         if any(kw in title_lower for kw in ["operations", "logistics", "trade", "exim", "analyst", "event"]):
             p_offer += 0.08
-        if any(kw in str(jd_text or "").lower() for kw in ["sla", "vendor", "cost savings", "incoterms", "15%"]):
+        if any(kw in str(jd_text or "").lower() for kw in ["sla", "vendor", "rate card", "incoterms", "governance"]):
             p_offer += 0.04
         if skill_penalty > 0.0:
             p_offer -= min(0.30, skill_penalty * 0.02)
@@ -387,24 +387,100 @@ class OmegaCareerBrain:
         # 12. Probability of Interview (0-10)
         prob_interview = round(min(10.0, (role_score * 0.25) + (exp_score * 0.25) + (network_score * 0.35) + (loc_score * 0.15)), 1)
 
-        weights = {
-            "role_fit": (role_score, 0.12),
-            "skill_fit": (skill_score, 0.10),
-            "education_fit": (edu_score, 0.08),
-            "experience_fit": (exp_score, 0.12),
-            "location_fit": (loc_score, 0.08),
-            "salary_fit": (salary_score, 0.08),
-            "company_quality": (comp_quality, 0.12),
-            "career_upside": (career_upside, 0.08),
-            "network_access": (network_score, 0.12),
-            "probability_of_interview": (prob_interview, 0.10)
+        # Sales Risk Assessment
+        sales_indicators = [
+            ("sdr", 35.0),
+            ("sales development representative", 40.0),
+            ("cold call", 30.0),
+            ("cold calling", 30.0),
+            ("telecalling", 35.0),
+            ("commission based", 25.0),
+            ("commission-based", 25.0),
+            ("lead generation", 20.0),
+            ("quota", 15.0),
+            ("telesales", 35.0),
+            ("outbound sales", 25.0),
+        ]
+        sales_risk_score = 0.0
+        combined_text = f"{title_lower} {jd_lower}"
+        for indicator, penalty in sales_indicators:
+            if indicator in combined_text:
+                sales_risk_score += penalty
+        sales_risk_score = round(min(100.0, sales_risk_score), 1)
+        is_sales_excluded = sales_risk_score >= 50.0
+
+        # Component scores summing to overall score
+        c_role_fit = round(min(15.0, (role_score / 10.0) * 15.0), 1)
+        c_eligibility = round(min(10.0, (edu_score / 10.0) * 10.0), 1)
+        c_hiring_prob = round(min(15.0, (prob_interview / 10.0) * 15.0), 1)
+        c_comp_quality = round(min(10.0, (comp_quality / 10.0) * 10.0), 1)
+        c_compensation = round(min(10.0, (salary_score / 10.0) * 10.0), 1)
+        c_learning = 9.0 if is_tier_1 else 7.5
+        c_ai_relevance = 8.5 if any(w in combined_text for w in ["ai", "prompt", "workflow", "automation", "data", "reporting", "advisory", "analyst"]) else 7.0
+        c_career_capital = round(min(10.0, (career_upside / 10.0) * 10.0), 1)
+        c_growth = 4.5 if is_tier_1 else 3.5
+        c_location = round(min(5.0, (loc_score / 10.0) * 5.0), 1)
+
+        component_scores = {
+            "role_fit": c_role_fit,
+            "eligibility": c_eligibility,
+            "hiring_probability": c_hiring_prob,
+            "company_quality": c_comp_quality,
+            "compensation": c_compensation,
+            "learning": c_learning,
+            "ai_relevance": c_ai_relevance,
+            "career_capital": c_career_capital,
+            "growth": c_growth,
+            "location": c_location
         }
 
-        total_score = sum(val * wt * 10 for val, wt in weights.values())
-        overall_score = round(min(100.0, max(0.0, total_score)), 1)
+        if is_sales_excluded:
+            overall_score = round(max(15.0, min(45.0, sum(component_scores.values()) - sales_risk_score)), 1)
+        else:
+            overall_score = round(sum(component_scores.values()), 1)
 
         effort_factor = max(1.0, 10.0 - app_difficulty)
         strategic_index = round(((role_score + exp_score)/2 * prob_interview * career_upside * network_score) / (effort_factor * 10), 2)
+
+        if is_sales_excluded:
+            recommendation = "EXCLUDED_SALES_RISK"
+        elif overall_score >= 80.0:
+            if "global business operations & bd analyst" in title_lower:
+                recommendation = "HIGH_PRIORITY_OUTREACH"
+            elif "bd" in title_lower and "operations" not in title_lower:
+                recommendation = "HIGH_PRIORITY_OUTREACH"
+            else:
+                recommendation = "PRIORITY_1_TARGET_APPLY_AND_INMAIL"
+        elif overall_score >= 78.0:
+            recommendation = "HIGH_PRIORITY_OUTREACH"
+        elif overall_score >= 65.0:
+            recommendation = "STANDARD_APPLICATION"
+        else:
+            recommendation = "EXPLORATORY_MONITORING"
+
+        why_category = "business_operations" if any(w in combined_text for w in ["operations", "operational", "risk", "advisory", "process"]) else "commercial_strategy"
+        why_text = f"Strong alignment with candidate verified background in {why_category} and execution excellence at {company_name}."
+
+        explanation = {
+            "why": why_text,
+            "evidence": [
+                "Aero India 2025 ground operations leadership under strict protocol",
+                "Puma India & Tata Communications high-visibility brand activations",
+                "Vendor SLA governance and logistics rate card modeling",
+                "AI-augmented data synthesis & workflow automation"
+            ],
+            "missing_requirements": [k for k in ["SQL certification", "Enterprise ERP specialization"] if k.lower() in jd_lower],
+            "risks": ["Cold sales / commission quota risk"] if sales_risk_score > 0 else [],
+            "strongest_advantages": [
+                f"Verified track record matching {why_category}",
+                "Bengaluru metro/commute optimization",
+                "Tier-1 network leverage" if is_tier_1 else "Fast operational deployment"
+            ],
+            "recommended_action": (
+                "Do not pursue - role poses high quota/cold-calling sales risk." if is_sales_excluded else
+                "Dispatch Touch 1 outreach InMail to matched talent partner and submit tailored application package."
+            )
+        }
 
         return {
             "job_title": job_title,
@@ -412,6 +488,10 @@ class OmegaCareerBrain:
             "is_tier_1_enterprise": is_tier_1,
             "overall_opportunity_score": overall_score,
             "strategic_leverage_index": strategic_index,
+            "is_sales_excluded": is_sales_excluded,
+            "sales_risk_score": sales_risk_score,
+            "component_scores": component_scores,
+            "explanation": explanation,
             "score_breakdown": {
                 "role_fit": role_score,
                 "skill_fit": skill_score,
@@ -426,8 +506,5 @@ class OmegaCareerBrain:
                 "competition_assessment": competition_score,
                 "probability_of_interview": prob_interview
             },
-            "recommendation": (
-                "HIGH_PRIORITY_OUTREACH" if overall_score >= 78.0 else
-                ("STANDARD_APPLICATION" if overall_score >= 65.0 else "EXPLORATORY_MONITORING")
-            )
+            "recommendation": recommendation
         }

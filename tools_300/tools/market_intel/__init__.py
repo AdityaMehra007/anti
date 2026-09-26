@@ -1,0 +1,1 @@
+# Domain: Market Intelligence & Competitive Strategy\n

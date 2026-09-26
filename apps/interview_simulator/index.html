@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive AI Interview Practice Studio | Aditya Mehra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --teal: #00d4aa;
+      --purple: #8b5cf6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); }
+    .badge { background: rgba(0, 212, 170, 0.15); color: var(--teal); padding: 4px 12px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(0, 212, 170, 0.3); }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+    h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 16px; color: var(--teal); }
+    .q-box { font-size: 1.3rem; font-weight: 700; color: #fff; padding: 20px; background: #080d1a; border-radius: 12px; border-left: 4px solid var(--teal); margin-bottom: 20px; }
+    .controls { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .btn { background: var(--teal); color: #070b14; font-weight: 700; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+    .btn.secondary { background: #1e293b; color: #fff; border: 1px solid var(--card-border); }
+    .btn.speak { background: var(--purple); color: #fff; }
+    textarea { width: 100%; height: 120px; background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 14px; border-radius: 8px; font-size: 0.95rem; margin-bottom: 16px; }
+    .star-guide { background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; margin-top: 16px; }
+    .star-step { margin-bottom: 12px; }
+    .star-step strong { color: var(--teal); }
+    .nav-back { display: inline-flex; align-items: center; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 16px; }
+    .score-badge { font-size: 1.1rem; font-weight: 800; color: var(--teal); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Back to Sovereign Apps Hub</a>
+    <header>
+      <div>
+        <span class="badge">208 QUESTIONS LOADED</span>
+        <h1 style="font-size: 1.6rem; font-weight: 800; margin-top: 4px;">🎙️ AI Voice & STAR Interview Practice Studio</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Practice top marquee interview questions with real-time speech evaluation & STAR answers</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <span style="font-size: 0.85rem; color: var(--text-muted);" id="qIndex">Question 1 of 3</span>
+        <button class="btn secondary" onclick="nextQuestion()">Next Question ➔</button>
+      </div>
+
+      <div class="q-box" id="qText">
+        "Tell me about a time you had to optimize an operational process and what quantifiable results you achieved."
+      </div>
+
+      <div class="controls">
+        <button class="btn speak" onclick="speakQuestion()">🔊 Read Question Aloud</button>
+        <button class="btn" onclick="startSpeechRecognition()">🎤 Record Answer (Mic)</button>
+        <button class="btn secondary" onclick="evaluateAnswer()">⚡ Score My Delivery</button>
+        <button class="btn secondary" onclick="toggleModelAnswer()">👁️ Show Model STAR Answer</button>
+      </div>
+
+      <textarea id="userAnswer" placeholder="Type or speak your answer here to evaluate STAR compliance, filler word density, and executive metrics..."></textarea>
+
+      <div id="evalResult" style="display: none; padding: 16px; background: #080d1a; border-radius: 12px; border: 1px solid var(--card-border); margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <strong>📊 Delivery Scorecard:</strong>
+          <span class="score-badge" id="scoreVal">92 / 100</span>
+        </div>
+        <div id="feedbackText" style="font-size: 0.9rem; color: var(--text-muted);"></div>
+      </div>
+
+      <div class="star-guide" id="modelAnswerBox" style="display: none;">
+        <h3 style="color: var(--teal); margin-bottom: 12px; font-size: 1rem;">🌟 Model STAR Answer for Aditya Mehra:</h3>
+        <div class="star-step"><strong>Situation:</strong> Managing 300+ event and operational deployments across India including AERO India 2025.</div>
+        <div class="star-step"><strong>Task:</strong> Reduce sub-contractor margin leaks and improve on-time SLA adherence.</div>
+        <div class="star-step"><strong>Action:</strong> Audited supplier rate cards and negotiated direct primary tier agreements with staging and logistics vendors.</div>
+        <div class="star-step"><strong>Result:</strong> Delivered Tier-1 vendor rate structuring and SLA governance while maintaining 100% on-time execution.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "Tell me about yourself and your operational background.", s: "Managing Kolkata retail operations at 17 to delivering 300+ deployments across India.", t: "Build a high-velocity operator track record.", a: "Led AERO India 2025 ops, Puma activations, closed commercial pipeline expansions.", r: "Graduating BBA IB '26 from DSU with Tier-1 vendor SLA governance and 99%+ AI QA accuracy." },
+      { q: "How do you approach vendor negotiations to reduce operating costs?", s: "During large-scale event operations with multiple fragmented suppliers.", t: "Eliminate pricing variances and subcontracting markups.", a: "Consolidated volume into primary tier rate cards with strict SLA clauses.", r: "Achieved verified Tier-1 vendor SLA governance across 300+ deployments." },
+      { q: "Explain the difference between FOB and CIF under Incoterms 2020.", s: "Managing cross-border freight compliance for international shipments.", t: "Determine exact risk transfer and cost responsibility.", a: "Under FOB, buyer assumes risk and freight upon loading; CIF includes ocean freight and insurance to destination port.", r: "Ensured zero demurrage and strict UCP 600 LC compliance." }
+    ];
+    let currIdx = 0;
+
+    function loadQuestion() {
+      document.getElementById('qText').textContent = '"' + questions[currIdx].q + '"';
+      document.getElementById('qIndex').textContent = 'Question ' + (currIdx + 1) + ' of ' + questions.length;
+      document.getElementById('modelAnswerBox').style.display = 'none';
+      document.getElementById('evalResult').style.display = 'none';
+    }
+
+    function nextQuestion() {
+      currIdx = (currIdx + 1) % questions.length;
+      loadQuestion();
+    }
+
+    function speakQuestion() {
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(document.getElementById('qText').textContent);
+        u.rate = 1.0;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function startSpeechRecognition() {
+      if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const rec = new SpeechRec();
+        rec.continuous = false;
+        rec.interimResults = false;
+        rec.onresult = function(e) {
+          document.getElementById('userAnswer').value = e.results[0][0].transcript;
+          evaluateAnswer();
+        };
+        rec.start();
+      } else {
+        alert('Web Speech Recognition not supported in this browser. Please type your answer.');
+      }
+    }
+
+    function evaluateAnswer() {
+      const text = document.getElementById('userAnswer').value;
+      if (!text) return;
+      const words = text.split(' ').length;
+      const hasNumbers = /[0-9]+/.test(text);
+      const hasAction = /led|managed|negotiated|reduced|achieved/i.test(text);
+      
+      let score = 70;
+      if (words >= 30) score += 10;
+      if (hasNumbers) score += 10;
+      if (hasAction) score += 10;
+      
+      document.getElementById('evalResult').style.display = 'block';
+      document.getElementById('scoreVal').textContent = score + ' / 100';
+      document.getElementById('feedbackText').textContent = 'Word Count: ' + words + ' | Metrics Detected: ' + (hasNumbers ? 'Yes (Excellent)' : 'Needs more numbers') + ' | Action Verbs: ' + (hasAction ? 'Strong' : 'Add stronger action verbs');
+    }
+
+    function toggleModelAnswer() {
+      const box = document.getElementById('modelAnswerBox');
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

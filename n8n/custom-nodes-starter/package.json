@@ -1,0 +1,30 @@
+{
+  "name": "n8n-nodes-omega-workspace",
+  "version": "1.0.0",
+  "description": "Custom n8n nodes for OMEGA autonomous workspace integration",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint --ext .ts nodes",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/WorkspaceConnector/WorkspaceConnector.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "n8n-workflow": "^1.25.0",
+    "typescript": "^5.3.3"
+  }
+}

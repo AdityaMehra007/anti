@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnivanta — Enterprise Business Intelligence & Network Graph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        :root {
+            --bg-0: #050811;
+            --bg-1: #0a0f1d;
+            --bg-2: #10172a;
+            --border: #1e293b;
+            --blue: #38bdf8;
+            --purple: #818cf8;
+            --emerald: #10b981;
+            --amber: #f59e0b;
+            --rose: #f43f5e;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-0); color: var(--text); padding: 24px; min-height: 100vh; }
+        
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;
+        }
+        h1 {
+            font-size: 1.5rem; font-weight: 800;
+            background: linear-gradient(to right, var(--blue), var(--purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .header-nav { display: flex; gap: 12px; align-items: center; }
+        .nav-link {
+            color: var(--blue); font-size: 0.82rem; font-weight: 600; text-decoration: none;
+            padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.25);
+            background: rgba(56, 189, 248, 0.05); transition: all 0.2s;
+        }
+        .nav-link:hover { background: rgba(56, 189, 248, 0.15); }
+
+        .view-switch { display: flex; gap: 8px; margin-bottom: 20px; }
+        .tab-btn {
+            background: var(--bg-1); border: 1px solid var(--border); color: var(--text-muted);
+            padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: 'JetBrains Mono', monospace;
+        }
+        .tab-btn.active { background: rgba(56, 189, 248, 0.15); color: var(--blue); border-color: var(--blue); }
+
+        /* Graph Container */
+        #graphContainer {
+            background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px;
+            height: 620px; position: relative; overflow: hidden; margin-bottom: 24px;
+        }
+        svg { width: 100%; height: 100%; }
+        .node text { font-family: 'Inter', sans-serif; font-size: 11px; fill: #f8fafc; pointer-events: none; }
+        .link { stroke: #334155; stroke-opacity: 0.6; }
+        .tooltip {
+            position: absolute; background: rgba(15, 23, 42, 0.95); border: 1px solid var(--blue);
+            color: #fff; padding: 10px 14px; border-radius: 8px; font-size: 0.8rem;
+            pointer-events: none; display: none; z-index: 100; max-width: 280px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+        }
+
+        /* Company Grid */
+        .search-box { display: flex; gap: 12px; margin-bottom: 20px; }
+        input[type="text"] {
+            flex: 1; background: var(--bg-1); border: 1px solid var(--border);
+            color: var(--text); padding: 12px 16px; border-radius: 8px; font-size: 0.9rem;
+            outline: none;
+        }
+        input[type="text"]:focus { border-color: var(--blue); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+        .card {
+            background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px;
+            padding: 18px; position: relative; transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); border-color: var(--blue); }
+        .card h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 4px; }
+        .tier { font-size: 0.72rem; color: var(--purple); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .badge { background: rgba(16, 185, 129, 0.15); color: var(--emerald); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .score { position: absolute; top: 18px; right: 18px; font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 1.15rem; color: var(--blue); }
+        .detail { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>📊 Omnivanta Business Intelligence</h1>
+            <p style="color:var(--text-muted); font-size:0.85rem">Fortune Target Corporate Hierarchies, Bangalore Tech Corridors & Network Graph</p>
+        </div>
+        <div class="header-nav">
+            <a href="/" class="nav-link">← Control Tower</a>
+            <a href="/career/" class="nav-link">🚀 Career War Room</a>
+            <a href="/interview/interview_simulator.html" class="nav-link">🎙️ Interview Studio</a>
+        </div>
+    </header>
+
+    <div class="view-switch">
+        <button class="tab-btn active" onclick="switchView('graph', this)">🌐 D3.js Network Graph</button>
+        <button class="tab-btn" onclick="switchView('roster', this)">📋 Target Company Roster</button>
+    </div>
+
+    <!-- D3 Network Graph View -->
+    <div id="graphContainer">
+        <div id="tooltip" class="tooltip"></div>
+        <svg id="networkSvg"></svg>
+    </div>
+
+    <!-- Company Roster View -->
+    <div id="rosterView" style="display:none">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search target companies, corridors, or industry (e.g. Amazon, Goldman, Manyata)..." oninput="loadCompanies()">
+        </div>
+        <div class="grid" id="companyGrid">
+            <p style="color:var(--text-muted)">Loading real enterprise target database...</p>
+        </div>
+    </div>
+
+    <script>
+        let graphInitialized = false;
+
+        function switchView(view, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (view === 'graph') {
+                document.getElementById('graphContainer').style.display = 'block';
+                document.getElementById('rosterView').style.display = 'none';
+            } else {
+                document.getElementById('graphContainer').style.display = 'none';
+                document.getElementById('rosterView').style.display = 'block';
+                loadCompanies();
+            }
+        }
+
+        async function initNetworkGraph() {
+            if (graphInitialized) return;
+            try {
+                const res = await fetch('/api/bi/network-graph');
+                const data = await res.json();
+                
+                const svg = d3.select('#networkSvg');
+                const container = document.getElementById('graphContainer');
+                const width = container.clientWidth || 900;
+                const height = container.clientHeight || 620;
+
+                const colorScale = d3.scaleOrdinal()
+                    .domain(['candidate', 'corridor', 'company', 'referral'])
+                    .range(['#38bdf8', '#a855f7', '#10b981', '#f59e0b']);
+
+                const simulation = d3.forceSimulation(data.nodes)
+                    .force('link', d3.forceLink(data.links).id(d => d.id).distance(d => d.value === 3 ? 120 : (d.value === 2 ? 80 : 50)))
+                    .force('charge', d3.forceManyBody().strength(-180))
+                    .force('center', d3.forceCenter(width / 2, height / 2))
+                    .force('collision', d3.forceCollide().radius(25));
+
+                const g = svg.append('g');
+
+                // Add zoom capabilities
+                svg.call(d3.zoom().extent([[0, 0], [width, height]]).scaleExtent([0.4, 4]).on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                }));
+
+                const link = g.append('g')
+                    .selectAll('line')
+                    .data(data.links)
+                    .enter().append('line')
+                    .attr('class', 'link')
+                    .attr('stroke-width', d => d.value);
+
+                const node = g.append('g')
+                    .selectAll('g')
+                    .data(data.nodes)
+                    .enter().append('g')
+                    .attr('class', 'node')
+                    .call(d3.drag()
+                        .on('start', (event, d) => {
+                            if (!event.active) simulation.alphaTarget(0.3).restart();
+                            d.fx = d.x; d.fy = d.y;
+                        })
+                        .on('drag', (event, d) => {
+                            d.fx = event.x; d.fy = event.y;
+                        })
+                        .on('end', (event, d) => {
+                            if (!event.active) simulation.alphaTarget(0);
+                            d.fx = null; d.fy = null;
+                        })
+                    );
+
+                node.append('circle')
+                    .attr('r', d => d.type === 'candidate' ? 18 : (d.type === 'corridor' ? 14 : (d.type === 'company' ? 10 : 7)))
+                    .attr('fill', d => colorScale(d.type))
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 1.5);
+
+                node.append('text')
+                    .attr('dx', 14)
+                    .attr('dy', 4)
+                    .text(d => d.label);
+
+                // Tooltip
+                const tooltip = document.getElementById('tooltip');
+                node.on('mouseover', (event, d) => {
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = (event.offsetX + 15) + 'px';
+                    tooltip.style.top = (event.offsetY - 15) + 'px';
+                    tooltip.innerHTML = `
+                        <strong style="color:${colorScale(d.type)}">${d.label}</strong><br>
+                        <span style="font-size:0.75rem; color:#94a3b8">Type: ${d.type.toUpperCase()}</span><br>
+                        ${d.role ? `<span style="font-size:0.75rem; color:#38bdf8">Role: ${d.role}</span><br>` : ''}
+                        ${d.title ? `<span style="font-size:0.75rem; color:#f59e0b">Title: ${d.title}</span><br>` : ''}
+                        ${d.fit ? `<span style="font-size:0.75rem; color:#10b981">Fit: ${d.fit}/10.0</span>` : ''}
+                    `;
+                }).on('mouseout', () => {
+                    tooltip.style.display = 'none';
+                });
+
+                simulation.on('tick', () => {
+                    link
+                        .attr('x1', d => d.source.x)
+                        .attr('y1', d => d.source.y)
+                        .attr('x2', d => d.target.x)
+                        .attr('y2', d => d.target.y);
+
+                    node.attr('transform', d => `translate(${d.x},${d.y})`);
+                });
+
+                graphInitialized = true;
+            } catch (e) {
+                console.error('Failed to load network graph:', e);
+            }
+        }
+
+        async function loadCompanies() {
+            const query = document.getElementById('searchInput').value;
+            const res = await fetch('/api/bi/companies?q=' + encodeURIComponent(query));
+            const data = await res.json();
+            const grid = document.getElementById('companyGrid');
+            
+            if (!data.companies || data.companies.length === 0) {
+                grid.innerHTML = '<p style="color:var(--text-muted)">No matching target companies found.</p>';
+                return;
+            }
+
+            grid.innerHTML = data.companies.map(c => `
+                <div class="card">
+                    <span class="score">★ ${c.fitScore.toFixed(1)}</span>
+                    <h3>${c.name}</h3>
+                    <span class="tier">${c.tier}</span>
+                    <div style="margin-bottom:8px"><span class="badge">${c.industry}</span></div>
+                    <div class="detail">📍 <strong>Hub:</strong> ${c.location}</div>
+                    <div class="detail">⚡ <strong>Bengaluru Office:</strong> ${c.bengaluruPresence ? 'Active GCC Operations' : 'Global Only'}</div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize graph on page load
+        window.onload = () => {
+            initNetworkGraph();
+        };
+    </script>
+</body>
+</html>

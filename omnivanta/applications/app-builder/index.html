@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnivanta App Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-0: #07090f;
+            --bg-1: #0c1019;
+            --bg-2: #111827;
+            --border: #1e293b;
+            --purple: #a855f7;
+            --blue: #38bdf8;
+            --emerald: #10b981;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-0); color: var(--text); padding: 24px; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+        h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, var(--purple), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .layout { display: grid; grid-template-columns: 360px 1fr; gap: 24px; }
+        .card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .card h2 { font-size: 1.1rem; margin-bottom: 16px; color: var(--text); }
+        .field { margin-bottom: 14px; }
+        label { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; }
+        input, textarea, select { width: 100%; background: var(--bg-2); border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; }
+        .btn { width: 100%; background: linear-gradient(135deg, var(--purple), #7e22ce); color: white; padding: 10px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.85rem; }
+        .btn:hover { opacity: 0.9; }
+
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .app-item { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 16px; position: relative; }
+        .app-item h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--text); }
+        .badge { background: rgba(168, 85, 247, 0.15); color: var(--purple); padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        .detail { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>🛠️ Omnivanta App Builder</h1>
+            <p style="color:var(--text-muted); font-size:0.85rem">Autonomous Low-Code Micro-Applications & Enterprise Workflow Triggers</p>
+        </div>
+        <a href="/" style="color:var(--blue); font-size:0.85rem; font-weight:600; text-decoration:none">← Return to Control Tower</a>
+    </header>
+
+    <div class="layout">
+        <div class="card">
+            <h2>Generate Micro-App</h2>
+            <div class="field">
+                <label>App Name</label>
+                <input type="text" id="appName" placeholder="e.g. Vendor Payment Requisition">
+            </div>
+            <div class="field">
+                <label>Category</label>
+                <select id="appCat">
+                    <option value="OPERATIONS">Operations</option>
+                    <option value="FINANCE">Finance</option>
+                    <option value="HR">Talent & People</option>
+                    <option value="SALES">B2B Sales</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Description & Purpose</label>
+                <textarea id="appDesc" placeholder="Describe the workflow requirement..."></textarea>
+            </div>
+            <button class="btn" onclick="createCustomApp()">✨ Build & Deploy App</button>
+        </div>
+
+        <div>
+            <h2 style="font-size:1.1rem; margin-bottom:16px">📦 Published Enterprise Apps</h2>
+            <div class="apps-grid" id="appsContainer">
+                <p style="color:var(--text-muted)">Loading apps...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadApps() {
+            try {
+                const res = await fetch('/api/apps');
+                const data = await res.json();
+                const container = document.getElementById('appsContainer');
+                
+                if (!data.apps || data.apps.length === 0) {
+                    container.innerHTML = '<p style="color:var(--text-muted)">No custom apps published yet.</p>';
+                    return;
+                }
+
+                container.innerHTML = data.apps.map(a => `
+                    <div class="app-item">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px">
+                            <h3>${a.name}</h3>
+                            <span class="badge">${a.category}</span>
+                        </div>
+                        <p style="font-size:0.82rem; color:var(--text-muted)">${a.description || 'Enterprise micro-app'}</p>
+                        <div class="detail">⚡ <strong>Submissions:</strong> ${a.submissions_count} records</div>
+                        <div class="detail">📋 <strong>Fields:</strong> ${a.schema_fields.map(f => f.label || f.name).join(', ')}</div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function createCustomApp() {
+            const name = document.getElementById('appName').value.trim();
+            const category = document.getElementById('appCat').value;
+            const description = document.getElementById('appDesc').value.trim();
+            if (!name) return alert('Please enter an app name');
+
+            const res = await fetch('/api/apps', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, category, description })
+            });
+
+            if (res.ok) {
+                document.getElementById('appName').value = '';
+                document.getElementById('appDesc').value = '';
+                loadApps();
+            } else {
+                alert('Failed to deploy app');
+            }
+        }
+
+        loadApps();
+    </script>
+</body>
+</html>

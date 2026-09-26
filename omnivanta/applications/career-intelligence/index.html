@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnivanta — Autonomous Job Application Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-0: #050811;
+            --bg-1: #0a0f1d;
+            --bg-2: #10172a;
+            --bg-card: rgba(16, 23, 42, 0.85);
+            --border: #1e293b;
+            --border-hover: #38bdf8;
+            --blue: #38bdf8;
+            --emerald: #10b981;
+            --purple: #a855f7;
+            --amber: #f59e0b;
+            --rose: #f43f5e;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-0); color: var(--text); padding: 24px; min-height: 100vh; }
+        
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border); padding-bottom: 18px; margin-bottom: 24px;
+            backdrop-filter: blur(12px);
+        }
+        .header-title h1 {
+            font-size: 1.6rem; font-weight: 900;
+            background: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .header-title p { color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+        .header-actions { display: flex; gap: 12px; align-items: center; }
+        .btn-link {
+            color: var(--blue); text-decoration: none; font-size: 0.85rem; font-weight: 600;
+            display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px;
+            border: 1px solid rgba(56, 189, 248, 0.25); background: rgba(56, 189, 248, 0.05);
+            transition: all 0.2s;
+        }
+        .btn-link:hover { background: rgba(56, 189, 248, 0.15); border-color: var(--blue); }
+
+        /* KPI Cards */
+        .hero {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px; margin-bottom: 24px;
+        }
+        .stat-card {
+            background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px;
+            padding: 16px; position: relative; overflow: hidden;
+        }
+        .stat-card::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--emerald));
+        }
+        .stat-card h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; }
+        .stat-card .val { font-size: 1.75rem; font-weight: 900; color: #fff; font-family: 'JetBrains Mono', monospace; }
+        .stat-card .sub { font-size: 0.75rem; color: var(--emerald); margin-top: 4px; font-weight: 500; }
+
+        /* Controls / Search Bar */
+        .controls {
+            display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;
+            background: var(--bg-1); padding: 14px; border-radius: 12px; border: 1px solid var(--border);
+            align-items: center; justify-content: space-between;
+        }
+        .search-box {
+            flex: 1; min-width: 280px; position: relative;
+        }
+        .search-box input {
+            width: 100%; background: var(--bg-0); border: 1px solid var(--border);
+            border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 0.9rem;
+            outline: none; transition: border-color 0.2s;
+        }
+        .search-box input:focus { border-color: var(--blue); }
+        .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn {
+            background: var(--bg-0); border: 1px solid var(--border); color: var(--text-muted);
+            padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: 'JetBrains Mono', monospace;
+        }
+        .filter-btn:hover { color: #fff; border-color: var(--blue); }
+        .filter-btn.active {
+            background: rgba(56, 189, 248, 0.15); color: var(--blue); border-color: var(--blue);
+        }
+
+        /* Applications Grid */
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 16px; margin-bottom: 32px;
+        }
+        .app-card {
+            background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px;
+            padding: 18px; display: flex; flex-direction: column; justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s; position: relative;
+        }
+        .app-card:hover { transform: translateY(-3px); border-color: var(--border-hover); }
+        .app-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .app-company { font-size: 1.15rem; font-weight: 800; color: #fff; }
+        .app-id {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);
+            background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;
+        }
+        .app-role {
+            font-size: 0.95rem; font-weight: 600; color: var(--blue); margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .app-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+        .pill {
+            padding: 3px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 600;
+            font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 4px;
+        }
+        .pill-fit { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .pill-loc { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+        .pill-status {
+            padding: 3px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .status-PREPARED { background: rgba(56, 189, 248, 0.15); color: var(--blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+        .status-SUBMITTED { background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .status-LIVE_VERIFIED { background: rgba(16, 185, 129, 0.2); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.4); }
+
+        .referral-box {
+            background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px; padding: 10px; margin-bottom: 14px; font-size: 0.8rem;
+        }
+        .referral-box strong { color: #fff; }
+        .referral-link { color: var(--blue); text-decoration: none; word-break: break-all; }
+        .referral-link:hover { text-decoration: underline; }
+
+        /* Action Buttons */
+        .app-actions {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto;
+        }
+        .btn-action {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+            color: #fff; padding: 8px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;
+            cursor: pointer; text-align: center; text-decoration: none; transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 4px;
+        }
+        .btn-action:hover { background: rgba(255,255,255,0.12); border-color: var(--blue); }
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(16, 185, 129, 0.2));
+            border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(16, 185, 129, 0.4));
+            color: #fff;
+        }
+        .btn-apply {
+            grid-column: span 2;
+            background: #0284c7; border-color: #38bdf8; color: #fff; font-weight: 700;
+        }
+        .btn-apply:hover { background: #0369a1; }
+        .btn-receipt {
+            background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); color: var(--emerald);
+        }
+        .btn-receipt:hover { background: var(--emerald); color: #000; }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+            display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--bg-1); border: 1px solid var(--border); border-radius: 14px;
+            width: 100%; max-width: 900px; max-height: 90vh; display: flex; flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); overflow: hidden;
+        }
+        .modal-header {
+            padding: 16px 24px; border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-title { font-size: 1.25rem; font-weight: 800; color: #fff; }
+        .modal-close {
+            background: transparent; border: none; color: var(--text-muted);
+            font-size: 1.5rem; cursor: pointer; padding: 4px; line-height: 1;
+        }
+        .modal-close:hover { color: #fff; }
+
+        .modal-tabs {
+            display: flex; gap: 4px; background: rgba(0,0,0,0.3); padding: 8px 16px;
+            border-bottom: 1px solid var(--border); overflow-x: auto;
+        }
+        .modal-tab {
+            background: transparent; border: none; color: var(--text-muted);
+            padding: 8px 16px; border-radius: 6px; font-size: 0.82rem; font-weight: 600;
+            cursor: pointer; font-family: 'JetBrains Mono', monospace; transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .modal-tab:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        .modal-tab.active { color: var(--blue); background: rgba(56, 189, 248, 0.15); }
+
+        .modal-body {
+            padding: 24px; overflow-y: auto; flex: 1; font-size: 0.9rem; line-height: 1.6;
+        }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+        .copy-banner {
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 10px 16px; border-radius: 8px; margin-bottom: 16px;
+        }
+        pre {
+            background: var(--bg-0); border: 1px solid var(--border); border-radius: 8px;
+            padding: 16px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;
+            white-space: pre-wrap; color: #e2e8f0;
+        }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); }
+        .form-group input, .form-group textarea {
+            width: 100%; background: var(--bg-0); border: 1px solid var(--border);
+            border-radius: 6px; padding: 10px 12px; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--emerald); outline: none; }
+
+        .toast {
+            position: fixed; bottom: 24px; right: 24px; background: #0f172a; border: 1px solid var(--emerald);
+            color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); display: none; z-index: 2000; align-items: center; gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title">
+            <h1>🚀 Omnivanta Job Application Command Center</h1>
+            <p>Placement Acceleration Engine • 61 Bangalore MNC Requisitions • Zero-Trust Truth Verified</p>
+        </div>
+        <div class="header-actions">
+            <a href="/" class="btn-link">← Control Tower</a>
+            <a href="/bi/" class="btn-link">🌐 Network Graph</a>
+            <a href="/interview/interview_simulator.html" class="btn-link" target="_blank">🎙️ Interview Studio</a>
+            <a href="/career/compensation_calculator.html" class="btn-link" target="_blank">💰 Compensation</a>
+            <button class="btn-link" onclick="seedDatabase()">🔄 Sync Pipeline</button>
+        </div>
+    </header>
+
+    <!-- Top KPI Row -->
+    <div class="hero">
+        <div class="stat-card">
+            <h3>Candidate Profile</h3>
+            <div class="val" style="font-size:1.35rem">Aditya Mehra</div>
+            <div class="sub">BBA IB, DSU Bangalore '26</div>
+        </div>
+        <div class="stat-card">
+            <h3>Target Pipeline</h3>
+            <div class="val" id="statTotal">61</div>
+            <div class="sub">Verified MNC Openings</div>
+        </div>
+        <div class="stat-card">
+            <h3>Prepared Packages</h3>
+            <div class="val" id="statPrepared">61</div>
+            <div class="sub">Tailored CV & Cover Letters</div>
+        </div>
+        <div class="stat-card">
+            <h3>Submitted / Live</h3>
+            <div class="val" id="statSubmitted" style="color:var(--emerald)">0</div>
+            <div class="sub">Proof Receipts Hashed</div>
+        </div>
+        <div class="stat-card">
+            <h3>1st-Degree Network</h3>
+            <div class="val" style="color:var(--purple)">9,223</div>
+            <div class="sub">752 Matched Referrals</div>
+        </div>
+    </div>
+
+    <!-- Controls Bar -->
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search company, role, or corridor (e.g. Goldman, Boeing, EY, Whitefield)..." oninput="filterApps()">
+        </div>
+        <div class="filter-group">
+            <button class="filter-btn active" onclick="setFilter('ALL', this)">ALL (61)</button>
+            <button class="filter-btn" onclick="setFilter('PREPARED', this)">PREPARED</button>
+            <button class="filter-btn" onclick="setFilter('SUBMITTED', this)">SUBMITTED</button>
+            <button class="filter-btn" onclick="setFilter('LIVE_VERIFIED', this)">LIVE VERIFIED</button>
+        </div>
+    </div>
+
+    <!-- Application Cards Grid -->
+    <div class="grid" id="appsGrid">
+        <p style="color:var(--text-muted); font-size:0.9rem">Loading 61 application packages...</p>
+    </div>
+
+    <!-- Dossier Modal -->
+    <div class="modal-overlay" id="dossierModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <div class="modal-title" id="mCompany">Company Name</div>
+                    <div style="font-size:0.85rem; color:var(--blue)" id="mRole">Target Position</div>
+                </div>
+                <button class="modal-close" onclick="closeModal('dossierModal')">&times;</button>
+            </div>
+            <div class="modal-tabs">
+                <button class="modal-tab active" onclick="switchTab('tabCover')">Cover Letter</button>
+                <button class="modal-tab" onclick="switchTab('tabResume')">Target Resume</button>
+                <button class="modal-tab" onclick="switchTab('tabOutreach')">Cold Outreach</button>
+                <button class="modal-tab" onclick="switchTab('tabReferral')">Referral Note</button>
+                <button class="modal-tab" onclick="switchTab('tabStar')">STAR Defense</button>
+            </div>
+            <div class="modal-body">
+                <div id="tabCover" class="tab-pane active">
+                    <div class="copy-banner">
+                        <span style="font-size:0.8rem; color:var(--blue)">Tailored for BBA International Business candidate</span>
+                        <button class="btn-action" onclick="copyText('mCoverText')">📋 Copy Cover Letter</button>
+                    </div>
+                    <pre id="mCoverText"></pre>
+                </div>
+                <div id="tabResume" class="tab-pane">
+                    <div class="copy-banner">
+                        <span style="font-size:0.8rem; color:var(--emerald)">ATS-Optimized Extract with Aero India & Pencil Mark Experience</span>
+                        <button class="btn-action" onclick="copyText('mResumeText')">📋 Copy Resume</button>
+                    </div>
+                    <pre id="mResumeText"></pre>
+                </div>
+                <div id="tabOutreach" class="tab-pane">
+                    <div class="copy-banner">
+                        <span style="font-size:0.8rem; color:var(--purple)">Direct Recruiter InMail / Cold Email Copy</span>
+                        <button class="btn-action" onclick="copyText('mOutreachText')">📋 Copy Outreach Pitch</button>
+                    </div>
+                    <pre id="mOutreachText"></pre>
+                </div>
+                <div id="tabReferral" class="tab-pane">
+                    <div class="copy-banner">
+                        <span style="font-size:0.8rem; color:var(--amber)">300-Character Warm Connection Request Note</span>
+                        <button class="btn-action" onclick="copyText('mReferralText')">📋 Copy Referral Message</button>
+                    </div>
+                    <pre id="mReferralText"></pre>
+                </div>
+                <div id="tabStar" class="tab-pane">
+                    <div class="copy-banner">
+                        <span style="font-size:0.8rem; color:var(--blue)">STAR Behavioral Interview Talking Points</span>
+                        <button class="btn-action" onclick="copyText('mStarText')">📋 Copy STAR Bullets</button>
+                    </div>
+                    <pre id="mStarText"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Log Receipt Modal -->
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal" style="max-width:550px">
+            <div class="modal-header">
+                <div>
+                    <div class="modal-title">Log Application Submission</div>
+                    <div style="font-size:0.8rem; color:var(--emerald)" id="rJobInfo">Job Info</div>
+                </div>
+                <button class="modal-close" onclick="closeModal('receiptModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px">
+                    Submit external proof receipt to cryptographically verify submission in the Merkle Ledger (SHA-256 evidence record).
+                </p>
+                <div class="form-group">
+                    <label>Application Confirmation / Requisition ID (Optional)</label>
+                    <input type="text" id="rReceiptId" placeholder="e.g. ACC-2026-98124 or Confirmation Email ID">
+                </div>
+                <div class="form-group">
+                    <label>Submission Channel</label>
+                    <input type="text" id="rChannel" value="Official Career Portal" placeholder="Portal / Email / Referral">
+                </div>
+                <div class="form-group">
+                    <label>Submission Notes / Snapshot Snippet</label>
+                    <textarea id="rNotes" rows="3" placeholder="Paste confirmation snippet or application notes..."></textarea>
+                </div>
+                <button class="btn-apply btn-action" style="width:100%; padding:10px" onclick="submitReceipt()">
+                    🔒 Commit Submission to Immutable Ledger
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toastMsg">Action completed successfully</span>
+    </div>
+
+    <script>
+        let allApps = [];
+        let currentStatusFilter = 'ALL';
+        let activeJobId = null;
+
+        async function loadApplications() {
+            try {
+                const res = await fetch('/api/career/applications');
+                const data = await res.json();
+                allApps = data.applications || [];
+                
+                document.getElementById('statTotal').textContent = allApps.length;
+                const prepared = allApps.filter(a => a.status === 'PREPARED').length;
+                const submitted = allApps.filter(a => a.status === 'SUBMITTED' || a.status === 'LIVE_VERIFIED').length;
+                document.getElementById('statPrepared').textContent = prepared;
+                document.getElementById('statSubmitted').textContent = submitted;
+
+                renderApps();
+            } catch (e) {
+                console.error('Failed to load applications:', e);
+                document.getElementById('appsGrid').innerHTML = '<p style="color:var(--rose)">Failed to connect to Career API.</p>';
+            }
+        }
+
+        function setFilter(status, btn) {
+            currentStatusFilter = status;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderApps();
+        }
+
+        function filterApps() {
+            renderApps();
+        }
+
+        function renderApps() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allApps.filter(a => {
+                const matchesStatus = currentStatusFilter === 'ALL' || a.status === currentStatusFilter;
+                const matchesSearch = !search || 
+                    a.company.toLowerCase().includes(search) || 
+                    a.role.toLowerCase().includes(search) || 
+                    (a.location && a.location.toLowerCase().includes(search)) ||
+                    a.job_id.toLowerCase().includes(search);
+                return matchesStatus && matchesSearch;
+            });
+
+            const grid = document.getElementById('appsGrid');
+            if (filtered.length === 0) {
+                grid.innerHTML = '<p style="color:var(--text-muted); grid-column:1/-1; text-align:center; padding:40px">No matching applications found.</p>';
+                return;
+            }
+
+            grid.innerHTML = filtered.map(a => `
+                <div class="app-card">
+                    <div>
+                        <div class="app-header">
+                            <div class="app-company">${escapeHtml(a.company)}</div>
+                            <span class="app-id">${a.job_id}</span>
+                        </div>
+                        <div class="app-role">${escapeHtml(a.role)}</div>
+                        
+                        <div class="app-badges">
+                            <span class="pill pill-fit">★ ${a.fit_score.toFixed(1)} Match</span>
+                            <span class="pill pill-loc">📍 ${escapeHtml(a.location || 'Bengaluru')}</span>
+                            <span class="pill-status status-${a.status}">${a.status}</span>
+                        </div>
+
+                        ${a.referral_name ? `
+                            <div class="referral-box">
+                                <div><strong>🤝 1st-Degree Referral:</strong> ${escapeHtml(a.referral_name)}</div>
+                                <div style="color:var(--text-muted); font-size:0.75rem">${escapeHtml(a.referral_title || '')}</div>
+                                ${a.referral_url ? `<a href="${a.referral_url}" target="_blank" class="referral-link">↗ View LinkedIn Profile</a>` : ''}
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="app-actions">
+                        <button class="btn-action btn-primary" onclick="openDossier('${a.job_id}')">
+                            📄 View Dossier
+                        </button>
+                        <button class="btn-action btn-receipt" onclick="openReceiptModal('${a.job_id}', '${escapeHtml(a.company)}')">
+                            ✓ Log Proof
+                        </button>
+                        <button class="btn-action" onclick="copyReferralNote('${a.job_id}')">
+                            🤝 Copy InMail
+                        </button>
+                        <button class="btn-action" onclick="copyCoverLetter('${a.job_id}')">
+                            ✉️ Copy Letter
+                        </button>
+                        ${a.portal_url ? `
+                            <a href="${a.portal_url}" target="_blank" class="btn-action btn-apply">
+                                🚀 Apply on Official Career Portal ↗
+                            </a>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function openDossier(jobId) {
+            try {
+                const res = await fetch(`/api/career/applications/${jobId}`);
+                const app = await res.json();
+                activeJobId = jobId;
+
+                document.getElementById('mCompany').textContent = app.company + ' (' + app.job_id + ')';
+                document.getElementById('mRole').textContent = app.role + ' • ' + (app.location || 'Bengaluru');
+                document.getElementById('mCoverText').textContent = app.cover_letter || 'Cover letter not compiled.';
+                document.getElementById('mResumeText').textContent = app.resume_text || 'Resume extract not compiled.';
+                document.getElementById('mOutreachText').textContent = app.outreach_pitch || 'Outreach pitch not compiled.';
+                document.getElementById('mReferralText').textContent = app.referral_message || 'Referral message not compiled.';
+                document.getElementById('mStarText').textContent = app.star_bullets || 'STAR bullets not compiled.';
+
+                document.getElementById('dossierModal').classList.add('active');
+            } catch (e) {
+                showToast('Failed to load dossier');
+            }
+        }
+
+        function openReceiptModal(jobId, company) {
+            activeJobId = jobId;
+            document.getElementById('rJobInfo').textContent = `${company} (${jobId})`;
+            document.getElementById('rReceiptId').value = '';
+            document.getElementById('rNotes').value = '';
+            document.getElementById('receiptModal').classList.add('active');
+        }
+
+        async function submitReceipt() {
+            if (!activeJobId) return;
+            const receiptId = document.getElementById('rReceiptId').value.trim();
+            const channel = document.getElementById('rChannel').value.trim();
+            const notes = document.getElementById('rNotes').value.trim();
+
+            try {
+                const res = await fetch(`/api/career/apply/${activeJobId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ receiptId, channel, notes })
+                });
+                const result = await res.json();
+                closeModal('receiptModal');
+                showToast(`✓ Logged submission! Status: ${result.status} (Block #${result.ledgerIndex})`);
+                loadApplications();
+            } catch (e) {
+                showToast('Failed to log submission');
+            }
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text);
+            showToast('📋 Copied to clipboard!');
+        }
+
+        function copyReferralNote(jobId) {
+            const app = allApps.find(a => a.job_id === jobId);
+            if (app && app.referral_message) {
+                navigator.clipboard.writeText(app.referral_message);
+                showToast('🤝 InMail referral note copied!');
+            }
+        }
+
+        function copyCoverLetter(jobId) {
+            const app = allApps.find(a => a.job_id === jobId);
+            if (app && app.cover_letter) {
+                navigator.clipboard.writeText(app.cover_letter);
+                showToast('✉️ Tailored cover letter copied!');
+            }
+        }
+
+        async function seedDatabase() {
+            showToast('Syncing pipeline and application packages...');
+            try {
+                await fetch('/api/career/seed', { method: 'POST' });
+                await loadApplications();
+                showToast('✓ Pipeline synced successfully!');
+            } catch (e) {
+                showToast('Sync failed');
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.style.display = 'flex';
+            setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Close modal when clicking overlay
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.classList.remove('active');
+            }
+        }
+
+        loadApplications();
+    </script>
+</body>
+</html>

@@ -10,9 +10,9 @@ Validates the complete 14-step autonomous loop on a real target job (Accenture B
 import os, sys, unittest, json
 
 # Path injection
-sys.path.insert(0, os.path.join(r"e:\anti", "omega", "core"))
-sys.path.insert(0, os.path.join(r"e:\anti", "omega", "apps", "interview_prep"))
 sys.path.insert(0, r"e:\anti")
+sys.path.insert(0, os.path.join(r"e:\anti", "omega", "apps", "interview_prep"))
+sys.path.insert(0, os.path.join(r"e:\anti", "omega", "core"))
 
 from state_machine import ActionStage, ExecutionStatus, OmegaStateMachine
 from career_brain import OmegaCareerBrain

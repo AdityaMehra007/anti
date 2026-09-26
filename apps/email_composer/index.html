@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cold Outreach Composer & Mail Merge — ADI SOVEREIGN OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --card-hover: #16223b;
+      --teal: #00d4aa;
+      --teal-glow: rgba(0, 212, 170, 0.15);
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 28px 20px; min-height: 100vh; line-height: 1.5; }
+    .container { max-width: 1380px; margin: 0 auto; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Top Nav Bar */
+    .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); }
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 6px 14px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; transition: all 0.2s; }
+    .nav-back:hover { color: #fff; border-color: var(--teal); background: #131d33; }
+    .status-badge { background: var(--teal-glow); color: var(--teal); padding: 5px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.3); }
+
+    /* Header */
+    header { text-align: center; margin-bottom: 28px; }
+    .hero-badge { background: rgba(139, 92, 246, 0.12); color: #a78bfa; padding: 6px 18px; border-radius: 99px; font-size: 0.82rem; font-weight: 700; border: 1px solid rgba(139, 92, 246, 0.3); display: inline-block; margin-bottom: 12px; letter-spacing: 0.5px; }
+    h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+    .subtitle { color: var(--text-muted); font-size: 0.98rem; margin-top: 6px; max-width: 820px; margin-left: auto; margin-right: auto; }
+
+    /* Tab Controls */
+    .tab-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; }
+    .tab-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-muted); padding: 8px 20px; border-radius: 99px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
+    .tab-btn.active { background: rgba(0, 212, 170, 0.15); border-color: var(--teal); color: var(--teal); }
+
+    /* Layout */
+    .composer-layout { display: grid; grid-template-columns: 420px 1fr; gap: 24px; margin-bottom: 32px; }
+    @media (max-width: 1050px) { .composer-layout { grid-template-columns: 1fr; } }
+
+    /* App Card */
+    .app-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 18px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .card-title { font-size: 1.15rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+
+    /* Form Fields */
+    .form-group { margin-bottom: 14px; }
+    .form-label { display: block; font-size: 0.76rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 10px 14px; border-radius: 8px; font-size: 0.88rem; outline: none; transition: border-color 0.2s; }
+    input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 2px var(--teal-glow); }
+
+    /* Cadence Selector Pills */
+    .cadence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+    .cadence-btn { background: #080d1a; border: 1px solid var(--card-border); color: var(--text-muted); padding: 10px 8px; border-radius: 8px; font-size: 0.76rem; font-weight: 700; cursor: pointer; text-align: center; transition: all 0.2s; }
+    .cadence-btn:hover { border-color: var(--teal); color: #fff; }
+    .cadence-btn.active { background: rgba(0, 212, 170, 0.12); border-color: var(--teal); color: var(--teal); }
+
+    /* Company & Role Quick-Fills */
+    .quick-pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; margin-bottom: 14px; }
+    .quick-pill { background: #080d1a; border: 1px solid var(--card-border); color: var(--text-dim); padding: 3px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .quick-pill:hover { color: #fff; border-color: var(--blue); }
+
+    /* Email Preview Section */
+    .preview-header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; background: #080d1a; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--card-border); font-size: 0.85rem; }
+    .preview-actions { display: flex; gap: 10px; }
+    .btn-action { padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s; border: none; }
+    .btn-copy { background: var(--teal); color: #070b14; }
+    .btn-copy:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 212, 170, 0.3); }
+    .btn-mailto { background: #131d33; border: 1px solid var(--card-border); color: #fff; }
+    .btn-mailto:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* Subject Line */
+    .subject-line-box { background: #080d1a; border: 1px solid var(--card-border); border-radius: 10px; padding: 14px 18px; margin-bottom: 16px; }
+    .subject-label { font-size: 0.72rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; }
+    .subject-content { font-size: 0.95rem; font-weight: 700; color: #fff; font-family: 'JetBrains Mono', monospace; word-break: break-word; }
+
+    /* Email Body Display */
+    .email-body-box { background: #080d1a; border: 1px solid var(--card-border); border-radius: 12px; padding: 22px; color: #f1f5f9; font-size: 0.92rem; line-height: 1.7; min-height: 340px; white-space: pre-wrap; word-break: break-word; }
+    .highlight-tag { background: rgba(0, 212, 170, 0.2); color: var(--teal); padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+
+    /* Quality Metrics Strip */
+    .quality-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+    @media (max-width: 700px) { .quality-strip { grid-template-columns: repeat(2, 1fr); } }
+    .q-box { background: #080d1a; border: 1px solid var(--card-border); border-radius: 8px; padding: 10px; text-align: center; }
+    .q-val { font-size: 1.1rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #fff; }
+    .q-label { font-size: 0.68rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; margin-top: 2px; }
+
+    /* Mail Merge Table Tab */
+    #batchTabContent { display: none; }
+    .batch-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.82rem; }
+    .batch-table th { background: #080d1a; padding: 10px 12px; text-align: left; color: var(--text-dim); text-transform: uppercase; font-size: 0.72rem; border-bottom: 1px solid var(--card-border); }
+    .batch-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .batch-table tr:hover { background: rgba(255,255,255,0.02); }
+
+    /* Toast Notification */
+    .toast { position: fixed; bottom: 24px; right: 24px; background: var(--teal); color: #070b14; padding: 10px 20px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 10px 25px rgba(0,0,0,0.5); opacity: 0; transform: translateY(20px); transition: all 0.3s ease; pointer-events: none; z-index: 100; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer { text-align: center; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-dim); font-size: 0.82rem; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <div class="top-nav">
+      <a href="../index.html" class="nav-back">← Back to Master Suite</a>
+      <span class="status-badge">✉️ High-Response Outreach Engine v2026</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <span class="hero-badge">ADI SOVEREIGN OS • COLD OUTREACH & MAIL MERGE</span>
+      <h1>B2B & Recruiter Cold Outreach Composer</h1>
+      <p class="subtitle">Generate high-converting recruiter and executive outreach sequences with dynamic tags, proven proof-of-claim hooks, live spam trigger checks, 1-click mailto: dispatch, and multi-row mail merge.</p>
+    </header>
+
+    <!-- Tab Buttons -->
+    <div class="tab-bar">
+      <button class="tab-btn active" id="btnTabSingle" onclick="switchTab('single')">Single Email Composer</button>
+      <button class="tab-btn" id="btnTabBatch" onclick="switchTab('batch')">Batch Mail Merge Mode (CSV / Bulk)</button>
+    </div>
+
+    <!-- Mode 1: Single Email Composer -->
+    <div id="singleTabContent">
+      <div class="composer-layout">
+        <!-- Left: Dynamic Tags & Settings Form -->
+        <div class="app-card">
+          <div class="card-header">
+            <div class="card-title">⚙️ Outreach Parameters</div>
+            <span style="font-size: 0.72rem; color: var(--teal); font-weight: 700;">Live Sync</span>
+          </div>
+
+          <!-- Cadence Selector -->
+          <label class="form-label">Sequence Cadence Stage:</label>
+          <div class="cadence-grid">
+            <button class="cadence-btn active" id="cadence1" onclick="setCadence(1)">
+              Step 1: Value Hook<br><span style="font-size: 0.65rem; color: var(--text-dim);">Day 1 Initial</span>
+            </button>
+            <button class="cadence-btn" id="cadence2" onclick="setCadence(2)">
+              Step 2: Mini Case<br><span style="font-size: 0.65rem; color: var(--text-dim);">Day 4 Proof</span>
+            </button>
+            <button class="cadence-btn" id="cadence3" onclick="setCadence(3)">
+              Step 3: Breakup<br><span style="font-size: 0.65rem; color: var(--text-dim);">Day 8 Close</span>
+            </button>
+          </div>
+
+          <!-- Role Presets -->
+          <label class="form-label">Target Role Preset:</label>
+          <div class="quick-pill-row">
+            <span class="quick-pill" onclick="applyRole('Operations Analyst')">Ops Analyst</span>
+            <span class="quick-pill" onclick="applyRole('B2B Business Development')">B2B BD</span>
+            <span class="quick-pill" onclick="applyRole('EXIM & SCM Coordinator')">EXIM SCM</span>
+            <span class="quick-pill" onclick="applyRole('AI Data Operations Specialist')">AI Data Ops</span>
+            <span class="quick-pill" onclick="applyRole('Event & Brand Activation Lead')">Event Lead</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Target Role ({{Role}})</label>
+            <input type="text" id="tagRole" value="Operations Analyst" oninput="renderEmail()">
+          </div>
+
+          <!-- Company Quick Fills -->
+          <label class="form-label">Target Company Quick-Fill:</label>
+          <div class="quick-pill-row">
+            <span class="quick-pill" onclick="applyCompany('Amazon Global Tech', 'Operations & Logistics Team', 'scaling high-velocity fulfilment and vendor SLA compliance')">Amazon</span>
+            <span class="quick-pill" onclick="applyCompany('Maersk', 'Global Ocean EXIM Division', 'optimizing international freight tariffs and Incoterms 2020 compliance')">Maersk</span>
+            <span class="quick-pill" onclick="applyCompany('Walmart Global Tech', 'Supply Chain Operations', 'driving multi-tier vendor cost optimization and process automation')">Walmart</span>
+            <span class="quick-pill" onclick="applyCompany('Deloitte', 'Trade & SCM Advisory', 'mitigating supply chain risks and streamlining Letter of Credit execution')">Deloitte</span>
+            <span class="quick-pill" onclick="applyCompany('Google', 'AI Data Operations', 'scaling generative AI annotation pipelines with 99%+ quality accuracy')">Google</span>
+            <span class="quick-pill" onclick="applyCompany('Goldman Sachs', 'Global Operations Team', 'strengthening operational controls, root-cause analytics and settlement SLAs')">Goldman Sachs</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Target Company ({{Company}})</label>
+            <input type="text" id="tagCompany" value="Amazon Global Tech" oninput="renderEmail()">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Recipient Name / Title ({{Recipient_Name}})</label>
+            <input type="text" id="tagRecipient" value="Hiring Team / Operations Lead" oninput="renderEmail()">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Recipient Email Address</label>
+            <input type="email" id="tagEmail" value="hiring@amazon.com" placeholder="recruiter@company.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Company Specific Value Hook ({{Value_Hook}})</label>
+            <textarea id="tagHook" rows="2" oninput="renderEmail()">scaling high-velocity fulfilment and vendor SLA compliance across Bangalore operations</textarea>
+          </div>
+        </div>
+
+        <!-- Right: Live Email Preview & Dispatch -->
+        <div class="app-card">
+          <div class="card-header">
+            <div class="card-title">📨 Live Generated Outreach Email</div>
+            <div class="preview-actions">
+              <button class="btn-action btn-mailto" onclick="openMailClient()" title="Open in default mail app">🚀 Open in Mail</button>
+              <button class="btn-action btn-copy" onclick="copyEmail()">📋 Copy Email</button>
+            </div>
+          </div>
+
+          <!-- Subject Line -->
+          <div class="subject-line-box">
+            <div class="subject-label">Subject Line</div>
+            <div class="subject-content" id="subjectDisplay">Operations Analyst Candidate — 300+ Deployments & Tier-1 vendor SLA governance (Aditya Mehra)</div>
+          </div>
+
+          <!-- Email Body -->
+          <div class="email-body-box" id="bodyDisplay">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Quality Metrics Bar -->
+          <div class="quality-strip">
+            <div class="q-box">
+              <div class="q-val" id="metricWords">118</div>
+              <div class="q-label">Word Count (Optimal 80-140)</div>
+            </div>
+            <div class="q-box">
+              <div class="q-val" id="metricTime">28s</div>
+              <div class="q-label">Reading Time</div>
+            </div>
+            <div class="q-box">
+              <div class="q-val" style="color: var(--teal);" id="metricSpam">0%</div>
+              <div class="q-label">Spam Score (Zero Risk)</div>
+            </div>
+            <div class="q-box">
+              <div class="q-val" style="color: var(--teal);" id="metricCallToAction">1 Clear CTA</div>
+              <div class="q-label">Friction Level</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mode 2: Batch Mail Merge Mode -->
+    <div id="batchTabContent">
+      <div class="app-card">
+        <div class="card-header">
+          <div class="card-title">📊 Multi-Recipient CSV / Bulk Mail Merge Engine</div>
+          <button class="btn-action btn-copy" onclick="exportBatchJSON()">💾 Export All Rendered as JSON</button>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+          Paste CSV rows (Format: <code>Company, Recipient_Name, Email, Role, Value_Hook</code>) to generate 1-click personalized emails for your entire outbound pipeline.
+        </p>
+
+        <textarea id="csvInput" rows="5" class="mono" style="font-size: 0.8rem; margin-bottom: 14px;" oninput="processBatchCSV()">Amazon Global Tech,Rohit Sharma,rohit@amazon.com,Operations Analyst,scaling regional fulfilment SLA optimization
+Maersk,Ananya Iyer,ananya@maersk.com,EXIM & SCM Coordinator,streamlining Incoterms 2020 and customs documentation
+Walmart Global Tech,Vikram Malhotra,vikram@walmart.com,Senior Operations Analyst,automating KPI reporting and vendor cost reduction
+Deloitte,Priya Nair,priya@deloitte.com,Supply Chain Consultant,optimizing client trade tariffs and UCP 600 compliance
+Google,Siddharth Rao,siddharth@google.com,AI Data Operations Lead,benchmarking LLM prompt accuracy and data pipelines</textarea>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <strong style="color: #fff; font-size: 0.9rem;">Rendered Batch Pipeline (<span id="batchCount">5</span> Contacts):</strong>
+          <button class="btn-action btn-mailto" onclick="processBatchCSV()">🔄 Refresh Merge</button>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="batch-table" id="batchTable">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Recipient</th>
+                <th>Target Role</th>
+                <th>Subject Preview</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="batchTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Copied to clipboard!</div>
+
+    <footer>
+      <p>ADI SOVEREIGN OS — B2B & Recruiter Cold Outreach Composer • Verified Proof Delivery Engine</p>
+      <p style="margin-top: 4px;">Candidate: Aditya Mehra, BBA International Business, Dayananda Sagar University, Bangalore (+91-7003456624 • adityamehra799@gmail.com)</p>
+    </footer>
+  </div>
+
+  <script>
+    let currentCadence = 1;
+
+    const TEMPLATES = {
+      1: {
+        subject: "{{Role}} Candidate — 300+ Deployments & Tier-1 vendor SLA governance (Aditya Mehra)",
+        body: `Hi {{Recipient_Name}},
+
+I am reaching out regarding {{Role}} opportunities within {{Company}}. 
+
+I am a final-year BBA International Business candidate at Dayananda Sagar University, Bangalore (Class of 2026), with hands-on proof in {{Value_Hook}}:
+
+• 300+ Event & Operations Deployments: Lead Coordinator for AERO India 2025 and Puma India activations, managing multi-tier vendor SLAs and high-stakes crisis logistics.
+• standardized vendor rate structuring and SLA governance: Restructured primary vendor rate models and implemented standardized SOPs to trim operating expenses without SLA compromise.
+• AI & Data Precision: 99%+ accuracy in AI Data Operations at Instawork AI, leveraging SQL, Python, and advanced data pipelines.
+
+I would value 10 minutes to share how my operational discipline can support {{Company}}'s high-velocity targets this quarter. 
+
+Best regards,
+
+Aditya Mehra
+Bangalore, India | +91-7003456624 | adityamehra799@gmail.com
+Interactive Portfolio: file:///e:/anti/portfolio/index.html`
+      },
+      2: {
+        subject: "Follow-up: Execution Case Studies for {{Company}} (Aditya Mehra)",
+        body: `Hi {{Recipient_Name}},
+
+Following up on my previous note regarding the {{Role}} mandate at {{Company}}.
+
+I wanted to share two concrete execution case studies demonstrating my readiness to drive immediate ROI:
+
+1. B2B Commercial & Vendor Growth: Generated high-velocity B2B commercial pipeline conversions by managing end-to-end client discovery, contract negotiations, and project handoffs.
+2. Global Trade & SCM Compliance: Extensive hands-on modeling in Incoterms 2020 (FOB, CIF, DDP, DAP), HS tariff classification, and UCP 600 Letter of Credit validation to mitigate customs clearance delays.
+
+Are you open to a brief 10-minute introductory sync this Thursday or Friday?
+
+Warm regards,
+
+Aditya Mehra
++91-7003456624 | adityamehra799@gmail.com`
+      },
+      3: {
+        subject: "{{Role}} at {{Company}} — Final Note / Executive Dossier",
+        body: `Hi {{Recipient_Name}},
+
+I understand your schedule is tight and this may not be the top priority right now. 
+
+I will leave my verified executive dossier, case studies, and live operational calculator suite here for your review whenever {{Company}} is evaluating talent for {{Role}} positions:
+
+• Master Interactive Suite: file:///e:/anti/portfolio/index.html
+• Executive PDF Cheat Sheet: file:///e:/anti/apps/portfolio_pdf/index.html
+
+Thank you for your time, and I wish you and the {{Company}} team continued success.
+
+Sincerely,
+
+Aditya Mehra
+BBA International Business '26, Dayananda Sagar University
++91-7003456624 | adityamehra799@gmail.com`
+      }
+    };
+
+    function setCadence(c) {
+      currentCadence = c;
+      document.getElementById('cadence1').classList.toggle('active', c === 1);
+      document.getElementById('cadence2').classList.toggle('active', c === 2);
+      document.getElementById('cadence3').classList.toggle('active', c === 3);
+      renderEmail();
+    }
+
+    function applyRole(role) {
+      document.getElementById('tagRole').value = role;
+      renderEmail();
+    }
+
+    function applyCompany(company, recipient, hook) {
+      document.getElementById('tagCompany').value = company;
+      document.getElementById('tagRecipient').value = recipient;
+      document.getElementById('tagHook').value = hook;
+      renderEmail();
+    }
+
+    function switchTab(mode) {
+      document.getElementById('btnTabSingle').classList.toggle('active', mode === 'single');
+      document.getElementById('btnTabBatch').classList.toggle('active', mode === 'batch');
+      document.getElementById('singleTabContent').style.display = mode === 'single' ? 'block' : 'none';
+      document.getElementById('batchTabContent').style.display = mode === 'batch' ? 'block' : 'none';
+      if (mode === 'batch') {
+        processBatchCSV();
+      }
+    }
+
+    function renderEmail() {
+      const company = document.getElementById('tagCompany').value || '{{Company}}';
+      const role = document.getElementById('tagRole').value || '{{Role}}';
+      const recipient = document.getElementById('tagRecipient').value || '{{Recipient_Name}}';
+      const hook = document.getElementById('tagHook').value || '{{Value_Hook}}';
+
+      const tmpl = TEMPLATES[currentCadence] || TEMPLATES[1];
+
+      let subject = tmpl.subject
+        .replace(/\{\{Company\}\}/g, company)
+        .replace(/\{\{Role\}\}/g, role)
+        .replace(/\{\{Recipient_Name\}\}/g, recipient);
+
+      let body = tmpl.body
+        .replace(/\{\{Company\}\}/g, company)
+        .replace(/\{\{Role\}\}/g, role)
+        .replace(/\{\{Recipient_Name\}\}/g, recipient)
+        .replace(/\{\{Value_Hook\}\}/g, hook);
+
+      document.getElementById('subjectDisplay').textContent = subject;
+      document.getElementById('bodyDisplay').textContent = body;
+
+      // Update quality metrics
+      const words = body.trim().split(/\s+/).length;
+      document.getElementById('metricWords').textContent = words;
+      document.getElementById('metricTime').textContent = Math.round(words / 4.2) + 's';
+
+      // Spam check
+      const spamWords = ['free', 'guarantee', 'urgent', 'winner', 'million dollars', 'act now', 'click here'];
+      const foundSpam = spamWords.filter(sw => body.toLowerCase().includes(sw));
+      document.getElementById('metricSpam').textContent = foundSpam.length === 0 ? '0% (Clean)' : `${foundSpam.length} Alert`;
+      document.getElementById('metricSpam').style.color = foundSpam.length === 0 ? 'var(--teal)' : 'var(--rose)';
+    }
+
+    function copyEmail() {
+      const subject = document.getElementById('subjectDisplay').textContent;
+      const body = document.getElementById('bodyDisplay').textContent;
+      const fullText = `Subject: ${subject}\n\n${body}`;
+
+      navigator.clipboard.writeText(fullText).then(() => {
+        showToast("Subject & Body copied to clipboard!");
+      });
+    }
+
+    function openMailClient() {
+      const email = document.getElementById('tagEmail').value || '';
+      const subject = encodeURIComponent(document.getElementById('subjectDisplay').textContent);
+      const body = encodeURIComponent(document.getElementById('bodyDisplay').textContent);
+      const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoUrl;
+    }
+
+    function processBatchCSV() {
+      const text = document.getElementById('csvInput').value.trim();
+      const lines = text.split('\n').filter(l => l.trim().length > 0);
+      const tbody = document.getElementById('batchTableBody');
+      tbody.innerHTML = '';
+
+      document.getElementById('batchCount').textContent = lines.length;
+
+      lines.forEach((line, idx) => {
+        const parts = line.split(',').map(p => p.trim());
+        const company = parts[0] || 'Target Company';
+        const recipient = parts[1] || 'Hiring Manager';
+        const email = parts[2] || 'contact@company.com';
+        const role = parts[3] || 'Operations Analyst';
+        const hook = parts[4] || 'driving operational scale';
+
+        const subject = `${role} Candidate — 300+ Deployments & Tier-1 vendor SLA governance (Aditya Mehra)`;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${company}</strong></td>
+          <td>${recipient}<br><span style="color: var(--text-dim); font-size: 0.72rem;">${email}</span></td>
+          <td><span style="background: rgba(0, 212, 170, 0.1); color: var(--teal); padding: 2px 6px; border-radius: 4px;">${role}</span></td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: var(--text-muted);">${subject}</td>
+          <td>
+            <button class="btn-action btn-copy" style="padding: 4px 10px; font-size: 0.72rem;" onclick="copyBatchRow(${idx})">📋 Copy</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function copyBatchRow(idx) {
+      const text = document.getElementById('csvInput').value.trim();
+      const lines = text.split('\n').filter(l => l.trim().length > 0);
+      if (lines[idx]) {
+        const parts = lines[idx].split(',').map(p => p.trim());
+        const company = parts[0];
+        const recipient = parts[1];
+        const role = parts[3] || 'Operations Analyst';
+        const hook = parts[4] || 'driving operational scale';
+
+        const tmpl = TEMPLATES[1];
+        const subject = tmpl.subject.replace(/\{\{Company\}\}/g, company).replace(/\{\{Role\}\}/g, role).replace(/\{\{Recipient_Name\}\}/g, recipient);
+        const body = tmpl.body.replace(/\{\{Company\}\}/g, company).replace(/\{\{Role\}\}/g, role).replace(/\{\{Recipient_Name\}\}/g, recipient).replace(/\{\{Value_Hook\}\}/g, hook);
+
+        navigator.clipboard.writeText(`Subject: ${subject}\n\n${body}`).then(() => {
+          showToast(`Copied email for ${company} (${recipient})!`);
+        });
+      }
+    }
+
+    function exportBatchJSON() {
+      const text = document.getElementById('csvInput').value.trim();
+      const lines = text.split('\n').filter(l => l.trim().length > 0);
+      const results = lines.map(line => {
+        const parts = line.split(',').map(p => p.trim());
+        const company = parts[0];
+        const recipient = parts[1];
+        const email = parts[2];
+        const role = parts[3];
+        const hook = parts[4];
+        const tmpl = TEMPLATES[1];
+        return {
+          company,
+          recipient,
+          email,
+          role,
+          subject: tmpl.subject.replace(/\{\{Company\}\}/g, company).replace(/\{\{Role\}\}/g, role).replace(/\{\{Recipient_Name\}\}/g, recipient),
+          body: tmpl.body.replace(/\{\{Company\}\}/g, company).replace(/\{\{Role\}\}/g, role).replace(/\{\{Recipient_Name\}\}/g, recipient).replace(/\{\{Value_Hook\}\}/g, hook)
+        };
+      });
+
+      const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'cold_outreach_mail_merge_campaign.json';
+      a.click();
+      showToast("Exported JSON campaign package!");
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderEmail();
+    });
+  </script>
+</body>
+</html>

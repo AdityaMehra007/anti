@@ -1,0 +1,32 @@
+{
+  "name": "omnivanta",
+  "version": "31.0.0",
+  "description": "OMNIVANTA OMEGA — Autonomous Digital Enterprise Operating System",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node tests/integration.test.js",
+    "omega:certify": "node tests/omega_certify.js",
+    "cli": "node developer-platform/cli.js"
+  },
+  "keywords": [
+    "enterprise-ai",
+    "agentic-workflows",
+    "mcp",
+    "action-engine",
+    "omega"
+  ],
+  "author": "Aditya Mehra",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "uuid": "^14.0.2"
+  }
+}

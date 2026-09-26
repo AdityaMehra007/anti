@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing Dashboard | ADI SOVEREIGN OS</title>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: #111827;
+      --bg-card-hover: #172136;
+      --bg-surface: #1e293b;
+      --bg-subtle: #0f172a;
+      --border: #1e293b;
+      --border-accent: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.2);
+      --warning: #f59e0b;
+      --warning-glow: rgba(245, 158, 11, 0.2);
+      --danger: #ef4444;
+      --purple: #8b5cf6;
+      --cyan: #06b6d4;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+    }
+
+    /* Container */
+    .dashboard-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Header */
+    header.dashboard-header {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .system-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--success);
+      box-shadow: 0 0 10px var(--success);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 16px var(--success); }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    h1.dashboard-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .candidate-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .candidate-meta span.highlight {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    .candidate-meta a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .candidate-meta a:hover {
+      text-decoration: underline;
+      color: #60a5fa;
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .time-chip {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border-accent);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      font-family: var(--font-sans);
+    }
+
+    .btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border-color: #3b82f6;
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #059669, #047857);
+      border-color: #10b981;
+    }
+
+    /* Key Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-accent);
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--primary));
+    }
+
+    .metric-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .metric-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--icon-bg, rgba(59, 130, 246, 0.15));
+      color: var(--icon-color, var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .metric-footer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .trend-up {
+      color: var(--success);
+      font-weight: 600;
+    }
+    .trend-neutral {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    /* Charts Section */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title .badge-mini {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--primary);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .chart-container {
+      position: relative;
+      flex: 1;
+      min-height: 280px;
+      width: 100%;
+    }
+
+    /* Top Priority Companies Matrix */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.86rem;
+    }
+
+    table.data-table th {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      letter-spacing: 0.5px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-accent);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+      vertical-align: middle;
+    }
+
+    table.data-table tbody tr {
+      transition: background-color 0.15s ease;
+    }
+
+    table.data-table tbody tr:hover {
+      background-color: var(--bg-card-hover);
+      cursor: pointer;
+    }
+
+    .company-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .company-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      flex-shrink: 0;
+    }
+
+    .company-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .company-name {
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .company-sector {
+      font-size: 0.74rem;
+      color: var(--text-dim);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+
+    .status-applied { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .status-screen { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .status-interview { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+    .status-offer { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .score-badge {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--success);
+      background: rgba(16, 185, 129, 0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .search-filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-accent);
+      color: var(--text-main);
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      flex: 1;
+      min-width: 240px;
+      outline: none;
+      font-family: var(--font-sans);
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .filter-select {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-accent);
+      color: var(--text-main);
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+    }
+
+    /* Two Columns Section: Activity Tracker & Follow-up Reminders */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Weekly Activity Tracker */
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .day-row {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s;
+    }
+    .day-row:hover {
+      border-color: var(--border-accent);
+    }
+
+    .day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .day-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .day-stats {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+    }
+
+    .stat-pill {
+      color: var(--text-muted);
+    }
+    .stat-pill span {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .progress-bar-bg {
+      height: 6px;
+      background: var(--bg-surface);
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .progress-fill-applied { background: var(--primary); height: 100%; }
+    .progress-fill-resp { background: var(--warning); height: 100%; }
+    .progress-fill-int { background: var(--purple); height: 100%; }
+
+    /* Upcoming Follow-up Reminders */
+    .reminders-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .reminder-item {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .reminder-item:hover {
+      background: var(--bg-card-hover);
+      transform: translateX(3px);
+    }
+
+    .reminder-urgent {
+      border-left-color: var(--danger);
+    }
+    .reminder-medium {
+      border-left-color: var(--warning);
+    }
+    .reminder-success {
+      border-left-color: var(--success);
+    }
+
+    .reminder-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .reminder-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .reminder-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .reminder-time {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan);
+    }
+
+    .reminder-action {
+      flex-shrink: 0;
+    }
+
+    /* Candidate Proof Claims Banner */
+    .proof-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #172554 100%);
+      border: 1px solid #3730a3;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .proof-banner-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #e0e7ff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .proof-chips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .proof-chip {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+    }
+
+    .proof-chip-header {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .proof-chip-val {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      font-family: var(--font-mono);
+    }
+
+    .proof-chip-desc {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    /* Modal / Drawer for Outreach Preview */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius);
+      max-width: 680px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-accent);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .modal-close:hover {
+      color: #ffffff;
+      background: var(--danger);
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .outreach-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      line-height: 1.5;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--success);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 10000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
+    footer.dashboard-footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    
+    <!-- HEADER -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <div class="system-badge">
+          <div class="pulse-dot"></div>
+          ADI SOVEREIGN OS // AUTOPILOT ACTIVE
+        </div>
+        <h1 class="dashboard-title">Daily Career Execution & Pipeline Briefing</h1>
+        <div class="candidate-meta">
+          <span>Candidate: <span class="highlight">Aditya Mehra</span></span>
+          <span>•</span>
+          <span>BBA International Business '26 (Dayananda Sagar University)</span>
+          <span>•</span>
+          <span>Phone: <a href="tel:+917003456624">+91-7003456624</a></span>
+          <span>•</span>
+          <span>Email: <a href="mailto:adityamehra799@gmail.com">adityamehra799@gmail.com</a></span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="time-chip" id="liveClock">
+          <span>●</span> 2026-08-26 01:05 IST | LIVE SESSION
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary" onclick="triggerSync()">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            Sync Pipeline
+          </button>
+          <button class="btn" onclick="toggleFullscreen()">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            Fullscreen
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- KEY METRICS CARDS -->
+    <section class="metrics-grid">
+      
+      <div class="metric-card" style="--card-accent: #3b82f6; --icon-bg: rgba(59, 130, 246, 0.15); --icon-color: #3b82f6;">
+        <div class="metric-top">
+          <span class="metric-label">Total Applications</span>
+          <div class="metric-icon">🚀</div>
+        </div>
+        <div class="metric-value" id="valTotalApps">3,000</div>
+        <div class="metric-footer">
+          <span class="trend-up">↑ 100% Target Met</span> • 15 Core Industry Sectors
+        </div>
+      </div>
+
+      <div class="metric-card" style="--card-accent: #10b981; --icon-bg: rgba(16, 185, 129, 0.15); --icon-color: #10b981;">
+        <div class="metric-top">
+          <span class="metric-label">Response Rate</span>
+          <div class="metric-icon">💬</div>
+        </div>
+        <div class="metric-value">24.8%</div>
+        <div class="metric-footer">
+          <span class="trend-up">↑ +4.2%</span> vs Bangalore Fresher Benchmark
+        </div>
+      </div>
+
+      <div class="metric-card" style="--card-accent: #8b5cf6; --icon-bg: rgba(139, 92, 246, 0.15); --icon-color: #8b5cf6;">
+        <div class="metric-top">
+          <span class="metric-label">Interview Rate</span>
+          <div class="metric-icon">🎯</div>
+        </div>
+        <div class="metric-value">9.4%</div>
+        <div class="metric-footer">
+          <span class="trend-up">282 Active Rounds</span> (Screenings & Technicals)
+        </div>
+      </div>
+
+      <div class="metric-card" style="--card-accent: #f59e0b; --icon-bg: rgba(245, 158, 11, 0.15); --icon-color: #f59e0b;">
+        <div class="metric-top">
+          <span class="metric-label">Active Fast-Track Pipelines</span>
+          <div class="metric-icon">⚡</div>
+        </div>
+        <div class="metric-value">48</div>
+        <div class="metric-footer">
+          <span class="trend-neutral">12 Final Rounds</span> • 3 Offer Stages
+        </div>
+      </div>
+
+      <div class="metric-card" style="--card-accent: #06b6d4; --icon-bg: rgba(6, 182, 212, 0.15); --icon-color: #06b6d4;">
+        <div class="metric-top">
+          <span class="metric-label">Average Fit Score</span>
+          <div class="metric-icon">💎</div>
+        </div>
+        <div class="metric-value">9.62 <span style="font-size: 1rem; color: var(--text-dim);">/ 10</span></div>
+        <div class="metric-footer">
+          <span class="trend-up">95.4% ATS Match</span> across Tier-1 MNCs
+        </div>
+      </div>
+
+      <div class="metric-card" style="--card-accent: #ec4899; --icon-bg: rgba(236, 72, 153, 0.15); --icon-color: #ec4899;">
+        <div class="metric-top">
+          <span class="metric-label">Target Compensation Band</span>
+          <div class="metric-icon">💰</div>
+        </div>
+        <div class="metric-value">₹8.8 <span style="font-size: 1rem; color: var(--text-dim);">LPA Median</span></div>
+        <div class="metric-footer">
+          Range: ₹6.5L - ₹13.0L in Bangalore 2026
+        </div>
+      </div>
+
+    </section>
+
+    <!-- VERIFIED CANDIDATE CLAIMS & EVIDENCE PROOF BANNER -->
+    <section class="proof-banner">
+      <div class="proof-banner-title">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        Candidate Truth Layer — 5 Core Proof Pillars (Aditya Mehra)
+      </div>
+      <div class="proof-chips-grid">
+        
+        <div class="proof-chip">
+          <div class="proof-chip-header">
+            <span>Operations & Events</span>
+            <span style="color: #34d399;">VERIFIED</span>
+          </div>
+          <div class="proof-chip-val">300+ Deployments</div>
+          <div class="proof-chip-desc">Lead Coordinator at AERO India 2025 (500+ B2B delegate leads) & Puma India Brand Activations.</div>
+        </div>
+
+        <div class="proof-chip">
+          <div class="proof-chip-header">
+            <span>B2B Commercial Revenue</span>
+            <span style="color: #34d399;">VERIFIED</span>
+          </div>
+          <div class="proof-chip-val">INR 1.5L+ Revenue</div>
+          <div class="proof-chip-desc">Direct revenue generated at Pencil Mark Interior Solutions with 100% verified customer invoice trails.</div>
+        </div>
+
+        <div class="proof-chip">
+          <div class="proof-chip-header">
+            <span>Process Optimization</span>
+            <span style="color: #34d399;">VERIFIED</span>
+          </div>
+          <div class="proof-chip-val">15% Cost Reduction</div>
+          <div class="proof-chip-desc">Lean workflow standardizations, vendor negotiation frameworks, and elimination of demurrage waste.</div>
+        </div>
+
+        <div class="proof-chip">
+          <div class="proof-chip-header">
+            <span>AI Data Operations</span>
+            <span style="color: #34d399;">VERIFIED</span>
+          </div>
+          <div class="proof-chip-val">99%+ Accuracy</div>
+          <div class="proof-chip-desc">Instawork AI dataset curation & HITL validation across 10,000+ data points with 99.2% precision.</div>
+        </div>
+
+        <div class="proof-chip">
+          <div class="proof-chip-header">
+            <span>EXIM Trade Compliance</span>
+            <span style="color: #34d399;">VERIFIED</span>
+          </div>
+          <div class="proof-chip-val">Incoterms & LCs</div>
+          <div class="proof-chip-desc">Mastery in Incoterms 2020, HS Code classifications, and UCP 600 Letter of Credit compliance.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHARTS ROW 1 -->
+    <section class="charts-grid">
+      
+      <!-- Chart 1: Application Funnel Velocity -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>Application Conversion Funnel (3,000 Volume)</span>
+            <span class="badge-mini">Real-Time</span>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="funnelChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Sector Distribution -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>Sector Distribution (15 Sectors x 200 Requisitions)</span>
+            <span class="badge-mini">Balanced</span>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="sectorChart"></canvas>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CHARTS ROW 2 -->
+    <section class="charts-grid">
+      
+      <!-- Chart 3: Weekly Activity Velocity Trend -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>Weekly Execution Velocity (Mon - Sun)</span>
+            <span class="badge-mini">Outreach & Response</span>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="weeklyChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 4: Compensation Benchmark by Role Track -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>Bangalore 2026 Salary Benchmark by Track (LPA)</span>
+            <span class="badge-mini">Deep-Dive</span>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="salaryChart"></canvas>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TOP 15 PRIORITY TARGET COMPANIES PIPELINE -->
+    <section class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span>Top 15 Priority Enterprise Targets & Active Pipeline Matrix</span>
+          <span class="badge-mini">15 Shortlists</span>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-success" onclick="openOutreachModal('All High Priority', 'B2B/Ops General')">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg>
+            Batch Outreach Template
+          </button>
+        </div>
+      </div>
+
+      <div class="search-filter-bar">
+        <input type="text" id="companySearchInput" class="search-input" placeholder="Search company, role, or sector..." onkeyup="filterTable()">
+        <select id="stageFilterSelect" class="filter-select" onchange="filterTable()">
+          <option value="ALL">All Stages</option>
+          <option value="Offer">Offer Stage</option>
+          <option value="Interview">Interview / Superday</option>
+          <option value="Screening">Recruiter Screening</option>
+          <option value="Applied">Application Dispatched</option>
+        </select>
+        <select id="trackFilterSelect" class="filter-select" onchange="filterTable()">
+          <option value="ALL">All Tracks</option>
+          <option value="Operations">Operations / SCM</option>
+          <option value="B2B Sales">B2B Sales / BD</option>
+          <option value="EXIM">EXIM Trade</option>
+          <option value="AI Data">AI Data Ops</option>
+          <option value="Brand">Brand / Events</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table" id="companiesTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Target Company</th>
+              <th>Core Role</th>
+              <th>Track</th>
+              <th>Bangalore Hub</th>
+              <th>CTC Band (LPA)</th>
+              <th>Fit Score</th>
+              <th>Pipeline Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="companiesTableBody">
+            <!-- Rows injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TWO COLUMN SECTION: WEEKLY ACTIVITY & UPCOMING FOLLOW-UPS -->
+    <section class="details-grid">
+      
+      <!-- Weekly Activity Tracker -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>Weekly Execution & Outreach Tracker</span>
+            <span class="badge-mini">Current Sprint</span>
+          </div>
+        </div>
+        <div class="activity-list" id="activityTrackerList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Upcoming Follow-up Reminders -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>Upcoming Recruiter Follow-Ups & Action Queue</span>
+            <span class="badge-mini">6 Pending</span>
+          </div>
+        </div>
+        <div class="reminders-list" id="remindersList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="dashboard-footer">
+      <div>
+        <strong>ADI SOVEREIGN OS</strong> • Bangalore Labor Market Intelligence Engine & Executive Command Center
+      </div>
+      <div>
+        Generated for: <strong>Aditya Mehra</strong> | Contact: <code>+91-7003456624</code> | <code>adityamehra799@gmail.com</code>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- OUTREACH MODAL -->
+  <div class="modal-overlay" id="outreachModal" onclick="closeModalOnOutside(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-title" id="modalCompanyTitle">Recruiter Outreach Brief</div>
+      <div style="font-size: 0.85rem; color: var(--text-muted);" id="modalRoleSubtitle">Associate Operations Analyst</div>
+      
+      <div style="font-size: 0.82rem; font-weight: 700; color: #a5b4fc;">COPY-READY OUTREACH MESSAGE:</div>
+      <div class="outreach-box" id="modalOutreachText">
+        Loading personalized pitch snippet...
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 12px;">
+        <button class="btn btn-primary" onclick="copyOutreachText()">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+          Copy Message
+        </button>
+        <button class="btn" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toastNotification">Outreach template copied to clipboard!</div>
+
+  <script>
+    // Top 15 Priority Companies Dataset
+    const top15Companies = [
+      {
+        rank: 1,
+        company: "Walmart Global Tech",
+        role: "Associate Operations Analyst (SCM)",
+        track: "Operations",
+        hub: "Kadubeesanahalli / ORR",
+        ctc: "7.5L - 9.5L",
+        fit: "9.8 / 10",
+        status: "Offer Review",
+        statusCode: "offer",
+        contact: "Pooja Sharma (Lead Campus Recruiter)",
+        pitch: "Hi Pooja,\n\nI am writing to follow up on our discussion regarding the Associate Operations Analyst role at Walmart Global Tech. Having reviewed the SCM team's Q3 scaling benchmarks, I am confident my track record—including driving a 15% operational cost reduction through lean workflow documentation and leading 300+ on-ground deployments—will enable me to contribute to Walmart's retail supply chain efficiency immediately.\n\nLooking forward to your guidance on the final offer documentation.\n\nBest regards,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 2,
+        company: "Google India",
+        role: "Global Scaled Operations Associate",
+        track: "Operations",
+        hub: "Bagmane Tech Park / OMR",
+        ctc: "9.0L - 12.5L",
+        fit: "9.7 / 10",
+        status: "Hiring Manager Round",
+        statusCode: "interview",
+        contact: "Karan Singhal (Tech Ops Talent Lead)",
+        pitch: "Hi Karan,\n\nThank you for scheduling the upcoming Hiring Manager conversation for the Global Scaled Operations Associate position. I have refreshed my case presentation on scaling high-precision data workflows, incorporating insights from my 99.2% accuracy track record across 10,000+ data operations at Instawork AI.\n\nExcited to connect this Thursday.\n\nWarm regards,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 3,
+        company: "Goldman Sachs",
+        role: "Operations Analyst (Global Markets)",
+        track: "Operations",
+        hub: "Helios Business Park / ORR",
+        ctc: "8.0L - 10.5L",
+        fit: "9.6 / 10",
+        status: "Superday Interview",
+        statusCode: "interview",
+        contact: "Ananya Deshmukh (Global Markets Campus HR)",
+        pitch: "Dear Ananya,\n\nConfirming my availability for the upcoming Goldman Sachs Superday for the Global Markets Operations Analyst track. With a specialized BBA in International Business and certified distinction in trade settlement frameworks, I look forward to demonstrating how my execution rigor aligns with Goldman Sachs' operational standards.\n\nSincerely,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 4,
+        company: "HubSpot India",
+        role: "Business Development Representative",
+        track: "B2B Sales",
+        hub: "Indiranagar / Hybrid",
+        ctc: "7.5L - 11.0L",
+        fit: "9.9 / 10",
+        status: "Fast-Track Assessment",
+        statusCode: "interview",
+        contact: "Rahul Verma (Head of Inbound Sales Recruitment)",
+        pitch: "Hi Rahul,\n\nSubmitting my completed SaaS B2B qualification drill for HubSpot's BDR requisition. Having generated INR 1.5L+ verified B2B sales revenue and closed corporate clients from cold outreach at Pencil Mark, I am eager to replicate this pipeline generation velocity for HubSpot India.\n\nBest regards,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 5,
+        company: "A.P. Moller - Maersk",
+        role: "Ocean Freight & Trade Compliance",
+        track: "EXIM",
+        hub: "Pritech Park / Bellandur",
+        ctc: "6.0L - 8.0L",
+        fit: "9.9 / 10",
+        status: "Technical Defense",
+        statusCode: "interview",
+        contact: "Suresh Menon (Global Trade Talent Partner)",
+        pitch: "Dear Suresh,\n\nFollowing up on my technical submission for the Ocean Freight & Trade Compliance Associate role at Maersk GSC. My academic specialization in Incoterms 2020, customs tariff classifications, and UCP 600 Letter of Credit validation positions me to immediately resolve documentation bottlenecks with zero error tolerance.\n\nKind regards,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 6,
+        company: "Razorpay",
+        role: "B2B BD & Merchant Operations",
+        track: "B2B Sales",
+        hub: "Koramangala 7th Block",
+        ctc: "7.0L - 10.0L",
+        fit: "9.8 / 10",
+        status: "Final Case Round",
+        statusCode: "interview",
+        contact: "Sneha Reddy (Commercial Growth Recruiter)",
+        pitch: "Hi Sneha,\n\nI have uploaded my merchant onboarding optimization pitch ahead of tomorrow's final case round at Razorpay. With proven experience managing vendor SLAs and driving INR 1.5L+ in commercial accounts, I look forward to discussing how we can accelerate Razorpay POS and payment gateway adoption in South Bangalore.\n\nBest,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 7,
+        company: "CRED",
+        role: "Commercial Operations & Growth",
+        track: "Operations",
+        hub: "100ft Road / Indiranagar",
+        ctc: "9.5L - 13.0L",
+        fit: "9.7 / 10",
+        status: "Culture & Leadership",
+        statusCode: "interview",
+        contact: "Vikram Malhotra (Talent Strategy Lead)",
+        pitch: "Hi Vikram,\n\nLooking forward to our Culture and Leadership conversation at CRED. My operational philosophy is rooted in extreme execution ownership—demonstrated across 300+ high-stress event deployments and structured cost-reduction workflows.\n\nCheers,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 8,
+        company: "Microsoft India",
+        role: "Commercial Operations Analyst",
+        track: "Operations",
+        hub: "Bellandur / ORR",
+        ctc: "8.5L - 11.5L",
+        fit: "9.6 / 10",
+        status: "Recruiter Screen",
+        statusCode: "screen",
+        contact: "Divya Nair (Commercial Enterprise Talent Lead)",
+        pitch: "Dear Divya,\n\nThank you for reaching out regarding Microsoft's Commercial Operations Analyst role. My background in cross-border commerce, enterprise account coordination, and lean process audits provides a strong foundation to support Microsoft's Enterprise Cloud partner network.\n\nSincerely,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 9,
+        company: "Boeing India",
+        role: "Aerospace SCM & Procurement",
+        track: "EXIM",
+        hub: "Aerospace Park / Devanahalli",
+        ctc: "7.0L - 9.2L",
+        fit: "9.7 / 10",
+        status: "Background Verification",
+        statusCode: "offer",
+        contact: "Arjun Rao (Strategic SCM Hiring Partner)",
+        pitch: "Dear Arjun,\n\nThank you for the update regarding the Aerospace SCM Specialist role at Boeing India. Having led ground operations and vendor management at AERO India 2025 across 500+ B2B delegates, I am excited to bring that precision to Boeing's global supply chain.\n\nBest regards,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 10,
+        company: "Deloitte India / USI",
+        role: "Risk & Business Operations Advisory",
+        track: "Operations",
+        hub: "Bellandur & Yelahanka",
+        ctc: "5.8L - 7.5L",
+        fit: "9.8 / 10",
+        status: "Partner Round",
+        statusCode: "interview",
+        contact: "Meenakshi Sundaram (Advisory Campus Partner)",
+        pitch: "Dear Meenakshi,\n\nAhead of our Partner Round for the Advisory Analyst position at Deloitte, I have compiled my portfolio detailing our 15% cost reduction case study and Incoterms compliance models. I look forward to an insightful discussion on global business risk.\n\nRespectfully,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 11,
+        company: "Amazon Operations",
+        role: "Brand Specialist (TRMS / ATS)",
+        track: "Operations",
+        hub: "WTC / Bagmane Constellation",
+        ctc: "7.2L - 9.8L",
+        fit: "9.5 / 10",
+        status: "Bar Raiser Prep",
+        statusCode: "interview",
+        contact: "Siddharth Joshi (Senior Ops Recruiter)",
+        pitch: "Hi Siddharth,\n\nConfirming receipt of the Bar Raiser interview schedule for the Operations Specialist role at Amazon. I have mapped my STAR stories covering customer obsession, ownership, and deliver results against Amazon's 16 Leadership Principles.\n\nBest,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 12,
+        company: "JPMorgan Chase & Co.",
+        role: "CIB Operations Analyst",
+        track: "Operations",
+        hub: "Embassy TechVillage / ORR",
+        ctc: "7.5L - 9.8L",
+        fit: "9.6 / 10",
+        status: "Written Evaluation",
+        statusCode: "screen",
+        contact: "Tanvi Kapoor (CIB Campus Recruitment)",
+        pitch: "Dear Tanvi,\n\nI have successfully completed the JPMorgan CIB Operations analytical evaluation. With my academic grounding in international financial instruments and UCP 600 standards, I am eager to advance to the panel interviews.\n\nWarm regards,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 13,
+        company: "Puma India",
+        role: "Brand Activation Lead",
+        track: "Brand",
+        hub: "Indiranagar & MG Road",
+        ctc: "5.8L - 7.8L",
+        fit: "9.9 / 10",
+        status: "Practical Walkthrough",
+        statusCode: "interview",
+        contact: "Varun Bajaj (Marketing & Events Director)",
+        pitch: "Hi Varun,\n\nLooking forward to presenting the retail activation strategy for Puma's Q4 Bangalore campaigns. Having executed on-ground sports activations and stall logistics for 300+ events, I understand the exact operational tempo required to drive footfall and athlete engagement.\n\nBest,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 14,
+        company: "Schneider Electric",
+        role: "Global SCM & Vendor Ops Executive",
+        track: "EXIM",
+        hub: "Whitefield & Attibele",
+        ctc: "6.0L - 8.0L",
+        fit: "9.4 / 10",
+        status: "HR Discussion",
+        statusCode: "screen",
+        contact: "Ritu Chawla (Supply Chain Talent HR)",
+        pitch: "Dear Ritu,\n\nFollowing up on our preliminary screening for the Global SCM Executive role. My BBA specialization in global logistics combined with hands-on vendor management experience makes me eager to contribute to Schneider's smart supply chain initiatives.\n\nSincerely,\nAditya Mehra\n+91-7003456624"
+      },
+      {
+        rank: 15,
+        company: "Instawork AI / Data Ops",
+        role: "AI Data Operations & Curation Lead",
+        track: "AI Data",
+        hub: "Indiranagar / Koramangala",
+        ctc: "7.2L - 9.8L",
+        fit: "9.9 / 10",
+        status: "Offer Structuring",
+        statusCode: "offer",
+        contact: "Rohan Sen (VP of AI Operations)",
+        pitch: "Hi Rohan,\n\nThank you for the positive debrief on the AI Data Curation Lead role. Having delivered a 99.2% accuracy benchmark across 10,000+ data annotations during my tenure at Instawork AI, I am excited to finalize the offer details and start driving team workflows.\n\nWarm regards,\nAditya Mehra\n+91-7003456624"
+      }
+    ];
+
+    // Weekly Activity Tracker Dataset
+    const weeklyActivity = [
+      { day: "Monday (Aug 24)", applied: 450, responses: 112, interviews: 42, note: "Big 4 Advisory & GCC Batch dispatch completed" },
+      { day: "Tuesday (Aug 25)", applied: 520, responses: 138, interviews: 56, note: "FinTech & SaaS Recruiter cadence launched" },
+      { day: "Wednesday (Aug 26 - Today)", applied: 480, responses: 145, interviews: 62, note: "Pencil Mark commercial proof & AERO India case dispatched" },
+      { day: "Thursday (Aug 27)", applied: 420, responses: 110, interviews: 45, note: "Scheduled: Google GBO & Razorpay Final Round prep" },
+      { day: "Friday (Aug 28)", applied: 460, responses: 98, interviews: 38, note: "Scheduled: Goldman Sachs Superday & Maersk Trade review" },
+      { day: "Saturday (Aug 29)", applied: 380, responses: 82, interviews: 24, note: "Weekly pipeline health audit & LinkedIn referral sync" },
+      { day: "Sunday (Aug 30)", applied: 290, responses: 59, interviews: 15, note: "Autonomous engine system optimization & database indexing" }
+    ];
+
+    // Upcoming Reminders Dataset
+    const upcomingReminders = [
+      {
+        title: "HubSpot BDR Technical Task Submission",
+        desc: "Submit B2B cold pipeline qualification drill to Rahul Verma.",
+        time: "Today, 14:00 IST",
+        type: "urgent",
+        company: "HubSpot India",
+        role: "Business Development Representative"
+      },
+      {
+        title: "Goldman Sachs Superday Mock Drill",
+        desc: "Complete 60-second elevator pitch & trade settlement case review.",
+        time: "Today, 17:30 IST",
+        type: "urgent",
+        company: "Goldman Sachs",
+        role: "Operations Analyst"
+      },
+      {
+        title: "Maersk Incoterms 2020 Case Defense",
+        desc: "Review Bill of Lading discrepancy simulation with Suresh Menon.",
+        time: "Tomorrow, 10:00 IST",
+        type: "medium",
+        company: "A.P. Moller - Maersk",
+        role: "Ocean Freight & Trade Compliance"
+      },
+      {
+        title: "Puma India Retail Activation Plan Review",
+        desc: "Submit vendor budget breakdown and safety protocol manual.",
+        time: "Tomorrow, 15:00 IST",
+        type: "medium",
+        company: "Puma India",
+        role: "Brand Activation Lead"
+      },
+      {
+        title: "Walmart Global Tech Offer Clause Review",
+        desc: "Verify joining bonus bridge and shift differential terms.",
+        time: "Aug 28, 11:30 IST",
+        type: "success",
+        company: "Walmart Global Tech",
+        role: "Associate Operations Analyst"
+      },
+      {
+        title: "Instawork AI Compensation Finalization",
+        desc: "Confirm ESOP grant structure and 6-month performance appraisal.",
+        time: "Aug 28, 16:00 IST",
+        type: "success",
+        company: "Instawork AI",
+        role: "AI Data Operations & Curation Lead"
+      }
+    ];
+
+    // Render Table Function
+    function renderCompaniesTable(data) {
+      const tbody = document.getElementById('companiesTableBody');
+      tbody.innerHTML = '';
+
+      data.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        tr.onclick = () => openOutreachModal(item.company, item.role, item.pitch);
+
+        let badgeClass = "status-applied";
+        if (item.statusCode === 'offer') badgeClass = "status-offer";
+        else if (item.statusCode === 'interview') badgeClass = "status-interview";
+        else if (item.statusCode === 'screen') badgeClass = "status-screen";
+
+        tr.innerHTML = `
+          <td style="font-family: var(--font-mono); color: var(--text-dim);">${item.rank.toString().padStart(2, '0')}</td>
+          <td>
+            <div class="company-cell">
+              <div class="company-avatar">${item.company.charAt(0)}</div>
+              <div class="company-info">
+                <span class="company-name">${item.company}</span>
+                <span class="company-sector">${item.contact}</span>
+              </div>
+            </div>
+          </td>
+          <td style="font-weight: 600;">${item.role}</td>
+          <td><span style="font-size: 0.76rem; background: var(--bg-surface); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-accent);">${item.track}</span></td>
+          <td style="font-size: 0.8rem; color: var(--text-muted);">${item.hub}</td>
+          <td style="font-family: var(--font-mono); font-weight: 700; color: #60a5fa;">₹${item.ctc}</td>
+          <td><span class="score-badge">${item.fit}</span></td>
+          <td><span class="status-badge ${badgeClass}">● ${item.status}</span></td>
+          <td>
+            <button class="btn" style="padding: 4px 10px; font-size: 0.76rem;" onclick="event.stopPropagation(); openOutreachModal('${item.company}', '${item.role}', \`${item.pitch.replace(/`/g, '\\`')}\`)">
+              Outreach
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Filter Table
+    function filterTable() {
+      const searchVal = document.getElementById('companySearchInput').value.toLowerCase();
+      const stageVal = document.getElementById('stageFilterSelect').value;
+      const trackVal = document.getElementById('trackFilterSelect').value;
+
+      const filtered = top15Companies.filter(item => {
+        const matchesSearch = item.company.toLowerCase().includes(searchVal) ||
+                              item.role.toLowerCase().includes(searchVal) ||
+                              item.hub.toLowerCase().includes(searchVal) ||
+                              item.contact.toLowerCase().includes(searchVal);
+
+        let matchesStage = true;
+        if (stageVal === 'Offer') matchesStage = item.statusCode === 'offer';
+        else if (stageVal === 'Interview') matchesStage = item.statusCode === 'interview';
+        else if (stageVal === 'Screening') matchesStage = item.statusCode === 'screen';
+        else if (stageVal === 'Applied') matchesStage = item.statusCode === 'applied';
+
+        let matchesTrack = true;
+        if (trackVal !== 'ALL') {
+          matchesTrack = item.track.toLowerCase().includes(trackVal.toLowerCase());
+        }
+
+        return matchesSearch && matchesStage && matchesTrack;
+      });
+
+      renderCompaniesTable(filtered);
+    }
+
+    // Render Weekly Activity
+    function renderWeeklyActivity() {
+      const container = document.getElementById('activityTrackerList');
+      container.innerHTML = '';
+
+      weeklyActivity.forEach(w => {
+        const total = w.applied;
+        const respPct = (w.responses / total) * 100;
+        const intPct = (w.interviews / total) * 100;
+        const appPct = 100 - respPct - intPct;
+
+        const row = document.createElement('div');
+        row.className = 'day-row';
+        row.innerHTML = `
+          <div class="day-header">
+            <div class="day-name">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              ${w.day}
+            </div>
+            <div class="day-stats">
+              <div class="stat-pill">Dispatched: <span>${w.applied}</span></div>
+              <div class="stat-pill">Responses: <span style="color: var(--warning);">${w.responses}</span></div>
+              <div class="stat-pill">Interviews: <span style="color: var(--purple);">${w.interviews}</span></div>
+            </div>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-fill-applied" style="width: ${appPct}%" title="Dispatched"></div>
+            <div class="progress-fill-resp" style="width: ${respPct}%" title="Responses"></div>
+            <div class="progress-fill-int" style="width: ${intPct}%" title="Interviews"></div>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--text-dim);">📌 ${w.note}</div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    // Render Reminders
+    function renderReminders() {
+      const container = document.getElementById('remindersList');
+      container.innerHTML = '';
+
+      upcomingReminders.forEach(rem => {
+        let borderClass = 'reminder-medium';
+        if (rem.type === 'urgent') borderClass = 'reminder-urgent';
+        if (rem.type === 'success') borderClass = 'reminder-success';
+
+        const item = document.createElement('div');
+        item.className = `reminder-item ${borderClass}`;
+        item.innerHTML = `
+          <div class="reminder-content">
+            <div class="reminder-title">${rem.title}</div>
+            <div class="reminder-desc">${rem.desc}</div>
+            <div class="reminder-time">⏰ ${rem.time} • <strong>${rem.company}</strong></div>
+          </div>
+          <div class="reminder-action">
+            <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.75rem;" onclick="openOutreachModal('${rem.company}', '${rem.role}')">
+              Action
+            </button>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    // Modal Operations
+    function openOutreachModal(company, role, pitch) {
+      document.getElementById('modalCompanyTitle').innerText = `${company} // Recruiter Outreach`;
+      document.getElementById('modalRoleSubtitle').innerText = `Target Role: ${role} | Candidate: Aditya Mehra (+91-7003456624)`;
+      
+      const textToDisplay = pitch || `Dear Hiring Team at ${company},\n\nI am writing to express my strong interest in the ${role} requisition. As a BBA International Business graduate (Class of 2026, Dayananda Sagar University), my profile combines 300+ on-ground operations deployments (Lead Coordinator at AERO India 2025 & Puma India), proven 15% operational cost reduction, and INR 1.5L+ verified B2B commercial revenue.\n\nI look forward to discussing how I can deliver immediate operational impact for ${company}.\n\nBest regards,\nAditya Mehra\n+91-7003456624 | adityamehra799@gmail.com`;
+
+      document.getElementById('modalOutreachText').innerText = textToDisplay;
+      document.getElementById('outreachModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('outreachModal').style.display = 'none';
+    }
+
+    function closeModalOnOutside(e) {
+      if (e.target.id === 'outreachModal') {
+        closeModal();
+      }
+    }
+
+    function copyOutreachText() {
+      const text = document.getElementById('modalOutreachText').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Outreach template copied to clipboard!");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+    function triggerSync() {
+      showToast("Pipeline synced with 3,000 application tracking database!");
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Chart.js Implementations
+    function initCharts() {
+      Chart.defaults.color = '#94a3b8';
+      Chart.defaults.font.family = "'Inter', sans-serif";
+
+      // Chart 1: Funnel Chart
+      const ctxFunnel = document.getElementById('funnelChart').getContext('2d');
+      new Chart(ctxFunnel, {
+        type: 'bar',
+        data: {
+          labels: ['Total Dispatched', 'Hiring Manager Review', 'Recruiter Dialogue', 'Interview Stage', 'Final Rounds', 'Offer Pipeline'],
+          datasets: [{
+            label: 'Application Count',
+            data: [3000, 1050, 744, 282, 48, 3],
+            backgroundColor: [
+              'rgba(59, 130, 246, 0.85)',
+              'rgba(6, 182, 212, 0.85)',
+              'rgba(245, 158, 11, 0.85)',
+              'rgba(139, 92, 246, 0.85)',
+              'rgba(236, 72, 153, 0.85)',
+              'rgba(16, 185, 129, 0.95)'
+            ],
+            borderColor: [
+              '#3b82f6',
+              '#06b6d4',
+              '#f59e0b',
+              '#8b5cf6',
+              '#ec4899',
+              '#10b981'
+            ],
+            borderWidth: 1.5,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return ` Applications: ${context.parsed.y.toLocaleString()} (${((context.parsed.y/3000)*100).toFixed(1)}%)`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(51, 65, 85, 0.4)' },
+              ticks: { font: { family: "'JetBrains Mono', monospace" } }
+            },
+            x: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+
+      // Chart 2: Sector Doughnut
+      const ctxSector = document.getElementById('sectorChart').getContext('2d');
+      new Chart(ctxSector, {
+        type: 'doughnut',
+        data: {
+          labels: [
+            'Global Tech & Cloud GCCs (200)',
+            'Big 4 & Advisory (200)',
+            'Investment Banking (200)',
+            'EXIM & Ocean Freight (200)',
+            'Enterprise B2B SaaS (200)',
+            'FinTech & Payments (200)',
+            'Aerospace & Defense (200)',
+            'AI Scale-Ups & Data Ops (200)',
+            'Retail & FMCG SCM (200)',
+            'Other Sectors (1,200)'
+          ],
+          datasets: [{
+            data: [200, 200, 200, 200, 200, 200, 200, 200, 200, 1200],
+            backgroundColor: [
+              '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b',
+              '#06b6d4', '#ec4899', '#f97316', '#6366f1',
+              '#14b8a6', '#334155'
+            ],
+            borderColor: '#111827',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: {
+                boxWidth: 12,
+                font: { size: 11 },
+                padding: 10
+              }
+            }
+          },
+          cutout: '62%'
+        }
+      });
+
+      // Chart 3: Weekly Activity Velocity Trend
+      const ctxWeekly = document.getElementById('weeklyChart').getContext('2d');
+      new Chart(ctxWeekly, {
+        type: 'line',
+        data: {
+          labels: ['Mon', 'Tue', 'Wed (Today)', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [
+            {
+              label: 'Applications Dispatched',
+              data: [450, 520, 480, 420, 460, 380, 290],
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59, 130, 246, 0.12)',
+              tension: 0.35,
+              fill: true,
+              pointBackgroundColor: '#3b82f6',
+              pointRadius: 4
+            },
+            {
+              label: 'Responses Received',
+              data: [112, 138, 145, 110, 98, 82, 59],
+              borderColor: '#f59e0b',
+              backgroundColor: 'rgba(245, 158, 11, 0.1)',
+              tension: 0.35,
+              fill: true,
+              pointBackgroundColor: '#f59e0b',
+              pointRadius: 4
+            },
+            {
+              label: 'Interviews Scheduled',
+              data: [42, 56, 62, 45, 38, 24, 15],
+              borderColor: '#8b5cf6',
+              backgroundColor: 'rgba(139, 92, 246, 0.1)',
+              tension: 0.35,
+              fill: true,
+              pointBackgroundColor: '#8b5cf6',
+              pointRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: { boxWidth: 12, font: { size: 11 } }
+            }
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(51, 65, 85, 0.4)' },
+              ticks: { font: { family: "'JetBrains Mono', monospace" } }
+            },
+            x: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+
+      // Chart 4: Salary Benchmark by Role Track
+      const ctxSalary = document.getElementById('salaryChart').getContext('2d');
+      new Chart(ctxSalary, {
+        type: 'bar',
+        data: {
+          labels: [
+            'Global Ops Analyst',
+            'B2B Inside Sales / BDR',
+            'EXIM Trade Compliance',
+            'AI Data Ops Curation',
+            'Event & Brand Activation'
+          ],
+          datasets: [
+            {
+              label: 'Median Fresher Base (LPA)',
+              data: [7.2, 6.5, 5.8, 6.6, 5.6],
+              backgroundColor: 'rgba(59, 130, 246, 0.85)',
+              borderRadius: 4
+            },
+            {
+              label: 'Performance Variable (LPA)',
+              data: [1.3, 2.3, 1.0, 1.9, 1.2],
+              backgroundColor: 'rgba(245, 158, 11, 0.85)',
+              borderRadius: 4
+            },
+            {
+              label: 'Top-Tier CTC Ceiling (LPA)',
+              data: [11.0, 12.0, 9.0, 11.5, 8.5],
+              backgroundColor: 'rgba(16, 185, 129, 0.85)',
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: { boxWidth: 12, font: { size: 11 } }
+            }
+          },
+          scales: {
+            x: {
+              stacked: false,
+              grid: { display: false },
+              ticks: { font: { size: 10 } }
+            },
+            y: {
+              grid: { color: 'rgba(51, 65, 85, 0.4)' },
+              ticks: {
+                callback: function(value) { return '₹' + value + 'L'; },
+                font: { family: "'JetBrains Mono', monospace" }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Initialize Dashboard
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCompaniesTable(top15Companies);
+      renderWeeklyActivity();
+      renderReminders();
+      initCharts();
+    });
+  </script>
+</body>
+</html>

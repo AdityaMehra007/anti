@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangalore Recruitment Agencies & Placement Consultancies Studio | Aditya Mehra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: #0d121f;
+      --card-border: #1e293b;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --accent: #8b5cf6;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.5px;
+    }
+    .brand p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+    .badge {
+      background: #1e1b4b;
+      color: #c4b5fd;
+      border: 1px solid #4338ca;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+      border-right: 1px solid var(--card-border);
+      padding-right: 12px;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+    .stat-val { font-size: 20px; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #fff; margin-top: 2px; }
+    .stat-val.green { color: var(--success); }
+    .stat-val.blue { color: var(--primary); }
+
+    .agency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 18px;
+    }
+    .agency-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+    .agency-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+    .agency-title { font-size: 17px; font-weight: 700; color: #fff; }
+    .agency-tier { font-size: 12px; color: #93c5fd; font-weight: 600; margin-top: 2px; }
+    .agency-location { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+    .spec-tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; }
+    .spec-tag {
+      background: #1e293b;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .pitch-box {
+      background: #07090e;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .actions-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: #2563eb; color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-secondary { background: #1e293b; color: #38bdf8; border: 1px solid #334155; }
+    .btn-secondary:hover { background: #334155; color: #fff; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="brand">
+      <h1>🏢 BANGALORE RECRUITMENT AGENCIES STRIKE STUDIO</h1>
+      <p>Candidate: Aditya Mehra | BBA International Business (DSU '26) | Verified Ground Operations & SCM</p>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <a href="https://www.michaelpage.co.in/submit-cv" target="_blank" class="btn btn-primary" onclick="openAllAgencyPortals()">⚡ Open Top Portals</a>
+    </div>
+  </header>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-label">Placement Agencies</div>
+      <div class="stat-val blue">15 Verified Hubs</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Coverage Corridors</div>
+      <div class="stat-val">CBD / ORR / Koramangala</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Headhunter Email Outbox</div>
+      <div class="stat-val green">15 Ready .eml Drafts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Candidate Positioning</div>
+      <div class="stat-val">Operations / SCM / EXIM</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-label">Guardrail</div>
+      <div class="stat-val green">100% Sales Exclusion</div>
+    </div>
+  </div>
+
+  <div class="agency-grid" id="agency-container"></div>
+</div>
+
+<script>
+const agencies = [
+  {
+    id: "AGY-BLR-001",
+    name: "Michael Page India (Bangalore Office)",
+    tier: "Tier-1 Global Executive Search & Placement",
+    location: "UB City / Vittal Mallya Road, Bengaluru",
+    specializations: ["Supply Chain & Logistics", "Global Business Operations", "Corporate Finance & EXIM", "Procurement"],
+    portal_url: "https://www.michaelpage.co.in/submit-cv",
+    email: "bangalore@michaelpage.co.in",
+    desk_phone: "+91-80-6826-6800",
+    agency_pitch: "Aditya Mehra (BBA International Business '26, DSU, CGPA 6.33) with verified ground operations leadership at Aero India 2025 and Puma/Tata Comm brand ops. Immediate joining for Bangalore operations and supply chain client mandates."
+  },
+  {
+    id: "AGY-BLR-002",
+    name: "Randstad India (Bangalore Regional Hub)",
+    tier: "Tier-1 Global Staffing & Placements",
+    location: "Hosur Road / Koramangala, Bengaluru",
+    specializations: ["Business Operations", "Enterprise Supply Chain", "Fresher / Campus Placements", "AI Data Ops"],
+    portal_url: "https://www.randstad.in/jobs/submit-cv/",
+    email: "candidates.bangalore@randstad.in",
+    desk_phone: "+91-80-6625-3000",
+    agency_pitch: "Strong operations and logistics candidate with Incoterms 2020 compliance knowledge and high-stakes venue management experience. Zero sales interest; target operations and business analyst roles."
+  },
+  {
+    id: "AGY-BLR-003",
+    name: "Adecco India (Bangalore Corporate HQ)",
+    tier: "Tier-1 Global Workforce Solutions",
+    location: "Outer Ring Road / Marathahalli, Bengaluru",
+    specializations: ["Logistics & Warehousing Operations", "Process Management", "Global Business Services (GBS)"],
+    portal_url: "https://www.adecco.co.in/job-seekers/submit-resume/",
+    email: "enquiry.blr@adecco.co.in",
+    desk_phone: "+91-80-3989-7000",
+    agency_pitch: "Dayananda Sagar University BBA IB graduate with hands-on Aero India crowd and VIP protocol triage, vendor contract enforcement, and AI QA benchmarking at Instawork."
+  },
+  {
+    id: "AGY-BLR-004",
+    name: "CareerNet Technologies (Bangalore Global HQ)",
+    tier: "India's Premier Tech & Operations Recruiter",
+    location: "Bellandur / Outer Ring Road, Bengaluru",
+    specializations: ["Global Capability Centers (GCCs)", "Operations Analysts", "Management Trainees", "AI Quality Ops"],
+    portal_url: "https://careernet.in/candidates/",
+    email: "careers@careernet.in",
+    desk_phone: "+91-80-6656-0000",
+    agency_pitch: "Targeting GCC operational analyst and supply chain associate mandates across Manyata, Ecospace, and Prestige Tech Park clients."
+  },
+  {
+    id: "AGY-BLR-005",
+    name: "ABC Consultants (Bangalore Branch)",
+    tier: "Pioneer in Indian Management Recruitment",
+    location: "Richmond Road / MG Road Corridor, Bengaluru",
+    specializations: ["Industrial & Manufacturing Logistics", "Corporate Operations", "International Trade & EXIM"],
+    portal_url: "https://www.abcconsultants.in/submit-cv/",
+    email: "bangalore@abcconsultants.in",
+    desk_phone: "+91-80-4179-5000",
+    agency_pitch: "Rigorous grounding in Incoterms 2020, customs clearance protocols, and freight cost modeling from DSU International Business degree."
+  },
+  {
+    id: "AGY-BLR-006",
+    name: "TeamLease Services (Bangalore HQ)",
+    tier: "India's Largest Human Resources Enterprise",
+    location: "Koramangala 6th Block, Bengaluru",
+    specializations: ["Corporate Trainees", "Supply Chain Operations", "Retail Operations", "Commercial Operations"],
+    portal_url: "https://www.teamlease.com/job-seekers",
+    email: "info@teamlease.com",
+    desk_phone: "+91-80-6000-0600",
+    agency_pitch: "Verified retail operations and vendor SLA governance for Puma Global and Tata Communications activations across Bangalore."
+  },
+  {
+    id: "AGY-BLR-007",
+    name: "Quess Corp Limited (Bangalore HQ)",
+    tier: "India's Leading Business Services Provider",
+    location: "Sarjapur Road / Bellandur, Bengaluru",
+    specializations: ["Process Operations", "Facility & Event Operations", "Supply Chain Associates"],
+    portal_url: "https://www.quesscorp.com/careers/",
+    email: "connect@quesscorp.com",
+    desk_phone: "+91-80-6105-6000",
+    agency_pitch: "High-volume operational execution with zero shrinkage and 100% on-time milestone delivery record."
+  },
+  {
+    id: "AGY-BLR-008",
+    name: "PERSOLKELLY India (Bangalore Office)",
+    tier: "Asia-Pacific Workforce Leader",
+    location: "Ulsoor / Kensington Road, Bengaluru",
+    specializations: ["Supply Chain & Procurement", "Global Trade Operations", "MNC Enterprise Services"],
+    portal_url: "https://www.persolkelly.co.in/jobs/submit-cv",
+    email: "contact_india@persolkelly.com",
+    desk_phone: "+91-80-4040-7000",
+    agency_pitch: "Ideal for APAC and global trade operations client mandates seeking entry-level candidates with verified logistics exposure."
+  },
+  {
+    id: "AGY-BLR-009",
+    name: "ManpowerGroup India (Bangalore Branch)",
+    tier: "Fortune 500 Global Workforce Agency",
+    location: "Dickenson Road / MG Road, Bengaluru",
+    specializations: ["Business Operations", "Project Support", "Global Client Services"],
+    portal_url: "https://www.manpowergroup.co.in/submit-cv",
+    email: "enquiry@manpowergroup.co.in",
+    desk_phone: "+91-80-4245-0000",
+    agency_pitch: "BBA International Business graduate with strong quantitative spreadsheet analysis, vendor rate negotiation, and operational SOP compliance."
+  },
+  {
+    id: "AGY-BLR-010",
+    name: "CIEL HR Services (Bangalore Office)",
+    tier: "Leading Tech & Operations Staffing Agency",
+    location: "Residency Road / CBD, Bengaluru",
+    specializations: ["Operations Analysts", "Supply Chain Specialists", "Campus / Fresher Hiring"],
+    portal_url: "https://www.cielhr.com/candidate-registration/",
+    email: "info@cielhr.com",
+    desk_phone: "+91-80-4916-5000",
+    agency_pitch: "Available for immediate Bangalore onboarding across Electronic City, ORR, and Whitefield corporate client placements."
+  },
+  {
+    id: "AGY-BLR-011",
+    name: "Allegis Group India (Bangalore Delivery Center)",
+    tier: "Global Talent Solutions Leader",
+    location: "Embassy GolfLinks Tech Park, Domlur, Bengaluru",
+    specializations: ["Global Operations", "AI Platform Quality", "GCC Enterprise Support"],
+    portal_url: "https://www.allegisgroup.com/en-in/careers",
+    email: "contactindia@allegisgroup.com",
+    desk_phone: "+91-80-3070-5000",
+    agency_pitch: "Instawork AI data validation rigor combined with Aero India high-security defense protocol experience."
+  },
+  {
+    id: "AGY-BLR-012",
+    name: "Taggd by PeopleStrong (Bangalore Center)",
+    tier: "Specialized Digital Recruitment Platform",
+    location: "Indiranagar 100 Ft Road, Bengaluru",
+    specializations: ["Digital Operations", "Supply Chain", "B2B Operations"],
+    portal_url: "https://taggd.in/candidate-zone/",
+    email: "reachus@taggd.in",
+    desk_phone: "+91-80-4660-1200",
+    agency_pitch: "Zero-hallucination verified profile ready for immediate deployment across enterprise operations mandates."
+  },
+  {
+    id: "AGY-BLR-013",
+    name: "Collabera India (Bangalore Hub)",
+    tier: "Global Technology & Operations Workforce",
+    location: "Prestige Tech Park, Outer Ring Road, Bengaluru",
+    specializations: ["Business Process Operations", "Vendor SLA Governance", "Project Coordination"],
+    portal_url: "https://www.collabera.com/submit-resume/",
+    email: "india.careers@collabera.com",
+    desk_phone: "+91-80-4900-5000",
+    agency_pitch: "Bellandur and ORR tech park operational support roles for fresh BBA International Business graduates."
+  },
+  {
+    id: "AGY-BLR-014",
+    name: "Gi Group India (Bangalore Branch)",
+    tier: "International Staffing & Recruitment Leader",
+    location: "Lavelle Road / Richmond Town, Bengaluru",
+    specializations: ["Logistics & Supply Chain", "Event & Retail Operations", "General Management"],
+    portal_url: "https://in.gigroup.com/submit-cv/",
+    email: "contact.india@gigroup.com",
+    desk_phone: "+91-80-4151-8000",
+    agency_pitch: "Aero India 2025 ground operations lead and Puma brand activation specialist with immediate Bangalore availability."
+  },
+  {
+    id: "AGY-BLR-015",
+    name: "SutraHR (Bangalore Tech & Operations Practice)",
+    tier: "Premier Startup & Scaleup Recruitment Firm",
+    location: "HSR Layout Sector 4, Bengaluru",
+    specializations: ["Startup Operations Generalist", "Customer Success Ops", "Quick-Commerce Supply Chain"],
+    portal_url: "https://www.sutrahr.com/careers/",
+    email: "connect@sutrahr.com",
+    desk_phone: "+91-80-4090-3000",
+    agency_pitch: "High-velocity startup operator capable of managing vendor SLAs, event setups, and platform quality workflows with zero oversight."
+  }
+];
+
+function renderAgencies() {
+  const container = document.getElementById('agency-container');
+  container.innerHTML = agencies.map(a => {
+    const mailSubject = encodeURIComponent("Candidate Profile for Bangalore Client Mandates: Aditya Mehra (BBA IB '26 | DSU)");
+    const mailBody = encodeURIComponent(`Dear Recruitment Team at ${a.name},\n\nI am writing to register my candidate profile for Bangalore corporate client mandates across Business Operations, Supply Chain & Logistics, and Business Analyst tracks.\n\nCANDIDATE SUMMARY:\n• Name: Aditya Mehra\n• Degree: BBA International Business (Dayananda Sagar University '26, CGPA 6.33/10)\n• Location: Bengaluru, Karnataka (Immediate Availability)\n• Verified Highlights: Ground Ops Lead at Aero India 2025 (100k+ attendees), Brand Activation Ops for Puma/Tata Comm, AI Data QA at Instawork.\n• Target Tracks: Operations Analyst, Supply Chain Associate, EXIM Operations (Strictly Non-Sales)\n\nAttached is my Harvard ATS 1-page resume for your active talent pool.\n\nBest regards,\nAditya Mehra | +91 70034 56624 | adityamehra799@gmail.com`);
+    const mailtoLink = `mailto:${a.email}?subject=${mailSubject}&body=${mailBody}`;
+
+    return `
+      <div class="agency-card">
+        <div>
+          <div class="agency-title">${a.name}</div>
+          <div class="agency-tier">${a.tier}</div>
+          <div class="agency-location">📍 ${a.location} | ☎ ${a.desk_phone}</div>
+          <div class="spec-tags">
+            ${a.specializations.map(s => `<span class="spec-tag">${s}</span>`).join('')}
+          </div>
+          <div class="pitch-box">${a.agency_pitch}</div>
+        </div>
+        <div class="actions-row">
+          <a href="${a.portal_url}" target="_blank" class="btn btn-primary">Register on Portal ↗</a>
+          <a href="${mailtoLink}" class="btn btn-secondary">✉ 1-Click Mailto</a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function openAllAgencyPortals() {
+  agencies.slice(0, 8).forEach(a => {
+    window.open(a.portal_url, '_blank');
+  });
+}
+
+window.onload = renderAgencies;
+</script>
+
+</body>
+</html>

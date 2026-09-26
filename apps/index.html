@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADI SOVEREIGN OS — Master Application & Execution Suite (13 Apps)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --card-hover: #16223b;
+      --teal: #00d4aa;
+      --teal-glow: rgba(0, 212, 170, 0.15);
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 32px 24px; min-height: 100vh; line-height: 1.5; }
+    .container { max-width: 1340px; margin: 0 auto; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Header */
+    header { text-align: center; margin-bottom: 36px; }
+    .badge { background: var(--teal-glow); color: var(--teal); padding: 6px 18px; border-radius: 99px; font-size: 0.85rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.3); display: inline-block; margin-bottom: 12px; letter-spacing: 0.5px; }
+    h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+    .subtitle { color: var(--text-muted); font-size: 1.05rem; margin-top: 8px; max-width: 820px; margin-left: auto; margin-right: auto; }
+    .candidate-tagline { display: inline-flex; align-items: center; gap: 12px; background: #080d1a; border: 1px solid var(--card-border); padding: 8px 20px; border-radius: 12px; margin-top: 16px; font-size: 0.85rem; flex-wrap: wrap; justify-content: center; }
+    .candidate-tagline strong { color: #fff; }
+
+    /* Top Stats Grid */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .stats-grid { grid-template-columns: 1fr; } }
+    .stat-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 18px; text-align: center; }
+    .stat-val { font-size: 1.6rem; font-weight: 800; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-top: 4px; }
+
+    /* Filter Toolbar */
+    .filter-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 18px; border-radius: 14px; }
+    .search-input { background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; min-width: 290px; }
+    .search-input:focus { outline: none; border-color: var(--teal); }
+    .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .f-pill { background: #080d1a; border: 1px solid var(--card-border); color: var(--text-muted); padding: 7px 16px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .f-pill:hover { color: #fff; border-color: var(--teal); }
+    .f-pill.active { background: rgba(0, 212, 170, 0.15); border-color: var(--teal); color: var(--teal); }
+
+    /* Apps Grid */
+    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; margin-bottom: 48px; }
+    @media (max-width: 420px) { .apps-grid { grid-template-columns: 1fr; } }
+    
+    .app-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 18px; padding: 26px; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.2); position: relative; }
+    .app-card:hover { transform: translateY(-5px); border-color: var(--teal); box-shadow: 0 16px 36px rgba(0,212,170,0.18); background: #0f182c; }
+    
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .app-icon { font-size: 2.2rem; line-height: 1; }
+    .app-category { font-size: 0.72rem; padding: 3px 10px; border-radius: 99px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    
+    .cat-recruiting { background: rgba(0, 212, 170, 0.12); color: var(--teal); border: 1px solid rgba(0, 212, 170, 0.3); }
+    .cat-trade { background: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
+    .cat-intel { background: rgba(245, 158, 11, 0.12); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .cat-prep { background: rgba(139, 92, 246, 0.12); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+
+    .app-title { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .app-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 18px; flex-grow: 1; }
+    .app-features { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .feat-tag { background: #080d1a; color: var(--text-dim); font-size: 0.73rem; padding: 3px 8px; border-radius: 4px; border: 1px solid var(--card-border); font-weight: 600; }
+
+    .app-action { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; font-weight: 700; color: var(--teal); padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .app-card:hover .app-action span:last-child { transform: translateX(4px); transition: transform 0.2s; }
+
+    /* Footer */
+    footer { text-align: center; padding-top: 28px; border-top: 1px solid var(--card-border); color: var(--text-dim); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">ADI SOVEREIGN OS • 20-APP MASTER EXECUTION SUITE</span>
+      <h1>Autonomous Career, Trade & Execution Suite</h1>
+      <p class="subtitle">Complete ecosystem of 20 interactive production web applications, recruitment hubs, tech park navigators, AI workforce explorers, mass hiring matrices, and non-stop outreach studios for Aditya Mehra</p>
+      
+      <div class="candidate-tagline">
+        <strong>Aditya Mehra (BBA IB '26 • DSU Bangalore)</strong>
+        <span style="color: var(--card-border);">|</span>
+        <span style="color: var(--teal);">300+ Deployments (AERO India Lead)</span>
+        <span style="color: var(--card-border);">|</span>
+        <span style="color: var(--purple);">Tier-1 vendor SLA governance</span>
+        <span style="color: var(--card-border);">|</span>
+        <span style="color: var(--blue);">AI Data Ops (99%+)</span>
+        <span style="color: var(--card-border);">|</span>
+        <span style="color: var(--amber);">Incoterms 2020 & UCP 600</span>
+      </div>
+    </header>
+
+    <!-- Top Stats -->
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--teal);">20 Active Apps</div>
+        <div class="stat-label">Production Tools</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--purple);">20 Tech Parks</div>
+        <div class="stat-label">Bangalore Campus Directory</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--blue);">7,142 AI Assets</div>
+        <div class="stat-label">3,368 Agents • 3,670 Skills</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--amber);">4,500 Targets</div>
+        <div class="stat-label">100% Non-Sales Operations</div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="filter-bar">
+      <input type="text" id="appSearch" class="search-input" placeholder="🔍 Search apps by keyword (e.g. tech parks, agents, skills, 4500, non-stop outreach, mass hiring, ATS)..." oninput="filterApps()">
+      <div class="filter-pills">
+        <div class="f-pill active" onclick="setFilter('ALL', this)">All 20 Apps</div>
+        <div class="f-pill" onclick="setFilter('recruiting', this)">Career & Recruiting</div>
+        <div class="f-pill" onclick="setFilter('ops_trade', this)">Operations & EXIM</div>
+        <div class="f-pill" onclick="setFilter('intel_commute', this)">Intelligence & Commute</div>
+        <div class="f-pill" onclick="setFilter('prep', this)">Interview & Prep</div>
+      </div>
+    </div>
+
+    <!-- 20-App Master Grid -->
+    <div class="apps-grid" id="appsGrid">
+      
+      <!-- Flagship 0: Bangalore 4,500 Companies Non-Stop Outreach Studio -->
+      <a href="job_application_studio/bangalore_non_stop_outreach_studio.html" class="app-card" data-cat="recruiting" data-keywords="4500 bangalore companies non-stop outreach studio blitz mode mail merge batch email hr leads desk phones orr whitefield electronic city manyata koramangala" style="border-color: #38bdf8; background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(13, 18, 29, 0.95) 100%); grid-column: 1 / -1;">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">⚡</div>
+            <span class="app-category cat-recruiting" style="background: #0284c7; color: #fff; font-weight: 800; font-size: 0.8rem; padding: 4px 12px;">ULTRA-HIGH VELOCITY • 4,500 BANGALORE TARGETS</span>
+          </div>
+          <div class="app-title" style="font-size: 1.45rem;">Bangalore 4,500 Companies Non-Stop Outreach Studio</div>
+          <div class="app-desc" style="font-size: 0.95rem;">The definitive high-velocity candidate reachout engine. Features <strong>Non-Stop Blitz Mode</strong> with 1-click `Send & Next` auto-advancing, instant search across all 4,500 Bangalore employers, verified HR leads, official desk lines, direct emails, corridor filters (ORR, Whitefield, E-City, Manyata, Koramangala, CBD), and 100% Non-Sales operations pitches.</div>
+          <div class="app-features">
+            <span class="feat-tag" style="border-color: #38bdf8; color: #7dd3fc;">4,500 Verified Targets</span>
+            <span class="feat-tag" style="border-color: #10b981; color: #6ee7b7;">Non-Stop Blitz Mode</span>
+            <span class="feat-tag">1-Click Mailto & Pitch Copy</span>
+            <span class="feat-tag">Direct Desk Lines (+91-80)</span>
+            <span class="feat-tag">Local Contact Tracker</span>
+            <span class="feat-tag">0% Sales Exposure</span>
+          </div>
+        </div>
+        <div class="app-action" style="color: #38bdf8; font-size: 0.95rem;">
+          <span>Launch Non-Stop Outreach Engine</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- NEW Flagship 0A: Bangalore Tech Parks & Campus Navigator -->
+      <a href="job_application_studio/bangalore_tech_parks_studio.html" class="app-card" data-cat="intel_commute" data-keywords="tech parks bangalore campus navigator metro connectivity manyata ecoworld etv prestige itpb electronic city btg egl companies directory non-sales hr leads" style="border-color: #10b981; background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(13, 18, 29, 0.95) 100%);">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🏢</div>
+            <span class="app-category cat-intel" style="background: #059669; color: #fff; font-weight: 800;">20 TECH PARKS • 72 CAMPUS GIANTS</span>
+          </div>
+          <div class="app-title">Bangalore Tech Parks & Campus Navigator</div>
+          <div class="app-desc">Interactive campus explorer across all 20 premier Bangalore Tech Parks (Manyata, RMZ Ecoworld/Ecospace, ETV, Prestige Tech Park, ITPB, BTG, EGL, Electronic City). Aligned with Namma Metro lines (Purple, Yellow, Blue, Pink), transit friction index, campus amenities, non-sales roles, and direct HR contacts.</div>
+          <div class="app-features">
+            <span class="feat-tag" style="border-color: #10b981; color: #6ee7b7;">20 Premier Campuses</span>
+            <span class="feat-tag">Namma Metro Aligned</span>
+            <span class="feat-tag">Transit Friction Index</span>
+            <span class="feat-tag">72 Marquee GCCs</span>
+            <span class="feat-tag">1-Click Outreach Pitch</span>
+          </div>
+        </div>
+        <div class="app-action" style="color: #10b981;">
+          <span>Explore Tech Parks & Campuses</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- NEW Flagship 0B: Master AI Workforce & Capabilities Explorer -->
+      <a href="job_application_studio/agents_and_skills_explorer.html" class="app-card" data-cat="ops_trade" data-keywords="agents skills workforce explorer 7142 assets 3368 agents 3670 skills 94 workflows career engines exim b2b finance devops cloud security data analytics" style="border-color: #8b5cf6; background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(13, 18, 29, 0.95) 100%);">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🤖</div>
+            <span class="app-category cat-ops" style="background: #7c3aed; color: #fff; font-weight: 800;">7,142 CATALOGED AI ASSETS</span>
+          </div>
+          <div class="app-title">Master AI Workforce & Capabilities Explorer</div>
+          <div class="app-desc">Exhaustive command center indexing all 3,368 Autonomous Agents, 3,670 Specialized Skills, 94 Automation Workflows, and 10 Core Career OS Engines. Instant search (&lt;5ms), functional domain filtering (EXIM, B2B Ops, Finance, Security, Cloud, AI), file path inspector, and full CSV catalog export.</div>
+          <div class="app-features">
+            <span class="feat-tag" style="border-color: #8b5cf6; color: #c4b5fd;">3,368 Autonomous Agents</span>
+            <span class="feat-tag">3,670 Skills Modules</span>
+            <span class="feat-tag">94 Workflows</span>
+            <span class="feat-tag">Sub-5ms Latency</span>
+            <span class="feat-tag">Export Catalog CSV</span>
+          </div>
+        </div>
+        <div class="app-action" style="color: #8b5cf6;">
+          <span>Launch AI Workforce Explorer</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Flagship 1: Global MNCs, Funded Startups & Mass Hiring Hub -->
+      <a href="job_application_studio/global_mnc_and_startup_hub.html" class="app-card" data-cat="recruiting" data-keywords="mass bulk hiring giants funded startups unicorns global mncs usa uk europe big 4 benefits cabs health insurance shift allowance tcs infosys wipro cognizant capgemini accenture quess randstad" style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.05);">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🌐</div>
+            <span class="app-category cat-recruiting" style="background: #0284c7; color: #fff; font-weight: 800;">60 ENTERPRISES (MASS HIRING + GCCs)</span>
+          </div>
+          <div class="app-title">Bangalore Global MNCs & Mass Hiring Hub</div>
+          <div class="app-desc">Verified non-sales employment matrix covering 60 employers hiring freshers in Bangalore: 15 Mass Hiring Giants & Staffing Masters (TCS, Infosys BPM, Wipro, Cognizant, Capgemini, Accenture, Quess, Randstad), 15 Unicorns, 13 US GCCs, 13 UK/European Leaders, and 4 Big 4 Hubs. Includes full employee benefits package matrix (doorstep cabs, ₹3L–₹5L health insurance, shift allowances, meal passes).</div>
+          <div class="app-features">
+            <span class="feat-tag">60 Verified Employers</span>
+            <span class="feat-tag">15 Mass Hiring Giants</span>
+            <span class="feat-tag">Full Benefits Matrix</span>
+            <span class="feat-tag">0% Sales Exposure</span>
+          </div>
+        </div>
+        <div class="app-action" style="color: #38bdf8;">
+          <span>Explore 60 Employers & Benefits</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Flagship 2: Get Me Hired Master Dashboard -->
+      <a href="get_me_hired_dashboard/index.html" class="app-card" data-cat="recruiting" data-keywords="get me hired dashboard master control center copilot match score star interview resumes 60 global mncs" style="border-color: #8b5cf6; background: rgba(139, 92, 246, 0.05);">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🎯</div>
+            <span class="app-category cat-recruiting" style="background: #7c3aed; color: #fff; font-weight: 800;">FLAGSHIP DASHBOARD</span>
+          </div>
+          <div class="app-title">'Get Me Hired' Master Control Center</div>
+          <div class="app-desc">All-in-one command deck integrating 100-pt candidate job matching, ATS scores, 15 tailored resume variants, agency submissions, interview compendiums, and the 60-enterprise Bangalore matrix with live AI Career Copilot.</div>
+          <div class="app-features">
+            <span class="feat-tag">7 Integrated Tabs</span>
+            <span class="feat-tag">AI Career Copilot</span>
+            <span class="feat-tag">15 Resume Variants</span>
+            <span class="feat-tag">1-Click Apply Flow</span>
+          </div>
+        </div>
+        <div class="app-action" style="color: #a78bfa;">
+          <span>Launch Master Control Center</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Flagship 3: Bangalore Placement & Staffing Agency Studio -->
+      <a href="job_application_studio/bangalore_agency_studio.html" class="app-card" data-cat="recruiting" data-keywords="placement agencies staffing bangalore recruiters michael page korn ferry randstad abc consultants sutrahr emls drafts" style="border-color: #10b981; background: rgba(16, 185, 129, 0.05);">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🏢</div>
+            <span class="app-category cat-recruiting" style="background: #059669; color: #fff; font-weight: 800;">15 RECRUITMENT AGENCIES</span>
+          </div>
+          <div class="app-title">Bangalore Placement Agency Studio</div>
+          <div class="app-desc">Dedicated application portal and recruiter outreach engine for Bangalore's top 15 placement agencies. Includes pre-filled recruiter outreach emails, verified desk phones, and candidate pitches.</div>
+          <div class="app-features">
+            <span class="feat-tag">15 Placement Masters</span>
+            <span class="feat-tag">Pre-Crafted EMLs</span>
+            <span class="feat-tag">Direct Desk Lines</span>
+            <span class="feat-tag">1-Click Mailto</span>
+          </div>
+        </div>
+        <div class="app-action" style="color: #34d399;">
+          <span>Open Agency Studio</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Flagship 4: Fast-Track 1-Click Submission Portal -->
+      <a href="fast_track_bangalore_portal.html" class="app-card" data-cat="recruiting" data-keywords="fast track portal naukri linkedin indeed 1-click apply search freshers bangalore" style="border-color: #f59e0b; background: rgba(245, 158, 11, 0.05);">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🚀</div>
+            <span class="app-category cat-recruiting" style="background: #d97706; color: #fff; font-weight: 800;">FAST-TRACK SUBMISSION</span>
+          </div>
+          <div class="app-title">Fast-Track 1-Click Submission Portal</div>
+          <div class="app-desc">High-speed candidate submission portal with direct 1-click links to active job search queries on Naukri, LinkedIn, and Indeed tailored for freshers in Bangalore with 0% sales risk.</div>
+          <div class="app-features">
+            <span class="feat-tag">1-Click Naukri</span>
+            <span class="feat-tag">LinkedIn Quick Apply</span>
+            <span class="feat-tag">Indeed Live Stream</span>
+          </div>
+        </div>
+        <div class="app-action" style="color: #fbbf24;">
+          <span>Launch Fast-Track Portal</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 0. Master Job Application Studio & Launchpad -->
+      <a href="job_application_studio/index.html" class="app-card" data-cat="recruiting" data-keywords="job applications launchpad apply resume cover letter cold outreach star interview enterprise packages" style="border-color: var(--teal); background: rgba(0, 212, 170, 0.05);">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">⚡</div>
+            <span class="app-category cat-recruiting" style="background: var(--teal); color: #090d16; font-weight: 800;">MASTER LAUNCHPAD</span>
+          </div>
+          <div class="app-title">Master Job Application Studio</div>
+          <div class="app-desc">Instant 1-click tailored application packages for Top Tier-1 Global GCCs (Walmart, Amazon, Google, Microsoft, Goldman Sachs, EY, Deloitte, Target, Boeing). Includes tailored resumes, cover letters, 3-touch outreach cadences, and STAR prep.</div>
+          <div class="app-features">
+            <span class="feat-tag">1-Click Apply</span>
+            <span class="feat-tag">15 Enterprise Packages</span>
+            <span class="feat-tag">HMAC Proof Badges</span>
+            <span class="feat-tag">Touch-1 Email Copy</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Launch Application Studio</span>
+          <span>➔</span>
+        </div>
+      </a>
+      
+      <!-- 1. Personal Portfolio Website -->
+      <a href="../portfolio/index.html" class="app-card" data-cat="recruiting" data-keywords="portfolio executive resume aditya mehra profile aero india puma case studies">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🌐</div>
+            <span class="app-category cat-recruiting">Career & Recruiting</span>
+          </div>
+          <div class="app-title">Personal Portfolio Website</div>
+          <div class="app-desc">Production-grade executive portfolio showcasing verified 300+ deployments, standardized vendor rate governance, commercial operations pipeline acceleration, and print-ready ATS resume mode.</div>
+          <div class="app-features">
+            <span class="feat-tag">Interactive Proofs</span>
+            <span class="feat-tag">Print Resume</span>
+            <span class="feat-tag">Case Studies</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Open Portfolio</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 2. Daily Briefing Dashboard -->
+      <a href="../dashboard/daily_briefing.html" class="app-card" data-cat="recruiting" data-keywords="daily briefing dashboard command center 3000 applications funnel outbound status">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">📊</div>
+            <span class="app-category cat-recruiting">Career & Recruiting</span>
+          </div>
+          <div class="app-title">Daily Briefing Dashboard</div>
+          <div class="app-desc">Live interactive command center tracking 3,000 active applications, response funnels, priority MNC matrices, and 1-click recruiter pitch copy.</div>
+          <div class="app-features">
+            <span class="feat-tag">3,000 Tracker</span>
+            <span class="feat-tag">Funnel Visuals</span>
+            <span class="feat-tag">Live Feed</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Launch Dashboard</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 3. ATS Resume Keyword Matcher & JD Analyzer (NEW) -->
+      <a href="ats_scanner/index.html" class="app-card" data-cat="recruiting" data-keywords="ats resume keyword matcher jd job description analyzer score bullets green amber gaps">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🎯</div>
+            <span class="app-category cat-recruiting">Career & Recruiting</span>
+          </div>
+          <div class="app-title">ATS Resume Matcher & JD Analyzer</div>
+          <div class="app-desc">Paste any Job Description to benchmark live ATS compatibility score (0-100%), highlight matching keywords, identify gaps, and auto-generate 3 tailored bullet points.</div>
+          <div class="app-features">
+            <span class="feat-tag">Live ATS Score %</span>
+            <span class="feat-tag">4 Pillar Match</span>
+            <span class="feat-tag">3 Tailored Bullets</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Launch ATS Scanner</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 4. Cold Outreach Email Composer & Mail Merge (NEW) -->
+      <a href="email_composer/index.html" class="app-card" data-cat="recruiting" data-keywords="email composer cold outreach mail merge recruiter outreach cadences b2b pitch mailto">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">✉️</div>
+            <span class="app-category cat-recruiting">Career & Recruiting</span>
+          </div>
+          <div class="app-title">Cold Outreach Email & Mail Merge</div>
+          <div class="app-desc">Compose high-converting recruiter sequences with dynamic tags, preloaded 3-step cadences, spam trigger scoring, 1-click mailto: launcher, and CSV mail merge.</div>
+          <div class="app-features">
+            <span class="feat-tag">Dynamic {{Tags}}</span>
+            <span class="feat-tag">3-Step Cadence</span>
+            <span class="feat-tag">Bulk CSV Merge</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Compose Outreach</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 5. Standalone Print/PDF-Optimized Executive Cheat Sheet (NEW) -->
+      <a href="portfolio_pdf/index.html" class="app-card" data-cat="recruiting" data-keywords="pdf cheat sheet print executive 1 page print-ready a4 export resume proof summary">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">📄</div>
+            <span class="app-category cat-recruiting">Career & Recruiting</span>
+          </div>
+          <div class="app-title">Print Executive Cheat Sheet PDF</div>
+          <div class="app-desc">Clean 1-page executive cheat sheet engineered for instant Ctrl+P PDF export with high-contrast typography, 5 anchor claims, target GCC alignments, and credentials.</div>
+          <div class="app-features">
+            <span class="feat-tag">1-Page A4 Layout</span>
+            <span class="feat-tag">@media Print CSS</span>
+            <span class="feat-tag">5 Anchor Proofs</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>View PDF Sheet</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 6. Recruiter Outreach Kanban CRM -->
+      <a href="networking_crm/index.html" class="app-card" data-cat="recruiting" data-keywords="crm kanban recruiter outreach networking linkedin leads pipeline drag drop">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🗂️</div>
+            <span class="app-category cat-recruiting">Career & Recruiting</span>
+          </div>
+          <div class="app-title">Recruiter Outreach Kanban CRM</div>
+          <div class="app-desc">Interactive drag-and-drop workflow tracking 4,500 verified HR contacts across Queued, Sent, In Dialogue, and Interview Scheduled pipeline stages.</div>
+          <div class="app-features">
+            <span class="feat-tag">Drag & Drop Kanban</span>
+            <span class="feat-tag">4,500 Contacts</span>
+            <span class="feat-tag">1-Click Dispatch</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Open CRM</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 7. Global EXIM Landed Cost Calculator -->
+      <a href="exim_calculator/index.html" class="app-card" data-cat="ops_trade" data-keywords="exim trade calculator customs duty bcd sws igst landed cost incoterms ucp 600">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🚢</div>
+            <span class="app-category cat-trade">Operations & EXIM</span>
+          </div>
+          <div class="app-title">Global EXIM Landed Cost Calculator</div>
+          <div class="app-desc">Interactive Indian Customs tariff engine calculating BCD, SWS, IGST, port handling, and UCP 600 LC compliance checks across Incoterms 2020.</div>
+          <div class="app-features">
+            <span class="feat-tag">Incoterms 2020</span>
+            <span class="feat-tag">HS Code Tariff</span>
+            <span class="feat-tag">UCP 600 Rules</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Open EXIM Tool</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 8. B2B Vendor Rate Optimizer -->
+      <a href="vendor_optimizer/index.html" class="app-card" data-cat="ops_trade" data-keywords="vendor rate optimizer procurement Tier-1 vendor SLA governance negotiation supplier restructuring">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">💼</div>
+            <span class="app-category cat-trade">Operations & EXIM</span>
+          </div>
+          <div class="app-title">B2B Vendor Rate Optimizer</div>
+          <div class="app-desc">Simulate primary tier-1 vendor rate negotiations across multi-event enterprise deployments with verified Tier-1 SLAs cash reduction models and SLA safeguards.</div>
+          <div class="app-features">
+            <span class="feat-tag">Vendor SLA Model</span>
+            <span class="feat-tag">Tier-1 Restructuring</span>
+            <span class="feat-tag">SLA Protection</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Launch Simulator</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 9. Bangalore Metro & Tech Park Commute Intelligence (NEW) -->
+      <a href="bangalore_commute/index.html" class="app-card" data-cat="intel_commute" data-keywords="bangalore commute metro tech park rmz ecoworld manyata itpl ecity rental index fare auto cab">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🚇</div>
+            <span class="app-category cat-intel">Intelligence & Commute</span>
+          </div>
+          <div class="app-title">Bangalore Metro & Commute Matrix</div>
+          <div class="app-desc">Multi-modal transit engine calculating peak/off-peak travel times, Namma Metro line connectivity, Namma Yatri/Uber fares, bottleneck alerts & rental index comparison.</div>
+          <div class="app-features">
+            <span class="feat-tag">Metro Routing</span>
+            <span class="feat-tag">Uber/Auto Fares</span>
+            <span class="feat-tag">Rental Index ROI</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Explore Commute</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 10. Top 50 Bangalore Enterprise Target Dossiers -->
+      <a href="company_dossiers/index.html" class="app-card" data-cat="intel_commute" data-keywords="company dossiers top 50 bangalore gcc big tech goldman amazon google pitches target salary">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🏢</div>
+            <span class="app-category cat-intel">Intelligence & Commute</span>
+          </div>
+          <div class="app-title">Top 50 Enterprise Target Dossiers</div>
+          <div class="app-desc">Comprehensive database of Top 50 Bangalore GCCs, Big Tech, Big 4, and FinTech targets with tailored value hooks, compensation bands & 1-click pitches.</div>
+          <div class="app-features">
+            <span class="feat-tag">50 Target Profiles</span>
+            <span class="feat-tag">1-Click Pitches</span>
+            <span class="feat-tag">Salary Bands</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Explore Dossiers</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 11. AI Voice & STAR Interview Practice Studio -->
+      <a href="interview_simulator/index.html" class="app-card" data-cat="prep" data-keywords="interview practice voice star speech recognition audio feedback simulator recording">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">🎙️</div>
+            <span class="app-category cat-prep">Interview & Prep</span>
+          </div>
+          <div class="app-title">AI Voice & STAR Practice Studio</div>
+          <div class="app-desc">Practice interview questions with real-time text-to-speech audio, microphone voice recording via Web Speech API, and instant STAR scoring feedback.</div>
+          <div class="app-features">
+            <span class="feat-tag">Web Speech Audio</span>
+            <span class="feat-tag">STAR Feedback</span>
+            <span class="feat-tag">Live Recording</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Start Practice</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 12. 208-Question Rapid-Fire Interview Flashcards Studio -->
+      <a href="interview_flashcards/index.html" class="app-card" data-cat="prep" data-keywords="flashcards 208 questions quiz rapid fire spaced repetition star speech audio drill flip">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">⚡</div>
+            <span class="app-category cat-prep">Interview & Prep</span>
+          </div>
+          <div class="app-title">208-Question Flashcards Studio</div>
+          <div class="app-desc">Complete 208-question interview master bank with 3D flip cards, Web Speech audio synthesis, pitfalls warnings, keyboard navigation & spaced repetition.</div>
+          <div class="app-features">
+            <span class="feat-tag">208 Full Questions</span>
+            <span class="feat-tag">3D Card Flip</span>
+            <span class="feat-tag">Audio Readout</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Open Flashcards</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- 13. Interactive Salary & Offer Counter-Negotiator -->
+      <a href="salary_negotiator/index.html" class="app-card" data-cat="prep" data-keywords="salary counter offer negotiator compensation tax in hand objection battleground ctc rebuttal">
+        <div>
+          <div class="card-top">
+            <div class="app-icon">💰</div>
+            <span class="app-category cat-prep">Interview & Prep</span>
+          </div>
+          <div class="app-title">Salary & Offer Counter-Negotiator</div>
+          <div class="app-desc">Interactive in-hand monthly tax engine, counter-offer strategy calibration (+18% to +25%), script generator, and live recruiter objection battleground.</div>
+          <div class="app-features">
+            <span class="feat-tag">Indian Tax Slabs FY26</span>
+            <span class="feat-tag">Rebuttal Battleground</span>
+            <span class="feat-tag">Top 15 Benchmarks</span>
+          </div>
+        </div>
+        <div class="app-action">
+          <span>Launch Negotiator</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+    </div>
+
+    <footer>
+      <p>ADI SOVEREIGN OS — High-Velocity Enterprise Career & Execution Infrastructure</p>
+      <p style="margin-top: 4px;">Dayananda Sagar University, Bengaluru • Class of 2026 • Aditya Mehra (+91-7003456624 • adityamehra799@gmail.com)</p>
+    </footer>
+  </div>
+
+  <script>
+    let currentFilter = 'ALL';
+
+    function setFilter(cat, elem) {
+      currentFilter = cat;
+      document.querySelectorAll('.f-pill').forEach(p => p.classList.remove('active'));
+      elem.classList.add('active');
+      filterApps();
+    }
+
+    function filterApps() {
+      const q = document.getElementById('appSearch').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.app-card');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        const keywords = card.getAttribute('data-keywords') || '';
+        const title = card.querySelector('.app-title').textContent.toLowerCase();
+        const desc = card.querySelector('.app-desc').textContent.toLowerCase();
+
+        const matchesCat = (currentFilter === 'ALL' || cat === currentFilter);
+        const matchesQuery = !q || title.includes(q) || desc.includes(q) || keywords.includes(q);
+
+        if (matchesCat && matchesQuery) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

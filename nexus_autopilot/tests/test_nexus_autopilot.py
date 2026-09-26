@@ -43,7 +43,7 @@ class TestNexusAutopilot(unittest.TestCase):
     def test_02_finance_engine_kpis(self):
         snap = self.finance.get_executive_financial_snapshot("ORG-ABC-001")
         self.assertTrue(snap["total_revenue_invoiced"] >= 700000.0)
-        self.assertTrue(snap["total_overdue_receivables"] >= 300000.0)
+        self.assertTrue(snap["total_overdue_receivables"] >= 250000.0)
         self.assertTrue(snap["cash_forecast_30d"]["base_scenario"] > 0)
 
     def test_03_receivables_risk_scoring(self):

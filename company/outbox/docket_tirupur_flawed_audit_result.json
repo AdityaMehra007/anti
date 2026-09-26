@@ -1,0 +1,39 @@
+{
+  "docket_id": "VECTIS-LC-TIRUPUR-2027-104-20260914181646",
+  "timestamp": "2026-09-14T18:16:46Z",
+  "status": "DISCREPANCIES_FOUND",
+  "discrepancy_count": 2,
+  "fatal_discrepancies": 2,
+  "sha256_hash": "8e5330b4ba5223a42a640fbad1abb8bb244ba8ceb878fad5d820fdcd455e1449",
+  "docket_summary": {
+    "lc_number": "LC-TIRUPUR-2027-104",
+    "issuing_bank": "BNP Paribas, Paris",
+    "exporter": "Tirupur Premier Apparel Exports",
+    "importer": "Galeries de Mode SAS",
+    "invoice_number": "TPA/2027/412",
+    "invoice_amount": "EUR 95,000.00",
+    "bl_number": "MAEU88192031",
+    "shipped_date": "2027-03-28",
+    "gross_weight": "6,850.00 KG"
+  },
+  "discrepancies": [
+    {
+      "code": "DISC-INV-005",
+      "rule_reference": "UCP 600 Art 18(c)",
+      "severity": "FATAL",
+      "affected_document": "Commercial Invoice",
+      "field_name": "description_of_goods",
+      "description": "Invoice goods description does not match LC Field 45A verbatim. Found: 'Cotton Knitted T-Shirts Style TK-90', Required: '100% Organic Combed Cotton Knitted T-Shirts Style TK-90'.",
+      "correction_suggestion": "Update invoice goods description to match LC verbatim: '100% Organic Combed Cotton Knitted T-Shirts Style TK-90'."
+    },
+    {
+      "code": "DISC-XDOC-002",
+      "rule_reference": "ISBP 745 Para E28 / UCP 600 Art 14(d)",
+      "severity": "FATAL",
+      "affected_document": "Packing List vs Bill of Lading",
+      "field_name": "gross_weight_kg",
+      "description": "Gross weight conflict exceeds tolerance: Packing List shows 6,200.00 KG, while BL shows 6,850.00 KG (10.48% variance).",
+      "correction_suggestion": "Amend Bill of Lading shipping instruction to reflect exact gross weight: 6,200.00 KG."
+    }
+  ]
+}

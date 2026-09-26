@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnivanta AI Service Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-0: #07090f;
+            --bg-1: #0c1019;
+            --bg-2: #111827;
+            --border: #1e293b;
+            --rose: #f43f5e;
+            --amber: #f59e0b;
+            --blue: #38bdf8;
+            --emerald: #10b981;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-0); color: var(--text); padding: 24px; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+        h1 { font-size: 1.5rem; font-weight: 800; background: linear-gradient(to right, var(--rose), var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+        .stat-card h3 { font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+        .stat-card .val { font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; }
+        
+        .layout { display: grid; grid-template-columns: 360px 1fr; gap: 24px; }
+        .form-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .form-card h2 { font-size: 1.1rem; margin-bottom: 16px; color: var(--text); }
+        .field { margin-bottom: 14px; }
+        label { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; }
+        input, textarea, select { width: 100%; background: var(--bg-2); border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; }
+        textarea { height: 80px; resize: vertical; }
+        .btn { width: 100%; background: linear-gradient(135deg, var(--rose), #e11d48); color: white; padding: 10px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.85rem; }
+        .btn:hover { opacity: 0.9; }
+        
+        .tickets-list { background: var(--bg-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .tickets-list h2 { font-size: 1.1rem; margin-bottom: 16px; }
+        .ticket-item { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 12px; }
+        .ticket-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .badge { padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        .badge-P1_CRITICAL { background: rgba(244, 63, 94, 0.2); color: var(--rose); border: 1px solid rgba(244, 63, 94, 0.4); }
+        .badge-P2_HIGH { background: rgba(245, 158, 11, 0.2); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.4); }
+        .badge-P3_MEDIUM { background: rgba(56, 189, 248, 0.2); color: var(--blue); border: 1px solid rgba(56, 189, 248, 0.4); }
+        .badge-RESOLVED { background: rgba(16, 185, 129, 0.2); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.4); }
+        .badge-OPEN { background: rgba(245, 158, 11, 0.2); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.4); }
+        .resolve-btn { background: rgba(16, 185, 129, 0.2); border: 1px solid var(--emerald); color: var(--emerald); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; cursor: pointer; font-weight: 600; }
+        .resolve-btn:hover { background: var(--emerald); color: black; }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>🚨 Omnivanta AI Service Desk</h1>
+            <p style="color:var(--text-muted); font-size:0.85rem">Autonomous Incident Triage, Ticket Routing & Operations Automation</p>
+        </div>
+        <a href="/" style="color:var(--blue); font-size:0.85rem; font-weight:600; text-decoration:none">← Return to Control Tower</a>
+    </header>
+
+    <div class="hero">
+        <div class="stat-card">
+            <h3>Total Tickets</h3>
+            <div class="val" id="stat-total" style="color:var(--text)">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>Open Incidents</h3>
+            <div class="val" id="stat-open" style="color:var(--amber)">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>P1 Critical</h3>
+            <div class="val" id="stat-critical" style="color:var(--rose)">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>AI Resolved</h3>
+            <div class="val" id="stat-resolved" style="color:var(--emerald)">0</div>
+        </div>
+    </div>
+
+    <div class="layout">
+        <div class="form-card">
+            <h2>Submit Incident or Request</h2>
+            <div class="field">
+                <label>Incident Summary</label>
+                <input type="text" id="ticketTitle" placeholder="e.g. Database connection outage on cluster B">
+            </div>
+            <div class="field">
+                <label>Detailed Description</label>
+                <textarea id="ticketDesc" placeholder="Provide system signals, error traces, or user impact..."></textarea>
+            </div>
+            <button class="btn" onclick="submitTicket()">⚡ Run AI Triage & Submit</button>
+        </div>
+
+        <div class="tickets-list">
+            <h2>Active Service Queue</h2>
+            <div id="ticketsContainer">
+                <p style="color:var(--text-muted)">Loading ticket queue...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadTickets() {
+            try {
+                const res = await fetch('/api/service-desk/tickets');
+                const data = await res.json();
+                
+                const statsRes = await fetch('/api/service-desk/stats');
+                const stats = await statsRes.json();
+                
+                document.getElementById('stat-total').textContent = stats.total || 0;
+                document.getElementById('stat-open').textContent = stats.open || 0;
+                document.getElementById('stat-critical').textContent = stats.critical || 0;
+                document.getElementById('stat-resolved').textContent = stats.resolved || 0;
+
+                const container = document.getElementById('ticketsContainer');
+                if (!data.tickets || data.tickets.length === 0) {
+                    container.innerHTML = '<p style="color:var(--text-muted)">Queue is clear. No open incidents.</p>';
+                    return;
+                }
+
+                container.innerHTML = data.tickets.map(t => `
+                    <div class="ticket-item">
+                        <div class="ticket-top">
+                            <div>
+                                <strong style="font-size:0.95rem">${t.title}</strong>
+                                <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px">
+                                    [${t.category}] • ID: ${t.id.substring(0,8)} • SLA: ${new Date(t.sla_deadline).toLocaleTimeString()}
+                                </div>
+                            </div>
+                            <div style="display:flex; gap:6px">
+                                <span class="badge badge-${t.priority}">${t.priority}</span>
+                                <span class="badge badge-${t.status}">${t.status}</span>
+                            </div>
+                        </div>
+                        <p style="font-size:0.82rem; color:var(--text-muted); margin:8px 0">${t.description}</p>
+                        ${t.resolution ? `<div style="font-size:0.78rem; background:rgba(16,185,129,0.1); border-left:3px solid var(--emerald); padding:6px 8px; color:var(--emerald); margin-top:6px">✅ <strong>Resolution:</strong> ${t.resolution}</div>` : ''}
+                        ${t.status === 'OPEN' ? `
+                            <div style="margin-top:10px">
+                                <button class="resolve-btn" onclick="resolveTicket('${t.id}')">🤖 Autonomous AI Resolution</button>
+                            </div>
+                        ` : ''}
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        async function submitTicket() {
+            const title = document.getElementById('ticketTitle').value.trim();
+            const description = document.getElementById('ticketDesc').value.trim();
+            if (!title || !description) return alert('Please enter both title and description');
+
+            const res = await fetch('/api/service-desk/tickets', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, description })
+            });
+
+            if (res.ok) {
+                document.getElementById('ticketTitle').value = '';
+                document.getElementById('ticketDesc').value = '';
+                loadTickets();
+            } else {
+                alert('Failed to create ticket');
+            }
+        }
+
+        async function resolveTicket(id) {
+            const res = await fetch('/api/service-desk/tickets/' + id + '/resolve', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ resolution: 'Autonomous verification agent performed diagnosis, applied remediation script, and verified system health (HTTP 200).' })
+            });
+            if (res.ok) loadTickets();
+        }
+
+        loadTickets();
+    </script>
+</body>
+</html>

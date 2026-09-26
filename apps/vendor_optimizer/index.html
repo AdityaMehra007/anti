@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B Vendor Rate Card & standardized vendor rate governance Simulator | Aditya Mehra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --teal: #00d4aa;
+      --blue: #3b82f6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); }
+    .badge { background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 4px 12px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; }
+    @media (max-width: 868px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 24px; }
+    h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 16px; color: var(--teal); }
+    .form-group { margin-bottom: 16px; }
+    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); }
+    input, select { width: 100%; background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 12px 14px; border-radius: 8px; font-size: 0.95rem; }
+    .kpi-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .kpi { background: #080d1a; border: 1px solid var(--card-border); padding: 16px; border-radius: 12px; text-align: center; }
+    .kpi .val { font-size: 1.5rem; font-weight: 800; color: var(--teal); margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+    .kpi .lbl { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.9rem; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    th { color: var(--text-muted); font-weight: 600; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .savings-tag { color: var(--teal); font-weight: 700; }
+    .nav-back { display: inline-flex; align-items: center; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Back to Sovereign Apps Hub</a>
+    <header>
+      <div>
+        <span class="badge">PROVEN standardized vendor rate governance MODEL</span>
+        <h1 style="font-size: 1.6rem; font-weight: 800; margin-top: 4px;">💼 B2B Vendor Rate Card & Margin Optimizer</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Simulate primary tier-1 vendor rate negotiations across multi-event enterprise deployments</p>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Framework By:</span>
+        <div style="font-weight: 700; color: #fff;">Aditya Mehra (300+ Deployments)</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h2>⚙️ Deployment Scope & Volume</h2>
+        <div class="form-group">
+          <label>Number of Target Deployments / Events</label>
+          <input type="number" id="numDeployments" value="50" min="1" max="500" oninput="recalc()">
+        </div>
+        <div class="form-group">
+          <label>Legacy Subcontractor Average Cost / Deployment (₹)</label>
+          <input type="number" id="legacyCost" value="85000" oninput="recalc()">
+        </div>
+        <div class="form-group">
+          <label>Negotiated Direct Primary Vendor Tier</label>
+          <select id="vendorTier" onchange="recalc()">
+            <option value="15" selected>Tier-1 Primary Master Rate Card (Tier-1 SLAs Reduction)</option>
+            <option value="20">Volume Master Contract: 100+ units (20% Net Reduction)</option>
+            <option value="10">Spot Negotiation: Short lead-time (10% Net Reduction)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📈 Net Savings & ROI Deliverable</h2>
+        <div class="kpi-cards">
+          <div class="kpi">
+            <div class="lbl">Total Baseline Cost</div>
+            <div class="val" id="dispBaseline" style="color: #94a3b8;">₹42.50L</div>
+          </div>
+          <div class="kpi">
+            <div class="lbl">Total Net Cash Saved</div>
+            <div class="val" id="dispSaved">₹6.37L</div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Cost Component</th>
+              <th>Legacy Cost</th>
+              <th>Optimized Cost</th>
+              <th>Net Variance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Staging, Rigging & AV</td>
+              <td class="mono" id="stgLegacy">₹17,00,000</td>
+              <td class="mono" id="stgOpt">₹14,45,000</td>
+              <td class="savings-tag" id="stgVar">-15.0%</td>
+            </tr>
+            <tr>
+              <td>Manpower & Ground Crew</td>
+              <td class="mono" id="crewLegacy">₹12,75,000</td>
+              <td class="mono" id="crewOpt">₹10,83,750</td>
+              <td class="savings-tag" id="crewVar">-15.0%</td>
+            </tr>
+            <tr>
+              <td>Fabrication & Branding</td>
+              <td class="mono" id="fabLegacy">₹12,75,000</td>
+              <td class="mono" id="fabOpt">₹10,83,750</td>
+              <td class="savings-tag" id="fabVar">-15.0%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top: 20px; padding: 16px; background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); border-radius: 12px; font-size: 0.9rem;">
+          <strong>🎯 Operator Proof Point:</strong> This exact primary-tier restructuring framework was deployed by Aditya Mehra across 300+ deployments for clients including Puma India and AERO India 2025.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function recalc() {
+      const n = parseFloat(document.getElementById('numDeployments').value) || 0;
+      const cost = parseFloat(document.getElementById('legacyCost').value) || 0;
+      const pct = parseFloat(document.getElementById('vendorTier').value) || 15;
+      
+      const totalBaseline = n * cost;
+      const totalSaved = totalBaseline * (pct / 100.0);
+      
+      document.getElementById('dispBaseline').textContent = '₹' + (totalBaseline / 100000).toFixed(2) + 'L';
+      document.getElementById('dispSaved').textContent = '₹' + (totalSaved / 100000).toFixed(2) + 'L';
+      
+      const stgL = totalBaseline * 0.40;
+      const stgO = stgL * (1 - pct/100.0);
+      const crewL = totalBaseline * 0.30;
+      const crewO = crewL * (1 - pct/100.0);
+      const fabL = totalBaseline * 0.30;
+      const fabO = fabL * (1 - pct/100.0);
+      
+      document.getElementById('stgLegacy').textContent = '₹' + stgL.toLocaleString('en-IN');
+      document.getElementById('stgOpt').textContent = '₹' + stgO.toLocaleString('en-IN');
+      document.getElementById('stgVar').textContent = '-' + pct.toFixed(1) + '%';
+      
+      document.getElementById('crewLegacy').textContent = '₹' + crewL.toLocaleString('en-IN');
+      document.getElementById('crewOpt').textContent = '₹' + crewO.toLocaleString('en-IN');
+      document.getElementById('crewVar').textContent = '-' + pct.toFixed(1) + '%';
+      
+      document.getElementById('fabLegacy').textContent = '₹' + fabL.toLocaleString('en-IN');
+      document.getElementById('fabOpt').textContent = '₹' + fabO.toLocaleString('en-IN');
+      document.getElementById('fabVar').textContent = '-' + pct.toFixed(1) + '%';
+    }
+    recalc();
+  </script>
+</body>
+</html>

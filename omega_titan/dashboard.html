@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>? OMEGA-TITAN: 1-Click Fast Application Command Center</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --border: #30363d;
+            --accent: #58a6ff;
+            --green: #2ea043;
+            --text: #c9d1d9;
+            --text-bright: #f0f6fc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            color: var(--text-bright);
+            margin: 0;
+            font-size: 24px;
+        }
+        .badge {
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid var(--accent);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-val {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-bright);
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        .table-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th {
+            background: #21262d;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: var(--text-bright);
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        tr:hover {
+            background: #1c2128;
+        }
+        .btn {
+            background: var(--green);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-copy {
+            background: #21262d;
+            border: 1px solid var(--border);
+            color: var(--text);
+            margin-left: 8px;
+        }
+        .btn-copy:hover {
+            background: #30363d;
+            color: white;
+        }
+        .tag-tier {
+            background: rgba(46, 160, 67, 0.15);
+            color: #3fb950;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>? OMEGA-TITAN: 1-Click Fast Dispatch Dashboard</h1>
+                <p style="margin: 4px 0 0; color: #8b949e;">Candidate: <strong>Aditya Mehra</strong> | Target: <strong>Bengaluru Operations & Strategy</strong> | Date: <strong>2026-09-02</strong></p>
+            </div>
+            <div class="badge">?? 30-DAY HIRING SPRINT ACTIVE</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-val">8</div>
+                <div class="stat-label">Active Target Roles Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">96.0%</div>
+                <div class="stat-label">Avg Match Fit Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">250</div>
+                <div class="stat-label">30-Day Touchpoint Goal</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">?9.0 LPA</div>
+                <div class="stat-label">Median Target CTC</div>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Company</th>
+                        <th>Role Title</th>
+                        <th>Fit</th>
+                        <th>Interview Prob</th>
+                        <th>Fast Apply & Outreach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Amazon</strong></td>
+                        <td>Business Analyst Support, IN Supply Chain</td>
+                        <td>96.5%</td>
+                        <td>0.34</td>
+                        <td>
+                            <a href="https://www.linkedin.com/jobs/view/4455781999" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Amazon', 'Business Analyst Support, IN Supply Chain')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Accenture in India</strong></td>
+                        <td>Supply Chain Operations Senior Analyst</td>
+                        <td>95.0%</td>
+                        <td>0.32</td>
+                        <td>
+                            <a href="https://www.linkedin.com/jobs/view/4448338203" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Accenture in India', 'Supply Chain Operations Senior Analyst')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Glean</strong></td>
+                        <td>Cost & Commercial Operations Associate</td>
+                        <td>98.5%</td>
+                        <td>0.31</td>
+                        <td>
+                            <a href="https://jobs.ashbyhq.com/glean" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Glean', 'Cost & Commercial Operations Associate')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Ather Energy</strong></td>
+                        <td>Supply Chain & Operations Lead</td>
+                        <td>98.5%</td>
+                        <td>0.31</td>
+                        <td>
+                            <a href="https://www.atherenergy.com/careers" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Ather Energy', 'Supply Chain & Operations Lead')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Zepto</strong></td>
+                        <td>City Operations Lead</td>
+                        <td>95.0%</td>
+                        <td>0.3</td>
+                        <td>
+                            <a href="https://www.zeptonow.com/careers" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Zepto', 'City Operations Lead')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Wrike</strong></td>
+                        <td>Partner Operations Specialist</td>
+                        <td>95.0%</td>
+                        <td>0.3</td>
+                        <td>
+                            <a href="https://boards.greenhouse.io/wrike" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Wrike', 'Partner Operations Specialist')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Postman</strong></td>
+                        <td>Business Operations Analyst</td>
+                        <td>95.0%</td>
+                        <td>0.3</td>
+                        <td>
+                            <a href="https://boards.greenhouse.io/postman" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Postman', 'Business Operations Analyst')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag-tier">A+</span></td>
+                        <td><strong>Razorpay</strong></td>
+                        <td>Merchant Operations Specialist</td>
+                        <td>95.0%</td>
+                        <td>0.3</td>
+                        <td>
+                            <a href="https://jobs.ashbyhq.com/razorpay" target="_blank" class="btn">Apply Now ?</a>
+                            <button class="btn btn-copy" onclick="copyNote('Razorpay', 'Merchant Operations Specialist')">Copy DM ??</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function copyNote(company, role) {
+            const note = `Hi [Recruiter / Lead Name],\n\nI just applied for the ${role} position at ${company}.\n\nI am a final-year International Business candidate from Dayananda Sagar University with field operations leadership at AERO INDIA 2025 (100k+ attendees, 0 breaches, 0.0% inventory shrinkage) and brand activations for Tata Communications and Puma Global.\n\nI'd welcome a brief 5-minute conversation regarding how my operational rigor can support your team.\n\nBest regards,\nAditya Mehra | +91 7003456624 | Bengaluru`;
+            navigator.clipboard.writeText(note);
+            alert(`Copied high-converting LinkedIn DM for ${company} to clipboard! ??`);
+        }
+    </script>
+</body>
+</html>

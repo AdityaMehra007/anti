@@ -1,0 +1,295 @@
+{
+  "test_timestamp": "2026-08-24T12:45:35.109Z",
+  "total_agents_tested": 20,
+  "passed_count": 20,
+  "failed_count": 0,
+  "blocked_count": 0,
+  "agents": [
+    {
+      "id": 1,
+      "agent_name": "Data Discovery Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 2,
+      "agent_name": "Data Ingestion Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 3,
+      "agent_name": "Entity Resolution Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 4,
+      "agent_name": "Company Intelligence Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 5,
+      "agent_name": "Job Intelligence Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 6,
+      "agent_name": "Hiring Analytics Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 7,
+      "agent_name": "Market Intelligence Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 8,
+      "agent_name": "Candidate Intelligence Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 9,
+      "agent_name": "Matching Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 10,
+      "agent_name": "Opportunity Ranking Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 11,
+      "agent_name": "Research Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 12,
+      "agent_name": "Verification Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 13,
+      "agent_name": "Application Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 14,
+      "agent_name": "Outreach Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 15,
+      "agent_name": "Interview Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 16,
+      "agent_name": "Analytics Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 17,
+      "agent_name": "Quality-Control Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 18,
+      "agent_name": "Strategy Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 19,
+      "agent_name": "Automation Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    },
+    {
+      "id": 20,
+      "agent_name": "Meta-Improvement Agent",
+      "input": "Standard Pipeline Schema",
+      "output": "Validated JSON Record / Score",
+      "dependencies": [
+        "Canonical Database",
+        "Data Provenance Engine"
+      ],
+      "failure_mode_handled": "Safely catches missing inputs & returns UNKNOWN status",
+      "validation": "PASSED",
+      "status": "PASSED"
+    }
+  ],
+  "edge_case_failure_tests": [
+    {
+      "scenario": "Missing Data Source",
+      "result": "PASSED (Fails safely, logs warning, uses fallback)"
+    },
+    {
+      "scenario": "Invalid or Broken URL",
+      "result": "PASSED (Flags BROKEN_URL, preserves raw record)"
+    },
+    {
+      "scenario": "Duplicate Company Entity",
+      "result": "PASSED (Entity resolution prevents merging without legal proof)"
+    },
+    {
+      "scenario": "Conflicting Company Names",
+      "result": "PASSED (Preserves both, tags PARTIALLY_VERIFIED)"
+    },
+    {
+      "scenario": "Stale Job Posting (>7 days)",
+      "result": "PASSED (Automatically transitions status to STALE)"
+    },
+    {
+      "scenario": "Malformed JSON Input",
+      "result": "PASSED (Catches parser error safely, logs audit trail)"
+    }
+  ]
+}

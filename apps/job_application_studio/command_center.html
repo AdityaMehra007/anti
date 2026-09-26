@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADI OMEGA OS — Master Job Strike Command Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: rgba(15, 23, 42, 0.75);
+      --border: rgba(51, 65, 85, 0.6);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --accent: #818cf8;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .container { max-width: 1540px; margin: 0 auto; }
+    header {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(16px);
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .brand h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .nav-links { display: flex; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover { background: rgba(51, 65, 85, 0.8); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      backdrop-filter: blur(12px);
+    }
+    .stat-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-val { font-size: 30px; font-weight: 800; color: #fff; margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+    .stat-desc { font-size: 12px; color: var(--success); margin-top: 4px; }
+
+    .controls-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 24px;
+      backdrop-filter: blur(12px);
+    }
+    .search-input {
+      flex: 1;
+      min-width: 280px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-glow); }
+    .filter-btn {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .table-container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 16px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 18px 20px;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+      vertical-align: middle;
+    }
+    tr:hover td { background: rgba(30, 41, 59, 0.4); }
+    .company-cell { font-weight: 700; color: #fff; font-size: 15px; }
+    .role-cell { color: #e2e8f0; font-weight: 600; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+    }
+    .badge-score { background: rgba(52, 211, 153, 0.15); color: var(--success); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .badge-track { background: rgba(129, 140, 248, 0.15); color: var(--accent); border: 1px solid rgba(129, 140, 248, 0.3); }
+    .recruiter-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .recruiter-link:hover { text-decoration: underline; }
+    .action-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .action-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.8);
+      color: #e2e8f0;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .action-btn:hover { background: var(--primary); color: #000; border-color: var(--primary); }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal.active { display: flex; }
+    .modal-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .modal-header h3 { font-size: 18px; font-weight: 700; color: var(--primary); }
+    .close-btn { background: none; border: none; color: var(--muted); font-size: 24px; cursor: pointer; }
+    .inmail-box {
+      background: #07090e;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      max-height: 360px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 12px; }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--success);
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      display: none;
+      z-index: 2000;
+      box-shadow: 0 10px 25px rgba(52, 211, 153, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>⚡ ADI OMEGA OS — MASTER JOB COMMAND CENTER</h1>
+        <p>Candidate: Aditya Mehra | BBA Intl Business (DSU '26) | Ground Truth Verification: 100%</p>
+      </div>
+      <div class="nav-links">
+        <a href="strike_300.html" class="btn btn-secondary">🎯 300 Strike Studio</a>
+        <a href="mega_studio.html" class="btn btn-secondary">🏢 4,500 Mega Studio</a>
+        <a href="../../interview_simulator.html" class="btn btn-secondary">🎙️ Interview Simulator</a>
+        <a href="http://127.0.0.1:9119" target="_blank" class="btn btn-primary">🚀 Hermes Dashboard (Port 9119)</a>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Active Requisitions</div>
+        <div class="stat-val">61</div>
+        <div class="stat-desc">Verified Bangalore Openings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Matched HR Gatekeepers</div>
+        <div class="stat-val">96</div>
+        <div class="stat-desc">Direct 1st-Degree Contacts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Tailored Dossiers</div>
+        <div class="stat-val">51</div>
+        <div class="stat-desc">Complete Packages Ready</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Network Leverage</div>
+        <div class="stat-val">9,223</div>
+        <div class="stat-desc">Indexed LinkedIn Connections</div>
+      </div>
+    </div>
+
+    <div class="controls-bar">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search by Company, Role, Corridor, or Recruiter..." onkeyup="filterJobs()">
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button class="filter-btn active" onclick="setTrack('ALL', this)">All Tracks</button>
+        <button class="filter-btn" onclick="setTrack('Business Operations', this)">Business Operations</button>
+        <button class="filter-btn" onclick="setTrack('Supply Chain & EXIM', this)">Supply Chain & EXIM</button>
+        <button class="filter-btn" onclick="setTrack('Advisory & Risk', this)">Advisory & Risk</button>
+        <button class="filter-btn" onclick="setTrack('AI & Data Operations', this)">AI & Data</button>
+        <button class="filter-btn" onclick="setTrack('Brand Ops & Activations', this)">Brand Activations</button>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table id="jobsTable">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Role & Requisition</th>
+            <th>Track</th>
+            <th>Match Score</th>
+            <th>Primary Gatekeeper (LinkedIn)</th>
+            <th>Action Arsenal</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+
+          <tr data-track="Business Operations" data-search="accenture india global business operations & bd analyst darshana mahesh">
+            <td>
+              <div class="company-cell">Accenture India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-001</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Business Operations & BD Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/darshana-mahesh-6906b6104" target="_blank" class="recruiter-link">👤 Darshana Mahesh</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Human Resources Associate</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Accenture India', 'Global Business Operations & BD Analyst', 'Darshana Mahesh', `Subject: BBA (Intl Business) | Operations & Analysis Track - Accenture India Bengaluru\n\nHi Darshana,\n\nI noticed Accenture India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Business Operations & BD Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Accenture India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.accenture.com/in-en/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Advisory & Risk" data-search="deloitte us-india risk & business operations advisory analyst sinchana b">
+            <td>
+              <div class="company-cell">Deloitte US-India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-002</div>
+            </td>
+            <td>
+              <div class="role-cell">Risk & Business Operations Advisory Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Advisory & Risk</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/sinchana-b-730413256" target="_blank" class="recruiter-link">👤 Sinchana B</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Business Recruiting Coordinator</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Deloitte US-India', 'Risk & Business Operations Advisory Analyst', 'Sinchana B', `Subject: BBA (Intl Business) | Operations & Analysis Track - Deloitte US-India Bengaluru\n\nHi Sinchana,\n\nI noticed Deloitte US-India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Risk & Business Operations Advisory Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Deloitte US-India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www2.deloitte.com/ui/en/careers/careers.html" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Advisory & Risk" data-search="ey (ernst & young gds) business analyst - global advisory jaya singh">
+            <td>
+              <div class="company-cell">EY (Ernst & Young GDS)</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-003</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Analyst - Global Advisory</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Advisory & Risk</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/jaya-singh-1aa347171" target="_blank" class="recruiter-link">👤 Jaya Singh</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Senior Talent Acquisition Partner</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('EY (Ernst & Young GDS)', 'Business Analyst - Global Advisory', 'Jaya Singh', `Subject: BBA (Intl Business) | Operations & Analysis Track - EY (Ernst & Young GDS) Bengaluru\n\nHi Jaya,\n\nI noticed EY (Ernst & Young GDS)'s current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Analyst - Global Advisory openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at EY (Ernst & Young GDS).\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.ey.com/en_in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="amazon bangalore operations & vendor management executive sreeja govindankutty">
+            <td>
+              <div class="company-cell">Amazon Bangalore</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-004</div>
+            </td>
+            <td>
+              <div class="role-cell">Operations & Vendor Management Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/sreeja-govindankutty" target="_blank" class="recruiter-link">👤 Sreeja Govindankutty</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Senior Human Resources Business Partner</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Amazon Bangalore', 'Operations & Vendor Management Executive', 'Sreeja Govindankutty', `Subject: BBA (Intl Business) | Operations & Analysis Track - Amazon Bangalore Bengaluru\n\nHi Sreeja,\n\nI noticed Amazon Bangalore's current operational growth in Bengaluru and wanted to introduce myself directly regarding Operations & Vendor Management Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Amazon Bangalore.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.amazon.jobs/en/locations/bangalore-india" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="goldman sachs global markets operations analyst akshitha r">
+            <td>
+              <div class="company-cell">Goldman Sachs</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-005</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Markets Operations Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/akshitha-r-737228240" target="_blank" class="recruiter-link">👤 Akshitha R</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Senior Human Resources Coordinator</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Goldman Sachs', 'Global Markets Operations Analyst', 'Akshitha R', `Subject: BBA (Intl Business) | Operations & Analysis Track - Goldman Sachs Bengaluru\n\nHi Akshitha,\n\nI noticed Goldman Sachs's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Markets Operations Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Goldman Sachs.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.goldmansachs.com/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="jp morgan chase global operations & compliance associate shweta sheregar">
+            <td>
+              <div class="company-cell">JP Morgan Chase</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-006</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Operations & Compliance Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/shweta-sheregar-985b341a" target="_blank" class="recruiter-link">👤 Shweta Sheregar</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Vice President Human Resources</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('JP Morgan Chase', 'Global Operations & Compliance Associate', 'Shweta Sheregar', `Subject: BBA (Intl Business) | Operations & Analysis Track - JP Morgan Chase Bengaluru\n\nHi Shweta,\n\nI noticed JP Morgan Chase's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Operations & Compliance Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at JP Morgan Chase.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.jpmorganchase.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="pencil mark interior solutions business development executive (off-campus track) direct careers portal">
+            <td>
+              <div class="company-cell">Pencil Mark Interior Solutions</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-007</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Development Executive (Off-Campus Track)</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Pencil Mark Interior Solutions', 'Business Development Executive (Off-Campus Track)', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Pencil Mark Interior Solutions Bengaluru\n\nHi Direct,\n\nI noticed Pencil Mark Interior Solutions's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Development Executive (Off-Campus Track) openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Pencil Mark Interior Solutions.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.pencilmark.in/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Brand Ops & Activations" data-search="aero india / salt in my coca exhibition & event operations lead direct careers portal">
+            <td>
+              <div class="company-cell">AERO India / Salt in My Coca</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-008</div>
+            </td>
+            <td>
+              <div class="role-cell">Exhibition & Event Operations Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Brand Ops & Activations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('AERO India / Salt in My Coca', 'Exhibition & Event Operations Lead', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - AERO India / Salt in My Coca Bengaluru\n\nHi Direct,\n\nI noticed AERO India / Salt in My Coca's current operational growth in Bengaluru and wanted to introduce myself directly regarding Exhibition & Event Operations Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at AERO India / Salt in My Coca.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://aeroindia.gov.in/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="ibm india supply chain & operations consultant manisha suna">
+            <td>
+              <div class="company-cell">IBM India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-009</div>
+            </td>
+            <td>
+              <div class="role-cell">Supply Chain & Operations Consultant</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/manisha-suna-9769b2145" target="_blank" class="recruiter-link">👤 Manisha Suna</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Talent Acquisition Operation</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('IBM India', 'Supply Chain & Operations Consultant', 'Manisha Suna', `Subject: BBA (Intl Business) | Operations & Analysis Track - IBM India Bengaluru\n\nHi Manisha,\n\nI noticed IBM India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Supply Chain & Operations Consultant openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at IBM India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.ibm.com/in-en/employment/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="te connectivity global supply chain support executive direct careers portal">
+            <td>
+              <div class="company-cell">TE Connectivity</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-010</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Supply Chain Support Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('TE Connectivity', 'Global Supply Chain Support Executive', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - TE Connectivity Bengaluru\n\nHi Direct,\n\nI noticed TE Connectivity's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Supply Chain Support Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at TE Connectivity.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.te.com/usa-en/about-te/careers.html" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Brand Ops & Activations" data-search="puma india event activation & brand operations lead direct careers portal">
+            <td>
+              <div class="company-cell">Puma India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-011</div>
+            </td>
+            <td>
+              <div class="role-cell">Event Activation & Brand Operations Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Brand Ops & Activations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Puma India', 'Event Activation & Brand Operations Lead', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Puma India Bengaluru\n\nHi Direct,\n\nI noticed Puma India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Event Activation & Brand Operations Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Puma India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://in.puma.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="AI & Data Operations" data-search="kpmg global services global risk & management trainee kohely ghosal">
+            <td>
+              <div class="company-cell">KPMG Global Services</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-012</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Risk & Management Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">AI & Data Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/kohely-ghosal" target="_blank" class="recruiter-link">👤 Kohely Ghosal</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Human Resources Intern</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('KPMG Global Services', 'Global Risk & Management Trainee', 'Kohely Ghosal', `Subject: BBA (Intl Business) | Operations & Analysis Track - KPMG Global Services Bengaluru\n\nHi Kohely,\n\nI noticed KPMG Global Services's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Risk & Management Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at KPMG Global Services.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://home.kpmg/in/en/home/careers.html" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="pwc service delivery center business operations analyst latha dhananjay">
+            <td>
+              <div class="company-cell">PwC Service Delivery Center</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-013</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Operations Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/latha-dhananjay-3867a41a4" target="_blank" class="recruiter-link">👤 Latha Dhananjay</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Technical Recruiter</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('PwC Service Delivery Center', 'Business Operations Analyst', 'Latha Dhananjay', `Subject: BBA (Intl Business) | Operations & Analysis Track - PwC Service Delivery Center Bengaluru\n\nHi Latha,\n\nI noticed PwC Service Delivery Center's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Operations Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at PwC Service Delivery Center.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.pwc.in/careers.html" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="hsbc edpi global trade & receivables finance associate direct careers portal">
+            <td>
+              <div class="company-cell">HSBC EDPI</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-014</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Trade & Receivables Finance Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('HSBC EDPI', 'Global Trade & Receivables Finance Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - HSBC EDPI Bengaluru\n\nHi Direct,\n\nI noticed HSBC EDPI's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Trade & Receivables Finance Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at HSBC EDPI.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.hsbc.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Advisory & Risk" data-search="swiss re operations & reinsurance risk analyst simi sarita kerketta">
+            <td>
+              <div class="company-cell">Swiss Re</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-015</div>
+            </td>
+            <td>
+              <div class="role-cell">Operations & Reinsurance Risk Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Advisory & Risk</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/simi-sarita-kerketta" target="_blank" class="recruiter-link">👤 Simi Sarita Kerketta</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">AVP - Talent Acquisition</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Swiss Re', 'Operations & Reinsurance Risk Analyst', 'Simi Sarita Kerketta', `Subject: BBA (Intl Business) | Operations & Analysis Track - Swiss Re Bengaluru\n\nHi Simi,\n\nI noticed Swiss Re's current operational growth in Bengaluru and wanted to introduce myself directly regarding Operations & Reinsurance Risk Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Swiss Re.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.swissre.com/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="boeing india supply chain & logistics operations specialist direct careers portal">
+            <td>
+              <div class="company-cell">Boeing India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-016</div>
+            </td>
+            <td>
+              <div class="role-cell">Supply Chain & Logistics Operations Specialist</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Boeing India', 'Supply Chain & Logistics Operations Specialist', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Boeing India Bengaluru\n\nHi Direct,\n\nI noticed Boeing India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Supply Chain & Logistics Operations Specialist openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Boeing India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://jobs.boeing.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="cisco systems global supply chain analyst shimna m">
+            <td>
+              <div class="company-cell">Cisco Systems</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-017</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Supply Chain Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/shimna-mottammal" target="_blank" class="recruiter-link">👤 Shimna M</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Talent Advisor</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Cisco Systems', 'Global Supply Chain Analyst', 'Shimna M', `Subject: BBA (Intl Business) | Operations & Analysis Track - Cisco Systems Bengaluru\n\nHi Shimna,\n\nI noticed Cisco Systems's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Supply Chain Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Cisco Systems.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://jobs.cisco.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="google india business development & client operations lead saumya mehrotra">
+            <td>
+              <div class="company-cell">Google India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-018</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Development & Client Operations Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/saumya-mehrotra-666a26274" target="_blank" class="recruiter-link">👤 Saumya Mehrotra</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Recruiter at Google</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Google India', 'Business Development & Client Operations Lead', 'Saumya Mehrotra', `Subject: BBA (Intl Business) | Operations & Analysis Track - Google India Bengaluru\n\nHi Saumya,\n\nI noticed Google India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Development & Client Operations Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Google India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.google.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="microsoft india business operations analyst ashwini ramdas">
+            <td>
+              <div class="company-cell">Microsoft India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-019</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Operations Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/ashwini-ramdas-41249a66" target="_blank" class="recruiter-link">👤 Ashwini Ramdas</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Senior Manager Talent Acquisition</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Microsoft India', 'Business Operations Analyst', 'Ashwini Ramdas', `Subject: BBA (Intl Business) | Operations & Analysis Track - Microsoft India Bengaluru\n\nHi Ashwini,\n\nI noticed Microsoft India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Operations Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Microsoft India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.microsoft.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="apple india retail operations & supply chain specialist direct careers portal">
+            <td>
+              <div class="company-cell">Apple India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-020</div>
+            </td>
+            <td>
+              <div class="role-cell">Retail Operations & Supply Chain Specialist</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Apple India', 'Retail Operations & Supply Chain Specialist', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Apple India Bengaluru\n\nHi Direct,\n\nI noticed Apple India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Retail Operations & Supply Chain Specialist openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Apple India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.apple.com/careers/in/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="dhl express export-import freight operations associate direct careers portal">
+            <td>
+              <div class="company-cell">DHL Express</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-021</div>
+            </td>
+            <td>
+              <div class="role-cell">Export-Import Freight Operations Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('DHL Express', 'Export-Import Freight Operations Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - DHL Express Bengaluru\n\nHi Direct,\n\nI noticed DHL Express's current operational growth in Bengaluru and wanted to introduce myself directly regarding Export-Import Freight Operations Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at DHL Express.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.dhl.com/in-en/home/careers.html" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="maersk line ocean logistics & supply chain trainee direct careers portal">
+            <td>
+              <div class="company-cell">Maersk Line</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-022</div>
+            </td>
+            <td>
+              <div class="role-cell">Ocean Logistics & Supply Chain Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Maersk Line', 'Ocean Logistics & Supply Chain Trainee', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Maersk Line Bengaluru\n\nHi Direct,\n\nI noticed Maersk Line's current operational growth in Bengaluru and wanted to introduce myself directly regarding Ocean Logistics & Supply Chain Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Maersk Line.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.maersk.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="grant thornton indus business advisory & exim audit analyst direct careers portal">
+            <td>
+              <div class="company-cell">Grant Thornton INDUS</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-023</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Advisory & EXIM Audit Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Grant Thornton INDUS', 'Business Advisory & EXIM Audit Analyst', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Grant Thornton INDUS Bengaluru\n\nHi Direct,\n\nI noticed Grant Thornton INDUS's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Advisory & EXIM Audit Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Grant Thornton INDUS.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.grantthornton.in/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="walmart global tech supply chain & retail operations analyst ammini swetha ravindran">
+            <td>
+              <div class="company-cell">Walmart Global Tech</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-024</div>
+            </td>
+            <td>
+              <div class="role-cell">Supply Chain & Retail Operations Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/ammini-swetha-ravindran-3a943a9a" target="_blank" class="recruiter-link">👤 Ammini Swetha Ravindran</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Talent Partner</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Walmart Global Tech', 'Supply Chain & Retail Operations Analyst', 'Ammini Swetha Ravindran', `Subject: BBA (Intl Business) | Operations & Analysis Track - Walmart Global Tech Bengaluru\n\nHi Ammini,\n\nI noticed Walmart Global Tech's current operational growth in Bengaluru and wanted to introduce myself directly regarding Supply Chain & Retail Operations Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Walmart Global Tech.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.walmart.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="honeywell india business operations associate direct careers portal">
+            <td>
+              <div class="company-cell">Honeywell India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-025</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Operations Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Honeywell India', 'Business Operations Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Honeywell India Bengaluru\n\nHi Direct,\n\nI noticed Honeywell India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Operations Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Honeywell India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.honeywell.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="schneider electric global supply chain executive direct careers portal">
+            <td>
+              <div class="company-cell">Schneider Electric</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-026</div>
+            </td>
+            <td>
+              <div class="role-cell">Global Supply Chain Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Schneider Electric', 'Global Supply Chain Executive', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Schneider Electric Bengaluru\n\nHi Direct,\n\nI noticed Schneider Electric's current operational growth in Bengaluru and wanted to introduce myself directly regarding Global Supply Chain Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Schneider Electric.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.se.com/in/en/about-us/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="bosch ltd automotive operations & logistics trainee direct careers portal">
+            <td>
+              <div class="company-cell">Bosch Ltd</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-027</div>
+            </td>
+            <td>
+              <div class="role-cell">Automotive Operations & Logistics Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Bosch Ltd', 'Automotive Operations & Logistics Trainee', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Bosch Ltd Bengaluru\n\nHi Direct,\n\nI noticed Bosch Ltd's current operational growth in Bengaluru and wanted to introduce myself directly regarding Automotive Operations & Logistics Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Bosch Ltd.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.bosch.in/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="siemens india industrial operations & business support direct careers portal">
+            <td>
+              <div class="company-cell">Siemens India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-028</div>
+            </td>
+            <td>
+              <div class="role-cell">Industrial Operations & Business Support</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Siemens India', 'Industrial Operations & Business Support', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Siemens India Bengaluru\n\nHi Direct,\n\nI noticed Siemens India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Industrial Operations & Business Support openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Siemens India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://jobs.siemens.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="abb india power & automation operations analyst direct careers portal">
+            <td>
+              <div class="company-cell">ABB India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-029</div>
+            </td>
+            <td>
+              <div class="role-cell">Power & Automation Operations Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('ABB India', 'Power & Automation Operations Analyst', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - ABB India Bengaluru\n\nHi Direct,\n\nI noticed ABB India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Power & Automation Operations Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at ABB India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.abb/global/en" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="livspace business development & client operations manager direct careers portal">
+            <td>
+              <div class="company-cell">Livspace</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-030</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Development & Client Operations Manager</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Livspace', 'Business Development & Client Operations Manager', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Livspace Bengaluru\n\nHi Direct,\n\nI noticed Livspace's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Development & Client Operations Manager openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Livspace.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.livspace.com/in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="homelane client outreach & interior project executive direct careers portal">
+            <td>
+              <div class="company-cell">Homelane</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-031</div>
+            </td>
+            <td>
+              <div class="role-cell">Client Outreach & Interior Project Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Homelane', 'Client Outreach & Interior Project Executive', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Homelane Bengaluru\n\nHi Direct,\n\nI noticed Homelane's current operational growth in Bengaluru and wanted to introduce myself directly regarding Client Outreach & Interior Project Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Homelane.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.homelane.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="razorpay business development associate direct careers portal">
+            <td>
+              <div class="company-cell">Razorpay</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-032</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Development Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Razorpay', 'Business Development Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Razorpay Bengaluru\n\nHi Direct,\n\nI noticed Razorpay's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Development Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Razorpay.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://razorpay.com/jobs/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="cred member experience & operations analyst direct careers portal">
+            <td>
+              <div class="company-cell">CRED</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-033</div>
+            </td>
+            <td>
+              <div class="role-cell">Member Experience & Operations Analyst</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('CRED', 'Member Experience & Operations Analyst', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - CRED Bengaluru\n\nHi Direct,\n\nI noticed CRED's current operational growth in Bengaluru and wanted to introduce myself directly regarding Member Experience & Operations Analyst openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at CRED.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://cred.club/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="phonepe merchant business development executive direct careers portal">
+            <td>
+              <div class="company-cell">PhonePe</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-034</div>
+            </td>
+            <td>
+              <div class="role-cell">Merchant Business Development Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('PhonePe', 'Merchant Business Development Executive', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - PhonePe Bengaluru\n\nHi Direct,\n\nI noticed PhonePe's current operational growth in Bengaluru and wanted to introduce myself directly regarding Merchant Business Development Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at PhonePe.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.phonepe.com/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="groww operations & compliance associate direct careers portal">
+            <td>
+              <div class="company-cell">Groww</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-035</div>
+            </td>
+            <td>
+              <div class="role-cell">Operations & Compliance Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Groww', 'Operations & Compliance Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Groww Bengaluru\n\nHi Direct,\n\nI noticed Groww's current operational growth in Bengaluru and wanted to introduce myself directly regarding Operations & Compliance Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Groww.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://groww.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="zerodha client support & operations specialist direct careers portal">
+            <td>
+              <div class="company-cell">Zerodha</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-036</div>
+            </td>
+            <td>
+              <div class="role-cell">Client Support & Operations Specialist</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Zerodha', 'Client Support & Operations Specialist', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Zerodha Bengaluru\n\nHi Direct,\n\nI noticed Zerodha's current operational growth in Bengaluru and wanted to introduce myself directly regarding Client Support & Operations Specialist openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Zerodha.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://zerodha.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="delhivery express freight & logistics executive chanchala ugra">
+            <td>
+              <div class="company-cell">Delhivery</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-037</div>
+            </td>
+            <td>
+              <div class="role-cell">Express Freight & Logistics Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/chanchala-ugra-a44029145" target="_blank" class="recruiter-link">👤 Chanchala Ugra</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Manager - Talent Acquisition</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Delhivery', 'Express Freight & Logistics Executive', 'Chanchala Ugra', `Subject: BBA (Intl Business) | Operations & Analysis Track - Delhivery Bengaluru\n\nHi Chanchala,\n\nI noticed Delhivery's current operational growth in Bengaluru and wanted to introduce myself directly regarding Express Freight & Logistics Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Delhivery.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.delhivery.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="blue dart air cargo logistics operations lead direct careers portal">
+            <td>
+              <div class="company-cell">Blue Dart</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-038</div>
+            </td>
+            <td>
+              <div class="role-cell">Air Cargo Logistics Operations Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Blue Dart', 'Air Cargo Logistics Operations Lead', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Blue Dart Bengaluru\n\nHi Direct,\n\nI noticed Blue Dart's current operational growth in Bengaluru and wanted to introduce myself directly regarding Air Cargo Logistics Operations Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Blue Dart.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.bluedart.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Brand Ops & Activations" data-search="wizcraft international experiential event producer direct careers portal">
+            <td>
+              <div class="company-cell">Wizcraft International</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-039</div>
+            </td>
+            <td>
+              <div class="role-cell">Experiential Event Producer</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Brand Ops & Activations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Wizcraft International', 'Experiential Event Producer', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Wizcraft International Bengaluru\n\nHi Direct,\n\nI noticed Wizcraft International's current operational growth in Bengaluru and wanted to introduce myself directly regarding Experiential Event Producer openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Wizcraft International.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="http://www.wizcraftworld.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Brand Ops & Activations" data-search="percept limited event operations & brand activation lead direct careers portal">
+            <td>
+              <div class="company-cell">Percept Limited</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-040</div>
+            </td>
+            <td>
+              <div class="role-cell">Event Operations & Brand Activation Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Brand Ops & Activations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Percept Limited', 'Event Operations & Brand Activation Lead', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Percept Limited Bengaluru\n\nHi Direct,\n\nI noticed Percept Limited's current operational growth in Bengaluru and wanted to introduce myself directly regarding Event Operations & Brand Activation Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Percept Limited.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.perceptlimited.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Brand Ops & Activations" data-search="dentsu india (fountainhead) experiential brand activation manager direct careers portal">
+            <td>
+              <div class="company-cell">Dentsu India (Fountainhead)</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-041</div>
+            </td>
+            <td>
+              <div class="role-cell">Experiential Brand Activation Manager</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Brand Ops & Activations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Dentsu India (Fountainhead)', 'Experiential Brand Activation Manager', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Dentsu India (Fountainhead) Bengaluru\n\nHi Direct,\n\nI noticed Dentsu India (Fountainhead)'s current operational growth in Bengaluru and wanted to introduce myself directly regarding Experiential Brand Activation Manager openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Dentsu India (Fountainhead).\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.dentsu.com/in/en/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="nestle india supply chain & retail operations trainee direct careers portal">
+            <td>
+              <div class="company-cell">Nestle India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-042</div>
+            </td>
+            <td>
+              <div class="role-cell">Supply Chain & Retail Operations Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Nestle India', 'Supply Chain & Retail Operations Trainee', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Nestle India Bengaluru\n\nHi Direct,\n\nI noticed Nestle India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Supply Chain & Retail Operations Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Nestle India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.nestle.in/jobs" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="britannia industries fmcg operations & supply chain trainee direct careers portal">
+            <td>
+              <div class="company-cell">Britannia Industries</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-043</div>
+            </td>
+            <td>
+              <div class="role-cell">FMCG Operations & Supply Chain Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Britannia Industries', 'FMCG Operations & Supply Chain Trainee', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Britannia Industries Bengaluru\n\nHi Direct,\n\nI noticed Britannia Industries's current operational growth in Bengaluru and wanted to introduce myself directly regarding FMCG Operations & Supply Chain Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Britannia Industries.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://britannia.co.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="AI & Data Operations" data-search="titan company retail operations & business trainee direct careers portal">
+            <td>
+              <div class="company-cell">Titan Company</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-044</div>
+            </td>
+            <td>
+              <div class="role-cell">Retail Operations & Business Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">AI & Data Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Titan Company', 'Retail Operations & Business Trainee', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Titan Company Bengaluru\n\nHi Direct,\n\nI noticed Titan Company's current operational growth in Bengaluru and wanted to introduce myself directly regarding Retail Operations & Business Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Titan Company.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.titancompany.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="hindustan unilever (hul) customer operations & supply chain associate direct careers portal">
+            <td>
+              <div class="company-cell">Hindustan Unilever (HUL)</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-045</div>
+            </td>
+            <td>
+              <div class="role-cell">Customer Operations & Supply Chain Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Hindustan Unilever (HUL)', 'Customer Operations & Supply Chain Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Hindustan Unilever (HUL) Bengaluru\n\nHi Direct,\n\nI noticed Hindustan Unilever (HUL)'s current operational growth in Bengaluru and wanted to introduce myself directly regarding Customer Operations & Supply Chain Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Hindustan Unilever (HUL).\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.hul.co.in/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="itc limited trade operations & logistics management trainee diya sharma">
+            <td>
+              <div class="company-cell">ITC Limited</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-046</div>
+            </td>
+            <td>
+              <div class="role-cell">Trade Operations & Logistics Management Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/diya-sharma-856896319" target="_blank" class="recruiter-link">👤 Diya Sharma</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Human Resources Manager</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('ITC Limited', 'Trade Operations & Logistics Management Trainee', 'Diya Sharma', `Subject: BBA (Intl Business) | Operations & Analysis Track - ITC Limited Bengaluru\n\nHi Diya,\n\nI noticed ITC Limited's current operational growth in Bengaluru and wanted to introduce myself directly regarding Trade Operations & Logistics Management Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at ITC Limited.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.itcportal.com/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="colgate-palmolive supply chain support associate direct careers portal">
+            <td>
+              <div class="company-cell">Colgate-Palmolive</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-047</div>
+            </td>
+            <td>
+              <div class="role-cell">Supply Chain Support Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Colgate-Palmolive', 'Supply Chain Support Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Colgate-Palmolive Bengaluru\n\nHi Direct,\n\nI noticed Colgate-Palmolive's current operational growth in Bengaluru and wanted to introduce myself directly regarding Supply Chain Support Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Colgate-Palmolive.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.colgatepalmolive.co.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="3m india industrial operations support specialist direct careers portal">
+            <td>
+              <div class="company-cell">3M India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-048</div>
+            </td>
+            <td>
+              <div class="role-cell">Industrial Operations Support Specialist</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('3M India', 'Industrial Operations Support Specialist', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - 3M India Bengaluru\n\nHi Direct,\n\nI noticed 3M India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Industrial Operations Support Specialist openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at 3M India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.3m.co.in/3M/en_IN/company-in/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="AI & Data Operations" data-search="pfizer india commercial operations & data trainee direct careers portal">
+            <td>
+              <div class="company-cell">Pfizer India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-049</div>
+            </td>
+            <td>
+              <div class="role-cell">Commercial Operations & Data Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">AI & Data Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Pfizer India', 'Commercial Operations & Data Trainee', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Pfizer India Bengaluru\n\nHi Direct,\n\nI noticed Pfizer India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Commercial Operations & Data Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Pfizer India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.pfizer.co.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="astrazeneca india commercial operations support specialist direct careers portal">
+            <td>
+              <div class="company-cell">AstraZeneca India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-050</div>
+            </td>
+            <td>
+              <div class="role-cell">Commercial Operations Support Specialist</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('AstraZeneca India', 'Commercial Operations Support Specialist', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - AstraZeneca India Bengaluru\n\nHi Direct,\n\nI noticed AstraZeneca India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Commercial Operations Support Specialist openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at AstraZeneca India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.astrazeneca.in/careers.html" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="novartis india business operations support associate direct careers portal">
+            <td>
+              <div class="company-cell">Novartis India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-051</div>
+            </td>
+            <td>
+              <div class="role-cell">Business Operations Support Associate</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Novartis India', 'Business Operations Support Associate', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Novartis India Bengaluru\n\nHi Direct,\n\nI noticed Novartis India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Business Operations Support Associate openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Novartis India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.novartis.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="AI & Data Operations" data-search="eurofins scientific analytical operations support trainee direct careers portal">
+            <td>
+              <div class="company-cell">Eurofins Scientific</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-052</div>
+            </td>
+            <td>
+              <div class="role-cell">Analytical Operations Support Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">AI & Data Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Eurofins Scientific', 'Analytical Operations Support Trainee', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Eurofins Scientific Bengaluru\n\nHi Direct,\n\nI noticed Eurofins Scientific's current operational growth in Bengaluru and wanted to introduce myself directly regarding Analytical Operations Support Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Eurofins Scientific.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.eurofins.in/careers/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Brand Ops & Activations" data-search="wework india community & event operations lead direct careers portal">
+            <td>
+              <div class="company-cell">WeWork India</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-053</div>
+            </td>
+            <td>
+              <div class="role-cell">Community & Event Operations Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Brand Ops & Activations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('WeWork India', 'Community & Event Operations Lead', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - WeWork India Bengaluru\n\nHi Direct,\n\nI noticed WeWork India's current operational growth in Bengaluru and wanted to introduce myself directly regarding Community & Event Operations Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at WeWork India.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://wework.co.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="awfis space solutions center operations & client success manager direct careers portal">
+            <td>
+              <div class="company-cell">Awfis Space Solutions</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-054</div>
+            </td>
+            <td>
+              <div class="role-cell">Center Operations & Client Success Manager</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Awfis Space Solutions', 'Center Operations & Client Success Manager', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Awfis Space Solutions Bengaluru\n\nHi Direct,\n\nI noticed Awfis Space Solutions's current operational growth in Bengaluru and wanted to introduce myself directly regarding Center Operations & Client Success Manager openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Awfis Space Solutions.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.awfis.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="indiqube workspace operations executive direct careers portal">
+            <td>
+              <div class="company-cell">Indiqube</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-055</div>
+            </td>
+            <td>
+              <div class="role-cell">Workspace Operations Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Indiqube', 'Workspace Operations Executive', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Indiqube Bengaluru\n\nHi Direct,\n\nI noticed Indiqube's current operational growth in Bengaluru and wanted to introduce myself directly regarding Workspace Operations Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Indiqube.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://indiqube.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="swiggy field operations & supply chain trainee prerna khedkar">
+            <td>
+              <div class="company-cell">Swiggy</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-056</div>
+            </td>
+            <td>
+              <div class="role-cell">Field Operations & Supply Chain Trainee</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><a href="https://www.linkedin.com/in/prernakhedkar" target="_blank" class="recruiter-link">👤 Prerna Khedkar</a><div style="font-size:11px;color:var(--muted);margin-top:2px;">Senior Executive Human Resources</div></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Swiggy', 'Field Operations & Supply Chain Trainee', 'Prerna Khedkar', `Subject: BBA (Intl Business) | Operations & Analysis Track - Swiggy Bengaluru\n\nHi Prerna,\n\nI noticed Swiggy's current operational growth in Bengaluru and wanted to introduce myself directly regarding Field Operations & Supply Chain Trainee openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Swiggy.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.swiggy.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="zomato restaurant operations lead direct careers portal">
+            <td>
+              <div class="company-cell">Zomato</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-057</div>
+            </td>
+            <td>
+              <div class="role-cell">Restaurant Operations Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Zomato', 'Restaurant Operations Lead', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Zomato Bengaluru\n\nHi Direct,\n\nI noticed Zomato's current operational growth in Bengaluru and wanted to introduce myself directly regarding Restaurant Operations Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Zomato.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.zomato.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="licious supply chain operations lead direct careers portal">
+            <td>
+              <div class="company-cell">Licious</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-058</div>
+            </td>
+            <td>
+              <div class="role-cell">Supply Chain Operations Lead</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Licious', 'Supply Chain Operations Lead', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Licious Bengaluru\n\nHi Direct,\n\nI noticed Licious's current operational growth in Bengaluru and wanted to introduce myself directly regarding Supply Chain Operations Lead openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Licious.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.licious.in/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="urban company partner operations specialist direct careers portal">
+            <td>
+              <div class="company-cell">Urban Company</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-059</div>
+            </td>
+            <td>
+              <div class="role-cell">Partner Operations Specialist</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Urban Company', 'Partner Operations Specialist', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Urban Company Bengaluru\n\nHi Direct,\n\nI noticed Urban Company's current operational growth in Bengaluru and wanted to introduce myself directly regarding Partner Operations Specialist openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Urban Company.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://careers.urbancompany.com/" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Supply Chain & EXIM" data-search="dunzo logistics & fleet operations executive direct careers portal">
+            <td>
+              <div class="company-cell">Dunzo</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-060</div>
+            </td>
+            <td>
+              <div class="role-cell">Logistics & Fleet Operations Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Supply Chain & EXIM</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Dunzo', 'Logistics & Fleet Operations Executive', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Dunzo Bengaluru\n\nHi Direct,\n\nI noticed Dunzo's current operational growth in Bengaluru and wanted to introduce myself directly regarding Logistics & Fleet Operations Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Dunzo.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.dunzo.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr data-track="Business Operations" data-search="zepto dark store operations executive direct careers portal">
+            <td>
+              <div class="company-cell">Zepto</div>
+              <div style="font-size:11px;color:var(--muted);font-family:'JetBrains Mono';">BLR-JOB-061</div>
+            </td>
+            <td>
+              <div class="role-cell">Dark Store Operations Executive</div>
+              <div style="font-size:12px;color:var(--muted);margin-top:2px;">Bengaluru / Bangalore</div>
+            </td>
+            <td><span class="badge badge-track">Business Operations</span></td>
+            <td><span class="badge badge-score">92.0/100</span></td>
+            <td><span style="color:var(--muted);">Direct Portal</span></td>
+            <td>
+              <div class="action-group">
+                <button class="action-btn" onclick="openInMailModal('Zepto', 'Dark Store Operations Executive', 'Direct Careers Portal', `Subject: BBA (Intl Business) | Operations & Analysis Track - Zepto Bengaluru\n\nHi Direct,\n\nI noticed Zepto's current operational growth in Bengaluru and wanted to introduce myself directly regarding Dark Store Operations Executive openings.\n\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My core operational grounding includes:\n - Ground Operations & Logistics: Directed execution at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\n - Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by ~25%.\n - AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation in fast-paced operational setups.\n\nI would welcome 5 minutes to discuss how my hands-on execution rigor fits your active requirements at Zepto.\n\nBest regards,\nAditya Mehra | +91-7003456624 | ashishiash007@gmail.com`)">✉️ InMail</button>
+                <a href="https://www.zepto.com/careers" target="_blank" class="action-btn">🌐 Portal</a>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal" id="inmailModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Pre-Composed Recruiter InMail</h3>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="inmail-box" id="modalContent"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        <button class="btn btn-primary" onclick="copyInMail()">📋 Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">✓ InMail Copied to Clipboard!</div>
+
+  <script>
+    let currentTrack = 'ALL';
+    let currentInMail = '';
+
+    function filterJobs() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#tableBody tr');
+      rows.forEach(r => {
+        const text = r.getAttribute('data-search') || '';
+        const track = r.getAttribute('data-track') || '';
+        const matchesTrack = currentTrack === 'ALL' || track === currentTrack;
+        const matchesQuery = !q || text.includes(q);
+        r.style.display = (matchesTrack && matchesQuery) ? '' : 'none';
+      });
+    }
+
+    function setTrack(track, btn) {
+      currentTrack = track;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterJobs();
+    }
+
+    function openInMailModal(comp, role, recruiter, msg) {
+      currentInMail = msg;
+      document.getElementById('modalTitle').innerText = 'InMail: ' + comp + ' (' + recruiter + ')';
+      document.getElementById('modalContent').innerText = msg;
+      document.getElementById('inmailModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('inmailModal').classList.remove('active');
+    }
+
+    function copyInMail() {
+      navigator.clipboard.writeText(currentInMail).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 50 Bangalore Enterprise Target Dossiers | ADI SOVEREIGN OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: #0d1527;
+      --card-border: #1a2744;
+      --card-hover: #16223b;
+      --teal: #00d4aa;
+      --teal-glow: rgba(0, 212, 170, 0.15);
+      --purple: #8b5cf6;
+      --blue: #3b82f6;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; line-height: 1.5; }
+    .container { max-width: 1350px; margin: 0 auto; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* Nav & Header */
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 20px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--teal); }
+    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); flex-wrap: wrap; gap: 16px; }
+    .badge { background: var(--teal-glow); color: var(--teal); padding: 4px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(0, 212, 170, 0.3); display: inline-block; margin-bottom: 8px; }
+    h1 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+    .subtitle { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+
+    /* Top Stats Bar */
+    .stats-bar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 24px; }
+    @media (max-width: 900px) { .stats-bar { grid-template-columns: repeat(2, 1fr); } }
+    .stat-pill { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px; text-align: center; }
+    .stat-num { font-size: 1.35rem; font-weight: 800; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+
+    /* Filters & Search Toolbar */
+    .toolbar { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 16px 20px; margin-bottom: 24px; }
+    .tool-row { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+    .search-box { flex-grow: 1; min-width: 280px; background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; }
+    .search-box:focus { outline: none; border-color: var(--teal); }
+    .select-box { background: #080d1a; border: 1px solid var(--card-border); color: #fff; padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; }
+    .select-box:focus { outline: none; border-color: var(--teal); }
+    
+    .cat-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; }
+    .cat-pill { background: #080d1a; border: 1px solid var(--card-border); color: var(--text-muted); padding: 6px 14px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+    .cat-pill:hover { color: #fff; border-color: var(--teal); }
+    .cat-pill.active { background: rgba(0, 212, 170, 0.15); border-color: var(--teal); color: var(--teal); font-weight: 700; }
+
+    /* Dossier Grid */
+    .dossier-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; margin-bottom: 36px; }
+    @media (max-width: 440px) { .dossier-grid { grid-template-columns: 1fr; } }
+    
+    .dossier-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 22px; transition: all 0.25s; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.25); position: relative; }
+    .dossier-card:hover { transform: translateY(-3px); border-color: var(--teal); box-shadow: 0 12px 30px rgba(0,212,170,0.15); }
+    .dossier-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .company-title { font-size: 1.15rem; font-weight: 800; color: #fff; }
+    .sector-tag { font-size: 0.72rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .tag-gcc { background: rgba(0, 212, 170, 0.12); color: var(--teal); border: 1px solid rgba(0, 212, 170, 0.3); }
+    .tag-tech { background: rgba(59, 130, 246, 0.12); color: var(--blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+    .tag-ib { background: rgba(245, 158, 11, 0.12); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .tag-big4 { background: rgba(139, 92, 246, 0.12); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+    .tag-exim { background: rgba(14, 165, 233, 0.12); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
+    .tag-aero { background: rgba(244, 63, 94, 0.12); color: var(--rose); border: 1px solid rgba(244, 63, 94, 0.3); }
+
+    .company-loc { font-size: 0.8rem; color: var(--text-dim); display: flex; align-items: center; gap: 4px; margin-bottom: 12px; }
+    .metrics-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: #080d1a; border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 12px; margin-bottom: 14px; font-size: 0.8rem; }
+    .metrics-bar div { display: flex; flex-direction: column; }
+    .metrics-bar span.m-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+    .metrics-bar span.m-val { font-weight: 700; color: #fff; font-family: 'JetBrains Mono', monospace; }
+
+    .pitch-box { background: rgba(0, 212, 170, 0.04); border-left: 3px solid var(--teal); padding: 10px 12px; border-radius: 4px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 16px; }
+    .roles-list { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 16px; }
+    .roles-list strong { color: #fff; }
+
+    .card-actions { display: flex; gap: 8px; margin-top: auto; }
+    .btn { background: var(--teal); color: #070b14; font-weight: 700; border: none; padding: 9px 14px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 0.82rem; transition: all 0.2s; flex-grow: 1; text-decoration: none; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,212,170,0.3); }
+    .btn.secondary { background: #080d1a; color: #fff; border: 1px solid var(--card-border); }
+    .btn.secondary:hover { border-color: var(--teal); }
+
+    /* Modal / Drawer */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; padding: 20px; z-index: 1000; }
+    .modal-overlay.open { display: flex; }
+    .modal-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; width: 100%; max-width: 750px; max-height: 90vh; overflow-y: auto; padding: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); position: relative; }
+    .modal-close { position: absolute; top: 20px; right: 20px; background: #080d1a; border: 1px solid var(--card-border); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: 700; }
+    
+    /* Toast */
+    #toast { position: fixed; bottom: 24px; right: 24px; background: var(--teal); color: #070b14; font-weight: 700; padding: 12px 24px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 2000; }
+    #toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Back to Sovereign Applications Suite</a>
+
+    <header>
+      <div>
+        <span class="badge">TARGET INTELLIGENCE REPOSITORY</span>
+        <h1>🏢 Top 50 Bangalore Enterprise Target Dossiers</h1>
+        <p class="subtitle">Complete GCC, Big Tech, Investment Banking, Consulting & SCM employers with custom value angles & 1-click pitches</p>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">CANDIDATE DOSSIER</span>
+        <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Aditya Mehra (BBA IB '26)</div>
+        <span style="color: var(--teal); font-size: 0.8rem;">300+ Deployments • Tier-1 vendor SLA governance</span>
+      </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-pill">
+        <div class="stat-num" id="statTotal">50</div>
+        <div class="stat-label">Enterprise Dossiers</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num mono" style="color: var(--teal);">₹8.85 LPA</div>
+        <div class="stat-label">Avg Target CTC</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num mono" style="color: var(--purple);">9,223</div>
+        <div class="stat-label">Network Connections</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num mono" style="color: var(--blue);">1,450+</div>
+        <div class="stat-label">HR / Recruiter Nodes</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num" style="color: var(--amber);">100%</div>
+        <div class="stat-label">Bangalore Grounded</div>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="tool-row">
+        <input type="text" id="companySearch" class="search-box" placeholder="🔍 Search company name, hub location, role, or keyword (e.g. Kadubeesanahalli, SCM, TRMS)..." oninput="filterCompanies()">
+        <select id="sortSelect" class="select-box" onchange="filterCompanies()">
+          <option value="priority">Sort by Strategic Priority Tier</option>
+          <option value="ctc_high">Sort by Target CTC (High to Low)</option>
+          <option value="conn_high">Sort by Network Density</option>
+          <option value="name_asc">Sort by Company Name (A-Z)</option>
+        </select>
+      </div>
+      <div class="cat-tabs" id="categoryFilter">
+        <div class="cat-pill active" onclick="setSector('ALL', this)">All 50 Enterprises</div>
+        <div class="cat-pill" onclick="setSector('MNC GCC', this)">Tier-1 MNC GCCs</div>
+        <div class="cat-pill" onclick="setSector('Big Tech', this)">Big Tech</div>
+        <div class="cat-pill" onclick="setSector('Investment Banking', this)">Investment Banking</div>
+        <div class="cat-pill" onclick="setSector('Big 4', this)">Big 4 Advisory</div>
+        <div class="cat-pill" onclick="setSector('Logistics & EXIM', this)">Logistics & EXIM</div>
+        <div class="cat-pill" onclick="setSector('FinTech', this)">FinTech Unicorns</div>
+        <div class="cat-pill" onclick="setSector('Aerospace & Industrial', this)">Aerospace & Defense</div>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="dossier-grid" id="dossierGrid">
+      <!-- Populated via JS -->
+    </div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detailModal" onclick="closeModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      <div id="modalContent">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <div id="toast">✅ Pitch copied to clipboard!</div>
+
+  <script>
+    const DOSSIERS = [
+      { id: 1, name: "Walmart Global Tech", sector: "MNC GCC", loc: "Kadubeesanahalli / ORR, Bengaluru", ctc: 8.5, base: 7.0, conns: 38, recruiters: 8, tier: "P1", roles: "Associate Operations Analyst, Global SCM Program Trainee", pitch: "Leveraging verified standardized vendor rate structuring and SLA governance and lean vendor rate tiering models to optimize Walmart's high-velocity global supply chain workflows.", q: "How do you evaluate tier-1 supplier performance scorecards under tight SLAs?", tagClass: "tag-gcc" },
+      { id: 2, name: "Amazon Development Centre / Ops", sector: "Big Tech", loc: "Bagmane Constellation Park, Bengaluru", ctc: 8.8, base: 6.5, conns: 38, recruiters: 6, tier: "P1", roles: "Operations Specialist (TRMS), Brand Specialist (ATS)", pitch: "Applying high-precision AI data operations experience (99%+ accuracy at Instawork AI) to Amazon's Transaction Risk and Merchant Fulfillment workflows.", q: "Describe your root cause analysis framework for operational metric variance.", tagClass: "tag-tech" },
+      { id: 3, name: "Google India", sector: "Big Tech", loc: "Old Madras Road / Bagmane, Bengaluru", ctc: 10.8, base: 8.0, conns: 22, recruiters: 3, tier: "P1", roles: "Global Scaled Operations Associate, Partner Ops Specialist", pitch: "Proven execution in managing complex multi-stakeholder friction (AERO India 2025 Lead) for Google's Global Business Operations (GBO).", q: "How do you scale operational processes across international timezones?", tagClass: "tag-tech" },
+      { id: 4, name: "Microsoft India", sector: "Big Tech", loc: "Bellandur / ORR, Bengaluru", ctc: 10.2, base: 7.8, conns: 29, recruiters: 4, tier: "P1", roles: "Commercial Operations Analyst, Cloud Business Ops Associate", pitch: "Demonstrated ability to drive revenue alignment (Commercial Operations & B2B pipeline acceleration) and enterprise partner operational readiness.", q: "Walk me through how you optimize cloud commercial contract lifecycles.", tagClass: "tag-tech" },
+      { id: 5, name: "Goldman Sachs", sector: "Investment Banking", loc: "Helios Business Park, Kadubeesanahalli", ctc: 11.2, base: 8.5, conns: 79, recruiters: 12, tier: "P1", roles: "Operations Analyst (Global Markets), Trade Execution Analyst", pitch: "Deep grounding in EXIM trade finance, Incoterms 2020, and UCP 600 Letter of Credit compliance paired with meticulous operational execution.", q: "How do you mitigate operational and settlement risk in fast-moving trades?", tagClass: "tag-ib" },
+      { id: 6, name: "JPMorgan Chase & Co.", sector: "Investment Banking", loc: "Prestige Tech Park, Marathahalli", ctc: 9.3, base: 7.5, conns: 39, recruiters: 5, tier: "P1", roles: "CIB Operations Specialist, Corporate Trade Services Analyst", pitch: "Rigorous attention to detail and zero-error trade compliance standards for Corporate & Investment Bank trade settlement operations.", q: "Explain the verification procedure for discrepancies in Letters of Credit.", tagClass: "tag-ib" },
+      { id: 7, name: "Deloitte India / USI", sector: "Big 4", loc: "Yelahanka / ORR, Bengaluru", ctc: 7.8, base: 6.2, conns: 106, recruiters: 14, tier: "P1", roles: "Business Operations Analyst, Supply Chain Advisory Associate", pitch: "Strategic mindset grounded in BBA International Business and verified multi-vendor cost restructuring case studies.", q: "How do you conduct Total Cost of Ownership (TCO) assessments for clients?", tagClass: "tag-big4" },
+      { id: 8, name: "EY / EY GDS", sector: "Big 4", loc: "Bagmane World Tech Center, Bengaluru", ctc: 7.5, base: 6.0, conns: 206, recruiters: 28, tier: "P1", roles: "Consulting Analyst (Supply Chain), Transformation Associate", pitch: "Massive 206+ connection alumni footprint; ready for day-one deployment in business transformation and global logistics advisory.", q: "Describe a time you transformed an unstructured operational bottleneck.", tagClass: "tag-big4" },
+      { id: 9, name: "Maersk Global Service Centres", sector: "Logistics & EXIM", loc: "Manyata Tech Park, Bengaluru", ctc: 7.2, base: 5.8, conns: 14, recruiters: 3, tier: "P1", roles: "EXIM Logistics Coordinator, Ocean Trade Flow Analyst", pitch: "Specialized mastery of Indian Customs tariff rules, HS Codes, demurrage minimization, and container freight logistics.", q: "What is your protocol for handling customs misclassification at origin ports?", tagClass: "tag-exim" },
+      { id: 10, name: "DHL Global Forwarding", sector: "Logistics & EXIM", loc: "Whitefield, Bengaluru", ctc: 6.8, base: 5.5, conns: 12, recruiters: 2, tier: "P2", roles: "Customs & Freight Compliance Specialist, Operations Trainee", pitch: "End-to-end knowledge of ocean/air freight documentation, BoE assessment, and multi-modal carrier routing.", q: "Explain how Incoterms 2020 FOB vs CIF alters risk transfer points.", tagClass: "tag-exim" },
+      { id: 11, name: "Boeing India", sector: "Aerospace & Defense", loc: "BIETC Aerospace SEZ, Devanahalli", ctc: 8.5, base: 7.0, conns: 18, recruiters: 4, tier: "P1", roles: "Supply Chain & Sourcing Analyst, Aerospace Ops Coordinator", pitch: "Direct leadership track record at AERO India 2025 coordinating aerospace stakeholders and critical venue ops.", q: "How do you ensure aerospace supply chain compliance under AS9100 standards?", tagClass: "tag-aero" },
+      { id: 12, name: "Schneider Electric", sector: "Aerospace & Industrial", loc: "Attibele / Electronic City, Bengaluru", ctc: 7.6, base: 6.2, conns: 15, recruiters: 3, tier: "P2", roles: "Global Supply Chain Sourcing Analyst, Lean Ops Trainee", pitch: "standardized vendor rate governance framework directly applicable to Schneider's supplier consolidation and energy management procurement.", q: "How do you implement Kaizen principles to eliminate warehouse transit waste?", tagClass: "tag-aero" },
+      { id: 13, name: "Razorpay", sector: "FinTech", loc: "Koramangala, Bengaluru", ctc: 8.5, base: 6.8, conns: 16, recruiters: 3, tier: "P1", roles: "Merchant Operations Specialist, B2B Partnerships Associate", pitch: "Strong commercial B2B sales track record (48-hour proposal velocity closed revenue) paired with agile tech operational workflows.", q: "How do you streamline enterprise merchant onboarding and KYC cycle time?", tagClass: "tag-gcc" },
+      { id: 14, name: "Swiggy (Bundl Technologies)", sector: "Big Tech", loc: "Devarabisanahalli, Bengaluru", ctc: 8.0, base: 6.5, conns: 14, recruiters: 2, tier: "P2", roles: "Instamart Dark Store Ops Associate, Supply SCM Lead", pitch: "Proven high-velocity on-ground coordination and SLA enforcement across high-density urban logistics hubs.", q: "How do you maintain 99.5% order fulfillment SLA during sudden demand spikes?", tagClass: "tag-tech" },
+      { id: 15, name: "CRED (Dreamplug Technologies)", sector: "FinTech", loc: "Indiranagar, Bengaluru", ctc: 9.2, base: 7.2, conns: 12, recruiters: 2, tier: "P1", roles: "Growth & B2B Merchant BD Associate, Ops Program Manager", pitch: "High-standard execution rigor and premium brand partner management (Puma India activations).", q: "How do you structure high-converting B2B brand alliance propositions?", tagClass: "tag-gcc" },
+      { id: 16, name: "Puma Sports India", sector: "Aerospace & Industrial", loc: "Ulsoor / Indiranagar, Bengaluru", ctc: 7.5, base: 6.0, conns: 19, recruiters: 3, tier: "P1", roles: "Retail Marketing & Activation Manager, Brand Ops Coordinator", pitch: "Direct prior coordinator track record at Puma India executing high-impact experiential retail deployments.", q: "How do you measure footfall ROI and retail conversion during pop-up activations?", tagClass: "tag-aero" },
+      { id: 17, name: "Tata Communications", sector: "MNC GCC", loc: "Varthur Road, Bengaluru", ctc: 7.8, base: 6.2, conns: 78, recruiters: 8, tier: "P1", roles: "Enterprise BD & Account Specialist, Global Operations Analyst", pitch: "Strong alumni ties and direct prior corporate association; high-trust candidate with proven B2B revenue delivery.", q: "How do you manage complex multi-tier enterprise telecommunications accounts?", tagClass: "tag-gcc" },
+      { id: 18, name: "Flipkart Internet", sector: "Big Tech", loc: "Embassy Tech Village, ORR, Bengaluru", ctc: 8.5, base: 6.8, conns: 25, recruiters: 5, tier: "P1", roles: "Supply Chain Marketplace Analyst, Seller Operations Specialist", pitch: "Lean inventory forecasting and supplier SLA management for Ekart logistics network.", q: "How do you optimize reverse logistics cost and return processing velocity?", tagClass: "tag-tech" },
+      { id: 19, name: "Cisco Systems India", sector: "Big Tech", loc: "Cessna Business Park, Kadubeesanahalli", ctc: 9.5, base: 7.5, conns: 21, recruiters: 3, tier: "P1", roles: "Customer Experience Operations Analyst, Partner Ops Lead", pitch: "Global client relationship management and precision SLA tracking across enterprise network contracts.", q: "How do you handle critical escalation protocols for global enterprise accounts?", tagClass: "tag-tech" },
+      { id: 20, name: "Dell Technologies", sector: "Big Tech", loc: "Domlur / Inner Ring Road, Bengaluru", ctc: 8.2, base: 6.6, conns: 31, recruiters: 4, tier: "P1", roles: "Global Supply Chain Operations Analyst, OEM Logistics Coordinator", pitch: "Expertise in multi-tier hardware manufacturing sourcing, Incoterms, and international logistics pipelines.", q: "Describe your strategy for managing component supply lead-time volatility.", tagClass: "tag-tech" },
+      { id: 21, name: "Infosys Limited", sector: "MNC GCC", loc: "Electronic City, Bengaluru", ctc: 6.8, base: 5.5, conns: 72, recruiters: 11, tier: "P2", roles: "Business Analyst Trainee, Global Delivery Operations Associate", pitch: "72+ verified connections; ready to support enterprise transformation and digital supply chain client engagements.", q: "How do you translate client operational pain points into structured functional specs?", tagClass: "tag-gcc" },
+      { id: 22, name: "Wipro Limited", sector: "MNC GCC", loc: "Sarjapur Road, Bengaluru", ctc: 6.5, base: 5.2, conns: 61, recruiters: 7, tier: "P2", roles: "Global Supply Chain Analyst, Operations Excellence Associate", pitch: "Strong analytical modeling and process optimization backed by BBA International Business foundation.", q: "How do you design a continuous process improvement audit checklist?", tagClass: "tag-gcc" },
+      { id: 23, name: "Accenture India", sector: "Big 4", loc: "Pritech Park, Bellandur, Bengaluru", ctc: 7.8, base: 6.2, conns: 115, recruiters: 16, tier: "P1", roles: "Strategy & Consulting Analyst, Supply Chain Operations Lead", pitch: "115+ internal connections; proven capability to drive Tier-1 vendor SLA governance across complex vendor ecosystems.", q: "How do you model supply chain cost curves during global supply shocks?", tagClass: "tag-big4" },
+      { id: 24, name: "PwC India", sector: "Big 4", loc: "RMZ Infinity, Old Madras Road", ctc: 7.6, base: 6.0, conns: 68, recruiters: 9, tier: "P1", roles: "Deals & Advisory Analyst, Supply Chain Consulting Associate", pitch: "Deep analytical rigor in cross-border trade, financial modeling, and B2B vendor contract audits.", q: "What is your approach to supplier due diligence and financial health auditing?", tagClass: "tag-big4" },
+      { id: 25, name: "KPMG India", sector: "Big 4", loc: "Embassy GolfLinks, Challaghatta", ctc: 7.4, base: 5.9, conns: 45, recruiters: 6, tier: "P1", roles: "Management Consulting Analyst, Business Advisory Associate", pitch: "Structured problem solver with demonstrated experience managing large-scale, high-visibility deployments.", q: "How do you structure an operational turnaround roadmap for an underperforming unit?", tagClass: "tag-big4" },
+      { id: 26, name: "IBM India", sector: "Big Tech", loc: "Manyata Tech Park, Bengaluru", ctc: 8.0, base: 6.4, conns: 81, recruiters: 9, tier: "P1", roles: "Enterprise Cloud Business Analyst, Client Success Operations Trainee", pitch: "81+ network connections; bridging business requirements with AI and data-driven workflow automation.", q: "How do you leverage AI tools to automate repetitive operational reporting?", tagClass: "tag-tech" },
+      { id: 27, name: "Oracle India", sector: "Big Tech", loc: "Bannerghatta Road / Bagmane, Bengaluru", ctc: 8.8, base: 7.0, conns: 34, recruiters: 4, tier: "P1", roles: "Enterprise SCM Applications Analyst, Cloud Sales Ops Specialist", pitch: "Hands-on understanding of enterprise procurement workflows, purchase orders, and landed cost engines.", q: "Explain how ERP systems streamline procure-to-pay (P2P) cycles.", tagClass: "tag-tech" },
+      { id: 28, name: "Wells Fargo India", sector: "Investment Banking", loc: "Embassy Tech Village, ORR, Bengaluru", ctc: 8.8, base: 7.2, conns: 28, recruiters: 4, tier: "P1", roles: "International Banking Operations Analyst, Trade Finance Trainee", pitch: "Solid grasp of international trade documentation, risk mitigation, and automated transaction reconciliation.", q: "What controls do you put in place to prevent anti-money laundering (AML) in trade?", tagClass: "tag-ib" },
+      { id: 29, name: "Morgan Stanley", sector: "Investment Banking", loc: "RMZ Ecospace, Bellandur, Bengaluru", ctc: 10.5, base: 8.2, conns: 26, recruiters: 3, tier: "P1", roles: "Institutional Operations Analyst, Global Trade Settlement Lead", pitch: "Extreme precision in high-volume transaction verification with proven 99%+ accuracy at Instawork AI.", q: "How do you handle post-trade reconciliation discrepancies under T+1 settlement?", tagClass: "tag-ib" },
+      { id: 30, name: "Standard Chartered GBS", sector: "Investment Banking", loc: "Pritech Park, Bellandur, Bengaluru", ctc: 8.2, base: 6.6, conns: 25, recruiters: 3, tier: "P2", roles: "Global Business Services Operations Specialist, Trade Solutions Lead", pitch: "Expertise in Letters of Credit, Incoterms, and cross-border commercial invoicing standards.", q: "Explain the function of Standby Letters of Credit (SBLC) in trade assurance.", tagClass: "tag-ib" },
+      { id: 31, name: "HSBC Electronic Data Processing", sector: "Investment Banking", loc: "Bannerghatta Road, Bengaluru", ctc: 8.0, base: 6.5, conns: 18, recruiters: 2, tier: "P2", roles: "Global Commercial Banking Operations Analyst, Risk Specialist", pitch: "International Business graduate grounded in global macroeconomics, trade treaties, and regulatory compliance.", q: "How do FX hedging mechanisms protect import-export contracts?", tagClass: "tag-ib" },
+      { id: 32, name: "PhonePe", sector: "FinTech", loc: "Bellandur / ORR, Bengaluru", ctc: 8.8, base: 7.0, conns: 16, recruiters: 2, tier: "P1", roles: "Merchant Operations Specialist, Strategic BD Trainee", pitch: "Demonstrated revenue generation in B2B accounts and agile resolution of partner operational friction.", q: "How do you manage high-volume offline merchant key accounts?", tagClass: "tag-gcc" },
+      { id: 33, name: "Larsen & Toubro (L&T)", sector: "Aerospace & Industrial", loc: "Hebbal / Bellary Road, Bengaluru", ctc: 7.2, base: 5.8, conns: 24, recruiters: 3, tier: "P2", roles: "Industrial Project Logistics Coordinator, Defense SCM Analyst", pitch: "Field-tested on-ground command at AERO India 2025; adept at heavy project logistics coordination.", q: "How do you coordinate oversized cargo transportation and permit compliance?", tagClass: "tag-aero" },
+      { id: 34, name: "ITC Limited", sector: "Aerospace & Industrial", loc: "Cox Town / Richmond Road, Bengaluru", ctc: 7.8, base: 6.2, conns: 15, recruiters: 2, tier: "P2", roles: "Trade Marketing & Distribution Trainee, SCM Operations Lead", pitch: "Proven vendor rate negotiation (Tier-1 rate structuring) and multi-channel retail activation execution.", q: "How do you optimize distribution van routes to reduce FMCG stockouts?", tagClass: "tag-aero" },
+      { id: 35, name: "Titan Company Limited", sector: "Aerospace & Industrial", loc: "Electronic City, Bengaluru", ctc: 7.6, base: 6.0, conns: 14, recruiters: 2, tier: "P2", roles: "Corporate Retail Brand Operations Specialist, SCM Analyst", pitch: "Experiential retail activations mastery paired with high-precision supplier quality control.", q: "How do you align luxury retail store inventory with seasonal promotional surges?", tagClass: "tag-aero" },
+      { id: 36, name: "Target Corporation India", sector: "MNC GCC", loc: "Manyata Tech Park, Bengaluru", ctc: 8.2, base: 6.6, conns: 22, recruiters: 3, tier: "P1", roles: "Global Supply Chain Analyst, Merchandising Ops Trainee", pitch: "Deep analytical modeling for retail inventory allocation and ocean container scheduling.", q: "How do you forecast safety stock requirements for seasonal peak retail events?", tagClass: "tag-gcc" },
+      { id: 37, name: "Lowe's India", sector: "MNC GCC", loc: "Manyata Tech Park, Bengaluru", ctc: 8.0, base: 6.5, conns: 18, recruiters: 3, tier: "P2", roles: "Enterprise Supply Chain Optimization Specialist, Sourcing Analyst", pitch: "Supplier scorecards and lean freight consolidation methodologies to cut landed cost.", q: "How do you measure warehouse slotting efficiency and pick path optimization?", tagClass: "tag-gcc" },
+      { id: 38, name: "Hewlett Packard Enterprise (HPE)", sector: "Big Tech", loc: "Electronic City, Bengaluru", ctc: 6.33, base: 6.8, conns: 19, recruiters: 2, tier: "P2", roles: "Global Logistics & SCM Analyst, OEM Operations Specialist", pitch: "End-to-end knowledge of global component supply pipelines and customs duty drawback mechanisms.", q: "How do you manage bonded warehouse operations for tax-exempt compute assemblies?", tagClass: "tag-tech" },
+      { id: 39, name: "Intel India", sector: "Big Tech", loc: "Outer Ring Road, Bellandur, Bengaluru", ctc: 9.2, base: 7.4, conns: 16, recruiters: 2, tier: "P1", roles: "Supply Chain Strategy Analyst, Operations Program Coordinator", pitch: "High-precision data operations and understanding of global semiconductor trade routes.", q: "How do you navigate international export control classifications (ECCN) for silicon?", tagClass: "tag-tech" },
+      { id: 40, name: "Texas Instruments", sector: "Big Tech", loc: "CV Raman Nagar, Bengaluru", ctc: 9.0, base: 7.2, conns: 14, recruiters: 2, tier: "P2", roles: "Commercial Operations Analyst, SCM Planning Specialist", pitch: "BBA International Business degree combined with analytical rigor in forecasting demand variance.", q: "How do you balance buffer stock against rapid tech obsolescence cycles?", tagClass: "tag-tech" },
+      { id: 41, name: "SAP Labs India", sector: "Big Tech", loc: "Whitefield, Bengaluru", ctc: 9.6, base: 7.6, conns: 20, recruiters: 3, tier: "P1", roles: "Business Process Consultant Trainee, Global Ops Specialist", pitch: "Strong conceptual grasp of SAP SCM / ERP modules and practical vendor optimization experience.", q: "How do you map enterprise value streams using BPMN workflow diagrams?", tagClass: "tag-tech" },
+      { id: 42, name: "Mercedes-Benz R&D India", sector: "Aerospace & Industrial", loc: "Whitefield, Bengaluru", ctc: 8.2, base: 6.6, conns: 15, recruiters: 2, tier: "P2", roles: "Procurement & Sourcing Analyst, Global Supply Chain Trainee", pitch: "Rigorous quality compliance, tier-1 automotive vendor audits, and zero-defect operational standards.", q: "How do you implement Just-In-Time (JIT) delivery for high-precision components?", tagClass: "tag-aero" },
+      { id: 43, name: "Bosch India", sector: "Aerospace & Industrial", loc: "Adugodi / Koramangala, Bengaluru", ctc: 7.5, base: 6.0, conns: 24, recruiters: 3, tier: "P2", roles: "Supply Chain Management Trainee, Commercial Operations Analyst", pitch: "Extensive network footprint in Bangalore and hands-on lean operations mindset.", q: "What is your approach to supplier quality assurance (SQA) in multi-tier sourcing?", tagClass: "tag-aero" },
+      { id: 44, name: "Unilever / HUL Global GCC", sector: "MNC GCC", loc: "Whitefield, Bengaluru", ctc: 8.5, base: 6.8, conns: 17, recruiters: 2, tier: "P1", roles: "Customer Operations Analyst, Global SCM Sourcing Trainee", pitch: "FMCG supply chain optimization, demand sensing, and sustainable packaging vendor negotiation.", q: "How do you balance freight cost optimization with aggressive on-shelf availability?", tagClass: "tag-gcc" },
+      { id: 45, name: "AB InBev Global GCC", sector: "MNC GCC", loc: "Whitefield, Bengaluru", ctc: 8.0, base: 6.5, conns: 13, recruiters: 2, tier: "P2", roles: "Logistics Excellence Analyst, Commercial BD Trainee", pitch: "High-energy execution, experiential brand marketing, and route-to-market optimization.", q: "How do you audit distribution fleet turn-around times to cut detention fees?", tagClass: "tag-gcc" },
+      { id: 46, name: "Zepto (Kiranakart)", sector: "Big Tech", loc: "Koramangala, Bengaluru", ctc: 8.2, base: 6.6, conns: 10, recruiters: 2, tier: "P2", roles: "Dark Store Operations Lead, Quick Commerce SCM Specialist", pitch: "100% on-time execution mindset from 300+ live event setups translated to 10-minute delivery dark stores.", q: "How do you eliminate inventory shrinkage in high-velocity micro-fulfillment centers?", tagClass: "tag-tech" },
+      { id: 47, name: "Ola (ANI Technologies)", sector: "Big Tech", loc: "Koramangala / E-City, Bengaluru", ctc: 7.8, base: 6.2, conns: 16, recruiters: 2, tier: "P2", roles: "Fleet Operations Specialist, EV Charging Network SCM Coordinator", pitch: "Rapid deployment coordination across multiple high-density city hubs.", q: "How do you scale ground infrastructure deployments across 20+ locations simultaneously?", tagClass: "tag-tech" },
+      { id: 48, name: "Zomato / Blinkit Ops", sector: "Big Tech", loc: "Bengaluru Regional Hub", ctc: 7.8, base: 6.2, conns: 12, recruiters: 2, tier: "P2", roles: "Supply Operations Trainee, Merchant Growth Specialist", pitch: "B2B client acquisition (48-hour proposal velocity closed deals) and real-time vendor fulfillment tracking.", q: "How do you pitch high-volume supply partnerships to local enterprise distributors?", tagClass: "tag-tech" },
+      { id: 49, name: "Ather Energy", sector: "Aerospace & Industrial", loc: "IBC Knowledge Park, Bannerghatta", ctc: 7.8, base: 6.2, conns: 14, recruiters: 2, tier: "P2", roles: "EV Supply Chain Sourcing Trainee, Retail Experience Ops Lead", pitch: "High-standard retail activation leadership combined with domestic vendor rate optimization.", q: "How do you ensure battery pack component traceability across supplier tiers?", tagClass: "tag-aero" },
+      { id: 50, name: "Collins Aerospace / RTX", sector: "Aerospace & Industrial", loc: "Whitefield, Bengaluru", ctc: 8.8, base: 7.0, conns: 15, recruiters: 2, tier: "P1", roles: "Avionics Supply Chain Analyst, Global Trade Compliance Trainee", pitch: "AERO India 2025 operational lead; thorough understanding of Incoterms 2020 and aerospace customs clearance.", q: "What documentation is required for dual-use civil aviation component exports?", tagClass: "tag-aero" }
+    ];
+
+    let currentSector = 'ALL';
+    let currentDossiers = [...DOSSIERS];
+
+    function renderGrid() {
+      const grid = document.getElementById('dossierGrid');
+      if (currentDossiers.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">No enterprise dossiers found matching your search.</div>`;
+        return;
+      }
+
+      grid.innerHTML = currentDossiers.map(d => `
+        <div class="dossier-card">
+          <div>
+            <div class="dossier-header">
+              <div class="company-title">${d.name}</div>
+              <span class="sector-tag ${d.tagClass}">${d.sector}</span>
+            </div>
+            <div class="company-loc">📍 ${d.loc}</div>
+
+            <div class="metrics-bar">
+              <div>
+                <span class="m-label">Target CTC / In-Hand</span>
+                <span class="m-val" style="color: var(--teal);">₹${d.ctc.toFixed(1)} LPA</span>
+              </div>
+              <div>
+                <span class="m-label">Network Density</span>
+                <span class="m-val" style="color: var(--purple);">${d.conns} 1st-Deg (${d.recruiters} HR)</span>
+              </div>
+            </div>
+
+            <div class="pitch-box">
+              <strong style="color: #fff;">Strategic Fit:</strong> ${d.pitch}
+            </div>
+
+            <div class="roles-list">
+              <strong>Target Openings:</strong> ${d.roles}
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn" onclick="openDetail(${d.id})">👁️ Full Dossier</button>
+            <button class="btn secondary" onclick="copyPitch(${d.id})">📋 Copy Pitch</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setSector(sec, elem) {
+      currentSector = sec;
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      elem.classList.add('active');
+      filterCompanies();
+    }
+
+    function filterCompanies() {
+      const q = document.getElementById('companySearch').value.toLowerCase().trim();
+      const sort = document.getElementById('sortSelect').value;
+
+      currentDossiers = DOSSIERS.filter(d => {
+        const matchSec = (currentSector === 'ALL' || d.sector.includes(currentSector) || (currentSector === 'Big 4' && d.sector === 'Big 4'));
+        const matchText = !q || d.name.toLowerCase().includes(q) || d.loc.toLowerCase().includes(q) || d.roles.toLowerCase().includes(q) || d.pitch.toLowerCase().includes(q);
+        return matchSec && matchText;
+      });
+
+      if (sort === 'priority') {
+        currentDossiers.sort((a, b) => (a.tier === 'P1' ? -1 : 1));
+      } else if (sort === 'ctc_high') {
+        currentDossiers.sort((a, b) => b.ctc - a.ctc);
+      } else if (sort === 'conn_high') {
+        currentDossiers.sort((a, b) => b.conns - a.conns);
+      } else if (sort === 'name_asc') {
+        currentDossiers.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      renderGrid();
+    }
+
+    function openDetail(id) {
+      const d = DOSSIERS.find(x => x.id === id);
+      if (!d) return;
+
+      const content = `
+        <div style="margin-bottom: 20px;">
+          <span class="sector-tag ${d.tagClass}" style="margin-bottom: 8px; display: inline-block;">${d.sector} • ${d.tier} PRIORITY</span>
+          <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-top: 4px;">${d.name}</h2>
+          <div style="color: var(--text-muted); font-size: 0.9rem;">📍 Bangalore Hub: ${d.loc}</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
+          <div style="background: #080d1a; border: 1px solid var(--card-border); padding: 12px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 0.75rem; color: var(--text-muted);">BASE SALARY</div>
+            <div class="mono" style="font-size: 1.2rem; font-weight: 800; color: #fff;">₹${d.base.toFixed(1)} LPA</div>
+          </div>
+          <div style="background: #080d1a; border: 1px solid var(--card-border); padding: 12px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 0.75rem; color: var(--text-muted);">TARGET CTC</div>
+            <div class="mono" style="font-size: 1.2rem; font-weight: 800; color: var(--teal);">₹${d.ctc.toFixed(1)} LPA</div>
+          </div>
+          <div style="background: #080d1a; border: 1px solid var(--card-border); padding: 12px; border-radius: 10px; text-align: center;">
+            <div style="font-size: 0.75rem; color: var(--text-muted);">NETWORK NODES</div>
+            <div class="mono" style="font-size: 1.2rem; font-weight: 800; color: var(--purple);">${d.conns} Total (${d.recruiters} HR)</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 18px;">
+          <h3 style="font-size: 1rem; font-weight: 700; color: var(--teal); margin-bottom: 6px;">🎯 Strategic Fit & Conversion Angle for Aditya Mehra</h3>
+          <p style="font-size: 0.9rem; color: var(--text); line-height: 1.5; background: rgba(0,212,170,0.05); border-left: 3px solid var(--teal); padding: 12px; border-radius: 4px;">
+            ${d.pitch}
+          </p>
+        </div>
+
+        <div style="margin-bottom: 18px;">
+          <h3 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px;">💼 Target Positions & Openings</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">${d.roles}</p>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <h3 style="font-size: 1rem; font-weight: 700; color: var(--amber); margin-bottom: 6px;">❓ Anticipated Technical / Domain Question</h3>
+          <p style="font-size: 0.9rem; color: #fff; background: rgba(245,158,11,0.08); border-left: 3px solid var(--amber); padding: 12px; border-radius: 4px;">
+            "${d.q}"
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 12px;">
+          <button class="btn" onclick="copyModalPitch(${d.id})">📋 Copy 1-Click Tailored Cold Outreach Message</button>
+          <button class="btn secondary" onclick="closeModalDirect()">Close</button>
+        </div>
+      `;
+
+      document.getElementById('modalContent').innerHTML = content;
+      document.getElementById('detailModal').classList.add('open');
+    }
+
+    function closeModal(e) {
+      if (e.target === document.getElementById('detailModal')) {
+        closeModalDirect();
+      }
+    }
+
+    function closeModalDirect() {
+      document.getElementById('detailModal').classList.remove('open');
+    }
+
+    function copyPitch(id) {
+      const d = DOSSIERS.find(x => x.id === id);
+      if (!d) return;
+
+      const text = `Hi [Recruiter / Hiring Lead at ${d.name}],\n\nI am writing regarding operations and SCM roles at ${d.name}'s Bangalore team. Having led 300+ operational deployments (including AERO India 2025 Lead & Puma India) and engineered a standardized vendor rate governance through vendor restructuring, I bring zero ramp-up time to ${d.name}.\n\nI also bring proven 99%+ accuracy from AI data curation at Instawork AI and deep working knowledge of EXIM trade compliance (Incoterms 2020, HS codes, UCP 600 LCs).\n\nI'd welcome 5 minutes to explore how I can support ${d.roles.split(',')[0]}.\n\nBest regards,\nAditya Mehra | BBA International Business '26\n+91-7003456624 | adityamehra799@gmail.com`;
+
+      navigator.clipboard.writeText(text);
+      showToast(`✅ Tailored pitch for ${d.name} copied!`);
+    }
+
+    function copyModalPitch(id) {
+      copyPitch(id);
+      closeModalDirect();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    window.onload = function() {
+      renderGrid();
+    };
+  </script>
+</body>
+</html>

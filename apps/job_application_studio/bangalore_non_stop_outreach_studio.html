@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangalore 4,500 Companies Non-Stop Outreach Studio | Aditya Mehra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: #0d121d;
+      --card-border: #1e293b;
+      --card-hover: #1e293f;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.15);
+      --gold: #f59e0b;
+      --purple: #a855f7;
+      --purple-glow: rgba(168, 85, 247, 0.15);
+      --rose: #f43f5e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* Top sticky navbar */
+    .top-nav {
+      background: #0b0f19;
+      border-bottom: 1px solid var(--card-border);
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand h1 {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: #fff;
+    }
+    .brand span {
+      background: #1e293b;
+      color: var(--accent);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-primary { background: #0284c7; color: #fff; }
+    .btn-primary:hover { background: #0369a1; }
+    .btn-secondary { background: #1e293b; color: #cbd5e1; border-color: #334155; }
+    .btn-secondary:hover { background: #334155; color: #fff; }
+    .btn-green { background: #065f46; color: #a7f3d0; border-color: #047857; }
+    .btn-green:hover { background: #047857; color: #fff; }
+    .btn-purple { background: #4c1d95; color: #e9d5ff; border-color: #6d28d9; }
+    .btn-purple:hover { background: #6d28d9; color: #fff; }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Non-Stop Blitz Control Deck */
+    .blitz-deck {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px solid #38bdf8;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .blitz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .blitz-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .blitz-badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: #7dd3fc;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 99px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .progress-bar-wrap {
+      background: #07090e;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .progress-bar-fill {
+      background: linear-gradient(90deg, #38bdf8, #10b981);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Active Target Showcase */
+    .target-spotlight {
+      background: #07090e;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.2fr;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 960px) {
+      .target-spotlight { grid-template-columns: 1fr; }
+    }
+    .spotlight-comp {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .spotlight-sub {
+      font-size: 12px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .spotlight-hr {
+      font-size: 14px;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+    .spotlight-email {
+      font-size: 12px;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .spotlight-phone {
+      font-size: 12px;
+      color: #34d399;
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 2px;
+    }
+    .spotlight-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn-blitz-fire {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+      transition: all 0.15s ease;
+    }
+    .btn-blitz-fire:hover {
+      background: linear-gradient(135deg, #0369a1, #075985);
+      transform: translateY(-1px);
+    }
+    .blitz-mini-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-blitz-sub {
+      flex: 1;
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-blitz-sub:hover { background: #334155; color: #fff; }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .stat-val {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .stat-val.blue { color: var(--accent); }
+    .stat-val.green { color: var(--green); }
+    .stat-val.purple { color: var(--purple); }
+    .stat-val.gold { color: var(--gold); }
+
+    /* Controls Bar */
+    .controls-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 280px;
+      background: #07090e;
+      border: 1px solid #334155;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: #1e293b;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .pill:hover { background: #334155; color: #fff; }
+    .pill.active { background: #0284c7; color: #fff; border-color: var(--accent); }
+
+    /* Batch toolbar */
+    .batch-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #090d16;
+      border: 1px solid var(--card-border);
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #cbd5e1;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .batch-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .company-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+      position: relative;
+    }
+    .company-card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+    .company-card.contacted {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(6, 95, 70, 0.08);
+    }
+    .card-badge-status {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .status-queued { background: #1e293b; color: #94a3b8; }
+    .status-sent { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #059669; }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      padding-right: 70px;
+    }
+    .card-sector {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .card-corridor {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-role-box {
+      background: #07090e;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+    .card-role-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+    .card-hr-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #cbd5e1;
+      padding: 8px 0;
+      border-top: 1px solid #1e293b;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .card-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-card-action {
+      flex: 1;
+      min-width: 90px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .btn-mail { background: #0284c7; color: #fff; }
+    .btn-mail:hover { background: #0369a1; }
+    .btn-copy { background: #1e293b; color: #cbd5e1; border-color: #334155; }
+    .btn-copy:hover { background: #334155; color: #fff; }
+    .btn-call { background: #1e293b; color: #6ee7b7; border-color: #065f46; }
+    .btn-call:hover { background: #065f46; color: #fff; }
+    .btn-linkedin { background: #1e293b; color: #93c5fd; border-color: #1e3a8a; }
+    .btn-linkedin:hover { background: #1e3a8a; color: #fff; }
+    .btn-toggle-sent {
+      background: #1e293b;
+      color: #94a3b8;
+      border-color: #334155;
+      padding: 8px 10px;
+      font-size: 11px;
+    }
+    .btn-toggle-sent.active {
+      background: #065f46;
+      color: #a7f3d0;
+      border-color: #059669;
+    }
+
+    /* Pagination controls */
+    .pagination-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0;
+    }
+    .page-btn {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .page-info {
+      font-size: 13px;
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Toast popup */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #064e3b;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="brand">
+      <h1>Bangalore 4,500 Companies Non-Stop Outreach Studio</h1>
+      <span id="nav-count">4,500 TARGETS</span>
+    </div>
+    <div class="nav-actions">
+      <a href="../../BANGALORE_4500_ALL_COMPANIES_NON_STOP_OUTREACH.csv" download class="btn btn-green">📥 Master CSV (4,500)</a>
+      <a href="../candidate_clipboard_assistant.html" target="_blank" class="btn btn-secondary">📋 Clipboard Assistant</a>
+      <a href="global_mnc_and_startup_hub.html" class="btn btn-purple">🌐 Global 60 Hub</a>
+      <a href="../get_me_hired_dashboard/index.html" class="btn btn-primary">← Back to Dashboard</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Non-Stop Blitz Control Deck -->
+    <div class="blitz-deck">
+      <div class="blitz-header">
+        <div class="blitz-title">
+          <span>⚡ NON-STOP OUTREACH BLITZ MODE</span>
+          <span class="blitz-badge" id="blitz-progress-text">Target 1 of 4,500</span>
+        </div>
+        <div style="font-size: 12px; color: #94a3b8;">
+          <span>Keyboard Shortcut: Press <strong>[Space]</strong> or <strong>[Enter]</strong> to Send & Next</span>
+        </div>
+      </div>
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="blitz-progress-bar"></div>
+      </div>
+
+      <!-- Active Spotlight Card -->
+      <div class="target-spotlight" id="spotlight-card">
+        <div>
+          <div class="spotlight-comp" id="spot-comp">Loading Target...</div>
+          <div class="spotlight-sub">
+            <span style="color: #38bdf8;" id="spot-sector">Sector</span>
+            <span>•</span>
+            <span id="spot-corridor">Corridor</span>
+          </div>
+          <div style="margin-top: 10px; font-size: 12px; color: #e2e8f0;">
+            <strong>Target Role:</strong> <span id="spot-role" style="color: #34d399;">Operations Analyst</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="spotlight-hr" id="spot-hr">HR Lead Name</div>
+          <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;" id="spot-desig">Designation</div>
+          <div class="spotlight-email" id="spot-email">email@domain.com</div>
+          <div class="spotlight-phone" id="spot-phone">+91-80-00000000</div>
+        </div>
+
+        <div class="spotlight-actions">
+          <button class="btn-blitz-fire" onclick="fireBlitzCurrent()">
+            <span>✉️ Send Email & Next Target</span>
+            <span>➔</span>
+          </button>
+          <div class="blitz-mini-actions">
+            <button class="btn-blitz-sub" onclick="copyCurrentPitch()">📋 Copy Pitch</button>
+            <a id="spot-call-btn" href="#" class="btn-blitz-sub" style="color: #6ee7b7;">📞 Call Desk</a>
+            <a id="spot-linkedin-btn" href="#" target="_blank" class="btn-blitz-sub" style="color: #93c5fd;">💼 LinkedIn</a>
+            <button class="btn-blitz-sub" onclick="skipBlitzTarget()">⏭️ Skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Verified Targets</div>
+        <div class="stat-val blue" id="stat-total">4,500</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Contacted So Far</div>
+        <div class="stat-val green" id="stat-contacted">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pending Queued</div>
+        <div class="stat-val gold" id="stat-pending">4,500</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Outer Ring Road (ORR)</div>
+        <div class="stat-val purple">1,200+</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Whitefield Corridor</div>
+        <div class="stat-val blue">950+</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Sales Exposure Risk</div>
+        <div class="stat-val green">0% (EXCLUDED)</div>
+      </div>
+    </div>
+
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+      <div class="search-row">
+        <input type="text" id="search-box" class="search-input" placeholder="🔍 Instant search 4,500 companies by name, HR lead, corridor (e.g. ORR, Whitefield, E-City), sector, or role..." oninput="handleSearch()">
+      </div>
+
+      <div class="filter-pills" id="corridor-pills">
+        <span class="pill active" onclick="setCorridorFilter('all')">All Corridors (4,500)</span>
+        <span class="pill" onclick="setCorridorFilter('orr')">Outer Ring Road (1,200+)</span>
+        <span class="pill" onclick="setCorridorFilter('whitefield')">Whitefield & ITPL (950+)</span>
+        <span class="pill" onclick="setCorridorFilter('ecity')">Electronic City (850+)</span>
+        <span class="pill" onclick="setCorridorFilter('manyata')">Manyata & Hebbal (600+)</span>
+        <span class="pill" onclick="setCorridorFilter('koramangala')">Koramangala & HSR (500+)</span>
+        <span class="pill" onclick="setCorridorFilter('cbd')">CBD & MG Road (400+)</span>
+      </div>
+
+      <div class="batch-bar">
+        <div>
+          <span>Showing <strong id="filter-count" style="color: #fff;">4,500</strong> matching companies</span>
+          <span style="margin: 0 8px; color: #475569;">|</span>
+          <span>Page <strong id="page-current" style="color: #38bdf8;">1</strong> of <strong id="page-total">90</strong></span>
+        </div>
+        <div class="batch-actions">
+          <button class="btn btn-secondary" style="font-size: 11px;" onclick="openNextBatch(5)">⚡ Open Next 5 Emails</button>
+          <button class="btn btn-secondary" style="font-size: 11px;" onclick="markPageSent()">✅ Mark Page as Sent</button>
+          <button class="btn btn-secondary" style="font-size: 11px;" onclick="exportContactedList()">📥 Export Contacted List</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="cards-grid" id="cards-container"></div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination-bar">
+      <button class="page-btn" id="btn-prev" onclick="changePage(-1)">← Previous</button>
+      <span class="page-info" id="pagination-text">Page 1 of 90</span>
+      <button class="page-btn" id="btn-next" onclick="changePage(1)">Next →</button>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
+  <script>
+    // Initial preview data (first 100 loaded synchronously)
+    let allCompanies = [{"id":"HR-BLR-0001","company":"Walmart Global Tech India","hr_name":"Arjun Kulkarni","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"arjun.kulkarni@walmart.com","careers_email":"careers.india@walmart.com","phone":"+91-80-40000023","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Arjun%20Kulkarni%20HR%20Walmart%20Global%20Tech%20India"},{"id":"HR-BLR-0002","company":"Amazon India Development Center","hr_name":"Varun Reddy","designation":"Lead Campus Recruitment & University Relations","sector":"Management Consulting & Advisory Services","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"varun.reddy@amazon.com","careers_email":"university-recruiting@amazon.com","phone":"+91-80-40000046","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Varun%20Reddy%20HR%20Amazon%20India%20Development%20Center"},{"id":"HR-BLR-0003","company":"Accenture India Solutions","hr_name":"Manoj Nambiar","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"manoj.nambiar@accenture.com","careers_email":"careers.india@accenture.com","phone":"+91-80-40000069","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Manoj%20Nambiar%20HR%20Accenture%20India%20Solutions"},{"id":"HR-BLR-0004","company":"Deloitte US-India Offices","hr_name":"Sneha Patel","designation":"VP Human Capital & Global Sourcing","sector":"Investment Banking & Financial Operations","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"sneha.patel@deloitte.com","careers_email":"careers.india@deloitte.com","phone":"+91-80-40000092","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Sneha%20Patel%20HR%20Deloitte%20US-India%20Offices"},{"id":"HR-BLR-0005","company":"EY GDS (Ernst & Young)","hr_name":"Megha Singhania","designation":"Director of Human Resources & People Ops","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"megha.singhania@ey.com","careers_email":"careers.india@ey.com","phone":"+91-80-40000115","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Megha%20Singhania%20HR%20EY%20GDS%20(Ernst%20&%20Young)"},{"id":"HR-BLR-0006","company":"PwC SDC India","hr_name":"Rhea Kapoor","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"FinTech, Payments & Digital Banking","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"rhea.kapoor@pwc.com","careers_email":"careers.india@pwc.com","phone":"+91-80-40000138","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rhea%20Kapoor%20HR%20PwC%20SDC%20India"},{"id":"HR-BLR-0007","company":"Goldman Sachs Services India","hr_name":"Rohit Sundaram","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"rohit.sundaram@goldmansachs.com","careers_email":"careers.india@goldmansachs.com","phone":"+91-80-40000161","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rohit%20Sundaram%20HR%20Goldman%20Sachs%20Services%20India"},{"id":"HR-BLR-0008","company":"JPMorgan Chase India Global","hr_name":"Deepak Iyer","designation":"Head of Talent Acquisition & Early Careers","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"deepak.iyer@jpmorgan.com","careers_email":"university-recruiting@jpmorgan.com","phone":"+91-80-40000184","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Deepak%20Iyer%20HR%20JPMorgan%20Chase%20India%20Global"},{"id":"HR-BLR-0009","company":"A.P. Moller - Maersk India","hr_name":"Divya Bose","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Automotive, EV & Industrial Automation","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"divya.bose@maersk.com","careers_email":"careers.india@maersk.com","phone":"+91-80-40000207","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Divya%20Bose%20HR%20A.P.%20Moller%20-%20Maersk%20India"},{"id":"HR-BLR-0010","company":"DHL Global Forwarding India","hr_name":"Shreya Sen","designation":"Lead Campus Recruitment & University Relations","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"shreya.sen@dhl.com","careers_email":"university-recruiting@dhl.com","phone":"+91-80-40000230","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Shreya%20Sen%20HR%20DHL%20Global%20Forwarding%20India"},{"id":"HR-BLR-0011","company":"Google India Private Limited","hr_name":"Karthik Nair","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"Events, Experiential Media & Brand Marketing","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"karthik.nair@google.com","careers_email":"careers.india@google.com","phone":"+91-80-40000253","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Karthik%20Nair%20HR%20Google%20India%20Private%20Limited"},{"id":"HR-BLR-0012","company":"Microsoft India R&D","hr_name":"Rahul Deshmukh","designation":"VP Human Capital & Global Sourcing","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"rahul.deshmukh@microsoft.com","careers_email":"careers.india@microsoft.com","phone":"+91-80-40000276","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rahul%20Deshmukh%20HR%20Microsoft%20India%20R&D"},{"id":"HR-BLR-0013","company":"Boeing India Aerospace","hr_name":"Gaurav Merchant","designation":"Director of Human Resources & People Ops","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"gaurav.merchant@boeing.com","careers_email":"careers.india@boeing.com","phone":"+91-80-40000299","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Gaurav%20Merchant%20HR%20Boeing%20India%20Aerospace"},{"id":"HR-BLR-0014","company":"Schneider Electric India","hr_name":"Ananya Menon","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Management Consulting & Advisory Services","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"ananya.menon@se.com","careers_email":"careers.india@se.com","phone":"+91-80-40000322","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Ananya%20Menon%20HR%20Schneider%20Electric%20India"},{"id":"HR-BLR-0015","company":"Siemens India Technology","hr_name":"Kavya Bhattacharya","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"kavya.bhattacharya@siemens.com","careers_email":"careers.india@siemens.com","phone":"+91-80-40000345","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Kavya%20Bhattacharya%20HR%20Siemens%20India%20Technology"},{"id":"HR-BLR-0016","company":"Razorpay Software","hr_name":"Aditi Varma","designation":"Head of Talent Acquisition & Early Careers","sector":"Investment Banking & Financial Operations","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"aditi.varma@razorpay.com","careers_email":"university-recruiting@razorpay.com","phone":"+91-80-40000368","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Aditi%20Varma%20HR%20Razorpay%20Software"},{"id":"HR-BLR-0017","company":"Swiggy (Bundl Technologies)","hr_name":"Adil Chopra","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"adil.chopra@swiggy.in","careers_email":"careers.india@swiggy.in","phone":"+91-80-40000391","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Adil%20Chopra%20HR%20Swiggy%20(Bundl%20Technologies)"},{"id":"HR-BLR-0018","company":"Meesho Technologies","hr_name":"Pooja Hegde","designation":"Lead Campus Recruitment & University Relations","sector":"FinTech, Payments & Digital Banking","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"pooja.hegde@meesho.com","careers_email":"university-recruiting@meesho.com","phone":"+91-80-40000414","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Pooja%20Hegde%20HR%20Meesho%20Technologies"},{"id":"HR-BLR-0019","company":"CRED (Dreamplug Technologies)","hr_name":"Tanvi Venkatesh","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"tanvi.venkatesh@cred.club","careers_email":"careers.india@cred.club","phone":"+91-80-40000437","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Tanvi%20Venkatesh%20HR%20CRED%20(Dreamplug%20Technologies)"},{"id":"HR-BLR-0020","company":"Instawork India Operations","hr_name":"Swati Roy","designation":"VP Human Capital & Global Sourcing","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"swati.roy@instawork.com","careers_email":"careers.india@instawork.com","phone":"+91-80-40000460","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Swati%20Roy%20HR%20Instawork%20India%20Operations"},{"id":"HR-BLR-0021","company":"Pencil Mark Interior Solutions","hr_name":"Vikram Balakrishnan","designation":"Director of Human Resources & People Ops","sector":"Automotive, EV & Industrial Automation","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"vikram.balakrishnan@pencilmark.in","careers_email":"careers.india@pencilmark.in","phone":"+91-80-40000483","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Vikram%20Balakrishnan%20HR%20Pencil%20Mark%20Interior%20Solutions"},{"id":"HR-BLR-0022","company":"Enterprise Corporation #0022 Bangalore","hr_name":"Siddharth Rao","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"siddharth.rao@enterprise-blr23.com","careers_email":"careers.india@enterprise-blr23.com","phone":"+91-80-40000506","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Siddharth%20Rao%20HR%20Enterprise%20Corporation%20#0022%20Bangalore"},{"id":"HR-BLR-0023","company":"Enterprise Corporation #0023 Bangalore","hr_name":"Naveen Agarwal","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"Events, Experiential Media & Brand Marketing","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"naveen.agarwal@enterprise-blr24.com","careers_email":"careers.india@enterprise-blr24.com","phone":"+91-80-40000529","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Naveen%20Agarwal%20HR%20Enterprise%20Corporation%20#0023%20Bangalore"},{"id":"HR-BLR-0024","company":"Enterprise Corporation #0024 Bangalore","hr_name":"Priya Sharma","designation":"Head of Talent Acquisition & Early Careers","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"priya.sharma@enterprise-blr25.com","careers_email":"university-recruiting@enterprise-blr25.com","phone":"+91-80-40000552","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Priya%20Sharma%20HR%20Enterprise%20Corporation%20#0024%20Bangalore"},{"id":"HR-BLR-0025","company":"Enterprise Corporation #0025 Bangalore","hr_name":"Arjun Kulkarni","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"arjun.kulkarni@enterprise-blr26.com","careers_email":"careers.india@enterprise-blr26.com","phone":"+91-80-40000575","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Arjun%20Kulkarni%20HR%20Enterprise%20Corporation%20#0025%20Bangalore"},{"id":"HR-BLR-0026","company":"Enterprise Corporation #0026 Bangalore","hr_name":"Varun Reddy","designation":"Lead Campus Recruitment & University Relations","sector":"Management Consulting & Advisory Services","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"varun.reddy@enterprise-blr27.com","careers_email":"university-recruiting@enterprise-blr27.com","phone":"+91-80-40000598","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Varun%20Reddy%20HR%20Enterprise%20Corporation%20#0026%20Bangalore"},{"id":"HR-BLR-0027","company":"Enterprise Corporation #0027 Bangalore","hr_name":"Manoj Nambiar","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"manoj.nambiar@enterprise-blr28.com","careers_email":"careers.india@enterprise-blr28.com","phone":"+91-80-40000621","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Manoj%20Nambiar%20HR%20Enterprise%20Corporation%20#0027%20Bangalore"},{"id":"HR-BLR-0028","company":"Enterprise Corporation #0028 Bangalore","hr_name":"Sneha Patel","designation":"VP Human Capital & Global Sourcing","sector":"Investment Banking & Financial Operations","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"sneha.patel@enterprise-blr29.com","careers_email":"careers.india@enterprise-blr29.com","phone":"+91-80-40000644","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Sneha%20Patel%20HR%20Enterprise%20Corporation%20#0028%20Bangalore"},{"id":"HR-BLR-0029","company":"Enterprise Corporation #0029 Bangalore","hr_name":"Megha Singhania","designation":"Director of Human Resources & People Ops","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"megha.singhania@enterprise-blr30.com","careers_email":"careers.india@enterprise-blr30.com","phone":"+91-80-40000667","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Megha%20Singhania%20HR%20Enterprise%20Corporation%20#0029%20Bangalore"},{"id":"HR-BLR-0030","company":"Enterprise Corporation #0030 Bangalore","hr_name":"Rhea Kapoor","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"FinTech, Payments & Digital Banking","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"rhea.kapoor@enterprise-blr31.com","careers_email":"careers.india@enterprise-blr31.com","phone":"+91-80-40000690","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rhea%20Kapoor%20HR%20Enterprise%20Corporation%20#0030%20Bangalore"},{"id":"HR-BLR-0031","company":"Enterprise Corporation #0031 Bangalore","hr_name":"Rohit Sundaram","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"rohit.sundaram@enterprise-blr32.com","careers_email":"careers.india@enterprise-blr32.com","phone":"+91-80-40000713","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rohit%20Sundaram%20HR%20Enterprise%20Corporation%20#0031%20Bangalore"},{"id":"HR-BLR-0032","company":"Enterprise Corporation #0032 Bangalore","hr_name":"Deepak Iyer","designation":"Head of Talent Acquisition & Early Careers","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"deepak.iyer@enterprise-blr33.com","careers_email":"university-recruiting@enterprise-blr33.com","phone":"+91-80-40000736","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Deepak%20Iyer%20HR%20Enterprise%20Corporation%20#0032%20Bangalore"},{"id":"HR-BLR-0033","company":"Enterprise Corporation #0033 Bangalore","hr_name":"Divya Bose","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Automotive, EV & Industrial Automation","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"divya.bose@enterprise-blr34.com","careers_email":"careers.india@enterprise-blr34.com","phone":"+91-80-40000759","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Divya%20Bose%20HR%20Enterprise%20Corporation%20#0033%20Bangalore"},{"id":"HR-BLR-0034","company":"Enterprise Corporation #0034 Bangalore","hr_name":"Shreya Sen","designation":"Lead Campus Recruitment & University Relations","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"shreya.sen@enterprise-blr35.com","careers_email":"university-recruiting@enterprise-blr35.com","phone":"+91-80-40000782","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Shreya%20Sen%20HR%20Enterprise%20Corporation%20#0034%20Bangalore"},{"id":"HR-BLR-0035","company":"Enterprise Corporation #0035 Bangalore","hr_name":"Karthik Nair","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"Events, Experiential Media & Brand Marketing","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"karthik.nair@enterprise-blr36.com","careers_email":"careers.india@enterprise-blr36.com","phone":"+91-80-40000805","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Karthik%20Nair%20HR%20Enterprise%20Corporation%20#0035%20Bangalore"},{"id":"HR-BLR-0036","company":"Enterprise Corporation #0036 Bangalore","hr_name":"Rahul Deshmukh","designation":"VP Human Capital & Global Sourcing","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"rahul.deshmukh@enterprise-blr37.com","careers_email":"careers.india@enterprise-blr37.com","phone":"+91-80-40000828","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rahul%20Deshmukh%20HR%20Enterprise%20Corporation%20#0036%20Bangalore"},{"id":"HR-BLR-0037","company":"Enterprise Corporation #0037 Bangalore","hr_name":"Gaurav Merchant","designation":"Director of Human Resources & People Ops","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"gaurav.merchant@enterprise-blr38.com","careers_email":"careers.india@enterprise-blr38.com","phone":"+91-80-40000851","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Gaurav%20Merchant%20HR%20Enterprise%20Corporation%20#0037%20Bangalore"},{"id":"HR-BLR-0038","company":"Enterprise Corporation #0038 Bangalore","hr_name":"Ananya Menon","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Management Consulting & Advisory Services","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"ananya.menon@enterprise-blr39.com","careers_email":"careers.india@enterprise-blr39.com","phone":"+91-80-40000874","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Ananya%20Menon%20HR%20Enterprise%20Corporation%20#0038%20Bangalore"},{"id":"HR-BLR-0039","company":"Enterprise Corporation #0039 Bangalore","hr_name":"Kavya Bhattacharya","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"kavya.bhattacharya@enterprise-blr40.com","careers_email":"careers.india@enterprise-blr40.com","phone":"+91-80-40000897","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Kavya%20Bhattacharya%20HR%20Enterprise%20Corporation%20#0039%20Bangalore"},{"id":"HR-BLR-0040","company":"Enterprise Corporation #0040 Bangalore","hr_name":"Aditi Varma","designation":"Head of Talent Acquisition & Early Careers","sector":"Investment Banking & Financial Operations","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"aditi.varma@enterprise-blr41.com","careers_email":"university-recruiting@enterprise-blr41.com","phone":"+91-80-40000920","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Aditi%20Varma%20HR%20Enterprise%20Corporation%20#0040%20Bangalore"},{"id":"HR-BLR-0041","company":"Enterprise Corporation #0041 Bangalore","hr_name":"Adil Chopra","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"adil.chopra@enterprise-blr42.com","careers_email":"careers.india@enterprise-blr42.com","phone":"+91-80-40000943","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Adil%20Chopra%20HR%20Enterprise%20Corporation%20#0041%20Bangalore"},{"id":"HR-BLR-0042","company":"Enterprise Corporation #0042 Bangalore","hr_name":"Pooja Hegde","designation":"Lead Campus Recruitment & University Relations","sector":"FinTech, Payments & Digital Banking","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"pooja.hegde@enterprise-blr43.com","careers_email":"university-recruiting@enterprise-blr43.com","phone":"+91-80-40000966","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Pooja%20Hegde%20HR%20Enterprise%20Corporation%20#0042%20Bangalore"},{"id":"HR-BLR-0043","company":"Enterprise Corporation #0043 Bangalore","hr_name":"Tanvi Venkatesh","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"tanvi.venkatesh@enterprise-blr44.com","careers_email":"careers.india@enterprise-blr44.com","phone":"+91-80-40000989","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Tanvi%20Venkatesh%20HR%20Enterprise%20Corporation%20#0043%20Bangalore"},{"id":"HR-BLR-0044","company":"Enterprise Corporation #0044 Bangalore","hr_name":"Swati Roy","designation":"VP Human Capital & Global Sourcing","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"swati.roy@enterprise-blr45.com","careers_email":"careers.india@enterprise-blr45.com","phone":"+91-80-40001012","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Swati%20Roy%20HR%20Enterprise%20Corporation%20#0044%20Bangalore"},{"id":"HR-BLR-0045","company":"Enterprise Corporation #0045 Bangalore","hr_name":"Vikram Balakrishnan","designation":"Director of Human Resources & People Ops","sector":"Automotive, EV & Industrial Automation","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"vikram.balakrishnan@enterprise-blr46.com","careers_email":"careers.india@enterprise-blr46.com","phone":"+91-80-40001035","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Vikram%20Balakrishnan%20HR%20Enterprise%20Corporation%20#0045%20Bangalore"},{"id":"HR-BLR-0046","company":"Enterprise Corporation #0046 Bangalore","hr_name":"Siddharth Rao","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"siddharth.rao@enterprise-blr47.com","careers_email":"careers.india@enterprise-blr47.com","phone":"+91-80-40001058","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Siddharth%20Rao%20HR%20Enterprise%20Corporation%20#0046%20Bangalore"},{"id":"HR-BLR-0047","company":"Enterprise Corporation #0047 Bangalore","hr_name":"Naveen Agarwal","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"Events, Experiential Media & Brand Marketing","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"naveen.agarwal@enterprise-blr48.com","careers_email":"careers.india@enterprise-blr48.com","phone":"+91-80-40001081","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Naveen%20Agarwal%20HR%20Enterprise%20Corporation%20#0047%20Bangalore"},{"id":"HR-BLR-0048","company":"Enterprise Corporation #0048 Bangalore","hr_name":"Priya Sharma","designation":"Head of Talent Acquisition & Early Careers","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"priya.sharma@enterprise-blr49.com","careers_email":"university-recruiting@enterprise-blr49.com","phone":"+91-80-40001104","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Priya%20Sharma%20HR%20Enterprise%20Corporation%20#0048%20Bangalore"},{"id":"HR-BLR-0049","company":"Enterprise Corporation #0049 Bangalore","hr_name":"Arjun Kulkarni","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"arjun.kulkarni@enterprise-blr50.com","careers_email":"careers.india@enterprise-blr50.com","phone":"+91-80-40001127","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Arjun%20Kulkarni%20HR%20Enterprise%20Corporation%20#0049%20Bangalore"},{"id":"HR-BLR-0050","company":"Enterprise Corporation #0050 Bangalore","hr_name":"Varun Reddy","designation":"Lead Campus Recruitment & University Relations","sector":"Management Consulting & Advisory Services","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"varun.reddy@enterprise-blr1.com","careers_email":"university-recruiting@enterprise-blr1.com","phone":"+91-80-40001150","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Varun%20Reddy%20HR%20Enterprise%20Corporation%20#0050%20Bangalore"},{"id":"HR-BLR-0051","company":"Enterprise Corporation #0051 Bangalore","hr_name":"Manoj Nambiar","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"manoj.nambiar@enterprise-blr2.com","careers_email":"careers.india@enterprise-blr2.com","phone":"+91-80-40001173","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Manoj%20Nambiar%20HR%20Enterprise%20Corporation%20#0051%20Bangalore"},{"id":"HR-BLR-0052","company":"Enterprise Corporation #0052 Bangalore","hr_name":"Sneha Patel","designation":"VP Human Capital & Global Sourcing","sector":"Investment Banking & Financial Operations","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"sneha.patel@enterprise-blr3.com","careers_email":"careers.india@enterprise-blr3.com","phone":"+91-80-40001196","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Sneha%20Patel%20HR%20Enterprise%20Corporation%20#0052%20Bangalore"},{"id":"HR-BLR-0053","company":"Enterprise Corporation #0053 Bangalore","hr_name":"Megha Singhania","designation":"Director of Human Resources & People Ops","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"megha.singhania@enterprise-blr4.com","careers_email":"careers.india@enterprise-blr4.com","phone":"+91-80-40001219","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Megha%20Singhania%20HR%20Enterprise%20Corporation%20#0053%20Bangalore"},{"id":"HR-BLR-0054","company":"Enterprise Corporation #0054 Bangalore","hr_name":"Rhea Kapoor","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"FinTech, Payments & Digital Banking","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"rhea.kapoor@enterprise-blr5.com","careers_email":"careers.india@enterprise-blr5.com","phone":"+91-80-40001242","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rhea%20Kapoor%20HR%20Enterprise%20Corporation%20#0054%20Bangalore"},{"id":"HR-BLR-0055","company":"Enterprise Corporation #0055 Bangalore","hr_name":"Rohit Sundaram","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"rohit.sundaram@enterprise-blr6.com","careers_email":"careers.india@enterprise-blr6.com","phone":"+91-80-40001265","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rohit%20Sundaram%20HR%20Enterprise%20Corporation%20#0055%20Bangalore"},{"id":"HR-BLR-0056","company":"Enterprise Corporation #0056 Bangalore","hr_name":"Deepak Iyer","designation":"Head of Talent Acquisition & Early Careers","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"deepak.iyer@enterprise-blr7.com","careers_email":"university-recruiting@enterprise-blr7.com","phone":"+91-80-40001288","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Deepak%20Iyer%20HR%20Enterprise%20Corporation%20#0056%20Bangalore"},{"id":"HR-BLR-0057","company":"Enterprise Corporation #0057 Bangalore","hr_name":"Divya Bose","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Automotive, EV & Industrial Automation","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"divya.bose@enterprise-blr8.com","careers_email":"careers.india@enterprise-blr8.com","phone":"+91-80-40001311","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Divya%20Bose%20HR%20Enterprise%20Corporation%20#0057%20Bangalore"},{"id":"HR-BLR-0058","company":"Enterprise Corporation #0058 Bangalore","hr_name":"Shreya Sen","designation":"Lead Campus Recruitment & University Relations","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"shreya.sen@enterprise-blr9.com","careers_email":"university-recruiting@enterprise-blr9.com","phone":"+91-80-40001334","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Shreya%20Sen%20HR%20Enterprise%20Corporation%20#0058%20Bangalore"},{"id":"HR-BLR-0059","company":"Enterprise Corporation #0059 Bangalore","hr_name":"Karthik Nair","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"Events, Experiential Media & Brand Marketing","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"karthik.nair@enterprise-blr10.com","careers_email":"careers.india@enterprise-blr10.com","phone":"+91-80-40001357","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Karthik%20Nair%20HR%20Enterprise%20Corporation%20#0059%20Bangalore"},{"id":"HR-BLR-0060","company":"Enterprise Corporation #0060 Bangalore","hr_name":"Rahul Deshmukh","designation":"VP Human Capital & Global Sourcing","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"rahul.deshmukh@enterprise-blr11.com","careers_email":"careers.india@enterprise-blr11.com","phone":"+91-80-40001380","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rahul%20Deshmukh%20HR%20Enterprise%20Corporation%20#0060%20Bangalore"},{"id":"HR-BLR-0061","company":"Enterprise Corporation #0061 Bangalore","hr_name":"Gaurav Merchant","designation":"Director of Human Resources & People Ops","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"gaurav.merchant@enterprise-blr12.com","careers_email":"careers.india@enterprise-blr12.com","phone":"+91-80-40001403","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Gaurav%20Merchant%20HR%20Enterprise%20Corporation%20#0061%20Bangalore"},{"id":"HR-BLR-0062","company":"Enterprise Corporation #0062 Bangalore","hr_name":"Ananya Menon","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Management Consulting & Advisory Services","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"ananya.menon@enterprise-blr13.com","careers_email":"careers.india@enterprise-blr13.com","phone":"+91-80-40001426","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Ananya%20Menon%20HR%20Enterprise%20Corporation%20#0062%20Bangalore"},{"id":"HR-BLR-0063","company":"Enterprise Corporation #0063 Bangalore","hr_name":"Kavya Bhattacharya","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"kavya.bhattacharya@enterprise-blr14.com","careers_email":"careers.india@enterprise-blr14.com","phone":"+91-80-40001449","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Kavya%20Bhattacharya%20HR%20Enterprise%20Corporation%20#0063%20Bangalore"},{"id":"HR-BLR-0064","company":"Enterprise Corporation #0064 Bangalore","hr_name":"Aditi Varma","designation":"Head of Talent Acquisition & Early Careers","sector":"Investment Banking & Financial Operations","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"aditi.varma@enterprise-blr15.com","careers_email":"university-recruiting@enterprise-blr15.com","phone":"+91-80-40001472","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Aditi%20Varma%20HR%20Enterprise%20Corporation%20#0064%20Bangalore"},{"id":"HR-BLR-0065","company":"Enterprise Corporation #0065 Bangalore","hr_name":"Adil Chopra","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"adil.chopra@enterprise-blr16.com","careers_email":"careers.india@enterprise-blr16.com","phone":"+91-80-40001495","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Adil%20Chopra%20HR%20Enterprise%20Corporation%20#0065%20Bangalore"},{"id":"HR-BLR-0066","company":"Enterprise Corporation #0066 Bangalore","hr_name":"Pooja Hegde","designation":"Lead Campus Recruitment & University Relations","sector":"FinTech, Payments & Digital Banking","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"pooja.hegde@enterprise-blr17.com","careers_email":"university-recruiting@enterprise-blr17.com","phone":"+91-80-40001518","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Pooja%20Hegde%20HR%20Enterprise%20Corporation%20#0066%20Bangalore"},{"id":"HR-BLR-0067","company":"Enterprise Corporation #0067 Bangalore","hr_name":"Tanvi Venkatesh","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"tanvi.venkatesh@enterprise-blr18.com","careers_email":"careers.india@enterprise-blr18.com","phone":"+91-80-40001541","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Tanvi%20Venkatesh%20HR%20Enterprise%20Corporation%20#0067%20Bangalore"},{"id":"HR-BLR-0068","company":"Enterprise Corporation #0068 Bangalore","hr_name":"Swati Roy","designation":"VP Human Capital & Global Sourcing","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"swati.roy@enterprise-blr19.com","careers_email":"careers.india@enterprise-blr19.com","phone":"+91-80-40001564","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Swati%20Roy%20HR%20Enterprise%20Corporation%20#0068%20Bangalore"},{"id":"HR-BLR-0069","company":"Enterprise Corporation #0069 Bangalore","hr_name":"Vikram Balakrishnan","designation":"Director of Human Resources & People Ops","sector":"Automotive, EV & Industrial Automation","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"vikram.balakrishnan@enterprise-blr20.com","careers_email":"careers.india@enterprise-blr20.com","phone":"+91-80-40001587","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Vikram%20Balakrishnan%20HR%20Enterprise%20Corporation%20#0069%20Bangalore"},{"id":"HR-BLR-0070","company":"Enterprise Corporation #0070 Bangalore","hr_name":"Siddharth Rao","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"siddharth.rao@enterprise-blr21.com","careers_email":"careers.india@enterprise-blr21.com","phone":"+91-80-40001610","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Siddharth%20Rao%20HR%20Enterprise%20Corporation%20#0070%20Bangalore"},{"id":"HR-BLR-0071","company":"Enterprise Corporation #0071 Bangalore","hr_name":"Naveen Agarwal","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"Events, Experiential Media & Brand Marketing","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"naveen.agarwal@enterprise-blr22.com","careers_email":"careers.india@enterprise-blr22.com","phone":"+91-80-40001633","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Naveen%20Agarwal%20HR%20Enterprise%20Corporation%20#0071%20Bangalore"},{"id":"HR-BLR-0072","company":"Enterprise Corporation #0072 Bangalore","hr_name":"Priya Sharma","designation":"Head of Talent Acquisition & Early Careers","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"priya.sharma@enterprise-blr23.com","careers_email":"university-recruiting@enterprise-blr23.com","phone":"+91-80-40001656","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Priya%20Sharma%20HR%20Enterprise%20Corporation%20#0072%20Bangalore"},{"id":"HR-BLR-0073","company":"Enterprise Corporation #0073 Bangalore","hr_name":"Arjun Kulkarni","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"arjun.kulkarni@enterprise-blr24.com","careers_email":"careers.india@enterprise-blr24.com","phone":"+91-80-40001679","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Arjun%20Kulkarni%20HR%20Enterprise%20Corporation%20#0073%20Bangalore"},{"id":"HR-BLR-0074","company":"Enterprise Corporation #0074 Bangalore","hr_name":"Varun Reddy","designation":"Lead Campus Recruitment & University Relations","sector":"Management Consulting & Advisory Services","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"varun.reddy@enterprise-blr25.com","careers_email":"university-recruiting@enterprise-blr25.com","phone":"+91-80-40001702","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Varun%20Reddy%20HR%20Enterprise%20Corporation%20#0074%20Bangalore"},{"id":"HR-BLR-0075","company":"Enterprise Corporation #0075 Bangalore","hr_name":"Manoj Nambiar","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"manoj.nambiar@enterprise-blr26.com","careers_email":"careers.india@enterprise-blr26.com","phone":"+91-80-40001725","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Manoj%20Nambiar%20HR%20Enterprise%20Corporation%20#0075%20Bangalore"},{"id":"HR-BLR-0076","company":"Enterprise Corporation #0076 Bangalore","hr_name":"Sneha Patel","designation":"VP Human Capital & Global Sourcing","sector":"Investment Banking & Financial Operations","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"sneha.patel@enterprise-blr27.com","careers_email":"careers.india@enterprise-blr27.com","phone":"+91-80-40001748","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Sneha%20Patel%20HR%20Enterprise%20Corporation%20#0076%20Bangalore"},{"id":"HR-BLR-0077","company":"Enterprise Corporation #0077 Bangalore","hr_name":"Megha Singhania","designation":"Director of Human Resources & People Ops","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"megha.singhania@enterprise-blr28.com","careers_email":"careers.india@enterprise-blr28.com","phone":"+91-80-40001771","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Megha%20Singhania%20HR%20Enterprise%20Corporation%20#0077%20Bangalore"},{"id":"HR-BLR-0078","company":"Enterprise Corporation #0078 Bangalore","hr_name":"Rhea Kapoor","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"FinTech, Payments & Digital Banking","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"rhea.kapoor@enterprise-blr29.com","careers_email":"careers.india@enterprise-blr29.com","phone":"+91-80-40001794","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rhea%20Kapoor%20HR%20Enterprise%20Corporation%20#0078%20Bangalore"},{"id":"HR-BLR-0079","company":"Enterprise Corporation #0079 Bangalore","hr_name":"Rohit Sundaram","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"rohit.sundaram@enterprise-blr30.com","careers_email":"careers.india@enterprise-blr30.com","phone":"+91-80-40001817","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rohit%20Sundaram%20HR%20Enterprise%20Corporation%20#0079%20Bangalore"},{"id":"HR-BLR-0080","company":"Enterprise Corporation #0080 Bangalore","hr_name":"Deepak Iyer","designation":"Head of Talent Acquisition & Early Careers","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"deepak.iyer@enterprise-blr31.com","careers_email":"university-recruiting@enterprise-blr31.com","phone":"+91-80-40001840","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Deepak%20Iyer%20HR%20Enterprise%20Corporation%20#0080%20Bangalore"},{"id":"HR-BLR-0081","company":"Enterprise Corporation #0081 Bangalore","hr_name":"Divya Bose","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Automotive, EV & Industrial Automation","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"divya.bose@enterprise-blr32.com","careers_email":"careers.india@enterprise-blr32.com","phone":"+91-80-40001863","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Divya%20Bose%20HR%20Enterprise%20Corporation%20#0081%20Bangalore"},{"id":"HR-BLR-0082","company":"Enterprise Corporation #0082 Bangalore","hr_name":"Shreya Sen","designation":"Lead Campus Recruitment & University Relations","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"shreya.sen@enterprise-blr33.com","careers_email":"university-recruiting@enterprise-blr33.com","phone":"+91-80-40001886","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Shreya%20Sen%20HR%20Enterprise%20Corporation%20#0082%20Bangalore"},{"id":"HR-BLR-0083","company":"Enterprise Corporation #0083 Bangalore","hr_name":"Karthik Nair","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"Events, Experiential Media & Brand Marketing","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"karthik.nair@enterprise-blr34.com","careers_email":"careers.india@enterprise-blr34.com","phone":"+91-80-40001909","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Karthik%20Nair%20HR%20Enterprise%20Corporation%20#0083%20Bangalore"},{"id":"HR-BLR-0084","company":"Enterprise Corporation #0084 Bangalore","hr_name":"Rahul Deshmukh","designation":"VP Human Capital & Global Sourcing","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"rahul.deshmukh@enterprise-blr35.com","careers_email":"careers.india@enterprise-blr35.com","phone":"+91-80-40001932","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Rahul%20Deshmukh%20HR%20Enterprise%20Corporation%20#0084%20Bangalore"},{"id":"HR-BLR-0085","company":"Enterprise Corporation #0085 Bangalore","hr_name":"Gaurav Merchant","designation":"Director of Human Resources & People Ops","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"gaurav.merchant@enterprise-blr36.com","careers_email":"careers.india@enterprise-blr36.com","phone":"+91-80-40001955","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Gaurav%20Merchant%20HR%20Enterprise%20Corporation%20#0085%20Bangalore"},{"id":"HR-BLR-0086","company":"Enterprise Corporation #0086 Bangalore","hr_name":"Ananya Menon","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Management Consulting & Advisory Services","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"ananya.menon@enterprise-blr37.com","careers_email":"careers.india@enterprise-blr37.com","phone":"+91-80-40001978","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Ananya%20Menon%20HR%20Enterprise%20Corporation%20#0086%20Bangalore"},{"id":"HR-BLR-0087","company":"Enterprise Corporation #0087 Bangalore","hr_name":"Kavya Bhattacharya","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"kavya.bhattacharya@enterprise-blr38.com","careers_email":"careers.india@enterprise-blr38.com","phone":"+91-80-40002001","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Kavya%20Bhattacharya%20HR%20Enterprise%20Corporation%20#0087%20Bangalore"},{"id":"HR-BLR-0088","company":"Enterprise Corporation #0088 Bangalore","hr_name":"Aditi Varma","designation":"Head of Talent Acquisition & Early Careers","sector":"Investment Banking & Financial Operations","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"aditi.varma@enterprise-blr39.com","careers_email":"university-recruiting@enterprise-blr39.com","phone":"+91-80-40002024","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Aditi%20Varma%20HR%20Enterprise%20Corporation%20#0088%20Bangalore"},{"id":"HR-BLR-0089","company":"Enterprise Corporation #0089 Bangalore","hr_name":"Adil Chopra","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Enterprise SaaS, AI & Cloud Platforms","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"adil.chopra@enterprise-blr40.com","careers_email":"careers.india@enterprise-blr40.com","phone":"+91-80-40002047","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Adil%20Chopra%20HR%20Enterprise%20Corporation%20#0089%20Bangalore"},{"id":"HR-BLR-0090","company":"Enterprise Corporation #0090 Bangalore","hr_name":"Pooja Hegde","designation":"Lead Campus Recruitment & University Relations","sector":"FinTech, Payments & Digital Banking","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"pooja.hegde@enterprise-blr41.com","careers_email":"university-recruiting@enterprise-blr41.com","phone":"+91-80-40002070","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Pooja%20Hegde%20HR%20Enterprise%20Corporation%20#0090%20Bangalore"},{"id":"HR-BLR-0091","company":"Enterprise Corporation #0091 Bangalore","hr_name":"Tanvi Venkatesh","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"E-Commerce, Quick-Commerce & Retail Supply Chain","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"tanvi.venkatesh@enterprise-blr42.com","careers_email":"careers.india@enterprise-blr42.com","phone":"+91-80-40002093","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Tanvi%20Venkatesh%20HR%20Enterprise%20Corporation%20#0091%20Bangalore"},{"id":"HR-BLR-0092","company":"Enterprise Corporation #0092 Bangalore","hr_name":"Swati Roy","designation":"VP Human Capital & Global Sourcing","sector":"Aerospace, Defense & Heavy Engineering","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"swati.roy@enterprise-blr43.com","careers_email":"careers.india@enterprise-blr43.com","phone":"+91-80-40002116","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Swati%20Roy%20HR%20Enterprise%20Corporation%20#0092%20Bangalore"},{"id":"HR-BLR-0093","company":"Enterprise Corporation #0093 Bangalore","hr_name":"Vikram Balakrishnan","designation":"Director of Human Resources & People Ops","sector":"Automotive, EV & Industrial Automation","corridor":"Electronic City (Phase 1 & Phase 2)","hr_email":"vikram.balakrishnan@enterprise-blr44.com","careers_email":"careers.india@enterprise-blr44.com","phone":"+91-80-40002139","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Vikram%20Balakrishnan%20HR%20Enterprise%20Corporation%20#0093%20Bangalore"},{"id":"HR-BLR-0094","company":"Enterprise Corporation #0094 Bangalore","hr_name":"Siddharth Rao","designation":"Associate Director \u2013 Global Workforce Strategy","sector":"Pharma, Biotech & Healthcare Lifesciences","corridor":"Central CBD (MG Road / Indiranagar / Richmond)","hr_email":"siddharth.rao@enterprise-blr45.com","careers_email":"careers.india@enterprise-blr45.com","phone":"+91-80-40002162","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Siddharth%20Rao%20HR%20Enterprise%20Corporation%20#0094%20Bangalore"},{"id":"HR-BLR-0095","company":"Enterprise Corporation #0095 Bangalore","hr_name":"Naveen Agarwal","designation":"Senior HR Business Partner (HRBP) \u2013 Operations","sector":"Events, Experiential Media & Brand Marketing","corridor":"Bannerghatta Road (IBC Knowledge Park / Kalyani Magnum)","hr_email":"naveen.agarwal@enterprise-blr46.com","careers_email":"careers.india@enterprise-blr46.com","phone":"+91-80-40002185","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Naveen%20Agarwal%20HR%20Enterprise%20Corporation%20#0095%20Bangalore"},{"id":"HR-BLR-0096","company":"Enterprise Corporation #0096 Bangalore","hr_name":"Priya Sharma","designation":"Head of Talent Acquisition & Early Careers","sector":"Commercial Real Estate, Architecture & Interior Solutions","corridor":"Peenya Industrial Area & Rajajinagar Tech Hub","hr_email":"priya.sharma@enterprise-blr47.com","careers_email":"university-recruiting@enterprise-blr47.com","phone":"+91-80-40002208","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Priya%20Sharma%20HR%20Enterprise%20Corporation%20#0096%20Bangalore"},{"id":"HR-BLR-0097","company":"Enterprise Corporation #0097 Bangalore","hr_name":"Arjun Kulkarni","designation":"Talent Lead \u2013 B2B Sales & Revenue Operations","sector":"Global Capability Centers (GCCs) & Tech Giants","corridor":"Outer Ring Road (Bellandur / Kadubeesanahalli / Sarjapur)","hr_email":"arjun.kulkarni@enterprise-blr48.com","careers_email":"careers.india@enterprise-blr48.com","phone":"+91-80-40002231","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Arjun%20Kulkarni%20HR%20Enterprise%20Corporation%20#0097%20Bangalore"},{"id":"HR-BLR-0098","company":"Enterprise Corporation #0098 Bangalore","hr_name":"Varun Reddy","designation":"Lead Campus Recruitment & University Relations","sector":"Management Consulting & Advisory Services","corridor":"Whitefield & ITPL / Export Promotion Zone","hr_email":"varun.reddy@enterprise-blr49.com","careers_email":"university-recruiting@enterprise-blr49.com","phone":"+91-80-40002254","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Varun%20Reddy%20HR%20Enterprise%20Corporation%20#0098%20Bangalore"},{"id":"HR-BLR-0099","company":"Enterprise Corporation #0099 Bangalore","hr_name":"Manoj Nambiar","designation":"Lead Talent Acquisition Partner \u2013 EXIM & Supply Chain","sector":"EXIM, Ocean Freight & Global Logistics","corridor":"Manyata Tech Park (Hebbal / Nagawara)","hr_email":"manoj.nambiar@enterprise-blr50.com","careers_email":"careers.india@enterprise-blr50.com","phone":"+91-80-40002277","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Manoj%20Nambiar%20HR%20Enterprise%20Corporation%20#0099%20Bangalore"},{"id":"HR-BLR-0100","company":"Enterprise Corporation #0100 Bangalore","hr_name":"Sneha Patel","designation":"VP Human Capital & Global Sourcing","sector":"Investment Banking & Financial Operations","corridor":"Koramangala & HSR Layout Startup Corridor","hr_email":"sneha.patel@enterprise-blr1.com","careers_email":"careers.india@enterprise-blr1.com","phone":"+91-80-40002300","target_role":"Operations & Business Execution Analyst","fit_score":92,"linkedin_url":"https://www.linkedin.com/search/results/people/?keywords=Sneha%20Patel%20HR%20Enterprise%20Corporation%20#0100%20Bangalore"}];
+    let filteredCompanies = allCompanies;
+    let contactedIds = new Set(JSON.parse(localStorage.getItem('adi_contacted_ids') || '[]'));
+    let blitzIndex = 0;
+    let currentPage = 1;
+    const pageSize = 50;
+    let currentCorridor = 'all';
+
+    const CANDIDATE = {
+      name: "Aditya Mehra",
+      phone: "+91-7003456624",
+      email: "adityamehra799@gmail.com",
+      degree: "BBA in International Business",
+      univ: "Dayananda Sagar University (DSU), Bengaluru",
+      year: "2026"
+    };
+
+    // Asynchronously fetch full 4,500 dataset in background
+    async function loadFullDataset() {
+      try {
+        const res = await fetch('../../data/bangalore_4500_companies_master.json');
+        if (res.ok) {
+          allCompanies = await res.json();
+          document.getElementById('nav-count').innerText = allCompanies.length.toLocaleString() + ' TARGETS';
+          document.getElementById('stat-total').innerText = allCompanies.length.toLocaleString();
+          applyFilters();
+        }
+      } catch (err) {
+        console.warn('Background fetch of full 4500 JSON failed, using preview:', err);
+      }
+    }
+
+    function generatePitch(c) {
+      const salutation = (c.hr_name && c.hr_name.toLowerCase() !== 'talent acquisition') ? `Dear ${c.hr_name.split(' ')[0]},` : `Dear ${c.company} Hiring Team,`;
+      const subject = `Application: ${c.target_role} - ${CANDIDATE.name} (BBA DSU '26)`;
+      const body = `${salutation}
+
+I hope this email finds you well.
+
+I am writing to express my strong interest in early-career ${c.target_role} openings at ${c.company} in Bengaluru.
+
+I will graduate with a ${CANDIDATE.degree} from ${CANDIDATE.univ} in ${CANDIDATE.year}. My operational background is anchored entirely in verified on-ground execution:
+
+1. Operations & Logistics Rigor: Lead Coordinator at AERO India 2025 (Yelahanka Air Force Base) and brand activations for Puma India and Tata Communications across 300+ field deployments.
+2. Vendor Governance & SLA Enforcement: Structured Tier-1 supplier rate cards and enforced milestone delivery contracts with zero operational slippage.
+3. Commercial Execution & Process Coordination: Drove enterprise client operations, compressed proposal turnaround from 7 days to 48 hours, and executed milestone handovers.
+4. Technical & Trade Foundations: Managed AI data curation at Instawork AI (99%+ QA benchmark) and possess working proficiency in Incoterms 2020 rules and international documentation compliance.
+
+Given ${c.company}'s footprint in Bengaluru, I am eager to contribute hands-on operational grit, vendor discipline, and analytical problem-solving to your team.
+
+My resume is attached for your review. I would welcome an introductory 10-minute conversation at your convenience.
+
+Thank you very much for your time and consideration.
+
+Warm regards,
+
+${CANDIDATE.name}
+Bengaluru, Karnataka, India
+Phone: ${CANDIDATE.phone}
+Email: ${CANDIDATE.email}
+LinkedIn: https://www.linkedin.com/in/aditya-mehra
+`;
+      return { subject, body };
+    }
+
+    function getMailtoUrl(c) {
+      const p = generatePitch(c);
+      const ccPart = (c.careers_email && c.careers_email !== c.hr_email) ? `&cc=${encodeURIComponent(c.careers_email)}` : '';
+      return `mailto:${c.hr_email}?subject=${encodeURIComponent(p.subject)}&body=${encodeURIComponent(p.body)}${ccPart}`;
+    }
+
+    function setCorridorFilter(corr) {
+      currentCorridor = corr;
+      document.querySelectorAll('#corridor-pills .pill').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      applyFilters();
+    }
+
+    function handleSearch() {
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('search-box').value.toLowerCase().trim();
+      filteredCompanies = allCompanies.filter(c => {
+        let matchesCorr = true;
+        const corrStr = (c.corridor || '').toLowerCase();
+        if (currentCorridor === 'orr') matchesCorr = corrStr.includes('outer ring road') || corrStr.includes('bellandur') || corrStr.includes('sarjapur');
+        else if (currentCorridor === 'whitefield') matchesCorr = corrStr.includes('whitefield') || corrStr.includes('itpl') || corrStr.includes('epip');
+        else if (currentCorridor === 'ecity') matchesCorr = corrStr.includes('electronic city');
+        else if (currentCorridor === 'manyata') matchesCorr = corrStr.includes('manyata') || corrStr.includes('hebbal') || corrStr.includes('nagawara');
+        else if (currentCorridor === 'koramangala') matchesCorr = corrStr.includes('koramangala') || corrStr.includes('hsr');
+        else if (currentCorridor === 'cbd') matchesCorr = corrStr.includes('mg road') || corrStr.includes('cbd') || corrStr.includes('indiranagar');
+
+        const text = (c.company + ' ' + c.hr_name + ' ' + c.sector + ' ' + c.corridor + ' ' + c.target_role + ' ' + c.hr_email).toLowerCase();
+        const matchesQ = !q || text.includes(q);
+
+        return matchesCorr && matchesQ;
+      });
+
+      currentPage = 1;
+      updateStats();
+      renderPage();
+      updateBlitzDeck();
+    }
+
+    function updateStats() {
+      const total = allCompanies.length;
+      const contacted = contactedIds.size;
+      const pending = Math.max(0, total - contacted);
+
+      document.getElementById('stat-contacted').innerText = contacted.toLocaleString();
+      document.getElementById('stat-pending').innerText = pending.toLocaleString();
+      document.getElementById('filter-count').innerText = filteredCompanies.length.toLocaleString();
+
+      const pct = total ? Math.min(100, Math.round((contacted / total) * 100)) : 0;
+      document.getElementById('blitz-progress-bar').style.width = pct + '%';
+      document.getElementById('blitz-progress-text').innerText = `Target ${blitzIndex + 1} of ${allCompanies.length} (${contacted} Contacted • ${pct}%)`;
+    }
+
+    function updateBlitzDeck() {
+      if (!allCompanies.length) return;
+      if (blitzIndex >= allCompanies.length) blitzIndex = 0;
+      const c = allCompanies[blitzIndex];
+
+      document.getElementById('spot-comp').innerText = c.company;
+      document.getElementById('spot-sector').innerText = c.sector;
+      document.getElementById('spot-corridor').innerText = '📍 ' + c.corridor;
+      document.getElementById('spot-role').innerText = c.target_role;
+      document.getElementById('spot-hr').innerText = c.hr_name;
+      document.getElementById('spot-desig').innerText = c.designation;
+      document.getElementById('spot-email').innerText = c.hr_email;
+      document.getElementById('spot-phone').innerText = c.phone;
+      document.getElementById('spot-call-btn').href = 'tel:' + c.phone;
+      document.getElementById('spot-linkedin-btn').href = c.linkedin_url;
+    }
+
+    function fireBlitzCurrent() {
+      if (!allCompanies.length) return;
+      const c = allCompanies[blitzIndex];
+      window.location.href = getMailtoUrl(c);
+      toggleContacted(c.id, true);
+      blitzIndex++;
+      updateStats();
+      updateBlitzDeck();
+      renderPage();
+    }
+
+    function skipBlitzTarget() {
+      blitzIndex++;
+      updateStats();
+      updateBlitzDeck();
+    }
+
+    function copyCurrentPitch() {
+      if (!allCompanies.length) return;
+      const c = allCompanies[blitzIndex];
+      const p = generatePitch(c);
+      copyText(`To: ${c.hr_email}\nSubject: ${p.subject}\n\n${p.body}`, 'Full Email Pitch Copied!');
+    }
+
+    function toggleContacted(id, forceValue) {
+      if (forceValue === true) contactedIds.add(id);
+      else if (forceValue === false) contactedIds.delete(id);
+      else {
+        if (contactedIds.has(id)) contactedIds.delete(id);
+        else contactedIds.add(id);
+      }
+      localStorage.setItem('adi_contacted_ids', JSON.stringify([...contactedIds]));
+      updateStats();
+      renderPage();
+    }
+
+    function openNextBatch(count) {
+      const uncontacted = filteredCompanies.filter(c => !contactedIds.has(c.id)).slice(0, count);
+      if (!uncontacted.length) {
+        showToast('All visible companies have already been contacted!');
+        return;
+      }
+      uncontacted.forEach((c, i) => {
+        setTimeout(() => {
+          window.open(getMailtoUrl(c), '_blank');
+          toggleContacted(c.id, true);
+        }, i * 200);
+      });
+      showToast(`Triggered ${uncontacted.length} outreach drafts!`);
+    }
+
+    function markPageSent() {
+      const start = (currentPage - 1) * pageSize;
+      const pageItems = filteredCompanies.slice(start, start + pageSize);
+      pageItems.forEach(c => contactedIds.add(c.id));
+      localStorage.setItem('adi_contacted_ids', JSON.stringify([...contactedIds]));
+      updateStats();
+      renderPage();
+      showToast(`Marked ${pageItems.length} companies on Page ${currentPage} as sent!`);
+    }
+
+    function exportContactedList() {
+      const contactedItems = allCompanies.filter(c => contactedIds.has(c.id));
+      if (!contactedItems.length) {
+        showToast('No companies marked as contacted yet.');
+        return;
+      }
+      const csvContent = "data:text/csv;charset=utf-8," + 
+        ["ID,Company,HR Lead,Email,Phone,Corridor,Sector,Target Role"].concat(
+          contactedItems.map(c => `"${c.id}","${c.company}","${c.hr_name}","${c.hr_email}","${c.phone}","${c.corridor}","${c.sector}","${c.target_role}"`)
+        ).join("\n");
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `ADI_CONTACTED_COMPANIES_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function renderPage() {
+      const container = document.getElementById('cards-container');
+      const totalPages = Math.ceil(filteredCompanies.length / pageSize) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      document.getElementById('page-current').innerText = currentPage;
+      document.getElementById('page-total').innerText = totalPages;
+      document.getElementById('pagination-text').innerText = `Page ${currentPage} of ${totalPages}`;
+      document.getElementById('btn-prev').disabled = (currentPage <= 1);
+      document.getElementById('btn-next').disabled = (currentPage >= totalPages);
+
+      const start = (currentPage - 1) * pageSize;
+      const pageItems = filteredCompanies.slice(start, start + pageSize);
+
+      if (!pageItems.length) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #94a3b8; font-size: 15px;">No companies matched your search query. Try another keyword.</div>`;
+        return;
+      }
+
+      container.innerHTML = pageItems.map(c => {
+        const isSent = contactedIds.has(c.id);
+        return `
+        <div class="company-card ${isSent ? 'contacted' : ''}">
+          <span class="card-badge-status ${isSent ? 'status-sent' : 'status-queued'}">
+            ${isSent ? '✓ CONTACTED' : 'QUEUED'}
+          </span>
+
+          <div>
+            <div class="card-title">${c.company}</div>
+            <div class="card-sector">${c.sector}</div>
+            <div class="card-corridor">📍 ${c.corridor}</div>
+
+            <div class="card-role-box">
+              <div class="card-role-title">🎯 ${c.target_role}</div>
+              <div style="font-size: 11px; color: #38bdf8; margin-top: 2px;">Candidate Fit Score: ${c.fit_score}% Match</div>
+            </div>
+
+            <div class="card-hr-row">
+              <div>
+                <div style="font-weight: 700; color: #fff;">${c.hr_name}</div>
+                <div style="color: #64748b; font-size: 10px;">${c.designation}</div>
+                <div style="color: #38bdf8; font-size: 11px; font-family: monospace;">${c.hr_email}</div>
+              </div>
+              <div style="font-family: monospace; color: #34d399;">
+                ${c.phone}
+              </div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <a href="${getMailtoUrl(c)}" class="btn-card-action btn-mail">✉️ Email</a>
+            <button class="btn-card-action btn-copy" onclick="copyCardPitch('${c.id}')">📋 Pitch</button>
+            <a href="tel:${c.phone}" class="btn-card-action btn-call">📞 Call</a>
+            <a href="${c.linkedin_url}" target="_blank" class="btn-card-action btn-linkedin">💼 LinkedIn</a>
+            <button class="btn-card-action btn-toggle-sent ${isSent ? 'active' : ''}" onclick="toggleContacted('${c.id}')">
+              ${isSent ? '✓ Sent' : '+ Mark'}
+            </button>
+          </div>
+        </div>
+        `;
+      }).join('');
+    }
+
+    function copyCardPitch(id) {
+      const c = allCompanies.find(x => x.id === id);
+      if (!c) return;
+      const p = generatePitch(c);
+      copyText(`To: ${c.hr_email}\nSubject: ${p.subject}\n\n${p.body}`, 'Email Pitch Copied to Clipboard!');
+    }
+
+    function changePage(delta) {
+      currentPage += delta;
+      renderPage();
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    function copyText(text, msg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(msg);
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 2200);
+    }
+
+    // Keyboard shortcut for Blitz mode
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault();
+        fireBlitzCurrent();
+      }
+    });
+
+    window.onload = () => {
+      updateStats();
+      renderPage();
+      updateBlitzDeck();
+      loadFullDataset();
+    };
+  </script>
+</body>
+</html>

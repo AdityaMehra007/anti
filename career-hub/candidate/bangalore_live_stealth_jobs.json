@@ -1,0 +1,60 @@
+{
+  "crawler": "Camofox Stealth Market Harvester v1.0",
+  "engine": "Camoufox C++ Hardened Spoofing",
+  "crawl_timestamp": "2026-09-17T18:58:16.490279",
+  "total_targets": 3,
+  "successful_stealth_crawls": 3,
+  "results": [
+    {
+      "company": "Amazon India",
+      "target_cluster": "Outer Ring Road / Manyata",
+      "domain": "E-Commerce & Supply Chain Operations",
+      "page_title": "Job search | Amazon.jobs",
+      "target_url": "https://www.amazon.jobs/en/search?base_query=Operations+Analyst&loc_query=Bengaluru%2C+Karnataka%2C+India",
+      "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
+      "roles_discovered": [
+        "combobox \"Search for jobs by title or keyword\": Operations Analyst",
+        "checkbox \"Finance and Global Business Services 28 jobs\" [e19]:",
+        "paragraph: Finance and Global Business Services 28 jobs",
+        "checkbox \"Business & Merchant Development 2 jobs\" [e22]:"
+      ],
+      "fit_score": 9.8,
+      "status": "LIVE_VERIFIED",
+      "last_crawled": "2026-09-17T18:57:53.359582"
+    },
+    {
+      "company": "Google Bangalore",
+      "target_cluster": "Outer Ring Road",
+      "domain": "Enterprise Tech & Cloud Ops",
+      "page_title": "Search Jobs \u2014 Google Careers",
+      "target_url": "https://www.google.com/about/careers/applications/jobs/results/?location=Bengaluru%2C%20India&q=Business%20Operations",
+      "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
+      "roles_discovered": [
+        "combobox \"What do you want to do?\": Business Operations",
+        "heading \"Technical Program Manager, AI/ML, Cloud Supply Chain Operations\" [level=3]",
+        "listitem: Experience with hardware manufacturing test industry and business operations.",
+        "link \"Learn more about Technical Program Manager, AI/ML, Cloud Supply Chain Operations\" [e24]:"
+      ],
+      "fit_score": 9.5,
+      "status": "LIVE_VERIFIED",
+      "last_crawled": "2026-09-17T18:58:03.476069"
+    },
+    {
+      "company": "IKEA Bangalore / Ingka Services",
+      "target_cluster": "Whitefield / Nagasandra",
+      "domain": "Global Retail & Logistics",
+      "page_title": "Search our Job Opportunities at IKEA",
+      "target_url": "https://jobs.ikea.com/en/search-jobs/Bengaluru",
+      "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
+      "roles_discovered": [
+        "link \"Accounting & Reporting Specialist Bangalore, Karnataka, India Finance, Accounting & Tax Full time\" [e16]:",
+        "/url: /en/job/bengaluru/accounting-and-reporting-specialist/24107/97600592576",
+        "text: Accounting & Reporting Specialist",
+        "link \"Senior PA/PY Specialist Bangalore, Karnataka, India People & HR Full time\" [e24]:"
+      ],
+      "fit_score": 9.5,
+      "status": "LIVE_VERIFIED",
+      "last_crawled": "2026-09-17T18:58:16.466525"
+    }
+  ]
+}

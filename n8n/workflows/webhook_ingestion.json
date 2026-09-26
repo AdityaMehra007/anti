@@ -1,0 +1,79 @@
+{
+  "name": "OMEGA Inbound Webhook Ingestion Bridge",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "omega-events",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Inbound Event Receiver",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        260,
+        340
+      ],
+      "webhookId": "omega-event-receiver-01"
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $input.first().json.body || {};\nconst now = new Date();\n\nreturn [{\n  json: {\n    event_id: 'EVT_' + now.getTime(),\n    received_at: now.toISOString(),\n    source: payload.source || 'EXTERNAL',\n    action: payload.action || 'DEFAULT',\n    payload: payload.data || payload,\n    status: 'ACKNOWLEDGED'\n  }\n}];"
+      },
+      "id": "2",
+      "name": "Parse & Normalize Event",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "3",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        700,
+        340
+      ]
+    }
+  ],
+  "connections": {
+    "Inbound Event Receiver": {
+      "main": [
+        [
+          {
+            "node": "Parse & Normalize Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse & Normalize Event": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

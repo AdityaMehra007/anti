@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VECTIS TRADE — Autonomous Export Intelligence & Compliance Platform</title>
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-secondary: #101626;
+      --bg-card: #151f33;
+      --border: #23304a;
+      --cyan: #06b6d4;
+      --green: #10b981;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text: #f3f4f6;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text); padding-bottom: 60px; }
+    
+    header { background: linear-gradient(135deg, #0d1527 0%, #1e293b 100%); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+    .tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(6,182,212,0.15); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); font-weight: 700; }
+
+    nav { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; gap: 8px; }
+    .nav-btn { background: none; border: none; padding: 14px 20px; color: var(--muted); font-size: 13.5px; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .nav-btn:hover { color: var(--text); }
+    .nav-btn.active { color: var(--cyan); border-bottom-color: var(--cyan); background: rgba(6, 182, 212, 0.05); }
+
+    .container { max-width: 1400px; margin: 28px auto; padding: 0 24px; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeIn 0.2s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .card-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+
+    .btn { background: var(--cyan); color: #000; border: none; padding: 9px 16px; border-radius: 6px; font-weight: 700; font-size: 12.5px; cursor: pointer; transition: all 0.2s; }
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-secondary { background: rgba(255,255,255,0.08); color: #fff; margin-right: 8px; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+    .btn-sm { padding: 4px 10px; font-size: 11px; border-radius: 4px; }
+
+    textarea, input, select { width: 100%; background: #0b111c; border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; color: #f3f4f6; font-size: 13px; outline: none; margin-bottom: 12px; }
+    textarea { font-family: monospace; font-size: 12px; height: 320px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--cyan); }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+    th { text-align: left; padding: 10px 12px; background: rgba(255,255,255,0.02); color: var(--muted); font-size: 11px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    tr:hover { background: rgba(255,255,255,0.02); }
+
+    .badge-high { background: rgba(244, 63, 94, 0.15); color: var(--rose); padding: 2px 6px; border-radius: 4px; font-size: 10.5px; font-weight: 700; }
+    .badge-std { background: rgba(6, 182, 212, 0.15); color: var(--cyan); padding: 2px 6px; border-radius: 4px; font-size: 10.5px; font-weight: 700; }
+    .badge-pass { background: rgba(16, 185, 129, 0.2); color: var(--green); border: 1px solid var(--green); padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 12px; }
+    .badge-fail { background: rgba(244, 63, 94, 0.2); color: var(--rose); border: 1px solid var(--rose); padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 12px; }
+
+    .disc-item { border-left: 3px solid var(--rose); background: rgba(244, 63, 94, 0.05); padding: 12px; margin-top: 12px; border-radius: 0 6px 6px 0; }
+    .disc-code { font-family: monospace; color: var(--rose); font-weight: 700; font-size: 12px; }
+    .disc-remedy { color: #38bdf8; margin-top: 4px; font-size: 12px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <div class="brand">VECTIS TRADE <span class="tag">Production Platform v2.0</span></div>
+      <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Autonomous Export Compliance, SWIFT Ingestion & Trade CRM</div>
+    </div>
+    <div style="font-size: 12px; color: var(--muted); text-align: right;">
+      <div><strong>Founder:</strong> Aditya Mehra | Bengaluru, India</div>
+      <div><strong>Base:</strong> 2027 Baseline | UCP 600 & ISBP 745 Certified</div>
+    </div>
+  </header>
+
+  <nav>
+    <button class="nav-btn active" onclick="switchNav('tab-audit')">01. Compliance Auditor</button>
+    <button class="nav-btn" onclick="switchNav('tab-crm')">02. Lead CRM (395 Mined Contacts)</button>
+    <button class="nav-btn" onclick="switchNav('tab-certs')">03. Audit Certificates Outbox</button>
+    <button class="nav-btn" onclick="switchNav('tab-cbam')">04. EU CBAM Carbon Calculator</button>
+  </nav>
+
+  <div class="container">
+
+    <!-- TAB 1: AUDITOR -->
+    <div id="tab-audit" class="tab-pane active">
+      <div style="margin-bottom: 16px; display: flex; justify-content: flex-end; gap: 8px;">
+        <button class="btn btn-secondary" onclick="loadSample('clean')">Load Clean Sample</button>
+        <button class="btn btn-secondary" onclick="loadSample('flawed')">Load Flawed Sample</button>
+        <button class="btn btn-secondary" onclick="loadSample('swift')">Load SWIFT MT700</button>
+        <button class="btn" onclick="runAudit()">Audit Trade Docket</button>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span>Input Trade Docket (JSON or SWIFT)</span>
+            <span style="font-size: 11px; color: var(--muted);">ICC UCP 600 / ISBP 745</span>
+          </div>
+          <textarea id="docket-input" placeholder="Paste trade docket JSON or raw SWIFT MT700 text here..."></textarea>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <span>Audit Diagnostics & Certificate</span>
+            <span id="audit-badge" style="display: none;"></span>
+          </div>
+          <div id="report-output" style="height: 320px; overflow-y: auto; background: #0b111c; border: 1px solid var(--border); border-radius: 6px; padding: 16px; font-size: 12.5px;">
+            <div style="color: var(--muted); text-align: center; margin-top: 130px;">
+              Load a sample or paste trade documents and click <strong>"Audit Trade Docket"</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: CRM -->
+    <div id="tab-crm" class="tab-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>Verified Trade & Operations Leads (Mined from LinkedIn)</span>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="crm-search" placeholder="Search by name, company, position..." style="margin-bottom: 0; width: 280px; padding: 6px 10px; font-size: 12px;" oninput="filterLeads()">
+            <button class="btn btn-secondary btn-sm" onclick="exportCadence()">Generate 3-Touch Outreach Queue</button>
+          </div>
+        </div>
+        <div style="max-height: 500px; overflow-y: auto;">
+          <table id="leads-table">
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Position</th>
+                <th>Target Keywords</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="leads-tbody">
+              <tr><td colspan="6" style="text-align: center; color: var(--muted);">Loading verified leads...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: CERTIFICATES -->
+    <div id="tab-certs" class="tab-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>Signed Audit Certificates (company/outbox/)</span>
+          <button class="btn btn-secondary btn-sm" onclick="fetchCertificates()">Refresh Certificates</button>
+        </div>
+        <div style="max-height: 500px; overflow-y: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Filename</th>
+                <th>Status</th>
+                <th>Fatal Discrepancies</th>
+                <th>SHA-256 Hash</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="certs-tbody">
+              <tr><td colspan="5" style="text-align: center; color: var(--muted);">Loading generated certificates...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: CBAM -->
+    <div id="tab-cbam" class="tab-pane">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><span>EU CBAM Carbon Tariff Calculator</span></div>
+          <label style="font-size: 12px; color: var(--muted);">Product Name</label>
+          <input type="text" id="cbam-name" value="Precision Machined CNC Flanges Grade 316">
+
+          <label style="font-size: 12px; color: var(--muted);">CN / HS 8-Digit Code</label>
+          <input type="text" id="cbam-cn" value="7307 19 90">
+
+          <label style="font-size: 12px; color: var(--muted);">Export Volume (Metric Tonnes)</label>
+          <input type="number" id="cbam-qty" value="15.4" step="0.1">
+
+          <label style="font-size: 12px; color: var(--muted);">Direct Fuel Emissions (Scope 1 tCO2e)</label>
+          <input type="number" id="cbam-fuel" value="12.2" step="0.1">
+
+          <label style="font-size: 12px; color: var(--muted);">Electricity Consumed (Scope 2 MWh)</label>
+          <input type="number" id="cbam-elec" value="18.5" step="0.1">
+
+          <button class="btn" style="width: 100%; margin-top: 8px;" onclick="calculateCBAM()">Calculate Carbon Liability</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><span>Official EU Declaration Summary</span></div>
+          <div id="cbam-output" style="background: #0b111c; border: 1px solid var(--border); border-radius: 6px; padding: 18px; font-size: 13px; height: 380px; overflow-y: auto;">
+            <div style="color: var(--muted); text-align: center; margin-top: 140px;">
+              Enter production metrics and click <strong>"Calculate Carbon Liability"</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let allLeads = [];
+
+    function switchNav(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+
+      if (tabId === 'tab-crm' && allLeads.length === 0) fetchLeads();
+      if (tabId === 'tab-certs') fetchCertificates();
+    }
+
+    const sampleClean = {
+      "lc": {
+        "lc_number": "LC-PEENYA-2027-001",
+        "issuing_bank": "Deutsche Bank AG, Frankfurt",
+        "applicant": "Muller Automobiltechnik GmbH",
+        "beneficiary": "Precision Auto Machining Pvt Ltd",
+        "amount": 180000.0,
+        "currency": "EUR",
+        "tolerance_pct": 5.0,
+        "latest_shipment_date": "2027-03-31",
+        "expiry_date": "2027-04-21",
+        "port_of_loading": "Chennai Port, India",
+        "port_of_discharge": "Hamburg, Germany",
+        "description_of_goods": "CNC Machined Transmission Flanges Grade 316 as per PO 88412"
+      },
+      "invoice": {
+        "invoice_number": "PAM/EXP/2027/089",
+        "invoice_date": "2027-03-15",
+        "beneficiary": "Precision Auto Machining Pvt Ltd",
+        "applicant": "Muller Automobiltechnik GmbH",
+        "amount": 180000.0,
+        "currency": "EUR",
+        "description_of_goods": "CNC Machined Transmission Flanges Grade 316 as per PO 88412",
+        "incoterms": "CIF Hamburg"
+      },
+      "packing_list": {
+        "packing_list_number": "PL/2027/089",
+        "invoice_number": "PAM/EXP/2027/089",
+        "total_packages": 12,
+        "package_type": "Wooden Pallets",
+        "gross_weight_kg": 14240.0,
+        "net_weight_kg": 13800.0,
+        "shipping_marks": "MULLER/HAMBURG/1-12"
+      },
+      "bl": {
+        "bl_number": "MEDUCN1899201",
+        "carrier_name": "Mediterranean Shipping Company (MSC)",
+        "shipper": "Precision Auto Machining Pvt Ltd",
+        "consignee": "To Order of Deutsche Bank AG, Frankfurt",
+        "notify_party": "Muller Automobiltechnik GmbH",
+        "port_of_loading": "Chennai Port, India",
+        "port_of_discharge": "Hamburg, Germany",
+        "shipped_on_board_date": "2027-03-20",
+        "freight_status": "Freight Prepaid",
+        "clean_on_board": true,
+        "total_packages": 12,
+        "gross_weight_kg": 14240.0,
+        "shipping_marks": "MULLER/HAMBURG/1-12"
+      }
+    };
+
+    const sampleFlawed = JSON.parse(JSON.stringify(sampleClean));
+    sampleFlawed.invoice.description_of_goods = "CNC Machined Transmission Flanges as per PO 88412";
+    sampleFlawed.bl.gross_weight_kg = 14850.0;
+    sampleFlawed.bl.shipped_on_board_date = "2027-04-05";
+
+    const sampleSwift = `:27:1/1\n:40A:IRREVOCABLE\n:20:LC-DB-2027-9941\n:31C:270310\n:31D:270515FRANKFURT\n:51A:DEUTDEDDXXX\n:50:MULLER AUTOMOBILTECHNIK GMBH\n:59:PRECISION AUTO MACHINING PVT LTD\n:32B:EUR180000,00\n:39A:05/05\n:44A:CHENNAI PORT, INDIA\n:44B:HAMBURG, GERMANY\n:44C:270420\n:45A:CNC MACHINED TRANSMISSION FLANGES GRADE 316 AS PER PO 88412`;
+
+    function loadSample(type) {
+      if (type === 'clean') document.getElementById('docket-input').value = JSON.stringify(sampleClean, null, 2);
+      else if (type === 'flawed') document.getElementById('docket-input').value = JSON.stringify(sampleFlawed, null, 2);
+      else if (type === 'swift') document.getElementById('docket-input').value = sampleSwift.replace(/\\n/g, '\n');
+    }
+
+    async function runAudit() {
+      const inputStr = document.getElementById('docket-input').value;
+      if (!inputStr.trim()) return alert("Please load or paste trade docket first.");
+
+      const isSwift = inputStr.trim().startsWith(':');
+      const url = isSwift ? '/api/audit/swift' : '/api/audit';
+      const bodyPayload = isSwift ? { swift_text: inputStr } : JSON.parse(inputStr);
+
+      const outDiv = document.getElementById('report-output');
+      outDiv.innerHTML = '<div style="color: var(--cyan); text-align: center; margin-top: 130px;">Evaluating against UCP 600 & ISBP 745...</div>';
+
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(bodyPayload)
+        });
+        const data = await res.json();
+
+        const badge = document.getElementById('audit-badge');
+        badge.style.display = 'inline-block';
+        if (data.status === 'PASSED') {
+          badge.className = 'badge-pass';
+          badge.textContent = '🟢 PASSED (BANK-READY)';
+        } else {
+          badge.className = 'badge-fail';
+          badge.textContent = `🔴 REJECT (${data.fatal_discrepancies} FATAL)`;
+        }
+
+        let html = `
+          <div style="font-size: 11px; color: var(--muted); margin-bottom: 8px;">
+            <strong>DOCKET:</strong> ${data.docket_id} | <strong>SHA-256:</strong> ${data.sha256_hash.substring(0, 16)}...
+          </div>
+          <div style="padding: 10px; background: rgba(255,255,255,0.03); border-radius: 6px; margin-bottom: 12px; font-size: 12px;">
+            <strong>Amount:</strong> ${data.docket_summary.invoice_amount || data.docket_summary.amount} | <strong>Bank:</strong> ${data.docket_summary.issuing_bank}<br>
+            <strong>Shipped:</strong> ${data.docket_summary.shipped_date || 'N/A'} | <strong>Weight:</strong> ${data.docket_summary.gross_weight || 'N/A'}
+          </div>
+        `;
+
+        if (data.discrepancies.length === 0) {
+          html += `
+            <div style="padding: 16px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--green); border-radius: 6px; color: var(--green); text-align: center; margin-top: 16px;">
+              <strong>✓ ZERO DISCREPANCIES DETECTED</strong><br>
+              <span style="font-size: 12px; color: #a7f3d0;">All trade documents conform strictly to ICC UCP 600 Articles 14, 18, 20, 27 and ISBP 745 standards. Pre-submission certificate is signed and verified.</span>
+            </div>
+          `;
+        } else {
+          html += `<div style="font-weight: bold; color: #fff; margin-bottom: 6px;">Identified Discrepancies (${data.discrepancies.length}):</div>`;
+          data.discrepancies.forEach((d) => {
+            html += `
+              <div class="disc-item">
+                <div class="disc-code">[${d.code}] ${d.rule_reference} — ${d.field_name} (${d.affected_document})</div>
+                <div style="margin-top: 4px;"><strong>Issue:</strong> ${d.description}</div>
+                <div class="disc-remedy"><strong>Fix:</strong> ${d.correction_suggestion}</div>
+              </div>
+            `;
+          });
+        }
+        outDiv.innerHTML = html;
+      } catch (err) {
+        outDiv.innerHTML = `<div style="color: var(--rose); padding: 20px;">Error: ${err.message}</div>`;
+      }
+    }
+
+    async function fetchLeads() {
+      try {
+        const res = await fetch('/api/leads');
+        allLeads = await res.json();
+        renderLeads(allLeads);
+      } catch (e) {
+        document.getElementById('leads-tbody').innerHTML = `<tr><td colspan="6" style="color: var(--rose);">Failed loading leads: ${e.message}</td></tr>`;
+      }
+    }
+
+    function renderLeads(leads) {
+      const tbody = document.getElementById('leads-tbody');
+      tbody.innerHTML = '';
+      leads.slice(0, 100).forEach(l => {
+        const badge = l.priority === 'HIGH' ? '<span class="badge-high">HIGH</span>' : '<span class="badge-std">STANDARD</span>';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${badge}</td>
+          <td><strong>${l.name}</strong></td>
+          <td>${l.company}</td>
+          <td style="color: var(--muted);">${l.position}</td>
+          <td><span style="font-size: 11px; color: var(--cyan);">${l.matched_keywords.join(', ')}</span></td>
+          <td>
+            <button class="btn btn-secondary btn-sm" onclick="copyPitch('${encodeURIComponent(l.tailored_outreach_pitch)}')">Copy Pitch</button>
+            <a href="${l.linkedin_url}" target="_blank" class="btn btn-sm" style="text-decoration: none; display: inline-block;">Profile</a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterLeads() {
+      const q = document.getElementById('crm-search').value.toLowerCase();
+      const filtered = allLeads.filter(l => 
+        l.name.toLowerCase().includes(q) || 
+        l.company.toLowerCase().includes(q) || 
+        l.position.toLowerCase().includes(q)
+      );
+      renderLeads(filtered);
+    }
+
+    function copyPitch(encoded) {
+      const pitch = decodeURIComponent(encoded);
+      navigator.clipboard.writeText(pitch);
+      alert("Personalized WhatsApp/Email pitch copied to clipboard!");
+    }
+
+    async function exportCadence() {
+      alert("Generating 3-touch cadence queue for Top 50 high-priority leads in company/outreach_queue/...");
+      await fetch('/api/outreach/generate', { method: 'POST' });
+      alert("Dispatched! Check company/outreach_queue/dispatch_queue.json and mail_merge_cadence.csv");
+    }
+
+    async function fetchCertificates() {
+      const tbody = document.getElementById('certs-tbody');
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--muted);">Loading certificates...</td></tr>';
+      try {
+        const res = await fetch('/api/certificates');
+        const certs = await res.json();
+        tbody.innerHTML = '';
+        if (certs.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--muted);">No certificates found in outbox.</td></tr>';
+          return;
+        }
+        certs.forEach(c => {
+          const tr = document.createElement('tr');
+          const badge = c.status === 'PASSED' ? '<span class="badge-pass" style="padding: 2px 6px; font-size: 11px;">PASSED</span>' : '<span class="badge-fail" style="padding: 2px 6px; font-size: 11px;">REJECT</span>';
+          tr.innerHTML = `
+            <td><strong>${c.filename}</strong></td>
+            <td>${badge}</td>
+            <td style="color: ${c.fatal_discrepancies > 0 ? 'var(--rose)' : 'var(--green)'}; font-weight: bold;">${c.fatal_discrepancies}</td>
+            <td style="font-family: monospace; font-size: 11px; color: var(--muted);">${c.sha256_hash.substring(0, 20)}...</td>
+            <td><a href="/api/certificates/${c.filename}" target="_blank" class="btn btn-secondary btn-sm" style="text-decoration: none;">View Certificate</a></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (e) {
+        tbody.innerHTML = `<tr><td colspan="5" style="color: var(--rose);">Failed loading certificates: ${e.message}</td></tr>`;
+      }
+    }
+
+    async function calculateCBAM() {
+      const payload = {
+        goods_name: document.getElementById('cbam-name').value,
+        cn_code: document.getElementById('cbam-cn').value,
+        quantity_metric_tonnes: parseFloat(document.getElementById('cbam-qty').value),
+        direct_fuel_emissions_tco2: parseFloat(document.getElementById('cbam-fuel').value),
+        electricity_consumed_mwh: parseFloat(document.getElementById('cbam-elec').value)
+      };
+
+      try {
+        const res = await fetch('/api/cbam/calculate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        const html = `
+          <div style="font-weight: bold; font-size: 15px; color: #fff; margin-bottom: 8px;">${data.goods_name} (CN: ${data.cn_code})</div>
+          <div style="padding: 12px; background: rgba(255,255,255,0.03); border-radius: 6px; margin-bottom: 12px;">
+            <div><strong>Production Volume:</strong> ${data.production_volume_tonnes} Metric Tonnes</div>
+            <div><strong>Direct Specific Carbon (Scope 1):</strong> ${data.specific_direct_emissions} tCO2e / MT</div>
+            <div><strong>Indirect Specific Carbon (Scope 2):</strong> ${data.specific_indirect_emissions} tCO2e / MT</div>
+            <div style="color: var(--cyan); font-weight: bold; margin-top: 4px;"><strong>Total Embedded Carbon:</strong> ${data.specific_total_emissions} tCO2e / MT (${data.total_embedded_emissions_tco2} tCO2e Total)</div>
+          </div>
+          <div style="padding: 12px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid var(--amber); border-radius: 4px; margin-bottom: 12px;">
+            <div style="font-weight: bold; color: var(--amber);">Estimated EU ETS Carbon Border Liability:</div>
+            <div style="font-size: 20px; font-weight: 800; color: #fff; margin-top: 4px;">€${data.estimated_cbam_tariff_eur.toLocaleString()} <span style="font-size: 14px; color: var(--muted); font-weight: normal;">(≈ ₹${data.estimated_cbam_tariff_inr.toLocaleString()})</span></div>
+          </div>
+          <div style="padding: 10px; background: rgba(6, 182, 212, 0.08); border-radius: 6px; font-size: 12px; color: #a5f3fc;">
+            <strong>Compliance Advisory:</strong> ${data.compliance_recommendation}
+          </div>
+        `;
+        document.getElementById('cbam-output').innerHTML = html;
+      } catch (e) {
+        document.getElementById('cbam-output').innerHTML = `<div style="color: var(--rose);">Calculation failed: ${e.message}</div>`;
+      }
+    }
+
+    window.onload = () => loadSample('clean');
+  </script>
+</body>
+</html>

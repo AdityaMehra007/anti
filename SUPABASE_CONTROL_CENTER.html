@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Autonomous Control Center</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --green: #2ea043;
+      --green-glow: rgba(46, 160, 67, 0.2);
+      --supabase-green: #3ecf8e;
+      --blue: #58a6ff;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --text-bright: #f0f6fc;
+      --red: #f85149;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 36px; height: 36px; fill: var(--supabase-green); }
+    h1 { color: var(--text-bright); font-size: 24px; font-weight: 600; }
+    .badge { background: #238636; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 18px; transition: border-color 0.2s; }
+    .card:hover { border-color: var(--supabase-green); }
+    .card-title { font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: flex; justify-content: space-between; }
+    .card-value { font-size: 20px; color: var(--text-bright); font-weight: 600; margin-bottom: 4px; }
+    .status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+    .status-online { background: var(--supabase-green); box-shadow: 0 0 8px var(--green-glow); }
+    .status-offline { background: var(--red); }
+    .status-unknown { background: var(--text-muted); }
+    
+    .panel { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .panel-title { color: var(--text-bright); font-size: 18px; font-weight: 600; margin-bottom: 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    
+    .btn { background: #21262d; border: 1px solid var(--border); color: var(--text-bright); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .btn:hover { background: #30363d; border-color: var(--text-muted); }
+    .btn-primary { background: #238636; border-color: rgba(240, 246, 252, 0.1); color: #fff; }
+    .btn-primary:hover { background: #2ea043; }
+    .btn-supabase { background: var(--supabase-green); color: #0d1117; font-weight: 600; border: none; }
+    .btn-supabase:hover { background: #32b57a; }
+
+    .input-group { display: flex; gap: 10px; margin-bottom: 12px; }
+    input, select, textarea { background: #0d1117; border: 1px solid var(--border); border-radius: 6px; color: var(--text-bright); padding: 8px 12px; font-size: 14px; width: 100%; outline: none; }
+    input:focus, textarea:focus { border-color: var(--supabase-green); }
+    
+    pre { background: #0d1117; border: 1px solid var(--border); border-radius: 6px; padding: 14px; color: #7ee787; font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 13px; overflow-x: auto; max-height: 280px; }
+    .quick-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24">
+        <path d="M21.362 9.354H12V.3a.3.3 0 0 0-.535-.192L2.638 14.646H12v9.054a.3.3 0 0 0 .535.192l8.827-14.538a.3.3 0 0 0-.256-.464z" />
+      </svg>
+      <div>
+        <h1>Supabase Control Center</h1>
+        <p style="font-size: 13px; color: var(--text-muted);">Autonomous Local & Cloud Service Orchestrator</p>
+      </div>
+    </div>
+    <div>
+      <span class="badge" id="overall-badge">READY</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title"><span>Studio Dashboard</span> <span class="status-indicator status-unknown" id="dot-studio"></span></div>
+      <div class="card-value">Port 3000</div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Web management console for tables, SQL, and schemas.</p>
+      <a href="http://localhost:3000" target="_blank" class="btn btn-supabase" style="width: 100%; justify-content: center;">Open Studio</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span>Kong API Gateway</span> <span class="status-indicator status-unknown" id="dot-gateway"></span></div>
+      <div class="card-value">Port 8000</div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Unified microservice ingress and routing proxy.</p>
+      <button class="btn" style="width: 100%; justify-content: center;" onclick="checkHealth()">Test Gateway</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span>PostgREST (Database API)</span> <span class="status-indicator status-unknown" id="dot-rest"></span></div>
+      <div class="card-value">/rest/v1</div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Instant auto-generated REST endpoints with RLS.</p>
+      <button class="btn" style="width: 100%; justify-content: center;" onclick="queryTable('profiles')">Query Profiles</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span>GoTrue Auth</span> <span class="status-indicator status-unknown" id="dot-auth"></span></div>
+      <div class="card-value">/auth/v1</div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Identity, JWT security, and user sessions.</p>
+      <button class="btn" style="width: 100%; justify-content: center;" onclick="checkAuth()">Auth Health</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Interactive API & Query Explorer</div>
+    <div class="input-group">
+      <input type="text" id="target-url" value="http://localhost:8000" placeholder="Supabase URL (e.g., http://localhost:8000 or Cloud URL)">
+      <button class="btn btn-primary" onclick="checkHealth()">Probe Health</button>
+    </div>
+    
+    <div class="quick-links">
+      <button class="btn" onclick="queryTable('profiles')">GET /rest/v1/profiles</button>
+      <button class="btn" onclick="queryTable('knowledge_embeddings')">GET /rest/v1/knowledge_embeddings</button>
+      <button class="btn" onclick="queryTable('audit_logs')">GET /rest/v1/audit_logs</button>
+      <button class="btn" onclick="openManual()">View Master Manual</button>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 6px;">RESPONSE OUTPUT:</div>
+      <pre id="output">// Click "Probe Health" or a query button above to test endpoints...</pre>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Active Environment & Connection Helpers</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">Local Database Connection String:</p>
+        <pre>postgresql://postgres:postgres@localhost:5432/postgres</pre>
+      </div>
+      <div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">Python Client Usage:</p>
+        <pre>import supabase_client
+client = supabase_client.get_client()
+res = client.select("profiles")</pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const outputEl = document.getElementById('output');
+
+    async function checkHealth() {
+      const url = document.getElementById('target-url').value.replace(/\/+$/, '');
+      outputEl.textContent = `Probing ${url}...`;
+      
+      try {
+        const restRes = await fetch(`${url}/rest/v1/`, { headers: { 'apikey': 'anon' } }).catch(() => null);
+        const authRes = await fetch(`${url}/auth/v1/health`).catch(() => null);
+
+        let report = {
+          target: url,
+          timestamp: new Date().toISOString(),
+          services: {
+            rest: restRes ? `HTTP ${restRes.status}` : 'OFFLINE',
+            auth: authRes ? `HTTP ${authRes.status}` : 'OFFLINE'
+          }
+        };
+
+        if (restRes) {
+          document.getElementById('dot-rest').className = 'status-indicator status-online';
+          document.getElementById('dot-gateway').className = 'status-indicator status-online';
+        } else {
+          document.getElementById('dot-rest').className = 'status-indicator status-offline';
+          document.getElementById('dot-gateway').className = 'status-indicator status-offline';
+        }
+
+        if (authRes) {
+          document.getElementById('dot-auth').className = 'status-indicator status-online';
+        } else {
+          document.getElementById('dot-auth').className = 'status-indicator status-offline';
+        }
+
+        outputEl.textContent = JSON.stringify(report, null, 2);
+      } catch (err) {
+        outputEl.textContent = `Error connecting: ${err.message}`;
+      }
+    }
+
+    async function queryTable(table) {
+      const url = document.getElementById('target-url').value.replace(/\/+$/, '');
+      outputEl.textContent = `Fetching /rest/v1/${table}...`;
+      try {
+        const res = await fetch(`${url}/rest/v1/${table}?select=*`);
+        const data = await res.json();
+        outputEl.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        outputEl.textContent = `Error querying table '${table}': ${err.message}\n(Ensure Docker containers are running with START_SUPABASE.bat or configure Cloud URL)`;
+      }
+    }
+
+    async function checkAuth() {
+      const url = document.getElementById('target-url').value.replace(/\/+$/, '');
+      try {
+        const res = await fetch(`${url}/auth/v1/health`);
+        const data = await res.json();
+        outputEl.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        outputEl.textContent = `Auth health check failed: ${err.message}`;
+      }
+    }
+
+    function openManual() {
+      alert("Refer to file:///e:/anti/SUPABASE_MASTER_MANUAL.md in your IDE for full documentation!");
+    }
+  </script>
+</body>
+</html>

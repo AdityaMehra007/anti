@@ -1,0 +1,36 @@
+{
+  "system": "ANTIGRAVITY Ω / AQUA MASTER KPI TREE",
+  "version": "1.0.0",
+  "north_star_metric": {
+    "name": "Total Pre-Shipment Demurrage & Regulatory Risk Value Prevented ($)",
+    "target_day_90": 50000.0,
+    "target_year_1": 2500000.0,
+    "frequency": "Weekly",
+    "owner": "AGT-CEO"
+  },
+  "branches": {
+    "business_outcomes": [
+      { "name": "Monthly Recurring Revenue (MRR)", "target": "INR 4,25,000 ($5,000) by Day 90", "threshold_warning": "< INR 50,000 at Day 45", "owner": "AGT-CFO" },
+      { "name": "Paid Exporter Customer Accounts", "target": "5 by Day 90, 50 by Year 1", "threshold_warning": "< 1 at Day 30", "owner": "AGT-CRO" }
+    ],
+    "customer_metrics": [
+      { "name": "Demurrage Incidence Post-Clearance", "target": "0.0%", "threshold_warning": "> 0.0%", "owner": "AGT-COMPLIANCE-EXIM" },
+      { "name": "Audit Turnaround Speed (Invoice to Dossier)", "target": "< 5 seconds", "threshold_warning": "> 30 seconds", "owner": "AGT-CTO" },
+      { "name": "Net Revenue Retention (NRR)", "target": "> 115%", "threshold_warning": "< 100%", "owner": "AGT-CRO" }
+    ],
+    "product_and_engineering": [
+      { "name": "8-Digit HS Classification Accuracy", "target": "> 99.5%", "threshold_warning": "< 95.0%", "owner": "AGT-COMPLIANCE-EXIM" },
+      { "name": "Automated Test Suite Pass Rate", "target": "100.0%", "threshold_warning": "< 100.0%", "owner": "AGT-CTO" },
+      { "name": "API Service Uptime", "target": "99.95%", "threshold_warning": "< 99.5%", "owner": "AGT-DEVOPS" }
+    ],
+    "growth_and_distribution": [
+      { "name": "Personalized Audit Outbound Volume", "target": "50 accounts/week", "threshold_warning": "< 20 accounts/week", "owner": "AGT-CRO" },
+      { "name": "Discovery Call Conversion Rate", "target": "> 15%", "threshold_warning": "< 5%", "owner": "AGT-CRO" },
+      { "name": "Audit-to-Pilot Conversion Rate", "target": "> 20%", "threshold_warning": "< 10%", "owner": "AGT-CRO" }
+    ],
+    "founder_and_operations": [
+      { "name": "Deep Work Strategic Time Allocation", "target": "> 4 hours/day", "threshold_warning": "< 2 hours/day", "owner": "Human Founder" },
+      { "name": "Task Priority Execution Velocity", "target": "> 90% top-priority weekly completion", "threshold_warning": "< 75%", "owner": "AGT-CHIEF-OF-STAFF" }
+    ]
+  }
+}

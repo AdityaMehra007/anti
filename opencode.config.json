@@ -1,0 +1,62 @@
+{
+  "$schema": "https://opencode.ai/schema.json",
+  "theme": "dark",
+  "agent": {
+    "default": "build",
+    "modes": {
+      "build": {
+        "description": "Full-access developer agent for code execution, tool invocation, and workspace mutation.",
+        "permissions": {
+          "file_edit": "allow",
+          "bash_execution": "confirm",
+          "network": "allow"
+        }
+      },
+      "plan": {
+        "description": "Read-only architectural analysis agent for codebase exploration and implementation planning.",
+        "permissions": {
+          "file_edit": "deny",
+          "bash_execution": "confirm",
+          "network": "allow"
+        }
+      }
+    }
+  },
+  "subagents": {
+    "general": {
+      "description": "Autonomous multi-step investigation and research subagent.",
+      "max_steps": 25
+    }
+  },
+  "mcp": {
+    "servers": {
+      "filesystem": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-filesystem", "e:/anti"]
+      },
+      "memory": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-memory"]
+      }
+    }
+  },
+  "providers": {
+    "preferred": "omniroute",
+    "omniroute": {
+      "base_url": "http://localhost:20128/v1",
+      "api_key": "sk-omniroute-local",
+      "models": {
+        "fast": "auto/fast",
+        "smart": "auto/smart",
+        "coding": "auto/coding",
+        "default": "auto"
+      }
+    },
+    "fallback": ["anthropic", "openai", "google", "ollama"],
+    "models": {
+      "fast": "claude-3-5-haiku-20241022",
+      "smart": "claude-3-7-sonnet-20250219",
+      "coding": "claude-3-7-sonnet-20250219"
+    }
+  }
+}
