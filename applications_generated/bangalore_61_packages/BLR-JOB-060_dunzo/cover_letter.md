@@ -2,7 +2,7 @@
 **Candidate**: Aditya Mehra  
 **Contact**: adityamehra799@gmail.com | +91-7003456624  
 **Location**: Bengaluru, Karnataka, India  
-**Date**: September 11, 2026  
+**Date**: September 28, 2026  
 
 ---
 
