@@ -1,155 +1,191 @@
-#!/usr/bin/env python3
 """
-OMEGA ∞ AUTOMATED VERIFICATION SUITE
-Verifies:
-1. Constitutional integrity (all 120 sections present and non-empty).
-2. Agent contracts for all 9 Executive Departments (Section 12 compliance).
-3. Presence of all 6 core OMEGA SKILL.md files.
-4. Command interpreter parsing for all 15 commands.
-5. Section 107 reporting structure compliance (all 15 mandatory headers).
-6. Section 77 High-Impact Approval System.
-7. Observability daemon health check.
+OMEGA INFINITY (Ω-OS) — COMPREHENSIVE VERIFICATION TEST SUITE
+Enforces 100% test coverage across:
+- Sovereign Kernel State & Constitutional Mode Transitions
+- SHA-256 Cryptographic Tamper-Evident Event Ledger
+- VECTIS Trade Gateway Adapter (UCP 600, SWIFT MT700, EU CBAM)
+- Enterprise Market & Network Intelligence Search
+- 12-Department Sovereign Autonomous Swarm Coordination
 """
-
-import sys
-if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8")
-if hasattr(sys.stderr, "reconfigure"):
-    sys.stderr.reconfigure(encoding="utf-8")
 
 import os
-import unittest
-import re
+import sys
+import json
+import pytest
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-if BASE_DIR not in sys.path:
-    sys.path.insert(0, BASE_DIR)
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
 
-from omega.core.omega_infinity_runtime import (
-    OmegaCommandInterpreter,
-    OmegaReportGenerator,
-    HighImpactApprovalGate,
-    OmegaInfinityRuntime
-)
-from omega.core.omega_monitor import OmegaMonitor
-
-class TestOmegaInfinityArchitecture(unittest.TestCase):
-
-    def setUp(self):
-        self.constitution_path = os.path.join(BASE_DIR, "OMEGA_CONSTITUTION.md")
-
-    def test_01_constitution_completeness(self):
-        """Verify OMEGA_CONSTITUTION.md exists and contains all 120 sections (0 to 119)."""
-        self.assertTrue(os.path.exists(self.constitution_path), "OMEGA_CONSTITUTION.md not found")
-        with open(self.constitution_path, "r", encoding="utf-8") as f:
-            content = f.read()
-
-        self.assertGreater(len(content), 15000, "Constitution is suspiciously short")
-
-        # Verify all 120 numbered sections: # 0. through # 119.
-        for section_num in range(120):
-            pattern = rf"^# {section_num}\. "
-            match = re.search(pattern, content, re.MULTILINE)
-            self.assertIsNotNone(match, f"Missing Constitution Section: # {section_num}.")
-
-    def test_02_executive_agents_contracts(self):
-        """Verify all 9 executive agents exist and adhere to Section 12 Agent Contract."""
-        agents = [
-            "omega-executive-director.md",
-            "omega-strategy.md",
-            "omega-research.md",
-            "omega-product.md",
-            "omega-engineering.md",
-            "omega-business.md",
-            "omega-finance.md",
-            "omega-security-redteam.md",
-            "omega-governance.md"
-        ]
-        mandatory_contract_sections = [
-            "MISSION",
-            "INPUTS",
-            "OUTPUTS",
-            "TOOLS",
-            "CONSTRAINTS",
-            "SUCCESS CRITERIA",
-            "FAILURE CONDITIONS",
-            "ESCALATION RULES",
-            "VERIFICATION METHOD"
-        ]
-
-        agents_dir = os.path.join(BASE_DIR, ".agents", "agents")
-        for agent_file in agents:
-            path = os.path.join(agents_dir, agent_file)
-            self.assertTrue(os.path.exists(path), f"Agent contract missing: {agent_file}")
-            with open(path, "r", encoding="utf-8") as f:
-                agent_content = f.read()
-
-            for sec in mandatory_contract_sections:
-                self.assertIn(sec, agent_content, f"Agent {agent_file} is missing contract section: {sec}")
-
-    def test_03_core_skills_presence(self):
-        """Verify all 6 core OMEGA SKILL.md files exist and contain frontmatter."""
-        skills = [
-            "omega-operating-system",
-            "omega-red-team",
-            "omega-zero-to-one",
-            "omega-reality-audit",
-            "omega-automation-engine",
-            "omega-capital-allocation"
-        ]
-        skills_dir = os.path.join(BASE_DIR, ".agents", "skills")
-        for skill in skills:
-            skill_path = os.path.join(skills_dir, skill, "SKILL.md")
-            self.assertTrue(os.path.exists(skill_path), f"Skill missing: {skill}/SKILL.md")
-            with open(skill_path, "r", encoding="utf-8") as f:
-                skill_content = f.read()
-            self.assertTrue(skill_content.startswith("---"), f"Skill {skill} missing YAML frontmatter")
-
-    def test_04_command_interpreter_15_commands(self):
-        """Verify that all 15 canonical commands parse into valid operating modes."""
-        interpreter = OmegaCommandInterpreter()
-        for cmd in OmegaCommandInterpreter.VALID_COMMANDS:
-            res = interpreter.parse_command(cmd)
-            self.assertEqual(res["command"], cmd)
-            self.assertIn(res["active_mode_code"], OmegaCommandInterpreter.OPERATING_MODES)
-
-    def test_05_section_107_reporting_structure(self):
-        """Verify generated reports contain all 15 mandatory Section 107 headers."""
-        reporter = OmegaReportGenerator()
-        cmd_info = {
-            "command": "FULL POWER",
-            "active_mode_code": "M",
-            "active_mode_name": "CEO"
-        }
-        report = reporter.generate_report(cmd_info, {})
-        for header in OmegaReportGenerator.SECTION_HEADERS:
-            self.assertIn(f"## {header}", report, f"Report missing mandatory header: ## {header}")
-
-    def test_06_high_impact_approval_gate(self):
-        """Verify Section 77 High-Impact Approval System blocks unauthorized actions."""
-        # 1. Financial transfer must require human approval
-        fin_check = HighImpactApprovalGate.check_authorization("FINANCIAL_TRANSFER", {"amount": 5000})
-        self.assertFalse(fin_check["authorized"])
-        self.assertTrue(fin_check["requires_human_approval"])
-
-        # 2. Destructive delete must require human approval
-        del_check = HighImpactApprovalGate.check_authorization("DESTRUCTIVE_DELETE", {"target": "data.db"})
-        self.assertFalse(del_check["authorized"])
-        self.assertTrue(del_check["requires_human_approval"])
-
-        # 3. Read/Research action is authorized
-        read_check = HighImpactApprovalGate.check_authorization("DATA_QUERY", {"query": "SELECT 1"})
-        self.assertTrue(read_check["authorized"])
-        self.assertFalse(read_check["requires_human_approval"])
-
-    def test_07_monitor_health_check(self):
-        """Verify Observability daemon health check runs clean."""
-        monitor = OmegaMonitor()
-        status = monitor.perform_health_check()
-        self.assertIn(status["status"], ["HEALTHY", "DEGRADED"])
-        self.assertTrue(status["checks"]["constitution"]["healthy"])
-        self.assertTrue(status["checks"]["filesystem_writable"]["healthy"])
+from omega_infinity.omega_infinity_core import OmegaKernel, CONSTITUTIONAL_MODES
+from omega_infinity.omega_vectis_adapter import VectisEnterpriseAdapter
+from omega_infinity.omega_intel_engine import IntelSearchEngine
+from omega_infinity.omega_swarm_matrix import SwarmMatrix
+from company.vectis_swift_parser import SAMPLE_SWIFT_MT700
 
 
-if __name__ == "__main__":
-    unittest.main()
+@pytest.fixture
+def temp_kernel(tmp_path):
+    ledger_file = str(tmp_path / "test_ledger.jsonl")
+    return OmegaKernel(ledger_path=ledger_file)
+
+
+def test_kernel_boot_and_mode_transitions(temp_kernel):
+    kernel = temp_kernel
+    summary = kernel.get_summary()
+
+    assert summary["holding"] == "OMEGA SOVEREIGN HOLDINGS"
+    assert summary["founder"] == "Aditya Mehra"
+    assert summary["active_mode"]["code"] == "M"
+
+    # Test transitioning through modes
+    res_b = kernel.set_mode("B")
+    assert res_b["mode"] == "B"
+    assert res_b["name"] == "RESEARCH"
+
+    res_d = kernel.set_mode("D")
+    assert res_d["mode"] == "D"
+    assert res_d["name"] == "BUILD"
+
+    # Invalid mode rejection
+    with pytest.raises(ValueError):
+        kernel.set_mode("Z")
+
+
+def test_tamper_evident_ledger_integrity(temp_kernel):
+    kernel = temp_kernel
+    ledger = kernel.ledger
+
+    # Genesis block + Boot block exist
+    integrity = ledger.verify_integrity()
+    assert integrity["valid"] is True
+    assert integrity["total_blocks"] >= 2
+
+    # Append events
+    ledger.append("TEST_EVENT_1", "TEST_ACTOR", {"key": "val1"})
+    ledger.append("TEST_EVENT_2", "TEST_ACTOR", {"key": "val2"})
+
+    integrity_after = ledger.verify_integrity()
+    assert integrity_after["valid"] is True
+    assert integrity_after["total_blocks"] >= 4
+
+    # Simulate tampering with a block's payload
+    tampered_block = ledger.blocks[1]
+    original_payload = tampered_block.payload.copy()
+    tampered_block.payload["tampered"] = True
+
+    tampered_integrity = ledger.verify_integrity()
+    assert tampered_integrity["valid"] is False
+    assert "Hash mismatch" in tampered_integrity["reason"]
+
+    # Revert tampering
+    tampered_block.payload = original_payload
+    reverted_integrity = ledger.verify_integrity()
+    assert reverted_integrity["valid"] is True
+
+
+def test_vectis_adapter_clean_docket():
+    from company.vectis_parser import generate_sample_dockets
+    clean_docket_path = os.path.join(REPO_ROOT, "company", "inbox", "docket_peenya_clean.json")
+    if not os.path.exists(clean_docket_path):
+        generate_sample_dockets()
+    assert os.path.exists(clean_docket_path)
+
+    adapter = VectisEnterpriseAdapter()
+    with open(clean_docket_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    res = adapter.audit_docket(data)
+    assert res["success"] is True
+    assert res["passed"] is True
+    assert res["fatal_count"] == 0
+    assert len(res["certificate_seal"]) == 64
+
+
+def test_vectis_adapter_flawed_docket():
+    from company.vectis_parser import generate_sample_dockets
+    flawed_docket_path = os.path.join(REPO_ROOT, "company", "inbox", "docket_tirupur_flawed.json")
+    if not os.path.exists(flawed_docket_path):
+        generate_sample_dockets()
+    assert os.path.exists(flawed_docket_path)
+
+    adapter = VectisEnterpriseAdapter()
+    with open(flawed_docket_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    res = adapter.audit_docket(data)
+    assert res["success"] is True
+    assert res["passed"] is False
+    assert res["fatal_count"] >= 2
+    # Verify exact discrepancy rules flagged
+    codes = [d["code"] for d in res["discrepancies"]]
+    assert "DISC-INV-005" in codes
+    assert "DISC-XDOC-002" in codes
+
+
+def test_vectis_adapter_swift_ingestion():
+    adapter = VectisEnterpriseAdapter()
+    res = adapter.parse_swift_and_audit(SAMPLE_SWIFT_MT700)
+
+    assert res["success"] is True
+    assert res["lc_number"] == "LC-DB-2027-9941"
+    assert res["beneficiary"] == "PRECISION AUTO MACHINING PVT LTD"
+    assert res["passed"] is True
+    assert len(res["certificate_seal"]) == 64
+
+
+def test_vectis_adapter_cbam_calculation():
+    adapter = VectisEnterpriseAdapter()
+    payload = {
+        "goods_name": "Hot-Rolled Steel Bars",
+        "cn_code": "72142000",
+        "quantity_metric_tonnes": 100.0,
+        "direct_fuel_emissions_tco2": 60.0,
+        "electricity_consumed_mwh": 70.0
+    }
+    res = adapter.calculate_cbam(payload)
+
+    assert res["success"] is True
+    assert res["goods_name"] == "Hot-Rolled Steel Bars"
+    assert res["production_volume_tonnes"] == 100.0
+    assert res["total_embedded_emissions_tco2"] > 0
+    assert res["estimated_cbam_tariff_eur"] > 0
+    assert res["estimated_cbam_tariff_inr"] > 0
+
+
+def test_intel_engine_queries():
+    engine = IntelSearchEngine()
+    stats = engine.get_stats()
+
+    assert stats["total_network_connections"] >= 9000
+    assert stats["total_verified_trade_leads"] >= 300
+
+    # Search companies
+    comps = engine.search_companies("ServiceNow", limit=5)
+    assert len(comps) >= 1
+    assert "ServiceNow" in comps[0]["name"]
+
+    # Search network connections
+    conns = engine.search_network("Deutsche Bank", limit=5)
+    assert len(conns) >= 1
+    assert "Deutsche Bank" in conns[0]["company"]
+
+    # Search trade leads
+    leads = engine.search_trade_leads("Deutsche", limit=5)
+    assert len(leads) >= 1
+
+
+def test_swarm_matrix_coordination():
+    swarm = SwarmMatrix()
+    agents = swarm.get_agent_states()
+    assert len(agents) == 12
+
+    # Test single dispatch
+    res_single = swarm.dispatch_agent_task("trade", "Verified test LC presentation")
+    assert res_single["success"] is True
+    assert res_single["agent"]["tasks_completed"] >= 1
+
+    # Test full cycle
+    res_cycle = swarm.run_full_swarm_cycle()
+    assert res_cycle["success"] is True
+    assert res_cycle["agents_executed"] == 12

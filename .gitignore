@@ -55,3 +55,12 @@ node_modules/
 
 # Gemini agent state
 .gemini/
+
+# Models & Large Weights
+models/
+*.safetensors
+
+# Database WAL & SHM
+*.db-shm
+*.db-wal
+
