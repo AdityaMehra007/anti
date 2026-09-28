@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 r"""
 ========================================================================================
-ATLAS-GLOBAL: BESPOKE OPERATIONAL PROPOSALS GENERATOR
+ATLAS-GLOBAL: BESPOKE OPERATIONAL PROPOSALS GENERATOR (5 STRATEGIC PROPOSALS)
 ========================================================================================
 Generates complete, publication-grade 30-60-90 Day Operational Audit & Value Creation
 Proposals for Aditya Mehra, formatted for immediate presentation in hiring manager rounds.
@@ -81,7 +81,7 @@ PROPOSALS = [
         "p1_days": "Days 1 - 30: Ground-Level Dark Store Immersion",
         "p1_actions": [
             "Spend 100 hours shadowing pickers and store managers across HSR, Koramangala, and Bellandur hubs.",
-            "Log granular timestamps for every stage: Order Ping ➔ Shelf Navigation ➔ Item Scan ➔ Bagging ➔ Rider Handoff.",
+            "Log granular timestamps for every stage: Order Ping -> Shelf Navigation -> Item Scan -> Bagging -> Rider Handoff.",
             "Identify top 10 SKU bottlenecks that cause picker congestion in high-traffic aisles."
         ],
         "p2_days": "Days 31 - 60: Layout Optimization & Rapid Restocking Protocols",
@@ -96,12 +96,64 @@ PROPOSALS = [
             "Deliver an audited 8-12 second reduction in average pick-to-pack time across pilot dark stores.",
             "Present founder's office summary on scalable SKU allocation models for tier-1 micro-catchments."
         ]
+    },
+    {
+        "filename": "PROPOSAL_04_JPMORGAN_TRADE_OPERATIONS.md",
+        "title": "30-60-90 DAY OPERATIONAL PROPOSAL: GLOBAL TRADE FINANCE DISCREPANCY RESOLUTION & UCP 600 COMPLIANCE",
+        "target_company": "JPMorgan Chase Bank India (Embassy TechVillage, Devarabeesanahalli)",
+        "target_role": "Global Operations & Trade Finance Associate",
+        "candidate": "Aditya Mehra | BBA International Business (Dayananda Sagar University '26)",
+        "core_thesis": "Accelerating Letter of Credit (LC) examination turnaround times and eliminating recurring cross-border document discrepancies.",
+        "p1_days": "Days 1 - 30: Document Examination Workflow & Defect Analysis",
+        "p1_actions": [
+            "Audit historical LC discrepancies across Asia-Pacific export corridors under ICC UCP 600 and ISBP 745 standards.",
+            "Map end-to-end exception escalation handoffs between document examiners, relationship managers, and advising banks.",
+            "Identify top 5 avoidable technical discrepancies (e.g. late presentation, transport document endorsement errors)."
+        ],
+        "p2_days": "Days 31 - 60: Automated Pre-Checklists & Discrepancy Reduction",
+        "p2_actions": [
+            "Develop a standardized 'First-Time-Right' document validation template for high-volume corporate trade clients.",
+            "Conduct structured feedback sessions with advising bank operations to clarify discrepancy cure protocols.",
+            "Reduce average client response turnaround on discrepant documents from 72h to under 24h."
+        ],
+        "p3_days": "Days 61 - 90: STP Rate Enhancement & Operations Playbook",
+        "p3_actions": [
+            "Partner with trade technology teams to validate OCR-driven automated document verification rules.",
+            "Achieve a 12% improvement in Straight-Through-Processing (STP) rates for standardized commodity LCs.",
+            "Publish internal operations briefing on emerging cross-border digital trade instruments."
+        ]
+    },
+    {
+        "filename": "PROPOSAL_05_CRED_BRAND_OPERATIONS.md",
+        "title": "30-60-90 DAY OPERATIONAL PROPOSAL: LUXURY COMMERCE MERCHANT ONBOARDING & HIGH-TRUST VIP SLA GOVERNANCE",
+        "target_company": "CRED / Dreamplug Technologies (100 Feet Road, Indiranagar)",
+        "target_role": "Founder's Office Associate - Strategic Brand Operations & Commerce",
+        "candidate": "Aditya Mehra | Brand Operations Specialist (Puma) | BBA International Business (DSU '26)",
+        "core_thesis": "Streamlining luxury partner onboarding SLAs and establishing zero-defect event and commerce fulfillment operations.",
+        "p1_days": "Days 1 - 30: Merchant Journey Mapping & Friction Audit",
+        "p1_actions": [
+            "Map full partner onboarding lifecycle from contract sign-off to first drop on CRED Store.",
+            "Interview 15 direct-to-consumer luxury brand founders to uncover catalog ingestion and inventory sync pain points.",
+            "Benchmark member fulfillment exception rates during marquee reward drop events."
+        ],
+        "p2_days": "Days 31 - 60: Concierge Operations & Event Fulfillment SLA",
+        "p2_actions": [
+            "Establish high-touch 'Concierge Onboarding SLA' for tier-1 luxury partners, reducing time-to-launch by 40%.",
+            "Implement real-time inventory tracking protocols with partner warehouses to eliminate post-purchase cancellations.",
+            "Apply high-stress on-ground protocol management (proven at Aero India 2025 and Puma) to live brand experiential drops."
+        ],
+        "p3_days": "Days 61 - 90: Autonomous Partner Playbook & Scaled Velocity",
+        "p3_actions": [
+            "Codify the 'CRED Commerce Operations Master Manual' for scaling multi-category brand drops.",
+            "Achieve 99.5% on-time dispatch rate across exclusive member drops during peak campaign weeks.",
+            "Deliver executive synthesis to Founder's Office on operational leverage in luxury merchant networks."
+        ]
     }
 ]
 
 def generate_proposals():
     print("=" * 80)
-    print("  ATLAS-GLOBAL: GENERATING BESPOKE 30-60-90 DAY VALUE CREATION PROPOSALS")
+    print("  ATLAS-GLOBAL: GENERATING BESPOKE 30-60-90 DAY VALUE CREATION PROPOSALS (5 PROPOSALS)")
     print("=" * 80)
 
     PROPOSALS_DIR.mkdir(parents=True, exist_ok=True)
@@ -157,7 +209,7 @@ Operations excellence in high-velocity organizations requires relentless focus o
 
 This directory contains publication-ready 30-60-90 Day Value Creation Proposals for Aditya Mehra, formatted for presentation during hiring manager rounds.
 
-## 📄 Active Proposals
+## 📄 Active Proposals (Top 5 Priority)
 
 {chr(10).join(summary_list)}
 

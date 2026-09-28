@@ -14,7 +14,7 @@ Operations excellence in high-velocity organizations requires relentless focus o
 
 ## 📅 Days 1 - 30: Ground-Level Dark Store Immersion
 - Spend 100 hours shadowing pickers and store managers across HSR, Koramangala, and Bellandur hubs.
-- Log granular timestamps for every stage: Order Ping ➔ Shelf Navigation ➔ Item Scan ➔ Bagging ➔ Rider Handoff.
+- Log granular timestamps for every stage: Order Ping -> Shelf Navigation -> Item Scan -> Bagging -> Rider Handoff.
 - Identify top 10 SKU bottlenecks that cause picker congestion in high-traffic aisles.
 
 ---

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 r"""
 ========================================================================================
-ATLAS-GLOBAL: EXECUTIVE BATTLECARDS GENERATOR
+ATLAS-GLOBAL: EXECUTIVE BATTLECARDS GENERATOR (TOP 20 BENGALURU EMPLOYERS)
 ========================================================================================
 Generates precision 1-page operational interview battlecards for Aditya Mehra for
-top Bengaluru employers across GCCs, FinTech, Quick Commerce, and Defense.
+top 20 Bengaluru employers across GCCs, FinTech, Quick Commerce, Aerospace, and Logistics.
 ========================================================================================
 """
 
@@ -190,19 +190,189 @@ TARGETS = [
         "thesis_30": "Audit detention and demurrage invoice workflows across major Indian container ports (Nhava Sheva, Chennai, Cochin).",
         "thesis_60": "Establish an early-warning alert system for container dwell time approaching free-period thresholds.",
         "thesis_90": "Coordinate integrated inland transport handoffs, reducing customer demurrage claims by 10%."
+    },
+    {
+        "id": "BC-011",
+        "company": "Cisco Systems India",
+        "corridor": "Outer Ring Road (Kadubeesanahalli)",
+        "tech_park": "Cessna Business Park",
+        "sector": "Enterprise Networking & Cloud Infrastructure Leader",
+        "role": "Supply Chain & Hardware Operations Specialist",
+        "ctc": "₹8.0L - ₹11.0L LPA",
+        "portal": "https://jobs.cisco.com",
+        "phone": "+91-80-4426-0000",
+        "email": "ciscojobs-india@cisco.com",
+        "bottlenecks": "Global component shortages, high-priority router assembly handoffs, vendor warranty reconciliation across APAC hubs.",
+        "aditya_proof": "Asset inventory reconciliation for Tata Communications and high-stress hardware logistics management at Aero India 2025.",
+        "thesis_30": "Audit inbound switch and transceiver shipments; document ERP receipt discrepancies.",
+        "thesis_60": "Formulate a supplier SLA escalation matrix to reduce manufacturing RMA turnaround by 15%.",
+        "thesis_90": "Deploy automated hardware tracking alerts across Bengaluru evaluation labs."
+    },
+    {
+        "id": "BC-012",
+        "company": "Wells Fargo India Solutions",
+        "corridor": "Outer Ring Road (Bellandur)",
+        "tech_park": "Embassy TechVillage",
+        "sector": "Tier-1 Global Financial Institution GCC",
+        "role": "Commercial Banking Operations & Vendor Governance Analyst",
+        "ctc": "₹8.5L - ₹11.5L LPA",
+        "portal": "https://www.wellsfargojobs.com",
+        "phone": "+91-80-4100-3000",
+        "email": "careersindia@wellsfargo.com",
+        "bottlenecks": "Vendor contract compliance, third-party operational risk assessments, multi-jurisdiction payment tracking.",
+        "aditya_proof": "Rigorous background in International Business law, regulatory compliance, and vendor management from DSU.",
+        "thesis_30": "Catalog active vendor contracts across operations teams; benchmark SLA performance metrics.",
+        "thesis_60": "Establish a centralized scorecard for evaluating third-party service provider compliance.",
+        "thesis_90": "Streamline invoice reconciliation workflows, eliminating redundant vendor billing queries."
+    },
+    {
+        "id": "BC-013",
+        "company": "Goldman Sachs Services India",
+        "corridor": "Outer Ring Road (Kadubeesanahalli)",
+        "tech_park": "Helios Business Park",
+        "sector": "Global Investment Banking & Asset Management Leader",
+        "role": "Global Markets & Trade Clearing Operations Associate",
+        "ctc": "₹11.0L - ₹16.0L LPA",
+        "portal": "https://www.goldmansachs.com/careers",
+        "phone": "+91-80-4127-1000",
+        "email": "indiarecruiting@gs.com",
+        "bottlenecks": "T+1 settlement fail remediation, collateral margin calls reconciliation, cross-border equity trade matching.",
+        "aditya_proof": "Specialized coursework in Financial Markets, Trade Law, and Quantitative Business Analysis at DSU.",
+        "thesis_30": "Shadow senior operations analysts on end-of-day trade break reconciliation and exception clearing.",
+        "thesis_60": "Identify recurring trade mismatch drivers across European exchange connections.",
+        "thesis_90": "Build an automated exception triage dashboard, reducing trade break resolution time by 25%."
+    },
+    {
+        "id": "BC-014",
+        "company": "Target India",
+        "corridor": "North Bangalore (Hebbal)",
+        "tech_park": "Manyata Tech Park",
+        "sector": "Fortune 50 Retail Omnichannel GCC",
+        "role": "Global Inventory & Merchandising Operations Lead",
+        "ctc": "₹7.5L - ₹10.0L LPA",
+        "portal": "https://corporate.target.com/careers",
+        "phone": "+91-80-4135-2000",
+        "email": "india.careers@target.com",
+        "bottlenecks": "Seasonal inventory allocation forecasting, ocean freight container dwell time, vendor packaging non-compliance.",
+        "aditya_proof": "Direct retail brand inventory and event merchandise management for Puma Sports India.",
+        "thesis_30": "Analyze store-level replenishment cycles for high-velocity seasonal merchandise.",
+        "thesis_60": "Institute a vendor packaging compliance scorecard to prevent dock receiving delays.",
+        "thesis_90": "Partner with Target supply chain data engineers to optimize safety stock parameters across regional DCs."
+    },
+    {
+        "id": "BC-015",
+        "company": "Airbus India",
+        "corridor": "East Bangalore (Whitefield / Devanahalli)",
+        "tech_park": "KIADB Aerospace & Whitefield Hub",
+        "sector": "Global Commercial Aircraft & Defense Pioneer",
+        "role": "Aerospace Procurement & Vendor Delivery Trainee",
+        "ctc": "₹8.0L - ₹11.0L LPA",
+        "portal": "https://www.airbus.com/en/careers",
+        "phone": "+91-80-6744-5000",
+        "email": "careers.india@airbus.com",
+        "bottlenecks": "High-precision avionics part tracking, AS9100 quality documentation verification, customs broker clearance coordination.",
+        "aditya_proof": "Operational Lead at Aero India 2025: direct on-ground experience coordinating defense logistics and aviation protocol.",
+        "thesis_30": "Map procurement pipelines for Indian aerospace engineering components; audit supplier delivery lead times.",
+        "thesis_60": "Formulate a proactive customs pre-clearance protocol for imported aircraft test tooling.",
+        "thesis_90": "Establish automated supplier milestone tracking for Airbus engineering programs in India."
+    },
+    {
+        "id": "BC-016",
+        "company": "Swiggy Limited",
+        "corridor": "Outer Ring Road (Devarabeesanahalli)",
+        "tech_park": "Embassy TechVillage",
+        "sector": "Hyperlocal Food & Quick Commerce Mega-Cap Leader",
+        "role": "Chief of Staff Associate - Instamart Logistics & Dark Store Governance",
+        "ctc": "₹10.0L - ₹15.0L LPA",
+        "portal": "https://careers.swiggy.com",
+        "phone": "+91-80-6746-6700",
+        "email": "careers@swiggy.in",
+        "bottlenecks": "Dark store order dispatch SLAs, peak rain-surge inventory allocation, delivery partner wait-time reduction.",
+        "aditya_proof": "Proven crowd triage and bottleneck elimination under compressed time horizons (Aero India 2025).",
+        "thesis_30": "Conduct on-site operational reviews across 8 high-density Instamart pods in East Bengaluru.",
+        "thesis_60": "Redesign dark store dispatch staging areas to shave 20 seconds off rider pickup handoffs.",
+        "thesis_90": "Deliver standard operating procedures for scaling high-frequency grocery pods in emerging micro-catchments."
+    },
+    {
+        "id": "BC-017",
+        "company": "Rapido (Roppen Transportation)",
+        "corridor": "South Bangalore (HSR Layout)",
+        "tech_park": "Sector 6 Headquarters",
+        "sector": "Mobility Unicorn & Rapid Logistics Platform",
+        "role": "City Operations Lead - Fleet Supply & Rider SLA Governance",
+        "ctc": "₹9.0L - ₹14.0L LPA",
+        "portal": "https://www.rapido.bike/careers",
+        "phone": "+91-80-6817-2900",
+        "email": "careers@rapido.bike",
+        "bottlenecks": "Captain onboarding conversion, surge-demand supply allocation, customer cancellation rate mitigation.",
+        "aditya_proof": "Operational rigor managing massive crowd throughput and vendor triage at Aero India 2025.",
+        "thesis_30": "Map captain churn and drop-off points during physical onboarding sessions in South Bangalore.",
+        "thesis_60": "Deploy localized captain incentive communications during peak transit corridor surges.",
+        "thesis_90": "Create a unified operations playbook for expanding auto/bike fleet density around major metro stations."
+    },
+    {
+        "id": "BC-018",
+        "company": "Shadowfax Technologies",
+        "corridor": "Outer Ring Road (Bellandur)",
+        "tech_park": "Pritech Park",
+        "sector": "On-Demand 3PL & E-Commerce Logistics Leader",
+        "role": "E-Commerce Express Logistics & Hub Turnaround Associate",
+        "ctc": "₹8.0L - ₹12.5L LPA",
+        "portal": "https://www.shadowfax.in/careers",
+        "phone": "+91-80-4680-4000",
+        "email": "careers@shadowfax.in",
+        "bottlenecks": "First-mile hub sorting speed, mid-mile linehaul tracking variances, return-to-origin (RTO) rate reduction.",
+        "aditya_proof": "Direct academic mastery of multimodal logistics, Incoterms, and warehousing governance at DSU.",
+        "thesis_30": "Audit sorting throughput and conveyor utilization rates at Bengaluru central logistics hubs.",
+        "thesis_60": "Introduce an automated parcel discrepancy tagging workflow for linehaul handoffs.",
+        "thesis_90": "Optimize last-mile route allocation, reducing non-delivery return rates by 8%."
+    },
+    {
+        "id": "BC-019",
+        "company": "Flipkart Internet Pvt Ltd",
+        "corridor": "Outer Ring Road (Bellandur)",
+        "tech_park": "Embassy TechVillage",
+        "sector": "India's E-Commerce Pioneer & Supply Chain Titan",
+        "role": "Supply Chain Fulfillment & Cross-Dock Operations Analyst",
+        "ctc": "₹9.5L - ₹14.5L LPA",
+        "portal": "https://www.flipkartcareers.com",
+        "phone": "+91-80-4348-1600",
+        "email": "careers@flipkart.com",
+        "bottlenecks": "Big Billion Days peak order fulfillment surges, automated sortation facility bottlenecks, vendor drop-shipping SLAs.",
+        "aditya_proof": "Asset inventory reconciliation for Tata Communications and brand merchandise ops for Puma Sports India.",
+        "thesis_30": "Analyze sorting facility processing cycles across regional fulfillment centers (FCs) in Karnataka.",
+        "thesis_60": "Design an early-warning alert system for fulfillment center dock congestion.",
+        "thesis_90": "Standardize cross-dock handoff protocols, reducing inter-facility transfer times by 12%."
+    },
+    {
+        "id": "BC-020",
+        "company": "Siemens Healthineers",
+        "corridor": "South Bangalore (Electronic City)",
+        "tech_park": "Phase 1 Technology Campus",
+        "sector": "Global Medical Technology & Healthcare Engineering Leader",
+        "role": "Medical Tech Supply Chain & EXIM Regulatory Compliance Trainee",
+        "ctc": "₹7.5L - ₹10.0L LPA",
+        "portal": "https://www.siemens-healthineers.com/en-in/careers",
+        "phone": "+91-80-3015-8000",
+        "email": "hrindia@siemens-healthineers.com",
+        "bottlenecks": "Cold-chain medical equipment logistics, CDSCO import documentation clearance, precision spare parts replenishment.",
+        "aditya_proof": "Specialized coursework in EXIM documentation, customs tariffs, and international trade law at DSU.",
+        "thesis_30": "Audit customs clearance pipelines for high-precision diagnostic imaging components.",
+        "thesis_60": "Establish temperature-controlled cold-chain monitoring protocols with domestic logistics partners.",
+        "thesis_90": "Automate CDSCO compliance verification checklists, eliminating import clearance holds."
     }
 ]
 
 def generate_battlecards():
     print("=" * 80)
-    print("  ATLAS-GLOBAL: GENERATING TARGETED EXECUTIVE BATTLECARDS")
+    print("  ATLAS-GLOBAL: GENERATING TARGETED EXECUTIVE BATTLECARDS (TOP 20)")
     print("=" * 80)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     summary_index = []
 
     for t in TARGETS:
-        filename = f"{t['id']}_{t['company'].lower().replace(' ', '_').replace('(', '').replace(')', '').replace('&', 'and')}.md"
+        filename = f"{t['id']}_{t['company'].lower().replace(' ', '_').replace('(', '').replace(')', '').replace('&', 'and').replace('.', '').replace('-', '_')}.md"
         filepath = OUTPUT_DIR / filename
 
         content = f"""# EXECUTIVE INTERVIEW BATTLECARD: {t['company'].upper()}
@@ -263,9 +433,9 @@ def generate_battlecards():
     with open(index_md, "w", encoding="utf-8") as f:
         f.write(f"""# ATLAS-GLOBAL: EXECUTIVE INTERVIEW BATTLECARDS DIRECTORY
 
-This directory contains targeted 1-page operational interview battlecards for Aditya Mehra, matching his verified real-world operational proof points directly to live enterprise bottlenecks across Bengaluru's top employers.
+This directory contains targeted 1-page operational interview battlecards for Aditya Mehra, matching his verified real-world operational proof points directly to live enterprise bottlenecks across Bengaluru's top 20 employers.
 
-## 📋 Target Employer Battlecards (Top 10 Priority)
+## 📋 Target Employer Battlecards (Top 20 Priority)
 
 {chr(10).join(summary_index)}
 
