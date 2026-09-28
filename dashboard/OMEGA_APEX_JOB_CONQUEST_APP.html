@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMEGA APEX — Universal Job Conquest Engine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --card-bg: rgba(18, 24, 38, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --accent: #818cf8;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.10) 0px, transparent 50%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      background: rgba(10, 13, 20, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .badge-omega {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #000;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 20px;
+    }
+
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+    }
+
+    main {
+      flex: 1;
+      padding: 32px 40px;
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 28px;
+    }
+
+    /* Left Control Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 22px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #000;
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      margin-top: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Right Display Workspace */
+    .workspace {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tabs-header {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tab-btn.active {
+      color: #000;
+      background: var(--primary);
+      font-weight: 700;
+    }
+
+    .preview-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 520px;
+      position: relative;
+    }
+
+    .preview-actions {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .icon-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .icon-btn:hover {
+      background: var(--primary);
+      color: #000;
+    }
+
+    .tab-content {
+      display: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      max-height: 700px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--emerald);
+      color: #000;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span class="badge-omega">OMEGA ∞</span>
+      <div>
+        <h1>Universal Job Conquest Platform</h1>
+        <span>Sovereign Executive Career OS & Omnichannel Application Engine</span>
+      </div>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-pill"><span class="stat-dot"></span> Target Companies: 5,226</div>
+      <div class="stat-pill">Candidate: Aditya Mehra (BBA IB '26)</div>
+      <div class="stat-pill">Comp Band: ₹6.5L - ₹11.0L LPA</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Left Configuration Panel -->
+    <div class="sidebar">
+      <div class="card">
+        <h3>🎯 Target Deployment</h3>
+        
+        <div class="field">
+          <label>Target Company</label>
+          <select id="companySelect" onchange="applyPresetCompany()">
+            <option value="Amazon">Amazon India (GCC / Operations)</option>
+            <option value="Deloitte">Deloitte US-India (Advisory / PMO)</option>
+            <option value="Goldman Sachs">Goldman Sachs (Operations Analyst)</option>
+            <option value="Google">Google (Operations / Vendor Management)</option>
+            <option value="Tata Communications">Tata Communications (Commercial Ops)</option>
+            <option value="Puma India">Puma Sports (Retail Ops & Events)</option>
+            <option value="Maersk">A.P. Moller - Maersk (Global Logistics)</option>
+            <option value="Swiggy">Swiggy (Supply & City Operations)</option>
+            <option value="Razorpay">Razorpay (Merchant Operations / BD)</option>
+            <option value="Custom">Custom Company...</option>
+          </select>
+        </div>
+
+        <div class="field" id="customCompanyField" style="display: none;">
+          <label>Custom Company Name</label>
+          <input type="text" id="customCompanyName" placeholder="e.g. Apple, Walmart, Boeing">
+        </div>
+
+        <div class="field">
+          <label>Target Role</label>
+          <input type="text" id="targetRole" value="Global Operations Analyst">
+        </div>
+
+        <div class="field">
+          <label>Industry Vertical</label>
+          <input type="text" id="targetIndustry" value="Technology & Global Enterprise Services">
+        </div>
+
+        <div class="field">
+          <label>Recruiter / Hiring Manager Name</label>
+          <input type="text" id="recruiterName" value="Hiring Manager">
+        </div>
+
+        <button class="btn btn-primary" onclick="generateAllAssets()">⚡ GENERATE CONQUEST DOSSIER</button>
+        <button class="btn btn-secondary" onclick="copyMasterPrompt()">📋 Copy Master System Prompt</button>
+      </div>
+
+      <div class="card">
+        <h3>🛡️ Verified Proof Points</h3>
+        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px;">
+          • <strong>300+ Live Operations:</strong> Aero India 2025, Tata Comms, Puma, VH1.<br>
+          • <strong>15% Cost Reduction:</strong> Vendor rate card restructuring.<br>
+          • <strong>INR 1.5L+ Closed Revenue:</strong> Pencil Mark Interior Solutions.<br>
+          • <strong>99%+ Accuracy:</strong> Instawork AI multi-modal evaluation.<br>
+          • <strong>EXIM Compliance:</strong> Incoterms 2020, ICD Whitefield, UCP 600.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Workspace Display -->
+    <div class="workspace">
+      <div class="tabs-header">
+        <button class="tab-btn active" onclick="switchTab(0)">⚡ Apex Master Prompt</button>
+        <button class="tab-btn" onclick="switchTab(1)">📄 ATS Resume</button>
+        <button class="tab-btn" onclick="switchTab(2)">✉️ Executive Cover Letter</button>
+        <button class="tab-btn" onclick="switchTab(3)">💬 Omnichannel Outreach</button>
+        <button class="tab-btn" onclick="switchTab(4)">🎯 STAR Interview & Defense</button>
+        <button class="tab-btn" onclick="switchTab(5)">🗓️ Day 30-60-90 Plan</button>
+        <button class="tab-btn" onclick="switchTab(6)">💰 Salary Negotiation</button>
+      </div>
+
+      <div class="preview-box">
+        <div class="preview-actions">
+          <button class="icon-btn" onclick="copyActiveContent()">📋 Copy Current View</button>
+        </div>
+
+        <!-- Tab 0: Master System Prompt -->
+        <div class="tab-content active" id="tab0"></div>
+        <!-- Tab 1: ATS Resume -->
+        <div class="tab-content" id="tab1"></div>
+        <!-- Tab 2: Cover Letter -->
+        <div class="tab-content" id="tab2"></div>
+        <!-- Tab 3: Outreach -->
+        <div class="tab-content" id="tab3"></div>
+        <!-- Tab 4: Interview -->
+        <div class="tab-content" id="tab4"></div>
+        <!-- Tab 5: Plan 90 -->
+        <div class="tab-content" id="tab5"></div>
+        <!-- Tab 6: Negotiation -->
+        <div class="tab-content" id="tab6"></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="copy-toast" id="copyToast">✓ Copied to clipboard!</div>
+
+  <script>
+    const MASTER_PROMPT_TEMPLATE = `<system_identity>
+You are the OMEGA APEX JOB CONQUEST ENGINE.
+You are an omni-capable, hyper-strategic Chief Career Strategist, Elite Executive Headhunter, and Master ATS Reverse-Engineer.
+Your sole directive is to SECURE INTERVIEWS AND WIN HIGH-COMPENSATION JOB OFFERS for the candidate across ANY company on Earth.
+</system_identity>
+
+<candidate_truth_ledger>
+- Name: Aditya Mehra
+- Location: Bengaluru, Karnataka, India | +91 7003456624 | ashishiash007@gmail.com
+- Degree: BBA in International Business, Dayananda Sagar University (2026)
+- Core Verified Pillars:
+  1. 300+ on-ground operations & high-stakes deployments (Aero India 2025, Tata Comms, Puma, VH1 Supersonic).
+  2. 15% recurring operational cost reduction via vendor rate card restructuring.
+  3. INR 1.5L+ closed commercial revenue at Pencil Mark Interior Solutions with written commendation.
+  4. 99%+ accuracy in AI data curation and evaluation at Instawork AI.
+  5. EXIM mastery: Incoterms 2020, customs HS classification, ICD Whitefield, UCP 600 Letters of Credit.
+- Target Roles: Global Operations Analyst, B2B Business Development, EXIM / Supply Chain, PMO Coordinator.
+- Target CTC Band: ₹6.5L - ₹11.0L+ LPA.
+</candidate_truth_ledger>
+
+<target_deployment>
+Company: {{COMPANY}}
+Role: {{ROLE}}
+Industry: {{INDUSTRY}}
+Recruiter: {{RECRUITER}}
+</target_deployment>
+
+Execute Phase 1 to Phase 7:
+1. Corporate Recon & Pain Point Dissection
+2. ATS-Shattering 100% Match Surgical Resume
+3. Executive C-Suite Pitch & Cover Letter
+4. Omnichannel Outreach (LinkedIn InMail + 3-Stage Cold Email + WhatsApp)
+5. 360° STAR/CAR Interview Q&A + Curveball Defenses
+6. 30-60-90 Day Strategic Blueprint
+7. High-Stakes CTC Negotiation Scripts (Target ₹8.5L - ₹11.0L)`;
+
+    function getTargetDetails() {
+      const select = document.getElementById('companySelect');
+      let company = select.value;
+      if (company === 'Custom') {
+        company = document.getElementById('customCompanyName').value.trim() || 'Target Corporation';
+      }
+      const role = document.getElementById('targetRole').value.trim() || 'Operations Analyst';
+      const industry = document.getElementById('targetIndustry').value.trim() || 'Technology & Enterprise';
+      const recruiter = document.getElementById('recruiterName').value.trim() || 'Hiring Manager';
+      return { company, role, industry, recruiter };
+    }
+
+    function applyPresetCompany() {
+      const select = document.getElementById('companySelect');
+      const customField = document.getElementById('customCompanyField');
+      if (select.value === 'Custom') {
+        customField.style.display = 'block';
+      } else {
+        customField.style.display = 'none';
+        if (select.value === 'Amazon') {
+          document.getElementById('targetRole').value = 'Operations Specialist / Program Associate';
+          document.getElementById('targetIndustry').value = 'E-Commerce & Supply Chain Logistics';
+        } else if (select.value === 'Deloitte') {
+          document.getElementById('targetRole').value = 'Operations Advisory Analyst / PMO';
+          document.getElementById('targetIndustry').value = 'Management & Strategy Consulting (GCC)';
+        } else if (select.value === 'Goldman Sachs') {
+          document.getElementById('targetRole').value = 'Operations Analyst (Global Markets)';
+          document.getElementById('targetIndustry').value = 'Investment Banking & Financial Services';
+        } else if (select.value === 'Maersk') {
+          document.getElementById('targetRole').value = 'Global Trade & Logistics Coordinator';
+          document.getElementById('targetIndustry').value = 'International Ocean Shipping & EXIM';
+        }
+      }
+      generateAllAssets();
+    }
+
+    function generateAllAssets() {
+      const { company, role, industry, recruiter } = getTargetDetails();
+
+      // Tab 0: Master Prompt
+      document.getElementById('tab0').textContent = MASTER_PROMPT_TEMPLATE
+        .replace(/{{COMPANY}}/g, company)
+        .replace(/{{ROLE}}/g, role)
+        .replace(/{{INDUSTRY}}/g, industry)
+        .replace(/{{RECRUITER}}/g, recruiter);
+
+      // Tab 1: ATS Resume
+      document.getElementById('tab1').textContent = `# ADITYA MEHRA
+Bengaluru, Karnataka, India | Phone: +91 7003456624 | Email: ashishiash007@gmail.com | LinkedIn: linkedin.com/in/adityamehra
+
+---
+
+## PROFESSIONAL SUMMARY
+Results-driven BBA in International Business graduate (Dayananda Sagar University '26) specializing in high-velocity operations, vendor optimization, and client pipeline execution. Proven capability delivering 300+ high-stakes operational deployments for marquee enterprise accounts including Tata Communications, Puma, and Aero India 2025. Championed direct procurement restructuring delivering a 15% recurring cost reduction and independently generated INR 1.5L+ in commercial B2B revenue. Seeking to drive scalable operational excellence as ${role} at ${company}.
+
+---
+
+## CORE COMPETENCIES & KEYWORD ALIGNMENT
+- Operations & Execution: End-to-End Operational Logistics, Cross-Functional Leadership (20+ crew), Vendor Rate Card Negotiation, Budgetary Governance, SLA Adherence.
+- Commercial Analysis: B2B Pipeline Management, Cost-Benefit Analysis, Resource Allocation, Risk Mitigation, 15% Procurement Optimization.
+- Global Trade & EXIM: Incoterms 2020, Customs Clearance (ICD Whitefield), UCP 600 Letters of Credit (LC), Landed Cost Modeling.
+- Analytical Stack: Advanced MS Excel (XLOOKUP, Pivot Tables, Data Modelling), Power BI, CRM Automation, Python Scripting, AI Workflow Evaluation.
+
+---
+
+## PROFESSIONAL EXPERIENCE
+
+### Event Operations Lead & Project Coordinator — Freelance / Self-Employed
+Bengaluru, India | Jan 2021 – Present
+- Spearheaded on-ground operations and cross-functional vendor management for 300+ enterprise and marquee events, managing budgets end-to-end with 0% budget overrun.
+- Directed on-site operations for premier accounts including Aero India 2025 (Yelahanka Air Force Station), Tata Communications, Puma India, and VH1 Supersonic.
+- Led cross-functional teams of 20+ on-ground staff spanning venue setup, security protocols, technical infrastructure, and VIP guest relations under strict SLA deadlines.
+- Conducted root-cause vendor analysis and restructured rate agreements, eliminating intermediate agency markups to achieve a 15% direct cost reduction.
+
+### Operations Lead (Aero India 2025) — Salt in My Coca
+Bengaluru, India | Feb 2025 – Feb 2025
+- Orchestrated end-to-end commercial stall operations, high-value inventory control, and VIP delegation engagement at Asia's largest aerospace expo.
+- Ensured 100% adherence to rigorous defense facility compliance, security passes, and time-critical delivery constraints across multi-day expo sessions.
+
+### Business Development Executive Intern — Pencil Mark Interior Solutions LLP
+Bengaluru, India | Jul 2025 – Aug 2025
+- Spearheaded outbound B2B corporate client acquisition, qualifying high-value commercial architectural and interior projects.
+- Independently prospected, pitched, and converted client accounts generating INR 1.5L+ in direct commercial revenue.
+- Awarded formal written management commendation for surpassing outreach quotas and accelerating lead-to-close conversion speed by 25%.
+
+### AI Data Operations & Quality Specialist — Instawork AI
+Remote / Bengaluru | Sep 2024 – Dec 2024
+- Executed high-precision multi-modal data curation, prompt annotation, and quality assurance benchmarks for production LLMs.
+- Maintained an audited 99%+ accuracy rating across thousands of evaluation batches, enforcing strict validation taxonomy.
+
+---
+
+## EDUCATION
+Bachelor of Business Administration (BBA) — International Business
+Dayananda Sagar University (DSU), Bengaluru | Class of 2026`;
+
+      // Tab 2: Cover Letter
+      document.getElementById('tab2').textContent = `EXECUTIVE APPLICATION PITCH FOR ${company.toUpperCase()}
+
+Dear ${company} Hiring Team,
+
+I am writing to express my enthusiastic interest in joining ${company} as ${role}.
+
+Having tracked ${company}'s strategic footprint across ${industry}, it is clear that scaling operational reliability while maintaining rigorous cost discipline is critical. In fast-moving environments, operational gaps, delayed turnarounds, and vendor friction directly impact bottom-line margins. My entire background has been engineered around solving precisely these problems in high-pressure environments.
+
+Here is what I bring to ${company} on Day 1:
+1. Battle-Tested Execution Under High Pressure: Over 4 years, I have orchestrated 300+ on-ground operations, including serving as Lead Coordinator at AERO India 2025 and managing brand activations for Tata Communications and Puma. I lead 20+ member cross-functional teams with 0% budget overruns.
+2. Quantified Cost & Margin Discipline: By auditing procurement pipelines, standardizing vendor rate cards, and eliminating middleman markups, I engineered a 15% recurring cost reduction across operational workflows.
+3. High-Velocity Commercial Acumen: At Pencil Mark Interior Solutions, I drove B2B client acquisition that closed INR 1.5L+ in commercial contracts, earning a written commendation from executive management.
+4. Analytical Rigor: With an International Business degree from Dayananda Sagar University and hands-on AI data operations experience at Instawork AI (99%+ accuracy), I combine data modeling with field-level execution.
+
+I welcome the opportunity for a brief 10-minute conversation to discuss how I can immediately relieve operational bottlenecks for your team at ${company}.
+
+Warm regards,
+Aditya Mehra | +91 7003456624 | ashishiash007@gmail.com`;
+
+      // Tab 3: Outreach
+      document.getElementById('tab3').textContent = `RECRUITER OUTREACH WEAPONRY FOR ${company.toUpperCase()}
+
+1. LinkedIn Connection Request Note (<300 Characters):
+"Hi ${recruiter}, I saw ${company} is scaling its ${role} team. Having coordinated 300+ high-stakes operations (Aero India 2025, Tata Comms) and delivered a 15% cost optimization, I’d love to connect and follow your team’s impactful work! - Aditya"
+
+2. LinkedIn InMail / Direct Message:
+"Subject: Exploring ${role} @ ${company} — Aditya Mehra
+Hi ${recruiter}, I noticed ${company} is expanding its ${role} capabilities. Over the past 4 years, I have directed 300+ live operational deployments (including Lead Coordinator at Aero India 2025 and activations for Puma & Tata Communications), while delivering a 15% recurring cost reduction through vendor rate optimization. I’ve formally applied and would love 5 minutes to share how I can bring zero-defect operational ownership to your team at ${company}.
+Best regards, Aditya Mehra | +91 7003456624"
+
+3. 3-Touch Cold Email Sequence:
+• Touch 1 (Day 1 - The Value Drop): 70 words, highlights 300+ operations, 15% cost savings, 99%+ accuracy.
+• Touch 2 (Day 4 - The Case Study): In-depth on vendor negotiation and Aero India logistics.
+• Touch 3 (Day 8 - Clean Breakup): Polite closure leaving door open for future opportunities.
+
+4. Direct Recruiter WhatsApp (<50 Words):
+"Hi ${recruiter}, this is Aditya Mehra from Bengaluru. I recently applied for the ${role} role at ${company}. With 300+ live operations managed (Aero India, Tata Comms) and a 15% cost optimization track record, I’d love to share my resume for your consideration. Thank you!"`;
+
+      // Tab 4: Interview
+      document.getElementById('tab4').textContent = `360° STAR INTERVIEW DEFENSE & CURVEBALL SHIELD: ${company.toUpperCase()}
+
+BEHAVIORAL STAR Q&A:
+1. High-Pressure Crisis: Aero India 2025 stall logistics saved via fast-tracked defense gate clearance and 15-minute floor turnaround.
+2. Cost Optimization: Audited line-item AV/staging expenses, eliminated agency markups, delivered 15% recurring savings.
+3. Commercial Closing: Closed INR 1.5L+ commercial contracts at Pencil Mark Interiors via disciplined ROI pitches.
+4. Precision & Data: Maintained 99%+ audit accuracy at Instawork AI across thousands of multi-modal prompts.
+5. Leadership without Authority: Directed 20+ external vendor crew members at VH1 Supersonic with 3-minute stage turnaround.
+
+CURVEBALL DEFENSE SCRIPTS:
+• "You are a 2026 graduate. Why hire you over 3-year experienced candidates?"
+  Defense: "Experienced candidates bring legacy habits and higher cost. I bring 4 years of verified on-ground execution (300+ deployments, 15% cost savings), high energy, zero entitlement, and fresh analytical rigor."
+• "Why did you transition across events, interiors, and AI data?"
+  Defense: "Every single role centered on one discipline: delivering operational excellence under constraints. In ${role} at ${company}, that exact blend of vendor governance and analytical rigor is what drives results."
+
+REVERSE-INTERVIEW QUESTIONS:
+1. "What is the single biggest operational bottleneck you would like to see completely resolved within my first 90 days?"
+2. "What separates the average operators on this team from the indispensable top 1%?"`;
+
+      // Tab 5: Plan 90
+      document.getElementById('tab5').textContent = `30-60-90 DAY ONBOARDING BLUEPRINT: ${company.toUpperCase()} — ${role.toUpperCase()}
+
+DAYS 1 - 30: ABSORB & AUDIT
+- Complete onboarding and system access setup within first 5 business days.
+- Conduct 1-on-1 discovery interviews across immediate team and vendor partners.
+- Audit current SOPs, operational spreadsheets, and ticketing queues.
+- Deliver 30-Day Synthesis Memo identifying 2 quick-win operational optimizations.
+
+DAYS 31 - 60: EXECUTE & OPTIMIZE
+- Assume unassisted ownership of daily operational queues and SLA tracking.
+- Standardize vendor rate cards and procurement tracking (targeting 10-15% cost savings).
+- Automate weekly management reporting via Excel / Power BI dashboards.
+- Proactively resolve delivery escalations before SLA breach.
+
+DAYS 61 - 90: SCALE & DELIVER ROI
+- Operate with complete autonomy as the division's go-to operational lead.
+- Publish updated SOP documentation for seamless future onboarding.
+- Present 90-Day Value Summary to leadership highlighting verified metrics and cost impact.`;
+
+      // Tab 6: Negotiation
+      document.getElementById('tab6').textContent = `COMPENSATION NEGOTIATION PLAYBOOK: ${company.toUpperCase()}
+Target Band: ₹6.5L - ₹11.0L LPA (Anchor: ₹8.5L - ₹9.5L)
+
+Script 1: Early Salary Screen Deflection
+"Right now, my priority is confirming the right operational fit where I can deliver immediate value to ${company}. Based on market standards in Bangalore for high-performing operators, I'm confident we'll align on fair compensation. Could you share the budgeted range for this position?"
+
+Script 2: Countering a Low Offer (e.g. ₹6.0L)
+"Thank you so much. I'm thrilled about the opportunity to join ${company}. Considering the verified value I bring — managing 300+ operations, driving 15% cost optimization, and proven commercial closing — I was anticipating an offer in the ₹7.5L to ₹9.5L range. If we can adjust the package closer to ₹8.5L, I'm prepared to accept and commit immediately."
+
+Script 3: Non-Salary Levers
+"If base salary is constrained by band policy, is there flexibility on:
+1. A joining bonus of ₹75,000 - ₹1,00,000?
+2. An accelerated 6-month performance appraisal review?
+3. Work flexibility / professional certification sponsorship?"`;
+    }
+
+    function switchTab(index) {
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+      document.querySelectorAll('.tab-content').forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+      });
+    }
+
+    function copyMasterPrompt() {
+      switchTab(0);
+      copyActiveContent();
+    }
+
+    function copyActiveContent() {
+      const activeTab = document.querySelector('.tab-content.active');
+      if (activeTab) {
+        navigator.clipboard.writeText(activeTab.textContent).then(() => {
+          showToast();
+        });
+      }
+    }
+
+    function showToast() {
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    // Initialize on load
+    window.onload = () => {
+      generateAllAssets();
+    };
+  </script>
+</body>
+</html>
