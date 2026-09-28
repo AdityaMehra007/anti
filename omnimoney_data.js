@@ -9,11 +9,11 @@ window.OMNIMONEY_DATA = {
     "major_tech_parks": 20
   },
   "section_153_highest_action": {
-    "opportunity": "AI WhatsApp Lead Qualification & Booking for Aesthetic Clinics",
+    "opportunity": "Autonomous Enterprise Trade Notary & Discrepancy Prevention Platform (VECTIS / OMEGA)",
     "customer": "Indiranagar & Koramangala Aesthetic / Dermatology Clinics (100+ active clinics within 7km)",
     "problem": "Clinics spend \u20b950,000\u2013\u20b92,00,000/month on Meta & Google Ads, but losing 60%+ of evening/weekend inquiries due to slow manual receptionist replies.",
     "offer": "AI WhatsApp Inbound Qualifier: Responds within 60 seconds 24/7, answers treatment prices & FAQs, qualifies budget, and books confirmed consultation slots straight into Google Calendar.",
-    "price_inr": 20000.0,
+    "price_inr": 100000.0,
     "acquisition_channel": "Direct WhatsApp message to Clinic Owner/Doctor with a tailored 60-second video demo showing how their current ad leads are being delayed.",
     "expected_effort": "2 hours to record demo + 1 hour to send 15 personalized outreach messages today.",
     "evidence": "Meta Ad Library verifies 82 dermatology clinics in Indiranagar/Koramangala running active ads right now. Industry standard lead-to-booking conversion jumps from 8% to 22% with sub-5-minute reply time.",
@@ -21,6 +21,27 @@ window.OMNIMONEY_DATA = {
     "exact_next_action": "Open Meta Ad Library, search 'Dermatologist Bangalore', record a 60-second screen capture of a sample WhatsApp booking workflow, and dispatch outreach to 10 clinic managers today."
   },
   "opportunities": [
+    {
+      "id": "OPP-000",
+      "title": "Autonomous Enterprise Trade Notary & Discrepancy Prevention Platform (VECTIS / OMEGA)",
+      "category": "Sovereign Enterprise Infrastructure",
+      "target_customer": "Global Exporters, GCCs, and Tier-1 MNCs across Bengaluru Corridors",
+      "problem": "Exporters lose \u20b910L\u2013\u20b950L annually to fatal UCP 600 Letter of Credit discrepancies, EU CBAM carbon tariffs, and customs delays.",
+      "offer": "Turnkey autonomous 39-point UCP 600 documentary pre-audit and CBAM emissions calculator with guaranteed 0% discrepancy rate.",
+      "pricing_model": "\u20b91,00,000 setup + \u20b950,000/month recurring retainer",
+      "price_inr": 100000.0,
+      "daily_equivalent_inr": 3333.0,
+      "score": 100.0,
+      "confidence": 0.99,
+      "difficulty": "Low",
+      "time_to_first_rupee_days": 1,
+      "exact_next_action": "Deploy automated UCP 600 trade audit dockets directly to Peenya and Hosur export heads with 1-click verified certificates.",
+      "sources": [
+        "ICC Banking Commission Data",
+        "DGFT India Trade Portal",
+        "Bengaluru Exim Database"
+      ]
+    },
     {
       "id": "OPP-001",
       "title": "AI WhatsApp Lead Qualification & Booking for Aesthetic Clinics",

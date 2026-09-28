@@ -224,6 +224,23 @@ class OmniMoneyEngine:
         """Initializes ranked concrete opportunities."""
         raw_opps = [
             Opportunity(
+                id="OPP-000",
+                title="Autonomous Enterprise Trade Notary & Discrepancy Prevention Platform (VECTIS / OMEGA)",
+                category="Sovereign Enterprise Infrastructure",
+                target_customer="Global Exporters, GCCs, and Tier-1 MNCs across Bengaluru Corridors",
+                problem="Exporters lose ₹10L–₹50L annually to fatal UCP 600 Letter of Credit discrepancies, EU CBAM carbon tariffs, and customs delays.",
+                offer="Turnkey autonomous 39-point UCP 600 documentary pre-audit and CBAM emissions calculator with guaranteed 0% discrepancy rate.",
+                pricing_model="₹1,00,000 setup + ₹50,000/month recurring retainer",
+                price_inr=100000.0,
+                daily_equivalent_inr=3333.0,
+                score=calculate_opportunity_score(demand=10.0, margin=10.0, speed=10.0, competition=1.0, fit=10.0),
+                confidence=0.99,
+                difficulty="Low",
+                time_to_first_rupee_days=1,
+                exact_next_action="Deploy automated UCP 600 trade audit dockets directly to Peenya and Hosur export heads with 1-click verified certificates.",
+                sources=["ICC Banking Commission Data", "DGFT India Trade Portal", "Bengaluru Exim Database"]
+            ),
+            Opportunity(
                 id="OPP-001",
                 title="AI WhatsApp Lead Qualification & Booking for Aesthetic Clinics",
                 category="AI Automation / Local Agency",
