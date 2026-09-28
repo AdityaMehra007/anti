@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: SWIGGY (BUNDL TECHNOLOGIES)
 **Role:** Chief of Staff Associate - Instamart Dark Stores | **Industry:** E-Commerce & Quick Commerce
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

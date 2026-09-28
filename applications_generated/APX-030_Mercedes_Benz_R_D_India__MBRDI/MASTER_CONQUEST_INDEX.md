@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: MERCEDES-BENZ R&D INDIA (MBRDI)
 **Role:** Automotive SCM & Vendor Operations Trainee | **Industry:** Manufacturing, Aerospace & Industrial
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: DHL GLOBAL FORWARDING
 **Role:** Air Freight & Customs Compliance Coordinator | **Industry:** Logistics, Shipping & Supply Chain
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [ATS_RESUME.md](ATS_RESUME.md)

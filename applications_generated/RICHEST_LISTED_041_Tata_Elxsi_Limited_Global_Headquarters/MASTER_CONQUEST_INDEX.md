@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: TATA ELXSI LIMITED (GLOBAL HEADQUARTERS)
 **Role:** Business Operations & Project Governance Associate | **Industry:** Technology & Software / GCC
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

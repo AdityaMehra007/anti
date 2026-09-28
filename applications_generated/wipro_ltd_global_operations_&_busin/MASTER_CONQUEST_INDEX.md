@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: WIPRO LTD
 **Role:** Global Operations & Business Excellence Analyst | **Industry:** Technology & Software / GCC
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [ATS_RESUME.md](ATS_RESUME.md)

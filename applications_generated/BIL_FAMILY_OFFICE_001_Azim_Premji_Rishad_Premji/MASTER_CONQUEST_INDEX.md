@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: AZIM PREMJI & RISHAD PREMJI
 **Role:** Family Office Operations & Investment Associate | **Industry:** General Operations & Business
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

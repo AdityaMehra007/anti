@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: RISHAD TARIQ PREMJI
 **Role:** Family Office Strategic Projects Associate / Wipro Executive Office Trainee | **Industry:** Technology & Software / GCC
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

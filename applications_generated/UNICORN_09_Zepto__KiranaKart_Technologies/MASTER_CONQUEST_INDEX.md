@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: ZEPTO (KIRANAKART TECHNOLOGIES
 **Role:** Operations & Business Development Specialist | **Industry:** E-Commerce & Quick Commerce
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [ATS_RESUME.md](ATS_RESUME.md)

@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: BHARAT ELECTRONICS LIMITED (BEL GLOBAL HQ)
 **Role:** Materials Management & Commercial Operations Officer | **Industry:** Manufacturing, Aerospace & Industrial
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

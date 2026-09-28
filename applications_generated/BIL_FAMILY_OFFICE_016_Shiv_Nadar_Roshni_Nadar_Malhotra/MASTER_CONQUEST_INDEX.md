@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: SHIV NADAR & ROSHNI NADAR MALHOTRA
 **Role:** Global Business Operations Trainee | **Industry:** General Operations & Business
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: A.P. MOLLER - MAERSK (MAERSK INDIA)
 **Role:** Ocean Logistics & Supply Chain Operations Trainee | **Industry:** Logistics, Shipping & Supply Chain
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

@@ -10,7 +10,7 @@ from ai.camofox_client import CamofoxClient, CamofoxError
 
 
 def test_camofox_client_initialization():
-    client = CamofoxClient(base_url="http://127.0.0.1:9377/", api_key="secret123", user_id="agent_x")
+    client = CamofoxClient(base_url="http://127.0.0.1:9377/", api_key="secret123", user_id="agent_x", auto_start=False)
     assert client.base_url == "http://127.0.0.1:9377"
     assert client.api_key == "secret123"
     assert client.user_id == "agent_x"
@@ -22,7 +22,7 @@ def test_camofox_client_health(mock_urlopen):
     mock_resp.read.return_value = json.dumps({"status": "healthy", "browser": "ready"}).encode("utf-8")
     mock_urlopen.return_value.__enter__.return_value = mock_resp
 
-    client = CamofoxClient()
+    client = CamofoxClient(auto_start=False)
     res = client.health()
     assert res["status"] == "healthy"
     assert res["browser"] == "ready"
@@ -34,7 +34,7 @@ def test_camofox_client_create_tab(mock_urlopen):
     mock_resp.read.return_value = json.dumps({"tabId": "tab_42", "url": "https://example.com"}).encode("utf-8")
     mock_urlopen.return_value.__enter__.return_value = mock_resp
 
-    client = CamofoxClient(user_id="test_user")
+    client = CamofoxClient(user_id="test_user", auto_start=False)
     res = client.create_tab(url="https://example.com", session_key="s1", trace=True)
 
     assert res["tabId"] == "tab_42"
@@ -47,7 +47,7 @@ def test_camofox_client_click_and_type(mock_urlopen):
     mock_resp.read.return_value = json.dumps({"success": True}).encode("utf-8")
     mock_urlopen.return_value.__enter__.return_value = mock_resp
 
-    client = CamofoxClient()
+    client = CamofoxClient(auto_start=False)
     click_res = client.click("tab_1", ref="e5")
     assert click_res["success"] is True
 
@@ -62,7 +62,7 @@ def test_camofox_client_context_manager_cleanup(mock_urlopen):
     mock_urlopen.return_value.__enter__.return_value = mock_resp
 
     with patch.object(CamofoxClient, "close_tab") as mock_close:
-        with CamofoxClient() as client:
+        with CamofoxClient(auto_start=False) as client:
             client._managed_tabs.append("tab_99")
             client._managed_tabs.append("tab_100")
 

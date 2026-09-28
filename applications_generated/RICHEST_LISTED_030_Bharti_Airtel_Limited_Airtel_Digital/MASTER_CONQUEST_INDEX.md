@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: BHARTI AIRTEL LIMITED (AIRTEL DIGITAL)
 **Role:** Network Operations & Vendor SLA Coordinator | **Industry:** General Operations & Business
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

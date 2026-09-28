@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: NANDAN NILEKANI
 **Role:** Strategic Operations & Portfolio Associate | **Industry:** General Operations & Business
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

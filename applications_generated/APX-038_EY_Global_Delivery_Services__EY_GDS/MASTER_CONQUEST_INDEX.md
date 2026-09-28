@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: EY GLOBAL DELIVERY SERVICES (EY GDS)
 **Role:** Business Analyst - Global Operations & Advisory | **Industry:** Management Consulting & Advisory
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: MICROSOFT INDIA R&D / OPERATIONS
 **Role:** Global Business Operations & Commercial Contracts Analyst | **Industry:** Technology & Software / GCC
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

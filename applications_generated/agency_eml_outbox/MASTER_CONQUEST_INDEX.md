@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: EML OUTBOX
 **Role:** Operations & Business Development Specialist | **Industry:** General Operations & Business
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [AGY-BLR-001_Michael_Page_India_(Bangalore_Office).eml](AGY-BLR-001_Michael_Page_India_(Bangalore_Office).eml)

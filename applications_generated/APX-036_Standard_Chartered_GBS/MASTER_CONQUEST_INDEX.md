@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: STANDARD CHARTERED GBS
 **Role:** Trade Operations Specialist (Letters of Credit) | **Industry:** Financial Services & Investment Banking
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

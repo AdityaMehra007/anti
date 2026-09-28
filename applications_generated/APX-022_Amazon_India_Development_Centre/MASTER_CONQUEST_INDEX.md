@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: AMAZON INDIA DEVELOPMENT CENTRE
 **Role:** Operations Specialist / TRMS Risk Investigator | **Industry:** E-Commerce & Quick Commerce
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

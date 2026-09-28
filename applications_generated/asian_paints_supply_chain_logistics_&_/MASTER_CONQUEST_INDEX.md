@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: ASIAN PAINTS
 **Role:** Supply Chain Logistics & Vendor Operations Lead | **Industry:** Logistics, Shipping & Supply Chain
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [ATS_RESUME.md](ATS_RESUME.md)

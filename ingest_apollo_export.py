@@ -81,14 +81,18 @@ def ingest_apollo_file(csv_path: Path):
 
             # Index into FTS5
             cur.execute("""
-            INSERT OR IGNORE INTO master_search_fts (entity_name, contact_name, email, phone, corridor)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO master_search_fts (
+                source_table, entity_name, contact_name, email, phone, corridor, target_role, pitch
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """, (
+                "apollo_bengaluru_hr_contacts",
                 company[:60] or "Bengaluru Employer",
                 full_name[:40],
                 email or "desk@company.com",
                 phone or "+91-80-4000-0000",
-                f"{city}, {state} / Apollo Sourced"
+                f"{city}, {state} / Apollo Sourced",
+                title or "Executive",
+                f"{company} | Apollo Sourced"
             ))
             added += 1
 

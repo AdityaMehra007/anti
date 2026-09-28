@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: DARIO DANIELA AMODEI
 **Role:** Model Evaluation & Agent Harness Operations Specialist | **Industry:** General Operations & Business
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

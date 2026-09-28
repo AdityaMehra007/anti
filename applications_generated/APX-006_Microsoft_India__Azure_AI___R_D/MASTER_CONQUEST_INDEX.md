@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: MICROSOFT INDIA (AZURE AI / R&D)
 **Role:** Commercial Contracts & BizOps Analyst | **Industry:** FMCG, Retail & Consumer Goods
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

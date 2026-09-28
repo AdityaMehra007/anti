@@ -4,6 +4,12 @@ Generates static JS data bundle for OMNIMONEY_RADAR_BENGALURU.html
 
 import json
 import os
+import sys
+
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if base_dir not in sys.path:
+    sys.path.insert(0, base_dir)
+
 from omnimoney.omnimoney_engine import OmniMoneyEngine
 from omnimoney.b2b_sales_engine import B2BSalesEngine
 

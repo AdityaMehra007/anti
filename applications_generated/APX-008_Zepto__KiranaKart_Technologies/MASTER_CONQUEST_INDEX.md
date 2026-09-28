@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: ZEPTO (KIRANAKART TECHNOLOGIES)
 **Role:** Founder's Office - City Operations & Expansion Lead | **Industry:** E-Commerce & Quick Commerce
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

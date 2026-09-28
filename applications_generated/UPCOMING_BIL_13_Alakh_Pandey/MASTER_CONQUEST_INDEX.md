@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: ALAKH PANDEY
 **Role:** Offline Operations Program Manager / Center Vendor Governance Lead | **Industry:** Management Consulting & Advisory
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [APPLICATION_MANIFEST.json](APPLICATION_MANIFEST.json)

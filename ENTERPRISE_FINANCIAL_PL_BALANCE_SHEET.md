@@ -8,8 +8,8 @@
 ## 1. Executive Summary & Corporate Capital Architecture
 **OMEGA SOVEREIGN HOLDINGS** operates an ultra-lean, multi-tier multinational corporate architecture anchored by **VECTIS TRADE TECHNOLOGIES PRIVATE LIMITED** (CIN Registered, DPIIT Recognized, Karnataka ELEVATE Grantee).
 
-Through standard-library minimalism and autonomous 24-agent fleet orchestration, the operating entity achieves a **99.65% Gross Margin** and an **98.64% EBITDA Margin**.
-With **₹26,241,500.00 INR** in cash and statutory grant reserves, monthly burn is restrained to **₹36,250.00 INR**, guaranteeing **723.9 months (60.3 years)** of unconstrained runway.
+Through standard-library minimalism and autonomous 24-agent fleet orchestration, the operating entity achieves a **99.69% Gross Margin** and an **98.78% EBITDA Margin**.
+With **₹28,737,500.00 INR** in cash and statutory grant reserves, monthly burn is restrained to **₹36,250.00 INR**, guaranteeing **792.8 months (66.1 years)** of unconstrained runway.
 
 ---
 
@@ -18,29 +18,29 @@ With **₹26,241,500.00 INR** in cash and statutory grant reserves, monthly burn
 
 | Account Line Item | Ledger Code | Annualized Amount (INR ₹) | % of Revenue |
 | :--- | :--- | :--- | :--- |
-| **Gross SaaS Software ARR** (Enterprise Subscriptions) | REV-4001 | ₹9,180,000.00 | 21.32% |
-| **Transaction Auditing Fees** (UCP 600 / ISBP 745 Dockets) | REV-4002 | ₹33,438,000.00 | 77.64% |
-| **EU CBAM & ESG Advisory Retainers** | REV-4003 | ₹450,000.00 | 1.04% |
-| **TOTAL GROSS REVENUE** | **REV-4000** | **₹43,068,000.00** | **100.00%** |
+| **Gross SaaS Software ARR** (Enterprise Subscriptions) | REV-4001 | ₹9,900,000.00 | 20.6% |
+| **Transaction Auditing Fees** (UCP 600 / ISBP 745 Dockets) | REV-4002 | ₹37,710,000.00 | 78.46% |
+| **EU CBAM & ESG Advisory Retainers** | REV-4003 | ₹450,000.00 | 0.94% |
+| **TOTAL GROSS REVENUE** | **REV-4000** | **₹48,060,000.00** | **100.00%** |
 | | | | |
-| Cloud Infrastructure & Microservices (AWS ap-south-1) | COGS-5001 | ₹45,000.00 | 0.1% |
-| AI Token Processing & Inference Compute | COGS-5002 | ₹90,000.00 | 0.21% |
+| Cloud Infrastructure & Microservices (AWS ap-south-1) | COGS-5001 | ₹45,000.00 | 0.09% |
+| AI Token Processing & Inference Compute | COGS-5002 | ₹90,000.00 | 0.19% |
 | SHA-256 Ledger Notarization & Cryptographic Seals | COGS-5003 | ₹15,000.00 | 0.03% |
-| **TOTAL COST OF GOODS SOLD (COGS)** | **COGS-5000** | **₹150,000.00** | **0.35%** |
+| **TOTAL COST OF GOODS SOLD (COGS)** | **COGS-5000** | **₹150,000.00** | **0.31%** |
 | | | | |
-| **GROSS PROFIT** | **GP-5999** | **₹42,918,000.00** | **99.65%** |
+| **GROSS PROFIT** | **GP-5999** | **₹47,910,000.00** | **99.69%** |
 | | | | |
-| Autonomous Core R&D & Protocol Engineering | OPEX-6001 | ₹180,000.00 | 0.42% |
-| Institutional Sales & Account Expansion | OPEX-6002 | ₹120,000.00 | 0.28% |
-| General & Administrative (G&A, Office, Banking) | OPEX-6003 | ₹75,000.00 | 0.17% |
-| Statutory Regulatory, Legal & DPIIT Compliance | OPEX-6004 | ₹60,000.00 | 0.14% |
-| **TOTAL OPERATING EXPENSES (OPEX)** | **OPEX-6000** | **₹435,000.00** | **1.01%** |
+| Autonomous Core R&D & Protocol Engineering | OPEX-6001 | ₹180,000.00 | 0.37% |
+| Institutional Sales & Account Expansion | OPEX-6002 | ₹120,000.00 | 0.25% |
+| General & Administrative (G&A, Office, Banking) | OPEX-6003 | ₹75,000.00 | 0.16% |
+| Statutory Regulatory, Legal & DPIIT Compliance | OPEX-6004 | ₹60,000.00 | 0.12% |
+| **TOTAL OPERATING EXPENSES (OPEX)** | **OPEX-6000** | **₹435,000.00** | **0.91%** |
 | | | | |
-| **OPERATING PROFIT (EBITDA)** | **EBITDA-7000** | **₹42,483,000.00** | **98.64%** |
-| Depreciation & Software Amortization | DEP-7001 | ₹25,000.00 | 0.06% |
-| **EARNINGS BEFORE INTEREST & TAX (EBIT)** | **EBIT-7100** | **₹42,458,000.00** | **98.58%** |
+| **OPERATING PROFIT (EBITDA)** | **EBITDA-7000** | **₹47,475,000.00** | **98.78%** |
+| Depreciation & Software Amortization | DEP-7001 | ₹25,000.00 | 0.05% |
+| **EARNINGS BEFORE INTEREST & TAX (EBIT)** | **EBIT-7100** | **₹47,450,000.00** | **98.73%** |
 | Income Tax Expense (*Section 80-IAC 100% Tax Exemption*) | TAX-8001 | ₹0.00 (0.00%) | 0.00% |
-| **NET INCOME / PROFIT AFTER TAX (PAT)** | **NI-9000** | **₹42,458,000.00** | **98.58%** |
+| **NET INCOME / PROFIT AFTER TAX (PAT)** | **NI-9000** | **₹47,450,000.00** | **98.73%** |
 
 ---
 
@@ -51,12 +51,12 @@ With **₹26,241,500.00 INR** in cash and statutory grant reserves, monthly burn
 | Asset Category | Account Code | Balance (INR ₹) |
 | :--- | :--- | :--- |
 | **Current Assets** | | |
-| Cash & Liquid Reserves (HDFC Treasury / KITS Grant Escrow) | AST-1001 | ₹26,241,500.00 |
-| Trade Accounts Receivable (B2B LC Docket Fees Net 30) | AST-1002 | ₹4,179,750.00 |
+| Cash & Liquid Reserves (HDFC Treasury / KITS Grant Escrow) | AST-1001 | ₹28,737,500.00 |
+| Trade Accounts Receivable (B2B LC Docket Fees Net 30) | AST-1002 | ₹4,713,750.00 |
 | Prepaid Cloud & Token Quota | AST-1003 | ₹50,000.00 |
 | **Non-Current Assets** | | |
 | Proprietary Software IP (VECTIS 39-Point Audit Kernel) | AST-1201 | ₹2,00,000.00 |
-| **TOTAL ASSETS** | **AST-1000** | **₹30,671,250.00** |
+| **TOTAL ASSETS** | **AST-1000** | **₹33,701,250.00** |
 
 ### Liabilities & Shareholder Equity
 | Liabilities & Equity Category | Account Code | Balance (INR ₹) |
@@ -67,21 +67,21 @@ With **₹26,241,500.00 INR** in cash and statutory grant reserves, monthly burn
 | **Shareholder Equity** | | |
 | Common Founder Equity (Aditya Mehra 100%) | EQU-3001 | ₹1,00,000.00 |
 | Karnataka ELEVATE Startup Grant Reserves | EQU-3002 | ₹50,00,000.00 |
-| Retained Earnings from Operations | EQU-3003 | ₹33,986,400.00 |
-| Capital Surplus & Valuation Reserves | EQU-3004 | ₹-8,452,650.00 |
-| **TOTAL LIABILITIES & SHAREHOLDER EQUITY** | **BAL-3999** | **₹30,671,250.00** |
+| Retained Earnings from Operations | EQU-3003 | ₹37,980,000.00 |
+| Capital Surplus & Valuation Reserves | EQU-3004 | ₹-9,416,250.00 |
+| **TOTAL LIABILITIES & SHAREHOLDER EQUITY** | **BAL-3999** | **₹33,701,250.00** |
 
 *Note: Balance Sheet reconciles perfectly: Total Assets = Total Liabilities + Shareholder Equity.*
 
 ---
 
 ## 4. Unit Economics & Sovereign Valuation Compounding
-- **Annual Recurring Revenue Per User (ARPU)**: ₹399,130.43
+- **Annual Recurring Revenue Per User (ARPU)**: ₹396,000.00
 - **Customer Acquisition Cost (CAC)**: ₹15,000.00 (Direct founder/LinkedIn institutional outreach)
-- **Customer Lifetime Value (LTV)**: ₹1,396,956.52 (3.5-year retention lifecycle)
-- **LTV / CAC Ratio**: **93.1x** (Top-1% benchmark is >3x; OMEGA operating model is 93.1x)
+- **Customer Lifetime Value (LTV)**: ₹1,386,000.00 (3.5-year retention lifecycle)
+- **LTV / CAC Ratio**: **92.4x** (Top-1% benchmark is >3x; OMEGA operating model is 92.4x)
 - **Monthly Burn Rate**: ₹36,250.00
-- **Operational Runway**: **723.9 Months (60.3 Years)**
+- **Operational Runway**: **792.8 Months (66.1 Years)**
 
 ---
 

@@ -1,6 +1,6 @@
 # OMEGA CONQUEST PACK: AMAZON OPERATIONS SPECIALIST
 **Role:** Operations & Business Development Specialist | **Industry:** E-Commerce & Quick Commerce
-**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 16:21
+**Candidate:** Aditya Mehra | **Updated:** 2026-09-28 22:14
 
 ## Assets
 - [0_MASTER_INDEX.md](0_MASTER_INDEX.md)
