@@ -75,6 +75,8 @@ class MissionControlHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/" or self.path == "/index.html":
             self._serve_file("index.html", "text/html")
+        elif self.path == "/digital_twin.html" or self.path == "/twin":
+            self._serve_file("digital_twin.html", "text/html")
         elif self.path == "/api/telemetry":
             self._send_json(telemetry_store.get_snapshot())
         elif self.path == "/api/status":

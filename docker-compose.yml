@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  sovereign-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sovereign-continuum:latest
+    container_name: sovereign_continuum_gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  telemetry-daemon:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sovereign-continuum:latest
+    container_name: terra_kinetics_daemon
+    command: ["python", "-m", "terra_kinetics.server.daemon", "--port", "8080"]
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - sovereign-api

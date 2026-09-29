@@ -76,31 +76,35 @@ def test_robotics_telemetry_endpoint(client):
     res = client.get("/api/v1/robotics/telemetry")
     assert res.status_code == 200
     data = res.json()
-    assert data["safety_passed"] is True
-    assert data["pl_e_verified"] is True
-    assert len(data["joint_positions_deg"]) > 0
+    assert data["is_safe"] is True
+    assert data["safety_state"] == "nominal"
+    assert len(data["joints_snapshot"]) == 6
 
 
 def test_smr_offtake_endpoint(client):
     payload = {
-        "thermal_power_mw": 300.0,
-        "ppa_contract_price_per_mwh": 85.0,
-        "datacenter_capacity_mw": 100.0,
+        "num_reactors": 4,
+        "base_power_price_per_mwh": 62.0,
+        "ai_token_monetization_multiplier": 3.8,
     }
     res = client.post("/api/v1/energy/smr-offtake", json=payload)
     assert res.status_code == 200
     data = res.json()
-    assert data["net_electrical_output_mw"] > 0
-    assert "ppa_economics" in data
+    assert data["num_reactors"] == 4
+    assert data["cluster_capacity"]["continuous_clean_power_mwe"] > 0
+    assert len(data["10_year_trajectory"]) > 0
 
 
 def test_dna_compile_endpoint(client):
     payload = {
-        "amino_acid_sequence": "MKWVTFISLLLLFSSAYSRG",
-        "organism": "e_coli",
+        "molecule_name": "Taxadiene_Synthase",
+        "target_cas_number": "12345-67-8",
+        "target_pathway": "terpenoid_synthase",
+        "host_organism": "Pichia_pastoris",
     }
     res = client.post("/api/v1/bio/compile", json=payload)
     assert res.status_code == 200
     data = res.json()
-    assert "dna_sequence" in data
-    assert len(data["dna_sequence"]) == len("MKWVTFISLLLLFSSAYSRG") * 3
+    assert "plasmid_id" in data
+    assert data["target_molecule"] == "Taxadiene_Synthase"
+    assert data["codon_adaptation_index"] > 0.90

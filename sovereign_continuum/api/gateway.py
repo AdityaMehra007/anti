@@ -20,11 +20,19 @@ from pydantic import BaseModel, Field
 # Domain imports
 from sovereign_continuum.banking.autonomous_sovereign_bank import AutonomousSovereignBank
 from sovereign_continuum.banking.iso20022 import ISO20022Gateway, TransferPriority
-from aether_energy.ppa_tollbooth_calculator import PPATollboothCalculator
-from aether_energy.smr_reactor_model import SMRReactorModel
-from bioma_foundry.dna_compiler import DNACompiler
+from aether_energy.ppa_tollbooth_calculator import AetherVentureCalculator
+from aether_energy.smr_reactor_model import AetherThermalComputePlant, SMRModuleSpecification
+from bioma_foundry.dna_compiler import MolecularDnaCompiler, TargetMoleculeSpec
 from terra_kinetics.runtime.terra_edge_kernel import TerraEdgeKernel
-from terra_kinetics.protocol.ukp_schema import UKPTelemetryPacket, RobotType
+from terra_kinetics.protocol.ukp_schema import (
+    ActionTokenPacket,
+    ControlMode,
+    JointState,
+    JointTargetCommand,
+    RobotMorphology,
+    SafetyState,
+    SensorTelemetryPacket,
+)
 
 
 # Pydantic Request / Response Models
@@ -49,14 +57,16 @@ class CashSweepRequest(BaseModel):
 
 
 class SMROfftakeRequest(BaseModel):
-    thermal_power_mw: float = Field(default=300.0, example=300.0)
-    ppa_contract_price_per_mwh: float = Field(default=85.0, example=85.0)
-    datacenter_capacity_mw: float = Field(default=100.0, example=100.0)
+    num_reactors: int = Field(default=4, ge=1, example=4)
+    base_power_price_per_mwh: float = Field(default=62.0, example=62.0)
+    ai_token_monetization_multiplier: float = Field(default=3.8, example=3.8)
 
 
 class DNACompileRequest(BaseModel):
-    amino_acid_sequence: str = Field(..., example="MKTIIALSYIFCLVFA")
-    organism: str = Field(default="e_coli", example="e_coli")
+    molecule_name: str = Field(default="Taxadiene_Synthase", example="Taxadiene_Synthase")
+    target_cas_number: str = Field(default="12345-67-8", example="12345-67-8")
+    target_pathway: str = Field(default="terpenoid_synthase", example="terpenoid_synthase")
+    host_organism: str = Field(default="Pichia_pastoris", example="Pichia_pastoris")
 
 
 # FastAPI Application Factory
@@ -79,9 +89,11 @@ def create_app() -> FastAPI:
     # Initialize shared singletons
     bank = AutonomousSovereignBank()
     iso_gateway = ISO20022Gateway(institution_bic="CONTUS33XXX")
-    kernel = TerraEdgeKernel(robot_type=RobotType.UNITREE_H1)
-    kernel.power_on()
-    compiler = DNACompiler()
+    kernel = TerraEdgeKernel(
+        robot_id="continuum_teleop_h1",
+        morphology=RobotMorphology.BIPEDAL_HUMANOID,
+    )
+    compiler = MolecularDnaCompiler()
 
     @app.get("/")
     def root():
@@ -148,7 +160,7 @@ def create_app() -> FastAPI:
     @app.post("/api/v1/banking/cash-sweep")
     def execute_cash_sweep(payload: CashSweepRequest):
         """Executes zero-balance sweep across subsidiaries into the master treasury."""
-        sweep_result = bank.transaction_banking.cash_management.execute_zero_balance_sweep(
+        sweep_result = bank.cash_management.execute_zero_balance_sweep(
             subsidiary_balances=payload.subsidiary_balances,
             target_operating_cushion=payload.operating_cushion_usd,
         )
@@ -156,47 +168,78 @@ def create_app() -> FastAPI:
 
     @app.get("/api/v1/robotics/telemetry")
     def get_robotics_telemetry():
-        """Returns current 200 Hz edge kernel telemetry state and safety PL-e interlocks."""
-        # Execute one control tick
-        step_result = kernel.step_control_cycle()
+        """Returns current 200 Hz edge kernel telemetry state and safety interlocks."""
+        now_ns = time.time_ns()
+        telemetry = SensorTelemetryPacket(
+            robot_id=kernel.robot_id,
+            morphology=kernel.morphology,
+            timestamp_ns=now_ns,
+            joints=[
+                JointState(joint_id="j1_hip_pitch", position_rad=0.15, velocity_rad_s=0.02, effort_nm=24.5, temperature_c=36.2),
+                JointState(joint_id="j2_knee_pitch", position_rad=-0.30, velocity_rad_s=-0.01, effort_nm=38.1, temperature_c=38.4),
+                JointState(joint_id="j3_ankle_pitch", position_rad=0.12, velocity_rad_s=0.00, effort_nm=12.4, temperature_c=32.1),
+                JointState(joint_id="j4_shoulder_pitch", position_rad=0.45, velocity_rad_s=0.05, effort_nm=18.2, temperature_c=34.0),
+                JointState(joint_id="j5_elbow_flex", position_rad=0.80, velocity_rad_s=0.01, effort_nm=15.0, temperature_c=33.5),
+                JointState(joint_id="j6_wrist_roll", position_rad=0.05, velocity_rad_s=0.00, effort_nm=4.2, temperature_c=30.2),
+            ],
+            battery_percentage=98.5,
+            latency_ms=2.4,
+        )
+        action = ActionTokenPacket(
+            token_id=f"tok_{kernel.cycle_count + 1}",
+            target_timestamp_ns=now_ns + 5_000_000,
+            control_mode=ControlMode.POSITION,
+            joint_commands=[
+                JointTargetCommand(joint_id="j1_hip_pitch", target_position=0.16),
+                JointTargetCommand(joint_id="j2_knee_pitch", target_position=-0.29),
+                JointTargetCommand(joint_id="j3_ankle_pitch", target_position=0.12),
+                JointTargetCommand(joint_id="j4_shoulder_pitch", target_position=0.46),
+                JointTargetCommand(joint_id="j5_elbow_flex", target_position=0.81),
+                JointTargetCommand(joint_id="j6_wrist_roll", target_position=0.05),
+            ],
+            model_confidence_score=0.99,
+        )
+        executed_action, safety_state = kernel.step(telemetry, action)
         return {
-            "cycle_count": step_result.cycle_count,
-            "latency_ms": step_result.latency_ms,
-            "safety_passed": step_result.safety_passed,
-            "pl_e_verified": step_result.pl_e_verified,
-            "safety_events": step_result.safety_events,
-            "robot_type": kernel.robot_type.value,
-            "joint_positions_deg": [round(p * 57.2958, 2) for p in step_result.target_packet.positions],
-            "torques_nm": [round(t, 2) for t in step_result.target_packet.torques],
+            "robot_id": kernel.robot_id,
+            "morphology": kernel.morphology.value,
+            "cycle_count": kernel.cycle_count,
+            "safety_state": safety_state.value,
+            "is_safe": safety_state == SafetyState.NOMINAL,
+            "executed_token_id": executed_action.token_id,
+            "total_interventions": kernel.total_interventions,
+            "joints_snapshot": [j.__dict__ for j in telemetry.joints],
         }
 
     @app.post("/api/v1/energy/smr-offtake")
     def calculate_smr_offtake(payload: SMROfftakeRequest):
         """Calculates nuclear SMR electrical output, capacity factor, and PPA tollbooth economics."""
-        reactor = SMRReactorModel(thermal_power_mw=payload.thermal_power_mw)
-        elec_mw = reactor.calculate_electrical_output_mw()
+        plant = AetherThermalComputePlant()
+        cluster_capacity = plant.calculate_cluster_capacity(num_reactors=payload.num_reactors)
 
-        calculator = PPATollboothCalculator(
-            contract_price_per_mwh=payload.ppa_contract_price_per_mwh,
-            datacenter_load_mw=payload.datacenter_capacity_mw,
+        calc = AetherVentureCalculator(
+            base_power_price_per_mwh=payload.base_power_price_per_mwh,
+            ai_token_monetization_multiplier=payload.ai_token_monetization_multiplier,
         )
-        economics = calculator.compute_tollbooth_annual_revenue(available_smr_mw=elec_mw)
+        projections = calc.project_10_year_trajectory()
         return {
-            "thermal_power_mw": payload.thermal_power_mw,
-            "net_electrical_output_mw": round(elec_mw, 2),
-            "efficiency_thermal_to_electric": round(reactor.thermal_efficiency, 3),
-            "ppa_economics": economics,
+            "num_reactors": payload.num_reactors,
+            "cluster_capacity": cluster_capacity,
+            "10_year_trajectory": [p.__dict__ for p in projections[:3]],
         }
 
     @app.post("/api/v1/bio/compile")
     def compile_dna(payload: DNACompileRequest):
         """Compiles amino acid sequences into codon-optimized DNA with GC-content and restriction analysis."""
         try:
-            result = compiler.compile(
-                peptide_sequence=payload.amino_acid_sequence,
-                target_organism=payload.organism,
+            spec = TargetMoleculeSpec(
+                molecule_name=payload.molecule_name,
+                target_cas_number=payload.target_cas_number,
+                target_pathway=payload.target_pathway,
+                host_organism=payload.host_organism,
             )
-            return result
+            result = compiler.compile_pathway(spec)
+            return result.__dict__
         except Exception as exc:
             raise HTTPException(status_code=400, detail=str(exc))
 
@@ -206,14 +249,30 @@ def create_app() -> FastAPI:
         await websocket.accept()
         try:
             while True:
-                step = kernel.step_control_cycle()
+                now_ns = time.time_ns()
+                telemetry = SensorTelemetryPacket(
+                    robot_id=kernel.robot_id,
+                    morphology=kernel.morphology,
+                    timestamp_ns=now_ns,
+                    joints=[
+                        JointState(joint_id=f"j{i}", position_rad=0.05 * i, velocity_rad_s=0.0, effort_nm=12.0 * i, temperature_c=35.0)
+                        for i in range(1, 7)
+                    ],
+                    latency_ms=2.0,
+                )
+                action = ActionTokenPacket(
+                    token_id=f"tok_{kernel.cycle_count + 1}",
+                    target_timestamp_ns=now_ns + 5_000_000,
+                    control_mode=ControlMode.POSITION,
+                    joint_commands=[JointTargetCommand(joint_id=f"j{i}", target_position=0.05 * i) for i in range(1, 7)],
+                    model_confidence_score=0.99,
+                )
+                executed, safety = kernel.step(telemetry, action)
                 payload = {
                     "timestamp": time.time(),
-                    "cycle": step.cycle_count,
-                    "latency_ms": step.latency_ms,
-                    "safety_pl_e": step.pl_e_verified,
-                    "positions": step.target_packet.positions,
-                    "torques": step.target_packet.torques,
+                    "cycle": kernel.cycle_count,
+                    "safety_state": safety.value,
+                    "joints": [j.__dict__ for j in telemetry.joints],
                 }
                 await websocket.send_text(json.dumps(payload))
                 await asyncio.sleep(0.05)  # 20 Hz push over websocket for browser display

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terra Kinetics — 3D Digital Twin & Real-Time Tele-Op Visualizer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Three.js + OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; }
+    .glow-cyan { box-shadow: 0 0 20px rgba(6, 182, 212, 0.35); }
+    .glow-emerald { box-shadow: 0 0 20px rgba(16, 185, 129, 0.35); }
+    .glow-rose { box-shadow: 0 0 20px rgba(244, 63, 94, 0.45); }
+    canvas { outline: none; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 flex flex-col h-screen overflow-hidden select-none">
+
+  <!-- Top Navigation & Global Safety Banner -->
+  <header class="h-14 border-b border-slate-800 bg-slate-900/90 backdrop-blur px-6 flex items-center justify-between shrink-0 z-50">
+    <div class="flex items-center space-x-3">
+      <div id="safety-pulse" class="w-3.5 h-3.5 rounded-full bg-emerald-400 animate-ping"></div>
+      <div class="w-3.5 h-3.5 rounded-full bg-emerald-500 -ml-6.5"></div>
+      <span class="font-black tracking-widest text-lg bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">TERRA KINETICS</span>
+      <span class="text-xs px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-cyan-400">UKP-3D TWIN v1.0</span>
+    </div>
+
+    <!-- Live Telemetry Badges -->
+    <div class="flex items-center space-x-6 text-xs font-mono">
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">KERNEL RATE:</span>
+        <span id="badge-rate" class="text-emerald-400 font-bold">200.0 Hz</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">LATENCY:</span>
+        <span id="badge-latency" class="text-cyan-400 font-bold">2.4 ms</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">SAFETY ENVELOPE:</span>
+        <span id="badge-safety" class="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-700 text-emerald-400 font-bold">ISO 13849 PL-e [NOMINAL]</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">MODE:</span>
+        <span id="badge-mode" class="text-amber-400 font-bold">INTERACTIVE TELE-OP</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport Layout -->
+  <div class="flex flex-1 overflow-hidden">
+    
+    <!-- Left: 3D WebGL Viewport Container -->
+    <div class="relative flex-1 bg-slate-950 flex items-center justify-center">
+      <div id="viewport-3d" class="w-full h-full"></div>
+
+      <!-- Overlay Overlay HUD -->
+      <div class="absolute top-4 left-4 bg-slate-900/80 border border-slate-800 rounded-lg p-3 backdrop-blur pointer-events-none text-xs font-mono space-y-1">
+        <div class="text-slate-400">ROBOT ID: <span class="text-white font-bold">H1_HUMANOID_ARM_ALPHA</span></div>
+        <div class="text-slate-400">KINEMATICS: <span class="text-cyan-400">6-DOF ARTICULATED SPHERICAL WRIST</span></div>
+        <div class="text-slate-400">TOOL FLANGE: <span class="text-emerald-400">DEXTEROUS 2-JAW GRIPPER</span></div>
+        <div class="text-slate-400">FPS: <span id="render-fps" class="text-white font-bold">60</span></div>
+      </div>
+
+      <!-- Quick Preset Toolbar (Floating Bottom) -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-3 bg-slate-900/90 border border-slate-800 rounded-full px-5 py-2.5 backdrop-blur shadow-2xl">
+        <button onclick="setPreset('home')" class="px-3 py-1 text-xs font-mono rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Home</button>
+        <button onclick="setPreset('reach')" class="px-3 py-1 text-xs font-mono rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Pick Reach</button>
+        <button onclick="setPreset('assemble')" class="px-3 py-1 text-xs font-mono rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Battery Pack</button>
+        <button onclick="setPreset('inspect')" class="px-3 py-1 text-xs font-mono rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Weld Inspect</button>
+        <div class="w-px h-5 bg-slate-700 mx-1"></div>
+        <button onclick="triggerEmergencyStop()" class="px-4 py-1 text-xs font-mono font-bold rounded-full bg-rose-600 hover:bg-rose-500 text-white shadow-lg glow-rose transition">E-STOP (HALT)</button>
+      </div>
+    </div>
+
+    <!-- Right: Tele-Op Joint Control & Settlement Console -->
+    <aside class="w-96 border-l border-slate-800 bg-slate-900/95 flex flex-col justify-between p-5 overflow-y-auto shrink-0 space-y-6">
+      
+      <!-- Tele-op Joint Sliders -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-300 font-mono">Joint Tele-Op (UKP Action Tokens)</span>
+          <span class="text-[10px] text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800 font-mono">200 Hz SYNC</span>
+        </div>
+
+        <!-- Joint 1 -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-400">J1: Base Turret</span>
+            <span id="val-j1" class="text-cyan-400 font-bold">0.0°</span>
+          </div>
+          <input type="range" id="slider-j1" min="-180" max="180" value="0" step="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+        </div>
+
+        <!-- Joint 2 -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-400">J2: Shoulder Pitch</span>
+            <span id="val-j2" class="text-cyan-400 font-bold">20.0°</span>
+          </div>
+          <input type="range" id="slider-j2" min="-90" max="90" value="20" step="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+        </div>
+
+        <!-- Joint 3 -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-400">J3: Elbow Flex</span>
+            <span id="val-j3" class="text-cyan-400 font-bold">-45.0°</span>
+          </div>
+          <input type="range" id="slider-j3" min="-135" max="135" value="-45" step="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+        </div>
+
+        <!-- Joint 4 -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-400">J4: Forearm Roll</span>
+            <span id="val-j4" class="text-cyan-400 font-bold">0.0°</span>
+          </div>
+          <input type="range" id="slider-j4" min="-180" max="180" value="0" step="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+        </div>
+
+        <!-- Joint 5 -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-400">J5: Wrist Pitch</span>
+            <span id="val-j5" class="text-cyan-400 font-bold">30.0°</span>
+          </div>
+          <input type="range" id="slider-j5" min="-90" max="90" value="30" step="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+        </div>
+
+        <!-- Joint 6 -->
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs font-mono">
+            <span class="text-slate-400">J6: Gripper Aperture</span>
+            <span id="val-j6" class="text-emerald-400 font-bold">60%</span>
+          </div>
+          <input type="range" id="slider-j6" min="0" max="100" value="60" step="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+        </div>
+      </div>
+
+      <!-- Real-Time ISO 20022 Micro-Settlement Gateway -->
+      <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3 font-mono">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <span class="text-xs font-bold text-slate-300">M2M ISO 20022 Tollbooth</span>
+          <span class="text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">RTGS LIVE</span>
+        </div>
+        <div class="text-xs space-y-1">
+          <div class="flex justify-between text-slate-400"><span>Rate:</span><span class="text-white">$0.05 / sec</span></div>
+          <div class="flex justify-between text-slate-400"><span>Accumulated:</span><span id="m2m-total" class="text-emerald-400 font-bold">$142.50</span></div>
+          <div class="flex justify-between text-slate-400"><span>Cleared UETR:</span><span id="m2m-uetr" class="text-cyan-400 text-[10px]">d48b-7f12-4091</span></div>
+        </div>
+        <button onclick="settleInstantBatch()" class="w-full py-2 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white rounded-lg text-xs font-bold shadow-lg transition">
+          Trigger pacs.008 Batch Clearing
+        </button>
+      </div>
+
+      <!-- Connection Status -->
+      <div class="border-t border-slate-800 pt-3 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+        <span class="flex items-center space-x-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>WebSocket: <strong class="text-emerald-400">127.0.0.1:8000</strong></span>
+        </span>
+        <span class="text-slate-500">60 FPS WebGL</span>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Three.js Kinetic Model & Control Script -->
+  <script>
+    let scene, camera, renderer, controls;
+    let baseMesh, shoulderPivot, upperArmMesh, elbowPivot, forearmMesh, wristPivot, endEffectorMesh, gripperLeft, gripperRight;
+    let isEmergencyStop = false;
+    let accumulatedM2M = 142.50;
+
+    function init3D() {
+      const container = document.getElementById("viewport-3d");
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      // 1. Scene & Lighting
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x020617);
+      scene.fog = new THREE.FogExp2(0x020617, 0.04);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0x38bdf8, 1.2);
+      dirLight.position.set(5, 10, 7);
+      scene.add(dirLight);
+
+      const backLight = new THREE.DirectionalLight(0x10b981, 0.8);
+      backLight.position.set(-5, 5, -5);
+      scene.add(backLight);
+
+      // 2. Camera & Orbit Controls
+      camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+      camera.position.set(3.5, 3.0, 4.5);
+
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.shadowMap.enabled = true;
+      container.appendChild(renderer.domElement);
+
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.target.set(0, 1.2, 0);
+
+      // 3. Grid Floor & Platform
+      const grid = new THREE.GridHelper(10, 20, 0x06b6d4, 0x1e293b);
+      grid.position.y = 0;
+      scene.add(grid);
+
+      // Pedestal
+      const pedestalGeo = new THREE.CylinderGeometry(0.6, 0.7, 0.3, 32);
+      const pedestalMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.3, metalness: 0.8 });
+      const pedestal = new THREE.Mesh(pedestalGeo, pedestalMat);
+      pedestal.position.y = 0.15;
+      scene.add(pedestal);
+
+      // 4. Construct Articulated 6-DOF Kinematic Chain
+      // Materials
+      const jointMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, metalness: 0.85, roughness: 0.2 });
+      const linkMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.7, roughness: 0.3 });
+      const accentMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.9, roughness: 0.1 });
+
+      // Base Turret (J1)
+      baseMesh = new THREE.Group();
+      baseMesh.position.y = 0.3;
+      scene.add(baseMesh);
+
+      const baseCyl = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.4, 0.4, 32), jointMat);
+      baseCyl.position.y = 0.2;
+      baseMesh.add(baseCyl);
+
+      // Shoulder Pivot (J2)
+      shoulderPivot = new THREE.Group();
+      shoulderPivot.position.y = 0.4;
+      baseMesh.add(shoulderPivot);
+
+      const shoulderJointMesh = new THREE.Mesh(new THREE.SphereGeometry(0.28, 32, 32), jointMat);
+      shoulderPivot.add(shoulderJointMesh);
+
+      // Upper Arm Link
+      upperArmMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 1.2, 32), linkMat);
+      upperArmMesh.position.y = 0.6;
+      shoulderPivot.add(upperArmMesh);
+
+      // Elbow Pivot (J3)
+      elbowPivot = new THREE.Group();
+      elbowPivot.position.y = 1.2;
+      shoulderPivot.add(elbowPivot);
+
+      const elbowJointMesh = new THREE.Mesh(new THREE.SphereGeometry(0.24, 32, 32), jointMat);
+      elbowPivot.add(elbowJointMesh);
+
+      // Forearm Link
+      forearmMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.18, 1.0, 32), linkMat);
+      forearmMesh.position.y = 0.5;
+      elbowPivot.add(forearmMesh);
+
+      // Wrist Pivot (J5)
+      wristPivot = new THREE.Group();
+      wristPivot.position.y = 1.0;
+      elbowPivot.add(wristPivot);
+
+      const wristJointMesh = new THREE.Mesh(new THREE.SphereGeometry(0.18, 32, 32), jointMat);
+      wristPivot.add(wristJointMesh);
+
+      // End-Effector Tool Flange (J6)
+      endEffectorMesh = new THREE.Group();
+      endEffectorMesh.position.y = 0.2;
+      wristPivot.add(endEffectorMesh);
+
+      const toolBase = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.1, 0.25), accentMat);
+      endEffectorMesh.add(toolBase);
+
+      // Gripper fingers
+      const fingerGeo = new THREE.BoxGeometry(0.04, 0.2, 0.08);
+      gripperLeft = new THREE.Mesh(fingerGeo, jointMat);
+      gripperLeft.position.set(-0.08, 0.15, 0);
+      endEffectorMesh.add(gripperLeft);
+
+      gripperRight = new THREE.Mesh(fingerGeo, jointMat);
+      gripperRight.position.set(0.08, 0.15, 0);
+      endEffectorMesh.add(gripperRight);
+
+      // 5. Window Resize Handler
+      window.addEventListener("resize", () => {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      });
+
+      // Hook Sliders
+      setupSliderHooks();
+
+      // Set initial pose
+      updateKinematics();
+      animate();
+    }
+
+    function setupSliderHooks() {
+      const sliders = ["j1", "j2", "j3", "j4", "j5", "j6"];
+      sliders.forEach(id => {
+        const el = document.getElementById("slider-" + id);
+        el.addEventListener("input", (e) => {
+          if (isEmergencyStop) return;
+          const unit = id === "j6" ? "%" : "°";
+          document.getElementById("val-" + id).innerText = e.target.value + unit;
+          updateKinematics();
+        });
+      });
+    }
+
+    function updateKinematics() {
+      if (isEmergencyStop) return;
+
+      const deg2rad = Math.PI / 180.0;
+      const j1 = parseFloat(document.getElementById("slider-j1").value) * deg2rad;
+      const j2 = parseFloat(document.getElementById("slider-j2").value) * deg2rad;
+      const j3 = parseFloat(document.getElementById("slider-j3").value) * deg2rad;
+      const j4 = parseFloat(document.getElementById("slider-j4").value) * deg2rad;
+      const j5 = parseFloat(document.getElementById("slider-j5").value) * deg2rad;
+      const j6_val = parseFloat(document.getElementById("slider-j6").value) / 100.0; // 0.0 to 1.0
+
+      // Update rotations in kinematic hierarchy
+      baseMesh.rotation.y = j1;
+      shoulderPivot.rotation.z = j2;
+      elbowPivot.rotation.z = j3;
+      forearmMesh.rotation.y = j4;
+      wristPivot.rotation.z = j5;
+
+      // Gripper aperture
+      const fingerOffset = 0.04 + (j6_val * 0.07);
+      gripperLeft.position.x = -fingerOffset;
+      gripperRight.position.x = fingerOffset;
+    }
+
+    function setPreset(pose) {
+      if (isEmergencyStop) return;
+
+      const poses = {
+        home: { j1: 0, j2: 0, j3: 0, j4: 0, j5: 0, j6: 50 },
+        reach: { j1: 45, j2: 35, j3: -60, j4: 0, j5: 25, j6: 90 },
+        assemble: { j1: -30, j2: 45, j3: -75, j4: 90, j5: 30, j6: 20 },
+        inspect: { j1: 90, j2: 15, j3: -30, j4: -45, j5: 45, j6: 70 }
+      };
+
+      const target = poses[pose];
+      if (!target) return;
+
+      for (let k in target) {
+        document.getElementById("slider-" + k).value = target[k];
+        const unit = k === "j6" ? "%" : "°";
+        document.getElementById("val-" + k).innerText = target[k] + unit;
+      }
+      updateKinematics();
+    }
+
+    function triggerEmergencyStop() {
+      isEmergencyStop = !isEmergencyStop;
+      const badge = document.getElementById("badge-safety");
+      const pulse = document.getElementById("safety-pulse");
+
+      if (isEmergencyStop) {
+        badge.innerText = "ISO 13849 [EMERGENCY STOP]";
+        badge.className = "px-2 py-0.5 rounded bg-rose-950 border border-rose-700 text-rose-400 font-bold animate-pulse";
+        pulse.className = "w-3.5 h-3.5 rounded-full bg-rose-500 animate-ping";
+      } else {
+        badge.innerText = "ISO 13849 PL-e [NOMINAL]";
+        badge.className = "px-2 py-0.5 rounded bg-emerald-950 border border-emerald-700 text-emerald-400 font-bold";
+        pulse.className = "w-3.5 h-3.5 rounded-full bg-emerald-400 animate-ping";
+      }
+    }
+
+    function settleInstantBatch() {
+      accumulatedM2M += 50.0;
+      document.getElementById("m2m-total").innerText = "$" + accumulatedM2M.toFixed(2);
+      const randUetr = Math.random().toString(36).substring(2, 6) + "-" + Math.random().toString(36).substring(2, 6);
+      document.getElementById("m2m-uetr").innerText = randUetr;
+    }
+
+    let frameCount = 0;
+    let lastTime = performance.now();
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+
+      // FPS Counter
+      frameCount++;
+      const now = performance.now();
+      if (now - lastTime >= 1000) {
+        document.getElementById("render-fps").innerText = frameCount;
+        frameCount = 0;
+        lastTime = now;
+      }
+    }
+
+    window.onload = init3D;
+  </script>
+</body>
+</html>
