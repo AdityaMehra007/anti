@@ -1,5 +1,5 @@
 # OMEGA DAILY CAREER BRIEF
-**Generated:** `Monday, September 28, 2026 - 23:54 IST`  
+**Generated:** `Tuesday, September 29, 2026 - 12:28 IST`  
 **Operational Mode:** `SOVEREIGN_AUTONOMOUS_ORCHESTRATION`  
 **System Truth:** `100% EVIDENCE-GROUNDED`
 
