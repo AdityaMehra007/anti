@@ -762,8 +762,9 @@ function renderCompanies() {{
         <div class="card-row">📞 <strong>Desk Line:</strong> ${{t.phone || '+91-80-4000-XXXX'}}</div>
       </div>
 
-      <div class="card-footer">
-        <a href="${{t.mailto_url || 'mailto:' + (t.hr_email || '')}}" class="card-btn primary">✉️ Email HR Lead</a>
+      <div class="card-footer" style="display:flex; gap:6px; flex-wrap:wrap;">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${{encodeURIComponent(t.hr_email || t.careers_email || '')}}&su=${{encodeURIComponent(t.email_subject || '')}}&body=${{encodeURIComponent(t.email_body || '')}}" target="_blank" class="card-btn primary" style="background:#ea4335;">📮 Web Gmail (1-Click)</a>
+        <a href="${{t.mailto_url || 'mailto:' + (t.hr_email || '')}}" class="card-btn secondary">✉️ Mail App</a>
         <a href="${{t.linkedin_url || '#'}}" target="_blank" class="card-btn secondary">🔗 LinkedIn</a>
       </div>
     </div>
@@ -802,9 +803,10 @@ function filterScoredJobs() {{
         <div class="card-row">👤 <strong>Recruiter:</strong> ${{j.recruiter_name}} (${{j.recruiter_title}})</div>
       </div>
 
-      <div class="card-footer">
-        <a href="${{j.mailto_url}}" class="card-btn primary">✉️ Send Application</a>
-        <a href="${{j.portal_url}}" target="_blank" class="card-btn secondary">🌐 Career Portal</a>
+      <div class="card-footer" style="display:flex; gap:6px; flex-wrap:wrap;">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${{encodeURIComponent((j.mailto_url && j.mailto_url.includes('mailto:')) ? j.mailto_url.split('mailto:')[1].split('?')[0] : '')}}&su=${{encodeURIComponent(j.email_subject || '')}}&body=${{encodeURIComponent(j.email_body || '')}}" target="_blank" class="card-btn primary" style="background:#ea4335;">📮 Web Gmail (1-Click)</a>
+        <a href="${{j.mailto_url}}" class="card-btn secondary">✉️ Mail App</a>
+        <a href="${{j.portal_url}}" target="_blank" class="card-btn secondary">🌐 Portal</a>
       </div>
     </div>
   `).join('');

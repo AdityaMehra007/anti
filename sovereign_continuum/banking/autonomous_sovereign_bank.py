@@ -184,3 +184,7 @@ class BankOfTheContinuum:
                 "10. Multi-Trillion Derivatives Hedging (IRS/FX/CDS)",
             ],
         }
+
+
+# Canonical alias for Autonomous Sovereign Bank architecture
+AutonomousSovereignBank = BankOfTheContinuum

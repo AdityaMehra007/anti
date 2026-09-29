@@ -171,3 +171,24 @@ CREATE TABLE IF NOT EXISTS automations (
     last_result_summary TEXT,
     created_at TEXT DEFAULT (datetime('now'))
 );
+
+-- 10. DAILY CASH TRANSACTIONS & PROFIT LEDGER
+CREATE TABLE IF NOT EXISTS daily_cash_transactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    transaction_date TEXT NOT NULL, -- YYYY-MM-DD
+    transaction_time TEXT NOT NULL, -- HH:MM:SS
+    source_type TEXT NOT NULL, -- 'B2B_RETAINER', 'MICRO_SAAS_TOOL', 'CONSULTING_HOURLY', 'CAREER_ACCRUAL', 'GLOBAL_EXPORT'
+    client_or_customer TEXT NOT NULL,
+    description TEXT NOT NULL,
+    gross_amount_inr REAL NOT NULL,
+    currency TEXT DEFAULT 'INR',
+    original_currency_amount REAL NOT NULL,
+    variable_cost_inr REAL DEFAULT 0.0,
+    net_profit_inr REAL NOT NULL,
+    profit_margin_pct REAL NOT NULL,
+    payment_rail TEXT NOT NULL, -- 'UPI_HDFC', 'STRIPE_USD', 'WISE_ACH', 'RAZORPAY_INR', 'BANK_NEFT'
+    payment_status TEXT DEFAULT 'COMPLETED', -- 'COMPLETED', 'PENDING', 'SCHEDULED'
+    reference_id TEXT,
+    notes TEXT,
+    created_at TEXT DEFAULT (datetime('now'))
+);

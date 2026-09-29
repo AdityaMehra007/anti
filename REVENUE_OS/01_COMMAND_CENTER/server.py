@@ -12,6 +12,7 @@ from urllib.parse import urlparse, parse_qs
 from REVENUE_OS.command_center.cli import RevenueOSCLI
 from REVENUE_OS.founder_os.approval_center import ApprovalCenter
 from REVENUE_OS.automations.automations import AutomationEngine
+from REVENUE_OS.finance.daily_profit_engine import DailyProfitEngine
 
 WEB_DIR = Path(__file__).resolve().parent.parent / "web"
 
@@ -19,6 +20,14 @@ class RevenueOSRequestHandler(BaseHTTPRequestHandler):
     cli = RevenueOSCLI()
     approval_center = ApprovalCenter()
     automations = AutomationEngine()
+    profit_engine = DailyProfitEngine()
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
 
     def do_GET(self):
         parsed = urlparse(self.path)
@@ -27,6 +36,13 @@ class RevenueOSRequestHandler(BaseHTTPRequestHandler):
         if path == "/api/state":
             state = self.cli.get_dashboard_state()
             self._send_json(state)
+        elif path == "/api/daily-profit-ledger":
+            summary = self.profit_engine.get_daily_summary()
+            ledger = self.profit_engine.get_daily_ledger(limit=50)
+            self._send_json({"summary": summary, "ledger": ledger})
+        elif path == "/api/daily-pnl-receipt":
+            receipt = self.profit_engine.generate_daily_pnl_receipt()
+            self._send_json({"receipt": receipt})
         elif path == "/api/brief":
             brief = self.cli.get_executive_brief()
             self._send_json({"brief": brief})
@@ -75,6 +91,27 @@ class RevenueOSRequestHandler(BaseHTTPRequestHandler):
                 self._send_json(res)
             else:
                 self.send_error(400, "Missing automation name")
+        elif path == "/api/record-income":
+            client = payload.get("client", "Direct Customer")
+            source_type = payload.get("source_type", "MICRO_SAAS_TOOL")
+            description = payload.get("description", "Micro-SaaS Tool Purchase")
+            gross = float(payload.get("gross_amount_inr", 0.0))
+            cost = float(payload.get("variable_cost_inr", 0.0))
+            rail = payload.get("payment_rail", "UPI_HDFC")
+            notes = payload.get("notes", "Recorded via Daily Cash Register")
+            if gross > 0:
+                res = self.profit_engine.record_income(
+                    client=client,
+                    source_type=source_type,
+                    description=description,
+                    gross_amount_inr=gross,
+                    variable_cost_inr=cost,
+                    payment_rail=rail,
+                    notes=notes
+                )
+                self._send_json(res)
+            else:
+                self.send_error(400, "Gross amount must be > 0")
         else:
             self.send_error(404, "Not Found")
 
@@ -84,6 +121,8 @@ class RevenueOSRequestHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(encoded)))
         self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
         self.wfile.write(encoded)
 

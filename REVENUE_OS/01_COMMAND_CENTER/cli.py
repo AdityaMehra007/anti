@@ -49,10 +49,15 @@ class RevenueOSCLI:
         ltv = 105000.0 # 3-month average retainer @ ₹35k/mo
         churn_rate = 0.0
         recurring_rev = won_rev
-        
-        # Synthetic / tracked financial snapshots
-        revenue_today = 0.0
-        revenue_month = won_rev if won_rev > 0 else 70000.0 # Standard active baseline for 2 retainers
+
+        # Real-time Daily Profit & Income telemetry
+        from REVENUE_OS.finance.daily_profit_engine import DailyProfitEngine
+        profit_engine = DailyProfitEngine(db=self.db)
+        daily_summary = profit_engine.get_daily_summary()
+
+        revenue_today = daily_summary["gross_revenue_inr"]
+        profit_today = daily_summary["net_profit_inr"]
+        revenue_month = (won_rev if won_rev > 0 else 70000.0) + revenue_today
         revenue_year = revenue_month
         profit = round(revenue_month * 0.88, 2) # ~88% net margin
         ai_cost = 25.0 # USD
@@ -64,13 +69,19 @@ class RevenueOSCLI:
         biggest_bottleneck = "Manual review of prospect dossiers prior to dispatch"
         
         top_3_actions = [
+            f"Daily Target Pacing: Today at ₹{profit_today:,.2f} profit ({daily_summary['target_achievement_pct']:.1f}% of ₹14,500 target).",
             "Send 5 signal-verified account dossiers to newly funded tech founders.",
-            "Review pending outbound cards in Founder Approval Center.",
-            "Run weekly expense audit to confirm zero subscription leakage."
+            "Run daily cash reconciliation and verify UPI/Stripe settlements."
         ]
 
         return {
             "revenue_today": f"₹{revenue_today:,.2f}",
+            "profit_today": f"₹{profit_today:,.2f}",
+            "net_profit_today": f"₹{profit_today:,.2f}",
+            "daily_target": f"₹{daily_summary['daily_target_inr']:,.2f}",
+            "daily_achievement_pct": f"{daily_summary['target_achievement_pct']:.1f}%",
+            "daily_remaining": f"₹{daily_summary['target_remaining_inr']:,.2f}",
+            "daily_tx_count": daily_summary["transaction_count"],
             "revenue_month": f"₹{revenue_month:,.2f}",
             "revenue_year": f"₹{revenue_year:,.2f}",
             "profit": f"₹{profit:,.2f}",

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORLD GDP DAILY CASH TAP :: $110T Sovereign Extraction Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(14, 18, 28, 0.88);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(22, 29, 44, 0.95);
+      --text: #f3f4f6;
+      --text-dim: #9ca3af;
+      --text-muted: #6b7280;
+      
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --cyan: #06b6d4;
+      --cyan-glow: rgba(6, 182, 212, 0.25);
+      --amber: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.2);
+      --purple: #8b5cf6;
+      --rose: #f43f5e;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    header {
+      background: rgba(7, 9, 14, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .badge-icon {
+      background: linear-gradient(135deg, var(--cyan), var(--emerald));
+      color: #000;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-text span.tag {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--cyan);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1650px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Giant World GDP Torrent Ticker */
+    .gdp-torrent-banner {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(16, 185, 129, 0.08) 50%, rgba(14, 18, 28, 0.95) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-radius: 16px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+    @media (max-width: 950px) {
+      .gdp-torrent-banner { grid-template-columns: 1fr; }
+    }
+
+    .torrent-info h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .torrent-info p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      max-width: 780px;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .torrent-ticker-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .ticker-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 0.85rem 1.25rem;
+    }
+    .ticker-block label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .ticker-block .val {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    /* Aditya's Sovereign Straw Widget */
+    .sovereign-straw-box {
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .sovereign-straw-box::before {
+      content: 'SOVEREIGN STRAW ACTIVE';
+      position: absolute;
+      top: -10px;
+      right: 15px;
+      background: var(--emerald);
+      color: #000;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+    .straw-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .straw-head h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .straw-val {
+      font-family: var(--font-mono);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--emerald);
+      letter-spacing: -0.5px;
+      margin-bottom: 0.4rem;
+    }
+    .straw-metrics {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 0.75rem;
+    }
+    .pacing-bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .pacing-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--emerald), var(--cyan));
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    /* 5 Corridors Grid */
+    .corridors-section h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .corridors-section p.sub {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+    }
+    .corridor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .corridor-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .corridor-card:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+    .corridor-card.top::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--cyan);
+    }
+    .c-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+    .c-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .c-share {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--cyan);
+    }
+    .c-gdp-sub {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .c-offering {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .c-ticket {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .c-extract-btn {
+      background: linear-gradient(135deg, var(--cyan), #0891b2);
+      color: #000;
+      border: none;
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .c-extract-btn:hover {
+      background: linear-gradient(135deg, #22d3ee, var(--cyan));
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+    .c-extract-btn.emerald {
+      background: linear-gradient(135deg, var(--emerald), #059669);
+    }
+    .c-extract-btn.emerald:hover {
+      background: linear-gradient(135deg, #34d399, var(--emerald));
+      box-shadow: 0 0 16px var(--emerald-glow);
+    }
+
+    /* Calculator Section */
+    .calc-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .calc-section { grid-template-columns: 1fr; }
+    }
+    .calc-form h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+    .calc-form p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+    }
+    .calc-input-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .calc-input-wrap label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .calc-input-wrap input {
+      background: #080b12;
+      border: 1px solid var(--card-border);
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 700;
+      outline: none;
+    }
+    .calc-input-wrap input:focus {
+      border-color: var(--emerald);
+      box-shadow: 0 0 12px var(--emerald-glow);
+    }
+    .quick-chips {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .q-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-dim);
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .q-chip:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .calc-results {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 1rem;
+    }
+    .calc-res-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding-bottom: 0.5rem;
+    }
+    .calc-res-row:last-child { border-bottom: none; }
+    .calc-res-row span:first-child {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    .calc-res-row span:last-child {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 1.25rem 2rem;
+      background: rgba(7, 9, 14, 0.95);
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="badge-icon">TAP ∞</div>
+      <div class="brand-text">
+        <h1>
+          WORLD GDP DAILY CASH TAP
+          <span class="tag">Operator: Aditya Mehra</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <a href="../omni_command/index.html" class="nav-btn">⚡ Mission Control HUD</a>
+      <a href="../global_pay/index.html" class="nav-btn">🌍 Worldwide Direct Pay</a>
+      <a href="../daily_cash_machine/b2b_strike_launcher.html" class="nav-btn">📧 B2B Email Strikes</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Giant World GDP Torrent Banner -->
+    <div class="gdp-torrent-banner">
+      <div class="torrent-info">
+        <h2>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          The $110 Trillion World Economic Stream
+        </h2>
+        <p>The global economy produces <strong>$301.16 Billion USD</strong> every single day (₹25,147 Billion INR). By positioning high-margin autonomous AI data operations and Tier-1 vendor governance across 5 sovereign corridors, Aditya Mehra extracts daily cash flow directly from world GDP.</p>
+        
+        <div class="torrent-ticker-row">
+          <div class="ticker-block">
+            <label>World Output / Second</label>
+            <div class="val" id="secondTicker">$3,485,689</div>
+          </div>
+          <div class="ticker-block">
+            <label>Global Output / Day</label>
+            <div class="val">$301.16 Billion</div>
+          </div>
+          <div class="ticker-block">
+            <label>Annual Benchmark</label>
+            <div class="val" style="color: #fff;">$110.0 Trillion</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sovereign Straw Widget -->
+      <div class="sovereign-straw-box">
+        <div>
+          <div class="straw-head">
+            <h3>Aditya's Daily Extraction</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--emerald); font-weight: 700;">LIVE LEDGER</span>
+          </div>
+          <div class="straw-val" id="strawCapturedVal">₹45,626.33</div>
+          <div class="straw-metrics">
+            <span>Daily Quota: ₹14,500.00</span>
+            <span style="color: var(--emerald); font-weight: 700;" id="strawPacingVal">314.7% OF TARGET</span>
+          </div>
+          <div class="pacing-bar">
+            <div class="pacing-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.6rem; display: flex; justify-content: space-between;">
+          <span>Share of Daily World GDP:</span>
+          <span style="font-family: var(--font-mono); color: var(--cyan); font-weight: 700;">0.000000187%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- The 5 Corridors Grid -->
+    <div class="corridors-section">
+      <h3>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        The 5 World Wealth Corridors (Direct Extraction Rails)
+      </h3>
+      <p class="sub">Click any corridor to extract immediate cash flow into verified bank accounts.</p>
+
+      <div class="corridor-grid">
+        <!-- North America -->
+        <div class="corridor-card top">
+          <div>
+            <div class="c-header">
+              <span class="c-title">🇺🇸 North America</span>
+              <span class="c-share">27.5% GDP</span>
+            </div>
+            <div class="c-gdp-sub">$30.25T Annual · $82.8B / Day</div>
+            <div class="c-offering">Autonomous AI Operations & Workflow Retainer ($1,500/mo) for US tech teams.</div>
+            <div class="c-ticket">
+              <span>Daily Ticket:</span>
+              <strong style="color: var(--cyan);">$50.00 (~₹4,175)</strong>
+            </div>
+          </div>
+          <a href="../global_pay/index.html?amount=50&currency=USD" target="_blank" class="c-extract-btn">
+            ⚡ Extract $50 USD (Stripe/Wise)
+          </a>
+        </div>
+
+        <!-- Europe & UK -->
+        <div class="corridor-card top">
+          <div>
+            <div class="c-header">
+              <span class="c-title">🇪🇺 Western Europe & UK</span>
+              <span class="c-share">20.0% GDP</span>
+            </div>
+            <div class="c-gdp-sub">$22.0T Annual · $60.2B / Day</div>
+            <div class="c-offering">Tier-1 Vendor SLA Governance & Incoterms 2020 Compliance Audit (€1,200/mo).</div>
+            <div class="c-ticket">
+              <span>Daily Ticket:</span>
+              <strong style="color: var(--cyan);">€40.00 (~₹3,648)</strong>
+            </div>
+          </div>
+          <a href="../global_pay/index.html?amount=40&currency=EUR" target="_blank" class="c-extract-btn">
+            ⚡ Extract €40 EUR / £35 GBP
+          </a>
+        </div>
+
+        <!-- Middle East / GCC -->
+        <div class="corridor-card top">
+          <div>
+            <div class="c-header">
+              <span class="c-title">🇦🇪 Middle East & GCC</span>
+              <span class="c-share">4.0% GDP</span>
+            </div>
+            <div class="c-gdp-sub">$4.4T Annual · $12.0B / Day</div>
+            <div class="c-offering">Cross-Border EXIM Diagnostics & Freight Telemetry Retainer (AED 4,500/mo).</div>
+            <div class="c-ticket">
+              <span>Daily Ticket:</span>
+              <strong style="color: var(--cyan);">AED 150 (~₹3,410)</strong>
+            </div>
+          </div>
+          <a href="../global_pay/index.html?amount=150&currency=AED" target="_blank" class="c-extract-btn">
+            ⚡ Extract AED 150 (Wio/Wise)
+          </a>
+        </div>
+
+        <!-- East Asia & APAC -->
+        <div class="corridor-card top">
+          <div>
+            <div class="c-header">
+              <span class="c-title">🇸🇬 East Asia & APAC</span>
+              <span class="c-share">22.5% GDP</span>
+            </div>
+            <div class="c-gdp-sub">$24.75T Annual · $67.7B / Day</div>
+            <div class="c-offering">Regional Hub Supply Chain & UCP 600 Letter of Credit Ops (S$1,800/mo).</div>
+            <div class="c-ticket">
+              <span>Daily Ticket:</span>
+              <strong style="color: var(--cyan);">S$60.00 (~₹3,768)</strong>
+            </div>
+          </div>
+          <a href="../global_pay/index.html?amount=60&currency=SGD" target="_blank" class="c-extract-btn">
+            ⚡ Extract S$60 SGD (Aspire)
+          </a>
+        </div>
+
+        <!-- India Domestic -->
+        <div class="corridor-card top">
+          <div>
+            <div class="c-header">
+              <span class="c-title">🇮🇳 India Domestic Hub</span>
+              <span class="c-share">3.8% GDP</span>
+            </div>
+            <div class="c-gdp-sub">$4.18T Annual · ₹2,514B / Day</div>
+            <div class="c-offering">Bangalore Tech Corridor Non-Sales Operations & High-Volume Dispatch.</div>
+            <div class="c-ticket">
+              <span>Daily Ticket:</span>
+              <strong style="color: var(--emerald);">₹4,500.00 / day</strong>
+            </div>
+          </div>
+          <a href="upi://pay?pa=adityamehra799@okhdfcbank&pn=AdityaMehra&cu=INR" class="c-extract-btn emerald">
+            ⚡ Extract ₹4,500 via UPI
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- World GDP Micro-Fraction Calculator -->
+    <div class="calc-section">
+      <div class="calc-form">
+        <h3>World GDP Daily Extraction Calculator</h3>
+        <p>Enter any desired daily income in INR to compute the exact micro-slice of world economic output required to sustain it.</p>
+        
+        <div class="calc-input-wrap">
+          <label for="calcInput">Desired Daily Inflow (INR)</label>
+          <input type="number" id="calcInput" value="14500" min="500" step="500" oninput="calculateSiphon()">
+          <div class="quick-chips">
+            <span class="q-chip" onclick="setCalc(5000)">₹5,000 / day</span>
+            <span class="q-chip" onclick="setCalc(14500)">₹14,500 / day (Default)</span>
+            <span class="q-chip" onclick="setCalc(30000)">₹30,000 / day</span>
+            <span class="q-chip" onclick="setCalc(50000)">₹50,000 / day</span>
+            <span class="q-chip" onclick="setCalc(100000)">₹1,00,000 / day</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-res-row">
+          <span>Daily Target (USD):</span>
+          <span style="color: var(--cyan);" id="resUsd">$173.65 USD</span>
+        </div>
+        <div class="calc-res-row">
+          <span>Required Share of Daily World GDP:</span>
+          <span style="color: var(--emerald);" id="resPct">0.0000000577%</span>
+        </div>
+        <div class="calc-res-row">
+          <span>Seconds of World GDP Equivalent:</span>
+          <span id="resSec">0.000050 seconds</span>
+        </div>
+        <div class="calc-res-row">
+          <span>Monthly Run-Rate:</span>
+          <span style="color: #fff;" id="resMonthly">₹4,35,000 / mo</span>
+        </div>
+        <div class="calc-res-row">
+          <span>Optimal Client Blend:</span>
+          <span style="color: var(--amber); font-size: 0.85rem;" id="resBlend">1 US Client ($2,000/mo) + 1 Domestic Retainer</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>WORLD GDP DAILY CASH TAP · OMNI-SYSTEM ARCHITECTURE · FORM GST RFD-11 LUT ZERO-TAX</div>
+    <div>OPERATOR: ADITYA MEHRA · BENGALURU, INDIA</div>
+  </footer>
+
+  <script>
+    // Live Second Ticker Simulation
+    let secondBase = 3485689;
+    function updateSecondTicker() {
+      // Small jitter reflecting real global commerce fluctuations
+      const delta = (Math.random() - 0.5) * 50000;
+      const current = Math.round(secondBase + delta);
+      document.getElementById('secondTicker').textContent = '$' + current.toLocaleString('en-US');
+    }
+    setInterval(updateSecondTicker, 1500);
+
+    // Live Telemetry Poller from Port 8765
+    async function fetchLiveLedger() {
+      try {
+        const res = await fetch('http://127.0.0.1:8765/api/daily-profit-ledger', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          const s = data.summary;
+          if (s) {
+            document.getElementById('strawCapturedVal').textContent = '₹' + Number(s.net_profit_inr).toLocaleString('en-IN', {minimumFractionDigits: 2});
+            document.getElementById('strawPacingVal').textContent = s.target_achievement_pct + '% OF TARGET';
+          }
+        }
+      } catch (e) {
+        // Fallback defaults remain visible
+      }
+    }
+    fetchLiveLedger();
+    setInterval(fetchLiveLedger, 10000);
+
+    // Calculator Logic
+    function calculateSiphon() {
+      const inr = parseFloat(document.getElementById('calcInput').value) || 0;
+      const usdRate = 83.50;
+      const dailyWorldGdpInr = (110000000000000 * usdRate) / 365.25;
+      const secondWorldGdpInr = dailyWorldGdpInr / 86400;
+
+      const usd = inr / usdRate;
+      const sharePct = (inr / dailyWorldGdpInr) * 100;
+      const secondsEq = inr / secondWorldGdpInr;
+      const monthly = inr * 30;
+
+      document.getElementById('resUsd').textContent = '$' + usd.toFixed(2) + ' USD';
+      document.getElementById('resPct').textContent = sharePct.toFixed(10) + '%';
+      document.getElementById('resSec').textContent = secondsEq.toFixed(6) + ' seconds';
+      document.getElementById('resMonthly').textContent = '₹' + Math.round(monthly).toLocaleString('en-IN') + ' / mo';
+
+      if (inr <= 10000) {
+        document.getElementById('resBlend').textContent = '1 US Micro-Retainer ($1,000/mo) or 2 Domestic Clients';
+      } else if (inr <= 20000) {
+        document.getElementById('resBlend').textContent = '1 US Client ($2,000/mo) + 1 Domestic Ops Retainer';
+      } else if (inr <= 50000) {
+        document.getElementById('resBlend').textContent = '2 US Clients ($4,000/mo) + 1 UK Client (£1,500/mo)';
+      } else {
+        document.getElementById('resBlend').textContent = '3 US Enterprise Retainers ($3k/ea) + 2 GCC EXIM Retainers';
+      }
+    }
+
+    function setCalc(val) {
+      document.getElementById('calcInput').value = val;
+      calculateSiphon();
+    }
+  </script>
+</body>
+</html>

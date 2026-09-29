@@ -67,12 +67,14 @@ OPTION C (ZERO SETUP: USE 1-CLICK WEB / DESKTOP MAILTO)
 """)
 
 def test_and_save_credentials(user, app_password):
+    import re
+    clean_pass = re.sub(r"[^a-zA-Z0-9]", "", app_password)
     print(f"\n[*] Testing connection to smtp.gmail.com:587 with {user}...")
     try:
         server = smtplib.SMTP("smtp.gmail.com", 587, timeout=10)
         server.ehlo()
         server.starttls()
-        server.login(user, app_password.replace(" ", ""))
+        server.login(user, clean_pass)
         server.quit()
         print("[OK] SUCCESS! Gmail SMTP authenticated successfully.\n")
         
@@ -85,7 +87,7 @@ def test_and_save_credentials(user, app_password):
         # Filter out old gmail keys
         env_lines = [l for l in env_lines if not l.startswith("GMAIL_USER=") and not l.startswith("GMAIL_APP_PASSWORD=")]
         env_lines.append(f"GMAIL_USER={user}\n")
-        env_lines.append(f"GMAIL_APP_PASSWORD={app_password.replace(' ', '')}\n")
+        env_lines.append(f"GMAIL_APP_PASSWORD={clean_pass}\n")
         
         with open(ENV_PATH, "w", encoding="utf-8") as f:
             f.writelines(env_lines)
@@ -97,7 +99,12 @@ def test_and_save_credentials(user, app_password):
         return False
 
 def dispatch_live_batch(user, app_password, limit=5):
-    clean_pass = app_password.replace(" ", "")
+    import re
+    clean_pass = re.sub(r"[^a-zA-Z0-9]", "", app_password)
+    if limit <= 0:
+        print("[OK] Limit is 0. Authentication verified and credentials saved without sending emails.")
+        return
+
     files = list(OUTBOX_61.glob("*.eml"))
     if not files:
         files = list(OUTBOX_TIER1.glob("*.eml"))
@@ -128,7 +135,20 @@ def dispatch_live_batch(user, app_password, limit=5):
     print(f"\n[OK] Live dispatch run complete! Successfully sent {sent}/{len(selected_files)} applications.")
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="OMEGA Bangalore Live Email Dispatcher")
+    parser.add_argument("--user", type=str, help="Gmail address (e.g. adityamehra799@gmail.com)")
+    parser.add_argument("--pass", dest="app_password", type=str, help="16-character Google App Password")
+    parser.add_argument("--limit", type=int, default=5, help="Number of emails to send (default: 5)")
+    args = parser.parse_args()
+
     print_banner()
+
+    if args.user and args.app_password:
+        if test_and_save_credentials(args.user, args.app_password):
+            dispatch_live_batch(args.user, args.app_password, limit=args.limit)
+        return
+
     explain_gmail_setup()
 
     # Check if already present in env
@@ -143,27 +163,32 @@ def main():
                 elif line.startswith("GMAIL_APP_PASSWORD="):
                     existing_pass = line.strip().split("=", 1)[1]
 
-    if existing_user and existing_pass:
-        print(f"[i] Found configured account: {existing_user}")
-        ans = input("Use this configured account? (y/n): ").strip().lower()
-        if ans == "y":
-            dispatch_live_batch(existing_user, existing_pass, limit=5)
+    try:
+        if existing_user and existing_pass:
+            print(f"[i] Found configured account: {existing_user}")
+            ans = input("Use this configured account? (y/n): ").strip().lower()
+            if ans == "y":
+                dispatch_live_batch(existing_user, existing_pass, limit=args.limit)
+                return
+
+        user_input = input("Enter your Gmail address (e.g. adityamehra799@gmail.com): ").strip()
+        if not user_input:
+            print("No email provided. Exiting.")
+            return
+        
+        pass_input = input("Enter your 16-character Google App Password: ").strip()
+        if not pass_input:
+            print("No App Password provided. Exiting.")
             return
 
-    user_input = input("Enter your Gmail address (e.g. adityamehra799@gmail.com): ").strip()
-    if not user_input:
-        print("No email provided. Exiting.")
-        return
-    
-    pass_input = input("Enter your 16-character Google App Password: ").strip()
-    if not pass_input:
-        print("No App Password provided. Exiting.")
-        return
-
-    if test_and_save_credentials(user_input, pass_input):
-        batch_str = input("How many emails would you like to dispatch right now? (default: 5): ").strip()
-        batch_limit = int(batch_str) if batch_str.isdigit() else 5
-        dispatch_live_batch(user_input, pass_input, limit=batch_limit)
+        if test_and_save_credentials(user_input, pass_input):
+            batch_str = input(f"How many emails would you like to dispatch right now? (default: {args.limit}): ").strip()
+            batch_limit = int(batch_str) if batch_str.isdigit() else args.limit
+            dispatch_live_batch(user_input, pass_input, limit=batch_limit)
+    except EOFError:
+        print("\n[!] Interactive input not detected.")
+        print("    You can pass credentials directly via arguments:")
+        print("    python E:\\anti\\scripts\\activate_email_dispatcher.py --user \"adityamehra799@gmail.com\" --pass \"xxxx xxxx xxxx xxxx\" --limit 5")
 
 if __name__ == "__main__":
     main()

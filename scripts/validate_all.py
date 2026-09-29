@@ -7,6 +7,9 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path("e:/anti")
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 passed = 0
 failed = 0
 issues = []
@@ -251,9 +254,47 @@ launchers = [
     "GET_ME_HIRED.bat",
     "APPLY_BBA_IB_BANGALORE.bat",
     "LAUNCH_NON_STOP_OUTREACH.bat",
+    "RUN_OMNI_SYSTEM.bat",
 ]
 for lb in launchers:
     check(f"{lb} exists", (ROOT / lb).exists())
+
+# 13. OMNI-SYSTEM Sovereign Architecture & World GDP Siphon
+print("\n--- OMNI-SYSTEM SOVEREIGN ENGINE & WORLD GDP SIPHON ---")
+omni_files = [
+    ROOT / "OMNI_SYSTEM" / "__init__.py",
+    ROOT / "OMNI_SYSTEM" / "__main__.py",
+    ROOT / "OMNI_SYSTEM" / "cli.py",
+    ROOT / "OMNI_SYSTEM" / "orchestrator.py",
+    ROOT / "OMNI_SYSTEM" / "world_gdp_siphon.py",
+    ROOT / "OMNI_SYSTEM" / "core" / "config.py",
+    ROOT / "OMNI_SYSTEM" / "core" / "models.py",
+    ROOT / "OMNI_SYSTEM" / "tests" / "test_omni_system.py",
+    ROOT / "OMNI_SYSTEM" / "tests" / "test_world_gdp_siphon.py",
+    ROOT / "apps" / "omni_command" / "index.html",
+    ROOT / "apps" / "world_gdp_tap" / "index.html",
+    ROOT / "apps" / "global_pay" / "index.html",
+    ROOT / "apps" / "daily_cash_machine" / "b2b_strike_launcher.html",
+    ROOT / "research" / "SUPREME_OMEGA_APEX_PROMPT_TITAN_X.md",
+    ROOT / "research" / "SYSTEM_PROMPTS_MASTER_INDEX.json",
+]
+for ofile in omni_files:
+    rel_path = ofile.relative_to(ROOT)
+    check(f"{rel_path} exists", ofile.exists())
+
+try:
+    from OMNI_SYSTEM.orchestrator import orchestrator
+    from OMNI_SYSTEM.world_gdp_siphon import WorldGDPSiphon
+    omni_t = orchestrator.aggregate_telemetry()
+    check("OMNI_SYSTEM telemetry aggregate online", omni_t.operator == "Aditya Mehra")
+    check("OMNI_SYSTEM daily target is 14,500 INR", omni_t.daily_target_inr == 14500.0)
+    check("OMNI_SYSTEM active pipeline >= 1,000,000 INR", omni_t.active_pipeline_inr >= 1000000.0)
+
+    gdp_v = WorldGDPSiphon.get_macro_velocity()
+    check("World GDP annual benchmark == 110T USD", gdp_v["annual_gdp_usd"] == 110_000_000_000_000.0)
+    check("World GDP corridors count == 5", len(WorldGDPSiphon.get_corridors()) == 5)
+except Exception as e:
+    check("OMNI_SYSTEM telemetry aggregate online", False, str(e))
 
 # Summary
 print("\n" + "=" * 70)

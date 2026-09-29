@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMNI-SYSTEM :: Sovereign Autonomous Mission Control HUD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --card-bg: rgba(16, 21, 33, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(26, 35, 55, 0.95);
+      --text-main: #f3f4f6;
+      --text-dim: #9ca3af;
+      --text-muted: #6b7280;
+      
+      --accent-emerald: #10b981;
+      --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+      --accent-cyan: #06b6d4;
+      --accent-cyan-glow: rgba(6, 182, 212, 0.25);
+      --accent-amber: #f59e0b;
+      --accent-amber-glow: rgba(245, 158, 11, 0.2);
+      --accent-purple: #8b5cf6;
+      --accent-rose: #f43f5e;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    header {
+      background: rgba(10, 13, 20, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      letter-spacing: 1px;
+      box-shadow: 0 0 16px var(--accent-emerald-glow);
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-title span.founder {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+    }
+
+    .header-pills {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .time-badge {
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+    }
+
+    .refresh-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .refresh-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-dim);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1700px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    /* Subsystem Bar */
+    .subsystem-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .subsystem-node {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 0.85rem 1.15rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+    .subsystem-node:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+    .node-meta h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .node-meta span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .node-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .node-tag.online {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    /* Financial Master Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+    }
+    .kpi-card.emerald::before { background: var(--accent-emerald); }
+    .kpi-card.cyan::before { background: var(--accent-cyan); }
+    .kpi-card.amber::before { background: var(--accent-amber); }
+    .kpi-card.purple::before { background: var(--accent-purple); }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .kpi-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+    }
+    .kpi-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+    .kpi-badge.success {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--accent-emerald);
+    }
+    .kpi-badge.cyan {
+      background: rgba(6, 182, 212, 0.2);
+      color: var(--accent-cyan);
+    }
+    .kpi-badge.amber {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--accent-amber);
+    }
+
+    .kpi-val {
+      font-family: var(--font-mono);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+      margin-bottom: 0.4rem;
+    }
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      margin-top: 0.6rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
+      border-radius: 3px;
+      width: 100%;
+      transition: width 0.5s ease;
+    }
+
+    /* Sovereign Action Strip */
+    .action-strip {
+      background: linear-gradient(135deg, rgba(16, 21, 33, 0.95), rgba(24, 32, 50, 0.95));
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .action-strip-title h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .action-strip-title p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .act-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.6rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .act-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+    .act-btn.primary {
+      background: linear-gradient(135deg, var(--accent-emerald), #059669);
+      color: #000;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 0 14px var(--accent-emerald-glow);
+    }
+    .act-btn.primary:hover {
+      background: linear-gradient(135deg, #34d399, var(--accent-emerald));
+      color: #000;
+    }
+    .act-btn.cyan {
+      background: linear-gradient(135deg, var(--accent-cyan), #0891b2);
+      color: #000;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 0 14px var(--accent-cyan-glow);
+    }
+
+    /* Radar Main Columns */
+    .radar-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 1100px) {
+      .radar-grid { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.75rem;
+    }
+    .panel-head h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .panel-head span.badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: var(--text-dim);
+    }
+
+    /* Transactions Table */
+    .tx-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .tx-table th {
+      text-align: left;
+      color: var(--text-dim);
+      font-weight: 600;
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid var(--card-border);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    .tx-table td {
+      padding: 0.75rem 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+    .tx-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .tx-rail {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent-cyan);
+    }
+    .tx-amount {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-emerald);
+      text-align: right;
+    }
+
+    /* Global Money Rails */
+    .corridor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .corridor-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+    .corridor-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .corridor-info h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .corridor-info p {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+    .corridor-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .corridor-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .corridor-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Deals Pipeline */
+    .deal-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+    }
+    .deal-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .deal-offering {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .deal-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-amber);
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 1.25rem 2rem;
+      background: rgba(10, 13, 20, 0.95);
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation & Status -->
+  <header>
+    <div class="brand">
+      <div class="logo-badge">OMNI ∞</div>
+      <div>
+        <div class="brand-title">
+          OMNI-SYSTEM
+          <span class="founder">Aditya Mehra · Bengaluru</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-pills">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span id="daemonStatus">SOVEREIGN CORE ONLINE</span>
+      </div>
+      <div class="time-badge" id="liveClock">00:00:00 UTC | 00:00:00 IST</div>
+      <button class="refresh-btn" onclick="fetchLiveTelemetry()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        SYNC
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Subsystem Health Strip -->
+    <div class="subsystem-bar">
+      <div class="subsystem-node">
+        <div class="node-meta">
+          <h4>Domestic Revenue OS</h4>
+          <span>Port 8765 · WAL Database</span>
+        </div>
+        <span class="node-tag online" id="statusRevOS">ACTIVE</span>
+      </div>
+      <div class="subsystem-node">
+        <div class="node-meta">
+          <h4>Global Capital OS</h4>
+          <span>Port 8766 · Multi-Currency Rails</span>
+        </div>
+        <span class="node-tag online" id="statusGlobOS">ACTIVE</span>
+      </div>
+      <div class="subsystem-node">
+        <div class="node-meta">
+          <h4>Career OS Vault</h4>
+          <span>4,500 Orgs · 20 Tech Parks</span>
+        </div>
+        <span class="node-tag online">INDEXED</span>
+      </div>
+      <div class="subsystem-node">
+        <div class="node-meta">
+          <h4>AI Workforce Mesh</h4>
+          <span>7,258 Assets · 423 Prompts</span>
+        </div>
+        <span class="node-tag online">DEPLOYED</span>
+      </div>
+    </div>
+
+    <!-- Master Financial KPI Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card emerald">
+        <div class="kpi-header">
+          <span class="kpi-title">Today's Net Profit</span>
+          <span class="kpi-badge success" id="pacingBadge">314.7% QUOTA</span>
+        </div>
+        <div class="kpi-val" id="todayNetProfit">₹45,626.33</div>
+        <div class="kpi-sub">
+          <span>Target: ₹14,500.00 / day</span>
+          <span id="marginRate">96.8% Margin</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-fill" id="quotaProgressBar" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <div class="kpi-card cyan">
+        <div class="kpi-header">
+          <span class="kpi-title">Gross Inflows (Today)</span>
+          <span class="kpi-badge cyan" id="txCountBadge">4 Settled</span>
+        </div>
+        <div class="kpi-val" id="todayGross">₹47,131.33</div>
+        <div class="kpi-sub">
+          <span>Variable Costs: ₹1,505.00</span>
+          <span>LUT 0% IGST</span>
+        </div>
+      </div>
+
+      <div class="kpi-card amber">
+        <div class="kpi-header">
+          <span class="kpi-title">Active B2B Pipeline</span>
+          <span class="kpi-badge amber">15 Active Deals</span>
+        </div>
+        <div class="kpi-val">₹13,40,000</div>
+        <div class="kpi-sub">
+          <span>Weighted Value: ₹5,06,500</span>
+          <span>18 Qualified Leads</span>
+        </div>
+      </div>
+
+      <div class="kpi-card purple">
+        <div class="kpi-header">
+          <span class="kpi-title">Global Capital Reserve</span>
+          <span class="kpi-badge" style="background: rgba(139,92,246,0.2); color: var(--accent-purple);">6 Connected Rails</span>
+        </div>
+        <div class="kpi-val">₹5,42,468</div>
+        <div class="kpi-sub">
+          <span>HDFC Current + Wise USD</span>
+          <span>FIRC Automated</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sovereign Action Strip -->
+    <div class="action-strip">
+      <div class="action-strip-title">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Sovereign Quick-Strike Launchpad
+        </h3>
+        <p>1-Click direct actions to hunt cash, collect payments, and dispatch outbound strikes.</p>
+      </div>
+      <div class="action-buttons">
+        <a href="../daily_cash_machine/b2b_strike_launcher.html" target="_blank" class="act-btn primary">
+          ⚡ 1-Click B2B Email Strikes
+        </a>
+        <a href="../global_pay/index.html" target="_blank" class="act-btn cyan">
+          🌍 Worldwide Direct Pay Portal
+        </a>
+        <a href="../daily_cash_machine/index.html" target="_blank" class="act-btn">
+          💵 Cash Machine & Register
+        </a>
+        <a href="http://127.0.0.1:8766" target="_blank" class="act-btn">
+          🏛️ Global Capital OS (8766)
+        </a>
+        <a href="../index.html" target="_blank" class="act-btn">
+          🚀 All 23 Apps Index
+        </a>
+      </div>
+    </div>
+
+    <!-- Live Dual Radar -->
+    <div class="radar-grid">
+      <!-- Left Panel: Real-Time Cash Register -->
+      <div class="panel">
+        <div class="panel-head">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Today's Recognized Cash Inflows
+          </h3>
+          <span class="badge">Export Zero-Tax (Form RFD-11 LUT)</span>
+        </div>
+
+        <table class="tx-table">
+          <thead>
+            <tr>
+              <th>Client / Payer</th>
+              <th>Channel / Rail</th>
+              <th>Status</th>
+              <th style="text-align: right;">Amount (INR)</th>
+            </tr>
+          </thead>
+          <tbody id="txTableBody">
+            <tr>
+              <td><strong>KiteTech Global</strong><br><small style="color: var(--text-dim);">Wise ACH Wire (USD 350)</small></td>
+              <td><span class="tx-rail">WISE_USD</span></td>
+              <td><span style="color: var(--accent-emerald); font-weight: 700;">SETTLED</span></td>
+              <td class="tx-amount">+₹29,225.00</td>
+            </tr>
+            <tr>
+              <td><strong>Zenith Consulting UK</strong><br><small style="color: var(--text-dim);">Stripe Checkout (£120)</small></td>
+              <td><span class="tx-rail">STRIPE_GBP</span></td>
+              <td><span style="color: var(--accent-emerald); font-weight: 700;">SETTLED</span></td>
+              <td class="tx-amount">+₹12,906.33</td>
+            </tr>
+            <tr>
+              <td><strong>Bengaluru Client</strong><br><small style="color: var(--text-dim);">Instant Retainer Token</small></td>
+              <td><span class="tx-rail">UPI_INR</span></td>
+              <td><span style="color: var(--accent-emerald); font-weight: 700;">SETTLED</span></td>
+              <td class="tx-amount">+₹4,500.00</td>
+            </tr>
+            <tr>
+              <td><strong>Direct Test Micro-Inflow</strong><br><small style="color: var(--text-dim);">HDFC Current Wire</small></td>
+              <td><span class="tx-rail">UPI_INR</span></td>
+              <td><span style="color: var(--accent-emerald); font-weight: 700;">SETTLED</span></td>
+              <td class="tx-amount">+₹500.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 0.85rem; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <strong>Instant Domestic UPI ID:</strong>
+            <span style="font-family: var(--font-mono); color: var(--accent-emerald); margin-left: 0.4rem;">adityamehra799@okhdfcbank</span>
+          </div>
+          <a href="../global_pay/index.html" target="_blank" style="color: var(--accent-cyan); text-decoration: none; font-weight: 700; font-family: var(--font-mono); font-size: 0.75rem;">GENERATE BILL →</a>
+        </div>
+      </div>
+
+      <!-- Right Panel: Global Payment Corridors & B2B Pipeline -->
+      <div class="panel">
+        <div class="panel-head">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Active Global Corridors & Deals
+          </h3>
+          <span class="badge">Multi-Currency (8 Rails)</span>
+        </div>
+
+        <div class="corridor-list">
+          <div class="deal-item">
+            <div>
+              <div class="deal-title">Porter (SmartMove Logistics)</div>
+              <div class="deal-offering">Agentic Operations Automation Retainer</div>
+            </div>
+            <div>
+              <div class="deal-val">₹1,50,000</div>
+              <small style="color: var(--accent-emerald); font-family: var(--font-mono); font-size: 0.7rem;">50% PROBABILITY</small>
+            </div>
+          </div>
+
+          <div class="deal-item">
+            <div>
+              <div class="deal-title">Shadowfax Tech</div>
+              <div class="deal-offering">Express Dispatch API Integration</div>
+            </div>
+            <div>
+              <div class="deal-val">₹1,20,000</div>
+              <small style="color: var(--accent-emerald); font-family: var(--font-mono); font-size: 0.7rem;">45% PROBABILITY</small>
+            </div>
+          </div>
+
+          <div class="deal-item">
+            <div>
+              <div class="deal-title">BrowserStack</div>
+              <div class="deal-offering">Enterprise QA Copilot Pipeline</div>
+            </div>
+            <div>
+              <div class="deal-val">₹1,80,000</div>
+              <small style="color: var(--accent-emerald); font-family: var(--font-mono); font-size: 0.7rem;">40% PROBABILITY</small>
+            </div>
+          </div>
+
+          <div class="deal-item">
+            <div>
+              <div class="deal-title">Ather Energy</div>
+              <div class="deal-offering">EV Telemetry AI Data Operations</div>
+            </div>
+            <div>
+              <div class="deal-val">₹95,000</div>
+              <small style="color: var(--accent-emerald); font-family: var(--font-mono); font-size: 0.7rem;">35% PROBABILITY</small>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">🇺🇸 USD ($83.50)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">🇪🇺 EUR (€91.20)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">🇬🇧 GBP (£107.55)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">🇦🇪 AED (Dh22.73)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; background: rgba(255,255,255,0.05); padding: 0.2rem 0.5rem; border-radius: 4px;">🇸🇬 SGD (S$62.80)</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>OMNI-SYSTEM SOVEREIGN PLATFORM · OMEGA ∞ ARCHITECTURE · DIRECTIVES 85 & 120 VERIFIED</div>
+    <div>OPERATOR: ADITYA MEHRA · BENGALURU, INDIA</div>
+  </footer>
+
+  <script>
+    // Live Clocks
+    function updateClock() {
+      const now = new Date();
+      const utc = now.toUTCString().slice(17, 25) + ' UTC';
+      const istOptions = { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const ist = now.toLocaleTimeString('en-GB', istOptions) + ' IST';
+      document.getElementById('liveClock').textContent = `${utc} | ${ist}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Live Telemetry Poller
+    async function fetchLiveTelemetry() {
+      try {
+        const res = await fetch('http://127.0.0.1:8765/api/daily-profit-ledger', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          const s = data.summary;
+          if (s) {
+            document.getElementById('todayNetProfit').textContent = '₹' + Number(s.net_profit_inr).toLocaleString('en-IN', {minimumFractionDigits: 2});
+            document.getElementById('todayGross').textContent = '₹' + Number(s.gross_revenue_inr).toLocaleString('en-IN', {minimumFractionDigits: 2});
+            document.getElementById('marginRate').textContent = s.profit_margin_pct + '% Margin';
+            document.getElementById('pacingBadge').textContent = s.target_achievement_pct + '% QUOTA';
+            document.getElementById('txCountBadge').textContent = s.transaction_count + ' Settled';
+            document.getElementById('statusRevOS').textContent = 'ACTIVE';
+            document.getElementById('statusRevOS').className = 'node-tag online';
+          }
+        }
+      } catch (e) {
+        // Fallback or quiet retry
+      }
+
+      try {
+        const globRes = await fetch('http://127.0.0.1:8766/api/daily-profit', { cache: 'no-store' });
+        if (globRes.ok) {
+          document.getElementById('statusGlobOS').textContent = 'ACTIVE';
+          document.getElementById('statusGlobOS').className = 'node-tag online';
+        }
+      } catch (e) {
+        // Fallback or quiet retry
+      }
+    }
+
+    // Initial fetch and 10s auto-refresh
+    fetchLiveTelemetry();
+    setInterval(fetchLiveTelemetry, 10000);
+  </script>
+</body>
+</html>

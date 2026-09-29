@@ -1,10 +1,10 @@
 {
   "summary": {
-    "total_agents": 3368,
-    "total_skills": 3762,
+    "total_agents": 3377,
+    "total_skills": 3777,
     "total_workflows": 94,
     "total_career_engines": 10,
-    "grand_total": 7234
+    "grand_total": 7258
   },
   "agents": [
     {
@@ -20113,6 +20113,78 @@
     },
     {
       "category": "Autonomous Agent",
+      "name": "omega-business",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-business.md",
+      "relative_path": ".agents/agents/omega-business.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-engineering",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-engineering.md",
+      "relative_path": ".agents/agents/omega-engineering.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-executive-director",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-executive-director.md",
+      "relative_path": ".agents/agents/omega-executive-director.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-finance",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-finance.md",
+      "relative_path": ".agents/agents/omega-finance.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-governance",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-governance.md",
+      "relative_path": ".agents/agents/omega-governance.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-product",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-product.md",
+      "relative_path": ".agents/agents/omega-product.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-research",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-research.md",
+      "relative_path": ".agents/agents/omega-research.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-security-redteam",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-security-redteam.md",
+      "relative_path": ".agents/agents/omega-security-redteam.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
+      "name": "omega-strategy",
+      "domain": "Engineering & Autonomous Systems",
+      "file_name": "omega-strategy.md",
+      "relative_path": ".agents/agents/omega-strategy.md",
+      "is_directory": false
+    },
+    {
+      "category": "Autonomous Agent",
       "name": "opensource-forker",
       "domain": "Engineering & Autonomous Systems",
       "file_name": "opensource-forker.md",
@@ -26979,6 +27051,14 @@
     },
     {
       "category": "Autonomous Skill",
+      "name": "agent-browser",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/agent-browser/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
       "name": "agent-eval",
       "domain": "Specialized Skill Module",
       "file_name": "SKILL.md",
@@ -28999,6 +29079,14 @@
       "domain": "Specialized Skill Module",
       "file_name": "SKILL.md",
       "relative_path": ".agents/skills/ask-matt/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "atlas-intelligence-operator",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/atlas-intelligence-operator/SKILL.md",
       "is_directory": true
     },
     {
@@ -48883,6 +48971,54 @@
     },
     {
       "category": "Autonomous Skill",
+      "name": "omega-automation-engine",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/omega-automation-engine/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "omega-capital-allocation",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/omega-capital-allocation/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "omega-operating-system",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/omega-operating-system/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "omega-reality-audit",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/omega-reality-audit/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "omega-red-team",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/omega-red-team/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "omega-zero-to-one",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/omega-zero-to-one/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
       "name": "open-code-review",
       "domain": "Specialized Skill Module",
       "file_name": "SKILL.md",
@@ -52883,6 +53019,46 @@
     },
     {
       "category": "Autonomous Skill",
+      "name": "skill-bangalore-ai-ops",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/skill-bangalore-ai-ops/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "skill-bangalore-exim-logistics",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/skill-bangalore-exim-logistics/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "skill-bangalore-fintech-trade",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/skill-bangalore-fintech-trade/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "skill-bangalore-founders-office",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/skill-bangalore-founders-office/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "skill-bangalore-global-gcc-ops",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/skill-bangalore-global-gcc-ops/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
       "name": "skill-comply",
       "domain": "Specialized Skill Module",
       "file_name": "SKILL.md",
@@ -54647,6 +54823,22 @@
       "domain": "Specialized Skill Module",
       "file_name": "SKILL.md",
       "relative_path": ".agents/skills/subagent-driven-development/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "supabase",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/supabase/SKILL.md",
+      "is_directory": true
+    },
+    {
+      "category": "Autonomous Skill",
+      "name": "supabase-postgres-best-practices",
+      "domain": "Specialized Skill Module",
+      "file_name": "SKILL.md",
+      "relative_path": ".agents/skills/supabase-postgres-best-practices/SKILL.md",
       "is_directory": true
     },
     {

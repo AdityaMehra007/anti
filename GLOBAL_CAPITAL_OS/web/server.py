@@ -165,8 +165,13 @@ async def get_daily_brief():
 
 
 @app.get("/api/pl-statement")
-async def get_pl_statement():
-    return cfo_agent.generate_pl_statement()
+async def get_pl_statement(period_days: int = 30):
+    return cfo_agent.generate_pl_statement(period_days=period_days)
+
+
+@app.get("/api/daily-profit")
+async def get_daily_profit():
+    return cfo_agent.generate_pl_statement(period_days=1)
 
 
 @app.get("/api/stress-scenarios")
