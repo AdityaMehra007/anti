@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "terra-ukp-sdk"
+version = "0.1.0"
+description = "Universal Kinematic Protocol (UKP) Open-Source SDK for Hardware-Agnostic Robotics"
+readme = "README.md"
+authors = [{ name = "Terra Kinetics Open Source Initiative", email = "oss@terrakinetics.ai" }]
+license = { text = "Apache-2.0" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Human Machine Interfaces",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/terra-kinetics/ukp-sdk"
+Documentation = "https://docs.terrakinetics.ai/ukp"

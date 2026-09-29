@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terra Kinetics — Global Fleet Mission Control & Telemetry</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .glow-green { box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); }
+    .glow-cyan { box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+  <!-- Top Navigation Bar -->
+  <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur px-6 py-4 flex items-center justify-between sticky top-0 z-50">
+    <div class="flex items-center space-x-3">
+      <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+      <span class="font-bold tracking-wider text-xl bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">TERRA KINETICS</span>
+      <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 font-mono">MISSION CONTROL v0.1</span>
+    </div>
+    <div class="flex items-center space-x-6 text-sm">
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">Control Loop:</span>
+        <span class="font-mono text-emerald-400 font-semibold">200 Hz (4.8ms)</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">Kernel Status:</span>
+        <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-950 text-emerald-400 border border-emerald-800">NOMINAL</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">Protocol:</span>
+        <span class="font-mono text-cyan-400">UKP v0.1 (Apache 2.0)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Grid -->
+  <main class="p-6 max-w-7xl mx-auto space-y-6">
+    <!-- Top Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Connected Global Robots</p>
+        <p class="text-3xl font-extrabold text-white mt-1 font-mono">28,000,000</p>
+        <p class="text-xs text-emerald-400 mt-1 flex items-center">
+          <span class="mr-1">↑</span> +165% YoY Multi-OEM Expansion
+        </p>
+      </div>
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Global Physical Labor TAM</p>
+        <p class="text-3xl font-extrabold text-white mt-1 font-mono">$45.0 Trillion</p>
+        <p class="text-xs text-slate-400 mt-1">Current Penetration: 0.62%</p>
+      </div>
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Annualized FCF Run-Rate</p>
+        <p class="text-3xl font-extrabold text-emerald-400 mt-1 font-mono">$196.14 Billion</p>
+        <p class="text-xs text-slate-400 mt-1">Gross Margin: 95.4%</p>
+      </div>
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4">
+        <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Implied Valuation (@25x FCF)</p>
+        <p class="text-3xl font-extrabold text-cyan-400 mt-1 font-mono">$4.90 Trillion</p>
+        <p class="text-xs text-cyan-300/80 mt-1 font-mono">Tier-1 Sovereign Infrastructure</p>
+      </div>
+    </div>
+
+    <!-- Active Facilities & Real-Time Shift Demonstration -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Left: Real-Time Edge Telemetry -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h2 class="font-bold text-base text-slate-200">Edge Node Telemetry: UR10e Cell 01</h2>
+          <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/80">LIVE</span>
+        </div>
+        <div class="space-y-3 font-mono text-xs">
+          <div class="flex justify-between py-1 border-b border-slate-800/60">
+            <span class="text-slate-400">Target Morphology:</span>
+            <span class="text-slate-200">Manipulator 6-DOF</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-800/60">
+            <span class="text-slate-400">Peak Joint Torque:</span>
+            <span id="liveTorque" class="text-emerald-400 font-semibold">18.4 Nm / 120.0 Nm max</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-800/60">
+            <span class="text-slate-400">Latency:</span>
+            <span id="liveLatency" class="text-slate-200">1.4 ms</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-800/60">
+            <span class="text-slate-400">VLA Model Confidence:</span>
+            <span id="liveConfidence" class="text-emerald-400 font-bold">98.5% (Nominal)</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-800/60">
+            <span class="text-slate-400">Safety Envelope:</span>
+            <span id="liveState" class="text-cyan-400">ISO 13849 CAT 4 Passed</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-400">Tele-Op Vault Feed:</span>
+            <span id="liveInterventions" class="text-slate-300">Standby (0 Interventions)</span>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button onclick="triggerSimulatedIntervention()" class="w-full py-2.5 px-4 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition flex items-center justify-center space-x-2">
+            <span>Simulate Out-of-Distribution Hazard</span>
+          </button>
+        </div>
+        <div id="interventionAlert" class="hidden p-3 rounded bg-amber-950/70 border border-amber-800 text-amber-300 text-xs">
+          ⚠ Hazard detected: Transparent fluid deformity. Fallback compliant hold engaged! Shadow tele-op VR operator dispatched.
+        </div>
+      </div>
+
+      <!-- Center & Right: 10-Year Valuation & Revenue Chart -->
+      <div class="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-xl p-5 flex flex-col justify-between">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h2 class="font-bold text-base text-slate-200">10-Year Revenue & Free Cash Flow Trajectory ($B)</h2>
+          <span class="text-xs text-slate-400">Fleet Scaling to $1T+ Threshold</span>
+        </div>
+        <div class="h-64 mt-4">
+          <canvas id="financialChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anchor Pilot Facility Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- BMW Pilot Card -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg text-white">BMW Plant Munich (Hall 4B)</h3>
+            <p class="text-xs text-slate-400">Fastener Kitting & Harness Assembly</p>
+          </div>
+          <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800">SLA: 99.8% PASSED</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 font-mono text-center">
+          <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <span class="text-slate-400 text-xs block">Throughput</span>
+            <span class="text-base font-bold text-white">400/hr</span>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <span class="text-slate-400 text-xs block">Shift Net ROI</span>
+            <span class="text-base font-bold text-emerald-400">+$168.00</span>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <span class="text-slate-400 text-xs block">Autonomy</span>
+            <span class="text-base font-bold text-cyan-400">99.81%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DHL Pilot Card -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-lg text-white">DHL Mega-Hub Leipzig (Induction 03)</h3>
+            <p class="text-xs text-slate-400">High-Velocity Parcel Induction & Singulation</p>
+          </div>
+          <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800">SLA: 99.7% PASSED</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 font-mono text-center">
+          <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <span class="text-slate-400 text-xs block">Throughput</span>
+            <span class="text-base font-bold text-white">1,200/hr</span>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <span class="text-slate-400 text-xs block">Shift Net ROI</span>
+            <span class="text-base font-bold text-emerald-400">+$168.00</span>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+            <span class="text-slate-400 text-xs block">Autonomy</span>
+            <span class="text-base font-bold text-cyan-400">99.71%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Global GDP Atlas & Planetary Balance Sheet Explorer -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-5 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h2 class="font-bold text-base text-slate-200">Planetary Economic Ledger (World GDP & Debt Stack)</h2>
+          <p class="text-xs text-slate-400">Total Nominal GDP: $108.5T | PPP: $185.0T | Global Debt: $315.0T</p>
+        </div>
+        <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/80">GLOBAL ATLAS v1.0</span>
+      </div>
+      
+      <!-- Top 6 Sovereign Economies Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-3 font-mono text-xs">
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block font-sans text-xs">1. United States</span>
+          <span class="text-sm font-bold text-white mt-1 block">$28.8T</span>
+          <span class="text-cyan-400 text-xs">26.5% World</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block font-sans text-xs">2. China</span>
+          <span class="text-sm font-bold text-white mt-1 block">$18.6T</span>
+          <span class="text-cyan-400 text-xs">17.1% (PPP $35.3T)</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block font-sans text-xs">3. Germany</span>
+          <span class="text-sm font-bold text-white mt-1 block">$4.6T</span>
+          <span class="text-slate-400 text-xs">4.2% World</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block font-sans text-xs">4. Japan</span>
+          <span class="text-sm font-bold text-white mt-1 block">$4.1T</span>
+          <span class="text-slate-400 text-xs">3.8% World</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block font-sans text-xs">5. India</span>
+          <span class="text-sm font-bold text-white mt-1 block">$4.1T</span>
+          <span class="text-cyan-400 text-xs">3.8% (PPP $14.6T)</span>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block font-sans text-xs">6. United Kingdom</span>
+          <span class="text-sm font-bold text-white mt-1 block">$3.5T</span>
+          <span class="text-slate-400 text-xs">3.2% World</span>
+        </div>
+      </div>
+
+      <!-- Macro Bloc & Debt Breakdown Bars -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 space-y-2">
+          <div class="flex justify-between font-sans font-semibold text-slate-300">
+            <span>Sovereign Bloc Divergence</span>
+            <span class="text-cyan-400">Nominal vs PPP</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-800/60">
+            <span class="text-slate-400">G7 Bloc (US, DE, JP, UK, FR, IT, CA):</span>
+            <span class="text-white">$48.6T (44.8% Nominal)</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-400">BRICS Core (CN, IN, BR, RU, SA):</span>
+            <span class="text-emerald-400 font-bold">$62.0T (33.5% PPP Dominance)</span>
+          </div>
+        </div>
+        <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 space-y-2">
+          <div class="flex justify-between font-sans font-semibold text-slate-300">
+            <span>Global Debt Stack ($315.0T Total)</span>
+            <span class="text-amber-400">290% of GDP</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-800/60">
+            <span class="text-slate-400">Sovereign & Government Bonds:</span>
+            <span class="text-white">$94.0T (29.8%)</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-400">Corporate + Financial Liabilities:</span>
+            <span class="text-amber-300">$158.0T (50.2%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const ctx = document.getElementById('financialChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Y1', 'Y2', 'Y3', 'Y4', 'Y5', 'Y6', 'Y7', 'Y8', 'Y9', 'Y10'],
+        datasets: [
+          {
+            label: 'Gross Revenue ($B)',
+            data: [0.04, 0.19, 0.80, 3.78, 13.14, 36.50, 90.16, 157.68, 229.95, 286.16],
+            borderColor: '#06b6d4',
+            backgroundColor: 'rgba(6, 182, 212, 0.1)',
+            fill: true,
+            tension: 0.3
+          },
+          {
+            label: 'Free Cash Flow ($B)',
+            data: [-0.12, -0.08, 0.22, 2.04, 8.17, 23.99, 61.15, 108.44, 159.07, 196.14],
+            borderColor: '#10b981',
+            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+            fill: true,
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { color: '#94a3b8', font: { size: 11 } } }
+        },
+        scales: {
+          x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } },
+          y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b' } }
+        }
+      }
+    });
+
+    function triggerSimulatedIntervention() {
+      const alertBox = document.getElementById('interventionAlert');
+      alertBox.classList.remove('hidden');
+      fetch('/api/hazard', { method: 'POST' }).catch(() => {});
+      setTimeout(() => {
+        alertBox.classList.add('hidden');
+        fetch('/api/reset', { method: 'POST' }).catch(() => {});
+      }, 4500);
+    }
+
+    async function pollTelemetry() {
+      try {
+        const res = await fetch('/api/telemetry');
+        if (res.ok) {
+          const data = await res.json();
+          const torqueEl = document.getElementById('liveTorque');
+          const latencyEl = document.getElementById('liveLatency');
+          const confEl = document.getElementById('liveConfidence');
+          const stateEl = document.getElementById('liveState');
+          const interEl = document.getElementById('liveInterventions');
+
+          if (torqueEl) torqueEl.innerText = `${data.current_torque_nm} Nm / 120.0 Nm max`;
+          if (latencyEl) latencyEl.innerText = `${data.current_latency_ms} ms`;
+          if (confEl) confEl.innerText = `${(data.model_confidence * 100).toFixed(1)}% (${data.kernel_state})`;
+          if (stateEl) stateEl.innerText = data.kernel_state === 'NOMINAL' ? 'ISO 13849 CAT 4 Passed' : 'INTERVENTION REQUIRED';
+          if (interEl) interEl.innerText = `Active Vault (${data.interventions_total} Interventions)`;
+        }
+      } catch (e) {
+        // Standalone preview fallback
+      }
+    }
+    setInterval(pollTelemetry, 350);
+  </script>
+</body>
+</html>

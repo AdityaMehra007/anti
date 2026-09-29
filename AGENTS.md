@@ -135,6 +135,21 @@ Hardened, curated skills registry synchronized from [`tech-leads-club/agent-skil
 - **Interactive Explorer**: [`research/system_prompts_explorer.html`](research/system_prompts_explorer.html)
 - **Prompt CLI**: `python research/prompt_cli.py`
 
+### Sovereign Empire & Multi-Trillion Dollar Autonomous Engine
+- [`empire-capital-allocator`](.agent/skills/empire-capital-allocator/SKILL.md): Sovereign treasury management, capital velocity compounding, and macro arterial siphon optimization.
+- [`sovereign-chokehold-architect`](.agent/skills/sovereign-chokehold-architect/SKILL.md): Construction of unassailable economic moats, non-replicable physical assets, and high switching-cost standards.
+- [`planetary-fleet-ops`](.agent/skills/planetary-fleet-ops/SKILL.md): Autonomous orchestration of million-unit humanoid robot swarms across distributed manufacturing plants and fulfillment centers.
+- [`m2m-settlement-clearing`](.agent/skills/m2m-settlement-clearing/SKILL.md): Zero-friction cryptographic machine-to-machine micro-invoicing and real-time state channel settlement.
+- [`energy-compute-coupling`](.agent/skills/energy-compute-coupling/SKILL.md): Collocation of Small Modular Nuclear Reactors (SMRs) directly with terawatt AI compute hubs.
+- [`geopolitical-sovereign-shield`](.agent/skills/geopolitical-sovereign-shield/SKILL.md): International regulatory arbitrage, CFIUS defense, dual-use export control immunity, and bilateral treaty alignment.
+- [`biomanufacturing-scaling`](.agent/skills/biomanufacturing-scaling/SKILL.md): Optimization of precision cellular fermentation, synthetic genetic compilation, and petrochemical replacement.
+- [`antifragile-red-team`](.agent/skills/antifragile-red-team/SKILL.md): Adversarial stress testing of sovereign infrastructure across nuclear grid severance, subsea fiber cuts, and financial network freezes.
+- [`sovereign-wealth-syndication`](.agent/skills/sovereign-wealth-syndication/SKILL.md): Structuring multi-billion dollar blended infrastructure syndications across SWFs, green nuclear bonds, and enterprise forward off-take tranches.
+- [`sovereign-banking-engine`](.agent/skills/sovereign-banking-engine/SKILL.md): Comprehensive institutional banking covering Central Banking liquidity corridors, DCM, syndicated lending, cash pooling/netting, trade finance LCs, custody AUC, tri-party repo, prime brokerage, and derivatives clearing.
+- **Apex Orchestrator**: [`sovereign_continuum/empire_orchestrator.py`](sovereign_continuum/empire_orchestrator.py)
+- **Bank of the Continuum**: [`sovereign_continuum/banking/autonomous_sovereign_bank.py`](sovereign_continuum/banking/autonomous_sovereign_bank.py)
+- **Unified Empire CLI**: `python -m terra_kinetics.cli --empire-cycle` / `--skills-audit` / `--red-team` / `--banking`
+
 ### Issue tracker
 
 Local markdown issue tracking under `.scratch/`. See [`docs/agents/issue-tracker.md`](docs/agents/issue-tracker.md).
