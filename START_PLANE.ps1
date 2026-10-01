@@ -8,7 +8,7 @@
 
 param (
     [Parameter(Mandatory=$false)]
-    [ValidateSet('up', 'down', 'restart', 'status', 'logs', 'browser', 'sync')]
+    [ValidateSet('up', 'down', 'restart', 'status', 'logs', 'browser', 'sync', 'webhook', 'provision')]
     [string]$Action = 'up'
 )
 
@@ -142,6 +142,20 @@ try {
             Write-Host "[*] Executing OMEGA Agent Task Synchronization..." -ForegroundColor Cyan
             Pop-Location
             & python omega/orchestration/plane_dispatcher.py --sync
+            return
+        }
+
+        'webhook' {
+            Write-Host "[*] Starting Plane Webhook Event Reactor on port 8096..." -ForegroundColor Cyan
+            Pop-Location
+            & python omega/orchestration/plane_webhook_server.py --port 8096
+            return
+        }
+
+        'provision' {
+            Write-Host "[*] Provisioning Plane Departmental Boards and Sprint Cycles..." -ForegroundColor Cyan
+            Pop-Location
+            & python omega/orchestration/plane_boards.py --provision-all
             return
         }
     }

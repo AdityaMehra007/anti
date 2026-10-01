@@ -187,6 +187,7 @@ python omega/orchestration/plane_dispatcher.py --sync --workspace omega --projec
 | Service | Container Name | Internal Port | Host Port | Ingress URL / Protocol |
 | :--- | :--- | :--- | :--- | :--- |
 | **Ingress Proxy** | `plane-proxy` | 80 / 443 | **8095** / 8443 | `http://localhost:8095` |
+| **Webhook Reactor** | Python Daemon | — | **8096** | `http://localhost:8096/webhook` |
 | **Frontend UI** | `plane-web` | 3000 | Cluster internal | Next.js Web App |
 | **Backend REST** | `plane-api` | 8000 | Cluster internal | Django Core API |
 | **Live Sync** | `plane-live` | 3000 | Cluster internal | WebSocket Collaboration |
@@ -197,17 +198,53 @@ python omega/orchestration/plane_dispatcher.py --sync --workspace omega --projec
 
 ---
 
-## 7. Verification & Regression Testing
+## 7. Departmental Project & Sprint Engine (`plane_boards.py`)
 
-Run the automated test suite anytime to verify connector integrity:
+Provisions standard organizational departments and automated 14-day Sprint Cycles:
+
 ```bash
-python -m unittest tests/test_plane_integration.py
+# Provision all departments and 14-day sprint cycles (dry-run simulation)
+python omega/orchestration/plane_boards.py --dry-run --provision-all
+
+# Execute live provisioning to running Plane workspace
+python omega/orchestration/plane_boards.py --provision-all --workspace omega
+```
+
+### Standard Departmental Topologies:
+- **`CORE`**: OMEGA Core Infrastructure (Master codex, runtimes, CI/CD).
+- **`CAP`**: Capital Allocator & Sovereign Treasury (DCM, liquidity corridors, cash pooling).
+- **`FLEET`**: Autonomous Agent Fleet Operations (Swarm orchestration, verification ledgers).
+- **`INTEL`**: Market Intelligence & Global Radar (Opportunity radars, outreach databases).
+
+---
+
+## 8. Bidirectional Webhook Event Reactor (`plane_webhook_server.py`)
+
+Listens on port `8096` for real-time Plane events and triggers automated agent actions:
+
+```bash
+# Start webhook listener
+python omega/orchestration/plane_webhook_server.py --port 8096
+
+# Dispatch test event to verify round-trip processing
+python omega/orchestration/plane_webhook_server.py --test-event --port 8096
+```
+
+Events are persisted to `omega/data/plane_webhook_events.jsonl` and can be inspected in real time.
+
+---
+
+## 9. Verification & Regression Testing
+
+Run the complete test suite (both base integration and advanced modules):
+```bash
+python -m unittest tests/test_plane_integration.py tests/test_plane_advanced.py
 ```
 Expected output:
 ```text
-.........
+.............
 ----------------------------------------------------------------------
-Ran 9 tests in 0.709s
+Ran 13 tests in 2.85s
 
 OK
 ```
