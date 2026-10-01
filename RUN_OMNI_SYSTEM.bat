@@ -36,9 +36,10 @@ echo   [4] Open Worldwide Direct Pay Portal (Any Currency / Any Amount)
 echo   [5] Run Full System Validation Suite (111 Tests)
 echo   [6] Open Master Apps Index (25 Web Apps)
 echo   [7] Open $110T World GDP Daily Cash Tap
+echo   [8] Open Plane CE Control Center & Task Dispatch Hub
 echo   [0] Exit Menu
 echo.
-set /p opt="Select an action [0-7]: "
+set /p opt="Select an action [0-8]: "
 
 if "%opt%"=="1" (
     cls
@@ -75,10 +76,17 @@ if "%opt%"=="7" (
     python -m OMNI_SYSTEM --siphon
     goto MENU
 )
+if "%opt%"=="8" (
+    cls
+    start "" "PLANE_CONTROL_CENTER.html"
+    python -m terra_kinetics.cli --plane-status
+    pause
+    goto MENU
+)
 if "%opt%"=="0" (
     echo Exiting OMNI-SYSTEM Console. Daemons remain active in background.
     exit /b 0
 )
 
-echo Invalid selection. Please choose 0 to 7.
+echo Invalid selection. Please choose 0 to 8.
 goto MENU

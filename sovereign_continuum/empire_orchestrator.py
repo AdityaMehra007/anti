@@ -124,3 +124,22 @@ class SovereignEmpireOrchestrator:
             shield_status=shield_eval.risk_level,
             red_team_antifragility=stress["antifragility_status"],
         )
+
+    def sync_to_plane_hub(self, workspace_slug: str = "omega", dry_run: bool = True) -> Dict[str, Any]:
+        """Dispatches verified sovereign empire milestones to Plane CE projects and cycles."""
+        from omega.integrations.plane_connector import PlaneClient
+        from omega.orchestration.plane_dispatcher import PlaneDispatcher
+        from omega.orchestration.plane_boards import PlaneBoardEngine
+
+        client = PlaneClient(dry_run=dry_run)
+        board_engine = PlaneBoardEngine(client=client)
+        board_engine.provision_all(workspace_slug=workspace_slug)
+
+        dispatcher = PlaneDispatcher(client=client)
+        report = dispatcher.sync_registry_to_plane(workspace_slug=workspace_slug)
+        return {
+            "workspace": workspace_slug,
+            "status": "synchronized",
+            "total_synced": report["total_synced"],
+            "dry_run": dry_run,
+        }

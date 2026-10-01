@@ -115,6 +115,15 @@ class PlaneAdvancedTestCase(unittest.TestCase):
         finally:
             server.stop()
 
+    def test_empire_orchestrator_plane_sync(self):
+        from sovereign_continuum.empire_orchestrator import SovereignEmpireOrchestrator
+        orch = SovereignEmpireOrchestrator()
+        result = orch.sync_to_plane_hub(workspace_slug="omega", dry_run=True)
+        self.assertEqual(result["workspace"], "omega")
+        self.assertEqual(result["status"], "synchronized")
+        self.assertTrue(result["dry_run"])
+        self.assertGreaterEqual(result["total_synced"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()
