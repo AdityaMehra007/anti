@@ -8,7 +8,7 @@
 
 param (
     [Parameter(Mandatory=$false)]
-    [ValidateSet('up', 'down', 'restart', 'status', 'logs', 'browser', 'sync', 'webhook', 'provision')]
+    [ValidateSet('up', 'down', 'restart', 'status', 'logs', 'browser', 'dashboard', 'sync', 'webhook', 'provision')]
     [string]$Action = 'up'
 )
 
@@ -78,7 +78,10 @@ if (-not $isDockerRunning) {
         Write-Host ""
         Write-Host "    Note: You can still run offline API simulations via:" -ForegroundColor Cyan
         Write-Host "    python omega/integrations/plane_connector.py --dry-run --status" -ForegroundColor Cyan
-        exit 1
+        Write-Host ""
+        Write-Host "    Opening PLANE_CONTROL_CENTER.html for diagnostics..." -ForegroundColor Cyan
+        Start-Process (Join-Path $ScriptDir "PLANE_CONTROL_CENTER.html")
+        exit 0
     }
 }
 
@@ -136,6 +139,11 @@ try {
         'browser' {
             Write-Host "[*] Opening Plane Web Dashboard: $WebUrl..." -ForegroundColor Cyan
             Start-Process $WebUrl
+        }
+
+        'dashboard' {
+            Write-Host "[*] Opening Plane Control Center Cockpit..." -ForegroundColor Cyan
+            Start-Process (Join-Path $ScriptDir "PLANE_CONTROL_CENTER.html")
         }
 
         'sync' {

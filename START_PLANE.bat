@@ -17,11 +17,13 @@ echo   [6] RUN OMEGA AGENT TASK DISPATCH DRY-RUN (TASK_REGISTRY -^> Plane)
 echo   [7] EXECUTE LIVE AGENT TASK SYNCHRONIZATION
 echo   [8] START PLANE WEBHOOK LISTENER (Port :8096)
 echo   [9] PROVISION DEPARTMENT BOARDS & SPRINTS (Core, Cap, Fleet, Intel)
+echo   [D] OPEN PLANE CONTROL CENTER DASHBOARD (Browser Cockpit)
 echo.
 echo   [0] EXIT
 echo ===============================================================================
-set /p PCHOICE="Select an option [0-9]: "
+set /p PCHOICE="Select an option [0-9, D]: "
 
+if /i "%PCHOICE%"=="D" goto OPEN_DASHBOARD
 if "%PCHOICE%"=="1" goto START_STACK
 if "%PCHOICE%"=="2" goto STOP_STACK
 if "%PCHOICE%"=="3" goto CHECK_STATUS
@@ -97,6 +99,11 @@ echo [INFO] Provisioning Departmental Boards & 14-Day Sprint Cycles...
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0START_PLANE.ps1" -Action provision
 echo.
 pause
+exit /b 0
+
+:OPEN_DASHBOARD
+cls
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0START_PLANE.ps1" -Action dashboard
 exit /b 0
 
 :EXIT
