@@ -8,11 +8,11 @@ echo        ANTIGRAVITY OMEGA - PLANE COMMUNITY EDITION (CE) SYSTEM
 echo          Modern Open-Source Sprints, Issues, Cycles & Kanban
 echo ===============================================================================
 echo.
-echo   [1] START LOCAL PLANE CE STACK (Docker Containers + Ingress on :8090)
+echo   [1] START LOCAL PLANE CE STACK (Docker Containers + Ingress on :8095)
 echo   [2] STOP LOCAL PLANE CE STACK (docker compose down)
 echo   [3] CHECK STACK & CONTAINER HEALTH (Status + API Probe)
 echo   [4] VIEW CONTAINER LOGS (Live Stream)
-echo   [5] OPEN PLANE WEB INTERFACE (http://localhost:8090)
+echo   [5] OPEN PLANE WEB INTERFACE (http://localhost:8095)
 echo   [6] RUN OMEGA AGENT TASK DISPATCH DRY-RUN (TASK_REGISTRY -^> Plane)
 echo   [7] EXECUTE LIVE AGENT TASK SYNCHRONIZATION
 echo.

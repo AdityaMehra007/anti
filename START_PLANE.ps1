@@ -18,7 +18,7 @@ $PlaneDir = Join-Path $ScriptDir "external\plane"
 $EnvFile = Join-Path $PlaneDir "plane.env"
 $EnvExample = Join-Path $PlaneDir "plane.env.example"
 $ComposeFile = Join-Path $PlaneDir "docker-compose.yaml"
-$WebUrl = "http://localhost:8090"
+$WebUrl = "http://localhost:8095"
 $DockerDesktopPath = "C:\Program Files\Docker\Docker\Docker Desktop.exe"
 
 Write-Host "===============================================================================" -ForegroundColor Cyan

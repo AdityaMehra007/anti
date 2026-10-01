@@ -17,12 +17,15 @@ try:
         PlaneAuthenticationError,
         PlaneNotFoundError,
     )
-    from omega.orchestration.plane_dispatcher import PlaneDispatcher
 except ImportError:
     PlaneClient = None
     PlaneAPIError = Exception
     PlaneAuthenticationError = Exception
     PlaneNotFoundError = Exception
+
+try:
+    from omega.orchestration.plane_dispatcher import PlaneDispatcher
+except ImportError:
     PlaneDispatcher = None
 
 
