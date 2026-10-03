@@ -81,6 +81,15 @@ class PlaneAgentReactor:
             "priority": priority,
             "comment_id": comment_res.get("id"),
         }
+
+        # Check if autonomous execution should trigger immediately
+        from omega.orchestration.plane_autonomous_worker import PlaneAutonomousWorker
+        worker = PlaneAutonomousWorker(client=self.client, dry_run=self.client.dry_run)
+        if worker.should_execute_task(issue_data):
+            print(f"[*] Autonomous issue detected. Executing task {issue_id}...")
+            exec_res = worker.process_autonomous_issue(issue_data, workspace_slug=workspace_slug)
+            reaction["autonomous_execution"] = exec_res
+
         self.log_reaction("issue.created", reaction)
         return reaction
 
