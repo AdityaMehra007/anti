@@ -7,7 +7,7 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com)
 [![Architecture](https://img.shields.io/badge/Architecture-OMEGA%20%E2%88%9E-red.svg)](https://github.com/AdityaMehra007/anti)
-[![Tests Passing](https://img.shields.io/badge/Tests-33%2F33%20Passed-brightgreen.svg)](tests/)
+[![Tests Passing](https://img.shields.io/badge/Tests-339%2F339%20Passed-brightgreen.svg)](tests/)
 
 ---
 
