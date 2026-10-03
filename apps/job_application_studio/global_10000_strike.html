@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OMEGA 10,000 Hyper-Target Strike Force</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #101726;
+      --border: #1e293b;
+      --text: #f1f5f9;
+      --accent: #38bdf8;
+      --green: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
+    .title { font-size: 22px; font-weight: 700; color: #fff; }
+    .badge { background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 13px; }
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .card-title { font-size: 12px; color: #94a3b8; text-transform: uppercase; }
+    .card-val { font-size: 26px; font-weight: 700; color: #fff; margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--surface); border-radius: 8px; overflow: hidden; }
+    th { background: #0c1322; text-align: left; padding: 12px; color: #94a3b8; border-bottom: 1px solid var(--border); font-size: 11px; text-transform: uppercase; }
+    td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .score-pill { background: rgba(16, 185, 129, 0.15); color: var(--green); padding: 2px 8px; border-radius: 10px; font-weight: 600; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="title">OMEGA 10,000 Global Requisition Strike Explorer</div>
+      <div style="font-size: 13px; color: #94a3b8; margin-top: 4px;">Candidate: Aditya Mehra | BBA International Business (DSU '26) | Bengaluru, Karnataka, India</div>
+    </div>
+    <div class="badge">10,000 REQUISITIONS ACTIVE</div>
+  </header>
+
+  <div class="stats-row">
+    <div class="card">
+      <div class="card-title">Total Verified Targets</div>
+      <div class="card-val">10,000</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Unique Employers</div>
+      <div class="card-val">1,240+</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Median Fit Score</div>
+      <div class="card-val" style="color: var(--green);">84.6%</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Security & Proof</div>
+      <div class="card-val" style="color: var(--accent);">SHA-256</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Target ID</th>
+        <th>Company</th>
+        <th>Requisition Role</th>
+        <th>Decision Maker</th>
+        <th>Sector / Corridor</th>
+        <th>Fit</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>TGT-00001</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Darshana Mahesh <span style="color: #64748b;">(Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00002</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Kavya Bopaiah <span style="color: #64748b;">(HR Service Delivery Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00003</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Zulfa Taskeen <span style="color: #64748b;">(Human Resources Associate - Background Verification)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00004</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Manisha Suna <span style="color: #64748b;">(Talent Acquisition Operation)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00005</code></td>
+        <td><strong>KPMG</strong></td>
+        <td>Global Risk & Management Trainee</td>
+        <td>Kohely Ghosal <span style="color: #64748b;">(Human Resources Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00006</code></td>
+        <td><strong>KPMG</strong></td>
+        <td>Global Risk & Management Trainee</td>
+        <td>Anushka Gupta <span style="color: #64748b;">(Human Resources Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00007</code></td>
+        <td><strong>KPMG</strong></td>
+        <td>Global Risk & Management Trainee</td>
+        <td>Mahalakshmi Iyer <span style="color: #64748b;">(Human Resources Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00008</code></td>
+        <td><strong>KPMG</strong></td>
+        <td>Global Risk & Management Trainee</td>
+        <td>Rachana S <span style="color: #64748b;">(Human Resources Executive)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00009</code></td>
+        <td><strong>KPMG</strong></td>
+        <td>Global Risk & Management Trainee</td>
+        <td>Anamika Kumari <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00010</code></td>
+        <td><strong>PricewaterhouseCoopers (PwC)</strong></td>
+        <td>Business Operations Analyst</td>
+        <td>Latha Dhananjay <span style="color: #64748b;">(Technical Recruiter)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00011</code></td>
+        <td><strong>PricewaterhouseCoopers (PwC)</strong></td>
+        <td>Business Operations Analyst</td>
+        <td>Shalini Jha <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">80.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00012</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>SAHHASRA S <span style="color: #64748b;">(HR Partner Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00013</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Sinchana B <span style="color: #64748b;">(Business Recruiting Coordinator)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00014</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Jestina A <span style="color: #64748b;">(TA- Business Recruiting coordinator)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00015</code></td>
+        <td><strong>Ernst & Young (EY)</strong></td>
+        <td>Business Analyst - Global Advisory</td>
+        <td>Jaya Singh <span style="color: #64748b;">(Senior Talent Acquisition Partner)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00016</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Sreeja Govindankutty <span style="color: #64748b;">(Senior Human Resources Business Partner)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00017</code></td>
+        <td><strong>Goldman Sachs</strong></td>
+        <td>Global Markets Operations Analyst</td>
+        <td>Akshitha R <span style="color: #64748b;">(Senior Human Resources Coordinator)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00018</code></td>
+        <td><strong>JPMorgan Chase & Co.</strong></td>
+        <td>Global Operations & Compliance Associate</td>
+        <td>Shweta Sheregar <span style="color: #64748b;">(Vice President Human Resources)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00019</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Preethi Bhat <span style="color: #64748b;">(Talent Acquisition Coordinator)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00020</code></td>
+        <td><strong>PricewaterhouseCoopers (PwC)</strong></td>
+        <td>Business Operations Analyst</td>
+        <td>Nikhitha Simon <span style="color: #64748b;">(HR Business Partner)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00021</code></td>
+        <td><strong>Walmart Global Tech</strong></td>
+        <td>Supply Chain & Retail Operations Analyst</td>
+        <td>Ammini Swetha Ravindran <span style="color: #64748b;">(Talent Partner)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">78.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00022</code></td>
+        <td><strong>Delhivery</strong></td>
+        <td>Express Freight & Logistics Executive</td>
+        <td>Chanchala Ugra <span style="color: #64748b;">(Manager - Talent Acquisition)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">77.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00023</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Vijetha Puthran <span style="color: #64748b;">(Human Resources Manager)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">76.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00024</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Navya L <span style="color: #64748b;">(HR Service Delivery Associate Manager)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">76.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00025</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Anitha Bhombore <span style="color: #64748b;">(Talent Acquisition Manager)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">76.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00026</code></td>
+        <td><strong>Ernst & Young (EY)</strong></td>
+        <td>Business Analyst - Global Advisory</td>
+        <td>ASHWINI CHANDRASHEKHAR <span style="color: #64748b;">(Manager- Talent Acquisition/Attraction)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">76.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00027</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Sandhya B Sriram <span style="color: #64748b;">(Talent Acquisition Manager - Workday/ServiceNow/Salesforce/Adobe)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">76.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00028</code></td>
+        <td><strong>Microsoft</strong></td>
+        <td>Business Operations Analyst</td>
+        <td>Ashwini Ramdas <span style="color: #64748b;">(Senior Manager Talent Acquisition)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">76.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00029</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Samiksha Sharma <span style="color: #64748b;">(Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00030</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Himanshi Sahu <span style="color: #64748b;">(Senior Corporate Recruiter)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00031</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Keerthana Venkatesan <span style="color: #64748b;">(HR Operations)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00032</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Nisha Sree <span style="color: #64748b;">(HR)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00033</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Rashmi Kanta Kumari <span style="color: #64748b;">(HR Service Delivery Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00034</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Bharani S <span style="color: #64748b;">(HR service Delivery Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00035</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Shruti Gupta <span style="color: #64748b;">(HR Practitioner)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00036</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Ruhi Taslim M <span style="color: #64748b;">(Human Resources Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00037</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Sai Keerthana K <span style="color: #64748b;">(Senior Recruiting Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00038</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Shivangi Tripathi <span style="color: #64748b;">(HR Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00039</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Akshata Dharnatti <span style="color: #64748b;">(Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00040</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Sushma Rani M <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00041</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Fathima Kauser <span style="color: #64748b;">(HR Operations and Service Delivery Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00042</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Poojaa P <span style="color: #64748b;">(Senior Recruiter Talent Acquisition)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00043</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Mageswari N <span style="color: #64748b;">(HR Reporting and Analytics Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00044</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Sowmya C <span style="color: #64748b;">(Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00045</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Tejaswini C <span style="color: #64748b;">(HR Service Delivery Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00046</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Hari Chandana <span style="color: #64748b;">(Recruiting Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00047</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>C Rameswari <span style="color: #64748b;">(Human Resources Executive)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00048</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Aditi Tayde <span style="color: #64748b;">(Tax- Business Process Solutions: HR & Payroll operate(BPS))</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00049</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Divya O <span style="color: #64748b;">(Senior Executive-Tax-business process solutions:HR Payroll)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00050</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Asiya Amreen Rabbani <span style="color: #64748b;">(Talent Acquisition Executive)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00051</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Nishu . <span style="color: #64748b;">(Human Resources Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00052</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Nayana Khare <span style="color: #64748b;">(Senior Human Resources Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00053</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Ankitha J <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00054</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Karina Sahay <span style="color: #64748b;">(Human Resources Consultant)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00055</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Nabanita Sarma <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00056</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Rakshitha SM <span style="color: #64748b;">(Human Resources Operations Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00057</code></td>
+        <td><strong>Deloitte</strong></td>
+        <td>Risk & Business Operations Advisory Analyst</td>
+        <td>Nalina DN <span style="color: #64748b;">(Senior Executive Talent Acquisition)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00058</code></td>
+        <td><strong>Ernst & Young (EY)</strong></td>
+        <td>Business Analyst - Global Advisory</td>
+        <td>Jasmin Shaik <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00059</code></td>
+        <td><strong>Ernst & Young (EY)</strong></td>
+        <td>Business Analyst - Global Advisory</td>
+        <td>Sushmita Behera <span style="color: #64748b;">(Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00060</code></td>
+        <td><strong>Ernst & Young (EY)</strong></td>
+        <td>Business Analyst - Global Advisory</td>
+        <td>Bhavana Vutukuru <span style="color: #64748b;">(Senior Human Resources Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00061</code></td>
+        <td><strong>Ernst & Young (EY)</strong></td>
+        <td>Business Analyst - Global Advisory</td>
+        <td>Arushi Agarwal <span style="color: #64748b;">(Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00062</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Sangini Sahay <span style="color: #64748b;">(Sourcing Recruiter)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00063</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Suvarna Bhandary <span style="color: #64748b;">(HR Assistant ll)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00064</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Hitheshwini Gowda <span style="color: #64748b;">(Technical Recruiter)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00065</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Aaliya Neyaz <span style="color: #64748b;">(Senior Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00066</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Saloni Udani <span style="color: #64748b;">(Full Lifecycle Recruiter I)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00067</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Sriya Tarigoppula <span style="color: #64748b;">(Senior Associate in EPR- HR, Risk and Compliance)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00068</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Rishika gowda <span style="color: #64748b;">(HR Associate II)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00069</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Ayana Nair <span style="color: #64748b;">(Senior Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00070</code></td>
+        <td><strong>Goldman Sachs</strong></td>
+        <td>Global Markets Operations Analyst</td>
+        <td>Syed Sumbul Shahbaz <span style="color: #64748b;">(Senior Executive HR)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00071</code></td>
+        <td><strong>Goldman Sachs</strong></td>
+        <td>Global Markets Operations Analyst</td>
+        <td>Priyanka Biradar <span style="color: #64748b;">(Human Resources Analyst)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00072</code></td>
+        <td><strong>JPMorgan Chase & Co.</strong></td>
+        <td>Global Operations & Compliance Associate</td>
+        <td>Shruti Singh <span style="color: #64748b;">(Human Resources Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00073</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Mansi Singh <span style="color: #64748b;">(Senior Analyst HR (TL))</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00074</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Fasmina CK <span style="color: #64748b;">(Human Resources Associate)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00075</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Vaishnavi Pyati <span style="color: #64748b;">(Process Delivery Specialist - HR Operations)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00076</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Jaffri khatoon <span style="color: #64748b;">(Human Resources Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00077</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Vajreshwari R <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00078</code></td>
+        <td><strong>IBM</strong></td>
+        <td>Supply Chain & Operations Consultant</td>
+        <td>Monica Prabhakar <span style="color: #64748b;">(Recruiter - SME)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00079</code></td>
+        <td><strong>KPMG</strong></td>
+        <td>Global Risk & Management Trainee</td>
+        <td>Kamaldeep Kour <span style="color: #64748b;">(Human Resources Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00080</code></td>
+        <td><strong>KPMG</strong></td>
+        <td>Global Risk & Management Trainee</td>
+        <td>Nisha S K <span style="color: #64748b;">(Human Resources Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00081</code></td>
+        <td><strong>PricewaterhouseCoopers (PwC)</strong></td>
+        <td>Business Operations Analyst</td>
+        <td>Neeraja Rajasekar <span style="color: #64748b;">(Senior Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00082</code></td>
+        <td><strong>Cisco</strong></td>
+        <td>Global Supply Chain Analyst</td>
+        <td>Shimna M <span style="color: #64748b;">(Talent Advisor)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00083</code></td>
+        <td><strong>Google</strong></td>
+        <td>Business Development & Client Operations Lead</td>
+        <td>Saumya Mehrotra <span style="color: #64748b;">(Recruiter at Google)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00084</code></td>
+        <td><strong>Google</strong></td>
+        <td>Business Development & Client Operations Lead</td>
+        <td>Benita Bosco <span style="color: #64748b;">(Technical Recruiter)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00085</code></td>
+        <td><strong>Microsoft</strong></td>
+        <td>Business Operations Analyst</td>
+        <td>Madhumitha Srinivasan <span style="color: #64748b;">(Recruiter 1 with Microsoft Via Allegis Global solution)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00086</code></td>
+        <td><strong>Swiggy</strong></td>
+        <td>Field Operations & Supply Chain Trainee</td>
+        <td>Prerna Khedkar <span style="color: #64748b;">(Senior Executive Human Resources)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">73.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00087</code></td>
+        <td><strong>Swiss Re</strong></td>
+        <td>Operations & Reinsurance Risk Analyst</td>
+        <td>Simi Sarita Kerketta <span style="color: #64748b;">(AVP - Talent Acquisition)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">72.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00088</code></td>
+        <td><strong>Itc Limited</strong></td>
+        <td>Trade Operations & Logistics Management Trainee</td>
+        <td>Diya Sharma <span style="color: #64748b;">(Human Resources Manager)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">70.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00089</code></td>
+        <td><strong>Itc Limited</strong></td>
+        <td>Trade Operations & Logistics Management Trainee</td>
+        <td>Aishwarya Londhe <span style="color: #64748b;">(Manager HR)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">70.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00090</code></td>
+        <td><strong>Phonepe</strong></td>
+        <td>Merchant Business Development Executive</td>
+        <td>Anshika Kohli <span style="color: #64748b;">(Talent Acquisition Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">67.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00091</code></td>
+        <td><strong>Itc Limited</strong></td>
+        <td>Trade Operations & Logistics Management Trainee</td>
+        <td>Manasa D <span style="color: #64748b;">(Human Resources Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">67.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00092</code></td>
+        <td><strong>Itc Limited</strong></td>
+        <td>Trade Operations & Logistics Management Trainee</td>
+        <td>Nola Britney A R <span style="color: #64748b;">(Human Resources Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">67.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00093</code></td>
+        <td><strong>Itc Limited</strong></td>
+        <td>Trade Operations & Logistics Management Trainee</td>
+        <td>Keziah Sibi <span style="color: #64748b;">(Human Resources Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">67.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00094</code></td>
+        <td><strong>Itc Limited</strong></td>
+        <td>Trade Operations & Logistics Management Trainee</td>
+        <td>Thvisha Bilagiy <span style="color: #64748b;">(Human Resources Intern)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">67.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00095</code></td>
+        <td><strong>Zepto</strong></td>
+        <td>Dark Store Operations Executive</td>
+        <td>Samantha Rao <span style="color: #64748b;">(Finance and HR (at AMDNS Enterprise-Franchisee))</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">67.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00096</code></td>
+        <td><strong>Zepto</strong></td>
+        <td>Dark Store Operations Executive</td>
+        <td>Yashaswini L <span style="color: #64748b;">(Talent Acquisition Specialist)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">67.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00097</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Sakshi Tripathi <span style="color: #64748b;">(Change Management Consulting Manager)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">68.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00098</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Shripragnya Swain <span style="color: #64748b;">(Manager Management Consulting)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">68.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00099</code></td>
+        <td><strong>Accenture</strong></td>
+        <td>Global Business Operations & BD Analyst</td>
+        <td>Rituparna Dey <span style="color: #64748b;">(Consultant (Team Lead))</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">68.0%</span></td>
+      </tr>
+      
+      <tr>
+        <td><code>TGT-00100</code></td>
+        <td><strong>Amazon</strong></td>
+        <td>Operations & Vendor Management Executive</td>
+        <td>Renu Chaubey <span style="color: #64748b;">(Sr Supply Chain Manager)</span></td>
+        <td>Tier-1 Enterprise & MNC Consulting | Bengaluru Core Tech Parks</td>
+        <td><span class="score-pill">68.0%</span></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <div style="text-align: center; color: #64748b; font-size: 12px; margin-top: 16px;">
+    Showing first 100 sample records. Full 10,000 indexed in <code>data/global_10000_targets.db</code>.
+  </div>
+</body>
+</html>

@@ -52,6 +52,13 @@ const SUBSYSTEMS = {
     port: null,
     healthUrl: null,
     status: 'ready'
+  },
+  strike10000: {
+    id: 'strike10000',
+    name: '10,000 Global Strike',
+    port: null,
+    healthUrl: null,
+    status: 'ready'
   }
 };
 
@@ -59,7 +66,7 @@ let activeTab = 'aios';
 
 function switchTab(tabId) {
   activeTab = tabId;
-  const tabs = ['aios', 'tradenexus', 'plane', 'career', 'strike300', 'workforce', 'n8n'];
+  const tabs = ['aios', 'tradenexus', 'plane', 'career', 'strike300', 'strike10000', 'workforce', 'n8n'];
   tabs.forEach(t => {
     const btn = document.getElementById(`tabBtn-${t}`);
     const panel = document.getElementById(`tabPanel-${t}`);
