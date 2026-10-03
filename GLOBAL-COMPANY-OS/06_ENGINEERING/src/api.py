@@ -27,6 +27,7 @@ def get_ui():
     return {"message": "TradeNexus AI API active. UI index not found."}
 
 
+@app.get("/api/health")
 @app.get("/api/v1/health")
 def health_check():
     return {
@@ -35,6 +36,15 @@ def health_check():
         "rules_active": len(HSCatalog.DATABASE),
         "version": "1.0.0"
     }
+
+@app.get("/api/pilot/run-all")
+def run_all_pilots_api():
+    try:
+        from pilot_delivery_engine import process_all_pilot_accounts
+        results = process_all_pilot_accounts()
+        return {"status": "SUCCESS", "count": len(results), "accounts": results}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/v1/audit/docket", response_model=ComplianceAuditReport)
 def audit_export_docket(invoice: CommercialInvoice):
@@ -173,3 +183,116 @@ def get_omniverse_winner():
     return OmniverseService.get_winner_dossier()
 
 
+
+
+# ---------------------------------------------------------
+# AUTONOMOUS AUTO-CORRECTOR & AUDIT LEDGER ENDPOINTS
+# ---------------------------------------------------------
+@app.post("/api/v1/docket/auto-correct")
+def auto_correct_docket(invoice: CommercialInvoice):
+    from src.auto_corrector import DocketAutoCorrector
+    try:
+        report = DocketAutoCorrector.analyze_and_correct(invoice.model_dump())
+        return report
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Auto-correction failed: {str(e)}")
+
+@app.post("/api/v1/ledger/record")
+def record_ledger_audit(invoice: CommercialInvoice):
+    from src.compliance_auditor import ComplianceAuditor
+    from src.audit_ledger import CryptographicAuditLedger
+    try:
+        audit_rep = ComplianceAuditor.audit_invoice(invoice)
+        entry = CryptographicAuditLedger.record_audit(invoice.model_dump(), audit_rep.model_dump())
+        return entry
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Ledger recording failed: {str(e)}")
+
+@app.get("/api/v1/ledger/verify/{entry_id}")
+def verify_ledger_entry(entry_id: str):
+    from src.audit_ledger import CryptographicAuditLedger
+    cert = CryptographicAuditLedger.verify_entry(entry_id)
+    if not cert:
+        raise HTTPException(status_code=404, detail="Ledger entry not found or invalid.")
+    return cert
+
+
+# ---------------------------------------------------------
+# PRODUCTION PILOT PROCESSING ENDPOINT
+# ---------------------------------------------------------
+@app.post("/api/v1/pilot/process-docket")
+def process_pilot_export_docket(invoice: CommercialInvoice, apply_auto_corrections: bool = True):
+    from src.pilot_processor import PilotProductionProcessor
+    try:
+        bundle = PilotProductionProcessor.process_export_docket(invoice, apply_auto_corrections=apply_auto_corrections)
+        return bundle
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Pilot docket processing failed: {str(e)}")
+
+
+# ---------------------------------------------------------
+# MULTI-TENANT BATCH & ERP INGESTION ENDPOINTS
+# ---------------------------------------------------------
+@app.post("/api/v1/tenant/batch-clearance")
+def process_multi_tenant_batch(req: dict):
+    from src.multi_tenant_dispatcher import MultiTenantDispatcher, MultiTenantBatchRequest
+    from src.models import CommercialInvoice
+    try:
+        dockets = [CommercialInvoice(**d) for d in req.get("dockets", [])]
+        batch_req = MultiTenantBatchRequest(batch_reference=req.get("batch_reference", "BATCH-DEFAULT"), dockets=dockets)
+        return MultiTenantDispatcher.dispatch_batch(batch_req)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Multi-tenant batch failed: {str(e)}")
+
+@app.post("/api/v1/erp/ingest-sap-idoc")
+def ingest_sap_idoc(payload: dict):
+    from src.erp_connector import ERPConnector
+    from src.pilot_processor import PilotProductionProcessor
+    try:
+        raw_xml = payload.get("idoc_xml", "")
+        invoice = ERPConnector.parse_sap_idoc_xml(raw_xml)
+        bundle = PilotProductionProcessor.process_export_docket(invoice, apply_auto_corrections=True)
+        return {"invoice": invoice, "clearance_bundle": bundle}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"SAP IDoc ingestion failed: {str(e)}")
+
+
+# ---------------------------------------------------------
+# US CBP ACE & REGULATORY GAZETTE ENDPOINTS
+# ---------------------------------------------------------
+@app.post("/api/v1/us-customs/audit-manifest")
+def audit_us_customs_manifest(payload: dict):
+    from src.us_cbp_connector import USCustomsConnector
+    try:
+        entry_id = payload.get("entry_reference", "CBP-ENTRY-001")
+        importer = payload.get("importer_of_record", "US Importer LLC")
+        port = payload.get("port_of_entry", "USNYC")
+        items = payload.get("items", [])
+        return USCustomsConnector.audit_us_shipment(entry_id, importer, port, items)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"US Customs audit failed: {str(e)}")
+
+@app.post("/api/v1/regulatory/sync-gazette")
+def sync_regulatory_gazette(notifications: list):
+    from src.regulatory_synchronizer import RegulatorySynchronizer, GazetteNotification
+    try:
+        notif_objs = [GazetteNotification(**n) for n in notifications]
+        return RegulatorySynchronizer.process_gazette_notifications(notif_objs)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Gazette synchronization failed: {str(e)}")
+
+
+# ---------------------------------------------------------
+# PHARMA PRE-CLEARANCE & FDA PRIOR NOTICE ENDPOINTS
+# ---------------------------------------------------------
+@app.post("/api/v1/pharma/verify-docket")
+def verify_pharma_docket(payload: dict):
+    from src.pharma_fda_connector import PharmaFDAConnector
+    try:
+        docket_id = payload.get("docket_id", "PHARM-DOC-001")
+        exporter = payload.get("exporter_name", "Dr. Reddy's Laboratories")
+        dest = payload.get("destination_country", "USA")
+        items = payload.get("items", [])
+        return PharmaFDAConnector.audit_pharma_export(docket_id, exporter, dest, items)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Pharma verification failed: {str(e)}")
