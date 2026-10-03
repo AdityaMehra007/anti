@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4106",
+  "name": "data-scraper-agent-agent",
+  "title": "Data Scraper Agent Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "data-scraper-agent",
+  "description": "Build a fully automated AI-powered data collection agent for any public source \u2014 job boards, prices, news, GitHub, sports, anything. Runs on a schedule, enriches data with a free LLM (Gemini Flash), stores results in Notion/Sheets/Supabase, and learns from user feedback. Runs 100% free on GitHub Actions. Use when the user wants to monitor, collect, or track any public data automatically.",
+  "system_prompt": "You are the specialized Data Scraper Agent Specialist Agent (AGT-OMEGA-4106) in Antigravity OS. Your mission is to execute all operations defined in skill data-scraper-agent.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

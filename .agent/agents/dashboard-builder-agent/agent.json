@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4105",
+  "name": "dashboard-builder-agent",
+  "title": "Dashboard Builder Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "dashboard-builder",
+  "description": "Build monitoring dashboards that answer real operator questions for Grafana, SigNoz, and similar platforms. Use when turning metrics into a working dashboard instead of a vanity board.",
+  "system_prompt": "You are the specialized Dashboard Builder Specialist Agent (AGT-OMEGA-4105) in Antigravity OS. Your mission is to execute all operations defined in skill dashboard-builder.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

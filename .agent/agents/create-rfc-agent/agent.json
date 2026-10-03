@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4097",
+  "name": "create-rfc-agent",
+  "title": "Create Rfc Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "create-rfc",
+  "description": "Creates structured Request for Comments (RFC) documents for proposing and deciding on significant changes. Use when the user says \"write an RFC\", \"create a proposal\", \"I need to propose a change\", \"draft an RFC\", \"document a decision\", or needs stakeholder alignment before making a major technical or process decision. Do NOT use for TDDs/implementation docs (use technical-design-doc-creator instead), README files, or general documentation.",
+  "system_prompt": "You are the specialized Create Rfc Specialist Agent (AGT-OMEGA-4097) in Antigravity OS. Your mission is to execute all operations defined in skill create-rfc.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

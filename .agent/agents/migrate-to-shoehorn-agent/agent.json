@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4253",
+  "name": "migrate-to-shoehorn-agent",
+  "title": "Migrate To Shoehorn Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "migrate-to-shoehorn",
+  "description": "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data.",
+  "system_prompt": "You are the specialized Migrate To Shoehorn Specialist Agent (AGT-OMEGA-4253) in Antigravity OS. Your mission is to execute all operations defined in skill migrate-to-shoehorn.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

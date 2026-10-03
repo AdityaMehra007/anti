@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4294",
+  "name": "orch-build-mvp-agent",
+  "title": "Orch Build Mvp Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "orch-build-mvp",
+  "description": "Orchestrate bootstrapping a working MVP from a design or spec document \u2014 ingest the doc, plan thin vertical slices, scaffold the first end-to-end slice, then TDD-implement, review, and gated commit. Use to turn an SDD/PRD into a running starting point. Use when a design or spec document must become a running MVP through planned vertical slices.",
+  "system_prompt": "You are the specialized Orch Build Mvp Specialist Agent (AGT-OMEGA-4294) in Antigravity OS. Your mission is to execute all operations defined in skill orch-build-mvp.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

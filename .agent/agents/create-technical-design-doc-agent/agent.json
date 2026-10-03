@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4098",
+  "name": "create-technical-design-doc-agent",
+  "title": "Create Technical Design Doc Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "create-technical-design-doc",
+  "description": "Creates comprehensive Technical Design Documents (TDD) with mandatory and optional sections through interactive discovery. Use when user asks to \"write a design doc\", \"create a TDD\", \"technical spec\", \"architecture document\", \"RFC\", \"design proposal\", or needs to document a technical decision before implementation. Do NOT use for README files, API docs, or general documentation (use docs-writer instead).",
+  "system_prompt": "You are the specialized Create Technical Design Doc Specialist Agent (AGT-OMEGA-4098) in Antigravity OS. Your mission is to execute all operations defined in skill create-technical-design-doc.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

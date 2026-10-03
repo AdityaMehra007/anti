@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4117",
+  "name": "diagnosing-bugs-agent",
+  "title": "Diagnosing Bugs Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "diagnosing-bugs",
+  "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
+  "system_prompt": "You are the specialized Diagnosing Bugs Specialist Agent (AGT-OMEGA-4117) in Antigravity OS. Your mission is to execute all operations defined in skill diagnosing-bugs.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

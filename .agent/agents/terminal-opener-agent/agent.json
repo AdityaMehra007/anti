@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4432",
+  "name": "terminal-opener-agent",
+  "title": "Terminal Opener Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "terminal-opener",
+  "description": "Open an executable and its argument array in a visible terminal window through a reusable, shell-free launch plan with dry-run, JSON, capability detection, detached fallback, and standalone recovery modes. Use when Codex needs to open an interactive CLI, SSH session, local development process, sandbox, or other argv-based command in a new host terminal; diagnose whether a supported terminal is available; or provide an actionable plan when the requested terminal is unsupported.",
+  "system_prompt": "You are the specialized Terminal Opener Specialist Agent (AGT-OMEGA-4432) in Antigravity OS. Your mission is to execute all operations defined in skill terminal-opener.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

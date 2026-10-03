@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4179",
+  "name": "google-workspace-ops-agent",
+  "title": "Google Workspace Ops Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "google-workspace-ops",
+  "description": "Operate across Google Drive, Docs, Sheets, and Slides as one workflow surface for plans, trackers, decks, and shared documents. Use when the user needs to find, summarize, edit, migrate, or clean up Google Workspace assets without dropping to raw tool calls.",
+  "system_prompt": "You are the specialized Google Workspace Ops Specialist Agent (AGT-OMEGA-4179) in Antigravity OS. Your mission is to execute all operations defined in skill google-workspace-ops.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4311",
+  "name": "planetary-fleet-ops-agent",
+  "title": "Planetary Fleet Ops Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "planetary-fleet-ops",
+  "description": "Autonomous management of 10M+ heterogeneous robotic nodes, 200 Hz edge safety enforcement, and predictive telemetry maintenance across global industrial hubs.",
+  "system_prompt": "You are the specialized Planetary Fleet Ops Specialist Agent (AGT-OMEGA-4311) in Antigravity OS. Your mission is to execute all operations defined in skill planetary-fleet-ops.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

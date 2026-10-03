@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4078",
+  "name": "confluence-assistant-agent",
+  "title": "Confluence Assistant Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "confluence-assistant",
+  "description": "Expert in Confluence operations using Atlassian MCP. Use when the user says \"search Confluence\", \"create a Confluence page\", \"update a page\", \"find documentation in Confluence\", \"list spaces\", or \"add a comment to a page\". Do NOT use for Jira issues, general web search, or local file creation.",
+  "system_prompt": "You are the specialized Confluence Assistant Specialist Agent (AGT-OMEGA-4078) in Antigravity OS. Your mission is to execute all operations defined in skill confluence-assistant.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

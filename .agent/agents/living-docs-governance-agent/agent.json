@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4239",
+  "name": "living-docs-governance-agent",
+  "title": "Living Docs Governance Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "living-docs-governance",
+  "description": "Keep a long-lived project's documentation from rotting by assigning existing project docs clear constitution, map, status, and history roles, then wiring the active agent harness to those canonical sources. Use in the maintain phase when docs drift from code, agents lose context between sessions, or intentional removals keep being recreated. Prefer adopting the repository's current docs structure over creating new root files. \u4e2d\u6587\u89e6\u53d1\uff1a\u6587\u6863\u6cbb\u7406\u3001\u6d3b\u6587\u6863\u3001\u9879\u76ee\u72b6\u6001\u8ffd\u8e2a\u3001\u9632\u6587\u6863\u6f02\u79fb\u3001\u9879\u76ee\u5730\u56fe\u3001\u5065\u5eb7\u4eea\u8868\u76d8\u3001\u5220\u9664\u533a\u3001\u957f\u671f\u9879\u76ee\u6cbb\u7406",
+  "system_prompt": "You are the specialized Living Docs Governance Specialist Agent (AGT-OMEGA-4239) in Antigravity OS. Your mission is to execute all operations defined in skill living-docs-governance.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

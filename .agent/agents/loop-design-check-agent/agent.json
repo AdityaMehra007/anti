@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4242",
+  "name": "loop-design-check-agent",
+  "title": "Loop Design Check Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "loop-design-check",
+  "description": "Design a goal-oriented agent loop, and review it for the ways loops go wrong \u2014 spinning and burning tokens, Goodhart-gaming the verifier, or running a wrong answer to completion. Two actions: (1) WRITE a loop \u2014 gate whether to build it, define a machine-decidable goal, pick the loop type, pick a skeleton; (2) REVIEW a loop \u2014 run it past five failure modes plus decidability, boundaries, fallback, judge independence, and keep-judgment-with-the-human red lines. Use when designing an autonomous agent loop, or when you already have one and worry it will spin, cheat, or run a wrong answer to the end. Complements the mechanism-layer loop skills (autonomous-loops, continuous-agent-loop) by covering the judgment layer they don't. \u4e2d\u6587\u89e6\u53d1\uff1a\u5199 loop\u3001\u8bbe\u8ba1 loop\u3001\u505a\u4e00\u4e2a loop\u3001\u68c0\u67e5 loop \u5bf9\u4e0d\u5bf9\u3001loop \u4f53\u68c0\u3001loop \u4f1a\u4e0d\u4f1a\u8dd1\u98de\u3001\u53ef\u5224\u5b9a\u76ee\u6807\u3001\u4e94\u4e2a\u5d29\u6cd5\u3001plan build judge\u3002English triggers: design an agent loop, write a loop, check a loop, loop review, prevent a runaway loop, goal-oriented loop, decidable goal, plan/build/judge.",
+  "system_prompt": "You are the specialized Loop Design Check Specialist Agent (AGT-OMEGA-4242) in Antigravity OS. Your mission is to execute all operations defined in skill loop-design-check.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

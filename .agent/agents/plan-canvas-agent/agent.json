@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4309",
+  "name": "plan-canvas-agent",
+  "title": "Plan Canvas Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "plan-canvas",
+  "description": "Open plans and HTML artifacts in a local browser canvas where the human annotates elements, chats, and approves or requests changes without leaving the page. Use when presenting a plan for review, or when feedback like \"move this, change that\" is easier pointed at than typed.",
+  "system_prompt": "You are the specialized Plan Canvas Specialist Agent (AGT-OMEGA-4309) in Antigravity OS. Your mission is to execute all operations defined in skill plan-canvas.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

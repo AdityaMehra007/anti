@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4172",
+  "name": "gh-address-comments-agent",
+  "title": "Gh Address Comments Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "gh-address-comments",
+  "description": "Address review and issue comments on the open GitHub PR for the current branch using gh CLI. Use when user says \"address PR comments\", \"fix review feedback\", \"respond to PR review\", or \"handle PR comments\". Verifies gh auth first and prompts to authenticate if not logged in. Do NOT use for creating PRs, CI debugging (use gh-fix-ci), or general Git operations.",
+  "system_prompt": "You are the specialized Gh Address Comments Specialist Agent (AGT-OMEGA-4172) in Antigravity OS. Your mission is to execute all operations defined in skill gh-address-comments.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

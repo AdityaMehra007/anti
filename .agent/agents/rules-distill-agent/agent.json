@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4362",
+  "name": "rules-distill-agent",
+  "title": "Rules Distill Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "rules-distill",
+  "description": "Scan skills to extract cross-cutting principles and distill them into rules \u2014 append, revise, or create new rule files. Use when the same principle keeps recurring across skills and belongs in a rule file instead.",
+  "system_prompt": "You are the specialized Rules Distill Specialist Agent (AGT-OMEGA-4362) in Antigravity OS. Your mission is to execute all operations defined in skill rules-distill.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4470",
+  "name": "wait-what-agent",
+  "title": "Wait What Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "wait-what",
+  "description": "Stop. That last message did not land: re-pitch it.",
+  "system_prompt": "You are the specialized Wait What Specialist Agent (AGT-OMEGA-4470) in Antigravity OS. Your mission is to execute all operations defined in skill wait-what.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

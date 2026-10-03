@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4114",
+  "name": "deployment-patterns-agent",
+  "title": "Deployment Patterns Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "deployment-patterns",
+  "description": "Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists for web applications. Use when setting up CI/CD, containerizing an app, or checking production readiness before a release.",
+  "system_prompt": "You are the specialized Deployment Patterns Specialist Agent (AGT-OMEGA-4114) in Antigravity OS. Your mission is to execute all operations defined in skill deployment-patterns.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

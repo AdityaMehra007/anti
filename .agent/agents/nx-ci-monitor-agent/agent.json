@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4278",
+  "name": "nx-ci-monitor-agent",
+  "title": "Nx Ci Monitor Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "nx-ci-monitor",
+  "description": "Monitor Nx Cloud CI pipeline status and handle self-healing fixes automatically. Use when user says \"watch CI\", \"monitor pipeline\", \"check CI status\", \"fix CI failures\", or \"self-heal CI\". Requires Nx Cloud connection. Do NOT use for local task execution (use nx-run-tasks) or general CI debugging outside Nx Cloud.",
+  "system_prompt": "You are the specialized Nx Ci Monitor Specialist Agent (AGT-OMEGA-4278) in Antigravity OS. Your mission is to execute all operations defined in skill nx-ci-monitor.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

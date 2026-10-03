@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4132",
+  "name": "domain-identification-grouping-agent",
+  "title": "Domain Identification Grouping Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "domain-identification-grouping",
+  "description": "Groups existing components into logical business domains to plan service-based architecture. Use when asking \"which components belong together?\", \"group these into services\", \"organize by domain\", \"component-to-domain mapping\", or planning service extraction from an existing codebase. Do NOT use for identifying new domains from scratch (use domain-analysis) or analyzing coupling (use coupling-analysis).",
+  "system_prompt": "You are the specialized Domain Identification Grouping Specialist Agent (AGT-OMEGA-4132) in Antigravity OS. Your mission is to execute all operations defined in skill domain-identification-grouping.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

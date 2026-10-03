@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4400",
+  "name": "skill-stocktake-agent",
+  "title": "Skill Stocktake Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "skill-stocktake",
+  "description": "Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills only) and Full Stocktake modes with sequential subagent batch evaluation.",
+  "system_prompt": "You are the specialized Skill Stocktake Specialist Agent (AGT-OMEGA-4400) in Antigravity OS. Your mission is to execute all operations defined in skill skill-stocktake.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

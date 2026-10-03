@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4197",
+  "name": "homelab-pihole-dns-agent",
+  "title": "Homelab Pihole Dns Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "homelab-pihole-dns",
+  "description": "Pi-hole installation, blocklist management, DNS-over-HTTPS setup, DHCP integration, local DNS records, and troubleshooting broken DNS resolution on a home network. Use when the task explicitly involves Pi-hole \u2014 installing it, managing blocklists, configuring DoH or DHCP, adding local DNS records, or diagnosing DNS resolution with Pi-hole in the path.",
+  "system_prompt": "You are the specialized Homelab Pihole Dns Specialist Agent (AGT-OMEGA-4197) in Antigravity OS. Your mission is to execute all operations defined in skill homelab-pihole-dns.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

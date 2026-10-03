@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4072",
+  "name": "component-common-domain-detection-agent",
+  "title": "Component Common Domain Detection Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "component-common-domain-detection",
+  "description": "Finds duplicate business logic spread across multiple components and suggests consolidation. Use when asking \"where is this logic duplicated?\", \"find common code between services\", \"what can be consolidated?\", \"detect shared domain logic\", or analyzing component overlap before refactoring. Do NOT use for code-level duplication detection (use linters) or dependency analysis (use coupling-analysis).",
+  "system_prompt": "You are the specialized Component Common Domain Detection Specialist Agent (AGT-OMEGA-4072) in Antigravity OS. Your mission is to execute all operations defined in skill component-common-domain-detection.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

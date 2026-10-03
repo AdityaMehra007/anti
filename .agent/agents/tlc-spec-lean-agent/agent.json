@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4445",
+  "name": "tlc-spec-lean-agent",
+  "title": "Tlc Spec Lean Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "tlc-spec-lean",
+  "description": "Spec-driven feature work that freezes obligations instead of the plan: one human-reviewed plan with EARS criteria, path, entities, interface and one-way doors, then proof-backed checks, then build, then an independent Verifier. Use when the user says \"tlc-spec-lean\", \"plan feature\", \"specify feature\", \"write the checks\", \"build this plan\", or \"verify work\". Do NOT use for standalone design documents unattached to a feature, architecture decomposition analysis, or work that already has a task list or checklist to execute.",
+  "system_prompt": "You are the specialized Tlc Spec Lean Specialist Agent (AGT-OMEGA-4445) in Antigravity OS. Your mission is to execute all operations defined in skill tlc-spec-lean.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

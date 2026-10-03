@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4442",
+  "name": "tlc-implement-agent",
+  "title": "Tlc Implement Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "tlc-implement",
+  "description": "Implement a work already planned: extracts a checklist, builds it, and proves every check with an independent verifier. Use when the user says \"extract a checklist\", \"build this ticket\", \"implement this spec\", or \"tlc-implement\". Do NOT use when nobody has decided what to build, or to design the work.",
+  "system_prompt": "You are the specialized Tlc Implement Specialist Agent (AGT-OMEGA-4442) in Antigravity OS. Your mission is to execute all operations defined in skill tlc-implement.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

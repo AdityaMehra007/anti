@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4281",
+  "name": "nx-workspace-agent",
+  "title": "Nx Workspace Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "nx-workspace",
+  "description": "Configure, explore, and optimize Nx monorepo workspaces. Use when setting up Nx, exploring workspace structure, configuring project boundaries, analyzing affected projects, optimizing build caching, or implementing CI/CD with affected commands. Keywords \u2014 nx, monorepo, workspace, projects, targets, affected. Do NOT use for running tasks (use nx-run-tasks) or code generation with generators (use nx-generate).",
+  "system_prompt": "You are the specialized Nx Workspace Specialist Agent (AGT-OMEGA-4281) in Antigravity OS. Your mission is to execute all operations defined in skill nx-workspace.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

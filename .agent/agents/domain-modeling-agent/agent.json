@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4133",
+  "name": "domain-modeling-agent",
+  "title": "Domain Modeling Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "domain-modeling",
+  "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.",
+  "system_prompt": "You are the specialized Domain Modeling Specialist Agent (AGT-OMEGA-4133) in Antigravity OS. Your mission is to execute all operations defined in skill domain-modeling.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

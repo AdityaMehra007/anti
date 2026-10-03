@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4183",
+  "name": "growth-log-agent",
+  "title": "Growth Log Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "growth-log",
+  "description": "Use after a complex task, failure, or when reviewing what was learned. Teaches how to write growth logs that extract reusable patterns \u2014 not diary entries.",
+  "system_prompt": "You are the specialized Growth Log Specialist Agent (AGT-OMEGA-4183) in Antigravity OS. Your mission is to execute all operations defined in skill growth-log.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

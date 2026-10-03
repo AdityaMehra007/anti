@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4427",
+  "name": "tdd-agent",
+  "title": "Tdd Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "tdd",
+  "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
+  "system_prompt": "You are the specialized Tdd Specialist Agent (AGT-OMEGA-4427) in Antigravity OS. Your mission is to execute all operations defined in skill tdd.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

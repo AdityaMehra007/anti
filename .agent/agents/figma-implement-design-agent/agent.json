@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4155",
+  "name": "figma-implement-design-agent",
+  "title": "Figma Implement Design Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "figma-implement-design",
+  "description": "Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Use when the user provides Figma URLs or node IDs and asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection. Do NOT use for general Figma data fetching, variable exploration, or MCP troubleshooting (use figma instead).",
+  "system_prompt": "You are the specialized Figma Implement Design Specialist Agent (AGT-OMEGA-4155) in Antigravity OS. Your mission is to execute all operations defined in skill figma-implement-design.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

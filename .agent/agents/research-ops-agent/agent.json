@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4359",
+  "name": "research-ops-agent",
+  "title": "Research Ops Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "research-ops",
+  "description": "Evidence-first current-state research workflow for ECC. Use when the user wants fresh facts, comparisons, enrichment, or a recommendation built from current public evidence and any supplied local context.",
+  "system_prompt": "You are the specialized Research Ops Specialist Agent (AGT-OMEGA-4359) in Antigravity OS. Your mission is to execute all operations defined in skill research-ops.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

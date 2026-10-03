@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4380",
+  "name": "security-threat-model-agent",
+  "title": "Security Threat Model Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "security-threat-model",
+  "description": "Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Use when the user asks to threat model a codebase or path, enumerate threats or abuse paths, or perform AppSec threat modeling. Do NOT use for general architecture summaries, code review, security best practices (use security-best-practices), or non-security design work.",
+  "system_prompt": "You are the specialized Security Threat Model Specialist Agent (AGT-OMEGA-4380) in Antigravity OS. Your mission is to execute all operations defined in skill security-threat-model.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

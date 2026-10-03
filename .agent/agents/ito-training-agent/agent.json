@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4216",
+  "name": "ito-training-agent",
+  "title": "Ito Training Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "ito-training",
+  "description": "Inspect the availability of ML training on a completed It\u00f4 compute booking and, when the canonical backend becomes available, hand off an explicitly confirmed training manifest. Use after ito-compute has booked GPU nodes and the user wants pre-training, fine-tuning, or RL on that metal. ECC implements no training stack of its own.",
+  "system_prompt": "You are the specialized Ito Training Specialist Agent (AGT-OMEGA-4216) in Antigravity OS. Your mission is to execute all operations defined in skill ito-training.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4093",
+  "name": "coupling-analysis-agent",
+  "title": "Coupling Analysis Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "coupling-analysis",
+  "description": "Analyzes coupling between modules using the three-dimensional model (strength, distance, volatility) from \"Balancing Coupling in Software Design\". Use when asking \"are these modules too coupled?\", \"show me dependencies\", \"analyze integration quality\", \"which modules should I decouple?\", \"coupling report\", or evaluating architectural health. Do NOT use for domain boundary analysis (use domain-analysis) or component sizing (use component-identification-sizing).",
+  "system_prompt": "You are the specialized Coupling Analysis Specialist Agent (AGT-OMEGA-4093) in Antigravity OS. Your mission is to execute all operations defined in skill coupling-analysis.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4485",
+  "name": "writing-plans-agent",
+  "title": "Writing Plans Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "writing-plans",
+  "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+  "system_prompt": "You are the specialized Writing Plans Specialist Agent (AGT-OMEGA-4485) in Antigravity OS. Your mission is to execute all operations defined in skill writing-plans.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

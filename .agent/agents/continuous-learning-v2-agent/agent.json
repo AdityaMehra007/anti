@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4086",
+  "name": "continuous-learning-v2-agent",
+  "title": "Continuous Learning V2 Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "continuous-learning-v2",
+  "description": "Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confidence scoring, and evolves them into skills/commands/agents. v2.1 adds project-scoped instincts to prevent cross-project contamination. Use when capturing lessons from a session, managing instincts, or promoting them into skills, commands, or agents.",
+  "system_prompt": "You are the specialized Continuous Learning V2 Specialist Agent (AGT-OMEGA-4086) in Antigravity OS. Your mission is to execute all operations defined in skill continuous-learning-v2.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

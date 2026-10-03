@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4200",
+  "name": "hookify-rules-agent",
+  "title": "Hookify Rules Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "hookify-rules",
+  "description": "This skill should be used when the user asks to create a hookify rule, write a hook rule, configure hookify, add a hookify rule, or needs guidance on hookify rule syntax and patterns.",
+  "system_prompt": "You are the specialized Hookify Rules Specialist Agent (AGT-OMEGA-4200) in Antigravity OS. Your mission is to execute all operations defined in skill hookify-rules.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

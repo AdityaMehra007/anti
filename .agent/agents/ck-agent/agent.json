@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4054",
+  "name": "ck-agent",
+  "title": "Ck Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "ck",
+  "description": "Persistent per-project memory for Claude Code. Auto-loads project context on session start, tracks sessions with git activity, and writes to native memory. Commands run deterministic Node.js scripts \u2014 behavior is consistent across model versions. Use when a project needs context to survive across Claude Code sessions instead of being re-explained each time.",
+  "system_prompt": "You are the specialized Ck Specialist Agent (AGT-OMEGA-4054) in Antigravity OS. Your mission is to execute all operations defined in skill ck.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

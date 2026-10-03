@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4057",
+  "name": "claude-handoff-agent",
+  "title": "Claude Handoff Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "claude-handoff",
+  "description": "Hand the current conversation off to a fresh background agent that picks up the work immediately.",
+  "system_prompt": "You are the specialized Claude Handoff Specialist Agent (AGT-OMEGA-4057) in Antigravity OS. Your mission is to execute all operations defined in skill claude-handoff.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

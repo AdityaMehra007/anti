@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4295",
+  "name": "orch-change-feature-agent",
+  "title": "Orch Change Feature Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "orch-change-feature",
+  "description": "Orchestrate altering an existing, working feature to new desired behavior \u2014 update its tests to the new spec, change the implementation to match, review, and gated commit. Use when behavior is not broken but should be different.",
+  "system_prompt": "You are the specialized Orch Change Feature Specialist Agent (AGT-OMEGA-4295) in Antigravity OS. Your mission is to execute all operations defined in skill orch-change-feature.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

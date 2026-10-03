@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4313",
+  "name": "playwright-skill-agent",
+  "title": "Playwright Skill Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "playwright-skill",
+  "description": "Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to /tmp. Test pages, fill forms, take screenshots, check responsive design, validate UX, test login flows, check links, automate any browser task. Use when user wants to test websites, automate browser interactions, validate web functionality, or perform any browser-based testing. Do NOT use for quick page debugging or network inspection (use chrome-devtools instead).",
+  "system_prompt": "You are the specialized Playwright Skill Specialist Agent (AGT-OMEGA-4313) in Antigravity OS. Your mission is to execute all operations defined in skill playwright-skill.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

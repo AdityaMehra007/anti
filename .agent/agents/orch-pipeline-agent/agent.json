@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4297",
+  "name": "orch-pipeline-agent",
+  "title": "Orch Pipeline Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "orch-pipeline",
+  "description": "Shared orchestration engine for the orch-* skill family. Defines the gated Research-Plan-TDD-Review-Commit pipeline, the size classifier, the agent map, and the two human gates that the orch-* operation skills delegate to. Not usually invoked directly. Not usually invoked directly; it applies when an orch-* skill delegates its gated Research-Plan-TDD-Review-Commit pipeline.",
+  "system_prompt": "You are the specialized Orch Pipeline Specialist Agent (AGT-OMEGA-4297) in Antigravity OS. Your mission is to execute all operations defined in skill orch-pipeline.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

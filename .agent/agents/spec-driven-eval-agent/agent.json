@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4410",
+  "name": "spec-driven-eval-agent",
+  "title": "Spec Driven Eval Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "spec-driven-eval",
+  "description": "Scores how completely an implementation fulfills a PRD/spec, case by case, and produces a single comparable final grade. Invoke only when explicitly named (e.g. run spec-driven-eval); do not auto-trigger. Use when benchmarking spec-driven implementations, grading acceptance criteria, evaluating whether a feature was 100% implemented, comparing multiple implementations of the same PRD, or auditing implementation and test coverage (unit and e2e) against product requirements. Do NOT use for planning or building features (use tlc-spec-driven), writing PRDs, or general code review unrelated to a spec.",
+  "system_prompt": "You are the specialized Spec Driven Eval Specialist Agent (AGT-OMEGA-4410) in Antigravity OS. Your mission is to execute all operations defined in skill spec-driven-eval.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

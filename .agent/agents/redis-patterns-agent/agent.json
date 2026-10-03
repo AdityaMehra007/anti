@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4353",
+  "name": "redis-patterns-agent",
+  "title": "Redis Patterns Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "redis-patterns",
+  "description": "Redis data structure patterns, caching strategies, distributed locks, rate limiting, pub/sub, and connection management for production applications. Use when adding caching, a distributed lock, rate limiting, or pub/sub with Redis, or when key design needs review.",
+  "system_prompt": "You are the specialized Redis Patterns Specialist Agent (AGT-OMEGA-4353) in Antigravity OS. Your mission is to execute all operations defined in skill redis-patterns.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

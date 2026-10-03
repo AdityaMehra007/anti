@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4210",
+  "name": "investor-outreach-agent",
+  "title": "Investor Outreach Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "investor-outreach",
+  "description": "Draft cold emails, warm intro blurbs, follow-ups, update emails, and investor communications for fundraising. Use when the user wants outreach to angels, VCs, strategic investors, or accelerators and needs concise, personalized, investor-facing messaging.",
+  "system_prompt": "You are the specialized Investor Outreach Specialist Agent (AGT-OMEGA-4210) in Antigravity OS. Your mission is to execute all operations defined in skill investor-outreach.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

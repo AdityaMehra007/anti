@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4175",
+  "name": "git-workflow-agent",
+  "title": "Git Workflow Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "git-workflow",
+  "description": "Git workflow patterns including branching strategies, commit conventions, merge vs rebase, conflict resolution, and collaborative development best practices for teams of all sizes. Use when choosing a branching strategy, writing commit conventions, deciding merge versus rebase, or resolving conflicts.",
+  "system_prompt": "You are the specialized Git Workflow Specialist Agent (AGT-OMEGA-4175) in Antigravity OS. Your mission is to execute all operations defined in skill git-workflow.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

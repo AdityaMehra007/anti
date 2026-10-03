@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4150",
+  "name": "excalidraw-studio-agent",
+  "title": "Excalidraw Studio Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "excalidraw-studio",
+  "description": "Generate Excalidraw diagrams from natural language descriptions. Outputs .excalidraw JSON files openable in Excalidraw. Use when asked to \"create a diagram\", \"make a flowchart\", \"visualize a process\", \"draw a system architecture\", \"create a mind map\", \"generate an Excalidraw file\", \"draw an ER diagram\", \"create a sequence diagram\", or \"make a class diagram\". Supports flowcharts, relationship diagrams, mind maps, architecture, DFD, swimlane, class, sequence, and ER diagrams. Can use icon libraries (AWS, GCP, etc.) when set up. Do NOT use for code architecture analysis (use the architecture skills), Mermaid diagram rendering (use mermaid-studio), or non-visual documentation (use docs-writer).",
+  "system_prompt": "You are the specialized Excalidraw Studio Specialist Agent (AGT-OMEGA-4150) in Antigravity OS. Your mission is to execute all operations defined in skill excalidraw-studio.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

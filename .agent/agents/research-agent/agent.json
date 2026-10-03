@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4358",
+  "name": "research-agent",
+  "title": "Research Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "research",
+  "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+  "system_prompt": "You are the specialized Research Specialist Agent (AGT-OMEGA-4358) in Antigravity OS. Your mission is to execute all operations defined in skill research.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

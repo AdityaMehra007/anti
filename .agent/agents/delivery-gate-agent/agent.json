@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4112",
+  "name": "delivery-gate-agent",
+  "title": "Delivery Gate Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "delivery-gate",
+  "description": "Stop hook that blocks Claude from finishing until quality checks pass. Detects rationalization patterns (surface text heuristics), stale learning logs (filesystem mtime), and low disk space. Complements self-audit by mechanically enforcing learning capture habits. Use when Claude should be mechanically blocked from declaring work finished before quality checks and learning capture actually pass.",
+  "system_prompt": "You are the specialized Delivery Gate Specialist Agent (AGT-OMEGA-4112) in Antigravity OS. Your mission is to execute all operations defined in skill delivery-gate.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

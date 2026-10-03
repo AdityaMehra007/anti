@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4254",
+  "name": "ml-adoption-playbook-agent",
+  "title": "Ml Adoption Playbook Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "ml-adoption-playbook",
+  "description": "End-to-end methodology for AI agents and software engineers to add machine learning algorithms to existing non-ML codebases. Covers problem framing, data readiness, architectural decoupling, and baseline model integration. Use when adding a machine learning capability to a codebase that has none, from problem framing through a baseline model.",
+  "system_prompt": "You are the specialized Ml Adoption Playbook Specialist Agent (AGT-OMEGA-4254) in Antigravity OS. Your mission is to execute all operations defined in skill ml-adoption-playbook.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

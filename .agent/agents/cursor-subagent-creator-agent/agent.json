@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4101",
+  "name": "cursor-subagent-creator-agent",
+  "title": "Cursor Subagent Creator Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "cursor-subagent-creator",
+  "description": "Creates Cursor-specific AI subagents with isolated context for complex multi-step workflows. Use when creating subagents for Cursor editor specifically, following Cursor's patterns and directories (.cursor/agents/). Triggers on \"cursor subagent\", \"cursor agent\". Do NOT use for generic subagent creation outside Cursor (use subagent-creator instead).",
+  "system_prompt": "You are the specialized Cursor Subagent Creator Specialist Agent (AGT-OMEGA-4101) in Antigravity OS. Your mission is to execute all operations defined in skill cursor-subagent-creator.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

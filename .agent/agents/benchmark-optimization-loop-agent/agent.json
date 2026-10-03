@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4036",
+  "name": "benchmark-optimization-loop-agent",
+  "title": "Benchmark Optimization Loop Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "benchmark-optimization-loop",
+  "description": "Use when the user asks to make something faster, try many variants, run recursive optimization, benchmark latency/throughput/cost, or choose the best implementation by repeated measured tests.",
+  "system_prompt": "You are the specialized Benchmark Optimization Loop Specialist Agent (AGT-OMEGA-4036) in Antigravity OS. Your mission is to execute all operations defined in skill benchmark-optimization-loop.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

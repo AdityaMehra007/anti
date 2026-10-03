@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4321",
+  "name": "postgres-patterns-agent",
+  "title": "Postgres Patterns Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "postgres-patterns",
+  "description": "PostgreSQL database patterns for query optimization, schema design, indexing, and security. Based on Supabase best practices. Use when designing PostgreSQL schemas, indexes, or RLS policies, or when a query is too slow.",
+  "system_prompt": "You are the specialized Postgres Patterns Specialist Agent (AGT-OMEGA-4321) in Antigravity OS. Your mission is to execute all operations defined in skill postgres-patterns.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

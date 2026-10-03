@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4332",
+  "name": "prototype-agent",
+  "title": "Prototype Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "prototype",
+  "description": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.",
+  "system_prompt": "You are the specialized Prototype Specialist Agent (AGT-OMEGA-4332) in Antigravity OS. Your mission is to execute all operations defined in skill prototype.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

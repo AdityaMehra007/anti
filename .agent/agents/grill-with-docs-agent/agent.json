@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4181",
+  "name": "grill-with-docs-agent",
+  "title": "Grill With Docs Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "grill-with-docs",
+  "description": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
+  "system_prompt": "You are the specialized Grill With Docs Specialist Agent (AGT-OMEGA-4181) in Antigravity OS. Your mission is to execute all operations defined in skill grill-with-docs.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

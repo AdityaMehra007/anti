@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4357",
+  "name": "requesting-code-review-agent",
+  "title": "Requesting Code Review Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "requesting-code-review",
+  "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+  "system_prompt": "You are the specialized Requesting Code Review Specialist Agent (AGT-OMEGA-4357) in Antigravity OS. Your mission is to execute all operations defined in skill requesting-code-review.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

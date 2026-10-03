@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4402",
+  "name": "slack-gif-creator-agent",
+  "title": "Slack Gif Creator Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "slack-gif-creator",
+  "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.",
+  "system_prompt": "You are the specialized Slack Gif Creator Specialist Agent (AGT-OMEGA-4402) in Antigravity OS. Your mission is to execute all operations defined in skill slack-gif-creator.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4063",
+  "name": "code-tour-agent",
+  "title": "Code Tour Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "code-tour",
+  "description": "Create CodeTour `.tour` files \u2014 persona-targeted, step-by-step walkthroughs with real file and line anchors. Use for onboarding tours, architecture walkthroughs, PR tours, RCA tours, and structured \"explain how this works\" requests. Use when the user asks for a code tour, onboarding walkthrough, PR tour, or an explanation of how a subsystem works.",
+  "system_prompt": "You are the specialized Code Tour Specialist Agent (AGT-OMEGA-4063) in Antigravity OS. Your mission is to execute all operations defined in skill code-tour.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

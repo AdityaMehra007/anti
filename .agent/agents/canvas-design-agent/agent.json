@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4050",
+  "name": "canvas-design-agent",
+  "title": "Canvas Design Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "canvas-design",
+  "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+  "system_prompt": "You are the specialized Canvas Design Specialist Agent (AGT-OMEGA-4050) in Antigravity OS. Your mission is to execute all operations defined in skill canvas-design.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4296",
+  "name": "orch-fix-defect-agent",
+  "title": "Orch Fix Defect Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "orch-fix-defect",
+  "description": "Orchestrate fixing a bug \u2014 reproduce it as a failing regression test, fix to green, review, and gated commit \u2014 by delegating each phase to the matching ECC agent. Use when existing behavior is broken or wrong.",
+  "system_prompt": "You are the specialized Orch Fix Defect Specialist Agent (AGT-OMEGA-4296) in Antigravity OS. Your mission is to execute all operations defined in skill orch-fix-defect.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

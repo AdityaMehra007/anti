@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4212",
+  "name": "iterative-retrieval-agent",
+  "title": "Iterative Retrieval Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "iterative-retrieval",
+  "description": "Pattern for progressively refining context retrieval to solve the subagent context problem. Use when a subagent lacks the context it needs and retrieval must be refined across passes.",
+  "system_prompt": "You are the specialized Iterative Retrieval Specialist Agent (AGT-OMEGA-4212) in Antigravity OS. Your mission is to execute all operations defined in skill iterative-retrieval.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

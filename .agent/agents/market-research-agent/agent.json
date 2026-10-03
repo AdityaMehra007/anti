@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4247",
+  "name": "market-research-agent",
+  "title": "Market Research Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "market-research",
+  "description": "Conduct market research, competitive analysis, investor due diligence, and industry intelligence with source attribution and decision-oriented summaries. Use when the user wants market sizing, competitor comparisons, fund research, technology scans, or research that informs business decisions.",
+  "system_prompt": "You are the specialized Market Research Specialist Agent (AGT-OMEGA-4247) in Antigravity OS. Your mission is to execute all operations defined in skill market-research.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4328",
+  "name": "production-audit-agent",
+  "title": "Production Audit Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "production-audit",
+  "description": "Local-evidence production readiness audit for shipped apps, pre-launch reviews, post-merge checks, and \"what breaks in prod?\" questions without sending repo data to an external audit service. Use when auditing production readiness before launch, after a merge, or when asked what breaks in prod.",
+  "system_prompt": "You are the specialized Production Audit Specialist Agent (AGT-OMEGA-4328) in Antigravity OS. Your mission is to execute all operations defined in skill production-audit.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

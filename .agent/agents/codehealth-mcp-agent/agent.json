@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4066",
+  "name": "codehealth-mcp-agent",
+  "title": "Codehealth Mcp Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "codehealth-mcp",
+  "description": "Real-time structural Code Health via CodeScene MCP \u2014 review before edits, verify score deltas after changes, gate commits and PRs. Use when reviewing code quality, refactoring, checking if AI changes degraded a file, or before commit/PR.",
+  "system_prompt": "You are the specialized Codehealth Mcp Specialist Agent (AGT-OMEGA-4066) in Antigravity OS. Your mission is to execute all operations defined in skill codehealth-mcp.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

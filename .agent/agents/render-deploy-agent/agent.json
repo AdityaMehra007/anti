@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4355",
+  "name": "render-deploy-agent",
+  "title": "Render Deploy Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "render-deploy",
+  "description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform. Do NOT use for deploying to Vercel, Netlify, or Cloudflare (use their respective skills).",
+  "system_prompt": "You are the specialized Render Deploy Specialist Agent (AGT-OMEGA-4355) in Antigravity OS. Your mission is to execute all operations defined in skill render-deploy.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

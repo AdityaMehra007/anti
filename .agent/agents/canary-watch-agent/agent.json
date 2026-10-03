@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4049",
+  "name": "canary-watch-agent",
+  "title": "Canary Watch Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "canary-watch",
+  "description": "Use this skill to monitor and verify a deployed URL after releases \u2014 checks HTTP endpoints, SSE streams, static assets, console errors, and performance regressions after deploys, merges, or dependency upgrades. Smoke / canary / post-deploy verification.",
+  "system_prompt": "You are the specialized Canary Watch Specialist Agent (AGT-OMEGA-4049) in Antigravity OS. Your mission is to execute all operations defined in skill canary-watch.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

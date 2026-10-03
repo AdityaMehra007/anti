@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4145",
+  "name": "error-handling-agent",
+  "title": "Error Handling Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "error-handling",
+  "description": "Patterns for robust error handling across TypeScript, Python, and Go. Covers typed errors, error boundaries, retries, circuit breakers, and user-facing error messages. Use when designing error types, retries, circuit breakers, or user-facing failure messages in TypeScript, Python, or Go.",
+  "system_prompt": "You are the specialized Error Handling Specialist Agent (AGT-OMEGA-4145) in Antigravity OS. Your mission is to execute all operations defined in skill error-handling.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4207",
+  "name": "internal-comms-agent",
+  "title": "Internal Comms Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "internal-comms",
+  "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+  "system_prompt": "You are the specialized Internal Comms Specialist Agent (AGT-OMEGA-4207) in Antigravity OS. Your mission is to execute all operations defined in skill internal-comms.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

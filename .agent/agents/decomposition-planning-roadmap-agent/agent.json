@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4109",
+  "name": "decomposition-planning-roadmap-agent",
+  "title": "Decomposition Planning Roadmap Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "decomposition-planning-roadmap",
+  "description": "Creates step-by-step decomposition plans and migration roadmaps for breaking apart monolithic applications. Use when asking \"what order should I extract services?\", \"plan my migration\", \"create a decomposition roadmap\", \"prioritize what to split\", \"monolith to microservices strategy\", or tracking decomposition progress. Do NOT use for domain analysis (use domain-analysis) or component sizing (use component-identification-sizing).",
+  "system_prompt": "You are the specialized Decomposition Planning Roadmap Specialist Agent (AGT-OMEGA-4109) in Antigravity OS. Your mission is to execute all operations defined in skill decomposition-planning-roadmap.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

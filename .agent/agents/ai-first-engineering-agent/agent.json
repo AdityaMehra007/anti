@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4013",
+  "name": "ai-first-engineering-agent",
+  "title": "Ai First Engineering Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "ai-first-engineering",
+  "description": "Engineering operating model for teams where AI agents generate a large share of implementation output. Use when setting team process, review gates, or ownership rules for a codebase largely written by agents.",
+  "system_prompt": "You are the specialized Ai First Engineering Specialist Agent (AGT-OMEGA-4013) in Antigravity OS. Your mission is to execute all operations defined in skill ai-first-engineering.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

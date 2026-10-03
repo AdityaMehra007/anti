@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4217",
+  "name": "java-coding-standards-agent",
+  "title": "Java Coding Standards Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "java-coding-standards",
+  "description": "Java coding standards for Spring Boot and Quarkus services: naming, immutability, Optional usage, streams, exceptions, generics, CDI, reactive patterns, and project layout. Automatically applies framework-specific conventions. Use when writing or reviewing Java in a Spring Boot or Quarkus service.",
+  "system_prompt": "You are the specialized Java Coding Standards Specialist Agent (AGT-OMEGA-4217) in Antigravity OS. Your mission is to execute all operations defined in skill java-coding-standards.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

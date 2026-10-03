@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4204",
+  "name": "improve-codebase-architecture-agent",
+  "title": "Improve Codebase Architecture Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "improve-codebase-architecture",
+  "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+  "system_prompt": "You are the specialized Improve Codebase Architecture Specialist Agent (AGT-OMEGA-4204) in Antigravity OS. Your mission is to execute all operations defined in skill improve-codebase-architecture.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

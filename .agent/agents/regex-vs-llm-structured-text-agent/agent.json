@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4354",
+  "name": "regex-vs-llm-structured-text-agent",
+  "title": "Regex Vs Llm Structured Text Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "regex-vs-llm-structured-text",
+  "description": "Decision framework for choosing between regex and LLM when parsing structured text \u2014 start with regex, add LLM only for low-confidence edge cases.",
+  "system_prompt": "You are the specialized Regex Vs Llm Structured Text Specialist Agent (AGT-OMEGA-4354) in Antigravity OS. Your mission is to execute all operations defined in skill regex-vs-llm-structured-text.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4110",
+  "name": "deep-research-agent",
+  "title": "Deep Research Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "deep-research",
+  "description": "Multi-source deep research using firecrawl and exa MCPs. Searches the web, synthesizes findings, and delivers cited reports with source attribution. Use when the user wants thorough research on any topic with evidence and citations.",
+  "system_prompt": "You are the specialized Deep Research Specialist Agent (AGT-OMEGA-4110) in Antigravity OS. Your mission is to execute all operations defined in skill deep-research.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4074",
+  "name": "component-identification-sizing-agent",
+  "title": "Component Identification Sizing Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "component-identification-sizing",
+  "description": "Maps architectural components in a codebase and measures their size to identify what should be extracted first. Use when asking \"how big is each module?\", \"what components do I have?\", \"which service is too large?\", \"analyze codebase structure\", \"size my monolith\", or planning where to start decomposing. Do NOT use for runtime performance sizing or infrastructure capacity planning.",
+  "system_prompt": "You are the specialized Component Identification Sizing Specialist Agent (AGT-OMEGA-4074) in Antigravity OS. Your mission is to execute all operations defined in skill component-identification-sizing.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

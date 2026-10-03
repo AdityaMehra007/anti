@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4090",
+  "name": "cost-tracking-agent",
+  "title": "Cost Tracking Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "cost-tracking",
+  "description": "Track and report Claude Code token usage, spending, and budgets from the local ECC cost-tracker metrics log. Use when the user asks about costs, spending, usage, tokens, budgets, or cost breakdowns by model, session, or date.",
+  "system_prompt": "You are the specialized Cost Tracking Specialist Agent (AGT-OMEGA-4090) in Antigravity OS. Your mission is to execute all operations defined in skill cost-tracking.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

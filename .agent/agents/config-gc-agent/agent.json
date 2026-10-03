@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4076",
+  "name": "config-gc-agent",
+  "title": "Config Gc Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "config-gc",
+  "description": "Garbage collection for your Claude Code configuration. Periodically scans ~/.claude (skills, memory, hooks, permissions, MCP servers, caches) for redundant, stale, orphaned, or low-value items, then walks the user through a confirm-each-deletion cleanup. Use when the user says \"clean up my config\", \"config GC\", \"too many skills\", \"audit my setup\", \"my .claude is bloated\", or asks for a periodic config review.",
+  "system_prompt": "You are the specialized Config Gc Specialist Agent (AGT-OMEGA-4076) in Antigravity OS. Your mission is to execute all operations defined in skill config-gc.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

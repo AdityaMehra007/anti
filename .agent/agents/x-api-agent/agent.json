@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4488",
+  "name": "x-api-agent",
+  "title": "X Api Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "x-api",
+  "description": "X/Twitter API integration for posting tweets, threads, reading timelines, search, and analytics. Covers OAuth auth patterns, rate limits, and platform-native content posting. Use when the user wants to interact with X programmatically.",
+  "system_prompt": "You are the specialized X Api Specialist Agent (AGT-OMEGA-4488) in Antigravity OS. Your mission is to execute all operations defined in skill x-api.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

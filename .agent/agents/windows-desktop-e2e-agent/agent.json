@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4478",
+  "name": "windows-desktop-e2e-agent",
+  "title": "Windows Desktop E2e Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "windows-desktop-e2e",
+  "description": "E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation. Use when writing E2E tests for a Windows native desktop app with pywinauto or UI Automation.",
+  "system_prompt": "You are the specialized Windows Desktop E2e Specialist Agent (AGT-OMEGA-4478) in Antigravity OS. Your mission is to execute all operations defined in skill windows-desktop-e2e.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

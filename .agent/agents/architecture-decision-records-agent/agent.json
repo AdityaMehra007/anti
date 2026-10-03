@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4025",
+  "name": "architecture-decision-records-agent",
+  "title": "Architecture Decision Records Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "architecture-decision-records",
+  "description": "Capture architectural decisions made during Claude Code sessions as structured ADRs. Auto-detects decision moments, records context, alternatives considered, and rationale. Maintains an ADR log so future developers understand why the codebase is shaped the way it is.",
+  "system_prompt": "You are the specialized Architecture Decision Records Specialist Agent (AGT-OMEGA-4025) in Antigravity OS. Your mission is to execute all operations defined in skill architecture-decision-records.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

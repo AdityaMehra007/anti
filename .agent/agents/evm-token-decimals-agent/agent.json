@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4147",
+  "name": "evm-token-decimals-agent",
+  "title": "Evm Token Decimals Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "evm-token-decimals",
+  "description": "Prevent silent decimal mismatch bugs across EVM chains. Covers runtime decimal lookup, chain-aware caching, bridged-token precision drift, and safe normalization for bots, dashboards, and DeFi tools. Use when handling token amounts across EVM chains, or when a balance, price, or transfer amount is off by orders of magnitude.",
+  "system_prompt": "You are the specialized Evm Token Decimals Specialist Agent (AGT-OMEGA-4147) in Antigravity OS. Your mission is to execute all operations defined in skill evm-token-decimals.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

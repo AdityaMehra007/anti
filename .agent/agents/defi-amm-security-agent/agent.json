@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4111",
+  "name": "defi-amm-security-agent",
+  "title": "Defi Amm Security Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "defi-amm-security",
+  "description": "Security checklist for Solidity AMM contracts, liquidity pools, and swap flows. Covers reentrancy, CEI ordering, donation or inflation attacks, oracle manipulation, slippage, admin controls, and integer math. Use when auditing or writing Solidity AMM, liquidity pool, or swap code.",
+  "system_prompt": "You are the specialized Defi Amm Security Specialist Agent (AGT-OMEGA-4111) in Antigravity OS. Your mission is to execute all operations defined in skill defi-amm-security.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

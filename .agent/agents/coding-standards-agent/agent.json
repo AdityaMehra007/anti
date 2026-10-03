@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4069",
+  "name": "coding-standards-agent",
+  "title": "Coding Standards Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "coding-standards",
+  "description": "Baseline cross-project coding conventions for naming, readability, immutability, and code-quality review. Use detailed frontend or backend skills for framework-specific patterns. Use when reviewing code quality or naming with no framework-specific skill that applies.",
+  "system_prompt": "You are the specialized Coding Standards Specialist Agent (AGT-OMEGA-4069) in Antigravity OS. Your mission is to execute all operations defined in skill coding-standards.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

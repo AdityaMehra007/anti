@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4434",
+  "name": "test-driven-development-agent",
+  "title": "Test Driven Development Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "test-driven-development",
+  "description": "Use when implementing any feature or bugfix, before writing implementation code",
+  "system_prompt": "You are the specialized Test Driven Development Specialist Agent (AGT-OMEGA-4434) in Antigravity OS. Your mission is to execute all operations defined in skill test-driven-development.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}

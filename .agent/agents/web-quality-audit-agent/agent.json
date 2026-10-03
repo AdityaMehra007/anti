@@ -1,0 +1,20 @@
+{
+  "id": "AGT-OMEGA-4476",
+  "name": "web-quality-audit-agent",
+  "title": "Web Quality Audit Specialist Agent",
+  "portfolio": "Enterprise & Core Systems",
+  "portfolio_id": "core_enterprise",
+  "skill_ref": "web-quality-audit",
+  "description": "Comprehensive web quality audit covering performance, accessibility, SEO, and best practices in a single review. Use when asked to \"audit my site\", \"review web quality\", \"run lighthouse audit\", \"check page quality\", or \"optimize my website\" across multiple areas at once. Orchestrates specialized skills for depth. Do NOT use for single-area audits \u2014 prefer core-web-vitals, web-accessibility, seo, or web-best-practices for focused work.",
+  "system_prompt": "You are the specialized Web Quality Audit Specialist Agent (AGT-OMEGA-4476) in Antigravity OS. Your mission is to execute all operations defined in skill web-quality-audit.",
+  "model": "pro",
+  "status": "ACTIVE",
+  "tools": [
+    "view_file",
+    "write_to_file",
+    "replace_file_content",
+    "grep_search",
+    "find_by_name",
+    "run_command"
+  ]
+}
