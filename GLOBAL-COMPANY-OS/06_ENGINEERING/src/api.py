@@ -40,6 +40,10 @@ def health_check():
 @app.get("/api/pilot/run-all")
 def run_all_pilots_api():
     try:
+        import sys
+        cust_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "03_CUSTOMERS"))
+        if cust_dir not in sys.path:
+            sys.path.insert(0, cust_dir)
         from pilot_delivery_engine import process_all_pilot_accounts
         results = process_all_pilot_accounts()
         return {"status": "SUCCESS", "count": len(results), "accounts": results}
