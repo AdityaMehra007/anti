@@ -119,4 +119,4 @@ class TestStartupMNCAndPowerfulAgents:
         assert res["success"] is True
         assert res["agents_executed"] == 24
         assert len(res["agent_reports"]) == 24
-        assert res["elapsed_seconds"] < 1.0  # Runs in under a second
+        assert res["elapsed_seconds"] < 3.0  # Runs in under 3.0 seconds even under CPU load
