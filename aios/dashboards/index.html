@@ -543,6 +543,9 @@
     <button class="nav-tab" id="tabBtn-strike10000" onclick="switchTab('strike10000')">
       🌍 10,000 Global Strike <span class="status-pill status-online" id="badge-strike10000">10,000 READY</span>
     </button>
+    <button class="nav-tab" id="tabBtn-blrjobs" onclick="switchTab('blrjobs')">
+      📍 Bangalore Jobs <span class="status-pill status-online" id="badge-blrjobs">3,144 OPENINGS</span>
+    </button>
     <button class="nav-tab" id="tabBtn-workforce" onclick="switchTab('workforce')">
       🤖 7,656 Workforce <span class="status-pill status-online" id="badge-workforce">11,446 READY</span>
     </button>
@@ -870,6 +873,22 @@
         10,000 cryptographic enterprise requisitions across India and global corporate hubs indexed in <code>data/global_10000_targets.db</code> with SHA-256 event proof hashes.
       </div>
       <iframe src="/apps/job_application_studio/global_10000_strike.html" class="iframe-container" title="10,000 Hyper-Target Strike"></iframe>
+    </div>
+  </div>
+
+  <!-- BANGALORE CURRENT MONTH JOBS PANEL -->
+  <div id="tabPanel-blrjobs" class="subsystem-panel" style="display:none;">
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-header-flex">
+        <div class="card-title">📍 Bengaluru Active Job Requisitions (Current Month Master Directory)</div>
+        <div style="display:flex; gap: 8px;">
+          <a href="/apps/job_application_studio/bangalore_current_month_jobs.html" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Open Full Directory ↗</a>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        3,144 verified corporate job openings across Outer Ring Road, Whitefield, Manyata, Electronic City, and CBD tech parks with mapped HR contacts, ATS STAR matrices, and 1-click Web Gmail direct apply links.
+      </div>
+      <iframe src="/apps/job_application_studio/bangalore_current_month_jobs.html" class="iframe-container" title="Bangalore Jobs Directory"></iframe>
     </div>
   </div>
 

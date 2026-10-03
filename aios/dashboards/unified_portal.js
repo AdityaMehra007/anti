@@ -59,6 +59,13 @@ const SUBSYSTEMS = {
     port: null,
     healthUrl: null,
     status: 'ready'
+  },
+  blrjobs: {
+    id: 'blrjobs',
+    name: 'Bangalore 3,144 Openings',
+    port: null,
+    healthUrl: null,
+    status: 'ready'
   }
 };
 
@@ -66,7 +73,7 @@ let activeTab = 'aios';
 
 function switchTab(tabId) {
   activeTab = tabId;
-  const tabs = ['aios', 'tradenexus', 'plane', 'career', 'strike300', 'strike10000', 'workforce', 'n8n'];
+  const tabs = ['aios', 'tradenexus', 'plane', 'career', 'strike300', 'strike10000', 'blrjobs', 'workforce', 'n8n'];
   tabs.forEach(t => {
     const btn = document.getElementById(`tabBtn-${t}`);
     const panel = document.getElementById(`tabPanel-${t}`);
