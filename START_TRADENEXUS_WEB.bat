@@ -1,0 +1,1 @@
+@echo off\necho ====================================================\necho    STARTING TRADENEXUS AI WEB COCKPIT & API\necho ====================================================\ncd /d e:\\anti\\GLOBAL-COMPANY-OS\\06_ENGINEERING\npython start_server.py\npause\n

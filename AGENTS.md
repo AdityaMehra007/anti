@@ -128,6 +128,10 @@ Hardened, curated skills registry synchronized from [`tech-leads-club/agent-skil
 ### Prose & Editorial Hygiene
 - [`humanizer`](.agents/skills/humanizer/SKILL.md): Rewrite AI-sounding prose so it reads naturally like a human wrote it, eliminating 35 diagnostic AI patterns from Wikipedia's AI Cleanup project while strictly preserving factual claims and voice.
 
+### Launch Video & Product Showcase Engine
+- [`brag`](.agents/skills/brag/SKILL.md): Turn the current project website or codebase into a short, polished, shareable launch video using Hyperframes with bundled music, SFX, and custom tone presets.
+- [`brag-slim`](.agents/skills/brag-slim/SKILL.md): Lean, zero-dependency launch video generator running locally on native tools (HTML/Canvas/Puppeteer/ffmpeg) for rapid social showcase clips.
+
 ### System Prompts Intelligence Ecosystem
 - [`system-prompts-intelligence`](.agents/skills/system-prompts-intelligence/SKILL.md): Query and inspect system prompt architectures, extracted tool signatures, and prompt patterns from Google Antigravity, Anthropic Claude Code, OpenAI Codex, Cursor, and Grok.
 - **Apex Agent Meta-Prompt**: [`research/APEX_AGENT_SYSTEM_PROMPT.md`](research/APEX_AGENT_SYSTEM_PROMPT.md)

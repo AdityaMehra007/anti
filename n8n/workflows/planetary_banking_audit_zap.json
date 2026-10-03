@@ -1,0 +1,62 @@
+{
+  "name": "BANK OF THE CONTINUUM: Planetary Banking Audit Zap",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "banking-audit",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "Banking Audit Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "command": "python -m terra_kinetics.cli --banking",
+        "operation": "executeBankingAudit"
+      },
+      "id": "2",
+      "name": "Audit Planetary Liquidity & M2M Rails",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "folder": "e:/anti/reports"
+      },
+      "id": "3",
+      "name": "Store Bank Reserve Audit",
+      "type": "n8n-nodes-base.fileWriter",
+      "typeVersion": 1,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "Banking Audit Webhook": {
+      "main": [
+        [
+          {
+            "node": "Audit Planetary Liquidity & M2M Rails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Audit Planetary Liquidity & M2M Rails": {
+      "main": [
+        [
+          {
+            "node": "Store Bank Reserve Audit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

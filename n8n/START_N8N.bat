@@ -34,11 +34,21 @@ if %ERRORLEVEL% equ 0 (
     echo [*] Docker daemon is not active. Using native Node.js / npx launcher...
 )
 
+echo [*] Checking for OMEGA Local Automation Engine...
+where python >nul 2>&1
+if %ERRORLEVEL% equ 0 (
+    if exist "n8n_server.py" (
+        echo [OK] Launching OMEGA Automation Server on port 5678...
+        start "" http://localhost:5678
+        python n8n_server.py
+        goto :end
+    )
+)
+
 echo [*] Checking for Node.js / npx...
 where npx >nul 2>&1
 if %ERRORLEVEL% neq 0 (
-    echo [ERROR] Neither running Docker nor npx was found.
-    echo Please install Node.js (https://nodejs.org) or start Docker Desktop.
+    echo [ERROR] Neither Python, Docker, nor npx was found.
     pause
     exit /b 1
 )

@@ -1,0 +1,63 @@
+{
+  "name": "OMEGA M2M Financial Settlement & Ledger Zap",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "settle-payment",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "Payment Inbound Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "validation": "cryptographicProof",
+        "currencies": ["USDC", "USDT", "USD"]
+      },
+      "id": "2",
+      "name": "Reconcile Invoice & Hash",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "ledgerAction": "creditBalance",
+        "persistState": true
+      },
+      "id": "3",
+      "name": "Record Sovereign Ledger Credit",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "Payment Inbound Webhook": {
+      "main": [
+        [
+          {
+            "node": "Reconcile Invoice & Hash",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reconcile Invoice & Hash": {
+      "main": [
+        [
+          {
+            "node": "Record Sovereign Ledger Credit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

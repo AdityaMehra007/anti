@@ -1,0 +1,51 @@
+{
+  "name": "Stripe Production Charge Sentinel",
+  "id": "zap_stripe_production_charge_sentinel",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "stripe-charges",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "Webhook Inbound Receiver",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "task": "Autonomous Synthesis"
+      },
+      "id": "2",
+      "name": "AI Reasoning Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        480,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook Inbound Receiver": {
+      "main": [
+        [
+          {
+            "node": "AI Reasoning Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "createdAt": "2026-10-01T18:02:30.636069+00:00",
+  "updatedAt": "2026-10-01T18:02:30.636081+00:00"
+}

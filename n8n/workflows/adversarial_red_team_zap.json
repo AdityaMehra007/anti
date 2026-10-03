@@ -1,0 +1,62 @@
+{
+  "name": "OMEGA Section 14 Planetary Adversarial Red Team Zap",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "red-team",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "Red Team Stress Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "command": "python -m terra_kinetics.cli --red-team",
+        "operation": "executeRedTeamProbes"
+      },
+      "id": "2",
+      "name": "Execute Section 14 Adversarial Probes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "folder": "e:/anti/reports"
+      },
+      "id": "3",
+      "name": "Persist Hardening Audit Certificate",
+      "type": "n8n-nodes-base.fileWriter",
+      "typeVersion": 1,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "Red Team Stress Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execute Section 14 Adversarial Probes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Section 14 Adversarial Probes": {
+      "main": [
+        [
+          {
+            "node": "Persist Hardening Audit Certificate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+﻿# AIOS Root Security Boundary
+secrets/
+*.env
+*.env.local
+*.pem
+*.key
+*.p12
+*.sqlite-wal
+*.sqlite-shm
+logs/
+backups/
+models/*.bin
+models/*.gguf
+data/*.db
+data/*.sqlite

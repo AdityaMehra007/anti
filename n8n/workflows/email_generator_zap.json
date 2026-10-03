@@ -1,0 +1,62 @@
+{
+  "name": "OMEGA Automated B2B Email Drafter Zap",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "email-drafter",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "Webhook Inbound Lead",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const lead = $input.first().json.body || {};\nconst recipient = lead.recipient_email || 'partner@enterprise.io';\nconst company = lead.company || 'Enterprise Partner';\nconst valueProp = lead.value_prop || 'Autonomous workflow automation & AI orchestration';\n\nconst draft = `# Outreach Proposal to ${company}\\n\\nTo: ${recipient}\\nSubject: Autonomous Execution & Operational Leverage for ${company}\\n\\nHi team,\\n\\nI reviewed ${company}'s current trajectory and wanted to share how our OMEGA autonomous workflows can accelerate your operations by over 10x with zero manual overhead.\\n\\nKey capabilities:\\n- Fully self-hosted Zapier & n8n workflow engine\\n- Instant webhook routing and LangChain AI agent integration\\n- Automated lead ingestion and real-time reconciliation\\n\\nWould you be open to a 10-minute briefing this week?\\n\\nBest regards,\\nAutonomous Enterprise Systems`;\n\nreturn [{\n  json: {\n    status: 'DRAFT_GENERATED',\n    recipient: recipient,\n    company: company,\n    draft_preview: draft\n  }\n}];"
+      },
+      "id": "2",
+      "name": "Generate Tailored Draft",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "action": "saveToDisk",
+        "folder": "e:/anti/Email_Drafts"
+      },
+      "id": "3",
+      "name": "Save to Email Drafts",
+      "type": "n8n-nodes-base.fileWriter",
+      "typeVersion": 1,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Inbound Lead": {
+      "main": [
+        [
+          {
+            "node": "Generate Tailored Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Tailored Draft": {
+      "main": [
+        [
+          {
+            "node": "Save to Email Drafts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

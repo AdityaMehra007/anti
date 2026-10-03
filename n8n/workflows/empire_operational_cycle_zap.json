@@ -1,0 +1,62 @@
+{
+  "name": "SOVEREIGN CONTINUUM: Empire Operational Cycle Zap",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "empire-cycle",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "Empire Cycle Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "command": "python -m terra_kinetics.cli --empire-cycle",
+        "operation": "executeEmpireCycle"
+      },
+      "id": "2",
+      "name": "Execute Consolidated Empire Operations",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "folder": "e:/anti/reports"
+      },
+      "id": "3",
+      "name": "Archive Executive Sovereign Briefing",
+      "type": "n8n-nodes-base.fileWriter",
+      "typeVersion": 1,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "Empire Cycle Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Consolidated Empire Operations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Consolidated Empire Operations": {
+      "main": [
+        [
+          {
+            "node": "Archive Executive Sovereign Briefing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

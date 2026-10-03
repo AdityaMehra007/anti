@@ -1,0 +1,62 @@
+{
+  "name": "OMEGA GitHub Issue & PR Autonomous Triage Zap",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "github-webhook",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "GitHub Webhook Receiver",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "triageIssue",
+        "rules": ["bug", "enhancement", "security"]
+      },
+      "id": "2",
+      "name": "Analyze Issue Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "action": "generateTriageComment"
+      },
+      "id": "3",
+      "name": "Post Automated Triage Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "GitHub Webhook Receiver": {
+      "main": [
+        [
+          {
+            "node": "Analyze Issue Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Issue Content": {
+      "main": [
+        [
+          {
+            "node": "Post Automated Triage Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

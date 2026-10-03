@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TradeNexus AI — Enterprise Client Portal</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0b0f19; color: #f1f5f9; margin: 0; padding: 24px; }
+    .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 16px; margin-bottom: 24px; }
+    .badge { background: #10b981; color: #042f2e; padding: 4px 12px; border-radius: 9999px; font-weight: 700; font-size: 12px; }
+    .card { background: #111827; border: 1px solid #1e293b; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .stat-label { font-size: 12px; color: #94a3b8; text-transform: uppercase; }
+    .stat-val { font-size: 24px; font-weight: 700; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    th, td { text-align: left; padding: 12px; border-bottom: 1px solid #1e293b; }
+    th { color: #94a3b8; font-weight: 600; }
+    .btn { background: #2563eb; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; text-decoration: none; font-size: 12px; }
+    .btn:hover { background: #1d4ed8; }
+    .seal { font-family: monospace; font-size: 11px; color: #38bdf8; background: #082f49; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1 style="margin:0; font-size:24px;">TradeNexus AI Enterprise Portal</h1>
+      <div style="color:#94a3b8; font-size:14px; margin-top:4px;">Client: <strong>Sansera Engineering Limited</strong> (Plant 7, Jigani, Bengaluru)</div>
+    </div>
+    <div>
+      <span class="badge">ACTIVE ENTERPRISE PILOT</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="stat-label">Processed Dockets</div>
+      <div class="stat-val" style="color:#38bdf8;">1 / 20</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">Customs Accuracy Rate</div>
+      <div class="stat-val" style="color:#10b981;">100.0%</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">Port Demurrage Incurred</div>
+      <div class="stat-val" style="color:#10b981;">€0.00</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">Avg Verification Time</div>
+      <div class="stat-val" style="color:#a855f7;">0.08 sec</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Live Shipment Clearance Docket Ledger</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Docket ID</th>
+          <th>Invoice Ref</th>
+          <th>Destination</th>
+          <th>Status</th>
+          <th>ICEGATE EDI</th>
+          <th>EU CBAM XML</th>
+          <th>Cryptographic Seal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BUNDLE-EXP-SANSERA-001</td>
+          <td>EXP-SANSERA-001</td>
+          <td>Germany (DEHAM)</td>
+          <td><span style="color:#10b981; font-weight:700;">CLEARED</span></td>
+          <td><button class="btn">Download Flatfile</button></td>
+          <td><button class="btn">Download CBAM XML</button></td>
+          <td><span class="seal">TRADENEXUS-SIG-E576B2F6</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

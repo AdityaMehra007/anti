@@ -1,0 +1,20 @@
+{
+  "cadence_version": "2.0",
+  "target_campaign": "Bengaluru Top Exporters Batch 1 - Follow Up Sequence",
+  "steps": [
+    {
+      "step_id": 2,
+      "trigger_day": 3,
+      "channel": "Email + LinkedIn",
+      "subject_template": "Quick follow-up + EU CBAM impact analysis for {company_name}",
+      "body_template": "Hi {first_name},\\n\\nFollowing up on my note from Tuesday regarding your shipments to {destination_country}.\\n\\nWe noticed European customs authorities in Rotterdam and Hamburg are now strictly cross-checking Indian shipping bills against EU transitional CBAM carbon ledgers. For your product line ({hs_sample}), an unverified docket currently risks an estimated \u20ac2,400 in terminal demurrage fees.\\n\\nI've prepared a 3-minute interactive sandbox demonstrating how TradeNexus eliminates this risk before container gate-in: http://127.0.0.1:8000/\\n\\nDo you have 10 minutes this Thursday at 3:00 PM IST for a brief walkthrough?\\n\\nBest regards,\\nAditya Mehra\\nFounder, TradeNexus AI\\nBengaluru, India"
+    },
+    {
+      "step_id": 3,
+      "trigger_day": 7,
+      "channel": "Email (Break-up / Executive Forward)",
+      "subject_template": "Closing file: Customs compliance automation for {company_name}",
+      "body_template": "Hi {first_name},\\n\\nI assume optimizing export document clearance and CBAM compliance isn't a top priority for {company_name} this quarter, which I completely understand.\\n\\nIf you ever face unexpected port demurrage, ICEGATE SB002 rejections, or European buyer carbon audit inquiries, you can test any shipping invoice through our self-service engine here: http://127.0.0.1:8000/\\n\\nI will keep your pilot spot open until Friday, after which we will allocate our Bengaluru pilot capacity to other manufacturers.\\n\\nWishing you continued export success,\\nAditya Mehra\\nFounder, TradeNexus AI"
+    }
+  ]
+}

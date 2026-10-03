@@ -1,0 +1,63 @@
+{
+  "name": "OMEGA Market Intelligence & Competitor Intel Zap",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "market-intel",
+        "responseMode": "onReceived"
+      },
+      "id": "1",
+      "name": "Trigger Market Scan",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "task": "Market Analysis & Sovereign Strategy"
+      },
+      "id": "2",
+      "name": "AI Market Analyst",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "action": "saveToDisk",
+        "folder": "e:/anti/reports"
+      },
+      "id": "3",
+      "name": "Store Intelligence Report",
+      "type": "n8n-nodes-base.fileWriter",
+      "typeVersion": 1,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "Trigger Market Scan": {
+      "main": [
+        [
+          {
+            "node": "AI Market Analyst",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Market Analyst": {
+      "main": [
+        [
+          {
+            "node": "Store Intelligence Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
