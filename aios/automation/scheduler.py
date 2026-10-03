@@ -100,6 +100,24 @@ class AutomationScheduler:
             except Exception as e:
                 print(f"    [!] Audit cycle error: {e}")
 
+        # Job 5: Continuous Auto-Apply Job Pipeline (Every 20 minutes = 1200s)
+        if not hasattr(self, 'last_auto_apply_sync'):
+            self.last_auto_apply_sync = 0.0
+        if now - self.last_auto_apply_sync >= 1200:
+            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [SCHEDULER] Running Universal Auto-Apply Job Pipeline...")
+            try:
+                auto_apply_script = Path("e:/anti/scripts/auto_apply_job_pipeline.py")
+                if auto_apply_script.exists():
+                    import importlib.util
+                    spec = importlib.util.spec_from_file_location("auto_apply_pipeline", str(auto_apply_script))
+                    mod = importlib.util.module_from_spec(spec)
+                    spec.loader.exec_module(mod)
+                    res = mod.run_auto_apply_cycle(batch_size=5, offset=0)
+                    print(f"    [OK] Auto-apply pipeline processed {res.get('processed_count', 0)} applications.")
+                    self.last_auto_apply_sync = now
+            except Exception as e:
+                print(f"    [!] Auto-apply pipeline error: {e}")
+
     def run_forever(self):
         """Main daemon loop."""
         print(f"[*] ANTIGRAVITY OMEGA Automation Scheduler started (Cycle interval: {self.interval}s)")
