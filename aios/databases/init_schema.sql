@@ -16,10 +16,10 @@ CREATE TABLE IF NOT EXISTS system_metrics (
     gpu_vram_used_mb REAL,
     disk_c_free_gb REAL NOT NULL,
     disk_e_free_gb REAL NOT NULL,
-    status TEXT NOT NULL CHECK(status IN ('HEALTHY', 'WARNING', 'CRITICAL'))
+    status TEXT NOT NULL CHECK (status IN ('HEALTHY', 'WARNING', 'CRITICAL'))
 );
 
-CREATE INDEX IF NOT EXISTS idx_metrics_timestamp ON system_metrics(timestamp);
+CREATE INDEX IF NOT EXISTS idx_metrics_timestamp ON system_metrics (timestamp);
 
 -- 2. SYSTEM SERVICE REGISTRY
 CREATE TABLE IF NOT EXISTS services (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS services (
     ring INTEGER NOT NULL DEFAULT 0,
     port INTEGER,
     pid INTEGER,
-    status TEXT NOT NULL CHECK(status IN ('ONLINE', 'STOPPED', 'ERROR', 'DEGRADED')),
+    status TEXT NOT NULL CHECK (status IN ('ONLINE', 'STOPPED', 'ERROR', 'DEGRADED')),
     last_health_check DATETIME,
     error_message TEXT
 );
@@ -41,18 +41,20 @@ CREATE TABLE IF NOT EXISTS audit_logs (
     action TEXT NOT NULL,
     category TEXT NOT NULL,
     details TEXT,
-    severity TEXT NOT NULL DEFAULT 'INFO' CHECK(severity IN ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'))
+    severity TEXT NOT NULL DEFAULT 'INFO' CHECK (severity IN ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'))
 );
 
-CREATE INDEX IF NOT EXISTS idx_audit_timestamp ON audit_logs(timestamp);
+CREATE INDEX IF NOT EXISTS idx_audit_timestamp ON audit_logs (timestamp);
 
 -- 4. UNIFIED TASK REGISTRY
 CREATE TABLE IF NOT EXISTS tasks (
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
-    category TEXT NOT NULL CHECK(category IN ('AI', 'DEV', 'AUTOMATION', 'BUSINESS', 'RESEARCH', 'MAINTENANCE')),
-    priority TEXT NOT NULL CHECK(priority IN ('P0', 'P1', 'P2', 'P3')),
-    status TEXT NOT NULL DEFAULT 'PENDING' CHECK(status IN ('PENDING', 'IN_PROGRESS', 'COMPLETED', 'BLOCKED', 'CANCELLED')),
+    category TEXT NOT NULL CHECK (category IN ('AI', 'DEV', 'AUTOMATION', 'BUSINESS', 'RESEARCH', 'MAINTENANCE')),
+    priority TEXT NOT NULL CHECK (priority IN ('P0', 'P1', 'P2', 'P3')),
+    status TEXT NOT NULL DEFAULT 'PENDING' CHECK (
+        status IN ('PENDING', 'IN_PROGRESS', 'COMPLETED', 'BLOCKED', 'CANCELLED')
+    ),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     completed_at DATETIME
 );
@@ -65,7 +67,9 @@ CREATE TABLE IF NOT EXISTS ideas (
     target_user TEXT,
     proposed_solution TEXT,
     mvp_scope TEXT,
-    status TEXT NOT NULL DEFAULT 'BACKLOG' CHECK(status IN ('BACKLOG', 'RESEARCHING', 'VALIDATED', 'BUILDING', 'LAUNCHED', 'REJECTED')),
+    status TEXT NOT NULL DEFAULT 'BACKLOG' CHECK (
+        status IN ('BACKLOG', 'RESEARCHING', 'VALIDATED', 'BUILDING', 'LAUNCHED', 'REJECTED')
+    ),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -77,7 +81,7 @@ CREATE TABLE IF NOT EXISTS crm_contacts (
     role TEXT,
     email TEXT,
     linkedin_url TEXT,
-    status TEXT NOT NULL DEFAULT 'LEAD' CHECK(status IN ('LEAD', 'CONTACTED', 'ENGAGED', 'PARTNER', 'ARCHIVED')),
+    status TEXT NOT NULL DEFAULT 'LEAD' CHECK (status IN ('LEAD', 'CONTACTED', 'ENGAGED', 'PARTNER', 'ARCHIVED')),
     last_interaction DATETIME,
     notes TEXT
 );
@@ -96,7 +100,7 @@ CREATE TABLE IF NOT EXISTS knowledge_documents (
 
 CREATE TABLE IF NOT EXISTS knowledge_chunks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    doc_id TEXT NOT NULL REFERENCES knowledge_documents(id) ON DELETE CASCADE,
+    doc_id TEXT NOT NULL REFERENCES knowledge_documents (id) ON DELETE CASCADE,
     file_path TEXT NOT NULL,
     chunk_index INTEGER NOT NULL,
     header TEXT,
@@ -107,8 +111,8 @@ CREATE TABLE IF NOT EXISTS knowledge_chunks (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS idx_chunks_doc ON knowledge_chunks(doc_id);
-CREATE INDEX IF NOT EXISTS idx_chunks_file ON knowledge_chunks(file_path);
+CREATE INDEX IF NOT EXISTS idx_chunks_doc ON knowledge_chunks (doc_id);
+CREATE INDEX IF NOT EXISTS idx_chunks_file ON knowledge_chunks (file_path);
 
 
 CREATE TABLE IF NOT EXISTS saas_projects (
@@ -117,6 +121,6 @@ CREATE TABLE IF NOT EXISTS saas_projects (
     stack TEXT NOT NULL,
     features TEXT,
     path TEXT NOT NULL,
-    created_at TEXT DEFAULT (datetime('now')),
+    created_at TEXT DEFAULT (DATETIME('now')),
     status TEXT DEFAULT 'active'
 );

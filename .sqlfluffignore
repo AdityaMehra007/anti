@@ -1,0 +1,15 @@
+# SQLFluff Ignore Rules
+.git/
+.venv/
+venv/
+__pycache__/
+node_modules/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.scratch/
+
+# External third-party repos & submodules
+external/
+tmp/
