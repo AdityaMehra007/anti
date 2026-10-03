@@ -66,15 +66,15 @@ flowchart TD
 - Consumes: `GET http://localhost:8090/v1/health`, `GET http://localhost:8000/api/health`, `GET http://localhost:5678/healthz`, Plane health check.
 - Produces: Aggregated status indicators, unified subsystem switcher (Tabs: AIOS AI, Plane Tasks, TradeNexus B2B, HR Strike 1781, n8n Zaps).
 
-- [ ] **Step 1: Write failing test verifying HUD endpoint responses and assets**
+- [x] **Step 1: Write failing test verifying HUD endpoint responses and assets**
   Ensure test checks that `dashboards/index.html` contains the 5-way subsystem navigation, embeds responsive iframe/panel switcher, and connects to live telemetry endpoints.
-- [ ] **Step 2: Implement dynamic navigation switcher and real-time status banner**
+- [x] **Step 2: Implement dynamic navigation switcher and real-time status banner**
   Update `aios/dashboards/index.html` with modern navigation bar displaying active uptime, memory gauges, and instant one-click launchers for all 5 subsystems.
-- [ ] **Step 3: Add `unified_portal.js` for asynchronous multi-service health polling**
+- [x] **Step 3: Add `unified_portal.js` for asynchronous multi-service health polling**
   Poll all service ports concurrently and display green/amber/red status badges with auto-retry.
-- [ ] **Step 4: Run test suite and verify UI layout**
+- [x] **Step 4: Run test suite and verify UI layout**
   Validate zero console errors and clean rendering.
-- [ ] **Step 5: Commit changes (`feat(hud): upgrade master command center to unified 5-subsystem portal`)**
+- [x] **Step 5: Commit changes (`feat(hud): upgrade master command center to unified 5-subsystem portal`)**
 
 ---
 
@@ -89,35 +89,35 @@ flowchart TD
 - Consumes: Process commands for Gateway (`aios/services/gateway.py`), TradeNexus (`GLOBAL-COMPANY-OS/06_ENGINEERING/start_server.py`), Plane Webhook Reactor (`plane/plane_webhook_reactor.py`), and Scheduler (`aios/automation/scheduler.py`).
 - Produces: Persistent child process management, automatic restart on unexpected crash, exponential backoff, centralized log rotation in `aios/logs/supervisor.log`.
 
-- [ ] **Step 1: Write test for supervisor process lifecycle**
+- [x] **Step 1: Write test for supervisor process lifecycle**
   Test spawn, health detection, restart policy, and graceful shutdown (SIGINT/Ctrl+C).
-- [ ] **Step 2: Implement `OmegaSupervisor` class**
+- [x] **Step 2: Implement `OmegaSupervisor` class**
   Using Python stdlib `subprocess.Popen` and `threading`, monitor child processes, capture stdout/stderr to rolling logs, and provide REST `/status` endpoint on port `8095`.
-- [ ] **Step 3: Create one-click launcher `START_OMEGA_ECOSYSTEM.bat`**
+- [x] **Step 3: Create one-click launcher `START_OMEGA_ECOSYSTEM.bat`**
   Add clean PowerShell/batch launcher to spin up supervisor in background or interactive mode.
-- [ ] **Step 4: Execute test suite and verify clean process teardown**
-- [ ] **Step 5: Commit changes (`feat(supervisor): add fault-tolerant multi-service daemon supervisor`)**
+- [x] **Step 4: Execute test suite and verify clean process teardown**
+- [x] **Step 5: Commit changes (`feat(supervisor): add fault-tolerant multi-service daemon supervisor`)**
 
 ---
 
 ### Task 3: Plane CE Autonomous Agent Dispatch Loop
 
 **Files:**
-- Create: `plane/plane_autonomous_worker.py`
-- Modify: `plane/plane_webhook_reactor.py`
+- Create: `omega/orchestration/plane_autonomous_worker.py`
+- Modify: `omega/orchestration/plane_agent_reactor.py`
 - Test: `tests/test_plane_autonomous_worker.py`
 
 **Interfaces:**
 - Consumes: Plane REST API issues with state "Todo" and label `agent-auto` or assigned to `omega-bot`.
 - Produces: Execution results posted directly back as issue comments; state transition to "In Progress" -> "Done".
 
-- [ ] **Step 1: Write test for Plane issue consumption and comment feedback**
+- [x] **Step 1: Write test for Plane issue consumption and comment feedback**
   Mock Plane API responses; verify worker transitions issue state and appends markdown execution summary.
-- [ ] **Step 2: Implement `PlaneAutonomousWorker`**
+- [x] **Step 2: Implement `PlaneAutonomousWorker`**
   Poll or receive webhooks from Plane, parse issue title and description, execute requested task via internal agent loop, and log execution artifact.
-- [ ] **Step 3: Connect webhook reactor to dispatch directly into worker thread**
-- [ ] **Step 4: Run unit tests with mock Plane backend**
-- [ ] **Step 5: Commit changes (`feat(plane): implement autonomous worker loop with automated issue comment reporting`)**
+- [x] **Step 3: Connect webhook reactor to dispatch directly into worker thread**
+- [x] **Step 4: Run unit tests with mock Plane backend**
+- [x] **Step 5: Commit changes (`feat(plane): implement autonomous worker loop with automated issue comment reporting`)**
 
 ---
 
@@ -132,14 +132,14 @@ flowchart TD
 - Consumes: Sample bill of entry / invoice payload for customer accounts (e.g., Bharat Forge, Dr. Reddy's).
 - Produces: Verified regulatory compliance report, auto-corrected entry codes, generated GST tax invoice, and audit ledger entry.
 
-- [ ] **Step 1: Write integration test for end-to-end pilot pipeline execution**
+- [x] **Step 1: Write integration test for end-to-end pilot pipeline execution**
   Verify input raw documents produce clean compliance validation, calculate exact duties, and generate audit-stamped invoice.
-- [ ] **Step 2: Enhance `pilot_delivery_engine.py` with one-command execution**
+- [x] **Step 2: Enhance `pilot_delivery_engine.py` with one-command execution**
   Add batch pilot processing for all 7 target accounts in parallel with generated HTML/Markdown dockets.
-- [ ] **Step 3: Verify TradeNexus Web API endpoints on port `8000`**
+- [x] **Step 3: Verify TradeNexus Web API endpoints on port `8000`**
   Ensure `/api/compliance/validate`, `/api/invoice/generate`, and `/api/pilot/status` return validated JSON.
-- [ ] **Step 4: Run test suite and verify 100% pass**
-- [ ] **Step 5: Commit changes (`feat(tradenexus): complete end-to-end autonomous pilot delivery pipeline`)**
+- [x] **Step 4: Run test suite and verify 100% pass**
+- [x] **Step 5: Commit changes (`feat(tradenexus): complete end-to-end autonomous pilot delivery pipeline`)**
 
 ---
 
@@ -154,14 +154,14 @@ flowchart TD
 - Consumes: `ALL_1781_HR_CONTACTS_MASTER.csv`, `data/TARGET_300_JOB_STRIKE.json`.
 - Produces: Daily automated batch generation (e.g., 25 personalized emails/day), follow-up cadence scheduling (Day 0, Day 3, Day 7), tracking database in SQLite.
 
-- [ ] **Step 1: Write test for batch allocation and follow-up cadence generator**
+- [x] **Step 1: Write test for batch allocation and follow-up cadence generator**
   Test deduplication, daily quota limit enforcement (default 25 contacts/day), and personalized template generation.
-- [ ] **Step 2: Implement `hr_outreach_orchestrator.py`**
+- [x] **Step 2: Implement `hr_outreach_orchestrator.py`**
   Build CLI commands (`--generate-batch`, `--record-sent`, `--status`, `--stats`) backed by local SQLite ledger `data/outreach_tracker.db`.
-- [ ] **Step 3: Update `ALL_1781_HR_DASHBOARD.html` with live pipeline analytics**
+- [x] **Step 3: Update `ALL_1781_HR_DASHBOARD.html` with live pipeline analytics**
   Add visual funnel: `Identified (1,781) -> Staged -> Sent -> Follow-up 1 -> Response -> Interview`.
-- [ ] **Step 4: Run test suite and verify tracking integrity**
-- [ ] **Step 5: Commit changes (`feat(career): implement automated HR outreach orchestrator and pipeline funnel`)**
+- [x] **Step 4: Run test suite and verify tracking integrity**
+- [x] **Step 5: Commit changes (`feat(career): implement automated HR outreach orchestrator and pipeline funnel`)**
 
 ---
 
