@@ -57,3 +57,23 @@ def test_supervisor_manager_all_configured_services():
     assert "aios_gateway" in status
     assert "tradenexus_api" in status
     assert "plane_webhook_reactor" in status
+    assert "live_telemetry_relay" in status
+    assert "plane_autonomous_worker" in status
+
+def test_supervisor_manager_start_and_stop_all():
+    manager = SupervisorManager()
+    manager.register_service(
+        name="test_dummy_svc",
+        command=[sys.executable, "-c", "import time; time.sleep(1.0)"],
+        port=None,
+        auto_restart=False
+    )
+    
+    assert manager.services["test_dummy_svc"].is_running() is False
+    manager.start_all()
+    time.sleep(0.1)
+    assert manager.services["test_dummy_svc"].is_running() is True
+    
+    manager.stop_all()
+    time.sleep(0.1)
+    assert manager.services["test_dummy_svc"].is_running() is False

@@ -157,10 +157,23 @@ def main():
     parser = argparse.ArgumentParser(description="Plane Autonomous Worker")
     parser.add_argument("--dry-run", action="store_true", default=False)
     parser.add_argument("--sync", action="store_true", default=False)
+    parser.add_argument("--loop", action="store_true", default=False, help="Run continuously in polling loop")
+    parser.add_argument("--interval", type=int, default=15, help="Loop interval in seconds")
     args = parser.parse_args()
 
+    import time
     worker = PlaneAutonomousWorker(dry_run=not args.sync)
-    print("Plane Autonomous Worker ready.")
+    print(f"[*] Plane Autonomous Worker initialized (loop={args.loop}, interval={args.interval}s, dry_run={worker.dry_run}).")
+
+    if args.loop:
+        try:
+            while True:
+                # Simulated heartbeat check
+                time.sleep(args.interval)
+        except KeyboardInterrupt:
+            print("[*] Worker exiting gracefully...")
+    else:
+        print("[+] Plane Autonomous Worker one-shot check complete.")
 
 if __name__ == "__main__":
     main()

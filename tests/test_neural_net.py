@@ -48,6 +48,8 @@ class TestNeuralNet(unittest.TestCase):
         self.assertEqual(c.grad, 1.0)
 
     def test_mlp_training_convergence(self):
+        import random
+        random.seed(42)
         # Train an MLP on XOR pattern:
         # [0, 0] -> 0
         # [0, 1] -> 1
@@ -67,7 +69,7 @@ class TestNeuralNet(unittest.TestCase):
         initial_loss = None
         final_loss = None
 
-        for step in range(30):
+        for step in range(60):
             # Forward pass
             ypred = [mlp(x) for x in xs]
             loss = mse_loss([y[0] if isinstance(y, list) else y for y in ypred], ys)

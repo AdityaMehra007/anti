@@ -146,6 +146,16 @@ class SupervisorManager:
             max_restarts=5
         )
 
+        # 6. Plane Autonomous Worker Loop
+        worker_script = os.path.join(ROOT_DIR, "omega", "orchestration", "plane_autonomous_worker.py")
+        self.register_service(
+            name="plane_autonomous_worker",
+            command=[sys.executable, worker_script, "--loop", "--interval", "15"],
+            port=None,
+            auto_restart=True,
+            max_restarts=5
+        )
+
     def start_service(self, name: str) -> bool:
         with self._lock:
             svc = self.services.get(name)
