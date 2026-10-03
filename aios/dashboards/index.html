@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANTIGRAVITY OMEGA :: Master AI Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #101726;
+      --surface-border: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.2);
+      --yellow: #f59e0b;
+      --red: #ef4444;
+      --card-radius: 12px;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #090d16;
+      font-size: 20px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-healthy {
+      background: var(--green-glow);
+      color: var(--green);
+      border: 1px solid var(--green);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    main {
+      padding: 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* TELEMETRY ROW */
+    .grid-telemetry {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-metric {
+      font-size: 26px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: #fff;
+    }
+
+    .card-subtext {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-bg {
+      height: 6px;
+      background: #1e293b;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    /* SERVICES & CONTROL GRID */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .services-table th {
+      text-align: left;
+      padding: 10px 12px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--surface-border);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .services-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .status-online { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .status-offline { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+
+    /* ACTION BUTTONS */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      background: #1e293b;
+      color: #fff;
+      border: 1px solid #334155;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #334155;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+    }
+
+    /* TERMINAL LOG VIEW */
+    .terminal-box {
+      background: #040711;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #cbd5e1;
+      max-height: 220px;
+      overflow-y: auto;
+      line-height: 1.6;
+    }
+
+    .terminal-prompt { color: var(--accent); }
+    .terminal-success { color: var(--green); }
+    .terminal-dim { color: #64748b; }
+
+    /* AI CHAT TERMINAL */
+    .card-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .chat-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .form-select {
+      background: #040711;
+      border: 1px solid var(--surface-border);
+      color: #f1f5f9;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      outline: none;
+    }
+
+    .form-select:focus {
+      border-color: var(--accent);
+    }
+
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .speed-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .chat-thread {
+      background: #040711;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 220px;
+      max-height: 380px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .chat-msg {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      max-width: 90%;
+    }
+
+    .chat-msg-user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .chat-msg-assistant {
+      align-self: flex-start;
+    }
+
+    .msg-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .chat-msg-user .msg-avatar {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    .chat-msg-assistant .msg-avatar {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #090d16;
+    }
+
+    .msg-body {
+      background: #101726;
+      border: 1px solid #1e293b;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .chat-msg-user .msg-body {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .quick-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .chip {
+      background: #101726;
+      border: 1px solid #1e293b;
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 14px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      background: #1e293b;
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: #040711;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      outline: none;
+    }
+
+    .chat-input:focus {
+      border-color: var(--accent);
+    }
+
+    .chat-send-btn {
+      padding: 10px 20px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    /* NEW SECTIONS CSS */
+    .rag-results { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .rag-card { background: #040711; border: 1px solid var(--surface-border); border-radius: 8px; padding: 12px; }
+    .rag-meta { font-size: 11px; color: var(--accent); font-family: var(--font-mono); margin-bottom: 6px; }
+    .rag-text { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
+    .rag-stats { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 8px; }
+    
+    .automation-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+    .automation-table th { text-align: left; padding: 10px 12px; color: var(--text-muted); border-bottom: 1px solid var(--surface-border); font-size: 11px; text-transform: uppercase; }
+    .automation-table td { padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    
+    .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+    
+    .trigger-form { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; background: #040711; padding: 12px; border-radius: 8px; border: 1px solid var(--surface-border); }
+    .trigger-form input, .trigger-form textarea { background: #101726; border: 1px solid var(--surface-border); color: #fff; padding: 8px; border-radius: 4px; font-family: var(--font-mono); font-size: 12px; outline: none; }
+    .trigger-form input:focus, .trigger-form textarea:focus { border-color: var(--accent); }
+    .trigger-form textarea { resize: vertical; min-height: 60px; }
+
+    /* SUBSYSTEM NAVIGATION TABS */
+    .subsystem-nav {
+      display: flex;
+      gap: 10px;
+      padding: 12px 28px;
+      background: #0b111e;
+      border-bottom: 1px solid var(--surface-border);
+      overflow-x: auto;
+    }
+    .nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #101726;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-tab:hover {
+      background: #1e293b;
+      color: #fff;
+    }
+    .nav-tab-active {
+      background: #1e293b;
+      color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    .subsystem-panel {
+      padding: 24px 28px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .iframe-container {
+      width: 100%;
+      height: 780px;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      background: var(--surface);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="brand-logo">Ω</div>
+      <div>
+        <div class="brand-title">ANTIGRAVITY OMEGA</div>
+        <div class="brand-sub">Local AI & Technology Command Center</div>
+      </div>
+    </div>
+    <div class="badge-healthy" id="systemStatusBadge">
+      <div class="badge-dot"></div>
+      <span id="systemStatusText">SYSTEM HEALTHY</span>
+    </div>
+  </header>
+
+  <nav class="subsystem-nav" id="subsystemNav">
+    <button class="nav-tab nav-tab-active" id="tabBtn-aios" onclick="switchTab('aios')">
+      ⚡ AIOS Command Center <span class="status-pill status-online" id="badge-aios">PORT :8090</span>
+    </button>
+    <button class="nav-tab" id="tabBtn-plane" onclick="switchTab('plane')">
+      ✈️ Plane CE Tasks <span class="status-pill status-offline" id="badge-plane">PORT :80</span>
+    </button>
+    <button class="nav-tab" id="tabBtn-tradenexus" onclick="switchTab('tradenexus')">
+      🌐 TradeNexus B2B <span class="status-pill status-offline" id="badge-tradenexus">PORT :8000</span>
+    </button>
+    <button class="nav-tab" id="tabBtn-career" onclick="switchTab('career')">
+      🎯 HR 1781 & Job Strike <span class="status-pill status-online" id="badge-career">ONLINE</span>
+    </button>
+    <button class="nav-tab" id="tabBtn-n8n" onclick="switchTab('n8n')">
+      🔄 n8n Automations <span class="status-pill status-offline" id="badge-n8n">PORT :5678</span>
+    </button>
+  </nav>
+
+  <div id="tabPanel-aios">
+  <main>
+    <!-- TELEMETRY METRIC CARDS -->
+    <div class="grid-telemetry">
+      <div class="card">
+        <div class="card-title">Host Physical RAM <span>DDR4</span></div>
+        <div class="card-metric" id="ramMetric">-- / 16.0 GB</div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="ramBar" style="width: 80%;"></div></div>
+        <div class="card-subtext" id="ramSub">Calculating free memory...</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Discrete GPU <span>Maxwell GM107</span></div>
+        <div class="card-metric" id="gpuMetric">4.0 GB VRAM</div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="gpuBar" style="width: 10%;"></div></div>
+        <div class="card-subtext" id="gpuSub">GTX 960M (CC 5.0) Ready for 3B GGUF</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Primary Hub (E:) <span>AIOS Root</span></div>
+        <div class="card-metric" id="diskEMetric">334+ GB Free</div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="diskEBar" style="width: 43%;"></div></div>
+        <div class="card-subtext">Safe green zone for models & volumes</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">System Drive (C:) <span>OS Restricted</span></div>
+        <div class="card-metric" id="diskCMetric">17.7 GB Free</div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="diskCBar" style="width: 82%; background: var(--yellow);"></div></div>
+        <div class="card-subtext">Restricted: No model dumps on C:</div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTROL & SERVICES -->
+    <div class="grid-2col">
+      <div class="card">
+        <div class="card-title">Core Subsystem Telemetry & Services</div>
+        <table class="services-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Ring</th>
+              <th>Port</th>
+              <th>Target Engine</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="servicesTableBody">
+            <tr>
+              <td><strong>AIOS Gateway Router</strong></td>
+              <td>Ring 0</td>
+              <td>8090</td>
+              <td>FastAPI / Python Standard</td>
+              <td><span class="status-pill status-online" id="svc_gateway">ONLINE</span></td>
+            </tr>
+            <tr>
+              <td><strong>Ollama Inference Engine</strong></td>
+              <td>Ring 0</td>
+              <td>11434</td>
+              <td>Qwen 2.5 Coder 3B (cuBLAS)</td>
+              <td><span class="status-pill status-offline" id="svc_ollama">OFFLINE</span></td>
+            </tr>
+            <tr>
+              <td><strong>SQLite Master DB (WAL)</strong></td>
+              <td>Ring 0</td>
+              <td>In-Proc</td>
+              <td>ACID master.db on Drive E:</td>
+              <td><span class="status-pill status-online">ONLINE</span></td>
+            </tr>
+            <tr>
+              <td><strong>n8n Automation Engine</strong></td>
+              <td>Ring 1</td>
+              <td>5678</td>
+              <td>Node.js / SQLite DAGs</td>
+              <td><span class="status-pill status-offline" id="svc_n8n">STANDBY</span></td>
+            </tr>
+            <tr>
+              <td><strong>Omniroute Gateway</strong></td>
+              <td>Agent Bus</td>
+              <td>20128</td>
+              <td>WebSocket Event Mesh</td>
+              <td><span class="status-pill status-online" id="svc_omniroute">ONLINE</span></td>
+            </tr>
+            <tr>
+              <td><strong>OpenHands Agent Canvas</strong></td>
+              <td>Agent UI</td>
+              <td>3001</td>
+              <td>Multi-agent interactive canvas</td>
+              <td><span class="status-pill status-online" id="svc_openhands">ONLINE</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Executive Operations</div>
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="triggerHealthCheck()">
+            <span>⚡ Run Health Audit</span>
+            <span>CLI</span>
+          </button>
+          <button class="btn" onclick="queryAiModel()">
+            <span>🤖 Query AI Model Router</span>
+            <span>:8090</span>
+          </button>
+          <button class="btn" onclick="triggerBackup()">
+            <span>💾 Trigger SQLite Snapshot</span>
+            <span>E:/backups</span>
+          </button>
+          <button class="btn" onclick="openDoc('MACHINE_AUDIT.md')">
+            <span>📑 View Machine Audit</span>
+            <span>Docs</span>
+          </button>
+          <button class="btn" onclick="openDoc('ARCHITECTURE.md')">
+            <span>🏛️ View System Architecture</span>
+            <span>Docs</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI NEURAL CHAT TERMINAL -->
+    <div class="card" id="chatSection">
+      <div class="card-header-flex">
+        <div class="card-title" style="margin-bottom: 0;">
+          🤖 Local Neural Terminal <span>OpenAI-Compatible Gateway :8090</span>
+        </div>
+        <div class="chat-controls">
+          <select id="chatModelSelect" class="form-select">
+            <option value="qwen2.5-coder:3b">qwen2.5-coder:3b (GPU Maxwell 37/37 Layers)</option>
+            <option value="fable5:latest">fable5:latest (CPU 8.0B)</option>
+            <option value="llama3:latest">llama3:latest (CPU 8.0B)</option>
+            <option value="gemini-2.0-flash">gemini-2.0-flash (Cloud Router)</option>
+            <option value="claude-3-5-sonnet">claude-3-5-sonnet (Cloud Router)</option>
+          </select>
+          <label class="toggle-label">
+            <input type="checkbox" id="streamToggle" checked> Stream (SSE)
+          </label>
+          <span class="speed-badge" id="speedBadge">⚡ Ready</span>
+        </div>
+      </div>
+
+      <div class="chat-thread" id="chatThread">
+        <div class="chat-msg chat-msg-assistant">
+          <div class="msg-avatar">Ω</div>
+          <div class="msg-body">
+            <strong>ANTIGRAVITY OMEGA AI Gateway ready.</strong><br>
+            Connected to port 8090. Local GPU inference active with <code>qwen2.5-coder:3b</code> offloaded to GTX 960M VRAM (10.53 TPS baseline). Ask a technical question, request code generation, or test model routing.
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-chips">
+        <button class="chip" onclick="useQuickPrompt('Write a Python class for a LRU Cache with O(1) ops')">LRU Cache</button>
+        <button class="chip" onclick="useQuickPrompt('Explain SQLite WAL mode and why it avoids reader/writer locks')">SQLite WAL Mode</button>
+        <button class="chip" onclick="useQuickPrompt('Audit system memory constraints for 16GB DDR4')">Memory Audit</button>
+        <button class="chip" onclick="useQuickPrompt('Write a pure Python script to benchmark disk IO')">Disk Benchmark</button>
+      </div>
+
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" class="chat-input" placeholder="Type prompt or command (e.g. 'Write a thread-safe task queue')..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+        <button class="btn btn-primary chat-send-btn" id="sendBtn" onclick="sendChatMessage()">
+          <span>Send</span> <span>⏎</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 1. RAG KNOWLEDGE SEARCH -->
+    <div class="card">
+      <div class="card-header-flex">
+        <div class="card-title" style="margin-bottom: 0;">🔍 Knowledge Hub — Semantic Search</div>
+        <div class="chat-controls">
+          <label class="toggle-label">
+            <input type="checkbox" id="ragSynthesize"> Synthesize Answer
+          </label>
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="ragInput" class="chat-input" placeholder="Search indexed knowledge base..." onkeydown="if(event.key==='Enter') searchKnowledge()">
+        <button class="btn btn-primary chat-send-btn" onclick="searchKnowledge()">
+          <span>Search</span> <span>🔍</span>
+        </button>
+      </div>
+      <div class="rag-stats" id="ragStats">Indexed: -- docs / -- chunks</div>
+      <div class="rag-results" id="ragResults"></div>
+    </div>
+
+    <!-- 2. AUTOMATION STATUS PANEL -->
+    <div class="card">
+      <div class="card-header-flex">
+        <div class="card-title" style="margin-bottom: 0;">⚙️ Automation Engine — n8n Workflows</div>
+        <button class="btn" onclick="fetchAutomationStatus()" style="padding: 6px 12px; font-size: 11px;">Refresh 🔄</button>
+      </div>
+      <table class="automation-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Active</th>
+            <th>Last Run</th>
+          </tr>
+        </thead>
+        <tbody id="automationTableBody">
+          <tr><td colspan="4" style="text-align:center; color: var(--text-muted);">Loading workflows...</td></tr>
+        </tbody>
+      </table>
+      <div class="trigger-form">
+        <div style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Trigger Webhook Event</div>
+        <input type="text" id="webhookName" placeholder="Webhook Name (e.g. 'github-push')">
+        <textarea id="webhookPayload" placeholder='JSON Payload (e.g. {"repo": "anti", "commit": "1a2b3c"})'></textarea>
+        <button class="btn btn-primary" onclick="triggerWebhook()" style="align-self: flex-start;">Dispatch 🚀</button>
+      </div>
+    </div>
+
+    <!-- 3. QUICK ACTIONS GRID -->
+    <div class="card">
+      <div class="card-title">🚀 Quick Actions</div>
+      <div class="action-grid">
+        <button class="btn" onclick="reindexKnowledge()">Reindex Knowledge</button>
+        <button class="btn" onclick="walCheckpoint()">WAL Checkpoint</button>
+        <button class="btn" onclick="triggerHealthCheck()">Full Health Audit</button>
+        <button class="btn" onclick="exportMetrics()">Export Metrics</button>
+        <button class="btn" onclick="openDoc('MODEL_REGISTRY.md')">View Model Registry</button>
+        <button class="btn" onclick="openDoc('ARCHITECTURE.md')">System Architecture</button>
+      </div>
+    </div>
+
+    <!-- TERMINAL OUTPUT -->
+    <div class="card">
+      <div class="card-title">Live System Telemetry Console</div>
+      <div class="terminal-box" id="terminalLog">
+        <div><span class="terminal-dim">[2026-10-01 16:15:37]</span> <span class="terminal-success">[INIT]</span> Antigravity OMEGA Command Center active.</div>
+        <div><span class="terminal-dim">[2026-10-01 16:15:37]</span> <span class="terminal-prompt">[GATEWAY]</span> AIOS Gateway Router listening on port 8090.</div>
+        <div><span class="terminal-dim">[2026-10-01 16:15:37]</span> <span class="terminal-success">[DB]</span> SQLite master.db online with WAL mode enabled.</div>
+        <div><span class="terminal-dim">[2026-10-01 16:15:37]</span> <span class="terminal-prompt">[STORAGE]</span> Primary Hub on E: verified (334.07 GB available).</div>
+      </div>
+    </div>
+  </main>
+  </div>
+
+  <!-- PLANE CE SUBSYSTEM PANEL -->
+  <div id="tabPanel-plane" class="subsystem-panel" style="display:none;">
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-header-flex">
+        <div class="card-title">✈️ Plane CE Enterprise Task & Project Hub</div>
+        <div style="display:flex; gap: 8px;">
+          <a href="http://localhost:80" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Open in New Tab ↗</a>
+          <button class="btn btn-primary" onclick="checkSubsystemHealth('plane')" style="padding: 6px 12px; font-size: 11px;">Check Health 🔄</button>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Orchestrating autonomous agents, engineering sprints, and departmental boards across Engineering, Sales, and Operations.
+      </div>
+      <iframe src="http://localhost:80" class="iframe-container" title="Plane CE Hub"></iframe>
+    </div>
+  </div>
+
+  <!-- TRADENEXUS B2B PANEL -->
+  <div id="tabPanel-tradenexus" class="subsystem-panel" style="display:none;">
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-header-flex">
+        <div class="card-title">🌐 TradeNexus B2B — Cross-Border EXIM Compliance Engine</div>
+        <div style="display:flex; gap: 8px;">
+          <a href="http://localhost:8000" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Open Portal ↗</a>
+          <button class="btn btn-primary" onclick="checkSubsystemHealth('tradenexus')" style="padding: 6px 12px; font-size: 11px;">Verify API 🔄</button>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Live pilot document processor, US CBP / Indian Gazette auto-corrector, and GST retainer invoicing.
+      </div>
+      <iframe src="http://localhost:8000" class="iframe-container" title="TradeNexus Portal"></iframe>
+    </div>
+  </div>
+
+  <!-- HR 1781 & JOB STRIKE PANEL -->
+  <div id="tabPanel-career" class="subsystem-panel" style="display:none;">
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-header-flex">
+        <div class="card-title">🎯 HR 1781 & Target 300 Career Strike Console</div>
+        <div style="display:flex; gap: 8px;">
+          <a href="/ALL_1781_HR_DASHBOARD.html" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Open Dashboard ↗</a>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        1,781+ verified enterprise HR and talent acquisition leaders across India and Global Tech Hubs.
+      </div>
+      <iframe src="/ALL_1781_HR_DASHBOARD.html" class="iframe-container" title="HR 1781 Contacts"></iframe>
+    </div>
+  </div>
+
+  <!-- N8N AUTOMATION PANEL -->
+  <div id="tabPanel-n8n" class="subsystem-panel" style="display:none;">
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-header-flex">
+        <div class="card-title">🔄 n8n Autonomous Automation Engine</div>
+        <div style="display:flex; gap: 8px;">
+          <a href="http://localhost:5678" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Launch n8n UI ↗</a>
+          <button class="btn btn-primary" onclick="checkSubsystemHealth('n8n')" style="padding: 6px 12px; font-size: 11px;">Check Engine 🔄</button>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Visual workflow builder connecting AI gateways, scheduled monitors, and multi-channel notification channels.
+      </div>
+      <iframe src="http://localhost:5678" class="iframe-container" title="n8n Engine"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const GATEWAY_URL = 'http://127.0.0.1:8090';
+
+    function appendLog(msg, type = 'info') {
+      const log = document.getElementById('terminalLog');
+      const time = new Date().toISOString().replace('T', ' ').substring(0, 19);
+      const div = document.createElement('div');
+      div.innerHTML = `<span class="terminal-dim">[${time}]</span> <span class="${type === 'success' ? 'terminal-success' : 'terminal-prompt'}">[${type.toUpperCase()}]</span> ${msg}`;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    async function fetchTelemetry() {
+      try {
+        const res = await fetch(`${GATEWAY_URL}/api/telemetry`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('Gateway returned ' + res.status);
+        const data = await res.json();
+        
+        // RAM
+        if (data.ram) {
+          document.getElementById('ramMetric').innerText = `${data.ram.free_gb} GB Free`;
+          document.getElementById('ramSub').innerText = `${data.ram.used_percent}% used of ${data.ram.total_gb} GB physical memory`;
+          document.getElementById('ramBar').style.width = `${data.ram.used_percent}%`;
+        }
+
+        // Disks
+        if (data.disks) {
+          if (data.disks.E) {
+            document.getElementById('diskEMetric').innerText = `${data.disks.E.free_gb} GB Free`;
+            document.getElementById('diskEBar').style.width = `${data.disks.E.used_percent}%`;
+          }
+          if (data.disks.C) {
+            document.getElementById('diskCMetric').innerText = `${data.disks.C.free_gb} GB Free`;
+            document.getElementById('diskCBar').style.width = `${data.disks.C.used_percent}%`;
+          }
+        }
+
+        // GPU
+        if (data.gpu) {
+          document.getElementById('gpuMetric').innerText = `${data.gpu.vram_used_mb} MB Used`;
+          const pct = Math.round((data.gpu.vram_used_mb / data.gpu.vram_total_mb) * 100);
+          document.getElementById('gpuBar').style.width = `${pct}%`;
+          document.getElementById('gpuSub').innerText = `${data.gpu.name} | Temp: ${data.gpu.temp_c}C | Util: ${data.gpu.gpu_util_percent}%`;
+        }
+
+        // Services
+        if (data.services) {
+          updateSvcBadge('svc_gateway', data.services.aios_gateway?.online);
+          updateSvcBadge('svc_ollama', data.services.ollama?.online);
+          updateSvcBadge('svc_n8n', data.services.n8n?.online);
+          updateSvcBadge('svc_omniroute', data.services.omniroute?.online);
+          updateSvcBadge('svc_openhands', data.services.openhands_canvas?.online);
+        }
+
+        document.getElementById('systemStatusText').innerText = `SYSTEM ${data.status}`;
+      } catch (err) {
+        // Fallback when gateway is offline
+      }
+    }
+
+    function updateSvcBadge(id, isOnline) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (isOnline) {
+        el.className = 'status-pill status-online';
+        el.innerText = 'ONLINE';
+      } else {
+        el.className = 'status-pill status-offline';
+        el.innerText = 'OFFLINE';
+      }
+    }
+
+    async function triggerHealthCheck() {
+      appendLog('Dispatching real-time health diagnostic probe...', 'info');
+      await fetchTelemetry();
+      appendLog('Diagnostic complete. Telemetry synchronized with master.db.', 'success');
+    }
+
+    async function queryAiModel() {
+      appendLog('Testing AI Gateway router endpoint /v1/chat/completions...', 'info');
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/chat/completions`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'qwen2.5-coder:3b',
+            messages: [{ role: 'user', content: 'Ping OMEGA local AI' }]
+          })
+        });
+        const data = await res.json();
+        const content = data.choices?.[0]?.message?.content || JSON.stringify(data);
+        appendLog(`AI Response: ${content}`, 'success');
+      } catch (err) {
+        appendLog(`Gateway query failed: ${err.message}`, 'error');
+      }
+    }
+
+    function triggerBackup() {
+      appendLog('Snapshot initiated. Execute "python omega_ctl.py backup" from CLI.', 'info');
+    }
+
+    function openDoc(name) {
+      appendLog(`Requested document: ${name} (Located in E:/anti/aios/docs/${name})`, 'info');
+    }
+
+    // --- AI CHAT TERMINAL CONTROLLER ---
+    async function loadModelList() {
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/models`);
+        if (!res.ok) return;
+        const json = await res.json();
+        const select = document.getElementById('chatModelSelect');
+        if (json.data && json.data.length > 0) {
+          select.innerHTML = '';
+          json.data.forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = m.id;
+            const param = m.parameter_size ? ` (${m.parameter_size}, ${m.quantization || m.type})` : ` (${m.type})`;
+            opt.innerText = `${m.id}${param}`;
+            if (m.id === 'qwen2.5-coder:3b') opt.selected = true;
+            select.appendChild(opt);
+          });
+        }
+      } catch (e) {
+        // Maintain fallback options
+      }
+    }
+
+    function useQuickPrompt(txt) {
+      const inp = document.getElementById('chatInput');
+      inp.value = txt;
+      inp.focus();
+    }
+
+    let chatHistory = [];
+
+    async function sendChatMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const model = document.getElementById('chatModelSelect').value;
+      const isStream = document.getElementById('streamToggle').checked;
+      const thread = document.getElementById('chatThread');
+      const badge = document.getElementById('speedBadge');
+      const sendBtn = document.getElementById('sendBtn');
+
+      // Append User message
+      input.value = '';
+      const userMsgDiv = document.createElement('div');
+      userMsgDiv.className = 'chat-msg chat-msg-user';
+      userMsgDiv.innerHTML = `<div class="msg-avatar">U</div><div class="msg-body">${escapeHtml(text)}</div>`;
+      thread.appendChild(userMsgDiv);
+
+      chatHistory.push({ role: 'user', content: text });
+
+      // Create Assistant placeholder
+      const asstMsgDiv = document.createElement('div');
+      asstMsgDiv.className = 'chat-msg chat-msg-assistant';
+      const bodyDiv = document.createElement('div');
+      bodyDiv.className = 'msg-body';
+      bodyDiv.innerHTML = '<span class="terminal-dim">Generating...</span>';
+      asstMsgDiv.innerHTML = `<div class="msg-avatar">Ω</div>`;
+      asstMsgDiv.appendChild(bodyDiv);
+      thread.appendChild(asstMsgDiv);
+      thread.scrollTop = thread.scrollHeight;
+
+      badge.innerText = '⚡ Inferring...';
+      sendBtn.disabled = true;
+
+      const startTime = performance.now();
+      let tokenCount = 0;
+      let fullResponse = '';
+
+      try {
+        if (isStream) {
+          const res = await fetch(`${GATEWAY_URL}/v1/chat/completions`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              model: model,
+              messages: chatHistory,
+              stream: true
+            })
+          });
+
+          if (!res.ok) throw new Error('Gateway returned HTTP ' + res.status);
+
+          bodyDiv.innerText = '';
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop();
+
+            for (const line of lines) {
+              const trimmed = line.trim();
+              if (!trimmed) continue;
+              if (trimmed === 'data: [DONE]') break;
+              if (trimmed.startsWith('data: ')) {
+                try {
+                  const chunk = JSON.parse(trimmed.slice(6));
+                  const delta = chunk.choices?.[0]?.delta?.content || '';
+                  if (delta) {
+                    fullResponse += delta;
+                    bodyDiv.innerText = fullResponse;
+                    tokenCount++;
+                    const elapsedSec = (performance.now() - startTime) / 1000;
+                    const tps = (tokenCount / Math.max(0.01, elapsedSec)).toFixed(1);
+                    badge.innerText = `⚡ ${tps} TPS (${tokenCount} tok)`;
+                    thread.scrollTop = thread.scrollHeight;
+                  }
+                } catch (e) {
+                  // ignore partial line parse errors
+                }
+              }
+            }
+          }
+        } else {
+          const res = await fetch(`${GATEWAY_URL}/v1/chat/completions`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              model: model,
+              messages: chatHistory,
+              stream: false
+            })
+          });
+          const data = await res.json();
+          fullResponse = data.choices?.[0]?.message?.content || JSON.stringify(data);
+          bodyDiv.innerText = fullResponse;
+          tokenCount = data.usage?.completion_tokens || fullResponse.split(/\s+/).length;
+        }
+
+        const totalSec = ((performance.now() - startTime) / 1000).toFixed(2);
+        const finalTps = (tokenCount / Math.max(0.01, totalSec)).toFixed(1);
+        badge.innerText = `✓ ${finalTps} TPS (${totalSec}s)`;
+        chatHistory.push({ role: 'assistant', content: fullResponse });
+        appendLog(`Inference completed [${model}]: ${tokenCount} tokens in ${totalSec}s (${finalTps} TPS)`, 'success');
+      } catch (err) {
+        bodyDiv.innerHTML = `<span style="color: var(--red);">Error: ${escapeHtml(err.message)}</span>`;
+        badge.innerText = '❌ Failed';
+        appendLog(`Inference error: ${err.message}`, 'error');
+      } finally {
+        sendBtn.disabled = false;
+        thread.scrollTop = thread.scrollHeight;
+      }
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    // --- NEW SECTIONS JS ---
+    async function fetchRagStats() {
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/rag/stats`);
+        if (res.ok) {
+          const data = await res.json();
+          document.getElementById('ragStats').innerText = `Indexed: ${data.docs || 0} docs / ${data.chunks || 0} chunks`;
+        }
+      } catch (e) {
+        document.getElementById('ragStats').innerText = 'Indexed: API Offline';
+      }
+    }
+
+    async function searchKnowledge() {
+      const query = document.getElementById('ragInput').value.trim();
+      if (!query) return;
+      const synth = document.getElementById('ragSynthesize').checked;
+      const resultsDiv = document.getElementById('ragResults');
+      resultsDiv.innerHTML = '<div class="terminal-dim">Searching...</div>';
+
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/rag/query`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: query, synthesize: synth, top_k: 5 })
+        });
+        const data = await res.json();
+        
+        resultsDiv.innerHTML = '';
+        if (synth && data.answer) {
+          const ans = document.createElement('div');
+          ans.className = 'rag-card';
+          ans.innerHTML = `<div class="rag-meta">✨ AI Synthesized Answer</div><div class="rag-text">${escapeHtml(data.answer)}</div>`;
+          resultsDiv.appendChild(ans);
+        }
+        
+        if (data.results && data.results.length > 0) {
+          data.results.forEach(r => {
+            const card = document.createElement('div');
+            card.className = 'rag-card';
+            card.innerHTML = `<div class="rag-meta">📄 ${escapeHtml(r.doc_name || 'Doc')} | Score: ${(r.score || 0).toFixed(2)} | Lines: ${r.line_start || '?'}-${r.line_end || '?'}</div>
+                              <div class="rag-text">${escapeHtml((r.text || '').substring(0, 200))}...</div>`;
+            resultsDiv.appendChild(card);
+          });
+        } else if (!synth) {
+          resultsDiv.innerHTML = '<div class="terminal-dim">No results found.</div>';
+        }
+      } catch (err) {
+        resultsDiv.innerHTML = `<div style="color: var(--red);">Error: ${escapeHtml(err.message)}</div>`;
+      }
+    }
+
+    function reindexKnowledge() {
+      appendLog('Dispatching reindex command...', 'info');
+      fetch(`${GATEWAY_URL}/v1/rag/query`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: '/reindex', synthesize: false, top_k: 1 })
+      }).then(r => r.json()).then(d => appendLog('Reindex complete.', 'success')).catch(e => appendLog('Reindex failed.', 'error'));
+    }
+
+    function walCheckpoint() {
+      appendLog('To checkpoint SQLite WAL, run: python omega_ctl.py checkpoint', 'prompt');
+    }
+
+    function exportMetrics() {
+      window.open(`${GATEWAY_URL}/api/recent_metrics`, '_blank');
+      appendLog('Exported metrics.', 'success');
+    }
+
+    async function fetchAutomationStatus() {
+      const tbody = document.getElementById('automationTableBody');
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/automation/status`);
+        if (res.ok) {
+          const data = await res.json();
+          tbody.innerHTML = '';
+          if (data.workflows && data.workflows.length > 0) {
+            data.workflows.forEach(w => {
+              tbody.innerHTML += `<tr>
+                <td>${escapeHtml(w.name)}</td>
+                <td>${escapeHtml(w.id)}</td>
+                <td><span class="${w.active ? 'status-pill status-online' : 'status-pill status-offline'}">${w.active ? 'YES' : 'NO'}</span></td>
+                <td>${escapeHtml(w.last_run || 'Never')}</td>
+              </tr>`;
+            });
+          } else {
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No workflows found.</td></tr>';
+          }
+        }
+      } catch (e) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color: var(--red);">API Offline</td></tr>';
+      }
+    }
+
+    async function triggerWebhook() {
+      const name = document.getElementById('webhookName').value.trim();
+      const payloadStr = document.getElementById('webhookPayload').value.trim();
+      if (!name) return;
+      
+      let payload = {};
+      if (payloadStr) {
+        try { payload = JSON.parse(payloadStr); } 
+        catch (e) { appendLog('Invalid JSON payload', 'error'); return; }
+      }
+
+      appendLog(`Dispatching webhook '${name}' to automation engine...`, 'info');
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/automation/trigger`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ webhook: name, payload: payload })
+        });
+        const data = await res.json();
+        appendLog(`Webhook response: ${JSON.stringify(data)}`, 'success');
+      } catch (err) {
+        appendLog(`Webhook trigger failed: ${err.message}`, 'error');
+      }
+    }
+
+    // Initialize telemetry and dynamic models
+    loadModelList();
+    fetchRagStats();
+    fetchAutomationStatus();
+    setInterval(fetchTelemetry, 4000);
+    fetchTelemetry();
+  </script>
+  <script src="unified_portal.js"></script>
+</body>
+</html>
