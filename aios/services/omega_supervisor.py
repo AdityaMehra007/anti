@@ -136,6 +136,16 @@ class SupervisorManager:
             max_restarts=5
         )
 
+        # 5. Live Telemetry Relay on port 8096
+        telemetry_script = os.path.join(ROOT_DIR, "aios", "services", "live_telemetry_relay.py")
+        self.register_service(
+            name="live_telemetry_relay",
+            command=[sys.executable, telemetry_script, "8096"],
+            port=8096,
+            auto_restart=True,
+            max_restarts=5
+        )
+
     def start_service(self, name: str) -> bool:
         with self._lock:
             svc = self.services.get(name)
