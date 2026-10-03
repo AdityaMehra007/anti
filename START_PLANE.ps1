@@ -8,7 +8,7 @@
 
 param (
     [Parameter(Mandatory=$false)]
-    [ValidateSet('up', 'down', 'restart', 'status', 'logs', 'browser', 'dashboard', 'sync', 'webhook', 'provision')]
+    [ValidateSet('up', 'down', 'restart', 'status', 'logs', 'browser', 'dashboard', 'sync', 'webhook', 'provision', 'git-bridge', 'backup', 'reactor')]
     [string]$Action = 'up'
 )
 
@@ -164,6 +164,27 @@ try {
             Write-Host "[*] Provisioning Plane Departmental Boards and Sprint Cycles..." -ForegroundColor Cyan
             Pop-Location
             & python omega/orchestration/plane_boards.py --provision-all
+            return
+        }
+
+        'git-bridge' {
+            Write-Host "[*] Executing Git-to-Plane Synchronizer & Changelog Generator..." -ForegroundColor Cyan
+            Pop-Location
+            & python omega/orchestration/plane_git_bridge.py --count 10 --changelog
+            return
+        }
+
+        'backup' {
+            Write-Host "[*] Exporting full Plane CE workspace backup & markdown dossier..." -ForegroundColor Cyan
+            Pop-Location
+            & python omega/orchestration/plane_backup.py --dry-run
+            return
+        }
+
+        'reactor' {
+            Write-Host "[*] Running Plane Agent Reactor simulated event verification..." -ForegroundColor Cyan
+            Pop-Location
+            & python omega/orchestration/plane_agent_reactor.py --test-event created --dry-run
             return
         }
     }

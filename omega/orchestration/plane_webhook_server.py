@@ -79,13 +79,20 @@ class WebhookHandler(BaseHTTPRequestHandler):
 
 
 def default_event_logger(event_type: str, payload: Dict[str, Any]) -> None:
-    """Default callback logging webhook events to terminal and jsonl log."""
+    """Default callback logging webhook events to terminal, jsonl log, and invoking agent reactor."""
     print(f"[+] [EVENT-RECEIVED] Type: {event_type} | Data: {json.dumps(payload.get('data', {}))}")
     log_dir = REPO_ROOT / "omega" / "data"
     log_dir.mkdir(parents=True, exist_ok=True)
     log_file = log_dir / "plane_webhook_events.jsonl"
     with open(log_file, "a", encoding="utf-8") as f:
         f.write(json.dumps({"event": event_type, "payload": payload}) + "\n")
+
+    try:
+        from omega.orchestration.plane_agent_reactor import PlaneAgentReactor
+        reactor = PlaneAgentReactor(dry_run=True)
+        reactor.process_event(event_type, payload)
+    except Exception as ex:
+        print(f"[-] Warning: Reactor processing error: {ex}")
 
 
 class PlaneWebhookServer:

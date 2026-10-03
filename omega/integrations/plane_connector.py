@@ -53,8 +53,38 @@ class PlaneClient:
     ) -> Any:
         url = f"{self.base_url}/{endpoint.lstrip('/')}"
 
-        if self.dry_run and method in ("POST", "PATCH", "PUT", "DELETE"):
+        if self.dry_run:
             print(f"[DRY-RUN] {method} {url} -> payload: {data}")
+            if method == "GET":
+                if "instances" in endpoint:
+                    return {"dry_run": True, "instance_id": "dry-run-inst-001", "version": "v1.4.2", "status": "simulated_offline"}
+                if "workspaces" in endpoint and "projects" not in endpoint:
+                    return [{"id": "ws-omega", "name": "OMEGA", "slug": "omega"}]
+                if "projects" in endpoint and "issues" not in endpoint and "cycles" not in endpoint and "states" not in endpoint:
+                    return [
+                        {"id": "proj-core", "identifier": "CORE", "name": "OMEGA Core Infrastructure"},
+                        {"id": "proj-cap", "identifier": "CAP", "name": "Capital Allocator & Sovereign Treasury"},
+                        {"id": "proj-fleet", "identifier": "FLEET", "name": "Autonomous Agent Fleet Operations"},
+                        {"id": "proj-intel", "identifier": "INTEL", "name": "Market Intelligence & Global Radar"},
+                    ]
+                if "cycles" in endpoint:
+                    return [
+                        {"id": "cyc-1", "name": "Sprint 1", "start_date": "2026-10-01", "end_date": "2026-10-15"},
+                        {"id": "cyc-2", "name": "Sprint 2", "start_date": "2026-10-15", "end_date": "2026-10-29"},
+                    ]
+                if "issues" in endpoint:
+                    return [
+                        {"id": "iss-1", "name": "Simulated Active Task", "priority": "high", "state": "started"},
+                    ]
+                if "states" in endpoint:
+                    return [
+                        {"id": "st-backlog", "name": "Backlog", "group": "backlog"},
+                        {"id": "st-todo", "name": "Todo", "group": "unstarted"},
+                        {"id": "st-in-progress", "name": "In Progress", "group": "started"},
+                        {"id": "st-done", "name": "Done", "group": "completed"},
+                    ]
+                return []
+
             simulated_response = {
                 "dry_run": True,
                 "id": "dry-run-id",
@@ -209,6 +239,26 @@ class PlaneClient:
             "end_date": end_date,
         }
         return self._request("POST", f"/api/workspaces/{workspace_slug}/projects/{project_id}/cycles/", payload)
+
+    def list_issue_comments(self, workspace_slug: str, project_id: str, issue_id: str) -> List[Dict[str, Any]]:
+        """Lists comments on an issue."""
+        res = self._request("GET", f"/api/workspaces/{workspace_slug}/projects/{project_id}/issues/{issue_id}/comments/")
+        return res if isinstance(res, list) else []
+
+    def create_issue_comment(
+        self,
+        workspace_slug: str,
+        project_id: str,
+        issue_id: str,
+        comment: str,
+    ) -> Dict[str, Any]:
+        """Creates an audit or progress comment on an issue."""
+        payload = {"comment_html": f"<p>{comment}</p>"}
+        return self._request(
+            "POST",
+            f"/api/workspaces/{workspace_slug}/projects/{project_id}/issues/{issue_id}/comments/",
+            payload,
+        )
 
 
 def main() -> None:

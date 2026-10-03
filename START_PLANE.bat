@@ -17,13 +17,19 @@ echo   [6] RUN OMEGA AGENT TASK DISPATCH DRY-RUN (TASK_REGISTRY -^> Plane)
 echo   [7] EXECUTE LIVE AGENT TASK SYNCHRONIZATION
 echo   [8] START PLANE WEBHOOK LISTENER (Port :8096)
 echo   [9] PROVISION DEPARTMENT BOARDS & SPRINTS (Core, Cap, Fleet, Intel)
+echo   [G] RUN GIT-TO-PLANE BRIDGE (Sync Commits -> Issues & Changelog)
+echo   [B] BACKUP PLANE WORKSPACE (Export all boards & issues to JSON/MD)
+echo   [R] RUN AUTONOMOUS AGENT REACTOR (Event reaction test)
 echo   [D] OPEN PLANE CONTROL CENTER DASHBOARD (Browser Cockpit)
 echo.
 echo   [0] EXIT
 echo ===============================================================================
-set /p PCHOICE="Select an option [0-9, D]: "
+set /p PCHOICE="Select an option [0-9, G, B, R, D]: "
 
 if /i "%PCHOICE%"=="D" goto OPEN_DASHBOARD
+if /i "%PCHOICE%"=="G" goto RUN_GIT_BRIDGE
+if /i "%PCHOICE%"=="B" goto RUN_BACKUP
+if /i "%PCHOICE%"=="R" goto RUN_REACTOR
 if "%PCHOICE%"=="1" goto START_STACK
 if "%PCHOICE%"=="2" goto STOP_STACK
 if "%PCHOICE%"=="3" goto CHECK_STATUS
@@ -104,6 +110,27 @@ exit /b 0
 :OPEN_DASHBOARD
 cls
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0START_PLANE.ps1" -Action dashboard
+exit /b 0
+
+:RUN_GIT_BRIDGE
+cls
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0START_PLANE.ps1" -Action git-bridge
+echo.
+pause
+exit /b 0
+
+:RUN_BACKUP
+cls
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0START_PLANE.ps1" -Action backup
+echo.
+pause
+exit /b 0
+
+:RUN_REACTOR
+cls
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0START_PLANE.ps1" -Action reactor
+echo.
+pause
 exit /b 0
 
 :EXIT

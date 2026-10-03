@@ -236,15 +236,64 @@ Events are persisted to `omega/data/plane_webhook_events.jsonl` and can be inspe
 
 ## 9. Verification & Regression Testing
 
-Run the complete test suite (both base integration and advanced modules):
+Run the complete test suite (base integration, advanced modules, and extension suite):
 ```bash
-python -m unittest tests/test_plane_integration.py tests/test_plane_advanced.py
+pytest tests/test_plane_integration.py tests/test_plane_advanced.py tests/test_plane_extensions.py -v
 ```
 Expected output:
 ```text
-.............
-----------------------------------------------------------------------
-Ran 13 tests in 2.85s
-
-OK
+============================= 18 passed in 1.70s ==============================
 ```
+
+---
+
+## 10. Git-to-Plane Synchronizer & Release Notes (`plane_git_bridge.py`)
+
+Correlates repository git commits with Plane CE projects, attaches audit trail comments to issues, and compiles structured release changelogs:
+
+```bash
+# Print structured release changelog grouped by department (CORE, CAP, FLEET, INTEL)
+python omega/orchestration/plane_git_bridge.py --count 10 --changelog
+
+# Stage or sync commit audit comments into Plane issues
+python omega/orchestration/plane_git_bridge.py --count 10 --dry-run
+```
+
+---
+
+## 11. Workspace Backup, Export & Restoration Engine (`plane_backup.py`)
+
+Exports complete workspace architectures (projects, cycles, states, issues) to JSON archives and enables instantaneous disaster recovery:
+
+```bash
+# Export full workspace backup & generate markdown dossier
+python omega/orchestration/plane_backup.py --dry-run --workspace omega
+
+# Restore workspace from an existing backup archive
+python omega/orchestration/plane_backup.py --restore omega/data/backups/plane_backup_omega_<timestamp>.json --dry-run
+```
+
+---
+
+## 12. Autonomous Agent Reactor & Verification Logger (`plane_agent_reactor.py`)
+
+Event-driven task loop that listens to incoming webhooks and triggers autonomous execution:
+- **`issue.created`**: Analyzes task scope, tags priority (`urgent`, `high`, `medium`), and attaches the OMEGA verification rubric.
+- **`issue.updated`**: Detects completion transitions (`done`, `completed`), runs automated verification suites, and seals the pass/fail cryptographic evidence onto the ticket.
+
+```bash
+# Simulate issue creation event reaction
+python omega/orchestration/plane_agent_reactor.py --test-event created --dry-run
+
+# Simulate issue completion verification reaction
+python omega/orchestration/plane_agent_reactor.py --test-event completed --dry-run
+```
+
+---
+
+## 13. Interactive Browser Cockpit (`PLANE_CONTROL_CENTER.html`)
+
+Access `PLANE_CONTROL_CENTER.html` in any browser or launch directly from `START_PLANE.bat` (`[D]`):
+- Real-time HTTP health probes on ports 8095 (Ingress) and 8096 (Webhook Reactor).
+- 1-click test webhook dispatches and event simulation buttons.
+- Live streaming log terminal monitoring stack status and incoming payloads.
