@@ -33,3 +33,20 @@ def test_index_html_has_unified_navigation_tabs():
     assert "Plane CE" in content
     assert "TradeNexus" in content
     assert "HR 1781" in content or "Job Strike" in content
+    assert "Target 300 Strike" in content
+    assert "7,656 Workforce" in content
+
+def test_strike_300_dossiers_and_workforce_inventory():
+    """Verify that Target 300 dossiers and master workforce explorer are compiled."""
+    import sqlite3
+    db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "outreach_tracker.db"))
+    assert os.path.exists(db_path), "Missing outreach_tracker.db"
+    
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM strike_300_dossiers")
+    row = cur.fetchone()
+    conn.close()
+    
+    assert row is not None and row[0] == 300, f"Expected 300 dossiers, found {row[0] if row else 0}"
+

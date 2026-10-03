@@ -34,7 +34,21 @@ const SUBSYSTEMS = {
   },
   career: {
     id: 'career',
-    name: 'HR 1781 & Job Strike Force',
+    name: 'HR 1781 Contacts',
+    port: null,
+    healthUrl: null,
+    status: 'ready'
+  },
+  strike300: {
+    id: 'strike300',
+    name: 'Target 300 Job Strike',
+    port: null,
+    healthUrl: null,
+    status: 'ready'
+  },
+  workforce: {
+    id: 'workforce',
+    name: '7,656 Agents & 3,790 Skills',
     port: null,
     healthUrl: null,
     status: 'ready'
@@ -45,7 +59,7 @@ let activeTab = 'aios';
 
 function switchTab(tabId) {
   activeTab = tabId;
-  const tabs = ['aios', 'tradenexus', 'plane', 'career', 'n8n'];
+  const tabs = ['aios', 'tradenexus', 'plane', 'career', 'strike300', 'workforce', 'n8n'];
   tabs.forEach(t => {
     const btn = document.getElementById(`tabBtn-${t}`);
     const panel = document.getElementById(`tabPanel-${t}`);

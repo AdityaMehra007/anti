@@ -103,10 +103,12 @@ Installed via `vercel-labs/skills` CLI for UI, React, prose, and cloud performan
 - [`vercel-cli-with-tokens`](.agents/skills/vercel-cli-with-tokens/SKILL.md): Manage deployments non-interactively using tokens
 - [`vercel-optimize`](.agents/skills/vercel-optimize/SKILL.md): Analyze and reduce Vercel compute costs, latency, and bandwidth
 
-### Supabase Database Ecosystem
-Synchronized from [`supabase/agent-skills`](https://github.com/supabase/agent-skills):
+### Database & SQL Quality Ecosystem
+Synchronized from [`supabase/agent-skills`](https://github.com/supabase/agent-skills) & [`sqlfluff/sqlfluff`](https://github.com/sqlfluff/sqlfluff):
 - [`supabase-postgres-best-practices`](.agents/skills/supabase-postgres-best-practices/SKILL.md): Schema design, indexing, RLS policy audit, query performance, and connection scaling rules
 - [`supabase`](.agents/skills/supabase/SKILL.md): Supabase product integration across Auth, Realtime, Storage, Edge Functions, and Vector search
+- [`sqlfluff`](.agents/skills/sqlfluff/SKILL.md): SQL linting, formatting, dialect validation (SQLite, PostgreSQL, MySQL), and automated quality gateways
+
 
 
 ### Tech Leads Club Skills Ecosystem

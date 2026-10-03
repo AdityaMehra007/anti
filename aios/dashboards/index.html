@@ -535,7 +535,13 @@
       🌐 TradeNexus B2B <span class="status-pill status-offline" id="badge-tradenexus">PORT :8000</span>
     </button>
     <button class="nav-tab" id="tabBtn-career" onclick="switchTab('career')">
-      🎯 HR 1781 & Job Strike <span class="status-pill status-online" id="badge-career">ONLINE</span>
+      🎯 HR 1781 Contacts <span class="status-pill status-online" id="badge-career">ONLINE</span>
+    </button>
+    <button class="nav-tab" id="tabBtn-strike300" onclick="switchTab('strike300')">
+      ⚡ Target 300 Strike <span class="status-pill status-online" id="badge-strike300">300 STAGED</span>
+    </button>
+    <button class="nav-tab" id="tabBtn-workforce" onclick="switchTab('workforce')">
+      🤖 7,656 Workforce <span class="status-pill status-online" id="badge-workforce">11,446 READY</span>
     </button>
     <button class="nav-tab" id="tabBtn-n8n" onclick="switchTab('n8n')">
       🔄 n8n Automations <span class="status-pill status-offline" id="badge-n8n">PORT :5678</span>
@@ -816,11 +822,11 @@
     </div>
   </div>
 
-  <!-- HR 1781 & JOB STRIKE PANEL -->
+  <!-- HR 1781 CONTACTS PANEL -->
   <div id="tabPanel-career" class="subsystem-panel" style="display:none;">
     <div class="card" style="margin-bottom: 20px;">
       <div class="card-header-flex">
-        <div class="card-title">🎯 HR 1781 & Target 300 Career Strike Console</div>
+        <div class="card-title">🎯 HR 1781 Talent Acquisition Directory</div>
         <div style="display:flex; gap: 8px;">
           <a href="/ALL_1781_HR_DASHBOARD.html" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Open Dashboard ↗</a>
         </div>
@@ -829,6 +835,38 @@
         1,781+ verified enterprise HR and talent acquisition leaders across India and Global Tech Hubs.
       </div>
       <iframe src="/ALL_1781_HR_DASHBOARD.html" class="iframe-container" title="HR 1781 Contacts"></iframe>
+    </div>
+  </div>
+
+  <!-- TARGET 300 JOB STRIKE PANEL -->
+  <div id="tabPanel-strike300" class="subsystem-panel" style="display:none;">
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-header-flex">
+        <div class="card-title">⚡ Target 300 High-Priority Job Strike Force Console</div>
+        <div style="display:flex; gap: 8px;">
+          <a href="/apps/job_application_studio/strike_300.html" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Open Strike Studio ↗</a>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        300 high-affinity corporate requisitions across Tier-1 MNCs and Bangalore tech corridors with fully compiled ATS resumes, STAR matrices, and multi-touch outreach cadences.
+      </div>
+      <iframe src="/apps/job_application_studio/strike_300.html" class="iframe-container" title="Target 300 Strike Force"></iframe>
+    </div>
+  </div>
+
+  <!-- 7,656 AGENTS & 3,790 SKILLS WORKFORCE PANEL -->
+  <div id="tabPanel-workforce" class="subsystem-panel" style="display:none;">
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-header-flex">
+        <div class="card-title">🤖 7,656 Autonomous Agents & 3,790 Skills Workforce Explorer</div>
+        <div style="display:flex; gap: 8px;">
+          <a href="/apps/job_application_studio/agents_and_skills_explorer.html" target="_blank" class="btn" style="padding: 6px 12px; font-size: 11px; text-decoration:none;">Open Full Workforce Studio ↗</a>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Complete enterprise catalog of 7,656 prompt-engineered execution agents and 3,790 specialized skills spanning 13 OMEGA operational modes.
+      </div>
+      <iframe src="/apps/job_application_studio/agents_and_skills_explorer.html" class="iframe-container" title="Workforce Explorer"></iframe>
     </div>
   </div>
 
