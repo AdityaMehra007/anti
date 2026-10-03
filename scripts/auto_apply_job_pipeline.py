@@ -119,21 +119,40 @@ def generate_eml_file(company: str, contact_name: str, to_email: str, subject: s
         f.write(msg.as_bytes())
 
 
-def run_auto_apply_cycle(batch_size: int = 10, offset: int = 0) -> dict:
+def run_auto_apply_cycle(batch_size: int = 10, offset: int = 0, unapplied_only: bool = True) -> dict:
     """Fetches targets and synthesizes complete application packets with audit records."""
     if not GLOBAL_DB.exists():
         return {"status": "error", "message": f"{GLOBAL_DB} not found"}
 
+    applied_ids = set()
+    if unapplied_only and TRACKER_DB.exists():
+        try:
+            conn_temp = sqlite3.connect(TRACKER_DB)
+            init_tracker_tables(conn_temp)
+            applied_ids = {r[0] for r in conn_temp.execute("SELECT target_id FROM automated_applications").fetchall()}
+            conn_temp.close()
+        except Exception:
+            pass
+
     conn_global = sqlite3.connect(GLOBAL_DB)
     cur_global = conn_global.cursor()
     
-    cur_global.execute("""
-        SELECT target_id, company, job_title, contact_name, contact_position, email, fit_score, corridor
-        FROM global_10000_targets
-        ORDER BY fit_score DESC, target_id ASC
-        LIMIT ? OFFSET ?
-    """, (batch_size, offset))
-    rows = cur_global.fetchall()
+    if unapplied_only and applied_ids:
+        cur_global.execute("""
+            SELECT target_id, company, job_title, contact_name, contact_position, email, fit_score, corridor
+            FROM global_10000_targets
+            ORDER BY fit_score DESC, target_id ASC
+        """)
+        all_rows = cur_global.fetchall()
+        rows = [r for r in all_rows if r[0] not in applied_ids][offset:offset + batch_size]
+    else:
+        cur_global.execute("""
+            SELECT target_id, company, job_title, contact_name, contact_position, email, fit_score, corridor
+            FROM global_10000_targets
+            ORDER BY fit_score DESC, target_id ASC
+            LIMIT ? OFFSET ?
+        """, (batch_size, offset))
+        rows = cur_global.fetchall()
     conn_global.close()
 
     if not rows:

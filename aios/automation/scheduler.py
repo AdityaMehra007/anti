@@ -34,7 +34,7 @@ from automation_bridge import AutomationBridge
 
 
 class AutomationScheduler:
-    def __init__(self, check_interval_sec: int = 60):
+    def __init__(self, check_interval_sec: int = 30):
         self.interval = check_interval_sec
         self.bridge = AutomationBridge()
         self.last_health_sync = 0.0
@@ -100,11 +100,11 @@ class AutomationScheduler:
             except Exception as e:
                 print(f"    [!] Audit cycle error: {e}")
 
-        # Job 5: Continuous Auto-Apply Job Pipeline (Every 20 minutes = 1200s)
+        # Job 5: Continuous Auto-Apply Job Pipeline (Every 1 minute = 60s)
         if not hasattr(self, 'last_auto_apply_sync'):
             self.last_auto_apply_sync = 0.0
-        if now - self.last_auto_apply_sync >= 1200:
-            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [SCHEDULER] Running Universal Auto-Apply Job Pipeline...")
+        if now - self.last_auto_apply_sync >= 60:
+            print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [SCHEDULER] Running Universal Auto-Apply Job Pipeline (Every Minute)...")
             try:
                 auto_apply_script = Path("e:/anti/scripts/auto_apply_job_pipeline.py")
                 if auto_apply_script.exists():
@@ -112,7 +112,7 @@ class AutomationScheduler:
                     spec = importlib.util.spec_from_file_location("auto_apply_pipeline", str(auto_apply_script))
                     mod = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(mod)
-                    res = mod.run_auto_apply_cycle(batch_size=5, offset=0)
+                    res = mod.run_auto_apply_cycle(batch_size=5, unapplied_only=True)
                     print(f"    [OK] Auto-apply pipeline processed {res.get('processed_count', 0)} applications.")
                     self.last_auto_apply_sync = now
             except Exception as e:
@@ -139,7 +139,7 @@ class AutomationScheduler:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="AIOS Automation Scheduler")
     parser.add_argument("--once", action="store_true", help="Execute single maintenance cycle and exit")
-    parser.add_argument("--interval", type=int, default=60, help="Loop interval in seconds")
+    parser.add_argument("--interval", type=int, default=30, help="Loop interval in seconds")
     args = parser.parse_args()
 
     sched = AutomationScheduler(check_interval_sec=args.interval)
