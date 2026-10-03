@@ -527,6 +527,22 @@
       "payment_terms": "Net 30 Days",
       "credit_rating": "AA",
       "joined_date": "2027-04-20"
+    },
+    {
+      "account_id": "ACC-TEST-1791049080288724900",
+      "company_name": "Bangalore Test Hydraulics Pvt Ltd",
+      "hub_location": "Doddaballapur Industrial Area, Bengaluru",
+      "industry_sector": "High-Pressure Hydraulic Valves",
+      "export_turnover_annual_eur": 1500000.0,
+      "decision_maker_name": "Test Director",
+      "decision_maker_title": "Managing Director",
+      "contract_tier": "GROWTH",
+      "mrr_inr": 30000.0,
+      "arr_inr": 360000.0,
+      "status": "ACTIVE",
+      "payment_terms": "Net 30 Days",
+      "credit_rating": "AA",
+      "joined_date": "2027-04-20"
     }
   ],
   "orders": [
@@ -1906,7 +1922,58 @@
       "sha256_audit_seal": "abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
       "created_at": "2027-04-22T10:00:00",
       "settled_at": null
+    },
+    {
+      "order_id": "ORD-AUTO-03173755",
+      "client_id": "ACC-BLR-001",
+      "client_name": "Precision Auto Machining Pvt Ltd",
+      "buyer_counterparty": "Muller Automobiltechnik GmbH",
+      "buyer_country": "Germany",
+      "consignment_value_eur": 150000.0,
+      "currency": "INR",
+      "platform_fee_inr": 75000.0,
+      "lc_number": "VECTIS-LC-TIRUPUR-2027-104-20261003173755",
+      "docket_status": "DISCREPANCY_FLAGGED",
+      "cbam_required": false,
+      "cbam_tariff_eur": 0.0,
+      "sha256_audit_seal": "33eb826b55a67eec69c506e399fd10fd4439ad3eb1715661c779e7d503c1010b",
+      "created_at": "2026-10-03T23:07:55.119746",
+      "settled_at": "2026-10-03T23:07:55.119775"
+    },
+    {
+      "order_id": "ORD-AUTO-91049075",
+      "client_id": "ACC-BLR-001",
+      "client_name": "Precision Auto Machining Pvt Ltd",
+      "buyer_counterparty": "Muller Automobiltechnik GmbH",
+      "buyer_country": "Germany",
+      "consignment_value_eur": 150000.0,
+      "currency": "INR",
+      "platform_fee_inr": 75000.0,
+      "lc_number": "DKT-1791049075",
+      "docket_status": "DISCREPANCY_FLAGGED",
+      "cbam_required": false,
+      "cbam_tariff_eur": 0.0,
+      "sha256_audit_seal": "0000000000000000000000000000000000000000000000000000000000000000",
+      "created_at": "2026-10-03T23:07:55.136981",
+      "settled_at": "2026-10-03T23:07:55.136995"
+    },
+    {
+      "order_id": "ORD-TEST-1791049080296504900",
+      "client_id": "ACC-BLR-001",
+      "client_name": "Precision Auto Machining Pvt Ltd",
+      "buyer_counterparty": "Bosch Rexroth AG",
+      "buyer_country": "Germany",
+      "consignment_value_eur": 220000.0,
+      "currency": "EUR",
+      "platform_fee_inr": 28000.0,
+      "lc_number": "LC-TEST-9991",
+      "docket_status": "AUDITED_PASSED",
+      "cbam_required": false,
+      "cbam_tariff_eur": 0.0,
+      "sha256_audit_seal": "abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+      "created_at": "2027-04-22T10:00:00",
+      "settled_at": null
     }
   ],
-  "last_updated": "2026-10-03T22:51:07.131124"
+  "last_updated": "2026-10-03T23:08:00.298311"
 }

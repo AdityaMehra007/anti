@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import re
 import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Any, Callable, Dict, List, Optional
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -138,21 +139,68 @@ class PlaneAgentReactor:
             return reaction
 
 
+class WebhookHandler(BaseHTTPRequestHandler):
+    reactor: Optional[PlaneAgentReactor] = None
+
+    def do_POST(self):
+        content_length = int(self.headers.get("Content-Length", 0))
+        post_data = self.rfile.read(content_length)
+        try:
+            payload = json.loads(post_data.decode("utf-8")) if post_data else {}
+        except Exception:
+            payload = {}
+
+        event_type = self.headers.get("x-plane-event", payload.get("event", "issue.updated"))
+        res = self.reactor.process_event(event_type, payload) if self.reactor else {"status": "ok"}
+        
+        resp_data = json.dumps(res).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(resp_data)))
+        self.end_headers()
+        self.wfile.write(resp_data)
+
+    def do_GET(self):
+        resp_data = json.dumps({"status": "ok", "service": "plane_agent_reactor", "port": 8092}).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(resp_data)))
+        self.end_headers()
+        self.wfile.write(resp_data)
+
+    def log_message(self, format, *args):
+        return
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="OMEGA Plane Agent Reactor")
     parser.add_argument("--test-event", choices=["created", "completed"], default="created", help="Simulate a test event")
     parser.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode")
     parser.add_argument("--sync", action="store_true", help="Run against live Plane server")
+    parser.add_argument("--port", type=int, default=None, help="Start HTTP Webhook server on port")
 
     args = parser.parse_args()
     is_dry_run = args.dry_run or (not args.sync)
+
+    reactor = PlaneAgentReactor(dry_run=is_dry_run)
+
+    if args.port:
+        from http.server import HTTPServer
+        WebhookHandler.reactor = reactor
+        server = HTTPServer(("127.0.0.1", args.port), WebhookHandler)
+        print(f"[*] Plane Webhook Reactor listening on http://127.0.0.1:{args.port}/webhook")
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            server.server_close()
+        return
 
     print("===============================================================================")
     print("                     OMEGA PLANE AGENT REACTOR                                 ")
     print(f"  Mode: {'DRY-RUN SIMULATION' if is_dry_run else 'LIVE'} | Test Event: {args.test_event}")
     print("===============================================================================")
-
-    reactor = PlaneAgentReactor(dry_run=is_dry_run)
 
     if args.test_event == "created":
         dummy_event = {

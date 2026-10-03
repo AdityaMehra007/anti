@@ -97,10 +97,10 @@ class SupervisorManager:
 
     def load_default_services(self):
         # 1. AIOS Gateway on port 8090
-        gateway_script = os.path.join(ROOT_DIR, "aios", "services", "gateway.py")
+        gateway_script = os.path.join(ROOT_DIR, "aios", "ai", "gateway.py")
         self.register_service(
             name="aios_gateway",
-            command=[sys.executable, gateway_script],
+            command=[sys.executable, gateway_script, "8090"],
             port=8090,
             auto_restart=True,
             max_restarts=5
@@ -117,10 +117,10 @@ class SupervisorManager:
         )
 
         # 3. Plane Webhook Reactor on port 8092
-        plane_reactor_script = os.path.join(ROOT_DIR, "plane", "plane_webhook_reactor.py")
+        plane_reactor_script = os.path.join(ROOT_DIR, "omega", "orchestration", "plane_agent_reactor.py")
         self.register_service(
             name="plane_webhook_reactor",
-            command=[sys.executable, plane_reactor_script, "--port", "8092"],
+            command=[sys.executable, plane_reactor_script, "--port", "8092", "--dry-run"],
             port=8092,
             auto_restart=True,
             max_restarts=5
@@ -254,6 +254,30 @@ class SupervisorHTTPHandler(BaseHTTPRequestHandler):
         if path == "/status" or path == "/":
             status = self.manager.get_status() if self.manager else {}
             payload = json.dumps({"status": "ok", "services": status}, indent=2).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+
+        if path == "/start-all":
+            if self.manager:
+                self.manager.start_all()
+            payload = json.dumps({"status": "ok", "action": "start-all"}).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+
+        if path == "/stop-all":
+            if self.manager:
+                self.manager.stop_all()
+            payload = json.dumps({"status": "ok", "action": "stop-all"}).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.send_header("Access-Control-Allow-Origin", "*")
