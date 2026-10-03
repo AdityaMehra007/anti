@@ -2,7 +2,7 @@
 **Candidate:** Aditya Mehra  
 **Academic Foundation:** BBA International Business (Dayananda Sagar University '26)  
 **Location:** Bengaluru, Karnataka, India  
-**Generated:** October 03, 2026 (18:31 UTC)  
+**Generated:** October 03, 2026 (18:33 UTC)  
 
 ---
 
@@ -10,8 +10,8 @@
 
 | Lifecycle Stage | Volume Staged |
 | :--- | :--- |
-| `STAGED_READY_FOR_DISPATCH` | **226** |
-| `TOUCH1_DISPATCHED` | **74** |
+| `STAGED_READY_FOR_DISPATCH` | **174** |
+| `TOUCH1_DISPATCHED` | **126** |
 
 ### Top Employer Affinity Volume
 | Employer | Staged Target Requisitions |
