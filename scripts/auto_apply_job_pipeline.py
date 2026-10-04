@@ -51,34 +51,37 @@ CANDIDATE = {
 
 def init_tracker_tables(conn: sqlite3.Connection):
     cur = conn.cursor()
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS automated_applications (
-            application_id TEXT PRIMARY KEY,
-            target_id TEXT,
-            company TEXT,
-            job_title TEXT,
-            contact_name TEXT,
-            contact_email TEXT,
-            fit_score REAL,
-            corridor TEXT,
-            status TEXT,
-            gmail_url TEXT,
-            eml_path TEXT,
-            proof_hash TEXT,
-            dispatched_at TEXT
-        )
-    """)
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS automated_application_events (
-            event_id INTEGER PRIMARY KEY AUTOINCREMENT,
-            application_id TEXT,
-            target_id TEXT,
-            event_type TEXT,
-            proof_hash TEXT,
-            timestamp TEXT
-        )
-    """)
-    conn.commit()
+    try:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS automated_applications (
+                application_id TEXT PRIMARY KEY,
+                target_id TEXT,
+                company TEXT,
+                job_title TEXT,
+                contact_name TEXT,
+                contact_email TEXT,
+                fit_score REAL,
+                corridor TEXT,
+                status TEXT,
+                gmail_url TEXT,
+                eml_path TEXT,
+                proof_hash TEXT,
+                dispatched_at TEXT
+            )
+        """)
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS automated_application_events (
+                event_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                application_id TEXT,
+                target_id TEXT,
+                event_type TEXT,
+                proof_hash TEXT,
+                timestamp TEXT
+            )
+        """)
+        conn.commit()
+    finally:
+        cur.close()
 
 
 def compose_pitch(company: str, job_title: str, contact_name: str, corridor: str) -> tuple[str, str]:
@@ -126,13 +129,20 @@ def run_auto_apply_cycle(batch_size: int = 10, offset: int = 0, unapplied_only: 
 
     applied_ids = set()
     if unapplied_only and TRACKER_DB.exists():
+        conn_temp = None
+        cur_temp = None
         try:
             conn_temp = sqlite3.connect(TRACKER_DB)
             init_tracker_tables(conn_temp)
-            applied_ids = {r[0] for r in conn_temp.execute("SELECT target_id FROM automated_applications").fetchall()}
-            conn_temp.close()
+            cur_temp = conn_temp.cursor()
+            applied_ids = {r[0] for r in cur_temp.execute("SELECT target_id FROM automated_applications").fetchall()}
         except Exception:
             pass
+        finally:
+            if cur_temp:
+                cur_temp.close()
+            if conn_temp:
+                conn_temp.close()
 
     conn_global = sqlite3.connect(GLOBAL_DB)
     cur_global = conn_global.cursor()
@@ -238,9 +248,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Universal Auto Apply Job Engine")
     parser.add_argument("--batch", type=int, default=10, help="Number of applications to process")
     parser.add_argument("--offset", type=int, default=0, help="Offset in global targets list")
+    parser.add_argument("--all", action="store_true", help="Process all remaining unapplied targets in pool")
     args = parser.parse_args()
 
-    result = run_auto_apply_cycle(batch_size=args.batch, offset=args.offset)
+    batch_to_run = 10000 if args.all else args.batch
+    result = run_auto_apply_cycle(batch_size=batch_to_run, offset=args.offset)
     print(f"[*] Processed {result.get('processed_count', 0)} automated job applications.")
-    for app in result.get("applications", []):
+    for app in result.get("applications", [])[:15]:
         print(f"    -> {app['application_id']}: {app['company']} ({app['contact']}) => STAGED")
+    if result.get("processed_count", 0) > 15:
+        print(f"    ... and {result.get('processed_count', 0) - 15} more applications staged.")

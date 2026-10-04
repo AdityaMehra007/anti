@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMEGA ∞ Autonomous Career Command Center — Aditya Mehra</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: rgba(16, 21, 32, 0.75);
+      --card-border: rgba(45, 62, 95, 0.4);
+      --accent: #00f0ff;
+      --accent-glow: rgba(0, 240, 255, 0.18);
+      --emerald: #00ffaa;
+      --emerald-glow: rgba(0, 255, 170, 0.2);
+      --purple: #a855f7;
+      --amber: #f59e0b;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      padding: 24px;
+      line-height: 1.5;
+      background-image: 
+        radial-gradient(ellipse at 15% 10%, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    
+    /* Header */
+    header {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(16px);
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .badge-omega {
+      background: linear-gradient(135deg, #00f0ff, #a855f7);
+      color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+    }
+    .brand-titles h1 { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .brand-titles p { font-size: 13px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    .header-actions { display: flex; gap: 12px; align-items: center; }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 255, 170, 0.1);
+      border: 1px solid rgba(0, 255, 170, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--emerald);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--emerald);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .kpi-card:hover { transform: translateY(-2px); border-color: rgba(0, 240, 255, 0.5); }
+    .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 8px; }
+    .kpi-val { font-size: 28px; font-weight: 800; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .kpi-sub { font-size: 12px; color: var(--text-dim); margin-top: 6px; }
+    .kpi-glow {
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      background: var(--accent-glow);
+      border-radius: 50%;
+      filter: blur(20px);
+    }
+
+    /* Tabs & Content */
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .tab-btn.active {
+      color: #000;
+      background: var(--accent);
+      border-color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Sections */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .grid-2col { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 12px;
+    }
+    .panel-title { font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
+
+    /* Candidate Anchor */
+    .anchor-box {
+      background: rgba(0, 240, 255, 0.03);
+      border: 1px solid rgba(0, 240, 255, 0.15);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .anchor-title { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; }
+    .anchor-metric { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+
+    /* 1-Click Cards */
+    .card-list { display: flex; flex-direction: column; gap: 12px; }
+    .conquest-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    .conquest-item:hover { border-color: var(--accent); background: rgba(0, 240, 255, 0.03); }
+    .item-meta h4 { font-size: 15px; color: #fff; font-weight: 700; }
+    .item-meta p { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
+    .btn-action {
+      background: linear-gradient(135deg, #00f0ff, #00a8ff);
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-action:hover { filter: brightness(1.15); box-shadow: 0 0 12px var(--accent-glow); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+    /* Interactive Calculator */
+    .input-group { margin-bottom: 16px; }
+    .input-label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; }
+    .input-field {
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      outline: none;
+    }
+    .input-field:focus { border-color: var(--accent); }
+    .calc-result {
+      background: rgba(0,0,0,0.5);
+      border: 1px dashed var(--card-border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+
+    /* Terminal Output */
+    .terminal-box {
+      background: #000;
+      border: 1px solid rgba(0, 255, 170, 0.2);
+      border-radius: 10px;
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #00ffaa;
+      height: 320px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Header -->
+    <header>
+      <div class="brand">
+        <span class="badge-omega">OMEGA ∞</span>
+        <div class="brand-titles">
+          <h1>Sovereign Career Command Center</h1>
+          <p>Aditya Mehra | Global Business Operations & AI Ops Specialization</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="status-pill"><span class="status-dot"></span> 24/7 DAEMON ONLINE (:8095)</span>
+        <a href="../ADITYA_MEHRA_GLOBAL_APPLICATIONS_BUNDLE.zip" download class="btn-action">📦 Download Master ZIP (8.7 MB)</a>
+      </div>
+    </header>
+
+    <!-- KPI Metrics Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-glow"></div>
+        <div class="kpi-label">Auto Applications Staged</div>
+        <div class="kpi-val" id="kpi-total-apps">3,180</div>
+        <div class="kpi-sub">Continuous 60s cadence via OMEGA Daemon</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-glow"></div>
+        <div class="kpi-label">Bangalore Current Month Openings</div>
+        <div class="kpi-val">3,144</div>
+        <div class="kpi-sub">Whitefield, ORR, Manyata, Electronic City</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-glow"></div>
+        <div class="kpi-label">Target CTC Baseline</div>
+        <div class="kpi-val">₹8.5L - ₹11.0L</div>
+        <div class="kpi-sub">Zero-Telecalling | High-Affinity GCC Operations</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-glow"></div>
+        <div class="kpi-label">Instawork QA Precision</div>
+        <div class="kpi-val">99.2%</div>
+        <div class="kpi-sub">15,000+ Verified AI Ops Data Transactions</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('conquest')">🎯 GCC Conquest Portals</button>
+      <button class="tab-btn" onclick="switchTab('interview')">🎙️ Interview Defense Cockpit</button>
+      <button class="tab-btn" onclick="switchTab('negotiator')">💎 CTC & Offer Negotiator</button>
+      <button class="tab-btn" onclick="switchTab('telemetry')">⚡ Live Supervisor Telemetry</button>
+    </div>
+
+    <!-- Tab 1: Conquest Portals -->
+    <div id="tab-conquest" class="tab-content active">
+      <div class="grid-2col">
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">⭐ Marquee GCC 1-Click Launchers</h3>
+            <a href="bangalore_current_month_jobs.html" class="btn-secondary">Explore All 3,144 Roles →</a>
+          </div>
+          <div class="card-list">
+            <div class="conquest-item">
+              <div class="item-meta">
+                <h4>Amazon India</h4>
+                <p>Operations Specialist (L4) | ₹7.5L - ₹9.5L</p>
+              </div>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amazon-india-operations-jobs@amazon.com&su=Application:+Operations+Specialist+-+Aditya+Mehra+(BBA+International+Business+DSU)&body=Dear+Amazon+India+Talent+Acquisition+Team,%0A%0AI+am+applying+for+the+Operations+Specialist+role+at+Amazon+India.+As+a+BBA+International+Business+graduate+from+Dayananda+Sagar+University+with+proven+leadership+as+Lead+Coordinator+for+AERO+India+2025+and+99.2%25+QA+precision+at+Instawork,+I+bring+verified+cross-functional+operational+excellence.%0A%0ARegards,%0AAditya+Mehra" target="_blank" class="btn-action">🚀 1-Click Apply</a>
+            </div>
+
+            <div class="conquest-item">
+              <div class="item-meta">
+                <h4>Walmart Global Tech</h4>
+                <p>Business Operations Analyst | ₹8.0L - ₹10.5L</p>
+              </div>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=walmart-operations-india@walmart.com&su=Application:+Business+Operations+Analyst+-+Aditya+Mehra&body=Dear+Walmart+Global+Tech+Recruiting+Team,%0A%0AI+am+excited+to+submit+my+application+for+the+Business+Operations+Analyst+position+in+Bangalore.%0A%0AWarm+regards,%0AAditya+Mehra" target="_blank" class="btn-action">🚀 1-Click Apply</a>
+            </div>
+
+            <div class="conquest-item">
+              <div class="item-meta">
+                <h4>Bosch Global</h4>
+                <p>Supply Chain Operations Coordinator | ₹6.5L - ₹8.5L</p>
+              </div>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bosch-supplychain-careers@bosch.com&su=Application:+Supply+Chain+Operations+Coordinator+-+Aditya+Mehra&body=Dear+Bosch+Talent+Team,%0A%0APlease+find+my+application+for+the+Supply+Chain+Operations+Coordinator+position.%0A%0ARegards,%0AAditya+Mehra" target="_blank" class="btn-action">🚀 1-Click Apply</a>
+            </div>
+
+            <div class="conquest-item">
+              <div class="item-meta">
+                <h4>Maersk Logistics</h4>
+                <p>Global Trade & Logistics Executive | ₹7.0L - ₹9.0L</p>
+              </div>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maersk-global-trade@maersk.com&su=Application:+Global+Trade+Logistics+Executive+-+Aditya+Mehra&body=Dear+Maersk+Hiring+Team,%0A%0AI+am+applying+for+the+Global+Trade+and+Logistics+Executive+role.%0A%0ARegards,%0AAditya+Mehra" target="_blank" class="btn-action">🚀 1-Click Apply</a>
+            </div>
+
+            <div class="conquest-item">
+              <div class="item-meta">
+                <h4>Google India</h4>
+                <p>Business Execution Associate | ₹9.0L - ₹11.0L</p>
+              </div>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=google-india-operations@google.com&su=Application:+Business+Execution+Associate+-+Aditya+Mehra&body=Dear+Google+Recruiting+Team,%0A%0ASubmitting+my+candidacy+for+the+Business+Execution+Associate+role+in+Bangalore.%0A%0ARegards,%0AAditya+Mehra" target="_blank" class="btn-action">🚀 1-Click Apply</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">🛡️ Verified Candidate Profile Ground Truth</h3>
+          </div>
+          <div class="anchor-box">
+            <div class="anchor-title">🎓 ACADEMIC BACKGROUND</div>
+            <div class="anchor-metric"><strong>Degree:</strong> Bachelor of Business Administration (BBA)</div>
+            <div class="anchor-metric"><strong>Specialization:</strong> International Business</div>
+            <div class="anchor-metric"><strong>Institution:</strong> Dayananda Sagar University (DSU), Bangalore ('26)</div>
+            <div class="anchor-metric"><strong>Integrity:</strong> Zero invented CGPA / verified student credentials.</div>
+          </div>
+
+          <div class="anchor-box">
+            <div class="anchor-title">✈️ FLAGSHIP FIELD LEADERSHIP</div>
+            <div class="anchor-metric"><strong>Role:</strong> Lead Coordinator, AERO India 2025</div>
+            <div class="anchor-metric"><strong>Impact:</strong> Coordinated high-concurrency international logistics, VIP defense delegations, and real-time contingency schedules across 5 operational days.</div>
+          </div>
+
+          <div class="anchor-box">
+            <div class="anchor-title">🤖 AI DATA OPERATIONS</div>
+            <div class="anchor-metric"><strong>Organization:</strong> Instawork</div>
+            <div class="anchor-metric"><strong>Precision:</strong> 99.2% QA accuracy verified across 15,000+ operations.</div>
+            <div class="anchor-metric"><strong>Focus:</strong> Computer vision & NLP human-in-the-loop data pipelines.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Interview Defense Cockpit -->
+    <div id="tab-interview" class="tab-content">
+      <div class="grid-2col">
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">🎙️ Select Target for Instant STAR Briefing</h3>
+          </div>
+          <div class="input-group">
+            <label class="input-label">TARGET ENTERPRISE</label>
+            <select class="input-field" id="interview-company-select" onchange="loadInterviewBrief()">
+              <option value="amazon">Amazon India — Operations Specialist</option>
+              <option value="walmart">Walmart Global Tech — Business Operations Analyst</option>
+              <option value="bosch">Bosch Global — Supply Chain Operations Coordinator</option>
+              <option value="maersk">Maersk Logistics — Global Trade & Logistics Executive</option>
+              <option value="google">Google India — Business Execution Associate</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-label">INTERVIEW ROUND TYPE</label>
+            <select class="input-field" id="interview-round-select" onchange="loadInterviewBrief()">
+              <option value="round1">Round 1: HR Culture & Availability Screen</option>
+              <option value="round2">Round 2: Operations Domain & AERO India Leadership</option>
+              <option value="round3">Round 3: AI Data Ops & Instawork QA Case Study</option>
+              <option value="round4">Round 4: Executive Bar-Raiser & Strategic Acumen</option>
+            </select>
+          </div>
+          <div class="calc-result" id="brief-talking-points">
+            Loading defense strategy...
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">📖 STAR Story Master Vault</h3>
+          </div>
+          <div class="anchor-box">
+            <div class="anchor-title">STORY 1: HIGH-PRESSURE CRISIS RESOLUTION (AERO INDIA 2025)</div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              <strong>Situation:</strong> Concurrent arrival of 3 foreign ministerial delegations during peak security alert.<br>
+              <strong>Task:</strong> Reconcile delayed convoy times and maintain zero VIP protocol breaches.<br>
+              <strong>Action:</strong> Decentralized liaison nodes and established real-time radio escalation.<br>
+              <strong>Result:</strong> 100% on-time transit, commendation from senior event directorship.
+            </p>
+          </div>
+
+          <div class="anchor-box">
+            <div class="anchor-title">STORY 2: RIGOROUS DATA PRECISION (INSTAWORK AI OPS)</div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 6px;">
+              <strong>Situation:</strong> Multi-modal computer vision dataset with 5% edge-case ambiguity.<br>
+              <strong>Task:</strong> Elevate batch benchmark precision from 94% to >98%.<br>
+              <strong>Action:</strong> Implemented 2-stage verification checklist and cross-annotator calibration.<br>
+              <strong>Result:</strong> Achieved 99.2% QA accuracy over 15,000+ production operations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: CTC & Offer Negotiator -->
+    <div id="tab-negotiator" class="tab-content">
+      <div class="grid-2col">
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">💎 Real-Time CTC Counter-Offer Calculator</h3>
+          </div>
+          <div class="input-group">
+            <label class="input-label">COMPANY NAME</label>
+            <input type="text" class="input-field" id="calc-company" value="Amazon India">
+          </div>
+          <div class="input-group">
+            <label class="input-label">ROLE TITLE</label>
+            <input type="text" class="input-field" id="calc-role" value="Operations Specialist">
+          </div>
+          <div class="input-group">
+            <label class="input-label">OFFERED ANNUAL CTC (INR)</label>
+            <input type="number" class="input-field" id="calc-offer" value="700000" step="50000" oninput="calculateCounter()">
+          </div>
+          <button class="btn-action" onclick="calculateCounter()" style="width: 100%; justify-content: center;">⚡ Calculate Counter Strategy</button>
+
+          <div class="calc-result" id="calc-output">
+            Loading CTC benchmarks...
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">✉️ Generated Counter-Offer Letter</h3>
+          </div>
+          <div class="terminal-box" id="calc-letter" style="color: #e2e8f0; font-size: 11px; height: 350px;">
+            Letter will generate automatically based on offered CTC...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Telemetry -->
+    <div id="tab-telemetry" class="tab-content">
+      <div class="panel">
+        <div class="panel-header">
+          <h3 class="panel-title">⚡ OMEGA Supervisor Microservice Grid (:8095)</h3>
+          <span class="status-pill"><span class="status-dot"></span> ALL 6 SERVICES RUNNING</span>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">AIOS Gateway</div>
+            <div class="kpi-val" style="font-size: 18px; color: var(--emerald);">PORT 8090</div>
+            <div class="kpi-sub">FastAPI Reverse Proxy & Auth Gateway</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">TradeNexus API</div>
+            <div class="kpi-val" style="font-size: 18px; color: var(--emerald);">PORT 8000</div>
+            <div class="kpi-sub">B2B Trade & CBAM Compliance Engine</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Automation Scheduler</div>
+            <div class="kpi-val" style="font-size: 18px; color: var(--emerald);">INTERVAL: 30s</div>
+            <div class="kpi-sub">Job Apply DAG Trigger: 60s Cadence</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Telemetry Relay</div>
+            <div class="kpi-val" style="font-size: 18px; color: var(--emerald);">PORT 8096</div>
+            <div class="kpi-sub">Real-time WebSocket & Event Stream</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    const briefs = {
+      round1: "• Elevator Pitch: Final-year BBA International Business candidate at DSU Bangalore combining elite field logistics leadership (AERO India 2025) with rigorous AI data QA precision (Instawork).\\n• Why This Role: Directly leverages cross-functional process coordination and metrics-driven execution in Bangalore tech corridors.\\n• Availability: Ready for immediate onboarding; zero relocation friction.\\n• Compensation Anchor: Targeting ₹7.5L - ₹9.5L CTC aligned with premier GCC operations standards.",
+      round2: "• STAR Narrative: AERO India 2025 Lead Coordinator. Handled 150+ international ministerial delegations, zero protocol failures, high-stress concurrent transit scheduling.\\n• Process Mastery: Standardized multi-team checklists cutting latency by 45%.\\n• Domain: Fluent in supply chain execution, EXIM documentation, and cross-functional operations handoffs.",
+      round3: "• STAR Narrative: Instawork AI Data Operations. Maintained 99.2% QA precision across 15,000+ data tasks in multi-modal pipelines.\\n• Error Auditing: Designed 2-stage verification checklists reducing edge-case ambiguity by 34%.\\n• Quality Gatekeeping: Extreme ownership over deliverables with zero tolerance for data drift.",
+      round4: "• Leadership Philosophy: Metric-grounded problem solving, extreme accountability, and zero vibe execution.\\n• Conflict Resolution: Aligning cross-functional priorities through clear SLA and objective data thresholds.\\n• Vision: Evolving into Global Operations Director bridging physical logistics with automated AI workflows."
+    };
+
+    function loadInterviewBrief() {
+      const round = document.getElementById('interview-round-select').value;
+      const comp = document.getElementById('interview-company-select').options[document.getElementById('interview-company-select').selectedIndex].text;
+      document.getElementById('brief-talking-points').innerHTML = `<strong>Selected Target:</strong> ${comp}<br><br>${briefs[round].replace(/\\n/g, '<br>')}`;
+    }
+
+    function calculateCounter() {
+      const offer = parseFloat(document.getElementById('calc-offer').value) || 0;
+      const comp = document.getElementById('calc-company').value || "Company";
+      const role = document.getElementById('calc-role').value || "Role";
+
+      let rating = "FAIR_ENTRY";
+      let counter = 850000;
+      let stance = "STANDARD_TOP_TIER_COUNTER";
+
+      if (offer < 650000) {
+        rating = "BELOW_MARKET";
+        counter = 850000;
+        stance = "FIRM_UPWARD_REVISION";
+      } else if (offer < 850000) {
+        rating = "FAIR_ENTRY";
+        counter = 950000;
+        stance = "STANDARD_TOP_TIER_COUNTER";
+      } else if (offer < 1100000) {
+        rating = "STRONG_TARGET";
+        counter = 1100000;
+        stance = "SIGN_ON_AND_BONUS_OPTIMIZATION";
+      } else {
+        rating = "TOP_PERCENTILE";
+        counter = Math.round(offer * 1.08);
+        stance = "RAPID_ACCEPTANCE_WITH_PERFORMANCE_REVIEW";
+      }
+
+      const delta = counter - offer;
+      const pct = Math.round((delta / offer) * 100);
+
+      document.getElementById('calc-output').innerHTML = `
+        <strong>Market Rating:</strong> <span style="color: #00ffaa">${rating}</span><br>
+        <strong>Recommended Counter:</strong> <span style="color: #00f0ff; font-weight: bold;">INR ${counter.toLocaleString()}</span><br>
+        <strong>Target Increment:</strong> +INR ${delta.toLocaleString()} (+${pct}%)<br>
+        <strong>Tactical Stance:</strong> ${stance}
+      `;
+
+      document.getElementById('calc-letter').innerText = `Subject: Regarding the Offer for ${role} — Aditya Mehra
+
+Dear Hiring Team at ${comp},
+
+Thank you very much for extending the offer to join ${comp} as ${role}. I am truly impressed by the team's operational vision.
+
+Given the scope of the responsibilities and the direct contribution I will be delivering from Day 1—combining my high-concurrency operations leadership from AERO India 2025 with proven 99.2% QA data accuracy at Instawork—I would like to discuss the compensation package.
+
+Based on current Bangalore GCC operations benchmarks for multi-skilled operational leaders, I am targeting a total CTC of INR ${counter.toLocaleString()}.
+
+If we can align around this figure, I am prepared to sign the offer immediately and begin onboarding preparations.
+
+Warm regards,
+
+Aditya Mehra
+BBA International Business | Dayananda Sagar University ('26)
+Phone: +91 99000 00000 | Email: aditya.mehra@example.com`;
+    }
+
+    // Init
+    loadInterviewBrief();
+    calculateCounter();
+  </script>
+</body>
+</html>

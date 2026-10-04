@@ -69,15 +69,33 @@ def create_export_bundle() -> Path:
                     rel_path = item.relative_to(APPS_DIR)
                     zf.write(item, arcname=str(rel_path))
 
-        # 6. Include Standalone Portals
+        # 6. Include Interview Defense Packs & Offer Strategies
+        prep_dir = APPS_DIR / "interview_prep"
+        if prep_dir.exists():
+            for item in prep_dir.rglob("*"):
+                if item.is_file():
+                    rel_path = item.relative_to(APPS_DIR)
+                    zf.write(item, arcname=str(rel_path))
+
+        offers_dir = APPS_DIR / "offer_strategies"
+        if offers_dir.exists():
+            for item in offers_dir.rglob("*"):
+                if item.is_file():
+                    rel_path = item.relative_to(APPS_DIR)
+                    zf.write(item, arcname=str(rel_path))
+
+        # 7. Include Standalone Portals
         blr_portal = ROOT_DIR / "apps" / "job_application_studio" / "bangalore_current_month_jobs.html"
         if blr_portal.exists():
             zf.write(blr_portal, arcname="portals/bangalore_current_month_jobs.html")
         launcher_portal = ROOT_DIR / "apps" / "job_application_studio" / "auto_apply_launcher.html"
         if launcher_portal.exists():
             zf.write(launcher_portal, arcname="portals/auto_apply_launcher.html")
+        cmd_center = ROOT_DIR / "apps" / "job_application_studio" / "career_command_center.html"
+        if cmd_center.exists():
+            zf.write(cmd_center, arcname="portals/career_command_center.html")
 
-    print(f"[✓] Successfully compiled ZIP archive: {BUNDLE_ZIP} ({BUNDLE_ZIP.stat().st_size:,} bytes)")
+    print(f"[OK] Successfully compiled ZIP archive: {BUNDLE_ZIP} ({BUNDLE_ZIP.stat().st_size:,} bytes)")
     return BUNDLE_ZIP
 
 
@@ -198,7 +216,7 @@ def generate_launcher_html():
 </html>
 """
     LAUNCHER_HTML.write_text(html, encoding="utf-8")
-    print(f"[✓] Wrote visual launcher to {LAUNCHER_HTML}")
+    print(f"[OK] Wrote visual launcher to {LAUNCHER_HTML}")
 
 
 if __name__ == "__main__":
