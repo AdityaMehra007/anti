@@ -29,12 +29,98 @@ from omega.integrations.plane_connector import PlaneClient
 AUDIT_LOG_PATH = REPO_ROOT / "omega" / "data" / "plane_agent_reactor_audit.jsonl"
 
 
+import sqlite3
+
+TRACKER_DB_PATH = REPO_ROOT / "data" / "outreach_tracker.db"
+
 class PlaneAgentReactor:
     """Event-driven autonomous reactor listening for Plane CE webhook dispatches."""
 
     def __init__(self, client: Optional[PlaneClient] = None, dry_run: bool = False) -> None:
         self.client = client or PlaneClient(dry_run=dry_run)
         AUDIT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        self._init_recruiter_db()
+
+    def _init_recruiter_db(self) -> None:
+        """Initializes inbound recruiter events table in outreach_tracker.db."""
+        if not TRACKER_DB_PATH.exists():
+            return
+        try:
+            conn = sqlite3.connect(str(TRACKER_DB_PATH))
+            cur = conn.cursor()
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS inbound_recruiter_events (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    event_id TEXT UNIQUE,
+                    company TEXT,
+                    recruiter_name TEXT,
+                    email TEXT,
+                    role TEXT,
+                    stage TEXT,
+                    message TEXT,
+                    ctc_lpa REAL,
+                    raw_payload TEXT,
+                    received_at TEXT
+                )
+            """)
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            print(f"[!] DB init notice: {e}")
+
+    def handle_recruiter_touchpoint(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        """Ingests and records an inbound recruiter message or interview invitation."""
+        company = payload.get("company", "Unknown Organization")
+        recruiter = payload.get("recruiter_name", payload.get("contact", "Talent Acquisition"))
+        email = payload.get("email", "")
+        role = payload.get("role", "Business Operations Associate")
+        stage = payload.get("stage", payload.get("status", "INBOUND_INTERVIEW_SHORTLIST"))
+        message = payload.get("message", "Profile reviewed and aligned with requirements.")
+        ctc_lpa = float(payload.get("ctc_lpa", payload.get("ctc_benchmark_lpa", 8.5)))
+        event_id = payload.get("event_id", f"REC-{int(datetime.now().timestamp() * 1000)}")
+
+        # Persist to SQLite
+        if TRACKER_DB_PATH.exists():
+            try:
+                conn = sqlite3.connect(str(TRACKER_DB_PATH))
+                cur = conn.cursor()
+                cur.execute("""
+                    INSERT OR REPLACE INTO inbound_recruiter_events 
+                    (event_id, company, recruiter_name, email, role, stage, message, ctc_lpa, raw_payload, received_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (event_id, company, recruiter, email, role, stage, message, ctc_lpa, json.dumps(payload), datetime.now().isoformat()))
+                conn.commit()
+                conn.close()
+            except Exception as e:
+                print(f"[!] Error saving recruiter event to DB: {e}")
+
+        reaction = {
+            "action": "recruiter_touchpoint_ingested",
+            "event_id": event_id,
+            "company": company,
+            "role": role,
+            "stage": stage,
+            "ctc_lpa": ctc_lpa,
+            "status": "INGESTED_ACTIVE"
+        }
+        self.log_reaction("recruiter_touchpoint", reaction)
+        return reaction
+
+    def get_recent_recruiter_events(self, limit: int = 50) -> List[Dict[str, Any]]:
+        """Retrieves recent inbound recruiter events from database."""
+        events = []
+        if TRACKER_DB_PATH.exists():
+            try:
+                conn = sqlite3.connect(str(TRACKER_DB_PATH))
+                conn.row_factory = sqlite3.Row
+                cur = conn.cursor()
+                cur.execute("SELECT * FROM inbound_recruiter_events ORDER BY id DESC LIMIT ?", (limit,))
+                for row in cur.fetchall():
+                    events.append(dict(row))
+                conn.close()
+            except Exception as e:
+                print(f"[!] Error reading recruiter events: {e}")
+        return events
 
     def log_reaction(self, event_type: str, details: Dict[str, Any]) -> None:
         """Appends reaction metadata to audit trail file."""
@@ -150,6 +236,18 @@ class WebhookHandler(BaseHTTPRequestHandler):
         except Exception:
             payload = {}
 
+        if self.path == "/api/recruiter-touchpoint" or self.path == "/api/inbound":
+            # Direct Recruiter Inbound Ingestion
+            res = self.reactor.handle_recruiter_touchpoint(payload) if self.reactor else {"status": "ok"}
+            resp_data = json.dumps(res).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(resp_data)))
+            self.end_headers()
+            self.wfile.write(resp_data)
+            return
+
         event_type = self.headers.get("x-plane-event", payload.get("event", "issue.updated"))
         res = self.reactor.process_event(event_type, payload) if self.reactor else {"status": "ok"}
         
@@ -162,6 +260,17 @@ class WebhookHandler(BaseHTTPRequestHandler):
         self.wfile.write(resp_data)
 
     def do_GET(self):
+        if self.path == "/api/recruiter-events":
+            events = self.reactor.get_recent_recruiter_events() if self.reactor else []
+            resp_data = json.dumps({"status": "ok", "events": events, "count": len(events)}).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(resp_data)))
+            self.end_headers()
+            self.wfile.write(resp_data)
+            return
+
         resp_data = json.dumps({"status": "ok", "service": "plane_agent_reactor", "port": 8092}).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
@@ -169,6 +278,13 @@ class WebhookHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(resp_data)))
         self.end_headers()
         self.wfile.write(resp_data)
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, x-plane-event")
+        self.end_headers()
 
     def log_message(self, format, *args):
         return

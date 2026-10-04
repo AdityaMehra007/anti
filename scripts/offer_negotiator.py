@@ -1,107 +1,140 @@
 #!/usr/bin/env python3
 """
-scripts/offer_negotiator.py — Automated Compensation & Offer Negotiation Engine
-================================================================================
-Part of the OMEGA Sovereign Autonomous System.
-Models Bangalore GCC operations compensation brackets and generates structured,
-high-leverage counter-offer letters and strategy briefs for Aditya Mehra.
+scripts/offer_negotiator.py — OMEGA Autonomous Offer Negotiation & CTC Maximizer Engine
+Models incoming CTC offers against the Bangalore GCC & Startup compensation benchmarks,
+evaluates fixed vs variable bonus sensitivity, and drafts formal counter-offer letters.
 """
 
-import sys
 import os
+import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
+import argparse
 import json
+from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Tuple
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-OFFERS_DIR = REPO_ROOT / "applications_generated" / "offer_strategies"
-OFFERS_DIR.mkdir(parents=True, exist_ok=True)
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
-GCC_BENCHMARKS = {
-    "entry_operations_floor": 650000,
-    "market_median_base": 850000,
-    "top_quartile_target": 950000,
-    "elite_stretch_ceiling": 1100000,
+BANGALORE_GCC_BENCHMARKS = {
+    "P25_BASELINE": 6.5,    # 25th percentile entry CTC (in Lakhs INR)
+    "P50_MEDIAN": 8.5,      # 50th percentile market median CTC
+    "P75_PREMIUM": 10.5,    # 75th percentile top-tier performer CTC
+    "P90_ELITE": 12.0       # 90th percentile high-growth unicorn/GCC cap
 }
 
 class OfferNegotiator:
-    """Calculates compensation leverage and generates counter-offer strategies."""
+    """Evaluates offers and constructs executive counter-offers for Aditya Mehra."""
 
-    @staticmethod
-    def evaluate_offer(offered_ctc: float) -> Dict[str, Any]:
-        """Evaluates an initial offer against Bangalore GCC operations benchmarks."""
-        if offered_ctc < GCC_BENCHMARKS["entry_operations_floor"]:
-            rating = "BELOW_MARKET"
-            recommended_counter = GCC_BENCHMARKS["market_median_base"]
-            stance = "FIRM_UPWARD_REVISION"
-        elif offered_ctc < GCC_BENCHMARKS["market_median_base"]:
-            rating = "FAIR_ENTRY"
-            recommended_counter = GCC_BENCHMARKS["top_quartile_target"]
-            stance = "STANDARD_TOP_TIER_COUNTER"
-        elif offered_ctc < GCC_BENCHMARKS["elite_stretch_ceiling"]:
-            rating = "STRONG_TARGET"
-            recommended_counter = GCC_BENCHMARKS["elite_stretch_ceiling"]
-            stance = "SIGN_ON_AND_BONUS_OPTIMIZATION"
+    def __init__(self, candidate_name: str = "Aditya Mehra"):
+        self.candidate_name = candidate_name
+        self.benchmarks = BANGALORE_GCC_BENCHMARKS
+
+    def evaluate_offer(self, offered_ctc: float) -> Dict[str, Any]:
+        """Calculates percentile standing, gap to P75 target, and leverage ratio."""
+        median = self.benchmarks["P50_MEDIAN"]
+        p75 = self.benchmarks["P75_PREMIUM"]
+        
+        if offered_ctc < self.benchmarks["P25_BASELINE"]:
+            standing = "BELOW_MARKET"
+            suggested_counter = median
+        elif offered_ctc < median:
+            standing = "MARKET_ENTRY"
+            suggested_counter = round(offered_ctc * 1.20, 2)
+        elif offered_ctc < p75:
+            standing = "COMPETITIVE_MEDIAN"
+            suggested_counter = round(min(offered_ctc * 1.15, p75), 2)
         else:
-            rating = "TOP_PERCENTILE"
-            recommended_counter = offered_ctc * 1.08
-            stance = "RAPID_ACCEPTANCE_WITH_PERFORMANCE_REVIEW"
+            standing = "TOP_TIER_ELITE"
+            suggested_counter = round(offered_ctc * 1.08, 2)
 
-        diff = recommended_counter - offered_ctc
+        counter_diff = round(suggested_counter - offered_ctc, 2)
+        percentage_bump = round((counter_diff / offered_ctc) * 100, 1)
+
         return {
-            "offered_ctc": offered_ctc,
-            "rating": rating,
-            "recommended_counter": recommended_counter,
-            "delta_inr": diff,
-            "delta_percentage": round((diff / offered_ctc) * 100, 1) if offered_ctc > 0 else 0,
-            "stance": stance
+            "offered_ctc_lpa": offered_ctc,
+            "standing": standing,
+            "p50_benchmark_lpa": median,
+            "p75_benchmark_lpa": p75,
+            "suggested_counter_ctc_lpa": suggested_counter,
+            "net_gain_inr": int(counter_diff * 100_000),
+            "percentage_bump": percentage_bump
         }
 
-    @classmethod
-    def generate_counter_letter(cls, company_name: str, role_title: str, offered_ctc: float) -> Dict[str, Any]:
-        """Generates a professional counter-offer letter for Aditya Mehra."""
-        eval_result = cls.evaluate_offer(offered_ctc)
-        counter_val = eval_result["recommended_counter"]
+    def generate_counter_letter(
+        self,
+        company: str,
+        role: str,
+        offered_ctc: float,
+        hiring_manager: str = "Hiring Team"
+    ) -> str:
+        """Drafts a formal, polite, high-leverage executive counter-negotiation letter."""
+        eval_metrics = self.evaluate_offer(offered_ctc)
+        counter_ctc = eval_metrics["suggested_counter_ctc_lpa"]
 
-        body = f"""Subject: Regarding the Offer for {role_title} — Aditya Mehra
+        letter = f"""Subject: Re: Offer of Employment — {role} | Aditya Mehra
 
-Dear Hiring Team at {company_name},
+Dear {hiring_manager},
 
-Thank you very much for extending the offer to join {company_name} as {role_title}. I am truly impressed by the team's operational vision and the scale of the initiatives we discussed during our interviews.
+Thank you very much for extending the offer to join {company} as {role}. I am genuinely enthusiastic about the company's trajectory and the high-impact operational responsibilities outlined throughout our discussions.
 
-Given the scope of the responsibilities and the direct contribution I will be delivering from Day 1—combining my high-concurrency operations leadership from AERO India 2025 with proven 99.2% QA data accuracy at Instawork—I would like to discuss the compensation package.
+Having reviewed the offer package of ₹{offered_ctc:.2f}L CTC, and considering the cross-functional scope of the role, I would like to discuss adjusting the compensation structure to ₹{counter_ctc:.2f}L CTC.
 
-Based on current Bangalore GCC operations benchmarks for multi-skilled operational leaders and the unique blend of field execution and data discipline I bring, I am targeting a total CTC in the range of INR {counter_val:,.0f}. 
+This adjustment is grounded in my proven on-ground operational execution capabilities:
+1. High-Precision Execution & QA Standard: Delivered a verified 99.2% QA Precision rating on Instawork's AI data operations pipeline, eliminating manual reconciliation overhead.
+2. Large-Scale Event Logistics & Defense Protocols: Led VIP airside transport, protocol management, and zero-loss inventory staging across 100,000+ attendees at AERO India 2025 under strict security standards.
+3. Rapid Onboarding & Immediate Ownership: With rigorous academic grounding in BBA International Business (Dayananda Sagar University '26) and hands-on vendor SLA governance, I will drive immediate operational stability and margin recovery from Day 1.
 
-If we can align around this figure, I am prepared to sign the offer immediately and begin onboarding preparations. Alternatively, if base flexibility is constrained, I would be very open to exploring a joining incentive or a structured 6-month performance evaluation milestone.
+I am deeply committed to joining {company} and contributing directly to the team's operational excellence. If we can align on ₹{counter_ctc:.2f}L CTC, I am prepared to sign and finalize my acceptance immediately.
 
-Thank you once again for your confidence in my candidacy. I am eager to make an immediate impact at {company_name} and look forward to your thoughts.
+Thank you again for your time and consideration. I look forward to your thoughts.
 
 Warm regards,
 
 Aditya Mehra
-BBA International Business | Dayananda Sagar University ('26)
-Bangalore, India
-Phone: +91 99000 00000 | Email: aditya.mehra@example.com
+BBA International Business | Dayananda Sagar University Class of 2026
+Bangalore, India | linkedin.com/in/adityamehra007
 """
-        filename = f"{company_name.replace(' ', '_')}_{role_title.replace(' ', '_')}_counter.md"
-        filepath = OFFERS_DIR / filename
-        filepath.write_text(body, encoding="utf-8")
+        return letter
 
-        return {
-            "company": company_name,
-            "role": role_title,
-            "evaluation": eval_result,
-            "letter_path": str(filepath)
-        }
+def main():
+    parser = argparse.ArgumentParser(description="OMEGA Offer Counter-Negotiation Engine")
+    parser.add_argument("--company", type=str, default="Deloitte USI", help="Hiring organization")
+    parser.add_argument("--role", type=str, default="Business Operations Associate", help="Target position")
+    parser.add_argument("--offered-ctc", type=float, default=7.5, help="Offered CTC in Lakhs INR (LPA)")
+    parser.add_argument("--manager", type=str, default="Talent Acquisition Team", help="Contact name")
+    parser.add_argument("--export", type=str, default=None, help="Optional markdown file path to save letter")
+
+    args = parser.parse_args()
+
+    negotiator = OfferNegotiator()
+    metrics = negotiator.evaluate_offer(args.offered_ctc)
+    letter = negotiator.generate_counter_letter(args.company, args.role, args.offered_ctc, args.manager)
+
+    print("=" * 80)
+    print(f"  OMEGA CTC OFFER EVALUATOR & EXECUTIVE COUNTER-NEGOTIATOR")
+    print("=" * 80)
+    print(f"Company:               {args.company}")
+    print(f"Role:                  {args.role}")
+    print(f"Offered CTC:           ₹{metrics['offered_ctc_lpa']:.2f} Lakhs")
+    print(f"Market Standing:       {metrics['standing']}")
+    print(f"Suggested Counter CTC: ₹{metrics['suggested_counter_ctc_lpa']:.2f} Lakhs (+{metrics['percentage_bump']}%)")
+    print(f"Net Realized Gain:     ₹{metrics['net_gain_inr']:,} INR / year")
+    print("-" * 80)
+    print("DRAFT COUNTER-OFFER LETTER:")
+    print("-" * 80)
+    print(letter)
+    print("=" * 80)
+
+    if args.export:
+        out_path = Path(args.export)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(letter, encoding="utf-8")
+        print(f"[OK] Exported counter-offer letter to: {out_path}")
 
 if __name__ == "__main__":
-    if hasattr(sys.stdout, "reconfigure"):
-        sys.stdout.reconfigure(encoding="utf-8")
-    comp = sys.argv[1] if len(sys.argv) > 1 else "Amazon India"
-    role = sys.argv[2] if len(sys.argv) > 2 else "Operations Specialist"
-    offer = float(sys.argv[3]) if len(sys.argv) > 3 else 700000.0
-
-    res = OfferNegotiator.generate_counter_letter(comp, role, offer)
-    print(f"[OK] Evaluated offer for {comp}: {res['evaluation']['rating']}")
-    print(f"[OK] Counter generated: {res['letter_path']} targeting INR {res['evaluation']['recommended_counter']:,.0f}")
+    main()
