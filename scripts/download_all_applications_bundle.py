@@ -53,10 +53,29 @@ def create_export_bundle() -> Path:
                     zf.write(item, arcname=str(rel_path))
                     count += 1
 
-        # 4. Include master target datasets
+        # 4. Include master target datasets and Bangalore current month jobs
         master_10k = DATA_DIR / "GLOBAL_10000_HYPER_TARGET_STRIKE.json"
         if master_10k.exists():
             zf.write(master_10k, arcname="master_datasets/GLOBAL_10000_HYPER_TARGET_STRIKE.json")
+        blr_jobs = DATA_DIR / "BANGALORE_CURRENT_MONTH_JOBS.json"
+        if blr_jobs.exists():
+            zf.write(blr_jobs, arcname="master_datasets/BANGALORE_CURRENT_MONTH_JOBS.json")
+
+        # 5. Include Marquee GCC 360° Conquest Packs
+        conquest_dir = APPS_DIR / "conquest_packs"
+        if conquest_dir.exists():
+            for item in conquest_dir.rglob("*"):
+                if item.is_file():
+                    rel_path = item.relative_to(APPS_DIR)
+                    zf.write(item, arcname=str(rel_path))
+
+        # 6. Include Standalone Portals
+        blr_portal = ROOT_DIR / "apps" / "job_application_studio" / "bangalore_current_month_jobs.html"
+        if blr_portal.exists():
+            zf.write(blr_portal, arcname="portals/bangalore_current_month_jobs.html")
+        launcher_portal = ROOT_DIR / "apps" / "job_application_studio" / "auto_apply_launcher.html"
+        if launcher_portal.exists():
+            zf.write(launcher_portal, arcname="portals/auto_apply_launcher.html")
 
     print(f"[✓] Successfully compiled ZIP archive: {BUNDLE_ZIP} ({BUNDLE_ZIP.stat().st_size:,} bytes)")
     return BUNDLE_ZIP
