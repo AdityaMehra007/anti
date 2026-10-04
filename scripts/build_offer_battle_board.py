@@ -1,0 +1,330 @@
+#!/usr/bin/env python3
+"""
+scripts/build_offer_battle_board.py
+Generates the Live Offer Battle Board & Counter-Offer Generator UI.
+Allows Aditya Mehra to input initial corporate offers (CTC), evaluate against Bangalore GCC benchmarks,
+and generate formal, professional counter-offer email letters ready to copy and send.
+"""
+
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+OUT_HTML = ROOT_DIR / "apps" / "job_application_studio" / "offer_battle_board.html"
+
+HTML_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💰 OMEGA ∞ Live Offer Battle Board & Counter-Offer Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060911;
+      --card: #0d1322;
+      --border: #1e293b;
+      --accent: #10b981;
+      --cyan: #00f0ff;
+      --amber: #f59e0b;
+      --purple: #a855f7;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1560px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(15,23,42,0.95));
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 14px;
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .brand-title { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .badge {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .card-lbl { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+    .card-val { font-size: 28px; font-weight: 800; color: #fff; margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+    
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .panel-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-input {
+      width: 100%;
+      background: #060911;
+      border: 1px solid #334155;
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .btn-calc {
+      width: 100%;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .btn-calc:hover { opacity: 0.9; }
+
+    .eval-box {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    .eval-metric {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .eval-metric strong { color: #fff; font-family: 'JetBrains Mono', monospace; }
+
+    .letter-preview {
+      background: #080d1a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+    .btn-copy {
+      background: #1e293b;
+      color: #fff;
+      border: 1px solid #475569;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-top: 12px;
+      display: inline-block;
+    }
+    .btn-copy:hover { background: #334155; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <div class="brand-title">💰 Live Offer Battle Board & Counter-Offer Generator</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+          Candidate: <strong>Aditya Mehra</strong> | BBA International Business (DSU '26) | AERO India 2025 Coordinator | Instawork (99.2% QA Precision)
+        </div>
+      </div>
+      <div class="badge">GCC BENCHMARKS ALIGNED</div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="card">
+        <div class="card-lbl">Entry Operations Floor</div>
+        <div class="card-val">₹6,50,000</div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Market Median Baseline</div>
+        <div class="card-val" style="color: var(--cyan);">₹8,50,000</div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Top Quartile Target</div>
+        <div class="card-val" style="color: var(--accent);">₹9,50,000</div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Elite Stretch Ceiling</div>
+        <div class="card-val" style="color: var(--amber);">₹11,00,000</div>
+      </div>
+    </div>
+
+    <div class="grid-layout">
+      <!-- Calculator Input Panel -->
+      <div class="panel">
+        <div class="panel-title">📝 Input Initial Offer Details</div>
+
+        <div class="form-group">
+          <label class="form-label">Company / Employer Name</label>
+          <input type="text" id="companyInput" class="form-input" value="Deloitte US-India">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Position / Requisition Title</label>
+          <input type="text" id="roleInput" class="form-input" value="Risk & Business Operations Advisory Analyst">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Offered CTC (Annual INR)</label>
+          <input type="number" id="ctcInput" class="form-input" value="750000" step="25000">
+        </div>
+
+        <button class="btn-calc" onclick="evaluateAndGenerate()">
+          ⚡ Evaluate & Synthesize Counter-Offer
+        </button>
+
+        <div class="eval-box" id="evalBox">
+          <div class="eval-metric"><span>Market Standing:</span> <strong id="mktStanding" style="color:var(--cyan);">FAIR_ENTRY</strong></div>
+          <div class="eval-metric"><span>Recommended Counter:</span> <strong id="recCounter" style="color:var(--accent);">₹9,50,000</strong></div>
+          <div class="eval-metric"><span>Target Upside Delta:</span> <strong id="deltaInr" style="color:var(--amber);">+₹2,00,000 (+26.7%)</strong></div>
+          <div class="eval-metric"><span>Negotiation Stance:</span> <strong id="negStance">STANDARD_TOP_TIER_COUNTER</strong></div>
+        </div>
+      </div>
+
+      <!-- Generated Letter Preview Panel -->
+      <div class="panel">
+        <div class="panel-title">📄 Formal Counter-Offer Strategy Letter</div>
+        <div class="letter-preview" id="letterPreview"></div>
+        <button class="btn-copy" onclick="copyLetter()">📋 Copy Counter-Offer Letter</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const GCC_BENCHMARKS = {
+      entry_operations_floor: 650000,
+      market_median_base: 850000,
+      top_quartile_target: 950000,
+      elite_stretch_ceiling: 1100000,
+    };
+
+    function evaluateAndGenerate() {
+      const company = document.getElementById('companyInput').value.trim() || 'Hiring Company';
+      const role = document.getElementById('roleInput').value.trim() || 'Operations Analyst';
+      const offered = parseFloat(document.getElementById('ctcInput').value) || 750000;
+
+      let rating, recommendedCounter, stance;
+
+      if (offered < GCC_BENCHMARKS.entry_operations_floor) {
+        rating = "BELOW_MARKET";
+        recommendedCounter = GCC_BENCHMARKS.market_median_base;
+        stance = "FIRM_UPWARD_REVISION";
+      } else if (offered < GCC_BENCHMARKS.market_median_base) {
+        rating = "FAIR_ENTRY";
+        recommendedCounter = GCC_BENCHMARKS.top_quartile_target;
+        stance = "STANDARD_TOP_TIER_COUNTER";
+      } else if (offered < GCC_BENCHMARKS.elite_stretch_ceiling) {
+        rating = "STRONG_TARGET";
+        recommendedCounter = GCC_BENCHMARKS.elite_stretch_ceiling;
+        stance = "SIGN_ON_AND_BONUS_OPTIMIZATION";
+      } else {
+        rating = "TOP_PERCENTILE";
+        recommendedCounter = Math.round(offered * 1.08);
+        stance = "RAPID_ACCEPTANCE_WITH_PERFORMANCE_REVIEW";
+      }
+
+      const diff = recommendedCounter - offered;
+      const pct = ((diff / offered) * 100).toFixed(1);
+
+      document.getElementById('mktStanding').textContent = rating;
+      document.getElementById('recCounter').textContent = '₹' + recommendedCounter.toLocaleString('en-IN');
+      document.getElementById('deltaInr').textContent = '+₹' + diff.toLocaleString('en-IN') + ' (+' + pct + '%)';
+      document.getElementById('negStance').textContent = stance;
+
+      const letter = `Subject: Regarding the Offer for ${role} — Aditya Mehra
+
+Dear Hiring Team at ${company},
+
+Thank you very much for extending the offer to join ${company} as ${role}. I am truly impressed by the team's operational vision and the scale of the initiatives we discussed during our interviews.
+
+Given the scope of the responsibilities and the direct contribution I will be delivering from Day 1—combining my high-concurrency operations leadership from AERO India 2025 (directing VIP protocol and logistics for 25+ foreign defense delegations) with proven 99.2% QA data accuracy at Instawork—I would like to discuss the compensation package.
+
+Based on current Bangalore GCC operations benchmarks for multi-skilled operational leaders and the unique blend of field execution and data discipline I bring, I am targeting a total CTC in the range of INR ${recommendedCounter.toLocaleString('en-IN')}.
+
+If we can align around this figure, I am prepared to sign the offer immediately and begin onboarding preparations. Alternatively, if base flexibility is constrained, I would be very open to exploring a joining incentive or a structured 6-month performance evaluation milestone.
+
+Thank you once again for your confidence in my candidacy. I am eager to make an immediate impact at ${company} and look forward to your thoughts.
+
+Warm regards,
+
+Aditya Mehra
+BBA International Business | Dayananda Sagar University ('26)
+Bangalore, India | adityamehra007@gmail.com`;
+
+      document.getElementById('letterPreview').textContent = letter;
+    }
+
+    function copyLetter() {
+      const text = document.getElementById('letterPreview').textContent;
+      navigator.clipboard.writeText(text);
+      alert('Counter-offer letter copied to clipboard!');
+    }
+
+    window.onload = evaluateAndGenerate;
+  </script>
+</body>
+</html>
+"""
+
+def main():
+    OUT_HTML.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUT_HTML, "w", encoding="utf-8") as f:
+        f.write(HTML_TEMPLATE)
+    print(f"[OK] Successfully built {OUT_HTML}")
+
+if __name__ == "__main__":
+    main()
