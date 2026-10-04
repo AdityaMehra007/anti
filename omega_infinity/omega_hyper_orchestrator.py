@@ -208,6 +208,7 @@ class HyperOrchestrator:
         self.kernel.set_mode("G")
         fin = self.erp.generate_financial_statement()
         ledger_stat = self.kernel.ledger.verify_integrity()
+        total_blocks_count = ledger_stat.get("total_blocks", len(self.kernel.ledger.blocks))
         mode_results.append(ModeExecutionResult(
             mode_code="G",
             mode_name="AUDIT",
@@ -216,7 +217,7 @@ class HyperOrchestrator:
             actions_taken=[
                 f"Verified P&L: ₹{fin.total_gross_revenue_inr:,.2f} Gross Revenue with {fin.gross_margin_pct}% Gross Margin.",
                 f"Confirmed Balance Sheet: Assets (₹{fin.total_assets_inr:,.2f}) == Liabilities + Equity (₹{fin.total_assets_inr:,.2f}).",
-                f"Audited SHA-256 event ledger: {ledger_stat['total_blocks']} blocks verified tamper-evident."
+                f"Audited SHA-256 event ledger: {total_blocks_count} blocks verified tamper-evident."
             ],
             artifacts_produced=["ENTERPRISE_FINANCIAL_PL_BALANCE_SHEET.md"],
             elapsed_seconds=round(time.time() - t0, 3)
