@@ -109,17 +109,28 @@ Sincerely,
 
 
 def generate_eml_file(company: str, contact_name: str, to_email: str, subject: str, body: str, out_path: Path):
-    """Generates standard RFC 822 .eml file."""
-    msg = email.message.EmailMessage()
-    msg["Subject"] = subject
-    msg["From"] = f"{CANDIDATE['name']} <{CANDIDATE['email']}>"
-    msg["To"] = f"{contact_name} <{to_email}>"
-    msg["Date"] = email.utils.formatdate(localtime=True)
-    msg["Message-ID"] = email.utils.make_msgid(domain="omega.local")
-    msg.set_content(body)
-    
-    with open(out_path, "wb") as f:
-        f.write(msg.as_bytes())
+    """Generates standard RFC 822 .eml file with resilient sanitization."""
+    clean_name = "".join(c for c in contact_name if 32 <= ord(c) < 127).strip() or "Hiring Team"
+    clean_email = "".join(c for c in to_email if 32 <= ord(c) < 127).strip()
+    if not clean_email or "@" not in clean_email:
+        clean_email = "careers@enterprise.com"
+
+    try:
+        msg = email.message.EmailMessage()
+        msg["Subject"] = subject
+        msg["From"] = f"{CANDIDATE['name']} <{CANDIDATE['email']}>"
+        msg["To"] = f"{clean_name} <{clean_email}>"
+        msg["Date"] = email.utils.formatdate(localtime=True)
+        msg["Message-ID"] = email.utils.make_msgid(domain="omega.local")
+        msg.set_content(body)
+        with open(out_path, "wb") as f:
+            f.write(msg.as_bytes())
+    except Exception:
+        date_str = email.utils.formatdate(localtime=True)
+        msg_id = email.utils.make_msgid(domain="omega.local")
+        raw_eml = f"Subject: {subject}\r\nFrom: {CANDIDATE['name']} <{CANDIDATE['email']}>\r\nTo: {clean_name} <{clean_email}>\r\nDate: {date_str}\r\nMessage-ID: {msg_id}\r\nContent-Type: text/plain; charset=utf-8\r\n\r\n{body}"
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.write(raw_eml)
 
 
 def run_auto_apply_cycle(batch_size: int = 10, offset: int = 0, unapplied_only: bool = True) -> dict:
