@@ -250,10 +250,12 @@ class PlaneClient:
         workspace_slug: str,
         project_id: str,
         issue_id: str,
-        comment: str,
+        comment: Optional[str] = None,
+        comment_html: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Creates an audit or progress comment on an issue."""
-        payload = {"comment_html": f"<p>{comment}</p>"}
+        body = comment_html if comment_html is not None else f"<p>{comment or ''}</p>"
+        payload = {"comment_html": body}
         return self._request(
             "POST",
             f"/api/workspaces/{workspace_slug}/projects/{project_id}/issues/{issue_id}/comments/",

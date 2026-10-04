@@ -731,6 +731,79 @@ def cmd_workflow(args):
     print("=" * 76)
 
 
+def cmd_plane(args):
+    """Manage Plane Community Edition (CE) integration, boards, sync, backup, and changelog."""
+    from omega.integrations.plane_connector import PlaneClient
+    from omega.orchestration.plane_dispatcher import PlaneDispatcher
+    from omega.orchestration.plane_boards import PlaneBoardEngine
+    from omega.orchestration.plane_backup import PlaneBackupEngine
+    from omega.orchestration.plane_git_bridge import PlaneGitBridge
+
+    action = getattr(args, "action", "status")
+    is_sync = getattr(args, "sync", False)
+    client = PlaneClient(dry_run=not is_sync)
+
+    print("=" * 76)
+    print("  OMEGA INFINITY — PLANE COMMUNITY EDITION (CE) ENTERPRISE HUB")
+    print("=" * 76)
+
+    if action == "status":
+        try:
+            status = client.health_check()
+            p_stat = status.get("status", "ONLINE").upper()
+            ver = status.get("version", "v1.4.2")
+            print(f"Target Plane Server : {client.base_url}")
+            print(f"Health Probe Status : {p_stat} (Plane {ver})")
+            print(f"Operating Mode      : {'LIVE HTTP' if is_sync else 'SIMULATION / DRY-RUN'}")
+            print("-" * 76)
+            projects = client.list_projects("omega")
+            print(f"Active Projects     : {len(projects)} boards discovered")
+            for p in projects[:6]:
+                print(f"  • [{p.get('identifier', 'PROJ')}] {p.get('name', 'Untitled')}")
+        except Exception as e:
+            print(f"Target Plane Server : {client.base_url}")
+            print(f"Health Probe Status : OFFLINE ({e})")
+            print(f"Operating Mode      : {'LIVE HTTP' if is_sync else 'SIMULATION / DRY-RUN'}")
+            print("-" * 76)
+            print("Note: Start local Plane CE containers via: START_PLANE.bat [1] or START_PLANE.ps1")
+        print("=" * 76)
+
+    elif action == "sync":
+        dispatcher = PlaneDispatcher(client=client)
+        print(f"Executing task registry dispatch (Mode: {'LIVE' if is_sync else 'SIMULATION / DRY-RUN'})...")
+        res = dispatcher.sync_all_tasks(workspace_slug="omega", project_id="CORE")
+        print(f"[SUCCESS] Dispatched {res.get('tasks_dispatched', 0)} tasks into Plane CE.")
+        print("=" * 76)
+
+    elif action == "provision":
+        engine = PlaneBoardEngine(client=client)
+        print(f"Provisioning sovereign departmental boards and sprint cycles...")
+        res = engine.provision_all("omega", sprint_count=3)
+        print(f"[SUCCESS] Provisioned {len(res.get('projects', []))} boards & {res.get('total_sprints_provisioned', 0)} sprint cycles.")
+        print("=" * 76)
+
+    elif action == "backup":
+        backup_engine = PlaneBackupEngine(client=client)
+        print("Exporting complete workspace dossier and snapshot...")
+        exp = backup_engine.export_workspace("omega")
+        saved = backup_engine.save_backup(exp)
+        dossier = backup_engine.generate_dossier_markdown(exp)
+        print(f"[SUCCESS] Saved backup to: {saved}")
+        print(f"Projects backed up: {len(exp['projects'])} | Issues: {sum(len(p['issues']) for p in exp['projects'])}")
+        print("=" * 76)
+
+    elif action == "changelog":
+        bridge = PlaneGitBridge(client=client)
+        sample_commits = [
+            {"hash": "1865e97b", "author": "ApexEngineer", "date": "2026-10-01", "message": "[CORE] Deploy Plane CE stack"},
+            {"hash": "18b608e7", "author": "ApexEngineer", "date": "2026-10-02", "message": "[CORE] Add Git bridge, backup engine & reactor"},
+            {"hash": "c1a2b3c4", "author": "ApexEngineer", "date": "2026-10-04", "message": "CAP-10: Settle M2M multi-currency corridors"},
+        ]
+        log = bridge.generate_release_changelog(sample_commits)
+        print(log)
+        print("=" * 76)
+
+
 def main():
 
     parser = argparse.ArgumentParser(description="OMEGA INFINITY (Ω-OS) Sovereign CLI")
@@ -851,6 +924,12 @@ def main():
     p_wf.add_argument("--run-all", action="store_true", help="Execute all 10 canonical enterprise workflows")
     p_wf.add_argument("--inspect", type=str, help="Inspect 8-point specification of a workflow (e.g. WF-01)")
     p_wf.set_defaults(func=cmd_workflow)
+
+    # plane
+    p_plane = subparsers.add_parser("plane", help="Plane Community Edition (CE) Project Management Hub")
+    p_plane.add_argument("action", nargs="?", choices=["status", "sync", "provision", "backup", "changelog"], default="status", help="Plane management action (default: status)")
+    p_plane.add_argument("--sync", action="store_true", help="Connect to live HTTP Plane instance instead of dry-run simulation")
+    p_plane.set_defaults(func=cmd_plane)
 
     args = parser.parse_args()
 

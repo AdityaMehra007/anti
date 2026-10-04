@@ -297,3 +297,46 @@ Access `PLANE_CONTROL_CENTER.html` in any browser or launch directly from `START
 - Real-time HTTP health probes on ports 8095 (Ingress) and 8096 (Webhook Reactor).
 - 1-click test webhook dispatches and event simulation buttons.
 - Live streaming log terminal monitoring stack status and incoming payloads.
+
+---
+
+## 14. GitHub & GitLab Webhook Event Adapter (`plane_github_adapter.py`)
+
+Translates incoming Git webhook payloads into Plane CE board actions, audit comments, and automated lifecycle transitions:
+- **GitHub Push**: Parses commit messages for issue keys (e.g. `CORE-101`, `#42`), formats code blocks, and appends commit audit comments.
+- **GitHub Pull Request**: Tracks PR lifecycle (`opened`, `closed`, `merged`), transitions issue cards to appropriate Kanban columns, and leaves verification links.
+- **GitLab Merge Request**: Translates MR status changes into Plane issue updates.
+
+```bash
+# Simulate GitHub push event with issue tagging
+python omega/orchestration/plane_github_adapter.py --event-type push --issue CORE-101
+
+# Simulate GitHub PR merged event
+python omega/orchestration/plane_github_adapter.py --event-type pr --issue CORE-101
+
+# Simulate GitLab MR event
+python omega/orchestration/plane_github_adapter.py --event-type mr --issue FLEET-50
+```
+
+---
+
+## 15. Unified Sovereign Terminal Commands (`omega_cli.py`)
+
+Plane CE operations are seamlessly unified under the master terminal CLI:
+
+```bash
+# Check status and probe Plane containers
+python omega_cli.py plane status
+
+# Sync task registry milestones into Plane boards
+python omega_cli.py plane sync
+
+# Provision departmental boards (CORE, CAP, FLEET, INTEL) & 14-day sprint cycles
+python omega_cli.py plane provision
+
+# Export complete workspace backup archive and markdown dossier
+python omega_cli.py plane backup
+
+# Generate structured release notes changelog
+python omega_cli.py plane changelog
+```
