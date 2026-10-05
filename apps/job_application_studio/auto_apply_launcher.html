@@ -102,8 +102,14 @@
     <button class="action-btn" style="background: linear-gradient(135deg, #ec4899, #be185d); font-size: 13px; padding: 11px 20px;" onclick="openBatch(20)">
       🔥 Open Next 20 Applications in Gmail Tabs
     </button>
+    <button id="autoStreamBtn" class="action-btn" style="background: linear-gradient(135deg, #f59e0b, #d97706); font-size: 13px; padding: 11px 20px;" onclick="toggleAutoStream()">
+      ▶️ Start Auto-Apply Every Second
+    </button>
+    <span id="autoStreamStatus" style="font-size: 12px; color: var(--accent); font-weight: 600;">
+      [Auto-Engine Idle]
+    </span>
     <span style="font-size: 12px; color: var(--text-muted);">
-      (Tip: Allow popups for localhost:8092 so all Gmail tabs launch simultaneously)
+      (Tip: Allow popups for localhost:8092 so Gmail tabs open automatically every second)
     </span>
   </div>
 
@@ -294,6 +300,62 @@ GitHub: https://github.com/AdityaMehra007
       }
       appliedCount += opened;
       document.getElementById("appliedCount").innerText = appliedCount + " Applied";
+    }
+
+    let autoStreamInterval = null;
+    let streamIndex = 0;
+
+    function toggleAutoStream() {
+      const btn = document.getElementById("autoStreamBtn");
+      const status = document.getElementById("autoStreamStatus");
+
+      if (autoStreamInterval) {
+        clearInterval(autoStreamInterval);
+        autoStreamInterval = null;
+        btn.innerText = "▶️ Start Auto-Apply Every Second";
+        btn.style.background = "linear-gradient(135deg, #f59e0b, #d97706)";
+        status.innerText = "[Auto-Engine Paused]";
+        status.style.color = "var(--text-muted)";
+      } else {
+        btn.innerText = "⏸️ Pause Auto-Apply";
+        btn.style.background = "linear-gradient(135deg, #ef4444, #b91c1c)";
+        status.innerText = "⚡ Streaming 1 App/Sec (Running...)";
+        status.style.color = "var(--green)";
+
+        autoStreamInterval = setInterval(() => {
+          if (streamIndex >= filteredData.length) {
+            clearInterval(autoStreamInterval);
+            autoStreamInterval = null;
+            btn.innerText = "✓ All 10,000 Dispatched";
+            status.innerText = "[Universe Complete]";
+            return;
+          }
+
+          const target = filteredData[streamIndex];
+          const mailUrl = generateMailUrl(target.n, target.e, target.c);
+          window.open(mailUrl, '_blank');
+          
+          streamIndex++;
+          appliedCount++;
+          document.getElementById("appliedCount").innerText = appliedCount + " Applied";
+          status.innerText = `⚡ Sending #${streamIndex}: ${target.c} (${target.e})`;
+
+          // Update current table buttons if target is visible on current page
+          const start = (currentPage - 1) * pageSize;
+          const end = start + pageSize;
+          if (streamIndex > start && streamIndex <= end) {
+            const rowOffset = streamIndex - 1 - start;
+            const rows = document.querySelectorAll('#appTableBody tr');
+            if (rows[rowOffset]) {
+              const b = rows[rowOffset].querySelector('.action-btn');
+              if (b) {
+                b.innerText = "✓ Sent / Opened";
+                b.classList.add("applied");
+              }
+            }
+          }
+        }, 1000);
+      }
     }
 
     function setFilter(filter, btn) {
