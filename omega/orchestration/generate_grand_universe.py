@@ -159,6 +159,18 @@ def generate_grand_universe_launcher():
     </div>
   </div>
 
+  <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+    <button class="action-btn" style="background: linear-gradient(135deg, #10b981, #059669); font-size: 13px; padding: 10px 18px; cursor: pointer;" onclick="openBatch(5)">
+      🚀 Open Next 5 Applications in Gmail Tabs
+    </button>
+    <button class="action-btn" style="background: linear-gradient(135deg, #6366f1, #4f46e5); font-size: 13px; padding: 10px 18px; cursor: pointer;" onclick="openBatch(10)">
+      ⚡ Open Next 10 Applications in Gmail Tabs
+    </button>
+    <span style="font-size: 12px; color: var(--text-muted);">
+      (Tip: Allow popups in your browser so tabs open smoothly with pre-filled emails)
+    </span>
+  </div>
+
   <div class="search-bar-wrap">
     <input type="text" id="searchInput" class="search-input" placeholder="Instant Search across 1,500+ companies (e.g., Goldman, Swiggy, Maersk, Koramangala, Indiranagar, Whitefield)..." oninput="handleSearch()">
   </div>
@@ -256,6 +268,28 @@ def generate_grand_universe_launcher():
       btn.innerText = "✓ Sent / Opened";
       btn.classList.add("applied");
       appliedCount++;
+      document.getElementById("appliedCount").innerText = appliedCount + " Applied";
+    }}
+
+    function openBatch(count) {{
+      const start = (currentPage - 1) * pageSize;
+      const end = start + pageSize;
+      const pageItems = filteredData.slice(start, end);
+
+      let opened = 0;
+      for (let i = 0; i < pageItems.length && opened < count; i++) {{
+        const item = pageItems[i];
+        window.open(item.url, '_blank');
+        opened++;
+      }}
+
+      // Mark the buttons on the current page as opened
+      const btns = document.querySelectorAll('#appTableBody .action-btn');
+      for (let i = 0; i < btns.length && i < count; i++) {{
+        btns[i].innerText = "✓ Sent / Opened";
+        btns[i].classList.add("applied");
+      }}
+      appliedCount += opened;
       document.getElementById("appliedCount").innerText = appliedCount + " Applied";
     }}
 
