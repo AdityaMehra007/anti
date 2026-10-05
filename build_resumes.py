@@ -229,19 +229,19 @@ def build_docx_resume(track_key, track_info):
     r_i1_desc.font.name = "Segoe UI"
     r_i1_desc.font.size = Pt(8.8)
 
-    # Internship 2: Corporate Commercial Services
+    # Internship 2: Instawork
     p_i2 = doc.add_paragraph()
     p_i2.paragraph_format.space_before = Pt(2)
     p_i2.paragraph_format.space_after = Pt(1)
-    r_i2_role = p_i2.add_run("Business Operations Intern")
+    r_i2_role = p_i2.add_run("Operations & Quality Intern")
     r_i2_role.font.name = "Segoe UI"
     r_i2_role.font.size = Pt(9.5)
     r_i2_role.font.bold = True
     r_i2_role.font.color.rgb = NAVY
-    r_i2_co = p_i2.add_run(" — Corporate Commercial Services | Bengaluru (2024)\n")
+    r_i2_co = p_i2.add_run(" — Instawork | Bengaluru (2024)\n")
     r_i2_co.font.name = "Segoe UI"
     r_i2_co.font.size = Pt(9)
-    r_i2_desc = p_i2.add_run("• Supported administrative task scheduling, documentation, and operational team communications in Google Workspace.")
+    r_i2_desc = p_i2.add_run("• Supported operations team with shift scheduling, data verification, and service quality checks in Excel.")
     r_i2_desc.font.name = "Segoe UI"
     r_i2_desc.font.size = Pt(8.8)
 
@@ -435,12 +435,12 @@ def build_printable_html_resume():
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Business Operations Intern — Corporate Commercial Services</div>
+            <div class="exp-role">Operations & Quality Intern — Instawork</div>
             <div class="exp-date">2024</div>
         </div>
         <div class="exp-sub">Bengaluru, India</div>
         <ul>
-            <li>Supported administrative task scheduling, documentation, and operational team communications in Google Workspace.</li>
+            <li>Assisted operations team with shift scheduling, data verification, and service quality checks in Excel.</li>
         </ul>
     </div>
 
