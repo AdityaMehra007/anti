@@ -72,10 +72,10 @@ class TestRecruiterDispatcherParsing:
 
 class TestCompensationFilteringAndCounterNegotiation:
     def test_below_salary_floor_counter_offer(self, dispatcher: RecruiterDispatcher):
-        """Under ₹6.5L threshold triggers counter-negotiation with profile evidence."""
+        """Under ₹3.0L threshold triggers counter-negotiation with profile evidence."""
         under_floor_message = """
         Dear Aditya,
-        Greetings from TechCorp. We have an opening for Operations Associate with a CTC of 5.0 LPA.
+        Greetings from TechCorp. We have an opening for Operations Associate with a CTC of 2.5 LPA.
         Please let us know your availability.
         Regards,
         Rahul Verma
@@ -84,19 +84,19 @@ class TestCompensationFilteringAndCounterNegotiation:
 
         result = dispatcher.process_inbound(under_floor_message)
 
-        assert result["ctc_lpa"] == 5.0
+        assert result["ctc_lpa"] == 2.5
         assert result["salary_floor_cleared"] is False
         assert result["decision"] == "counter_offer_required"
         # Profile enforcement check
         body = result["reply_body"]
-        assert "₹6.5L - ₹11.0L" in body
+        assert "₹3.0L - ₹11.0L" in body
         assert "BBA International Business" in body or "DSU" in body
         assert "AERO India 2025" in body
         assert "99.2% QA Precision" in body
         assert "Instawork" in body
 
     def test_acceptable_compensation_acceptance(self, dispatcher: RecruiterDispatcher):
-        """Above or equal to ₹6.5L threshold accepts conversation warmly."""
+        """Above or equal to ₹3.0L threshold accepts conversation warmly."""
         good_message = """
         Hi Aditya,
         We have a Senior Operations Analyst role at Morgan Stanley with CTC 8.5 LPA.
@@ -129,7 +129,7 @@ class TestCompensationFilteringAndCounterNegotiation:
         assert result["ctc_lpa"] is None
         assert result["decision"] == "qualify_compensation_and_proceed"
         body = result["reply_body"]
-        assert "₹6.5L - ₹11.0L" in body
+        assert "₹3.0L - ₹11.0L" in body
 
 
 class TestCalendarDispatcherRFC5545:

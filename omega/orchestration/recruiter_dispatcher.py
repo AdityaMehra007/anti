@@ -43,7 +43,7 @@ class RecruiterDispatcher:
     LOCATION_PREFERENCE = "Bangalore GCC Corridor / Hybrid / Remote"
 
     # Salary Floors (INR in Lakhs Per Annum)
-    CTC_MIN_LPA = 6.5
+    CTC_MIN_LPA = 3.0
     CTC_TARGET_MAX_LPA = 11.0
 
     DEFAULT_DB_PATH = REPO_ROOT / "data" / "outreach_tracker.db"
@@ -211,15 +211,15 @@ class RecruiterDispatcher:
 
     def evaluate_and_respond(self, parsed: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Enforces Aditya Mehra's verified profile and salary floor (₹6.5L - ₹11.0L CTC Bangalore GCC corridor).
-        Generates contextual replies and counter-proposals when compensation is under ₹6.5L.
+        Enforces Aditya Mehra's verified profile and salary floor (₹3.0L - ₹11.0L CTC corridor).
+        Generates contextual replies and counter-proposals when compensation is under ₹3.0L.
         """
         ctc = parsed.get("ctc_lpa")
         recruiter_name = parsed.get("recruiter_name", "Hiring Team")
         role = parsed.get("role", "Opportunity")
         company = parsed.get("company", "Your Organization")
 
-        # Case 1: CTC specified and below salary floor (₹6.5L)
+        # Case 1: CTC specified and below salary floor (₹3.0L)
         if ctc is not None and ctc < self.CTC_MIN_LPA:
             decision = "counter_offer_required"
             reply_subject = f"Re: {role} opportunity at {company} - Aditya Mehra"
