@@ -37,8 +37,8 @@ class RecruiterDispatcher:
     CANDIDATE_EMAIL = "adityamehra007@gmail.com"
     EDUCATION = "BBA International Business (BBA IB Graduate), Dayananda Sagar University (DSU)"
     EXPERIENCE_HIGHLIGHTS = (
-        "AERO India 2025 Coordinator; Operations Specialist; Instawork 99.2% QA Precision; "
-        "autonomous multi-agent engineering & process optimization."
+        "BBA International Business Graduate (DSU Bangalore); On-Ground Event Coordination (Aero India); "
+        "Commercial Operations & Family Business Support (Kolkata); Excel & Operations Coordination."
     )
     LOCATION_PREFERENCE = "Bangalore GCC Corridor / Hybrid / Remote"
 

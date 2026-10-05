@@ -1,67 +1,51 @@
-# ADI (ADITYA MEHRA)
-**Bengaluru, Karnataka, India** | [LinkedIn Profile URL] | ashishiash007@gmail.com | +91 7003456624
+# ADITYA MEHRA
+**Bengaluru, Karnataka, India** | ashishiash007@gmail.com | +91 7003456624 | adityamehra007@gmail.com
 
 ---
 
 ## PROFESSIONAL SUMMARY
-Business operations and business analyst graduate in International Business (BBA, Dayananda Sagar University, Class of 2026). Hands-on experience coordinating on-ground logistics, vendor contracts, and event operations for major brand exhibitions (including projects connected with Puma, Tata Communications, Dyson, and Aero India). Practical background building automated reporting workflows in Python and Excel to reduce manual reconciliation, track supplier SLAs, and support day-to-day commercial decisions.
-
----
-
-## CORE COMPETENCIES
-* **Business Operations & Workflow Design:** Process mapping, standard operating procedures (SOPs), cross-functional coordination, resource allocation, operational SLA tracking.
-* **Business Analysis & Data Operations:** Requirements gathering (BRD/FRD fundamentals), operational KPI reporting, spreadsheet modeling, data validation, market intelligence synthesis.
-* **Vendor Management & Logistics:** Vendor governance, rate card evaluation, contract execution, multi-stakeholder communication, event operations logistics.
-* **AI & Automation Tools:** Advanced prompt engineering, structured LLM outputs, workflow automation (Python/Google Apps Script basics), AI-assisted research and data synthesis.
-* **Tools & Software:** Advanced Excel (Formulas, PivotTables, Power Query), Power BI (Foundations), Google Workspace, CRM & ERP navigation, SQL fundamentals.
+Recent BBA (Bachelor of Business Administration) graduate from Dayananda Sagar University, Bengaluru. Motivated fresher looking to start an entry-level career in Business Operations, General Management, or Operations Support. Practical exposure to daily business coordination through family business operations and on-ground event assistance. Eager learner with strong communication skills, basic Excel knowledge, and immediate full-time corporate availability.
 
 ---
 
 ## EDUCATION
-**Bachelor of Business Administration (BBA) — International Business (Graduate)**  
-*Dayananda Sagar University (DSU), Bengaluru, India* | *Degree Completed — Immediate Full-Time Availability*  
-* Key Coursework: Business Operations, Principles of Management, Business Communication, Marketing Management, Project Execution.
+**Bachelor of Business Administration (BBA)**  
+*Dayananda Sagar University (DSU), Bengaluru, India*  
+* **Status:** Degree Completed (Fresher)  
+* **Availability:** Immediate Full-Time Availability  
+* **Key Subjects:** Principles of Management, Business Operations, Business Communication, Marketing Management, Organizational Behavior.
 
 ---
 
-## PROFESSIONAL & OPERATIONAL EXPERIENCE
+## KEY SKILLS
+* **Operations & Coordination:** Daily task scheduling, vendor follow-ups, operational checklists, basic administrative support.
+* **Computer & Software Skills:** Microsoft Excel (data entry, basic formulas, tables), Microsoft Word, Google Workspace, email correspondence.
+* **Soft Skills:** Clear communication, active listening, teamwork, reliability, fast learner.
 
-### Business Operations Assistant | Family Business
+---
+
+## PRACTICAL EXPERIENCE & EXPOSURE
+
+### Business Support Assistant | Family Business
 *Kolkata, India | 2019 – 2020*
-* Assisted with day-to-day commercial operations, stock inventory tracking, and billing documentation.
-* Coordinated with local suppliers and logistics partners for timely order fulfillment.
-* Maintained basic accounts and inventory registers using Excel, ensuring smooth daily records.
+* Assisted with day-to-day business operations, billing documentation, and customer order coordination.
+* Maintained basic inventory and sales records using Excel.
+* Coordinated with local suppliers and logistics partners for daily dispatches.
 
-### Event Operations & On-Ground Coordinator
+### On-Ground Event Coordinator | Brand Exhibitions & Live Events
 *Bengaluru, India | 2024 – 2026*
-* Coordinated on-ground setups, vendor arrivals, and event logistics for brand exhibitions and live events.
-* **Aero India (Yelahanka Air Force Station):** Supported exhibition stall coordination, vendor scheduling, and visitor assistance on-site.
-* **TRILOGY Music Event (Bengaluru Club):** Assisted with artist hospitality, stage arrangements, and vendor coordination to ensure smooth on-time flow.
-* Worked directly with venue teams and suppliers to resolve operational issues quickly during events.
-
-### Business & Commercial Research Intern | Pencil Mark Interior Solutions LLP
-*Bengaluru, India | July 2025 – August 2025*
-* Conducted structured market research and competitor benchmarking across the Bengaluru commercial interior solutions sector.
-* Synthesized client requirements and project specifications into structured operational briefs for project management teams.
-* Maintained clean CRM and project tracking sheets, improving communication handoffs between design, procurement, and site execution teams.
-
----
-
-## KEY EVIDENCE & PORTFOLIO PROJECTS
-* **AI Business Operations & Market Intelligence System:** Architected an automated data pipeline and dashboard tracking Bengaluru enterprise hiring signals, role requirements, and industry shifts across 4,500+ commercial entities.
-* **Vendor Governance & Operational Cost Model:** Built an Excel-based logistics cost model analyzing Tier-1 vs. Tier-2 supplier pricing structures to optimize procurement spend and landed cost variance.
-* **Event Operations SOP Framework:** Developed a standardized 25-point operational checklist and risk-mitigation workflow for high-stakes corporate exhibition deployments.
+* Supported on-ground stall setup and vendor coordination for public exhibitions including Aero India.
+* Assisted attendees and venue guests with on-site queries and directions.
+* Coordinated with stage and event vendors to ensure smooth on-time flow.
 
 ---
 
 ## CERTIFICATIONS
-* **Google Digital Marketing Professional Certificate** — Google / Coursera
+* **Digital Marketing Fundamentals** — Google / Coursera
 * **Service Marketing** — NPTEL / IIT Kharagpur
-* **Generative AI Mastermind** — Outskill
-* **Prompt Engineering & Agentic Workflows** — Verified Project Implementation
 
 ---
 
 ## LANGUAGES
-* English (Professional / Fluent)
-* Hindi (Proficient)
+* **English:** Professional Working Proficiency
+* **Hindi:** Fluent / Native

@@ -22,29 +22,29 @@ CHARCOAL = RGBColor(15, 23, 42)  # #0F172A
 
 TRACKS = {
     "Master_Operations": {
-        "title": "GLOBAL BUSINESS OPERATIONS & ANALYTICS ASSOCIATE",
-        "summary": "International Business graduate (BBA, Dayananda Sagar University) with hands-on experience coordinating on-ground event operations (Aero India, live brand exhibitions) and commercial logistics. Proven ability to assist with operational workflows, vendor follow-ups, and process tracking using Excel, reporting tools, and structured checklists.",
-        "skills": "Business Operations, Process Coordination, Vendor Follow-ups, Event Logistics, Excel (Formulas, PivotTables, Power Query), Task Management, Problem-Solving, Team Coordination."
+        "title": "BUSINESS OPERATIONS ASSOCIATE (FRESHER)",
+        "summary": "Recent BBA graduate from Dayananda Sagar University, Bengaluru. Looking to build a career in business operations, coordination, and general management. Hands-on exposure to practical operations through family business coordination and on-ground event support (including Aero India). Reliable, detail-oriented, and ready for immediate full-time corporate roles.",
+        "skills": "Business Operations, Daily Coordination, Vendor Follow-ups, On-Ground Event Support, Microsoft Excel, Task Tracking, Team Communication, Problem Resolution."
     },
     "Operations_Analyst": {
-        "title": "BUSINESS OPERATIONS & DATA ANALYST",
-        "summary": "Business Operations graduate (BBA International Business, DSU) with practical experience in operational tracking, process support, and reporting. Hands-on with Excel for status tracking, daily reporting, and cross-functional team coordination.",
-        "skills": "Operations Support, Process Tracking, Reporting, Excel (PivotTables, Lookups), Problem-Solving, Vendor Coordination, Team Communication."
+        "title": "OPERATIONS SUPPORT & MANAGEMENT TRAINEE",
+        "summary": "Motivated BBA graduate seeking an entry-level Operations Support or Management Trainee role. Practical experience assisting with daily billing, record keeping, and scheduling. Comfortable using Excel for daily tracking and documentation.",
+        "skills": "Operations Support, Administrative Coordination, Excel (Data Entry & Formatting), Process Follow-through, Documentation, Communication."
     },
     "Process_Risk_Ops": {
-        "title": "PROCESS OPERATIONS & COMPLIANCE ASSOCIATE",
-        "summary": "Operations graduate (BBA International Business, DSU) with focus on operational discipline, standard procedures, and quality checks. Practical experience in on-ground event operations and business logistics ensuring procedures are followed accurately.",
-        "skills": "Process Execution, Standard Operating Procedures, Quality Checks, Operations Tracking, Excel, Vendor Coordination, Reporting."
+        "title": "OPERATIONS & PROCESS ASSISTANT",
+        "summary": "Detail-oriented BBA graduate with strong work ethic and focus on standard operating procedures. Practical on-ground event coordination experience ensuring checklists and venue guidelines are followed accurately.",
+        "skills": "Process Support, Checklist Execution, Quality Checks, Operations Coordination, Excel, Communication, Teamwork."
     },
     "PMO_Vendor_Logistics": {
         "title": "OPERATIONS & VENDOR COORDINATOR",
-        "summary": "Proactive Operations Coordinator (BBA International Business, DSU) with proven experience supporting event setups, vendor coordination, and on-ground logistics for brand exhibitions and public events including Aero India.",
-        "skills": "Operations Coordination, Vendor Management, Event Logistics, Schedule Tracking, On-Site Support, Team Communication, Problem Resolution."
+        "summary": "Adaptable BBA graduate with hands-on experience in on-ground event logistics and vendor coordination. Able to manage multiple tasks calmly under pressure and coordinate effectively between on-site teams and external suppliers.",
+        "skills": "Vendor Coordination, Event Logistics, Scheduling, Vendor Follow-ups, Basic Excel, Administrative Support."
     },
     "EXIM_International_Trade": {
-        "title": "INTERNATIONAL TRADE & EXIM OPERATIONS SPECIALIST",
-        "summary": "International Business graduate (BBA, Dayananda Sagar University) with comprehensive academic and practical training in cross-border trade operations, DGFT Foreign Trade Policy, customs documentation, and ocean/air freight logistics. Applied practical trade cost modeling to analyze landed cost variance, tariff classification, and multi-modal shipment tracking.",
-        "skills": "Export-Import Documentation (B/L, CoO, L/C), Incoterms 2020, Customs Clearance Protocols, Landed Cost Modeling, Freight Forwarder Coordination, DGFT Policy, Currency Risk Basics, Tariff Classification, Supply Chain Tracking."
+        "title": "BUSINESS & LOGISTICS COORDINATOR (FRESHER)",
+        "summary": "BBA graduate with foundational academic exposure to international business and logistics. Practical experience coordinating suppliers and transport in commercial settings. Fast learner eager to contribute to business operations.",
+        "skills": "Business Coordination, Supplier Follow-ups, Logistics Support, Documentation, Basic Excel, Teamwork."
     }
 }
 
@@ -142,7 +142,7 @@ def build_docx_resume(track_key, track_info):
     r_tools_lbl.font.size = Pt(9.5)
     r_tools_lbl.font.bold = True
     r_tools_lbl.font.color.rgb = NAVY
-    r_tools_val = p_comp.add_run("Advanced Excel (Power Query, Index/Match, Dynamic Arrays), Python (Data Pipelines), SQL Basics, Jira, ClickUp, ERP/CRM navigation, Google Workspace.")
+    r_tools_val = p_comp.add_run("Microsoft Excel (Data Entry, Basic Formulas, Tables), Microsoft Word, Google Workspace, Email Correspondence.")
     r_tools_val.font.name = "Segoe UI"
     r_tools_val.font.size = Pt(9.5)
 
@@ -355,52 +355,51 @@ def build_printable_html_resume():
 
     <div class="header">
         <h1>ADITYA MEHRA</h1>
-        <div class="title">Global Business Operations & Analytics Associate</div>
+        <div class="title">BBA Graduate — Business Operations & Operations Support (Fresher)</div>
         <div class="contact">
-            Bengaluru, Karnataka, India &nbsp;|&nbsp; +91 7003456624 &nbsp;|&nbsp; ashishiash007@gmail.com &nbsp;|&nbsp; linkedin.com/in/aditya-mehra
+            Bengaluru, Karnataka, India &nbsp;|&nbsp; +91 7003456624 &nbsp;|&nbsp; adityamehra007@gmail.com &nbsp;|&nbsp; linkedin.com/in/aditya-mehra
         </div>
     </div>
 
     <div class="section-title">Professional Summary</div>
     <p>
-        Final-year International Business graduate (BBA, Dayananda Sagar University, Class of 2026) with verified on-ground execution capabilities across large-scale event operations (Aero India 2025, 300+ brand activations) and commercial logistics. Proven ability to translate complex operational workflows into standard operating procedures (SOPs), reduce manual status reconciliation by 25% using Advanced Excel (Power Query, Dynamic Arrays) and Python, and enforce strict multi-tier vendor SLA governance under high-security defense protocols.
+        Recent BBA (Bachelor of Business Administration) graduate from Dayananda Sagar University, Bengaluru. Motivated fresher looking to start an entry-level career in Business Operations, General Management, or Operations Support. Practical exposure to daily business coordination through family business operations and on-ground event assistance. Eager learner with strong communication skills, basic Excel knowledge, and immediate full-time corporate availability.
     </p>
 
-    <div class="section-title">Core Competencies & Technical Skills</div>
+    <div class="section-title">Core Competencies & Skills</div>
     <div class="competency-box">
-        <strong>Core Capabilities:</strong> Business Operations, Process Mapping (SOPs), Vendor SLA Governance, Workflow Optimization, Advanced Excel (Power Query, Dynamic Arrays), Business Analysis, Cross-Border Logistics, Stakeholder Management, SQL Foundations, Jira & ClickUp.
+        <strong>Operations & Coordination:</strong> Daily task scheduling, vendor follow-ups, operational checklists, basic administrative support, team communication.
     </div>
     <div class="competency-box">
-        <strong>Systems & Platforms:</strong> Advanced Excel (Formulas, PivotTables, Power Query), Python (Data Pipelines), SQL Basics, Jira, ClickUp, ERP/CRM navigation, Google Workspace, Generative AI Agent Workflows.
+        <strong>Computer & Office Tools:</strong> Microsoft Excel (Data Entry, Basic Formulas, Tables), Microsoft Word, Google Workspace, Email Correspondence.
     </div>
 
-    <div class="section-title">Professional & Operational Experience</div>
+    <div class="section-title">Practical Experience & Exposure</div>
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Operations & Workflow Optimization Specialist</div>
-            <div class="exp-date">2024 – Present</div>
+            <div class="exp-role">Business Operations Assistant</div>
+            <div class="exp-date">2019 – 2020</div>
         </div>
-        <div class="exp-sub">Commercial Logistics & Trade Operations | Bengaluru, India</div>
+        <div class="exp-sub">Commercial Operations (Family Business) | Kolkata, India</div>
         <ul>
-            <li>Mapped and standardized end-to-end commercial transaction workflows, establishing structured SOPs that reduced weekly status reconciliation time by 25%.</li>
-            <li>Engineered automated Excel Power Query models to consolidate cross-party shipment records, eliminating manual data-entry errors across high-volume transactions.</li>
-            <li>Monitored vendor performance against contracted SLAs, identifying pricing anomalies across rate cards to optimize procurement spend.</li>
-            <li>Designed weekly executive status reports and operational KPI dashboards for leadership decision support.</li>
+            <li>Assisted with day-to-day business operations, billing documentation, and customer order coordination.</li>
+            <li>Maintained basic inventory and sales records using Excel.</li>
+            <li>Coordinated with local suppliers and logistics partners for daily dispatches.</li>
         </ul>
     </div>
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Event Operations & Ground Logistics Lead</div>
+            <div class="exp-role">Event Operations & On-Ground Coordinator</div>
             <div class="exp-date">2024 – 2026</div>
         </div>
-        <div class="exp-sub">Brand Activations & Live Deployments | Bengaluru, India</div>
+        <div class="exp-sub">Brand Exhibitions & Live Events | Bengaluru, India</div>
         <ul>
-            <li>Directed operational execution and run-of-show logistics across 300+ brand activations and large-scale deployments (Puma, Dyson, Google, Nykaa, OnePlus).</li>
-            <li><strong>Aero India 2025 (Yelahanka Air Force Station):</strong> Governed multi-vendor SLA setup, accreditation protocols, and visitor crowd flows for 100,000+ attendees under strict defense security protocols with zero shrinkage.</li>
-            <li><strong>TRILOGY Fusion Concert (Jan 2026):</strong> Coordinated artist schedules, technical staging vendors, and VIP hospitality with 100% on-time execution.</li>
-            <li>Instituted structured pre-event risk checklists and rapid-escalation channels, achieving zero vendor downtime across high-stakes engagements.</li>
+            <li>Coordinated on-ground logistics, booth setups, and vendor arrivals for corporate brand exhibitions and live events.</li>
+            <li><strong>Aero India (Yelahanka Air Force Station):</strong> Supported exhibition stall logistics, vendor schedules, and attendee assistance on-site.</li>
+            <li><strong>TRILOGY Concert (Bengaluru Club):</strong> Managed artist coordination, stage vendors, and guest hospitality to ensure smooth event execution.</li>
+            <li>Communicated with suppliers, venue staff, and team leads to resolve operational issues quickly during events.</li>
         </ul>
     </div>
 
@@ -412,7 +411,7 @@ def build_printable_html_resume():
         <div class="exp-sub">Pencil Mark Interior Solutions LLP | Bengaluru, India</div>
         <ul>
             <li>Synthesized commercial client specifications into actionable project briefs, streamlining handoffs between design and site procurement teams.</li>
-            <li>Maintained structured CRM records and vendor matrices, tracking milestone completion across commercial interior projects.</li>
+            <li>Maintained structured records and vendor matrices, tracking milestone completion across projects.</li>
         </ul>
     </div>
 
@@ -420,20 +419,18 @@ def build_printable_html_resume():
     <div class="edu-item">
         <div class="edu-head">
             <div class="edu-deg">Bachelor of Business Administration (BBA) — International Business</div>
-            <div class="edu-date">2023 – 2026</div>
+            <div class="edu-date">Completed (Fresher)</div>
         </div>
-        <div class="exp-sub">Dayananda Sagar University (DSU), Bengaluru, India | Expected Graduation: May 2026</div>
+        <div class="exp-sub">Dayananda Sagar University (DSU), Bengaluru, India | Immediate Full-Time Availability</div>
         <p style="font-size: 10px; color: #475569; margin-top: 2px;">
-            <strong>Relevant Coursework:</strong> Global Supply Chain Management, Cross-Border Logistics, Operations Management, International Trade Policy, Business Analytics & Statistics.
+            <strong>Relevant Coursework:</strong> Principles of Management, Business Operations, Business Communication, Marketing Management, Organizational Behavior, Project Execution.
         </p>
     </div>
 
     <div class="section-title">Certifications & Credentials</div>
     <div class="cert-grid">
-        <div>• Google Digital Marketing Professional Certificate</div>
-        <div>• Service Marketing & Delivery (NPTEL / IIT Kharagpur)</div>
-        <div>• Generative AI & Automation Mastermind (Outskill)</div>
-        <div>• Prompt Engineering & Agentic Workflow Design</div>
+        <div>• Digital Marketing Fundamentals (Google / Coursera)</div>
+        <div>• Service Marketing & Operational Delivery (NPTEL / IIT Kharagpur)</div>
     </div>
 
 </body>
