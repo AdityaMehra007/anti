@@ -32,11 +32,12 @@ Recent BBA (Bachelor of Business Administration) graduate from Dayananda Sagar U
 * Maintained basic inventory and sales records using Excel.
 * Coordinated with local suppliers and logistics partners for daily dispatches.
 
-### On-Ground Event Coordinator | Brand Exhibitions & Live Events
+### Brand Activation & Event Operations Assistant | Live Events & Exhibitions
 *Bengaluru, India | 2024 – 2026*
-* Supported on-ground stall setup and vendor coordination for public exhibitions including Aero India.
-* Assisted attendees and venue guests with on-site queries and directions.
-* Coordinated with stage and event vendors to ensure smooth on-time flow.
+* Represented **Salt in My Cocoa** (artisan chocolate brand) at **Aero India**, managing the promotional booth, conducting product sampling, and driving customer engagement.
+* Handled on-ground booth setup, daily product inventory tracking, and point-of-sale customer interactions.
+* Coordinated with event organizers, venue staff, and delivery logistics to ensure uninterrupted stock availability during high-traffic exhibition days.
+* Assisted with vendor logistics and artist coordination at live music events (TRILOGY Concert).
 
 ---
 

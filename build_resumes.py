@@ -199,10 +199,10 @@ def build_docx_resume(track_key, track_info):
     r_e2_date.font.color.rgb = DARK_GREY
 
     bullets_e2 = [
-        "Coordinated on-ground logistics, booth setups, and vendor arrivals for corporate brand exhibitions and live events.",
-        "Aero India (Yelahanka Air Force Station): Supported exhibition stall logistics, vendor schedules, and attendee assistance on-site.",
-        "TRILOGY Concert (Bengaluru Club): Managed artist coordination, stage vendors, and guest hospitality to ensure smooth event execution.",
-        "Communicated with suppliers, venue staff, and team leads to resolve operational issues quickly during events."
+        "Brand Promotion & Stall Management at Aero India (Yelahanka): Represented 'Salt in My Cocoa' (artisan chocolate brand), conducting live product sampling, managing customer engagement, and handling retail interactions.",
+        "Managed daily stall setup, booth stock replenishment, cash/UPI billing, and visitor inquiries during the exhibition.",
+        "Live Event Coordination (TRILOGY Concert, Bengaluru Club): Supported artist liaison, stage vendors, and guest hospitality.",
+        "Maintained clear communication with venue coordinators, suppliers, and team members to ensure smooth operations."
     ]
     for b in bullets_e2:
         bp = doc.add_paragraph(style='List Bullet')
@@ -391,15 +391,15 @@ def build_printable_html_resume():
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Event Operations & On-Ground Coordinator</div>
+            <div class="exp-role">Brand Promotion & Event Operations Assistant</div>
             <div class="exp-date">2024 – 2026</div>
         </div>
-        <div class="exp-sub">Brand Exhibitions & Live Events | Bengaluru, India</div>
+        <div class="exp-sub">Brand Activations & Live Events | Bengaluru, India</div>
         <ul>
-            <li>Coordinated on-ground logistics, booth setups, and vendor arrivals for corporate brand exhibitions and live events.</li>
-            <li><strong>Aero India (Yelahanka Air Force Station):</strong> Supported exhibition stall logistics, vendor schedules, and attendee assistance on-site.</li>
-            <li><strong>TRILOGY Concert (Bengaluru Club):</strong> Managed artist coordination, stage vendors, and guest hospitality to ensure smooth event execution.</li>
-            <li>Communicated with suppliers, venue staff, and team leads to resolve operational issues quickly during events.</li>
+            <li><strong>Aero India (Yelahanka Air Force Station):</strong> Represented <em>Salt in My Cocoa</em> (artisan chocolate brand), conducting live product sampling, driving customer engagement, and managing retail booth setup and sales.</li>
+            <li>Managed daily booth operations, inventory replenishment, and customer queries during high-footfall exhibition days.</li>
+            <li><strong>TRILOGY Concert (Bengaluru Club):</strong> Assisted with artist liaison, stage vendor arrivals, and hospitality coordination.</li>
+            <li>Collaborated with venue teams and suppliers to resolve operational issues swiftly on-site.</li>
         </ul>
     </div>
 
