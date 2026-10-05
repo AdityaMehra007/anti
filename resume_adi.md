@@ -33,12 +33,12 @@ Business operations and business analyst graduate in International Business (BBA
 * Evaluated supplier rate cards and logistics options, identifying cost-saving opportunities and ensuring strict SLA adherence.
 * Implemented AI-assisted document extraction and market intelligence monitoring to streamline supplier and competitor research.
 
-### Event Operations & Ground Logistics Lead (Brand Activations & Large-Scale Exhibitions)
+### Event Operations & On-Ground Coordinator
 *Bengaluru, India | 2024 – 2026*
-* Directed on-ground operational logistics, vendor coordination, and crowd management across high-visibility brand campaigns (including projects connected with Puma, Tata Communications, Dyson, Apollo, Razorpay, and VH1 Supersonic).
-* **Aero India (Yelahanka Air Force Station):** Managed exhibition stall setup, vendor schedules, visitor engagement flows, and real-time coordination under rigorous security protocols.
-* **TRILOGY: Indo-Jazz Instrumental Fusion (Bengaluru Club, Jan 2026):** Served as Event Coordinator, managing artist schedules, stage operations, technical vendors, and executive hospitality.
-* Maintained 100% on-time delivery across tight production windows, rapidly resolving operational bottlenecks under pressure.
+* Coordinated on-ground setups, vendor arrivals, and event logistics for brand exhibitions and live events.
+* **Aero India (Yelahanka Air Force Station):** Supported exhibition stall coordination, vendor scheduling, and visitor assistance on-site.
+* **TRILOGY Music Event (Bengaluru Club):** Assisted with artist hospitality, stage arrangements, and vendor coordination to ensure smooth on-time flow.
+* Worked directly with venue teams and suppliers to resolve operational issues quickly during events.
 
 ### Business & Commercial Research Intern | Pencil Mark Interior Solutions LLP
 *Bengaluru, India | July 2025 – August 2025*

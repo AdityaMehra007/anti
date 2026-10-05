@@ -23,23 +23,23 @@ CHARCOAL = RGBColor(15, 23, 42)  # #0F172A
 TRACKS = {
     "Master_Operations": {
         "title": "GLOBAL BUSINESS OPERATIONS & ANALYTICS ASSOCIATE",
-        "summary": "International Business graduate (BBA, Dayananda Sagar University) with verified on-ground execution capabilities across large-scale event operations (Aero India 2025, 300+ brand activations) and commercial logistics. Proven ability to translate complex operational workflows into standard operating procedures (SOPs), reduce manual status reconciliation by 25% using Advanced Excel (Power Query, Dynamic Arrays) and Python, and enforce strict multi-tier vendor SLA governance under high-security defense protocols.",
-        "skills": "Business Operations, Process Mapping (SOPs), Vendor SLA Governance, Workflow Optimization, Advanced Excel (Power Query, PivotTables, Dynamic Arrays), Business Analysis, Cross-Border Logistics, Stakeholder Management, SQL Foundations, Jira & ClickUp."
+        "summary": "International Business graduate (BBA, Dayananda Sagar University) with hands-on experience coordinating on-ground event operations (Aero India, live brand exhibitions) and commercial logistics. Proven ability to assist with operational workflows, vendor follow-ups, and process tracking using Excel, reporting tools, and structured checklists.",
+        "skills": "Business Operations, Process Coordination, Vendor Follow-ups, Event Logistics, Excel (Formulas, PivotTables, Power Query), Task Management, Problem-Solving, Team Coordination."
     },
     "Operations_Analyst": {
         "title": "BUSINESS OPERATIONS & DATA ANALYST",
-        "summary": "Data-oriented Business Operations graduate (BBA International Business, DSU) specializing in operational KPI tracking, process mapping, and workflow automation. Experience building automated data pipelines and spreadsheet models that slashed transaction reconciliation time by 25%. Proven track record managing high-velocity vendor deliverables and cross-functional operations.",
-        "skills": "Business Operations Analysis, Process Modeling, Root-Cause Analysis, Excel Power Query, SQL Basics, KPI Dashboards, Variance Analysis, Vendor Management, Resource Allocation, Automated Reporting."
+        "summary": "Business Operations graduate (BBA International Business, DSU) with practical experience in operational tracking, process support, and reporting. Hands-on with Excel for status tracking, daily reporting, and cross-functional team coordination.",
+        "skills": "Operations Support, Process Tracking, Reporting, Excel (PivotTables, Lookups), Problem-Solving, Vendor Coordination, Team Communication."
     },
     "Process_Risk_Ops": {
-        "title": "PROCESS OPERATIONS & RISK CONTROLS ASSOCIATE",
-        "summary": "Process Operations graduate (BBA International Business, DSU) with strong foundation in compliance, risk mitigation, and audit controls. Field-tested at Aero India 2025 enforcing strict military defense base security protocols and dual-custody barcode staging for 100,000+ visitors with zero shrinkage. Designed standardized operational workflows eliminating manual transcription errors in commercial trade operations.",
-        "skills": "Process Optimization, Risk & Internal Controls, KYC/AML Awareness, Audit Trails, SOP Documentation, Dual-Custody Verification, Discrepancy Resolution, Excel Auditing & Reconciliation, Compliance Governance."
+        "title": "PROCESS OPERATIONS & COMPLIANCE ASSOCIATE",
+        "summary": "Operations graduate (BBA International Business, DSU) with focus on operational discipline, standard procedures, and quality checks. Practical experience in on-ground event operations and business logistics ensuring procedures are followed accurately.",
+        "skills": "Process Execution, Standard Operating Procedures, Quality Checks, Operations Tracking, Excel, Vendor Coordination, Reporting."
     },
     "PMO_Vendor_Logistics": {
-        "title": "PMO COORDINATOR & VENDOR OPERATIONS SPECIALIST",
-        "summary": "High-accountability Project Operations Coordinator (BBA International Business, DSU) with proven leadership delivering 300+ high-visibility brand activations (Puma, Dyson, Google, Nykaa) and high-stakes defense exhibition logistics at Aero India 2025. Expert in vendor rate-card negotiations, run-of-show scheduling, milestone governance, and real-time operational contingency management.",
-        "skills": "PMO Coordination, Vendor SLA Management, Contract Execution, Event Logistics, Run-of-Show Schedules, Milestone Tracking, Procurement Rate-Card Analysis, Emergency Contingency Planning, Jira, Trello."
+        "title": "OPERATIONS & VENDOR COORDINATOR",
+        "summary": "Proactive Operations Coordinator (BBA International Business, DSU) with proven experience supporting event setups, vendor coordination, and on-ground logistics for brand exhibitions and public events including Aero India.",
+        "skills": "Operations Coordination, Vendor Management, Event Logistics, Schedule Tracking, On-Site Support, Team Communication, Problem Resolution."
     },
     "EXIM_International_Trade": {
         "title": "INTERNATIONAL TRADE & EXIM OPERATIONS SPECIALIST",
@@ -181,16 +181,16 @@ def build_docx_resume(track_key, track_info):
         brun.font.name = "Segoe UI"
         brun.font.size = Pt(9)
 
-    # Experience 2: Event Operations & Logistics Lead
+    # Experience 2: Event Operations Coordinator
     p_e2 = doc.add_paragraph()
     p_e2.paragraph_format.space_before = Pt(4)
     p_e2.paragraph_format.space_after = Pt(1)
-    r_e2_role = p_e2.add_run("Event Operations & Ground Logistics Lead")
+    r_e2_role = p_e2.add_run("Event Operations & On-Ground Coordinator")
     r_e2_role.font.name = "Segoe UI"
     r_e2_role.font.size = Pt(10)
     r_e2_role.font.bold = True
     r_e2_role.font.color.rgb = NAVY
-    r_e2_co = p_e2.add_run(" — Brand Activations & Live Deployments | Bengaluru, India\n")
+    r_e2_co = p_e2.add_run(" — Brand Exhibitions & Live Events | Bengaluru, India\n")
     r_e2_co.font.name = "Segoe UI"
     r_e2_co.font.size = Pt(9.5)
     r_e2_co.font.italic = True
@@ -200,10 +200,10 @@ def build_docx_resume(track_key, track_info):
     r_e2_date.font.color.rgb = DARK_GREY
 
     bullets_e2 = [
-        "Directed operational execution and run-of-show logistics across 300+ brand activations and large-scale deployments (Puma, Dyson, Google, Nykaa, OnePlus).",
-        "Aero India 2025 (Yelahanka Air Force Station): Governed multi-vendor SLA setup, accreditation protocols, and visitor crowd flows for 100,000+ attendees under strict defense security protocols with zero shrinkage.",
-        "TRILOGY Fusion Concert (Bengaluru Club, Jan 2026): Coordinated artist schedules, technical staging vendors, and VIP hospitality with 100% on-time execution.",
-        "Instituted structured pre-event risk checklists and rapid-escalation channels, achieving zero vendor downtime across high-stakes engagements."
+        "Coordinated on-ground logistics, booth setups, and vendor arrivals for corporate brand exhibitions and live events.",
+        "Aero India (Yelahanka Air Force Station): Supported exhibition stall logistics, vendor schedules, and attendee assistance on-site.",
+        "TRILOGY Concert (Bengaluru Club): Managed artist coordination, stage vendors, and guest hospitality to ensure smooth event execution.",
+        "Communicated with suppliers, venue staff, and team leads to resolve operational issues quickly during events."
     ]
     for b in bullets_e2:
         bp = doc.add_paragraph(style='List Bullet')
