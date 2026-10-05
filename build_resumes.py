@@ -260,7 +260,7 @@ def build_docx_resume(track_key, track_info):
     r_yr.font.name = "Segoe UI"
     r_yr.font.size = Pt(8.5)
     r_yr.font.color.rgb = DARK_GREY
-    r_course = p_edu.add_run("Relevant Coursework: Global Supply Chain Management, Cross-Border Logistics, Operations Management, International Trade Policy, Business Analytics & Statistics.")
+    r_course = p_edu.add_run("Relevant Coursework: Business Operations, Principles of Management, Business Communication, Marketing Management, Organizational Behavior, Project Execution.")
     r_course.font.name = "Segoe UI"
     r_course.font.size = Pt(8.5)
 
