@@ -4,7 +4,7 @@
 ---
 
 ### PROFILE
-**BBA Graduate (Dayananda Sagar University, Bengaluru | 2023–2026)** seeking entry-level **Operations, Operations Support, or Management Trainee** roles in Bengaluru. Hands-on experience across family business operations, freelance event coordination, 2 corporate internships, and 1 NGO internship. Strong communication, proficient in MS Excel, and available to join immediately.
+**BBA Graduate (Dayananda Sagar University, Bengaluru | 2023–2026)** seeking entry-level **Operations, Operations Support, or Management Trainee** roles in Bengaluru. Hands-on experience across family business operations, freelance event coordination, 2 corporate internships (including Instawork), and 1 NGO internship. Passionate tech enthusiast actively **vibe coding, building web apps and side projects using AI tools (Antigravity, Cursor, LLMs)**. Strong communication, proficient in MS Excel, and available to join immediately.
 
 ---
 
@@ -15,9 +15,17 @@
 ---
 
 ### CORE SKILLS
-* **Operations:** Daily scheduling, vendor coordination, checklist execution, office administration.
-* **Tools:** MS Excel (Formulas, Tables, Data Entry), MS Word, Google Docs & Sheets, Professional Email.
-* **Strengths:** Quick learner, clear communication, punctual, strong team player.
+* **Operations:** Daily task scheduling, vendor coordination, checklist execution, office administration.
+* **AI & Modern Tech Tools:** AI-assisted building / vibe coding (Google Antigravity, Cursor, LLMs), web app prototyping, automation workflows.
+* **Office & Productivity:** MS Excel (Formulas, Tables, Data Entry), MS Word, Google Docs & Sheets, Professional Email.
+* **Strengths:** Quick learner, tech-savvy, clear communication, punctual, strong team player.
+
+---
+
+### TECH SIDE PROJECTS & VIBE CODING
+* **Web Apps & Automation Prototypes (Personal Side Projects)**
+  * Built functional web tools and UI prototypes using AI-native coding assistants (**Google Antigravity**, Cursor, Claude, ChatGPT).
+  * Automated data management and task checklists to streamline repetitive operational workflows.
 
 ---
 

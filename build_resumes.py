@@ -142,7 +142,7 @@ def build_docx_resume(track_key, track_info):
     r_tools_lbl.font.size = Pt(9.5)
     r_tools_lbl.font.bold = True
     r_tools_lbl.font.color.rgb = NAVY
-    r_tools_val = p_comp.add_run("Microsoft Excel (Data Entry, Basic Formulas, Tables), Microsoft Word, Google Workspace, Email Correspondence.")
+    r_tools_val = p_comp.add_run("AI-Native Prototyping (Google Antigravity, Cursor, LLMs), MS Excel (Data Entry, Formulas, Tables), Google Workspace, MS Word, Email.")
     r_tools_val.font.name = "Segoe UI"
     r_tools_val.font.size = Pt(9.5)
 
@@ -260,6 +260,20 @@ def build_docx_resume(track_key, track_info):
     r_i3_desc = p_i3.add_run("• Assisted on-ground social awareness initiatives, volunteer coordination, and participant registration logistics.")
     r_i3_desc.font.name = "Segoe UI"
     r_i3_desc.font.size = Pt(8.8)
+
+    # Tech Side Projects & Vibe Coding
+    add_heading_with_bottom_border(doc, "TECH SIDE PROJECTS & VIBE CODING")
+    p_proj = doc.add_paragraph()
+    p_proj.paragraph_format.space_before = Pt(2)
+    p_proj.paragraph_format.space_after = Pt(2)
+    r_pr_title = p_proj.add_run("Web Apps & Operational Automation Tools (Personal Side Projects)\n")
+    r_pr_title.font.name = "Segoe UI"
+    r_pr_title.font.size = Pt(9.5)
+    r_pr_title.font.bold = True
+    r_pr_title.font.color.rgb = NAVY
+    r_pr_desc = p_proj.add_run("• Prototyped and built interactive web apps, dashboard interfaces, and automated workflow scripts using AI tools (Google Antigravity, Cursor, Claude/ChatGPT).\n• Applied rapid AI-assisted development (vibe coding) to automate task checklists and data organization.")
+    r_pr_desc.font.name = "Segoe UI"
+    r_pr_desc.font.size = Pt(8.8)
 
     # Education
     add_heading_with_bottom_border(doc, "EDUCATION")
@@ -452,6 +466,18 @@ def build_printable_html_resume():
         <div class="exp-sub">Bengaluru, India</div>
         <ul>
             <li>Assisted on-ground social awareness initiatives, volunteer coordination, and participant registration logistics.</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Tech Side Projects & Vibe Coding</div>
+    <div class="exp-item">
+        <div class="exp-head">
+            <div class="exp-role">Web Apps & Operational Automation Tools (Personal Side Projects)</div>
+            <div class="exp-date">2024 – Present</div>
+        </div>
+        <ul>
+            <li>Prototyped and built interactive web apps, dashboard interfaces, and automated workflow scripts using AI tools (<strong>Google Antigravity</strong>, Cursor, Claude, ChatGPT).</li>
+            <li>Applied rapid AI-assisted development (vibe coding) to automate data organization and operational checklists.</li>
         </ul>
     </div>
 
