@@ -235,7 +235,7 @@ class RecruiterDispatcher:
                 f"Please let me know if an aligned package is feasible.\n\n"
                 f"Best regards,\n"
                 f"{self.CANDIDATE_NAME}\n"
-                f"{self.CANDIDATE_EMAIL} | +91 97411 20023"
+                f"{self.CANDIDATE_EMAIL} | +91 7003456624"
             )
         # Case 2: CTC acceptable (>= 6.5L)
         elif ctc is not None and ctc >= self.CTC_MIN_LPA:
