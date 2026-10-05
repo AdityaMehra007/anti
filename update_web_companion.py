@@ -1,7 +1,11 @@
+import sys
 import re
 from pathlib import Path
-
-INDEX_PATH = Path(r"C:\Users\amehr\.gemini\antigravity\brain\be0b40b6-089f-4de0-a0f0-0c8e2eb1ff23\scratch\ADI-OS\docs\index.html")
+ROOT_DIR = Path(__file__).resolve().parent
+INDEX_PATH = ROOT_DIR / "apps" / "index.html"
+if not INDEX_PATH.exists():
+    print(f"[-] Index path {INDEX_PATH} not found.")
+    sys.exit(0)
 content = INDEX_PATH.read_text(encoding="utf-8")
 
 # 1. Update CSS styles before </style>

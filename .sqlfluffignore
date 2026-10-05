@@ -10,6 +10,8 @@ build/
 .pytest_cache/
 .scratch/
 
-# External third-party repos & submodules
+# Auto-generated migrations & external repos
 external/
 tmp/
+**/migrations/*.sql
+opencode/packages/**/migrations/

@@ -1,26 +1,14 @@
 {
   "crawler": "Camofox Stealth Market Harvester v1.0",
   "engine": "Camoufox C++ Hardened Spoofing",
-  "crawl_timestamp": "2026-09-17T18:58:16.490279",
+  "crawl_timestamp": "2026-10-04T15:41:32.948649",
   "total_targets": 3,
-  "successful_stealth_crawls": 3,
+  "successful_stealth_crawls": 2,
   "results": [
     {
       "company": "Amazon India",
-      "target_cluster": "Outer Ring Road / Manyata",
-      "domain": "E-Commerce & Supply Chain Operations",
-      "page_title": "Job search | Amazon.jobs",
-      "target_url": "https://www.amazon.jobs/en/search?base_query=Operations+Analyst&loc_query=Bengaluru%2C+Karnataka%2C+India",
-      "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
-      "roles_discovered": [
-        "combobox \"Search for jobs by title or keyword\": Operations Analyst",
-        "checkbox \"Finance and Global Business Services 28 jobs\" [e19]:",
-        "paragraph: Finance and Global Business Services 28 jobs",
-        "checkbox \"Business & Merchant Development 2 jobs\" [e22]:"
-      ],
-      "fit_score": 9.8,
-      "status": "LIVE_VERIFIED",
-      "last_crawled": "2026-09-17T18:57:53.359582"
+      "error": "HTTP 500 on POST /tabs: tab create timed out after 30000ms",
+      "status": "FAILED"
     },
     {
       "company": "Google Bangalore",
@@ -31,13 +19,13 @@
       "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
       "roles_discovered": [
         "combobox \"What do you want to do?\": Business Operations",
-        "heading \"Technical Program Manager, AI/ML, Cloud Supply Chain Operations\" [level=3]",
-        "listitem: Experience with hardware manufacturing test industry and business operations.",
-        "link \"Learn more about Technical Program Manager, AI/ML, Cloud Supply Chain Operations\" [e24]:"
+        "heading \"Sales Strategy and Operations Analyst, Google Cloud\" [level=3]",
+        "listitem: Experience with SQL and other database, scripting, or business intelligence tools.",
+        "listitem: Experience modeling enterprise sales performance metrics such as consumption based business and bookings."
       ],
-      "fit_score": 9.5,
+      "fit_score": 9.8,
       "status": "LIVE_VERIFIED",
-      "last_crawled": "2026-09-17T18:58:03.476069"
+      "last_crawled": "2026-10-04T15:41:22.964960"
     },
     {
       "company": "IKEA Bangalore / Ingka Services",
@@ -47,14 +35,14 @@
       "target_url": "https://jobs.ikea.com/en/search-jobs/Bengaluru",
       "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
       "roles_discovered": [
-        "link \"Accounting & Reporting Specialist Bangalore, Karnataka, India Finance, Accounting & Tax Full time\" [e16]:",
-        "/url: /en/job/bengaluru/accounting-and-reporting-specialist/24107/97600592576",
-        "text: Accounting & Reporting Specialist",
-        "link \"Senior PA/PY Specialist Bangalore, Karnataka, India People & HR Full time\" [e24]:"
+        "link \"Audit Support Specialist Bangalore, Karnataka, India Legal & Governance Full time\" [e22]:",
+        "/url: /en/job/bengaluru/audit-support-specialist/24107/101391900560",
+        "text: Audit Support Specialist",
+        "link \"IKEA for Business Interior Designer Bangalore, Karnataka, India Sales & Commercial Full time\" [e30]:"
       ],
       "fit_score": 9.5,
       "status": "LIVE_VERIFIED",
-      "last_crawled": "2026-09-17T18:58:16.466525"
+      "last_crawled": "2026-10-04T15:41:32.943615"
     }
   ]
 }

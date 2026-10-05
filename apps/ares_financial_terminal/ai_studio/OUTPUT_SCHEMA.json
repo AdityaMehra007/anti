@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstitutionalEquityResearchReport",
+  "type": "object",
+  "properties": {
+    "ticker": { "type": "string" },
+    "company_name": { "type": "string" },
+    "as_of_date": { "type": "string" },
+    "recommendation": { 
+      "type": "string", 
+      "enum": ["STRONG_BUY", "LONG", "NEUTRAL", "SHORT", "STRONG_SELL"] 
+    },
+    "current_price": { "type": "number" },
+    "target_price_12m": { "type": "number" },
+    "implied_upside_percent": { "type": "number" },
+    "risk_reward_skew": { "type": "string" },
+    "variant_perception": { "type": "string" },
+    "moat_rating": { 
+      "type": "string", 
+      "enum": ["WIDE", "NARROW", "NONE"] 
+    },
+    "powers_present": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "forensics": {
+      "type": "object",
+      "properties": {
+        "beneish_m_score": { "type": "number" },
+        "manipulation_risk": { "type": "string", "enum": ["LOW", "MODERATE", "HIGH"] },
+        "altman_z_score": { "type": "number" },
+        "sloan_accrual_ratio": { "type": "number" },
+        "sbc_to_revenue_percent": { "type": "number" },
+        "red_flags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["beneish_m_score", "manipulation_risk", "altman_z_score", "red_flags"]
+    },
+    "valuation_scenarios": {
+      "type": "object",
+      "properties": {
+        "bear_case": {
+          "type": "object",
+          "properties": {
+            "target_price": { "type": "number" },
+            "probability": { "type": "number" },
+            "key_assumptions": { "type": "string" }
+          },
+          "required": ["target_price", "probability"]
+        },
+        "base_case": {
+          "type": "object",
+          "properties": {
+            "target_price": { "type": "number" },
+            "probability": { "type": "number" },
+            "key_assumptions": { "type": "string" }
+          },
+          "required": ["target_price", "probability"]
+        },
+        "bull_case": {
+          "type": "object",
+          "properties": {
+            "target_price": { "type": "number" },
+            "probability": { "type": "number" },
+            "key_assumptions": { "type": "string" }
+          },
+          "required": ["target_price", "probability"]
+        },
+        "probability_weighted_price": { "type": "number" }
+      },
+      "required": ["bear_case", "base_case", "bull_case", "probability_weighted_price"]
+    },
+    "catalysts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timeframe": { "type": "string" },
+          "event": { "type": "string" },
+          "expected_impact": { "type": "string" }
+        },
+        "required": ["timeframe", "event", "expected_impact"]
+      }
+    },
+    "thesis_invalidation_triggers": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": [
+    "ticker", 
+    "company_name", 
+    "recommendation", 
+    "current_price", 
+    "target_price_12m", 
+    "variant_perception", 
+    "forensics", 
+    "valuation_scenarios", 
+    "catalysts", 
+    "thesis_invalidation_triggers"
+  ]
+}

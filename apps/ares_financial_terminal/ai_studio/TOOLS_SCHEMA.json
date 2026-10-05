@@ -1,0 +1,45 @@
+[
+  {
+    "name": "get_sec_filing_text",
+    "description": "Fetches section text from SEC 10-K, 10-Q, or 8-K filings from EDGAR.",
+    "parameters": {
+      "type": "OBJECT",
+      "properties": {
+        "ticker": { "type": "STRING", "description": "Stock ticker symbol (e.g. AAPL, NVDA, MSFT)" },
+        "filing_type": { "type": "STRING", "description": "Filing type: 10-K, 10-Q, 8-K, DEF 14A" },
+        "item_section": { "type": "STRING", "description": "Specific item (e.g. 'Item 1A Risk Factors', 'Item 7 MD&A', 'Footnotes')" },
+        "year": { "type": "INTEGER", "description": "Filing fiscal year" }
+      },
+      "required": ["ticker", "filing_type", "year"]
+    }
+  },
+  {
+    "name": "get_financial_statements",
+    "description": "Retrieves standardized Balance Sheet, Income Statement, and Cash Flow Statement line items.",
+    "parameters": {
+      "type": "OBJECT",
+      "properties": {
+        "ticker": { "type": "STRING", "description": "Stock ticker symbol" },
+        "period": { "type": "STRING", "description": "Period frequency: 'annual' or 'quarterly'" },
+        "limit": { "type": "INTEGER", "description": "Number of periods to return" }
+      },
+      "required": ["ticker", "period"]
+    }
+  },
+  {
+    "name": "calculate_dcf_and_reverse_dcf",
+    "description": "Calculates institutional unlevered DCF, Reverse DCF, and sensitivity matrix.",
+    "parameters": {
+      "type": "OBJECT",
+      "properties": {
+        "current_share_price": { "type": "NUMBER", "description": "Current market price per share" },
+        "shares_outstanding": { "type": "NUMBER", "description": "Total diluted shares outstanding in millions" },
+        "net_debt": { "type": "NUMBER", "description": "Total debt minus cash in millions" },
+        "starting_fcf": { "type": "NUMBER", "description": "Base year unlevered free cash flow in millions" },
+        "wacc": { "type": "NUMBER", "description": "Discount rate / WACC as a decimal (e.g. 0.09)" },
+        "terminal_growth_rate": { "type": "NUMBER", "description": "Perpetual terminal growth rate as a decimal (e.g. 0.025)" }
+      },
+      "required": ["current_share_price", "shares_outstanding", "net_debt", "starting_fcf", "wacc", "terminal_growth_rate"]
+    }
+  }
+]

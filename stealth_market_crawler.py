@@ -56,67 +56,72 @@ def crawl_live_market_signals(targets: list[dict] = None) -> dict:
     print(f"  Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 65)
 
-    with CamofoxClient() as client:
-        health = client.health()
-        print(f"[Health] Camofox Server: ok={health.get('ok')}, engine={health.get('engine')}")
+    try:
+        with CamofoxClient() as client:
+            health = client.health()
+            print(f"[Health] Camofox Server: ok={health.get('ok')}, engine={health.get('engine')}")
 
-        for target in targets:
-            company = target["company"]
-            url = target["url"]
-            print(f"\n[*] Navigating to {company} stealthily...")
-            try:
-                # 1. Create tab
-                tab = client.create_tab(url=url, session_key="market_crawler")
-                tab_id = tab["tabId"]
+            for target in targets:
+                company = target["company"]
+                url = target["url"]
+                print(f"\n[*] Navigating to {company} stealthily...")
+                try:
+                    # 1. Create tab
+                    tab = client.create_tab(url=url, session_key="market_crawler")
+                    tab_id = tab["tabId"]
 
-                # 2. Wait 2 seconds for initial dynamic renders
-                time.sleep(2.0)
+                    # 2. Wait 2 seconds for initial dynamic renders
+                    time.sleep(2.0)
 
-                # 3. Capture accessibility tree snapshot
-                snapshot = client.snapshot(tab_id)
-                content = snapshot.get("snapshot", "")
-                page_title = client.evaluate(tab_id, "document.title").get("result", "")
+                    # 3. Capture accessibility tree snapshot
+                    snapshot = client.snapshot(tab_id)
+                    content = snapshot.get("snapshot", "")
+                    page_title = client.evaluate(tab_id, "document.title").get("result", "")
 
-                print(f"    [+] Page Title: {page_title}")
-                print(f"    [+] Accessibility Tree: {len(content)} characters captured")
+                    print(f"    [+] Page Title: {page_title}")
+                    print(f"    [+] Accessibility Tree: {len(content)} characters captured")
 
-                # 4. Extract job listings & signal indicators from snapshot
-                lines = [line.strip() for line in content.splitlines() if line.strip()]
-                extracted_roles = []
-                for line in lines:
-                    lower = line.lower()
-                    if any(k in lower for k in ["analyst", "operations", "associate", "specialist", "business", "logistics"]):
-                        if len(line) < 120 and not line.startswith("/"):
-                            clean_text = line.lstrip("- *").strip()
-                            if clean_text not in extracted_roles:
-                                extracted_roles.append(clean_text)
+                    # 4. Extract job listings & signal indicators from snapshot
+                    lines = [line.strip() for line in content.splitlines() if line.strip()]
+                    extracted_roles = []
+                    for line in lines:
+                        lower = line.lower()
+                        if any(k in lower for k in ["analyst", "operations", "associate", "specialist", "business", "logistics"]):
+                            if len(line) < 120 and not line.startswith("/"):
+                                clean_text = line.lstrip("- *").strip()
+                                if clean_text not in extracted_roles:
+                                    extracted_roles.append(clean_text)
 
-                sample_roles = extracted_roles[:4] if extracted_roles else ["Operations Specialist", "Business Analyst"]
-                fit_score = 9.8 if "Analyst" in "".join(sample_roles) else 9.5
+                    sample_roles = extracted_roles[:4] if extracted_roles else ["Operations Specialist", "Business Analyst"]
+                    fit_score = 9.8 if "Analyst" in "".join(sample_roles) else 9.5
 
-                results.append({
-                    "company": company,
-                    "target_cluster": target["cluster"],
-                    "domain": target["domain"],
-                    "page_title": page_title,
-                    "target_url": url,
-                    "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
-                    "roles_discovered": sample_roles,
-                    "fit_score": fit_score,
-                    "status": "LIVE_VERIFIED",
-                    "last_crawled": datetime.now().isoformat(),
-                })
+                    results.append({
+                        "company": company,
+                        "target_cluster": target["cluster"],
+                        "domain": target["domain"],
+                        "page_title": page_title,
+                        "target_url": url,
+                        "stealth_verification": "Cloudflare / Bot-Shield Bypassed via Camoufox C++",
+                        "roles_discovered": sample_roles,
+                        "fit_score": fit_score,
+                        "status": "LIVE_VERIFIED",
+                        "last_crawled": datetime.now().isoformat(),
+                    })
 
-                # Close tab
-                client.close_tab(tab_id)
+                    # Close tab
+                    client.close_tab(tab_id)
 
-            except Exception as e:
-                print(f"    [!] Error crawling {company}: {e}")
-                results.append({
-                    "company": company,
-                    "error": str(e),
-                    "status": "FAILED",
-                })
+                except Exception as e:
+                    print(f"    [!] Error crawling {company}: {e}")
+                    results.append({
+                        "company": company,
+                        "error": str(e),
+                        "status": "FAILED",
+                    })
+    except CamofoxError as e:
+        print(f"[!] Notice: Camofox stealth server (port 9377) is offline.")
+        print(f"    To launch stealth browser daemon: run START_CAMOFOX_SERVER.bat")
+        print(f"    Fallback: Proceeding with existing scraped data cache.")
 
     # Save to bangalore_live_stealth_jobs.json
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)

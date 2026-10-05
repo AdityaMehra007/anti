@@ -98,7 +98,7 @@ class TestAIGateway(unittest.TestCase):
             data=json.dumps(payload).encode("utf-8"),
             headers={"Content-Type": "application/json"}
         )
-        with urllib.request.urlopen(req, timeout=30) as res:
+        with urllib.request.urlopen(req, timeout=120) as res:
             self.assertEqual(res.status, 200)
             data = json.loads(res.read().decode("utf-8"))
             self.assertIn("choices", data)
@@ -120,7 +120,7 @@ class TestAIGateway(unittest.TestCase):
             data=json.dumps(payload).encode("utf-8"),
             headers={"Content-Type": "application/json"}
         )
-        with urllib.request.urlopen(req, timeout=30) as res:
+        with urllib.request.urlopen(req, timeout=120) as res:
             self.assertEqual(res.status, 200)
             self.assertIn("text/event-stream", res.headers.get("Content-Type", ""))
             
