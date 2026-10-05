@@ -35,7 +35,7 @@ class RecruiterDispatcher:
     # Aditya Mehra verified profile constants
     CANDIDATE_NAME = "Aditya Mehra"
     CANDIDATE_EMAIL = "adityamehra007@gmail.com"
-    EDUCATION = "BBA International Business (BBA IB), Dayananda Sagar University (DSU) '26"
+    EDUCATION = "BBA International Business (BBA IB Graduate), Dayananda Sagar University (DSU)"
     EXPERIENCE_HIGHLIGHTS = (
         "AERO India 2025 Coordinator; Operations Specialist; Instawork 99.2% QA Precision; "
         "autonomous multi-agent engineering & process optimization."

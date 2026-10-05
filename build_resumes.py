@@ -23,27 +23,27 @@ CHARCOAL = RGBColor(15, 23, 42)  # #0F172A
 TRACKS = {
     "Master_Operations": {
         "title": "GLOBAL BUSINESS OPERATIONS & ANALYTICS ASSOCIATE",
-        "summary": "Final-year International Business graduate (BBA, Dayananda Sagar University, Class of 2026) with verified on-ground execution capabilities across large-scale event operations (Aero India 2025, 300+ brand activations) and commercial logistics. Proven ability to translate complex operational workflows into standard operating procedures (SOPs), reduce manual status reconciliation by 25% using Advanced Excel (Power Query, Dynamic Arrays) and Python, and enforce strict multi-tier vendor SLA governance under high-security defense protocols.",
+        "summary": "International Business graduate (BBA, Dayananda Sagar University) with verified on-ground execution capabilities across large-scale event operations (Aero India 2025, 300+ brand activations) and commercial logistics. Proven ability to translate complex operational workflows into standard operating procedures (SOPs), reduce manual status reconciliation by 25% using Advanced Excel (Power Query, Dynamic Arrays) and Python, and enforce strict multi-tier vendor SLA governance under high-security defense protocols.",
         "skills": "Business Operations, Process Mapping (SOPs), Vendor SLA Governance, Workflow Optimization, Advanced Excel (Power Query, PivotTables, Dynamic Arrays), Business Analysis, Cross-Border Logistics, Stakeholder Management, SQL Foundations, Jira & ClickUp."
     },
     "Operations_Analyst": {
         "title": "BUSINESS OPERATIONS & DATA ANALYST",
-        "summary": "Data-oriented Business Operations graduate (BBA International Business, DSU '26) specializing in operational KPI tracking, process mapping, and workflow automation. Experience building automated data pipelines and spreadsheet models that slashed transaction reconciliation time by 25%. Proven track record managing high-velocity vendor deliverables and cross-functional operations.",
+        "summary": "Data-oriented Business Operations graduate (BBA International Business, DSU) specializing in operational KPI tracking, process mapping, and workflow automation. Experience building automated data pipelines and spreadsheet models that slashed transaction reconciliation time by 25%. Proven track record managing high-velocity vendor deliverables and cross-functional operations.",
         "skills": "Business Operations Analysis, Process Modeling, Root-Cause Analysis, Excel Power Query, SQL Basics, KPI Dashboards, Variance Analysis, Vendor Management, Resource Allocation, Automated Reporting."
     },
     "Process_Risk_Ops": {
         "title": "PROCESS OPERATIONS & RISK CONTROLS ASSOCIATE",
-        "summary": "Process Operations candidate (BBA International Business, DSU '26) with strong foundation in compliance, risk mitigation, and audit controls. Field-tested at Aero India 2025 enforcing strict military defense base security protocols and dual-custody barcode staging for 100,000+ visitors with zero shrinkage. Designed standardized operational workflows eliminating manual transcription errors in commercial trade operations.",
+        "summary": "Process Operations graduate (BBA International Business, DSU) with strong foundation in compliance, risk mitigation, and audit controls. Field-tested at Aero India 2025 enforcing strict military defense base security protocols and dual-custody barcode staging for 100,000+ visitors with zero shrinkage. Designed standardized operational workflows eliminating manual transcription errors in commercial trade operations.",
         "skills": "Process Optimization, Risk & Internal Controls, KYC/AML Awareness, Audit Trails, SOP Documentation, Dual-Custody Verification, Discrepancy Resolution, Excel Auditing & Reconciliation, Compliance Governance."
     },
     "PMO_Vendor_Logistics": {
         "title": "PMO COORDINATOR & VENDOR OPERATIONS SPECIALIST",
-        "summary": "High-accountability Project Operations Coordinator (BBA International Business, DSU '26) with proven leadership delivering 300+ high-visibility brand activations (Puma, Dyson, Google, Nykaa) and high-stakes defense exhibition logistics at Aero India 2025. Expert in vendor rate-card negotiations, run-of-show scheduling, milestone governance, and real-time operational contingency management.",
+        "summary": "High-accountability Project Operations Coordinator (BBA International Business, DSU) with proven leadership delivering 300+ high-visibility brand activations (Puma, Dyson, Google, Nykaa) and high-stakes defense exhibition logistics at Aero India 2025. Expert in vendor rate-card negotiations, run-of-show scheduling, milestone governance, and real-time operational contingency management.",
         "skills": "PMO Coordination, Vendor SLA Management, Contract Execution, Event Logistics, Run-of-Show Schedules, Milestone Tracking, Procurement Rate-Card Analysis, Emergency Contingency Planning, Jira, Trello."
     },
     "EXIM_International_Trade": {
         "title": "INTERNATIONAL TRADE & EXIM OPERATIONS SPECIALIST",
-        "summary": "International Business graduate (BBA, Dayananda Sagar University, Class of 2026) with comprehensive academic and practical training in cross-border trade operations, DGFT Foreign Trade Policy, customs documentation, and ocean/air freight logistics. Applied practical trade cost modeling to analyze landed cost variance, tariff classification, and multi-modal shipment tracking.",
+        "summary": "International Business graduate (BBA, Dayananda Sagar University) with comprehensive academic and practical training in cross-border trade operations, DGFT Foreign Trade Policy, customs documentation, and ocean/air freight logistics. Applied practical trade cost modeling to analyze landed cost variance, tariff classification, and multi-modal shipment tracking.",
         "skills": "Export-Import Documentation (B/L, CoO, L/C), Incoterms 2020, Customs Clearance Protocols, Landed Cost Modeling, Freight Forwarder Coordination, DGFT Policy, Currency Risk Basics, Tariff Classification, Supply Chain Tracking."
     }
 }
@@ -256,7 +256,7 @@ def build_docx_resume(track_key, track_info):
     r_inst = p_edu.add_run(" | Dayananda Sagar University (DSU), Bengaluru, India\n")
     r_inst.font.name = "Segoe UI"
     r_inst.font.size = Pt(9.5)
-    r_yr = p_edu.add_run("Expected Graduation: May 2026 | Full Full-Time Corporate Availability\n")
+    r_yr = p_edu.add_run("Degree Completed: BBA International Business | Immediate Full-Time Availability\n")
     r_yr.font.name = "Segoe UI"
     r_yr.font.size = Pt(8.5)
     r_yr.font.color.rgb = DARK_GREY

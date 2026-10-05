@@ -18,8 +18,8 @@ Business operations and business analyst graduate in International Business (BBA
 ---
 
 ## EDUCATION
-**Bachelor of Business Administration (BBA) — International Business**  
-*Dayananda Sagar University (DSU), Bengaluru, India* | *2023 – 2026*  
+**Bachelor of Business Administration (BBA) — International Business (Graduate)**  
+*Dayananda Sagar University (DSU), Bengaluru, India* | *Degree Completed — Immediate Full-Time Availability*  
 * Key Coursework: International Trade, Global Logistics & Supply Chain, Service Marketing, Business Statistics, Operations Management.
 
 ---
