@@ -108,7 +108,7 @@ def build_docx_resume(track_key, track_info):
     p_contact.paragraph_format.space_before = Pt(0)
     p_contact.paragraph_format.space_after = Pt(6)
     p_contact.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_cnt = p_contact.add_run("Bengaluru, Karnataka, India  |  +91 7003456624  |  adityamehra007@gmail.com  |  linkedin.com/in/aditya-mehra  |  github.com/AdityaMehra007")
+    r_cnt = p_contact.add_run("Bengaluru, India  |  +91 7003456624  |  adityamehra007@gmail.com  |  adi-digital-universe.ai.studio  |  github.com/AdityaMehra007")
     r_cnt.font.name = "Segoe UI"
     r_cnt.font.size = Pt(9)
     r_cnt.font.color.rgb = DARK_GREY
@@ -390,7 +390,7 @@ def build_printable_html_resume():
         <h1>ADITYA MEHRA</h1>
         <div class="title">BBA Graduate (2023–2026) — Business Operations & Operations Support (Fresher)</div>
         <div class="contact">
-            Bengaluru, Karnataka, India &nbsp;|&nbsp; +91 7003456624 &nbsp;|&nbsp; adityamehra007@gmail.com &nbsp;|&nbsp; <a href="https://linkedin.com/in/aditya-mehra" target="_blank">linkedin.com/in/aditya-mehra</a> &nbsp;|&nbsp; <a href="https://github.com/AdityaMehra007" target="_blank">github.com/AdityaMehra007</a>
+            Bengaluru, Karnataka, India &nbsp;|&nbsp; +91 7003456624 &nbsp;|&nbsp; adityamehra007@gmail.com &nbsp;|&nbsp; <a href="https://adi-digital-universe.ai.studio/" target="_blank">Portfolio</a> &nbsp;|&nbsp; <a href="https://linkedin.com/in/aditya-mehra" target="_blank">LinkedIn</a> &nbsp;|&nbsp; <a href="https://github.com/AdityaMehra007" target="_blank">GitHub</a>
         </div>
     </div>
 

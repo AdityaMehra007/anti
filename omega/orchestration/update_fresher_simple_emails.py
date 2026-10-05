@@ -29,6 +29,7 @@ Aditya Mehra
 Bengaluru, Karnataka
 Phone: +91 7003456624
 Email: adityamehra007@gmail.com
+Portfolio: https://adi-digital-universe.ai.studio/
 LinkedIn: linkedin.com/in/aditya-mehra-b8644b326
 GitHub: github.com/AdityaMehra007
 """

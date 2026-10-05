@@ -1,5 +1,5 @@
 # ADITYA MEHRA
-**Bengaluru, India** | **+91 7003456624** | **adityamehra007@gmail.com** | linkedin.com/in/aditya-mehra | github.com/AdityaMehra007
+**Bengaluru, India** | **+91 7003456624** | **adityamehra007@gmail.com** | [Portfolio](https://adi-digital-universe.ai.studio/) | linkedin.com/in/aditya-mehra | github.com/AdityaMehra007
 
 ---
 

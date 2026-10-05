@@ -2,7 +2,7 @@
 
 > **Proof of Work & Autonomous Engineering Platform**  
 > Built & Maintained by **Aditya Mehra** | Bengaluru, Karnataka, India  
-> **GitHub:** [@AdityaMehra007](https://github.com/AdityaMehra007) | **Contact:** [+91 7003456624](tel:+917003456624) | [adityamehra007@gmail.com](mailto:adityamehra007@gmail.com)
+> **GitHub:** [@AdityaMehra007](https://github.com/AdityaMehra007) | **Portfolio:** [adi-digital-universe.ai.studio](https://adi-digital-universe.ai.studio/) | **Contact:** [+91 7003456624](tel:+917003456624) | [adityamehra007@gmail.com](mailto:adityamehra007@gmail.com)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -120,5 +120,6 @@ pytest tests/test_recruiter_dispatcher.py
 * **Location:** Bengaluru, Karnataka, India
 * **Phone:** `+91 7003456624`
 * **Email:** `adityamehra007@gmail.com`
+* **Portfolio Website:** [adi-digital-universe.ai.studio](https://adi-digital-universe.ai.studio/)
 * **LinkedIn:** [linkedin.com/in/aditya-mehra](https://linkedin.com/in/aditya-mehra)
 * **GitHub Profile:** [github.com/AdityaMehra007](https://github.com/AdityaMehra007)
