@@ -30,7 +30,7 @@ It showcases real, hands-on capabilities across:
 * **Core Career Interests:** Business Operations, Operations Support, Management Trainee, Process Coordination.
 * **Practical Experience Highlights:**
   * **Event Operations & Brand Activations (Bengaluru | 2021–2026):** Aero India stall management & customer sampling for artisan chocolate brand *Salt in My Cocoa*, live concert coordination (TRILOGY Concert).
-  * **Corporate Internships (Bengaluru):** Operations & Quality Intern at **Instawork** (2025) and Commercial Operations Intern at **Pencil Mark Interior Solutions** (2025).
+  * **Corporate Internships (Bengaluru):** Operations & Data Collection Intern at **Instawork Services India Pvt. Ltd.** (2025) and Commercial Operations Intern at **Pencil Mark Interior Solutions** (2025).
   * **Community Outreach (Bengaluru | 2024):** Operations Intern at NGO / Non-Profit Social Initiative.
   * **Family Business Operations (Kolkata | 2018–2020):** Daily order dispatching, billing documentation, and Excel inventory records.
 * **Resume Documents:**

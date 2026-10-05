@@ -233,15 +233,15 @@ def build_docx_resume(track_key, track_info):
     p_i2 = doc.add_paragraph()
     p_i2.paragraph_format.space_before = Pt(2)
     p_i2.paragraph_format.space_after = Pt(1)
-    r_i2_role = p_i2.add_run("Operations & Quality Intern")
+    r_i2_role = p_i2.add_run("Operations & Data Collection Intern")
     r_i2_role.font.name = "Segoe UI"
     r_i2_role.font.size = Pt(9.5)
     r_i2_role.font.bold = True
     r_i2_role.font.color.rgb = NAVY
-    r_i2_co = p_i2.add_run(" — Instawork | Bengaluru (2025)\n")
+    r_i2_co = p_i2.add_run(" — Instawork Services India Pvt. Ltd. | Bengaluru (2025)\n")
     r_i2_co.font.name = "Segoe UI"
     r_i2_co.font.size = Pt(9)
-    r_i2_desc = p_i2.add_run("• Supported operations team with shift scheduling, data verification, and service quality checks in Excel.")
+    r_i2_desc = p_i2.add_run("• Executed real-world AI & robotics data collection adhering to strict quality protocols, verified input accuracy, and operational benchmarks.")
     r_i2_desc.font.name = "Segoe UI"
     r_i2_desc.font.size = Pt(8.8)
 
@@ -449,12 +449,12 @@ def build_printable_html_resume():
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Operations & Quality Intern — Instawork</div>
+            <div class="exp-role">Operations & Data Collection Intern — Instawork Services India Pvt. Ltd.</div>
             <div class="exp-date">2025</div>
         </div>
         <div class="exp-sub">Bengaluru, India</div>
         <ul>
-            <li>Assisted operations team with shift scheduling, data verification, and service quality checks in Excel.</li>
+            <li>Executed real-world AI & robotics data collection adhering to strict quality protocols, verified input accuracy, and operational benchmarks.</li>
         </ul>
     </div>
 

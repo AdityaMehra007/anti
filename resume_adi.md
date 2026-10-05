@@ -47,8 +47,8 @@
 1. **Commercial Operations & BD Intern** — *Pencil Mark Interior Solutions LLP, Bengaluru* *(July – Aug 2025)*  
    * Converted commercial client requirements into project briefs and updated vendor matrices in Excel.
 
-2. **Operations & Quality Intern** — *Instawork, Bengaluru* *(2025)*  
-   * Assisted operations team with shift scheduling, data verification, and service quality checks in Excel.
+2. **Operations & Data Collection Intern** — *Instawork Services India Pvt. Ltd., Bengaluru* *(2025)*  
+   * Executed real-world AI & robotics data collection adhering to strict quality protocols, verified input accuracy, and operational benchmarks.
 
 3. **Community Operations Intern** — *NGO / Non-Profit Social Initiative, Bengaluru* *(2024)*  
    * Coordinated volunteer schedules, attendee registration, and field logistics for awareness drives.
