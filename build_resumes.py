@@ -147,7 +147,7 @@ def build_docx_resume(track_key, track_info):
     r_tools_val.font.size = Pt(9.5)
 
     # Professional & Operational Experience
-    add_heading_with_bottom_border(doc, "PROFESSIONAL & OPERATIONAL EXPERIENCE")
+    add_heading_with_bottom_border(doc, "PROOF OF WORK — WORK EXPERIENCE & FIELD EXPOSURE")
 
     # Experience 1: Freelance Event Coordination
     p_e1 = doc.add_paragraph()
@@ -211,7 +211,7 @@ def build_docx_resume(track_key, track_info):
         brun.font.size = Pt(8.8)
 
     # Internships Section (2 Corporate + 1 NGO)
-    add_heading_with_bottom_border(doc, "INTERNSHIPS (2 CORPORATE + 1 NGO)")
+    add_heading_with_bottom_border(doc, "PROOF OF WORK — INTERNSHIPS (2 CORPORATE + 1 NGO)")
 
     # Internship 1: Pencil Mark
     p_i1 = doc.add_paragraph()
@@ -262,7 +262,7 @@ def build_docx_resume(track_key, track_info):
     r_i3_desc.font.size = Pt(8.8)
 
     # Tech Side Projects & Vibe Coding
-    add_heading_with_bottom_border(doc, "TECH SIDE PROJECTS & VIBE CODING")
+    add_heading_with_bottom_border(doc, "PROOF OF WORK — TECH PROJECTS & VIBE CODING")
     p_proj = doc.add_paragraph()
     p_proj.paragraph_format.space_before = Pt(2)
     p_proj.paragraph_format.space_after = Pt(2)
@@ -407,7 +407,7 @@ def build_printable_html_resume():
         <strong>Computer & Office Tools:</strong> Microsoft Excel (Data Entry, Basic Formulas, Tables), Microsoft Word, Google Workspace, Email Correspondence.
     </div>
 
-    <div class="section-title">Work Experience & Practical Exposure</div>
+    <div class="section-title">Proof of Work — Work Experience & Field Exposure</div>
 
     <div class="exp-item">
         <div class="exp-head">
@@ -434,7 +434,7 @@ def build_printable_html_resume():
         </ul>
     </div>
 
-    <div class="section-title">Internships (2 Corporate + 1 NGO)</div>
+    <div class="section-title">Proof of Work — Internships (2 Corporate + 1 NGO)</div>
 
     <div class="exp-item">
         <div class="exp-head">
@@ -469,7 +469,7 @@ def build_printable_html_resume():
         </ul>
     </div>
 
-    <div class="section-title">Tech Side Projects & Vibe Coding</div>
+    <div class="section-title">Proof of Work — Tech Projects & Vibe Coding</div>
     <div class="exp-item">
         <div class="exp-head">
             <div class="exp-role">Web Apps & Operational Automation Tools (Personal Side Projects)</div>
