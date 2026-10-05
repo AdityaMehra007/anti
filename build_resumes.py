@@ -238,7 +238,7 @@ def build_docx_resume(track_key, track_info):
     r_i2_role.font.size = Pt(9.5)
     r_i2_role.font.bold = True
     r_i2_role.font.color.rgb = NAVY
-    r_i2_co = p_i2.add_run(" — Instawork | Bengaluru (2024)\n")
+    r_i2_co = p_i2.add_run(" — Instawork | Bengaluru (2025)\n")
     r_i2_co.font.name = "Segoe UI"
     r_i2_co.font.size = Pt(9)
     r_i2_desc = p_i2.add_run("• Supported operations team with shift scheduling, data verification, and service quality checks in Excel.")
@@ -254,7 +254,7 @@ def build_docx_resume(track_key, track_info):
     r_i3_role.font.size = Pt(9.5)
     r_i3_role.font.bold = True
     r_i3_role.font.color.rgb = NAVY
-    r_i3_co = p_i3.add_run(" — Non-Profit Organization (NGO) | Bengaluru / Kolkata (2023)\n")
+    r_i3_co = p_i3.add_run(" — NGO / Non-Profit Social Initiative | Bengaluru (2024)\n")
     r_i3_co.font.name = "Segoe UI"
     r_i3_co.font.size = Pt(9)
     r_i3_desc = p_i3.add_run("• Assisted on-ground social awareness initiatives, volunteer coordination, and participant registration logistics.")
@@ -436,7 +436,7 @@ def build_printable_html_resume():
     <div class="exp-item">
         <div class="exp-head">
             <div class="exp-role">Operations & Quality Intern — Instawork</div>
-            <div class="exp-date">2024</div>
+            <div class="exp-date">2025</div>
         </div>
         <div class="exp-sub">Bengaluru, India</div>
         <ul>
@@ -446,10 +446,10 @@ def build_printable_html_resume():
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Community Outreach & Operations Intern — Non-Profit Organization (NGO)</div>
-            <div class="exp-date">2023</div>
+            <div class="exp-role">Community Outreach & Operations Intern — NGO / Non-Profit Social Initiative</div>
+            <div class="exp-date">2024</div>
         </div>
-        <div class="exp-sub">Bengaluru / Kolkata, India</div>
+        <div class="exp-sub">Bengaluru, India</div>
         <ul>
             <li>Assisted on-ground social awareness initiatives, volunteer coordination, and participant registration logistics.</li>
         </ul>
