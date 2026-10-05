@@ -26,12 +26,11 @@ Business operations and business analyst graduate in International Business (BBA
 
 ## PROFESSIONAL & OPERATIONAL EXPERIENCE
 
-### Operations & Execution Specialist (Independent Projects & Family Business)
-*Bengaluru, India | 2024 – Present*
-* Coordinated end-to-end operational execution, inventory movement, and stakeholder schedules for commercial operations.
-* Standardized operational workflows and daily KPI reporting templates, reducing manual status reconciliation time by ~25%.
-* Evaluated supplier rate cards and logistics options, identifying cost-saving opportunities and ensuring strict SLA adherence.
-* Implemented AI-assisted document extraction and market intelligence monitoring to streamline supplier and competitor research.
+### Business Operations Assistant | Family Business
+*Kolkata, India | 2019 – 2020*
+* Assisted with day-to-day commercial operations, stock inventory tracking, and billing documentation.
+* Coordinated with local suppliers and logistics partners for timely order fulfillment.
+* Maintained basic accounts and inventory registers using Excel, ensuring smooth daily records.
 
 ### Event Operations & On-Ground Coordinator
 *Bengaluru, India | 2024 – 2026*

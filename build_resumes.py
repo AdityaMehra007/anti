@@ -149,29 +149,28 @@ def build_docx_resume(track_key, track_info):
     # Professional & Operational Experience
     add_heading_with_bottom_border(doc, "PROFESSIONAL & OPERATIONAL EXPERIENCE")
 
-    # Experience 1: Family Business & Commercial Operations
+    # Experience 1: Family Business Operations
     p_e1 = doc.add_paragraph()
     p_e1.paragraph_format.space_before = Pt(3)
     p_e1.paragraph_format.space_after = Pt(1)
-    r_e1_role = p_e1.add_run("Operations & Workflow Optimization Specialist")
+    r_e1_role = p_e1.add_run("Business Operations Assistant")
     r_e1_role.font.name = "Segoe UI"
     r_e1_role.font.size = Pt(10)
     r_e1_role.font.bold = True
     r_e1_role.font.color.rgb = NAVY
-    r_e1_co = p_e1.add_run(" — Commercial Logistics & Trade Operations | Bengaluru, India\n")
+    r_e1_co = p_e1.add_run(" — Commercial Operations (Family Business) | Kolkata, India\n")
     r_e1_co.font.name = "Segoe UI"
     r_e1_co.font.size = Pt(9.5)
     r_e1_co.font.italic = True
-    r_e1_date = p_e1.add_run("2024 – Present")
+    r_e1_date = p_e1.add_run("2019 – 2020")
     r_e1_date.font.name = "Segoe UI"
     r_e1_date.font.size = Pt(8.5)
     r_e1_date.font.color.rgb = DARK_GREY
 
     bullets_e1 = [
-        "Mapped and standardized end-to-end commercial transaction workflows, establishing structured SOPs that reduced weekly status reconciliation time by 25%.",
-        "Engineered automated Excel Power Query models to consolidate cross-party shipment records, eliminating manual data-entry errors across high-volume transactions.",
-        "Monitored vendor performance against contracted SLAs, identifying pricing anomalies across rate cards to optimize procurement spend.",
-        "Designed weekly executive status reports and operational KPI dashboards for leadership decision support."
+        "Supported day-to-day business operations, stock inventory tracking, and billing documentation.",
+        "Coordinated with local suppliers and transport partners to ensure on-time order fulfillment.",
+        "Maintained sales records and inventory sheets in Excel, keeping administrative records accurate and organized."
     ]
     for b in bullets_e1:
         bp = doc.add_paragraph(style='List Bullet')
