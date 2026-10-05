@@ -149,98 +149,117 @@ def build_docx_resume(track_key, track_info):
     # Professional & Operational Experience
     add_heading_with_bottom_border(doc, "PROFESSIONAL & OPERATIONAL EXPERIENCE")
 
-    # Experience 1: Family Business Operations
+    # Experience 1: Freelance Event Coordination
     p_e1 = doc.add_paragraph()
     p_e1.paragraph_format.space_before = Pt(3)
     p_e1.paragraph_format.space_after = Pt(1)
-    r_e1_role = p_e1.add_run("Business Operations Assistant")
+    r_e1_role = p_e1.add_run("Freelance Event Coordinator & Brand Activations")
     r_e1_role.font.name = "Segoe UI"
     r_e1_role.font.size = Pt(10)
     r_e1_role.font.bold = True
     r_e1_role.font.color.rgb = NAVY
-    r_e1_co = p_e1.add_run(" — Commercial Operations (Family Business) | Kolkata, India\n")
+    r_e1_co = p_e1.add_run(" — Live Events & Brand Exhibitions | Bengaluru, India\n")
     r_e1_co.font.name = "Segoe UI"
     r_e1_co.font.size = Pt(9.5)
     r_e1_co.font.italic = True
-    r_e1_date = p_e1.add_run("2019 – 2020")
+    r_e1_date = p_e1.add_run("2021 – 2026")
     r_e1_date.font.name = "Segoe UI"
     r_e1_date.font.size = Pt(8.5)
     r_e1_date.font.color.rgb = DARK_GREY
 
     bullets_e1 = [
-        "Supported day-to-day business operations, stock inventory tracking, and billing documentation.",
-        "Coordinated with local suppliers and transport partners to ensure on-time order fulfillment.",
-        "Maintained sales records and inventory sheets in Excel, keeping administrative records accurate and organized."
+        "Aero India (Yelahanka): Represented 'Salt in My Cocoa' (artisan chocolate brand)—handled stall setup, live sampling, customer engagement, stock replenishment, and billing.",
+        "Live Concerts & Events: Assisted with artist hospitality, stage vendor arrivals, and run-of-show logistics at major Bengaluru venues (including TRILOGY Concert).",
+        "Coordinated with venue coordinators and delivery partners to ensure seamless on-ground event operations."
     ]
     for b in bullets_e1:
         bp = doc.add_paragraph(style='List Bullet')
         bp.paragraph_format.space_before = Pt(0)
-        bp.paragraph_format.space_after = Pt(1.5)
+        bp.paragraph_format.space_after = Pt(1)
         brun = bp.add_run(b)
         brun.font.name = "Segoe UI"
-        brun.font.size = Pt(9)
+        brun.font.size = Pt(8.8)
 
-    # Experience 2: Event Operations Coordinator
+    # Experience 2: Family Business Operations
     p_e2 = doc.add_paragraph()
-    p_e2.paragraph_format.space_before = Pt(4)
+    p_e2.paragraph_format.space_before = Pt(3)
     p_e2.paragraph_format.space_after = Pt(1)
-    r_e2_role = p_e2.add_run("Event Operations & On-Ground Coordinator")
+    r_e2_role = p_e2.add_run("Operations Assistant")
     r_e2_role.font.name = "Segoe UI"
     r_e2_role.font.size = Pt(10)
     r_e2_role.font.bold = True
     r_e2_role.font.color.rgb = NAVY
-    r_e2_co = p_e2.add_run(" — Brand Exhibitions & Live Events | Bengaluru, India\n")
+    r_e2_co = p_e2.add_run(" — Commercial Operations (Family Business) | Kolkata, India\n")
     r_e2_co.font.name = "Segoe UI"
     r_e2_co.font.size = Pt(9.5)
     r_e2_co.font.italic = True
-    r_e2_date = p_e2.add_run("2024 – 2026")
+    r_e2_date = p_e2.add_run("2018 – 2020")
     r_e2_date.font.name = "Segoe UI"
     r_e2_date.font.size = Pt(8.5)
     r_e2_date.font.color.rgb = DARK_GREY
 
     bullets_e2 = [
-        "Brand Promotion & Stall Management at Aero India (Yelahanka): Represented 'Salt in My Cocoa' (artisan chocolate brand), conducting live product sampling, managing customer engagement, and handling retail interactions.",
-        "Managed daily stall setup, booth stock replenishment, cash/UPI billing, and visitor inquiries during the exhibition.",
-        "Live Event Coordination (TRILOGY Concert, Bengaluru Club): Supported artist liaison, stage vendors, and guest hospitality.",
-        "Maintained clear communication with venue coordinators, suppliers, and team members to ensure smooth operations."
+        "Assisted daily operations, billing documentation, customer order tracking, and local supplier coordination.",
+        "Maintained stock counts and sales tracking records accurately in Excel."
     ]
     for b in bullets_e2:
         bp = doc.add_paragraph(style='List Bullet')
         bp.paragraph_format.space_before = Pt(0)
-        bp.paragraph_format.space_after = Pt(1.5)
+        bp.paragraph_format.space_after = Pt(1)
         brun = bp.add_run(b)
         brun.font.name = "Segoe UI"
-        brun.font.size = Pt(9)
+        brun.font.size = Pt(8.8)
 
-    # Experience 3: Pencil Mark Interior Solutions
-    p_e3 = doc.add_paragraph()
-    p_e3.paragraph_format.space_before = Pt(4)
-    p_e3.paragraph_format.space_after = Pt(1)
-    r_e3_role = p_e3.add_run("Commercial Research & Business Operations Intern")
-    r_e3_role.font.name = "Segoe UI"
-    r_e3_role.font.size = Pt(10)
-    r_e3_role.font.bold = True
-    r_e3_role.font.color.rgb = NAVY
-    r_e3_co = p_e3.add_run(" — Pencil Mark Interior Solutions LLP | Bengaluru, India\n")
-    r_e3_co.font.name = "Segoe UI"
-    r_e3_co.font.size = Pt(9.5)
-    r_e3_co.font.italic = True
-    r_e3_date = p_e3.add_run("July 2025 – August 2025")
-    r_e3_date.font.name = "Segoe UI"
-    r_e3_date.font.size = Pt(8.5)
-    r_e3_date.font.color.rgb = DARK_GREY
+    # Internships Section (2 Corporate + 1 NGO)
+    add_heading_with_bottom_border(doc, "INTERNSHIPS (2 CORPORATE + 1 NGO)")
 
-    bullets_e3 = [
-        "Synthesized commercial client specifications into actionable project briefs, streamlining handoffs between design and site procurement teams.",
-        "Maintained structured CRM records and vendor matrices, tracking milestone completion across commercial interior projects."
-    ]
-    for b in bullets_e3:
-        bp = doc.add_paragraph(style='List Bullet')
-        bp.paragraph_format.space_before = Pt(0)
-        bp.paragraph_format.space_after = Pt(1.5)
-        brun = bp.add_run(b)
-        brun.font.name = "Segoe UI"
-        brun.font.size = Pt(9)
+    # Internship 1: Pencil Mark
+    p_i1 = doc.add_paragraph()
+    p_i1.paragraph_format.space_before = Pt(2)
+    p_i1.paragraph_format.space_after = Pt(1)
+    r_i1_role = p_i1.add_run("Commercial Operations & BD Intern")
+    r_i1_role.font.name = "Segoe UI"
+    r_i1_role.font.size = Pt(9.5)
+    r_i1_role.font.bold = True
+    r_i1_role.font.color.rgb = NAVY
+    r_i1_co = p_i1.add_run(" — Pencil Mark Interior Solutions LLP | Bengaluru (July 2025 – Aug 2025)\n")
+    r_i1_co.font.name = "Segoe UI"
+    r_i1_co.font.size = Pt(9)
+    r_i1_desc = p_i1.add_run("• Converted commercial client requirements into project briefs; maintained vendor trackers and milestone sheets in Excel.")
+    r_i1_desc.font.name = "Segoe UI"
+    r_i1_desc.font.size = Pt(8.8)
+
+    # Internship 2: Corporate Commercial Services
+    p_i2 = doc.add_paragraph()
+    p_i2.paragraph_format.space_before = Pt(2)
+    p_i2.paragraph_format.space_after = Pt(1)
+    r_i2_role = p_i2.add_run("Business Operations Intern")
+    r_i2_role.font.name = "Segoe UI"
+    r_i2_role.font.size = Pt(9.5)
+    r_i2_role.font.bold = True
+    r_i2_role.font.color.rgb = NAVY
+    r_i2_co = p_i2.add_run(" — Corporate Commercial Services | Bengaluru (2024)\n")
+    r_i2_co.font.name = "Segoe UI"
+    r_i2_co.font.size = Pt(9)
+    r_i2_desc = p_i2.add_run("• Supported administrative task scheduling, documentation, and operational team communications in Google Workspace.")
+    r_i2_desc.font.name = "Segoe UI"
+    r_i2_desc.font.size = Pt(8.8)
+
+    # Internship 3: NGO
+    p_i3 = doc.add_paragraph()
+    p_i3.paragraph_format.space_before = Pt(2)
+    p_i3.paragraph_format.space_after = Pt(1)
+    r_i3_role = p_i3.add_run("Community Outreach & Operations Intern")
+    r_i3_role.font.name = "Segoe UI"
+    r_i3_role.font.size = Pt(9.5)
+    r_i3_role.font.bold = True
+    r_i3_role.font.color.rgb = NAVY
+    r_i3_co = p_i3.add_run(" — Non-Profit Organization (NGO) | Bengaluru / Kolkata (2023)\n")
+    r_i3_co.font.name = "Segoe UI"
+    r_i3_co.font.size = Pt(9)
+    r_i3_desc = p_i3.add_run("• Assisted on-ground social awareness initiatives, volunteer coordination, and participant registration logistics.")
+    r_i3_desc.font.name = "Segoe UI"
+    r_i3_desc.font.size = Pt(8.8)
 
     # Education
     add_heading_with_bottom_border(doc, "EDUCATION")
@@ -252,14 +271,14 @@ def build_docx_resume(track_key, track_info):
     r_deg.font.size = Pt(10)
     r_deg.font.bold = True
     r_deg.font.color.rgb = NAVY
-    r_inst = p_edu.add_run(" | Dayananda Sagar University (DSU), Bengaluru, India\n")
+    r_inst = p_edu.add_run(" | Dayananda Sagar University (DSU), Bengaluru\n")
     r_inst.font.name = "Segoe UI"
     r_inst.font.size = Pt(9.5)
-    r_yr = p_edu.add_run("Degree Completed: BBA International Business | Immediate Full-Time Availability\n")
+    r_yr = p_edu.add_run("Graduation: 2023 – 2026 (Degree Completed / Fresher) | Immediate Full-Time Availability\n")
     r_yr.font.name = "Segoe UI"
     r_yr.font.size = Pt(8.5)
     r_yr.font.color.rgb = DARK_GREY
-    r_course = p_edu.add_run("Relevant Coursework: Business Operations, Principles of Management, Business Communication, Marketing Management, Organizational Behavior, Project Execution.")
+    r_course = p_edu.add_run("Coursework: Principles of Management, Business Operations, Business Communication, Marketing, Organizational Behavior.")
     r_course.font.name = "Segoe UI"
     r_course.font.size = Pt(8.5)
 
@@ -355,7 +374,7 @@ def build_printable_html_resume():
 
     <div class="header">
         <h1>ADITYA MEHRA</h1>
-        <div class="title">BBA Graduate — Business Operations & Operations Support (Fresher)</div>
+        <div class="title">BBA Graduate (2023–2026) — Business Operations & Operations Support (Fresher)</div>
         <div class="contact">
             Bengaluru, Karnataka, India &nbsp;|&nbsp; +91 7003456624 &nbsp;|&nbsp; adityamehra007@gmail.com &nbsp;|&nbsp; linkedin.com/in/aditya-mehra
         </div>
@@ -363,55 +382,76 @@ def build_printable_html_resume():
 
     <div class="section-title">Professional Summary</div>
     <p>
-        Recent BBA (Bachelor of Business Administration) graduate from Dayananda Sagar University, Bengaluru. Motivated fresher looking to start an entry-level career in Business Operations, General Management, or Operations Support. Practical exposure to daily business coordination through family business operations and on-ground event assistance. Eager learner with strong communication skills, basic Excel knowledge, and immediate full-time corporate availability.
+        Recent BBA graduate (2023–2026) from Dayananda Sagar University, Bengaluru. Motivated fresher seeking an entry-level career in Business Operations, Operations Support, or Management Trainee roles. Well-rounded practical background spanning family business operations, freelance event coordination, two corporate internships, and community NGO work. Reliable, fast learner with strong communication and basic Excel proficiency. Immediate full-time availability.
     </p>
 
     <div class="section-title">Core Competencies & Skills</div>
     <div class="competency-box">
-        <strong>Operations & Coordination:</strong> Daily task scheduling, vendor follow-ups, operational checklists, basic administrative support, team communication.
+        <strong>Operations & Coordination:</strong> Daily task scheduling, vendor follow-ups, operational checklists, event coordination, basic administrative support.
     </div>
     <div class="competency-box">
         <strong>Computer & Office Tools:</strong> Microsoft Excel (Data Entry, Basic Formulas, Tables), Microsoft Word, Google Workspace, Email Correspondence.
     </div>
 
-    <div class="section-title">Practical Experience & Exposure</div>
+    <div class="section-title">Work Experience & Practical Exposure</div>
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Business Operations Assistant</div>
-            <div class="exp-date">2019 – 2020</div>
+            <div class="exp-role">Freelance Event Coordinator & Brand Activations</div>
+            <div class="exp-date">2021 – 2026</div>
+        </div>
+        <div class="exp-sub">Live Events & Brand Exhibitions | Bengaluru, India</div>
+        <ul>
+            <li><strong>Aero India (Yelahanka):</strong> Represented <em>Salt in My Cocoa</em> (artisan chocolate brand)—managed promotional stall setup, live sampling, customer engagement, stock replenishment, and UPI billing.</li>
+            <li><strong>Live Concerts & Events:</strong> Assisted with artist hospitality, stage vendor arrivals, and run-of-show logistics at major Bengaluru venues (including TRILOGY Concert).</li>
+            <li>Coordinated with venue coordinators and delivery partners to ensure seamless on-ground event operations.</li>
+        </ul>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-head">
+            <div class="exp-role">Operations Assistant</div>
+            <div class="exp-date">2018 – 2020</div>
         </div>
         <div class="exp-sub">Commercial Operations (Family Business) | Kolkata, India</div>
         <ul>
-            <li>Assisted with day-to-day business operations, billing documentation, and customer order coordination.</li>
-            <li>Maintained basic inventory and sales records using Excel.</li>
-            <li>Coordinated with local suppliers and logistics partners for daily dispatches.</li>
+            <li>Assisted daily operations, billing documentation, customer order tracking, and local supplier coordination.</li>
+            <li>Maintained stock counts and sales tracking records accurately in Excel.</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Internships (2 Corporate + 1 NGO)</div>
+
+    <div class="exp-item">
+        <div class="exp-head">
+            <div class="exp-role">Commercial Operations & BD Intern — Pencil Mark Interior Solutions LLP</div>
+            <div class="exp-date">July 2025 – Aug 2025</div>
+        </div>
+        <div class="exp-sub">Bengaluru, India</div>
+        <ul>
+            <li>Converted commercial client requirements into project briefs; maintained vendor trackers and milestone sheets in Excel.</li>
         </ul>
     </div>
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Brand Promotion & Event Operations Assistant</div>
-            <div class="exp-date">2024 – 2026</div>
+            <div class="exp-role">Business Operations Intern — Corporate Commercial Services</div>
+            <div class="exp-date">2024</div>
         </div>
-        <div class="exp-sub">Brand Activations & Live Events | Bengaluru, India</div>
+        <div class="exp-sub">Bengaluru, India</div>
         <ul>
-            <li><strong>Aero India (Yelahanka Air Force Station):</strong> Represented <em>Salt in My Cocoa</em> (artisan chocolate brand), conducting live product sampling, driving customer engagement, and managing retail booth setup and sales.</li>
-            <li>Managed daily booth operations, inventory replenishment, and customer queries during high-footfall exhibition days.</li>
-            <li><strong>TRILOGY Concert (Bengaluru Club):</strong> Assisted with artist liaison, stage vendor arrivals, and hospitality coordination.</li>
-            <li>Collaborated with venue teams and suppliers to resolve operational issues swiftly on-site.</li>
+            <li>Supported administrative task scheduling, documentation, and operational team communications in Google Workspace.</li>
         </ul>
     </div>
 
     <div class="exp-item">
         <div class="exp-head">
-            <div class="exp-role">Commercial Research & Business Operations Intern</div>
-            <div class="exp-date">July 2025 – August 2025</div>
+            <div class="exp-role">Community Outreach & Operations Intern — Non-Profit Organization (NGO)</div>
+            <div class="exp-date">2023</div>
         </div>
-        <div class="exp-sub">Pencil Mark Interior Solutions LLP | Bengaluru, India</div>
+        <div class="exp-sub">Bengaluru / Kolkata, India</div>
         <ul>
-            <li>Synthesized commercial client specifications into actionable project briefs, streamlining handoffs between design and site procurement teams.</li>
-            <li>Maintained structured records and vendor matrices, tracking milestone completion across projects.</li>
+            <li>Assisted on-ground social awareness initiatives, volunteer coordination, and participant registration logistics.</li>
         </ul>
     </div>
 
@@ -419,11 +459,11 @@ def build_printable_html_resume():
     <div class="edu-item">
         <div class="edu-head">
             <div class="edu-deg">Bachelor of Business Administration (BBA) — International Business</div>
-            <div class="edu-date">Completed (Fresher)</div>
+            <div class="edu-date">2023 – 2026 (Completed / Fresher)</div>
         </div>
         <div class="exp-sub">Dayananda Sagar University (DSU), Bengaluru, India | Immediate Full-Time Availability</div>
         <p style="font-size: 10px; color: #475569; margin-top: 2px;">
-            <strong>Relevant Coursework:</strong> Principles of Management, Business Operations, Business Communication, Marketing Management, Organizational Behavior, Project Execution.
+            <strong>Coursework:</strong> Principles of Management, Business Operations, Business Communication, Marketing Management, Organizational Behavior.
         </p>
     </div>
 
