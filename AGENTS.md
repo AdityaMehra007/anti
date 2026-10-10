@@ -156,6 +156,16 @@ Hardened, curated skills registry synchronized from [`tech-leads-club/agent-skil
 - **Bank of the Continuum**: [`sovereign_continuum/banking/autonomous_sovereign_bank.py`](sovereign_continuum/banking/autonomous_sovereign_bank.py)
 - **Unified Empire CLI**: `python -m terra_kinetics.cli --empire-cycle` / `--skills-audit` / `--red-team` / `--banking`
 
+### CIVILIZATION Ω∞∞ Autonomous Capability Generation Ecosystem
+Master specifications and meta-orchestration for unbounded human capability generation (Directives 120–147):
+- [`civilization-capability-generator`](.agent/skills/civilization-capability-generator/SKILL.md): Recursive synthesis of domain skills, specialized agents, and sandboxed capability harnesses.
+- [`failed-solution-memory`](.agent/skills/failed-solution-memory/SKILL.md): Immutable indexing and querying of disproven hypotheses and architectural postmortems.
+- [`unknown-engine`](.agent/skills/unknown-engine/SKILL.md): Proactive epistemic auditing (*"What am I missing?"*, *"Why hasn't this been done?"*).
+- [`second-order-effect-simulator`](.agent/skills/second-order-effect-simulator/SKILL.md): Multi-scenario causal ripple simulations across geopolitical, financial, and physical networks.
+- **Master Specification**: [`docs/CIVILIZATION_OMEGA_UNBOUNDED_SPEC.md`](docs/CIVILIZATION_OMEGA_UNBOUNDED_SPEC.md)
+- **Capability Engine Core**: [`sovereign_continuum/capability_engine.py`](sovereign_continuum/capability_engine.py)
+
+
 ### Issue tracker
 
 Local markdown issue tracking under `.scratch/`. See [`docs/agents/issue-tracker.md`](docs/agents/issue-tracker.md).

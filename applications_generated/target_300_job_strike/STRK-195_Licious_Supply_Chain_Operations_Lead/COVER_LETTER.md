@@ -2,7 +2,7 @@
 **Role:** Supply Chain Operations Lead  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Ashma Sardar (Program Manager)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

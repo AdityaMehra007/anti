@@ -2,7 +2,7 @@
 **Role:** Supply Chain & Operations Consultant  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Harsha Vasudevan (Onboarding Success Partner-Europe)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

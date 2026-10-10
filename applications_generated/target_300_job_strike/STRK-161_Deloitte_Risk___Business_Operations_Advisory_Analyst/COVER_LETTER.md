@@ -2,7 +2,7 @@
 **Role:** Risk & Business Operations Advisory Analyst  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** 𝐒𝐧𝐞𝐡𝐚 𝐏𝐚𝐮𝐥𝐬𝐨𝐧 (Assistant Manager)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

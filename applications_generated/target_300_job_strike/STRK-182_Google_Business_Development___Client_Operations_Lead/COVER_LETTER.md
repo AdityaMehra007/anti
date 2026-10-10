@@ -2,7 +2,7 @@
 **Role:** Business Development & Client Operations Lead  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Rachana Kamath (Product Support Manager (GPay))  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

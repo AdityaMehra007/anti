@@ -33,9 +33,23 @@ from terra_kinetics.protocol.ukp_schema import (
     SafetyState,
     SensorTelemetryPacket,
 )
+from sovereign_continuum.capability_engine import CivilizationCapabilityGenerator
 
 
 # Pydantic Request / Response Models
+class CapabilityGenerateRequest(BaseModel):
+    problem_id: str = Field(..., example="PROB-ENERGY-001")
+    hypothesis: str = Field(..., example="Deploy SMR microgrid paired with liquid cooling AI cluster")
+    domain: str = Field(default="Energy & Infrastructure", example="Energy & Infrastructure")
+    assumptions: List[str] = Field(default_factory=list, example=["baseload power required"])
+
+
+class UnknownAuditRequest(BaseModel):
+    initiative_name: str = Field(..., example="Autonomous Interplanetary Communication Relay")
+    domain: str = Field(default="Telecommunications", example="Telecommunications")
+    assumptions: List[str] = Field(default_factory=list, example=["unlimited bandwidth", "cross-border routing"])
+
+
 class ISO20022TransferRequest(BaseModel):
     debtor_name: str = Field(..., example="Tesla Gigafactory Berlin")
     debtor_iban: str = Field(..., example="DE89370400440532013000")
@@ -69,6 +83,7 @@ class DNACompileRequest(BaseModel):
     host_organism: str = Field(default="Pichia_pastoris", example="Pichia_pastoris")
 
 
+
 # FastAPI Application Factory
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -94,6 +109,8 @@ def create_app() -> FastAPI:
         morphology=RobotMorphology.BIPEDAL_HUMANOID,
     )
     compiler = MolecularDnaCompiler()
+    cap_gen = CivilizationCapabilityGenerator()
+
 
     @app.get("/")
     def root():
@@ -243,7 +260,76 @@ def create_app() -> FastAPI:
         except Exception as exc:
             raise HTTPException(status_code=400, detail=str(exc))
 
+    @app.post("/api/v1/capability/generate")
+    def generate_capability(payload: CapabilityGenerateRequest):
+        """Recursively synthesizes a new specialized capability and agent harness."""
+        res = cap_gen.synthesize_capability(
+            problem_id=payload.problem_id,
+            proposed_hypothesis=payload.hypothesis,
+            domain=payload.domain,
+            assumptions=payload.assumptions,
+        )
+        if not res.get("success"):
+            return {
+                "status": res.get("status", "FAILED"),
+                "reason": res.get("reason"),
+                "failure_record": res.get("failure_record"),
+                "directive": res.get("directive"),
+            }
+        return {
+            "status": "SYNTHESIZED",
+            "capability_spec": res["capability_spec"].__dict__,
+            "unknown_audit": res["unknown_audit"],
+            "second_order_effects": res["second_order_effects"],
+            "message": res["message"],
+        }
+
+    @app.get("/api/v1/capability/problem-graph")
+    def get_problem_graph():
+        """Returns the universal problem topology and open civilizational problems."""
+        open_probs = cap_gen.problem_graph.get_open_problems()
+        return {
+            "total_problems": cap_gen.problem_graph.total_count(),
+            "open_problems": [
+                {
+                    "problem_id": p.problem_id,
+                    "scale": p.scale.value,
+                    "domain": p.domain,
+                    "title": p.title,
+                    "description": p.description,
+                    "root_causes": p.root_causes,
+                    "upstream_problem_ids": p.upstream_problem_ids,
+                    "status": p.status.value,
+                }
+                for p in open_probs
+            ],
+        }
+
+    @app.get("/api/v1/capability/failed-solutions")
+    def get_failed_solutions():
+        """Returns immutable postmortem records from Failed Solution Memory (Directive 123)."""
+        records = cap_gen.failed_memory.query_failures()
+        return {
+            "total_failed_solutions": len(records),
+            "records": [r.__dict__ for r in records],
+        }
+
+    @app.post("/api/v1/capability/unknown-audit")
+    def run_unknown_audit(payload: UnknownAuditRequest):
+        """Executes the Unknown Engine epistemic probe ('What am I missing?')."""
+        return cap_gen.unknown_engine.audit_blind_spots(
+            initiative_name=payload.initiative_name,
+            domain=payload.domain,
+            assumptions=payload.assumptions,
+        )
+
+    @app.get("/api/v1/capability/status")
+    def get_capability_status():
+        """Returns civilizational capability generation metrics and active directives."""
+        return cap_gen.execute_civilization_cycle()
+
     @app.websocket("/ws/telemetry")
+
     async def websocket_telemetry(websocket: WebSocket):
         """Streams live 200 Hz UKP telemetry packets to connected WebGL visualizers."""
         await websocket.accept()

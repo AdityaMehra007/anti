@@ -2,7 +2,7 @@
 **Role:** Partner Operations Specialist  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Manya Bhutra (Category Manager)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

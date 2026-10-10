@@ -2,7 +2,7 @@
 **Role:** Global Risk & Management Trainee  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Reyaa Shetty (Deal Advisory - M&A Tax and PE Intern)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

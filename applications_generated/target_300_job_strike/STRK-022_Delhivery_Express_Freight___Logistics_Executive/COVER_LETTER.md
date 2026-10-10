@@ -2,7 +2,7 @@
 **Role:** Express Freight & Logistics Executive  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Chanchala Ugra (Manager - Talent Acquisition)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

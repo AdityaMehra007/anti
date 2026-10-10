@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 Builds the OMEGA Bangalore Everything Master Hub HTML application:
 E:\anti\apps\job_application_studio\bangalore_everything_master_hub.html
 """

@@ -2,7 +2,7 @@
 **Role:** Global Risk & Management Trainee  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Shubhada M R (FTS_1 for Canada Tax Business)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

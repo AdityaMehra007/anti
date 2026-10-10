@@ -2,7 +2,7 @@
 **Role:** Trade Operations & Logistics Management Trainee  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Keziah Sibi (Human Resources Intern)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

@@ -2,7 +2,7 @@
 **Role:** Operations & Vendor Management Executive  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Dipali Sharma (Business Development Manager)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

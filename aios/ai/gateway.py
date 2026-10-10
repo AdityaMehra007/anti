@@ -25,6 +25,7 @@ sys.path.insert(0, str(AIOS_ROOT / "ai"))
 sys.path.insert(0, str(AIOS_ROOT / "automation"))
 sys.path.insert(0, str(AIOS_ROOT / "databases"))
 sys.path.insert(0, str(AIOS_ROOT / "scripts"))
+sys.path.insert(0, str(AIOS_ROOT / "projects"))
 
 try:
     import db
@@ -45,6 +46,26 @@ try:
     import automation_bridge
 except ImportError:
     automation_bridge = None
+
+try:
+    import cloud_adapters
+except ImportError:
+    cloud_adapters = None
+
+try:
+    import idea_validator
+except ImportError:
+    idea_validator = None
+
+try:
+    import model_evaluator
+except ImportError:
+    model_evaluator = None
+
+try:
+    import saas_factory
+except ImportError:
+    saas_factory = None
 
 PORT = 8090
 OLLAMA_BASE_URL = "http://localhost:11434"
@@ -87,6 +108,15 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
         self._send_cors_headers()
         self.end_headers()
 
+    def _send_text(self, text: str, content_type: str = "text/plain; version=0.0.4; charset=utf-8", status: int = 200):
+        payload = text.encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(payload)))
+        self._send_cors_headers()
+        self.end_headers()
+        self.wfile.write(payload)
+
     def _send_json(self, data: Any, status: int = 200):
         payload = json.dumps(data).encode("utf-8")
         self.send_response(status)
@@ -107,6 +137,55 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                 "timestamp": datetime.now().isoformat(),
                 "port": PORT
             })
+            return
+
+        if url == "/metrics":
+            lines = [
+                "# HELP aios_gateway_up AIOS Gateway service operational status (1 = up)",
+                "# TYPE aios_gateway_up gauge",
+                "aios_gateway_up 1",
+                "# HELP aios_gateway_timestamp_seconds Current unix epoch timestamp",
+                "# TYPE aios_gateway_timestamp_seconds gauge",
+                f"aios_gateway_timestamp_seconds {time.time()}",
+            ]
+            ollama_online = health_check.check_port("127.0.0.1", 11434) if health_check else False
+            lines.extend([
+                "# HELP aios_ollama_engine_up Ollama local inference engine status",
+                "# TYPE aios_ollama_engine_up gauge",
+                f"aios_ollama_engine_up {1 if ollama_online else 0}",
+            ])
+            if db:
+                try:
+                    with db.get_connection() as con:
+                        docs_cnt = con.execute("SELECT COUNT(*) FROM knowledge_documents").fetchone()[0]
+                        chunks_cnt = con.execute("SELECT COUNT(*) FROM knowledge_chunks").fetchone()[0]
+                        audit_cnt = con.execute("SELECT COUNT(*) FROM audit_logs").fetchone()[0]
+                        ideas_cnt = con.execute("SELECT COUNT(*) FROM ideas").fetchone()[0] if con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='ideas'").fetchone() else 0
+                        saas_cnt = con.execute("SELECT COUNT(*) FROM saas_projects").fetchone()[0] if con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='saas_projects'").fetchone() else 0
+                        evals_cnt = con.execute("SELECT COUNT(*) FROM model_evaluations").fetchone()[0] if con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='model_evaluations'").fetchone() else 0
+                    lines.extend([
+                        "# HELP aios_knowledge_documents_total Total indexed RAG documents",
+                        "# TYPE aios_knowledge_documents_total gauge",
+                        f"aios_knowledge_documents_total {docs_cnt}",
+                        "# HELP aios_knowledge_chunks_total Total indexed RAG chunks",
+                        "# TYPE aios_knowledge_chunks_total gauge",
+                        f"aios_knowledge_chunks_total {chunks_cnt}",
+                        "# HELP aios_audit_logs_total Total entries in system audit ledger",
+                        "# TYPE aios_audit_logs_total counter",
+                        f"aios_audit_logs_total {audit_cnt}",
+                        "# HELP aios_ideas_validated_total Total startup ideas validated",
+                        "# TYPE aios_ideas_validated_total gauge",
+                        f"aios_ideas_validated_total {ideas_cnt}",
+                        "# HELP aios_saas_projects_total Total SaaS projects scaffolded",
+                        "# TYPE aios_saas_projects_total gauge",
+                        f"aios_saas_projects_total {saas_cnt}",
+                        "# HELP aios_model_evaluations_total Total model benchmark runs executed",
+                        "# TYPE aios_model_evaluations_total counter",
+                        f"aios_model_evaluations_total {evals_cnt}",
+                    ])
+                except Exception as ex:
+                    lines.append(f"# Error collecting DB metrics: {ex}")
+            self._send_text("\n".join(lines) + "\n")
             return
 
         if url == "/api/telemetry":
@@ -179,6 +258,42 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                 self._send_json({"status": "OFFLINE", "workflows_count": 0, "workflows": []})
             return
 
+        if url == "/v1/saas/projects":
+            if saas_factory:
+                try:
+                    factory = saas_factory.SaaSFactory()
+                    projects = factory.list_projects()
+                    self._send_json({"projects": projects, "count": len(projects)})
+                except Exception as e:
+                    self._send_json({"error": f"Failed to list SaaS projects: {e}"}, 500)
+            else:
+                self._send_json({"error": "saas_factory module unavailable"}, 500)
+            return
+
+        if url == "/v1/ideas":
+            if idea_validator:
+                try:
+                    validator = idea_validator.IdeaValidator()
+                    ideas = validator.list_ideas()
+                    self._send_json({"ideas": ideas, "count": len(ideas)})
+                except Exception as e:
+                    self._send_json({"error": f"Failed to list ideas: {e}"}, 500)
+            else:
+                self._send_json({"error": "idea_validator module unavailable"}, 500)
+            return
+
+        if url == "/v1/eval/results":
+            if model_evaluator:
+                try:
+                    evaluator = model_evaluator.ModelEvaluator()
+                    history = evaluator.get_eval_history()
+                    self._send_json({"evaluations": history, "count": len(history)})
+                except Exception as e:
+                    self._send_json({"error": f"Failed to get eval results: {e}"}, 500)
+            else:
+                self._send_json({"error": "model_evaluator module unavailable"}, 500)
+            return
+
         self._send_json({"error": "Endpoint not found", "path": self.path}, 404)
 
     def do_POST(self):
@@ -225,6 +340,57 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                 self._send_json(res)
             else:
                 self._send_json({"error": "automation_bridge module unavailable"}, 500)
+            return
+
+        if url == "/v1/saas/scaffold":
+            name = req_data.get("name")
+            stack = req_data.get("stack", "nextjs-fastapi")
+            features = req_data.get("features", ["auth", "db"])
+            if not name:
+                self._send_json({"error": "Missing 'name' field"}, 400)
+                return
+            if saas_factory:
+                try:
+                    factory = saas_factory.SaaSFactory()
+                    path = factory.scaffold_project(name, stack, features)
+                    self._send_json({"status": "SUCCESS", "name": name, "stack": stack, "features": features, "path": path})
+                except Exception as e:
+                    self._send_json({"error": f"Failed to scaffold project: {e}"}, 500)
+            else:
+                self._send_json({"error": "saas_factory module unavailable"}, 500)
+            return
+
+        if url == "/v1/ideas/validate":
+            title = req_data.get("title")
+            problem = req_data.get("problem")
+            target_user = req_data.get("target_user")
+            solution = req_data.get("proposed_solution")
+            category = req_data.get("category", "B2B_SAAS")
+            if not (title and problem and target_user and solution):
+                self._send_json({"error": "Missing required fields: title, problem, target_user, proposed_solution"}, 400)
+                return
+            if idea_validator:
+                try:
+                    validator = idea_validator.IdeaValidator()
+                    report = validator.validate_idea(title, problem, target_user, solution, category)
+                    self._send_json(report)
+                except Exception as e:
+                    self._send_json({"error": f"Failed to validate idea: {e}"}, 500)
+            else:
+                self._send_json({"error": "idea_validator module unavailable"}, 500)
+            return
+
+        if url == "/v1/eval/benchmark":
+            model_name = req_data.get("model", "qwen2.5-coder:3b")
+            if model_evaluator:
+                try:
+                    evaluator = model_evaluator.ModelEvaluator()
+                    summary = evaluator.run_benchmark(model_name)
+                    self._send_json(summary)
+                except Exception as e:
+                    self._send_json({"error": f"Failed to run benchmark: {e}"}, 500)
+            else:
+                self._send_json({"error": "model_evaluator module unavailable"}, 500)
             return
 
         self._send_json({"error": "Endpoint not found", "path": self.path}, 404)
@@ -289,7 +455,7 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                         data=json.dumps(req).encode("utf-8"),
                         headers={"Content-Type": "application/json"}
                     )
-                    with urllib.request.urlopen(ollama_req, timeout=120) as resp:
+                    with urllib.request.urlopen(ollama_req, timeout=180) as resp:
                         while True:
                             line = resp.readline()
                             if not line:
@@ -362,7 +528,7 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                     data=json.dumps(req).encode("utf-8"),
                     headers={"Content-Type": "application/json"}
                 )
-                with urllib.request.urlopen(ollama_req, timeout=60) as f:
+                with urllib.request.urlopen(ollama_req, timeout=180) as f:
                     ollama_resp = json.loads(f.read().decode("utf-8"))
                     ollama_resp["omega_router"] = {"routed_to": "local_ollama", "pii_detected": has_sensitive}
                     self._send_json(ollama_resp)
@@ -372,6 +538,34 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                 return
 
         # Cloud AI Gateway path
+        if cloud_adapters:
+            try:
+                router = cloud_adapters.SmartRouter()
+                cloud_res = router.route_request(model, messages)
+                self._send_json({
+                    "id": f"chatcmpl-{int(time.time())}",
+                    "object": "chat.completion",
+                    "created": int(time.time()),
+                    "model": model,
+                    "choices": [{
+                        "index": 0,
+                        "message": {
+                            "role": "assistant",
+                            "content": cloud_res.get("content", "")
+                        },
+                        "finish_reason": "stop"
+                    }],
+                    "omega_router": {
+                        "routed_to": "cloud_gateway",
+                        "provider": cloud_res.get("provider", "unknown"),
+                        "simulated": cloud_res.get("simulated", True),
+                        "pii_redacted": has_sensitive
+                    }
+                })
+                return
+            except Exception as e:
+                pass
+
         self._send_json({
             "id": f"chatcmpl-{int(time.time())}",
             "object": "chat.completion",

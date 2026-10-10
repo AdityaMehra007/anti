@@ -1,0 +1,147 @@
+{
+  "build_id": "BUILD-1791548785",
+  "timestamp": "2026-10-09T12:26:25.971192+00:00",
+  "platform": {
+    "os": "win32",
+    "python": "3.13.15",
+    "root_dir": "E:\\anti"
+  },
+  "pillars": {
+    "syntax": {
+      "status": "PASS",
+      "compiled_files": 227,
+      "error_count": 0,
+      "errors": []
+    },
+    "databases": {
+      "status": "PASS",
+      "databases": {
+        "master.db": {
+          "exists": true,
+          "integrity": "ok",
+          "status": "HEALTHY"
+        },
+        "global_10000_targets.db": {
+          "exists": true,
+          "integrity": "ok",
+          "status": "HEALTHY"
+        },
+        "outreach_tracker.db": {
+          "exists": true,
+          "integrity": "ok",
+          "status": "HEALTHY"
+        },
+        "nexus_product.db": {
+          "exists": true,
+          "integrity": "ok",
+          "status": "HEALTHY"
+        },
+        "omega_platform.db": {
+          "exists": true,
+          "integrity": "ok",
+          "status": "HEALTHY"
+        },
+        "BANGALORE_APEX_GLOBAL_CAREER_DATABASE.sqlite": {
+          "exists": true,
+          "integrity": "ok",
+          "status": "HEALTHY"
+        }
+      }
+    },
+    "saas_portfolio": {
+      "status": "PASS",
+      "portfolio": {
+        "omni-recon-platform": {
+          "expected_stack": "nextjs-fastapi",
+          "exists": true,
+          "has_readme": true,
+          "has_makefile": true,
+          "path": "E:\\anti\\aios\\projects\\scaffolded\\omni-recon-platform"
+        },
+        "exim-flow-analyzer": {
+          "expected_stack": "nextjs-flask",
+          "exists": true,
+          "has_readme": true,
+          "has_makefile": true,
+          "path": "E:\\anti\\aios\\projects\\scaffolded\\exim-flow-analyzer"
+        },
+        "sovereign-portal": {
+          "expected_stack": "static-api",
+          "exists": true,
+          "has_readme": true,
+          "has_makefile": true,
+          "path": "E:\\anti\\aios\\projects\\scaffolded\\sovereign-portal"
+        },
+        "omega-strike-cli": {
+          "expected_stack": "python-cli",
+          "exists": true,
+          "has_readme": true,
+          "has_makefile": true,
+          "path": "E:\\anti\\aios\\projects\\scaffolded\\omega-strike-cli"
+        }
+      }
+    },
+    "service_mesh": {
+      "status": "WARNING",
+      "services": {
+        "AIOS Gateway": {
+          "host": "127.0.0.1",
+          "port": 8090,
+          "online": true
+        },
+        "Ollama GPU": {
+          "host": "127.0.0.1",
+          "port": 11434,
+          "online": false
+        },
+        "Command UI": {
+          "host": "127.0.0.1",
+          "port": 3000,
+          "online": true
+        }
+      }
+    },
+    "test_suites": {
+      "status": "PASS",
+      "suites": {
+        "AIOS Full Stack Regression (38 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 36.2,
+          "stdout_tail": "6:43] [SCHEDULER] Evaluating Automated Target 300 Queue Dispatch...\n    [OK] Dispatch cycle advanced 0 targets. success\n[2026-10-09 17:56:43] [SCHEDULER] Running Ledger Audit & Provenance Verification...\n    [OK] Provenance and audit ledger verified.\n[2026-10-09 17:56:44] [SCHEDULER] Running Universal Auto-Apply Job Pipeline (Every Minute)...\n    [OK] Auto-apply pipeline processed 0 applications.\n",
+          "stderr_tail": "......................................\n----------------------------------------------------------------------\nRan 38 tests in 35.801s\n\nOK\n"
+        },
+        "VECTIS Trade Compliance Engine (9 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 1.04,
+          "stdout_tail": "_vectis_end_to_end.py::test_swift_mt700_parsing PASSED       [ 66%]\ncompany/test_vectis_end_to_end.py::test_swift_to_compliance_audit_pipeline PASSED [ 77%]\ncompany/test_vectis_end_to_end.py::test_cbam_emissions_calculation PASSED [ 88%]\ncompany/test_vectis_end_to_end.py::test_outreach_queue_file_exists PASSED [100%]\n\n============================== 9 passed in 0.29s ==============================\n",
+          "stderr_tail": ""
+        },
+        "Sovereign Continuum & Universal Job (10 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 1.84,
+          "stdout_tail": "ints PASSED [ 70%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_omni_era_job_initialization PASSED [ 80%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_master_prompt_integrity PASSED [ 90%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_execute_omni_job PASSED [100%]\n\n============================= 10 passed in 0.92s ==============================\n",
+          "stderr_tail": ""
+        },
+        "OMEGA OS Core Engine (14 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 4.97,
+          "stdout_tail": "peline PASSED [ 78%]\nomega/tests/test_omega_os.py::TestOmegaAgentSwarm::test_02_ats_agent_bullet_generation PASSED [ 85%]\nomega/tests/test_omega_os.py::TestOmegaAgentSwarm::test_03_outreach_agent_cadence PASSED [ 92%]\nomega/tests/test_omega_os.py::TestOmegaDaemonVerifier::test_01_verify_daemons_and_logs PASSED [100%]\n\n============================= 14 passed in 3.82s ==============================\n",
+          "stderr_tail": ""
+        },
+        "OMNIVERSE INFINITY Comprehensive Suite (25 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 1.59,
+          "stdout_tail": "box Queue: 14 messages queued with valid 2048-bit DKIM / SPF pass.\n[2026-10-09 17:57:13] [OMNIVERSE_DAEMON] Cluster Sourcing: Monitored priority corridor anchors: ['Walmart Global Tech India', 'Accenture India Solutions', 'A.P. Moller - Maersk India', 'Google India Private Limited', 'Swiggy (Bundl Technologies)']\n[2026-10-09 17:57:13] [OMNIVERSE_DAEMON] --- Cycle #999 Complete: Status HEALTHY ---\n",
+          "stderr_tail": ".......C:\\Users\\amehr\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n................\n----------------------------------------------------------------------\nRan 25 tests in 1.348s\n\nOK\n"
+        }
+      }
+    }
+  },
+  "overall_status": "SUCCESS",
+  "total_duration_sec": 48.81
+}

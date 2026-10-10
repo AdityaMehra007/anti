@@ -2,7 +2,7 @@
 **Role:** Business Analyst - Global Advisory  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** ASHWINI CHANDRASHEKHAR (Manager- Talent Acquisition/Attraction)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

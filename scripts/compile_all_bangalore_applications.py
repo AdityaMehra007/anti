@@ -587,7 +587,7 @@ For each requisition:
     studio_html_path = STUDIO_DIR / "bangalore_master_strike_studio.html"
     json_data_str = json.dumps(compiled_records)
     
-    studio_html_content = f"""<!DOCTYPE html>
+    studio_html_content = fr"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">

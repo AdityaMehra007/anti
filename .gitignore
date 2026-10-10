@@ -88,3 +88,12 @@ omega/data/*.jsonl
 
 # Workflows requiring special GitHub OAuth scope
 .github/
+
+# Large Generated JSON & Cache Dumps
+apps/job_application_studio/all_10000_apps.json
+apps/job_application_studio/all_8147_companies.json
+apps/job_application_studio/applications_10k_compact.json
+data/outreach_tracker.db
+.agent/skills/brag/scripts/.venv/
+.agents/skills/brag/scripts/.venv/
+

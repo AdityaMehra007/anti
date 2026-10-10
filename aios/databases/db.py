@@ -13,15 +13,21 @@ AIOS_ROOT = Path("E:/anti/aios")
 DB_PATH = AIOS_ROOT / "data" / "master.db"
 SCHEMA_PATH = AIOS_ROOT / "databases" / "init_schema.sql"
 
-def get_connection() -> sqlite3.Connection:
-    """Returns a WAL-configured sqlite3 connection with dict-like row factory."""
+from contextlib import contextmanager
+
+@contextmanager
+def get_connection():
+    """Returns a WAL-configured sqlite3 connection context with dict-like row factory and guaranteed close."""
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     con = sqlite3.connect(str(DB_PATH), timeout=15.0)
     con.row_factory = sqlite3.Row
     con.execute("PRAGMA journal_mode = WAL;")
     con.execute("PRAGMA synchronous = NORMAL;")
     con.execute("PRAGMA foreign_keys = ON;")
-    return con
+    try:
+        yield con
+    finally:
+        con.close()
 
 def init_database() -> bool:
     """Initializes tables and indices from init_schema.sql."""

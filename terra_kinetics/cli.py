@@ -213,6 +213,7 @@ def run_empire_cycle():
     print(f"Blended Capital Cost (WACC):         {report.blended_financing_wacc_pct:.3f}% (SWF + Green Bonds)")
     print(f"Geopolitical Shield Status:          [{report.shield_status}] Regulatory Clearance Verified")
     print(f"Antifragility Red-Team Status:       [{report.red_team_antifragility}] 4/4 Probes Defended")
+    print(f"Civilization Capability Engine:      [{report.capability_status}] {report.active_capabilities_count} Active Capabilities Registered")
     print("================================================================================\n")
 
 
@@ -230,6 +231,10 @@ def run_skills_audit():
         "antifragile-red-team",
         "sovereign-wealth-syndication",
         "sovereign-banking-engine",
+        "civilization-capability-generator",
+        "failed-solution-memory",
+        "unknown-engine",
+        "second-order-effect-simulator",
     ]
     print("\n================================================================================")
     print("         AUTONOMOUS TRILLION-DOLLAR EMPIRE AGENT SKILLS AUDIT")
@@ -239,9 +244,10 @@ def run_skills_audit():
         exists = os.path.exists(skill_path)
         size_bytes = os.path.getsize(skill_path) if exists else 0
         status = "ACTIVE / VERIFIED" if exists else "MISSING"
-        print(f"   [{status}] {skill:<32} ({size_bytes:,} bytes)")
-    print(f"\n   Total Empire Skills Registered: {len(empire_skills)}/10 Verified Clean")
+        print(f"   [{status}] {skill:<35} ({size_bytes:,} bytes)")
+    print(f"\n   Total Empire Skills Registered: {len(empire_skills)}/14 Verified Clean")
     print("================================================================================\n")
+
 
 
 def run_red_team_audit():

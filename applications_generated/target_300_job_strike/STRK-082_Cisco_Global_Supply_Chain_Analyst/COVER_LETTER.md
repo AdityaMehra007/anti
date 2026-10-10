@@ -2,7 +2,7 @@
 **Role:** Global Supply Chain Analyst  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Shimna M (Talent Advisor)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

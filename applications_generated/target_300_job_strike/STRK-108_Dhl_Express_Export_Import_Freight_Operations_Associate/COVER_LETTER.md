@@ -2,7 +2,7 @@
 **Role:** Export-Import Freight Operations Associate  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Anisha Panda (Account Manager eCommerce)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

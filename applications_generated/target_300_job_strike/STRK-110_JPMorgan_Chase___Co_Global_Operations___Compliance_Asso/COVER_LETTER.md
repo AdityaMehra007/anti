@@ -2,7 +2,7 @@
 **Role:** Global Operations & Compliance Associate  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Archit Khemka (Head of Technology and Consumer Investment Banking, India)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

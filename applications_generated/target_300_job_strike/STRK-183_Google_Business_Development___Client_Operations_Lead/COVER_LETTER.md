@@ -2,7 +2,7 @@
 **Role:** Business Development & Client Operations Lead  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Supriya D V (Product Manager)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

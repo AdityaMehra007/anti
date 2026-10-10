@@ -23,6 +23,7 @@ from sovereign_continuum.macro_money_flows import GlobalMoneyFlowEngine, GlobalM
 from sovereign_continuum.shield_agent import GeopoliticalShieldAgent, ShieldAssessment
 from sovereign_continuum.syndication_agent import AutonomousSyndicationAgent, SyndicationPackage
 from sovereign_continuum.red_team_agent import PlanetaryRedTeamAgent
+from sovereign_continuum.capability_engine import CivilizationCapabilityGenerator
 
 
 @dataclass
@@ -39,11 +40,14 @@ class ConsolidatedEmpireQuarterReport:
     blended_financing_wacc_pct: float
     shield_status: str
     red_team_antifragility: str
+    active_capabilities_count: int = 0
+    capability_status: str = "OPERATIONAL"
 
 
 class SovereignEmpireOrchestrator:
     """
-    Apex executive orchestrator managing planetary capital, energy, compute, and physical labor.
+    Apex executive orchestrator managing planetary capital, energy, compute, physical labor,
+    and unbounded recursive capability generation (CIVILIZATION Ω∞∞).
     """
 
     def __init__(self, sovereign_code: str = "EMPIRE_OMEGA_PRIME"):
@@ -53,11 +57,13 @@ class SovereignEmpireOrchestrator:
         self.shield_agent = GeopoliticalShieldAgent()
         self.syndication_agent = AutonomousSyndicationAgent()
         self.red_team_agent = PlanetaryRedTeamAgent()
+        self.capability_generator = CivilizationCapabilityGenerator()
         
         # Subsidiary venture engines
         self.terra_simulator = FleetVentureSimulator()
         self.aether_calculator = AetherVentureCalculator()
         self.bioma_engine = BiomaEconomicEngine()
+
 
     def execute_planetary_cycle(self, year: int = 5, quarter: int = 20) -> ConsolidatedEmpireQuarterReport:
         """
@@ -110,6 +116,9 @@ class SovereignEmpireOrchestrator:
             nominal_mwe=aether_proj.total_gigawatts_gw * 1000.0
         )
 
+        # 8. Civilizational Capability Generation Cycle (CIVILIZATION Ω∞∞)
+        cap_cycle = self.capability_generator.execute_civilization_cycle()
+
         return ConsolidatedEmpireQuarterReport(
             quarter_index=quarter,
             calendar_year=year,
@@ -123,7 +132,10 @@ class SovereignEmpireOrchestrator:
             blended_financing_wacc_pct=syndication.blended_wacc_pct,
             shield_status=shield_eval.risk_level,
             red_team_antifragility=stress["antifragility_status"],
+            active_capabilities_count=cap_cycle["active_capabilities_count"],
+            capability_status=cap_cycle["status"],
         )
+
 
     def sync_to_plane_hub(self, workspace_slug: str = "omega", dry_run: bool = True) -> Dict[str, Any]:
         """Dispatches verified sovereign empire milestones to Plane CE projects and cycles."""

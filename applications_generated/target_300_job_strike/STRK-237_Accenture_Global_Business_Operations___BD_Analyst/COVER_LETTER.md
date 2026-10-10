@@ -2,7 +2,7 @@
 **Role:** Global Business Operations & BD Analyst  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Sai Sowmya Aasi (Management Consulting Analyst)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

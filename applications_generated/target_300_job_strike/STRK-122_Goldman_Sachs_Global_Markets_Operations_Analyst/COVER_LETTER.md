@@ -2,7 +2,7 @@
 **Role:** Global Markets Operations Analyst  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Rahul Pandey (Vice President, Lead - Data Assurance/Events Program/OpRisk Loss Data validation)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

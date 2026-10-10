@@ -1,0 +1,22 @@
+import json
+import re
+
+with open("scratch/groww_all_jobs.json", encoding="utf-8") as f:
+    jobs = json.load(f)
+
+for j in jobs:
+    jid = j.get("id")
+    if jid in [4880153101, 5000706101, 4714061101, 4714065101, 4967486101]:
+        print(f"=== [{jid}] {j.get('title')} ===")
+        print("URL:", f"https://job-boards.eu.greenhouse.io/groww/jobs/{jid}")
+        content = j.get("content", "")
+        text = re.sub(r'<[^>]+>', '\n', content)
+        lines = [l.strip() for l in text.split('\n') if l.strip()]
+        start_idx = 0
+        for i, l in enumerate(lines):
+            if any(k in l.lower() for k in ["role & responsibilities", "about the role", "responsibilities", "what you will do"]):
+                start_idx = i
+                break
+        for l in lines[start_idx:start_idx+20]:
+            print("  ", l.encode('ascii', 'ignore').decode('ascii'))
+        print()

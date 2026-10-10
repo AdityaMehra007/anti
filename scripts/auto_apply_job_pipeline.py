@@ -140,112 +140,118 @@ def run_auto_apply_cycle(batch_size: int = 10, offset: int = 0, unapplied_only: 
 
     applied_ids = set()
     if unapplied_only and TRACKER_DB.exists():
-        conn_temp = None
-        cur_temp = None
+        conn_temp = sqlite3.connect(TRACKER_DB)
         try:
-            conn_temp = sqlite3.connect(TRACKER_DB)
             init_tracker_tables(conn_temp)
             cur_temp = conn_temp.cursor()
-            applied_ids = {r[0] for r in cur_temp.execute("SELECT target_id FROM automated_applications").fetchall()}
+            try:
+                applied_ids = {r[0] for r in cur_temp.execute("SELECT target_id FROM automated_applications").fetchall()}
+            finally:
+                cur_temp.close()
         except Exception:
             pass
         finally:
-            if cur_temp:
-                cur_temp.close()
-            if conn_temp:
-                conn_temp.close()
+            conn_temp.close()
 
     conn_global = sqlite3.connect(GLOBAL_DB)
-    cur_global = conn_global.cursor()
-    
-    if unapplied_only and applied_ids:
-        cur_global.execute("""
-            SELECT target_id, company, job_title, contact_name, contact_position, email, fit_score, corridor
-            FROM global_10000_targets
-            ORDER BY fit_score DESC, target_id ASC
-        """)
-        all_rows = cur_global.fetchall()
-        rows = [r for r in all_rows if r[0] not in applied_ids][offset:offset + batch_size]
-    else:
-        cur_global.execute("""
-            SELECT target_id, company, job_title, contact_name, contact_position, email, fit_score, corridor
-            FROM global_10000_targets
-            ORDER BY fit_score DESC, target_id ASC
-            LIMIT ? OFFSET ?
-        """, (batch_size, offset))
-        rows = cur_global.fetchall()
-    conn_global.close()
+    try:
+        cur_global = conn_global.cursor()
+        try:
+            if unapplied_only and applied_ids:
+                cur_global.execute("""
+                    SELECT target_id, company, job_title, contact_name, contact_position, email, fit_score, corridor
+                    FROM global_10000_targets
+                    ORDER BY fit_score DESC, target_id ASC
+                """)
+                all_rows = cur_global.fetchall()
+                rows = [r for r in all_rows if r[0] not in applied_ids][offset:offset + batch_size]
+            else:
+                cur_global.execute("""
+                    SELECT target_id, company, job_title, contact_name, contact_position, email, fit_score, corridor
+                    FROM global_10000_targets
+                    ORDER BY fit_score DESC, target_id ASC
+                    LIMIT ? OFFSET ?
+                """, (batch_size, offset))
+                rows = cur_global.fetchall()
+        finally:
+            cur_global.close()
+    finally:
+        conn_global.close()
 
     if not rows:
         return {"status": "complete", "message": "No more targets to process", "processed_count": 0}
 
     conn_tracker = sqlite3.connect(TRACKER_DB)
-    init_tracker_tables(conn_tracker)
-    cur_tracker = conn_tracker.cursor()
+    try:
+        init_tracker_tables(conn_tracker)
+        cur_tracker = conn_tracker.cursor()
+        try:
+            processed = []
+            now_iso = datetime.now(timezone.utc).isoformat()
 
-    processed = []
-    now_iso = datetime.now(timezone.utc).isoformat()
+            for row in rows:
+                target_id, company, job_title, contact_name, contact_pos, to_email, fit_score, corridor = row
+                app_id = f"APP-{target_id}"
 
-    for row in rows:
-        target_id, company, job_title, contact_name, contact_pos, to_email, fit_score, corridor = row
-        app_id = f"APP-{target_id}"
+                subject, body = compose_pitch(company, job_title, contact_name, corridor)
+                
+                # Web Gmail Compose URL
+                gmail_url = f"https://mail.google.com/mail/?view=cm&fs=1&to={quote(to_email)}&su={quote(subject)}&body={quote(body)}"
+                
+                # EML file
+                clean_company = "".join(c if c.isalnum() else "_" for c in company)[:24]
+                eml_filename = f"{app_id}_{clean_company}.eml"
+                eml_path = DISPATCH_DIR / eml_filename
+                generate_eml_file(company, contact_name, to_email, subject, body, eml_path)
 
-        subject, body = compose_pitch(company, job_title, contact_name, corridor)
-        
-        # Web Gmail Compose URL
-        gmail_url = f"https://mail.google.com/mail/?view=cm&fs=1&to={quote(to_email)}&su={quote(subject)}&body={quote(body)}"
-        
-        # EML file
-        clean_company = "".join(c if c.isalnum() else "_" for c in company)[:24]
-        eml_filename = f"{app_id}_{clean_company}.eml"
-        eml_path = DISPATCH_DIR / eml_filename
-        generate_eml_file(company, contact_name, to_email, subject, body, eml_path)
+                # Cryptographic proof hash
+                proof_payload = f"{app_id}:{target_id}:{company}:{to_email}:{now_iso}"
+                proof_hash = f"sha256:{hashlib.sha256(proof_payload.encode('utf-8')).hexdigest()}"
 
-        # Cryptographic proof hash
-        proof_payload = f"{app_id}:{target_id}:{company}:{to_email}:{now_iso}"
-        proof_hash = f"sha256:{hashlib.sha256(proof_payload.encode('utf-8')).hexdigest()}"
+                # Write application dossier JSON packet
+                packet_path = APPLICATIONS_DIR / f"{app_id}.json"
+                with open(packet_path, "w", encoding="utf-8") as f:
+                    json.dump({
+                        "application_id": app_id,
+                        "target_id": target_id,
+                        "company": company,
+                        "job_title": job_title,
+                        "contact_name": contact_name,
+                        "contact_email": to_email,
+                        "fit_score": fit_score,
+                        "corridor": corridor,
+                        "status": "AUTO_APPLIED_PACKET_STAGED",
+                        "gmail_url": gmail_url,
+                        "eml_path": str(eml_path),
+                        "proof_hash": proof_hash,
+                        "timestamp": now_iso
+                    }, f, indent=2)
 
-        # Write application dossier JSON packet
-        packet_path = APPLICATIONS_DIR / f"{app_id}.json"
-        with open(packet_path, "w", encoding="utf-8") as f:
-            json.dump({
-                "application_id": app_id,
-                "target_id": target_id,
-                "company": company,
-                "job_title": job_title,
-                "contact_name": contact_name,
-                "contact_email": to_email,
-                "fit_score": fit_score,
-                "corridor": corridor,
-                "status": "AUTO_APPLIED_PACKET_STAGED",
-                "gmail_url": gmail_url,
-                "eml_path": str(eml_path),
-                "proof_hash": proof_hash,
-                "timestamp": now_iso
-            }, f, indent=2)
+                # Commit to tracker database
+                cur_tracker.execute("""
+                    INSERT OR REPLACE INTO automated_applications
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (app_id, target_id, company, job_title, contact_name, to_email,
+                      fit_score, corridor, "AUTO_APPLIED_PACKET_STAGED", gmail_url, str(eml_path), proof_hash, now_iso))
 
-        # Commit to tracker database
-        cur_tracker.execute("""
-            INSERT OR REPLACE INTO automated_applications
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (app_id, target_id, company, job_title, contact_name, to_email,
-              fit_score, corridor, "AUTO_APPLIED_PACKET_STAGED", gmail_url, str(eml_path), proof_hash, now_iso))
+                cur_tracker.execute("""
+                    INSERT INTO automated_application_events (application_id, target_id, event_type, proof_hash, timestamp)
+                    VALUES (?, ?, ?, ?, ?)
+                """, (app_id, target_id, "PACKET_STAGED", proof_hash, now_iso))
 
-        cur_tracker.execute("""
-            INSERT INTO automated_application_events (application_id, target_id, event_type, proof_hash, timestamp)
-            VALUES (?, ?, ?, ?, ?)
-        """, (app_id, target_id, "PACKET_STAGED", proof_hash, now_iso))
+                processed.append({
+                    "application_id": app_id,
+                    "company": company,
+                    "contact": contact_name,
+                    "email": to_email,
+                    "proof_hash": proof_hash
+                })
 
-        processed.append({
-            "application_id": app_id,
-            "company": company,
-            "contact": contact_name,
-            "email": to_email,
-            "proof_hash": proof_hash
-        })
-
-    conn_tracker.commit()
-    conn_tracker.close()
+            conn_tracker.commit()
+        finally:
+            cur_tracker.close()
+    finally:
+        conn_tracker.close()
 
     return {
         "status": "success",

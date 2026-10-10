@@ -2,7 +2,7 @@
 **Role:** Dark Store Operations Executive  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Samantha Rao (Finance and HR (at AMDNS Enterprise-Franchisee))  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

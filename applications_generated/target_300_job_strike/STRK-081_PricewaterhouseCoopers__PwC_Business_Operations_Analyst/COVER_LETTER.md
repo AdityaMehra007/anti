@@ -2,7 +2,7 @@
 **Role:** Business Operations Analyst  
 **Candidate:** Aditya Mehra (BBA International Business '26, DSU Bengaluru)  
 **Target Recruiter:** Neeraja Rajasekar (Senior Talent Acquisition Specialist)  
-**Date:** October 03, 2026
+**Date:** October 08, 2026
 
 ---
 

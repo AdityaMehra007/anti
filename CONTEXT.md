@@ -42,3 +42,15 @@ This document standardizes the domain vocabulary across the workspace. Agents an
 - **Seam**: A clean boundary between two components where behavior can be observed, mocked, or tested without modifying implementation internals.
 - **Grilling Frontier**: The active set of open design decisions whose prerequisites are settled and can be questioned immediately without guesswork.
 - **Red-Green-Refactor Loop**: The strict test-driven development loop: write a failing test first $\rightarrow$ write minimal code to pass $\rightarrow$ refactor while green.
+
+---
+
+## 5. Civilizational Constructs & Capability Generation (CIVILIZATION Ω∞∞)
+
+- **Civilization Capability Generator**: The autonomous meta-engine that dynamically synthesizes new skills, agent roles, and execution harnesses when encountering unbounded requirements.
+- **Universal Problem Graph**: The topological network mapping problems across individual, organizational, sovereign, and civilizational tiers, linking them directly to verified solutions.
+- **Failed Solution Memory**: An immutable, tamper-evident registry cataloging dead ends, disproven hypotheses, and failure modes to permanently prevent regression.
+- **Unknown Engine**: The proactive epistemic audit system answering *"What am I missing?"* and *"Why hasn't this been done?"* prior to commitment.
+- **Second-Order Effect Simulator**: The probabilistic modeling layer evaluating multi-order ripple effects across geopolitical, financial, regulatory, and physical systems.
+- **Unbounded Roadmap**: The multiscale temporal planning mesh operating across 6 concurrent horizons (1 Hour, 1 Day, 1 Month, 1 Year, 10 Years, 100 Years).
+
