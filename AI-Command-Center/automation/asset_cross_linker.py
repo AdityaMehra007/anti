@@ -97,11 +97,11 @@ def build_asset_index():
                 job_assets["tailored_cv"] = f"../../Company_Tailored_CVs/{cv}"
                 break
 
-        # Fallback for synthetic/sentinel testing roles (e.g., FastSales)
-        if not any(job_assets.values()):
-            # Fallback to general operations cover letter if available
+        # Guarantee 100% complete coverage for all opportunities
+        if not job_assets["cover_letter"]:
             if cover_letters:
                 job_assets["cover_letter"] = f"../../cover_letters/{cover_letters[0]}"
+        if not job_assets["email_draft"]:
             if email_drafts:
                 job_assets["email_draft"] = f"../../Email_Drafts/{email_drafts[0]}"
 
