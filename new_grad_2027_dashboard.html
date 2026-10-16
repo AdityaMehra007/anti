@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Grad 2027 Positions — Autonomous Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #111827;
+      --border: #1f2937;
+      --accent: #06b6d4;
+      --accent-glow: rgba(6, 182, 212, 0.2);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --tag-bg: #1e293b;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 30px;
+      line-height: 1.5;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .stats-bar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .stat-pill span {
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      margin-left: 5px;
+    }
+    .controls {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+    .listing-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .listing-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .company-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .company-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .company-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .company-name a:hover {
+      text-decoration: underline;
+    }
+    .role-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .tag.highlight {
+      color: var(--accent);
+      border-color: rgba(6, 182, 212, 0.4);
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+    .apply-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .apply-btn:hover {
+      background: #0891b2;
+    }
+    .sponsor-tag {
+      font-size: 11px;
+      color: #10b981;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>New Grad 2027 Positions</h1>
+      <p>vanshb03/New-Grad-2027 Autonomous Data Nexus • 631 Active Roles Indexed</p>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-pill">Active Roles: <span id="total-count">631</span></div>
+      <div class="stat-pill">Employers: <span id="employers-count">140+</span></div>
+      <div class="stat-pill">Class Target: <span>2026 / 2027</span></div>
+      <div class="stat-pill">Updated: <span id="update-date">October 2026</span></div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search by company, title, or location (e.g., Tesla, Qualcomm, Seattle, Remote)...">
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-spons="all">All Roles</button>
+      <button class="filter-btn" data-spons="Offers Sponsorship">Sponsorship Offered</button>
+      <button class="filter-btn" data-spons="U.S. Citizenship is Required">US Citizen Required</button>
+      <button class="filter-btn" data-spons="Other">Flexible / Other</button>
+    </div>
+  </div>
+
+  <div class="listings-grid" id="listingsContainer"></div>
+
+  <script>
+    let allListings = [];
+    let currentSponsFilter = 'all';
+
+    async function loadData() {
+      try {
+        const res = await fetch('data/new_grad_2027_active.json');
+        allListings = await res.json();
+        document.getElementById('total-count').textContent = allListings.length.toLocaleString();
+        
+        const companies = new Set(allListings.map(x => x.company_name).filter(Boolean));
+        document.getElementById('employers-count').textContent = companies.size.toLocaleString();
+        
+        render();
+      } catch (err) {
+        console.error('Failed to load JSON:', err);
+      }
+    }
+
+    function render() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const container = document.getElementById('listingsContainer');
+      container.innerHTML = '';
+
+      const filtered = allListings.filter(item => {
+        const matchSpons = currentSponsFilter === 'all' || item.sponsorship === currentSponsFilter;
+        const locStr = Array.isArray(item.locations) ? item.locations.join(' ') : (item.locations || '');
+        const matchQuery = !q || 
+          item.company_name.toLowerCase().includes(q) || 
+          item.title.toLowerCase().includes(q) || 
+          locStr.toLowerCase().includes(q);
+        return matchSpons && matchQuery;
+      });
+
+      const slice = filtered.slice(0, 120);
+
+      slice.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'listing-card';
+
+        const locs = Array.isArray(item.locations) ? item.locations.join(', ') : (item.locations || 'Location unspecified');
+        const companyDisplay = item.company_url 
+          ? `<a href="${item.company_url}" target="_blank">${escapeHtml(item.company_name)}</a>`
+          : escapeHtml(item.company_name);
+
+        const sponsTag = item.sponsorship && item.sponsorship !== 'Other' 
+          ? `<span class="sponsor-tag">${escapeHtml(item.sponsorship)}</span>`
+          : `<span class="sponsor-tag" style="color: #94a3b8;">${escapeHtml(item.sponsorship || 'Flexible')}</span>`;
+
+        card.innerHTML = `
+          <div>
+            <div class="company-header">
+              <span class="company-name">${companyDisplay}</span>
+            </div>
+            <div class="role-title">${escapeHtml(item.title)}</div>
+            <div class="tags">
+              <span class="tag highlight">📍 ${escapeHtml(locs.substring(0, 45))}</span>
+              <span class="tag">Source: ${escapeHtml(item.source || 'Verified')}</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            ${sponsTag}
+            <a href="${item.url}" target="_blank" class="apply-btn">Apply Now →</a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">No roles matching your query.</div>`;
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    document.getElementById('searchInput').addEventListener('input', render);
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentSponsFilter = e.target.dataset.spons;
+        render();
+      });
+    });
+
+    loadData();
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustHireMe — Local Job Intelligence & Fit Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #121927;
+      --card-hover: #182235;
+      --border: #1e293b;
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --high: #10b981;
+      --mid: #f59e0b;
+      --low: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 30px;
+      line-height: 1.5;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .stats-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .stat-pill span {
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      margin-left: 5px;
+    }
+    .controls {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+    }
+    .search-box input {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
+      transition: all 0.2s;
+    }
+    .card:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .score-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .score-high { background: rgba(16, 185, 129, 0.15); color: var(--high); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .score-mid { background: rgba(245, 158, 11, 0.15); color: var(--mid); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .score-low { background: rgba(239, 68, 68, 0.15); color: var(--low); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+    }
+    .card-reason {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .stack-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>JustHireMe Intelligence Workbench</h1>
+      <p>Local-First Fit Evaluator & Quality Gates • vasu-devs/JustHireMe Integration</p>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-pill">Evaluated Leads: <span id="stat-total">300</span></div>
+      <div class="stat-pill">Candidate: <span>Aditya Mehra (8.78 GPA)</span></div>
+      <div class="stat-pill">Engine: <span>Deterministic + Rubric</span></div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search evaluated roles by title, stack (Python, React, Automation), or keyword...">
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-band="all">All Evaluated</button>
+      <button class="filter-btn" data-band="high">High Fit (>=70%)</button>
+      <button class="filter-btn" data-band="mid">Adjacent (50-69%)</button>
+      <button class="filter-btn" data-band="low">Low Match (&lt;50%)</button>
+    </div>
+  </div>
+
+  <div class="grid" id="leadsGrid"></div>
+
+  <script>
+    let allLeads = [];
+    let currentBand = 'all';
+
+    async function loadData() {
+      try {
+        const res = await fetch('data/justhireme_evaluated_roles.json');
+        allLeads = await res.json();
+        document.getElementById('stat-total').textContent = allLeads.length.toLocaleString();
+        render();
+      } catch (e) {
+        console.error('Failed to load JustHireMe evaluated roles:', e);
+      }
+    }
+
+    function render() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const container = document.getElementById('leadsGrid');
+      container.innerHTML = '';
+
+      const filtered = allLeads.filter(lead => {
+        const score = lead.fit_score;
+        let matchBand = true;
+        if (currentBand === 'high') matchBand = score >= 70;
+        else if (currentBand === 'mid') matchBand = score >= 50 && score < 70;
+        else if (currentBand === 'low') matchBand = score < 50;
+
+        const stackStr = (lead.tech_stack || []).join(' ').toLowerCase();
+        const matchQuery = !q ||
+          lead.title.toLowerCase().includes(q) ||
+          lead.domain.toLowerCase().includes(q) ||
+          lead.reason.toLowerCase().includes(q) ||
+          stackStr.includes(q);
+
+        return matchBand && matchQuery;
+      });
+
+      filtered.forEach(lead => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        let badgeClass = 'score-low';
+        if (lead.fit_score >= 70) badgeClass = 'score-high';
+        else if (lead.fit_score >= 50) badgeClass = 'score-mid';
+
+        const stacks = (lead.tech_stack || []).map(s => `<span class="stack-pill">${escapeHtml(s)}</span>`).join('');
+
+        card.innerHTML = `
+          <div>
+            <div class="card-head">
+              <span class="score-badge ${badgeClass}">${lead.fit_score}% Fit</span>
+              <span style="font-size:12px; color:var(--text-dim);">${escapeHtml(lead.domain)}</span>
+            </div>
+            <div class="card-title">${escapeHtml(lead.title)}</div>
+          </div>
+          <div class="card-reason">${escapeHtml(lead.reason)}</div>
+          <div class="stack-tags">${stacks || '<span style="font-size:11px; color:var(--text-dim);">General Stack</span>'}</div>
+          <div class="card-footer">
+            <span>ID: ${escapeHtml(lead.job_id)}</span>
+            <span>Quality Gate: ${lead.quality_score}/100</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">No evaluated roles match your criteria.</div>';
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    document.getElementById('searchInput').addEventListener('input', render);
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentBand = e.target.dataset.band;
+        render();
+      });
+    });
+
+    loadData();
+  </script>
+</body>
+</html>

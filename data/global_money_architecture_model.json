@@ -1,0 +1,122 @@
+{
+  "timestamp": "2026-10-10T22:52:00.960797",
+  "total_global_money_mapped_usd": 1472000000000000.0,
+  "total_global_money_display": "$1,472.0 Trillion USD",
+  "total_pillars": 8,
+  "pillars": [
+    {
+      "pillar_id": "CAP-01",
+      "domain": "Global Derivatives & Notional Contracts",
+      "total_scale_usd": 630000000000000.0,
+      "scale_display": "$630 Trillion USD",
+      "scale_inr": "INR 53,550 Lakh Crore",
+      "primary_institutions": "BIS Basel, ISDA, CME Group, ICE, DTCC",
+      "mechanisms": "Interest rate swaps, FX forwards, credit default swaps (CDS), options synthetics.",
+      "arbitrage_vector": "Macro volatility hedging, rate swaps, liquidity clearance."
+    },
+    {
+      "pillar_id": "CAP-02",
+      "domain": "Global Real Estate & Physical Property",
+      "total_scale_usd": 380000000000000.0,
+      "scale_display": "$380 Trillion USD",
+      "scale_inr": "INR 32,300 Lakh Crore",
+      "primary_institutions": "Brookfield, Blackstone, Prologis, Sovereign Property Trusts",
+      "mechanisms": "Commercial logistics hubs, cold-storage fulfillment, prime residential, infrastructure assets.",
+      "arbitrage_vector": "Logistics hub leases, industrial SEZ bonded warehousing, real asset collateralization."
+    },
+    {
+      "pillar_id": "CAP-03",
+      "domain": "Global Bond & Debt Capital Markets (DCM)",
+      "total_scale_usd": 135000000000000.0,
+      "scale_display": "$135 Trillion USD",
+      "scale_inr": "INR 11,475 Lakh Crore",
+      "primary_institutions": "US Treasury, Euroclear, J.P. Morgan DCM, RBI, PIMCO",
+      "mechanisms": "Sovereign gilts, corporate investment-grade paper, high-yield debt, syndicated loans.",
+      "arbitrage_vector": "Yield curve carry trades, sovereign debt rollover, corporate commercial paper."
+    },
+    {
+      "pillar_id": "CAP-04",
+      "domain": "Global Public Listed Equities",
+      "total_scale_usd": 115000000000000.0,
+      "scale_display": "$115 Trillion USD",
+      "scale_inr": "INR 9,775 Lakh Crore",
+      "primary_institutions": "NYSE, Nasdaq, Shanghai Stock Exchange, Euronext, NSE India ($5T+)",
+      "mechanisms": "Public market capitalizations, index funds (ETF), institutional float, high-frequency liquidity.",
+      "arbitrage_vector": "Enterprise equity compounding, public multiples (P/E, EV/EBITDA), IPO liquidity events."
+    },
+    {
+      "pillar_id": "CAP-05",
+      "domain": "Global Asset Management (AUM Pools)",
+      "total_scale_usd": 140000000000000.0,
+      "scale_display": "$140 Trillion USD",
+      "scale_inr": "INR 11,900 Lakh Crore",
+      "primary_institutions": "BlackRock ($10.5T), Vanguard ($9T), State Street ($4T), Fidelity ($4.5T)",
+      "mechanisms": "Index passive dominance, corporate proxy voting, enterprise board governance, liquidity allocation.",
+      "arbitrage_vector": "Institutional asset custody, index inclusion rebalancing, fee extraction."
+    },
+    {
+      "pillar_id": "CAP-06",
+      "domain": "Cross-Border International Trade & EXIM Flows",
+      "total_scale_usd": 32000000000000.0,
+      "scale_display": "$32 Trillion USD / Year",
+      "scale_inr": "INR 2,720 Lakh Crore / Year",
+      "primary_institutions": "WTO, SWIFT, Maersk, MSC, CBIC India, US Customs (CBP)",
+      "mechanisms": "Incoterms 2020 commercial terms, Letters of Credit (UCP 600), ocean freight, customs tariff classifications.",
+      "arbitrage_vector": "Landed cost mitigation, Indo-ASEAN FTA tariff concessions, port demurrage optimization."
+    },
+    {
+      "pillar_id": "CAP-07",
+      "domain": "Sovereign Wealth Funds & FX Reserves",
+      "total_scale_usd": 27000000000000.0,
+      "scale_display": "$27 Trillion USD",
+      "scale_inr": "INR 2,295 Lakh Crore",
+      "primary_institutions": "Norway GPFG ($1.7T), China CIC ($1.3T), ADIA ($1T), PIF Saudi ($925B), RBI FX ($700B+)",
+      "mechanisms": "Intergenerational sovereign wealth preservation, strategic energy & AI compute syndication, currency peg defense.",
+      "arbitrage_vector": "Bilateral sovereign infrastructure deals, gigawatt AI compute collocations, SMR nuclear financing."
+    },
+    {
+      "pillar_id": "CAP-08",
+      "domain": "Global Private Equity & Venture Capital",
+      "total_scale_usd": 13000000000000.0,
+      "scale_display": "$13 Trillion USD",
+      "scale_inr": "INR 1,105 Lakh Crore",
+      "primary_institutions": "Sequoia Capital, Andreessen Horowitz, SoftBank Vision Fund, KKR, Carlyle",
+      "mechanisms": "Early-stage Series A/B risk capital, leveraged buyouts (LBO), growth equity, secondary market liquidity.",
+      "arbitrage_vector": "Founders' office advisory, 0-to-1 autonomous venture incubation, technical due diligence."
+    }
+  ],
+  "sovereign_corridors": [
+    {
+      "id": "FLW-01",
+      "origin": "US Dollar Reserve & SWIFT Network",
+      "dest": "Asia Manufacturing & India GCC Hubs",
+      "velocity_usd": 3200000000000.0,
+      "asset": "Trade Invoicing & IT Services",
+      "role": "Incoterms Landed Cost & Python Automated Reconciliation"
+    },
+    {
+      "id": "FLW-02",
+      "origin": "Middle East Sovereign Capital (PIF/ADIA)",
+      "dest": "Global Tech & Indian Infrastructure",
+      "velocity_usd": 450000000000.0,
+      "asset": "Direct Infrastructure & Compute Hubs",
+      "role": "Autonomous Operations & Strategic Deal Due Diligence"
+    },
+    {
+      "id": "FLW-03",
+      "origin": "Institutional Asset Managers (BlackRock/Vanguard)",
+      "dest": "Global Listed Equities & Corporate Bonds",
+      "velocity_usd": 8500000000000.0,
+      "asset": "Public Debt & Equity Capital",
+      "role": "Algorithmic Market Intelligence & Systems Architecture"
+    },
+    {
+      "id": "FLW-04",
+      "origin": "Cross-Border Indo-ASEAN Trade Corridor",
+      "dest": "Indian Ports & Inland Container Depots (BLR)",
+      "velocity_usd": 125000000000.0,
+      "asset": "Physical Electronics & Hardware Logistics",
+      "role": "Customs Tariff Harmonization & 14-18% Duty Concessions"
+    }
+  ]
+}

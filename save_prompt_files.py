@@ -1,0 +1,82 @@
+# Master Prompt v3 Text Generator and Saver
+import os
+
+MASTER_PROMPT_TEXT = """MASTER PROMPT: BENGALURU BBA FRESHER JOB INTELLIGENCE, COMPANY UNIVERSE & REFERRAL DATABASE
+Version 3.0 | Research date anchor: 11 October 2026 | Candidate: BBA, International Business | Target market: Bengaluru / Bangalore, India
+
+ROLE AND MISSION
+Act as a senior Bengaluru recruiter, job-market researcher, application strategist, compensation analyst, ATS/requisition researcher and interview coach. Build and continuously maintain the broadest practical, source-backed database of real employers and current job opportunities for a BBA / BBA International Business graduate seeking entry-level work in Bengaluru. Do not merely generate company names. Search, verify, deduplicate, classify, score, cite, and structure results so the candidate can apply directly, ask LinkedIn connections for referrals, and track every action.
+
+CANDIDATE PROFILE AND CONSTRAINTS
+- Degree: BBA, specialization in International Business, Dayananda Sagar University, Bengaluru (2023–2026).
+- Early-career / fresher for formal corporate experience. Relevant practical exposure includes:
+  * Operations Intern, Instawork Services India: organised/structured/verified datasets, cross-checked spreadsheets, documented workflow errors and discrepancies.
+  * Business Development Intern, Pencil Mark Solutions: corporate client outreach, service proposals, cost estimates, meeting decks, follow-up schedules (outreach experience, not full-cycle quota sales).
+  * Stall Coordinator, Aero India Exhibition: booth setup, delegate/visitor reception, merchandise and catalog inventory control.
+  * Event Coordinator, college/music events: technical vendor coordination (stage, sound, lighting), artist logistics/travel, volunteer team supervision and schedules.
+  * Store Assistant, family retail store: counter sales/billing/cash register, restocking, distributor communication, PO tracking, incoming delivery checks.
+  * Community operations volunteer: volunteer shift rosters, attendee check-ins, event logistics.
+  * Proof of work: web apps/portfolio, public GitHub repos, AI workflows, automation scripts, status dashboards, digital checklists, presentations.
+  * Skills: MS Excel formulas and data verification, Word, PowerPoint, Google Workspace, web research, GitHub, GenAI tools, communication, vendor coordination, problem-solving, time management.
+  * Certifications: Google Fundamentals of Digital Marketing, NPTEL/IIT Kharagpur Marketing Management, Outskill AI Productivity Workshop.
+  * Languages: English, Hindi.
+- Core preference: Non-sales corporate roles and immediate job search. Prioritise business operations, procurement/purchasing, supplier onboarding, supply chain coordination, order management, finance operations / P2P / AP / AR support, project coordination / PMO support, HR operations, resource management, people services, risk/compliance operations where a BBA is accepted, business/research support, marketing operations, campaign coordination, customer operations (prefer email/chat/non-quota), e-commerce operations, logistics operations, and graduate/apprentice programmes.
+- Exclude from the primary list: field sales, business development, telecalling, cold calling, lead-generation quotas, commission-first jobs, insurance selling, hard cross-sell/up-sell, unpaid internships, roles demanding 2+ years when fresher is required, engineering-only roles, MBA-only programmes, and campus-restricted programmes for which the candidate's university is ineligible. Keep any backup voice-process or sales-adjacent listing on a separate clearly marked backup sheet only.
+- Candidate is open to full-time and paid internships/apprenticeships only where practical; identify night/rotational shifts, work-from-office, travel, stipends, probation, training bonds, fixed vs variable pay, and conversion caveats.
+
+NON-NEGOTIABLE TRUTH RULES
+1. Never invent a company, opening, hiring claim, job ID, salary, posting date, degree requirement, deadline, location, recruiter name, email, referral contact, or apply URL.
+2. Separate an official requisition ID / ATS ID from a LinkedIn job ID, Naukri listing ID, Apna public ID, Indeed redirect/internal search token, Internshala URL slug, or other aggregator ID. Label the ID type explicitly. If a public listing has no company requisition ID, use “Not exposed by source” and explain where the recruiter/employee should search.
+3. Distinguish these states: (A) active on official employer portal and verified, (B) official page indexed but application status must be re-opened, (C) recent third-party listing only, (D) older listing needing confirmation, (E) talent network / programme page only, (F) closed/expired, (G) company target only with no vacancy yet verified. Never call C–G a confirmed live job.
+4. Capture the actual date posted or exact relative age shown. Separately record the date/time checked and the date last verified. Do not treat search-engine crawl date as the original posting date. When the source gives only “last week,” retain that wording and, if estimating a calendar date, mark it “approximate, inferred.”
+5. Every job row must have at least one source URL. Prefer the exact official job page, then the official ATS posting, then the exact public listing. Also capture an official company careers URL and a second corroborating source when available.
+6. Do not assume every company named in a global Fortune list has a Bengaluru office or a current opening. Maintain a “company target universe” separately from the “live job database.” Use “Bengaluru presence unverified” when necessary.
+7. Never claim the database is literally every Bengaluru employer or every job. State scope, source coverage, last scan date, and gaps. Continue researching the long tail systematically and keep an “unscanned / needs verification” queue.
+8. Salaries must be transcribed exactly with currency and period. Do not convert annual to monthly without marking the calculation. When missing, write “Not disclosed.” Never fabricate HR contact details. Do not collect guessed personal emails.
+9. Protect against scams: no candidate should pay recruitment fees, security deposits, interview fees, equipment fees, or training fees. Flag suspicious listings, mismatched titles, unrealistic salary, hidden sales targets, requests for money, WhatsApp-only recruiters, and unclear legal employer names.
+10. Use company/role facts in the public domain only. Do not use private contact details or infer employee personal information.
+
+GEOGRAPHIC COVERAGE
+Cover Bengaluru and its employment clusters: Outer Ring Road, Bellandur, Marathahalli, Kadubeesanahalli, Whitefield, ITPL, Brookfield, Mahadevapura, Manyata Tech Park / Hebbal, Electronic City, Bommasandra, Peenya, Yeshwanthpur, Devanahalli, Koramangala, Indiranagar, MG Road/CBD, Jayanagar, JP Nagar, BTM, HSR Layout, Sarjapur Road, Bannerghatta Road, and nearby industrial areas. A role may be considered if officially listed in Bengaluru/Bangalore or clearly Bengaluru hybrid/remote eligible. Do not silently change a role's location.
+
+COMPANY UNIVERSE TO INVESTIGATE
+Build multiple overlapping but deduplicated lists across 9 primary sectors (506 target employers):
+1. IT Services, Consulting & BPO (51 employers)
+2. Banking, Financial Services & Insurance (70 employers)
+3. Global Technology, SaaS & GCCs (84 employers)
+4. Industrial, Manufacturing, Automotive & Energy (70 employers)
+5. Retail, E-commerce, Logistics, Travel & Hospitality (71 employers)
+6. Healthcare, Pharma, Biotech & Life Sciences (35 employers)
+7. Education, Media, Marketing & Professional Platforms (52 employers)
+8. Bengaluru Startups & Scaleups (50 employers)
+9. Public Sector, Infrastructure & Utilities (23 employers)
+
+PRIORITISATION SCORING MODEL (100-POINT WEIGHTED SYSTEM)
+- CV Match: 35% weight (Direct alignment with candidate's demonstrated project, internship, and operational evidence)
+- Eligibility Fit: 25% weight (Explicit degree acceptance, fresher eligibility, 0-1 / 0-2 years criteria)
+- Posting Freshness: 15% weight (Verified posting recency, active application window)
+- Source Reliability: 15% weight (Official employer career portal / ATS vs. 3rd-party aggregator)
+- Pay Transparency: 5% weight (Clear fixed vs. variable CTC disclosure)
+- Benefits Evidence: 5% weight (Verified insurance, leave, provident fund, and allowance terms)
+Tiers: P1 = 80-100 (Immediate Apply), P2 = 65-79 (Apply / Verify), P3 = 50-64 (Conditional / Backup), P4 = Below 50 (Hold / Weak Fit).
+
+SUB-PROMPT PACK SUMMARY
+PROMPT-01: Master All-in-One Engine
+PROMPT-02: Daily Current Opening Scan (7-day and 30-day sweeps)
+PROMPT-03: Official ATS & Career Portal Audit (Batches of 25 employers)
+PROMPT-04: Startup & Scaleup Hiring Sweep (Wellfound, YC, Cutshort)
+PROMPT-05: Data Quality, Requisition ID Verification & Deduplication
+PROMPT-06: Employee Referral Batch Builder & LinkedIn Messaging
+PROMPT-07: Candidate-to-Role Fit & Honest Resume Tailoring Audit
+PROMPT-08: Weekly Database Progress & Pipeline Health Audit
+PROMPT-09: Job-Board Query Matrix across 39 Non-Sales Role Families
+PROMPT-10: Fortune 500/1000 & Large Enterprise Footprint Verification
+"""
+
+with open('Aditya_Mehra_Master_Job_Intelligence_Prompt_v3.txt', 'w', encoding='utf-8') as f:
+    f.write(MASTER_PROMPT_TEXT)
+
+with open('Aditya_Mehra_Master_Job_Intelligence_Prompt_v3.md', 'w', encoding='utf-8') as f:
+    f.write("# Aditya Mehra — Master Job Intelligence & Research Prompt v3\n\n```text\n" + MASTER_PROMPT_TEXT + "\n```\n")
+
+print("Saved prompt files successfully.")

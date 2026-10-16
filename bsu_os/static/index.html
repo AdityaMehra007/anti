@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSU OS // Bengaluru Startup Universe</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-canvas text-primary">
+
+  <!-- Top App Navigation -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-box">
+        <span class="logo-icon">⚡</span>
+        <div>
+          <h1 class="logo-title">BSU <span class="gradient-text">OS</span></h1>
+          <p class="logo-subtitle">BENGALURU STARTUP UNIVERSE</p>
+        </div>
+      </div>
+      <div class="status-pill" id="bsi-ticker">
+        <span class="pulse-dot"></span>
+        <span class="ticker-label">BENGALURU INDEX:</span>
+        <span class="ticker-val" id="header-bsi-val">91.4</span>
+      </div>
+    </div>
+
+    <!-- Search Trigger -->
+    <div class="header-center">
+      <button class="cmd-bar-trigger" onclick="openSearchModal()">
+        <span class="search-icon">🔍</span>
+        <span class="search-placeholder">Super Search startups, founders, investors, jobs...</span>
+        <span class="shortcut-badge">Ctrl / ⌘ K</span>
+      </button>
+    </div>
+
+    <div class="header-right">
+      <button class="btn btn-secondary" onclick="openCopilotModal()">
+        <span>🤖</span> AI Copilot
+      </button>
+      <button class="btn btn-icon" onclick="switchTab('watchlists')" title="View Watchlist">
+        ⭐ <span id="watchlist-count" class="badge-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Viewport -->
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-tab="overview" onclick="switchTab('overview')">
+          <span class="nav-icon">📊</span> Command Center
+        </button>
+        <button class="nav-item" data-tab="startups" onclick="switchTab('startups')">
+          <span class="nav-icon">🚀</span> Startups & Scores
+        </button>
+        <button class="nav-item" data-tab="map" onclick="switchTab('map')">
+          <span class="nav-icon">🗺️</span> Micro-Cluster Map
+        </button>
+        <button class="nav-item" data-tab="jobs" onclick="switchTab('jobs')">
+          <span class="nav-icon">💼</span> Jobs & Career Radar
+        </button>
+        <button class="nav-item" data-tab="warrooms" onclick="switchTab('warrooms')">
+          <span class="nav-icon">⚔️</span> 5 Domain War Rooms
+        </button>
+        <button class="nav-item" data-tab="events" onclick="switchTab('events')">
+          <span class="nav-icon">🎟️</span> Events & Meetups
+        </button>
+        <button class="nav-item" data-tab="watchlists" onclick="switchTab('watchlists')">
+          <span class="nav-icon">⭐</span> Saved Watchlist
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="ecosystem-card">
+          <div class="card-caption">LIVE ECOSYSTEM</div>
+          <div class="ecosystem-tag">SILICON VALLEY OF INDIA</div>
+          <div class="stat-mini-row">
+            <div><span class="stat-num" id="side-total-startups">--</span><br><span class="stat-label">Startups</span></div>
+            <div><span class="stat-num" id="side-total-jobs">--</span><br><span class="stat-label">Open Jobs</span></div>
+            <div><span class="stat-num" id="side-unicorns">--</span><br><span class="stat-label">Unicorns</span></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="app-main">
+
+      <!-- TAB 1: OVERVIEW / COMMAND CENTER -->
+      <section id="tab-overview" class="tab-pane active">
+        <div class="hero-banner">
+          <div>
+            <h2 class="hero-title">Bengaluru Ecosystem <span class="gradient-text">Command Center</span></h2>
+            <p class="hero-desc">Discover the ecosystem. Find the opportunity. Build the future.</p>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="openCopilotModal()">Ask AI Copilot</button>
+            <button class="btn btn-secondary" onclick="recomputeScores()">Recalculate Scores</button>
+          </div>
+        </div>
+
+        <!-- KPI Grid -->
+        <div class="grid-4 kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-title">BENGALURU STARTUP INDEX</div>
+            <div class="kpi-value text-accent" id="kpi-bsi">91.4</div>
+            <div class="kpi-sub">Expansionary Growth Mode</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-title">TOTAL TRACKED VENTURE CAPITAL</div>
+            <div class="kpi-value" id="kpi-funding">$5.2B+</div>
+            <div class="kpi-sub">Across 50+ Seed-to-Unicorn scaleups</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-title">ACTIVE ENGINEERING ROLES</div>
+            <div class="kpi-value text-success" id="kpi-jobs">14+</div>
+            <div class="kpi-sub">Avg Salary: 55 LPA for Lead/Staff</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-title">MICRO-CLUSTERS TRACKED</div>
+            <div class="kpi-value" id="kpi-clusters">7</div>
+            <div class="kpi-sub">Koramangala, HSR, Indiranagar, ORR...</div>
+          </div>
+        </div>
+
+        <!-- Daily Brief & Alert Center -->
+        <div class="grid-2 mt-6">
+          <!-- Daily Intelligence Brief -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3 class="panel-title">📰 Daily Intelligence Brief (Section 204)</h3>
+              <span class="badge badge-accent" id="daily-date">Today</span>
+            </div>
+            <div class="panel-body" id="daily-brief-content">
+              <div class="loading-spinner">Loading briefing...</div>
+            </div>
+          </div>
+
+          <!-- Real-Time Ecosystem Alerts -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3 class="panel-title">⚡ Real-Time Ecosystem Alerts</h3>
+              <span class="badge badge-danger">Live</span>
+            </div>
+            <div class="panel-body" id="alerts-list">
+              <div class="loading-spinner">Loading alerts...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Power-Scored Flagships -->
+        <div class="panel mt-6">
+          <div class="panel-header">
+            <h3 class="panel-title">🏆 Top Startups by Power Score (Section 10)</h3>
+            <button class="btn btn-sm btn-ghost" onclick="switchTab('startups')">View All Startups →</button>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Startup</th>
+                    <th>Sector</th>
+                    <th>Cluster</th>
+                    <th>Stage</th>
+                    <th>Power Score</th>
+                    <th>Career Score</th>
+                    <th>Total Capital</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="top-startups-tbody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: STARTUPS DIRECTORY -->
+      <section id="tab-startups" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Startup Directory & Quantified Scores</h2>
+            <p class="section-subtitle">Exhaustive intelligence on Bengaluru tech scaleups, founder pedigrees, and tech stacks.</p>
+          </div>
+        </div>
+
+        <!-- Filters Bar -->
+        <div class="filters-bar">
+          <div class="filter-group">
+            <label>Sector:</label>
+            <select id="filter-sector" onchange="applyStartupFilters()">
+              <option value="">All Sectors</option>
+              <option value="AI / ML">AI / ML</option>
+              <option value="FinTech">FinTech</option>
+              <option value="SaaS / DevTools">SaaS / DevTools</option>
+              <option value="Deep-Tech">Deep-Tech / Space</option>
+              <option value="CleanTech / EV">CleanTech / EV</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Stage:</label>
+            <select id="filter-stage" onchange="applyStartupFilters()">
+              <option value="">All Stages</option>
+              <option value="Bootstrapped">Bootstrapped</option>
+              <option value="Series A">Series A</option>
+              <option value="Series B">Series B</option>
+              <option value="Unicorn">Unicorn</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Cluster:</label>
+            <select id="filter-cluster" onchange="applyStartupFilters()">
+              <option value="">All Micro-Clusters</option>
+              <option value="koramangala">Koramangala</option>
+              <option value="hsr_layout">HSR Layout</option>
+              <option value="indiranagar">Indiranagar</option>
+              <option value="outer_ring_road">Outer Ring Road (ORR)</option>
+              <option value="whitefield">Whitefield</option>
+              <option value="cbd_central">Central Business District</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Startups Cards Grid -->
+        <div class="grid-3 mt-6" id="startups-grid">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+      <!-- TAB 3: MICRO-CLUSTER MAP -->
+      <section id="tab-map" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Geospatial Cluster Radar (Sections 30-31)</h2>
+            <p class="section-subtitle">Live density mapping across Koramangala, HSR Layout, Indiranagar, ORR, Whitefield, and CBD.</p>
+          </div>
+        </div>
+
+        <div class="map-layout">
+          <div id="leaflet-map" class="map-container"></div>
+          <div class="cluster-sidebar">
+            <h3 class="panel-title" id="cluster-detail-title">Bengaluru Hubs</h3>
+            <p class="text-secondary text-sm" id="cluster-detail-vibe">Select a micro-cluster to inspect density metrics.</p>
+            <div id="cluster-detail-content" class="mt-4">
+              <!-- Cluster info injected via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: JOBS & CAREER RADAR -->
+      <section id="tab-jobs" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Career Radar & High-Growth Roles</h2>
+            <p class="section-subtitle">Ranked by verified Career Scores, compensation percentiles, and technical upside.</p>
+          </div>
+        </div>
+        <div class="jobs-list mt-6" id="jobs-container">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+      <!-- TAB 5: 5 DOMAIN WAR ROOMS -->
+      <section id="tab-warrooms" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Domain War Rooms (Sections 85-89)</h2>
+            <p class="section-subtitle">Tailored command centers for Founders, Investors, Jobseekers, Recruiters, and Analysts.</p>
+          </div>
+        </div>
+
+        <!-- War Room Switcher -->
+        <div class="war-room-nav">
+          <button class="wr-tab active" onclick="loadWarRoom('founder', this)">Founder War Room</button>
+          <button class="wr-tab" onclick="loadWarRoom('investor', this)">Investor War Room</button>
+          <button class="wr-tab" onclick="loadWarRoom('career', this)">Career War Room</button>
+          <button class="wr-tab" onclick="loadWarRoom('recruiter', this)">Recruiter War Room</button>
+          <button class="wr-tab" onclick="loadWarRoom('command', this)">Ecosystem Command</button>
+        </div>
+
+        <div class="panel mt-4" id="war-room-display">
+          <div class="loading-spinner">Loading War Room Telemetry...</div>
+        </div>
+      </section>
+
+      <!-- TAB 6: EVENTS & MEETUPS -->
+      <section id="tab-events" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Ecosystem Events & Founder Meetups</h2>
+            <p class="section-subtitle">Flagship summits, coffee pitches, hackathons, and closed-door salons.</p>
+          </div>
+        </div>
+        <div class="grid-2 mt-6" id="events-grid">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+      <!-- TAB 7: WATCHLIST -->
+      <section id="tab-watchlists" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Personal Saved Watchlist (Section 28)</h2>
+            <p class="section-subtitle">Startups, open roles, and venture funds you are monitoring.</p>
+          </div>
+        </div>
+        <div class="panel mt-4">
+          <div class="panel-body" id="watchlist-container">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SUPER SEARCH MODAL (CMD + K) -->
+  <div id="search-modal" class="modal-backdrop" onclick="closeSearchModalOnBackdrop(event)">
+    <div class="modal-box search-modal-box">
+      <div class="search-input-wrapper">
+        <span class="search-input-icon">🔍</span>
+        <input type="text" id="super-search-input" placeholder="Search startups, founders, investors, jobs, tech stack..." oninput="handleSuperSearchInput(event)">
+        <span class="esc-badge" onclick="closeSearchModal()">ESC</span>
+      </div>
+      <div class="search-results-area" id="search-results-area">
+        <div class="search-placeholder-msg">Type to search across Bengaluru's tech ecosystem...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI COPILOT MODAL -->
+  <div id="copilot-modal" class="modal-backdrop" onclick="closeCopilotModalOnBackdrop(event)">
+    <div class="modal-box copilot-modal-box">
+      <div class="modal-header">
+        <div class="modal-title-row">
+          <span class="copilot-badge">🤖 BSU MULTI-AGENT COPILOT</span>
+          <h3>Bengaluru Ecosystem Advisor</h3>
+        </div>
+        <button class="btn-close" onclick="closeCopilotModal()">✕</button>
+      </div>
+      <div class="copilot-chat-area" id="copilot-chat-area">
+        <div class="copilot-msg bot-msg">
+          <p>Hello! I am your <strong>BSU OS Autonomous Ecosystem Copilot</strong>. I route between specialized agents (Scout, Career, VC, and Geo) with verified ground-truth from the Bengaluru startup database.</p>
+          <div class="preset-queries">
+            <button class="preset-btn" onclick="sendPresetQuery('Who are the leading GenAI startups in Koramangala?')">💡 Leading GenAI startups in Koramangala?</button>
+            <button class="preset-btn" onclick="sendPresetQuery('What are the highest paying engineering roles in HSR Layout?')">💼 Highest paying roles in HSR?</button>
+            <button class="preset-btn" onclick="sendPresetQuery('Analyze Zerodha defensibility vs venture backed brokers')">📊 Zerodha vs VC broker moats?</button>
+          </div>
+        </div>
+      </div>
+      <div class="copilot-input-area">
+        <input type="text" id="copilot-input" placeholder="Ask about founders, funding, jobs, cluster advantages, or career decisions..." onkeydown="handleCopilotKey(event)">
+        <button class="btn btn-primary" onclick="submitCopilotQuery()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STARTUP DETAIL MODAL -->
+  <div id="startup-modal" class="modal-backdrop" onclick="closeStartupModalOnBackdrop(event)">
+    <div class="modal-box startup-modal-box">
+      <div class="modal-header" id="startup-modal-header">
+        <!-- Injected via JS -->
+      </div>
+      <div class="modal-body" id="startup-modal-body">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- App JS -->
+  <script src="/static/app.js"></script>
+</body>
+</html>

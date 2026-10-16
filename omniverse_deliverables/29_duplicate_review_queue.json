@@ -1,0 +1,26 @@
+[
+  {
+    "case_id": "DUP-01",
+    "raw_input_1": "Google India Pvt Ltd",
+    "raw_input_2": "Google LLC (Bangalore)",
+    "canonical_resolution": "Google India Private Limited",
+    "rule": "Entity Resolution Rule #1",
+    "status": "RESOLVED_MERGED"
+  },
+  {
+    "case_id": "DUP-02",
+    "raw_input_1": "Walmart Global Tech",
+    "raw_input_2": "Walmart Inc Bangalore Hub",
+    "canonical_resolution": "Walmart Global Tech India",
+    "rule": "Entity Resolution Rule #1",
+    "status": "RESOLVED_MERGED"
+  },
+  {
+    "case_id": "DUP-03",
+    "raw_input_1": "Flipkart Internet",
+    "raw_input_2": "Flipkart India Private Limited",
+    "canonical_resolution": "Flipkart (Walmart Subsidiary)",
+    "rule": "Corporate Hierarchy Rule #3",
+    "status": "RESOLVED_LINKED"
+  }
+]

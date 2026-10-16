@@ -1,0 +1,98 @@
+{
+  "pipeline_name": "Enterprise-SLA-Governance-Pipeline",
+  "author": "Aditya Mehra Autonomous Systems",
+  "version": "1.4.0",
+  "trigger_type": "WEBHOOK",
+  "total_nodes": 5,
+  "nodes": [
+    {
+      "id": "n1",
+      "name": "Telemetry Webhook Listener",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": {
+        "path": "/v1/events"
+      }
+    },
+    {
+      "id": "n2",
+      "name": "Zero-Trust JSON Schema Validator",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "mode": "strict"
+      }
+    },
+    {
+      "id": "n3",
+      "name": "SQLite WAL State Persister",
+      "type": "n8n-nodes-base.sqlite",
+      "parameters": {
+        "table": "telemetry"
+      }
+    },
+    {
+      "id": "n4",
+      "name": "Anomaly Defense Classifier",
+      "type": "n8n-nodes-base.if",
+      "parameters": {
+        "condition": "latency_ms > 200"
+      }
+    },
+    {
+      "id": "n5",
+      "name": "Real-Time Discord/Slack Dispatcher",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "POST"
+      }
+    }
+  ],
+  "connections": {
+    "n1": {
+      "main": [
+        [
+          {
+            "node": "n2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n2": {
+      "main": [
+        [
+          {
+            "node": "n3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n3": {
+      "main": [
+        [
+          {
+            "node": "n4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n4": {
+      "main": [
+        [
+          {
+            "node": "n5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "self_healing": true,
+  "max_retries": 3,
+  "backoff_multiplier": 1.5
+}

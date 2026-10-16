@@ -33,7 +33,7 @@ Algorithmic hourly labor matching. Connects hospitality, light industrial, and w
 ```json
 {
   "block_number": 620,
-  "timestamp": "2026-09-18T20:47:32.954162+00:00",
+  "timestamp": "2026-10-13T17:08:36.490343+00:00",
   "previous_hash": "21cb15706f8cb917b8c6659722778fe645182f2f362ca479d111e603cbd8b2d0",
   "block_hash": "b321b5517e35f7b74695d98330c4d770325bc030fd133987c738597285471151",
   "payload_summary": {

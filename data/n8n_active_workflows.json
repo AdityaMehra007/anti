@@ -1,0 +1,1258 @@
+[
+  {
+    "filename": "adversarial_red_team_zap.json",
+    "name": "OMEGA Section 14 Planetary Adversarial Red Team Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Red Team Stress Webhook",
+      "Execute Section 14 Adversarial Probes",
+      "Persist Hardening Audit Certificate"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA Section 14 Planetary Adversarial Red Team Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "red-team",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Red Team Stress Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "command": "python -m terra_kinetics.cli --red-team",
+            "operation": "executeRedTeamProbes"
+          },
+          "id": "2",
+          "name": "Execute Section 14 Adversarial Probes",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "folder": "e:/anti/reports"
+          },
+          "id": "3",
+          "name": "Persist Hardening Audit Certificate",
+          "type": "n8n-nodes-base.fileWriter",
+          "typeVersion": 1,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Red Team Stress Webhook": {
+          "main": [
+            [
+              {
+                "node": "Execute Section 14 Adversarial Probes",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Execute Section 14 Adversarial Probes": {
+          "main": [
+            [
+              {
+                "node": "Persist Hardening Audit Certificate",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "ai_agent_researcher.json",
+    "name": "OMEGA AI Agent Researcher",
+    "nodes_count": 5,
+    "nodes": [
+      "When chat message received",
+      "AI Agent",
+      "OpenAI Chat Model",
+      "Window Buffer Memory",
+      "Calculator"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA AI Agent Researcher",
+      "nodes": [
+        {
+          "parameters": {
+            "options": {}
+          },
+          "id": "1",
+          "name": "When chat message received",
+          "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+          "typeVersion": 1.1,
+          "position": [
+            260,
+            340
+          ]
+        },
+        {
+          "parameters": {
+            "options": {
+              "systemMessage": "=You are an autonomous research and intelligence agent. Your job is to conduct systematic research, gather factual evidence, verify details, and summarize actionable findings."
+            }
+          },
+          "id": "2",
+          "name": "AI Agent",
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 1.6,
+          "position": [
+            500,
+            340
+          ]
+        },
+        {
+          "parameters": {
+            "model": "gpt-4o-mini",
+            "options": {
+              "temperature": 0.2
+            }
+          },
+          "id": "3",
+          "name": "OpenAI Chat Model",
+          "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+          "typeVersion": 1,
+          "position": [
+            460,
+            560
+          ]
+        },
+        {
+          "parameters": {},
+          "id": "4",
+          "name": "Window Buffer Memory",
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.2,
+          "position": [
+            600,
+            560
+          ]
+        },
+        {
+          "parameters": {
+            "name": "calculator",
+            "description": "Calculate math expressions and statistical data"
+          },
+          "id": "5",
+          "name": "Calculator",
+          "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+          "typeVersion": 1,
+          "position": [
+            740,
+            560
+          ]
+        }
+      ],
+      "connections": {
+        "When chat message received": {
+          "main": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "OpenAI Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Window Buffer Memory": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Calculator": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      }
+    }
+  },
+  {
+    "filename": "email_generator_zap.json",
+    "name": "OMEGA Automated B2B Email Drafter Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Webhook Inbound Lead",
+      "Generate Tailored Draft",
+      "Save to Email Drafts"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA Automated B2B Email Drafter Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "email-drafter",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Webhook Inbound Lead",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "jsCode": "const lead = $input.first().json.body || {};\nconst recipient = lead.recipient_email || 'partner@enterprise.io';\nconst company = lead.company || 'Enterprise Partner';\nconst valueProp = lead.value_prop || 'Autonomous workflow automation & AI orchestration';\n\nconst draft = `# Outreach Proposal to ${company}\\n\\nTo: ${recipient}\\nSubject: Autonomous Execution & Operational Leverage for ${company}\\n\\nHi team,\\n\\nI reviewed ${company}'s current trajectory and wanted to share how our OMEGA autonomous workflows can accelerate your operations by over 10x with zero manual overhead.\\n\\nKey capabilities:\\n- Fully self-hosted Zapier & n8n workflow engine\\n- Instant webhook routing and LangChain AI agent integration\\n- Automated lead ingestion and real-time reconciliation\\n\\nWould you be open to a 10-minute briefing this week?\\n\\nBest regards,\\nAutonomous Enterprise Systems`;\n\nreturn [{\n  json: {\n    status: 'DRAFT_GENERATED',\n    recipient: recipient,\n    company: company,\n    draft_preview: draft\n  }\n}];"
+          },
+          "id": "2",
+          "name": "Generate Tailored Draft",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "action": "saveToDisk",
+            "folder": "e:/anti/Email_Drafts"
+          },
+          "id": "3",
+          "name": "Save to Email Drafts",
+          "type": "n8n-nodes-base.fileWriter",
+          "typeVersion": 1,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Webhook Inbound Lead": {
+          "main": [
+            [
+              {
+                "node": "Generate Tailored Draft",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Generate Tailored Draft": {
+          "main": [
+            [
+              {
+                "node": "Save to Email Drafts",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "empire_operational_cycle_zap.json",
+    "name": "SOVEREIGN CONTINUUM: Empire Operational Cycle Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Empire Cycle Trigger",
+      "Execute Consolidated Empire Operations",
+      "Archive Executive Sovereign Briefing"
+    ],
+    "active": false,
+    "raw": {
+      "name": "SOVEREIGN CONTINUUM: Empire Operational Cycle Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "empire-cycle",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Empire Cycle Trigger",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "command": "python -m terra_kinetics.cli --empire-cycle",
+            "operation": "executeEmpireCycle"
+          },
+          "id": "2",
+          "name": "Execute Consolidated Empire Operations",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "folder": "e:/anti/reports"
+          },
+          "id": "3",
+          "name": "Archive Executive Sovereign Briefing",
+          "type": "n8n-nodes-base.fileWriter",
+          "typeVersion": 1,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Empire Cycle Trigger": {
+          "main": [
+            [
+              {
+                "node": "Execute Consolidated Empire Operations",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Execute Consolidated Empire Operations": {
+          "main": [
+            [
+              {
+                "node": "Archive Executive Sovereign Briefing",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "file_processor_zap.json",
+    "name": "OMEGA Autonomous Dropzone Ingestion Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Watch Dropzone Folder",
+      "Normalize & Cleanse Data",
+      "Archive to Processed Storage"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA Autonomous Dropzone Ingestion Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "folder": "e:/anti/n8n/dropzone"
+          },
+          "id": "1",
+          "name": "Watch Dropzone Folder",
+          "type": "n8n-nodes-base.fileTrigger",
+          "typeVersion": 1,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "operation": "normalizeSchema",
+            "outputFormat": "standardizedJson"
+          },
+          "id": "2",
+          "name": "Normalize & Cleanse Data",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "destination": "e:/anti/n8n/processed"
+          },
+          "id": "3",
+          "name": "Archive to Processed Storage",
+          "type": "n8n-nodes-base.fileWriter",
+          "typeVersion": 1,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Watch Dropzone Folder": {
+          "main": [
+            [
+              {
+                "node": "Normalize & Cleanse Data",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalize & Cleanse Data": {
+          "main": [
+            [
+              {
+                "node": "Archive to Processed Storage",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "financial_settlement_zap.json",
+    "name": "OMEGA M2M Financial Settlement & Ledger Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Payment Inbound Webhook",
+      "Reconcile Invoice & Hash",
+      "Record Sovereign Ledger Credit"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA M2M Financial Settlement & Ledger Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "settle-payment",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Payment Inbound Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "validation": "cryptographicProof",
+            "currencies": [
+              "USDC",
+              "USDT",
+              "USD"
+            ]
+          },
+          "id": "2",
+          "name": "Reconcile Invoice & Hash",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "ledgerAction": "creditBalance",
+            "persistState": true
+          },
+          "id": "3",
+          "name": "Record Sovereign Ledger Credit",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Payment Inbound Webhook": {
+          "main": [
+            [
+              {
+                "node": "Reconcile Invoice & Hash",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Reconcile Invoice & Hash": {
+          "main": [
+            [
+              {
+                "node": "Record Sovereign Ledger Credit",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "github_issue_triage_zap.json",
+    "name": "OMEGA GitHub Issue & PR Autonomous Triage Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "GitHub Webhook Receiver",
+      "Analyze Issue Content",
+      "Post Automated Triage Response"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA GitHub Issue & PR Autonomous Triage Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "github-webhook",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "GitHub Webhook Receiver",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "operation": "triageIssue",
+            "rules": [
+              "bug",
+              "enhancement",
+              "security"
+            ]
+          },
+          "id": "2",
+          "name": "Analyze Issue Content",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "action": "generateTriageComment"
+          },
+          "id": "3",
+          "name": "Post Automated Triage Response",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "GitHub Webhook Receiver": {
+          "main": [
+            [
+              {
+                "node": "Analyze Issue Content",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Analyze Issue Content": {
+          "main": [
+            [
+              {
+                "node": "Post Automated Triage Response",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "market_intelligence_zap.json",
+    "name": "OMEGA Market Intelligence & Competitor Intel Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Trigger Market Scan",
+      "AI Market Analyst",
+      "Store Intelligence Report"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA Market Intelligence & Competitor Intel Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "market-intel",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Trigger Market Scan",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "model": "gpt-4o-mini",
+            "task": "Market Analysis & Sovereign Strategy"
+          },
+          "id": "2",
+          "name": "AI Market Analyst",
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 1.6,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "action": "saveToDisk",
+            "folder": "e:/anti/reports"
+          },
+          "id": "3",
+          "name": "Store Intelligence Report",
+          "type": "n8n-nodes-base.fileWriter",
+          "typeVersion": 1,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Trigger Market Scan": {
+          "main": [
+            [
+              {
+                "node": "AI Market Analyst",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Market Analyst": {
+          "main": [
+            [
+              {
+                "node": "Store Intelligence Report",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "outreach_dispatcher.json",
+    "name": "OMEGA Outreach Event Dispatcher",
+    "nodes_count": 4,
+    "nodes": [
+      "Inbound Outreach Webhook",
+      "Validate Recipient",
+      "Enrich Payload",
+      "Drop Log"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA Outreach Event Dispatcher",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "outreach-dispatch",
+            "responseMode": "onReceived",
+            "responseData": "allEntries",
+            "options": {}
+          },
+          "id": "1",
+          "name": "Inbound Outreach Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            260,
+            320
+          ],
+          "webhookId": "omega-outreach-dispatch-01"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict"
+              },
+              "conditions": [
+                {
+                  "id": "c1",
+                  "leftValue": "={{ $json.body.recipient_email }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notEmpty"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "id": "2",
+          "name": "Validate Recipient",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2,
+          "position": [
+            480,
+            320
+          ]
+        },
+        {
+          "parameters": {
+            "jsCode": "// Enrich and standardize payload\nconst item = $input.first().json;\nreturn [{\n  json: {\n    status: 'PROCESSED',\n    timestamp: new Date().toISOString(),\n    recipient: item.body.recipient_email,\n    company: item.body.company || 'Unknown',\n    source: item.body.source || 'OMEGA_PIPELINE',\n    tracking_id: 'TRACK_' + Date.now()\n  }\n}];"
+          },
+          "id": "3",
+          "name": "Enrich Payload",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            700,
+            240
+          ]
+        },
+        {
+          "parameters": {
+            "jsCode": "// Log dropped items\nconst item = $input.first().json;\nreturn [{\n  json: {\n    status: 'DROPPED',\n    reason: 'Missing recipient email',\n    raw_input: item\n  }\n}];"
+          },
+          "id": "4",
+          "name": "Drop Log",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            700,
+            420
+          ]
+        }
+      ],
+      "connections": {
+        "Inbound Outreach Webhook": {
+          "main": [
+            [
+              {
+                "node": "Validate Recipient",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Validate Recipient": {
+          "main": [
+            [
+              {
+                "node": "Enrich Payload",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Drop Log",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      }
+    }
+  },
+  {
+    "filename": "planetary_banking_audit_zap.json",
+    "name": "BANK OF THE CONTINUUM: Planetary Banking Audit Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Banking Audit Webhook",
+      "Audit Planetary Liquidity & M2M Rails",
+      "Store Bank Reserve Audit"
+    ],
+    "active": false,
+    "raw": {
+      "name": "BANK OF THE CONTINUUM: Planetary Banking Audit Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "banking-audit",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Banking Audit Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "command": "python -m terra_kinetics.cli --banking",
+            "operation": "executeBankingAudit"
+          },
+          "id": "2",
+          "name": "Audit Planetary Liquidity & M2M Rails",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "folder": "e:/anti/reports"
+          },
+          "id": "3",
+          "name": "Store Bank Reserve Audit",
+          "type": "n8n-nodes-base.fileWriter",
+          "typeVersion": 1,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Banking Audit Webhook": {
+          "main": [
+            [
+              {
+                "node": "Audit Planetary Liquidity & M2M Rails",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Audit Planetary Liquidity & M2M Rails": {
+          "main": [
+            [
+              {
+                "node": "Store Bank Reserve Audit",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "slack_discord_notifier_zap.json",
+    "name": "OMEGA Multi-Channel Slack & Discord Notifier Zap",
+    "nodes_count": 3,
+    "nodes": [
+      "Notification Inbound Trigger",
+      "Format Rich Embed Cards",
+      "Broadcast Multi-Platform"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA Multi-Channel Slack & Discord Notifier Zap",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "channel-notify",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Notification Inbound Trigger",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "channels": [
+              "slack",
+              "discord",
+              "telegram"
+            ],
+            "embedTheme": "omega-cyber"
+          },
+          "id": "2",
+          "name": "Format Rich Embed Cards",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "dispatchMode": "broadcast"
+          },
+          "id": "3",
+          "name": "Broadcast Multi-Platform",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            720,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Notification Inbound Trigger": {
+          "main": [
+            [
+              {
+                "node": "Format Rich Embed Cards",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Format Rich Embed Cards": {
+          "main": [
+            [
+              {
+                "node": "Broadcast Multi-Platform",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "filename": "system_health_monitor.json",
+    "name": "OMEGA System Health Monitor",
+    "nodes_count": 3,
+    "nodes": [
+      "Every 15 Minutes",
+      "Check Local Health Endpoint",
+      "Format Health Audit"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA System Health Monitor",
+      "nodes": [
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "field": "minutes",
+                  "minutesInterval": 15
+                }
+              ]
+            }
+          },
+          "id": "1",
+          "name": "Every 15 Minutes",
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.2,
+          "position": [
+            260,
+            340
+          ]
+        },
+        {
+          "parameters": {
+            "url": "http://localhost:5678/healthz",
+            "options": {
+              "timeout": 5000
+            }
+          },
+          "id": "2",
+          "name": "Check Local Health Endpoint",
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.2,
+          "position": [
+            480,
+            340
+          ]
+        },
+        {
+          "parameters": {
+            "jsCode": "const res = $input.first().json;\nconst timestamp = new Date().toISOString();\nreturn [{\n  json: {\n    system: 'OMEGA Automation Node',\n    checked_at: timestamp,\n    status: 'HEALTHY',\n    details: res\n  }\n}];"
+          },
+          "id": "3",
+          "name": "Format Health Audit",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            700,
+            340
+          ]
+        }
+      ],
+      "connections": {
+        "Every 15 Minutes": {
+          "main": [
+            [
+              {
+                "node": "Check Local Health Endpoint",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Check Local Health Endpoint": {
+          "main": [
+            [
+              {
+                "node": "Format Health Audit",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      }
+    }
+  },
+  {
+    "filename": "webhook_ingestion.json",
+    "name": "OMEGA Inbound Webhook Ingestion Bridge",
+    "nodes_count": 3,
+    "nodes": [
+      "Inbound Event Receiver",
+      "Parse & Normalize Event",
+      "Respond to Webhook"
+    ],
+    "active": false,
+    "raw": {
+      "name": "OMEGA Inbound Webhook Ingestion Bridge",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "omega-events",
+            "responseMode": "responseNode",
+            "options": {}
+          },
+          "id": "1",
+          "name": "Inbound Event Receiver",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            260,
+            340
+          ],
+          "webhookId": "omega-event-receiver-01"
+        },
+        {
+          "parameters": {
+            "jsCode": "const payload = $input.first().json.body || {};\nconst now = new Date();\n\nreturn [{\n  json: {\n    event_id: 'EVT_' + now.getTime(),\n    received_at: now.toISOString(),\n    source: payload.source || 'EXTERNAL',\n    action: payload.action || 'DEFAULT',\n    payload: payload.data || payload,\n    status: 'ACKNOWLEDGED'\n  }\n}];"
+          },
+          "id": "2",
+          "name": "Parse & Normalize Event",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            480,
+            340
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "json",
+            "responseBody": "={{ JSON.stringify($json) }}",
+            "options": {
+              "responseCode": 200
+            }
+          },
+          "id": "3",
+          "name": "Respond to Webhook",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.1,
+          "position": [
+            700,
+            340
+          ]
+        }
+      ],
+      "connections": {
+        "Inbound Event Receiver": {
+          "main": [
+            [
+              {
+                "node": "Parse & Normalize Event",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Parse & Normalize Event": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      }
+    }
+  },
+  {
+    "filename": "zap_stripe_production_charge_sentinel.json",
+    "name": "Stripe Production Charge Sentinel",
+    "nodes_count": 2,
+    "nodes": [
+      "Webhook Inbound Receiver",
+      "AI Reasoning Agent"
+    ],
+    "active": true,
+    "raw": {
+      "name": "Stripe Production Charge Sentinel",
+      "id": "zap_stripe_production_charge_sentinel",
+      "nodes": [
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "stripe-charges",
+            "responseMode": "onReceived"
+          },
+          "id": "1",
+          "name": "Webhook Inbound Receiver",
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2,
+          "position": [
+            240,
+            300
+          ]
+        },
+        {
+          "parameters": {
+            "model": "gpt-4o-mini",
+            "task": "Autonomous Synthesis"
+          },
+          "id": "2",
+          "name": "AI Reasoning Agent",
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 1.6,
+          "position": [
+            480,
+            300
+          ]
+        }
+      ],
+      "connections": {
+        "Webhook Inbound Receiver": {
+          "main": [
+            [
+              {
+                "node": "AI Reasoning Agent",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "active": true,
+      "createdAt": "2026-10-01T18:02:30.636069+00:00",
+      "updatedAt": "2026-10-01T18:02:30.636081+00:00"
+    }
+  }
+]

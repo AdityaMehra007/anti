@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMEGA ∞ Autonomous Master Nexus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070a12;
+      --card: rgba(17, 24, 39, 0.75);
+      --card-hover: rgba(24, 33, 53, 0.95);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f3f4f6;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --summer-purple: #c084fc;
+      --react-blue: #61dafb;
+      --n8n-orange: #ff6d5a;
+      --hww-teal: #14b8a6;
+      --newgrad-blue: #3b82f6;
+      --newgrad27-cyan: #06b6d4;
+      --challenges-pink: #ec4899;
+      --ai-indigo: #6366f1;
+      --jhm-emerald: #10b981;
+      --funnel-amber: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.10) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(236, 72, 153, 0.06) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    header {
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .omega-sym {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .system-stats {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .stat-box strong { font-family: 'JetBrains Mono', monospace; }
+    .stat-box.summer strong { color: var(--summer-purple); }
+    .stat-box.newgrad strong { color: var(--newgrad-blue); }
+    .stat-box.newgrad27 strong { color: var(--newgrad27-cyan); }
+    .stat-box.ai strong { color: var(--ai-indigo); }
+    .stat-box.react strong { color: var(--react-blue); }
+    .stat-box.n8n strong { color: var(--n8n-orange); }
+    .stat-box.hww strong { color: var(--hww-teal); }
+    .stat-box.challenges strong { color: var(--challenges-pink); }
+    .stat-box.jhm strong { color: var(--jhm-emerald); }
+    .stat-box.funnel strong { color: var(--funnel-amber); }
+
+    .container {
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .launch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .launch-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
+    }
+    .launch-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+    .launch-card.c-summer::before { background: linear-gradient(90deg, #c084fc, #ec4899); }
+    .launch-card.c-newgrad::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+    .launch-card.c-newgrad27::before { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
+    .launch-card.c-ai::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+    .launch-card.c-react::before { background: linear-gradient(90deg, #61dafb, #38bdf8); }
+    .launch-card.c-n8n::before { background: linear-gradient(90deg, #ff6d5a, #ea580c); }
+    .launch-card.c-hww::before { background: linear-gradient(90deg, #14b8a6, #06b6d4); }
+    .launch-card.c-challenges::before { background: linear-gradient(90deg, #ec4899, #f43f5e); }
+    .launch-card.c-jhm::before { background: linear-gradient(90deg, #10b981, #059669); }
+    .launch-card.c-funnel::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+
+    .launch-card:hover {
+      transform: translateY(-3px);
+      background: var(--card-hover);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+    }
+    .badge-summer { background: rgba(192, 132, 252, 0.15); color: var(--summer-purple); border: 1px solid rgba(192, 132, 252, 0.3); }
+    .badge-newgrad { background: rgba(59, 130, 246, 0.15); color: var(--newgrad-blue); border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-newgrad27 { background: rgba(6, 182, 212, 0.15); color: var(--newgrad27-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+    .badge-ai { background: rgba(99, 102, 241, 0.15); color: var(--ai-indigo); border: 1px solid rgba(99, 102, 241, 0.3); }
+    .badge-react { background: rgba(97, 218, 251, 0.15); color: var(--react-blue); border: 1px solid rgba(97, 218, 251, 0.3); }
+    .badge-n8n { background: rgba(255, 109, 90, 0.15); color: var(--n8n-orange); border: 1px solid rgba(255, 109, 90, 0.3); }
+    .badge-hww { background: rgba(20, 184, 166, 0.15); color: var(--hww-teal); border: 1px solid rgba(20, 184, 166, 0.3); }
+    .badge-challenges { background: rgba(236, 72, 153, 0.15); color: var(--challenges-pink); border: 1px solid rgba(236, 72, 153, 0.3); }
+    .badge-jhm { background: rgba(16, 185, 129, 0.15); color: var(--jhm-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-funnel { background: rgba(245, 158, 11, 0.15); color: var(--funnel-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .lc-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .lc-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+    .lc-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-top: 0.35rem;
+    }
+    .lc-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.95rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .btn-indigo { background: var(--ai-indigo); color: #fff; border: none; }
+    .btn-blue { background: var(--newgrad-blue); color: #fff; border: none; }
+    .btn-cyan { background: var(--newgrad27-cyan); color: #000; border: none; }
+    .btn-primary { background: var(--react-blue); color: #000; border: none; }
+    .btn-orange { background: var(--n8n-orange); color: #fff; border: none; }
+    .btn-purple { background: var(--summer-purple); color: #000; border: none; }
+    .btn-teal { background: var(--hww-teal); color: #000; border: none; }
+    .btn-pink { background: var(--challenges-pink); color: #fff; border: none; }
+    .btn-emerald { background: var(--jhm-emerald); color: #000; border: none; }
+    .btn-amber { background: var(--funnel-amber); color: #000; border: none; font-weight: 700; }
+
+    /* Unified Omnibar */
+    .omnibar-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .omnibar-input-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .omnibar-input-wrap input {
+      width: 100%;
+      background: rgba(7, 10, 18, 0.85);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.4rem 1.1rem 3.4rem;
+      border-radius: 12px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1.05rem;
+      transition: all 0.25s ease;
+    }
+    .omnibar-input-wrap input:focus {
+      outline: none;
+      border-color: var(--ai-indigo);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+    }
+    .omnibar-input-wrap svg {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+    }
+
+    .domain-filters {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .domain-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .domain-btn:hover { color: var(--text); background: rgba(255,255,255,0.08); }
+    .domain-btn.active {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: var(--ai-indigo);
+      color: var(--ai-indigo);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.25rem;
+    }
+    .result-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: all 0.2s ease;
+    }
+    .result-card:hover {
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="omega-sym">Ω∞</div>
+    <div class="brand-text">
+      <h1>OMEGA ∞ Autonomous Master Nexus</h1>
+      <p>Summer 2027 • New Grad 2026 • New Grad 2027 • 2027 AI Jobs • React 19 • n8n Automations • No-Whiteboard • Challenges</p>
+    </div>
+  </div>
+
+  <div class="system-stats">
+    <div class="stat-box summer">Summer 2027: <strong>2,688</strong></div>
+    <div class="stat-box newgrad">New Grad 2026: <strong>3,132</strong></div>
+    <div class="stat-box newgrad27">New Grad 2027: <strong>631</strong></div>
+    <div class="stat-box ai">AI 2027: <strong>2,125</strong></div>
+    <div class="stat-box react">React: <strong>444</strong> Qs • <strong>13</strong> Apps</div>
+    <div class="stat-box n8n">n8n: <strong>560</strong> Nodes • <strong>14</strong> DAGs</div>
+    <div class="stat-box hww">No-Whiteboard: <strong>767</strong></div>
+    <div class="stat-box challenges">Challenges: <strong>73</strong></div>
+    <div class="stat-box jhm">JustHireMe: <strong>300</strong> Scored</div>
+    <div class="stat-box funnel">JobFunnel: <strong>6,910</strong> Clean</div>
+    <div class="stat-box">Total Indexed: <strong>17,657</strong></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 8 LAUNCHPADS -->
+  <div class="launch-grid">
+    
+    <!-- 1. Summer 2027 -->
+    <div class="launch-card c-summer">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-summer">Summer Interns</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">2,688 Openings</span>
+        </div>
+        <div class="lc-title">Summer 2027 Internships</div>
+        <p class="lc-desc">Candidate tracking across AI labs, quant funds, and Fortune 500. 10 application dossiers with Word COM PDFs.</p>
+      </div>
+      <div class="lc-links">
+        <a href="summer_2027_dashboard.html" class="btn btn-purple">Dashboard ⚡</a>
+        <a href="reports/SUMMER_2027_ELITE_CAMPAIGN_LEDGER.md" class="btn" target="_blank">Ledger</a>
+      </div>
+    </div>
+
+    <!-- 2. New Grad 2026 -->
+    <div class="launch-card c-newgrad">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-newgrad">New Grad 2026</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">3,132 Active Roles</span>
+        </div>
+        <div class="lc-title">New Grad Positions</div>
+        <p class="lc-desc">Global full-time entry-level engineering, AI/Data, Hardware, Quant, and Product management opportunities.</p>
+      </div>
+      <div class="lc-links">
+        <a href="new_grad_dashboard.html" class="btn btn-blue">Dashboard 🚀</a>
+        <a href="reports/NEW_GRAD_2026_MASTER_GUIDE.pdf" class="btn" target="_blank">PDF Guide 📄</a>
+      </div>
+    </div>
+
+    <!-- 3. New Grad 2027 -->
+    <div class="launch-card c-newgrad27">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-newgrad27">New Grad 2027</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">631 Active Roles</span>
+        </div>
+        <div class="lc-title">New Grad 2027 Arsenal</div>
+        <p class="lc-desc">Curated early-career roles across Tesla, TikTok, Amazon, ByteDance, Apple, Qualcomm, Esri & robotics labs.</p>
+      </div>
+      <div class="lc-links">
+        <a href="new_grad_2027_dashboard.html" class="btn btn-cyan">Dashboard 🎯</a>
+        <a href="reports/NEW_GRAD_2027_MASTER_GUIDE.pdf" class="btn" target="_blank">PDF Guide 📄</a>
+      </div>
+    </div>
+
+    <!-- 3. AI College Jobs 2027 -->
+    <div class="launch-card c-ai">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-ai">Frontier AI & Quant</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">2,125 Positions</span>
+        </div>
+        <div class="lc-title">2027 AI College Jobs</div>
+        <p class="lc-desc">FAANG+, Quantitative Trading funds, and frontier AI research labs with salary tracking and direct portal links.</p>
+      </div>
+      <div class="lc-links">
+        <a href="ai_college_jobs_dashboard.html" class="btn btn-indigo">Dashboard 🧠</a>
+        <a href="reports/AI_COLLEGE_JOBS_2027_EXECUTIVE_GUIDE.pdf" class="btn" target="_blank">PDF Guide 📄</a>
+      </div>
+    </div>
+
+    <!-- 4. React Mastery -->
+    <div class="launch-card c-react">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-react">Frontend & Fullstack</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">444 Qs • 13 Apps</span>
+        </div>
+        <div class="lc-title">React 19 & Staff Arsenal</div>
+        <p class="lc-desc">Question flashcards, Fiber breakdowns, 13 machine coding mini-apps, 8 custom hooks, and 4 diagnostic labs.</p>
+      </div>
+      <div class="lc-links">
+        <a href="react_interview_command_center.html" class="btn btn-primary">Command Center 🎴</a>
+        <a href="react_coding_live_arsenal.html" class="btn">Live Apps 💻</a>
+      </div>
+    </div>
+
+    <!-- 5. n8n Enterprise -->
+    <div class="launch-card c-n8n">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-n8n">Automation Daemon</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">560 Nodes • 14 DAGs</span>
+        </div>
+        <div class="lc-title">n8n Enterprise Automation</div>
+        <p class="lc-desc">Self-hosted workflow server on port 5678. 14 production DAGs across M2M settlement, Red Team, and agents SDK.</p>
+      </div>
+      <div class="lc-links">
+        <a href="http://localhost:5678" target="_blank" class="btn btn-orange">Live Server (5678) 🌐</a>
+        <a href="n8n_command_center.html" class="btn">Node Catalog 🔌</a>
+      </div>
+    </div>
+
+    <!-- 6. Hiring Without Whiteboards -->
+    <div class="launch-card c-hww">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-hww">Real-World Hiring</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">767 Employers</span>
+        </div>
+        <div class="lc-title">Hiring Without Whiteboards</div>
+        <p class="lc-desc">767 global tech employers evaluating candidates through take-home tasks, pair programming, and architecture.</p>
+      </div>
+      <div class="lc-links">
+        <a href="hiring_without_whiteboards_dashboard.html" class="btn btn-teal">Directory 📦</a>
+        <a href="reports/HIRING_WITHOUT_WHITEBOARDS_SENIOR_GUIDE.pdf" class="btn" target="_blank">PDF Guide 📄</a>
+      </div>
+    </div>
+
+    <!-- 7. Frontend Challenges -->
+    <div class="launch-card c-challenges">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-challenges">Code Tests</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">73 Challenges</span>
+        </div>
+        <div class="lc-title">Frontend Real Challenges</div>
+        <p class="lc-desc">Curated open-source practical frontend take-home assignments from global engineering teams.</p>
+      </div>
+      <div class="lc-links">
+        <a href="frontend_challenges_dashboard.html" class="btn btn-pink">Dashboard ⚡</a>
+        <a href="reports/FRONTEND_CHALLENGES_SENIOR_GUIDE.pdf" class="btn" target="_blank">PDF Guide 📄</a>
+      </div>
+    </div>
+
+    <!-- 8. JustHireMe Intel -->
+    <div class="launch-card c-jhm">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-jhm">Scored Leads</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">300 Evaluated Roles</span>
+        </div>
+        <div class="lc-title">JustHireMe Deterministic Scoring</div>
+        <p class="lc-desc">Multi-factor job match scoring engine across Role Alignment (15%), Stack Overlap (20%), Evidence (18%), and Logistics.</p>
+      </div>
+      <div class="lc-links">
+        <a href="justhireme_dashboard.html" class="btn btn-emerald">Dashboard 🎯</a>
+        <a href="reports/JUSTHIREME_MASTER_INTELLIGENCE_GUIDE.pdf" class="btn" target="_blank">PDF Guide 📄</a>
+      </div>
+    </div>
+
+    <!-- 9. JobFunnel Master Funnel -->
+    <div class="launch-card c-funnel">
+      <div>
+        <div class="lc-head">
+          <span class="badge badge-funnel">Deduplicated Funnel</span>
+          <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--text-dim);">6,910 Clean Postings</span>
+        </div>
+        <div class="lc-title">JobFunnel Master Funnel</div>
+        <p class="lc-desc">Multi-board automated deduplication pipeline via exact tuple hashing & Scikit-Learn TF-IDF cosine similarity matrix (1,666 dupes purged).</p>
+      </div>
+      <div class="lc-links">
+        <a href="jobfunnel_dashboard.html" class="btn btn-amber">Dashboard ⏳</a>
+        <a href="reports/JOBFUNNEL_MASTER_INTELLIGENCE_GUIDE.pdf" class="btn" target="_blank">PDF Guide 📄</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MASTER OMNIBAR SEARCH -->
+  <div class="omnibar-wrap">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h3 style="font-size:1.15rem; font-weight:700;">Universal Cross-Repository FTS5 Omnibar</h3>
+        <p style="font-size:0.78rem; color:var(--text-muted);">Query simultaneously across 17,657 indexed entities spanning frontier AI roles, quant funds, internships, new grad jobs (2026 & 2027), React 19 mastery, n8n nodes, no-whiteboard companies, JustHireMe scored leads, and JobFunnel clean listings.</p>
+      </div>
+      <span style="font-family:'JetBrains Mono'; font-size:0.8rem; color:var(--funnel-amber);" id="search-count-label">17,657 Entities Indexed</span>
+    </div>
+
+    <div class="omnibar-input-wrap">
+      <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" stroke-width="2"/>
+        <path d="M21 21l-4.35-4.35" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input type="text" id="omnibar-input" placeholder="Type anything: 'Akuna', 'OpenAI', 'Tesla', 'Jane Street', 'Citadel', 'Roblox', 'NVIDIA', 'Stripe', 'Palantir'..." oninput="handleSearch()" />
+    </div>
+
+    <div class="domain-filters">
+      <button class="domain-btn active" onclick="setDomain('All', this)">All Domains (17,657)</button>
+      <button class="domain-btn" onclick="setDomain('JobFunnel Master', this)">JobFunnel Clean (6,910)</button>
+      <button class="domain-btn" onclick="setDomain('New Grad 2026', this)">New Grad 2026 (3,132)</button>
+      <button class="domain-btn" onclick="setDomain('Summer 2027', this)">Summer 2027 (2,688)</button>
+      <button class="domain-btn" onclick="setDomain('AI College Jobs 2027', this)">AI Jobs 2027 (2,125)</button>
+      <button class="domain-btn" onclick="setDomain('Hiring No-Whiteboard', this)">No-Whiteboard (767)</button>
+      <button class="domain-btn" onclick="setDomain('New Grad 2027', this)">New Grad 2027 (631)</button>
+      <button class="domain-btn" onclick="setDomain('n8n Automation', this)">n8n Nodes (560)</button>
+      <button class="domain-btn" onclick="setDomain('React Interview', this)">React Interview (444)</button>
+      <button class="domain-btn" onclick="setDomain('JustHireMe Intel', this)">JustHireMe Scored (300)</button>
+      <button class="domain-btn" onclick="setDomain('Frontend Challenges', this)">Challenges (73)</button>
+    </div>
+  </div>
+
+  <!-- SEARCH RESULTS -->
+  <div class="results-grid" id="results-grid"></div>
+
+</main>
+
+<script>
+const masterEntities = [{"domain": "Summer 2027", "id": "S27-00000", "title": "Mercor - Software Engineer Intern", "category": "Internship", "text": "Mercor Software Engineer Intern SF "}, {"domain": "Summer 2027", "id": "S27-00001", "title": "GE Aerospace - Engines Engineering Intern/Co-op - Computer or Software Engineering", "category": "Internship", "text": "GE Aerospace Engines Engineering Intern/Co-op - Computer or Software Engineering Saugus, MA, Sharonville, OH "}, {"domain": "Summer 2027", "id": "S27-00002", "title": "Marmon Holdings - Data Engineering Intern/Co-op", "category": "Internship", "text": "Marmon Holdings Data Engineering Intern/Co-op Milwaukee, WI "}, {"domain": "Summer 2027", "id": "S27-00003", "title": "Ellipsis Labs - Software Engineer", "category": "Internship", "text": "Ellipsis Labs Software Engineer NYC "}, {"domain": "Summer 2027", "id": "S27-00004", "title": "Aquatic Capital Management - Quantitative Researcher \u2013 Intern", "category": "Internship", "text": "Aquatic Capital Management Quantitative Researcher \u2013 Intern London, UK, Chicago, IL "}, {"domain": "Summer 2027", "id": "S27-00005", "title": "Aquatic Capital Management - Software Engineer Intern", "category": "Internship", "text": "Aquatic Capital Management Software Engineer Intern London, UK, Chicago, IL "}, {"domain": "Summer 2027", "id": "S27-00006", "title": "TikTok - Research Scientist Intern - TikTok Search / Generative AI - LLM", "category": "Internship", "text": "TikTok Research Scientist Intern - TikTok Search / Generative AI - LLM San Jose, CA "}, {"domain": "Summer 2027", "id": "S27-00007", "title": "Susquehanna International Group (SIG) - Quantitative Systematic Trading Intern", "category": "Internship", "text": "Susquehanna International Group (SIG) Quantitative Systematic Trading Intern Ardmore, PA "}, {"domain": "Summer 2027", "id": "S27-00008", "title": "Susquehanna International Group (SIG) - Quantitative Research Intern - PhD: Summer 2027", "category": "Internship", "text": "Susquehanna International Group (SIG) Quantitative Research Intern - PhD: Summer 2027 Ardmore, PA "}, {"domain": "Summer 2027", "id": "S27-00009", "title": "Susquehanna International Group (SIG) - Quantitative Systematic Trading Intern - Master's: Summer 2027", "category": "Internship", "text": "Susquehanna International Group (SIG) Quantitative Systematic Trading Intern - Master's: Summer 2027 Ardmore, PA "}, {"domain": "Summer 2027", "id": "S27-00010", "title": "Susquehanna International Group (SIG) - Quantitative Research Intern", "category": "Internship", "text": "Susquehanna International Group (SIG) Quantitative Research Intern Ardmore, PA "}, {"domain": "Summer 2027", "id": "S27-00011", "title": "Susquehanna International Group (SIG) - Trading System Engineering Intern", "category": "Internship", "text": "Susquehanna International Group (SIG) Trading System Engineering Intern Ardmore, PA "}, {"domain": "Summer 2027", "id": "S27-00012", "title": "Susquehanna International Group (SIG) - Quantitative Strategy Developer Intern", "category": "Internship", "text": "Susquehanna International Group (SIG) Quantitative Strategy Developer Intern Ardmore, PA "}, {"domain": "Summer 2027", "id": "S27-00013", "title": "TikTok - Research Scientist Intern - Nextgen LLM", "category": "Internship", "text": "TikTok Research Scientist Intern - Nextgen LLM San Jose, CA "}, {"domain": "Summer 2027", "id": "S27-00014", "title": "Salesforce - Software Engineer Intern", "category": "Internship", "text": "Salesforce Software Engineer Intern Palo Alto, CA, Seattle, WA, Indianapolis, IN, SF, NYC, Bellevue, WA, Atlanta, GA, Burlington, MA "}, {"domain": "Summer 2027", "id": "S27-00015", "title": "Salesforce - Software Engineer Intern", "category": "Internship", "text": "Salesforce Software Engineer Intern Palo Alto, CA, Seattle, WA, Indianapolis, IN, SF, NYC, Bellevue, WA, Atlanta, GA, Burlington, MA "}, {"domain": "Summer 2027", "id": "S27-00016", "title": "Marmon Holdings - Data Engineering Intern Co-op", "category": "Internship", "text": "Marmon Holdings Data Engineering Intern Co-op Milwaukee, WI "}, {"domain": "Summer 2027", "id": "S27-00017", "title": "AQR Capital Management - Portfolio Implementation \u2013 Trading and Portfolio Finance Analyst Intern", "category": "Internship", "text": "AQR Capital Management Portfolio Implementation \u2013 Trading and Portfolio Finance Analyst Intern Greenwich, CT "}, {"domain": "Summer 2027", "id": "S27-00018", "title": "Fussball Club Cincinnati LLC (\u201cFC Cincinnati\u201d) - Academy Performance Analyst Intern - Academy Performance Analysis", "category": "Internship", "text": "Fussball Club Cincinnati LLC (\u201cFC Cincinnati\u201d) Academy Performance Analyst Intern - Academy Performance Analysis Cincinnati, OH "}, {"domain": "Summer 2027", "id": "S27-00019", "title": "TransMarket Group - Quantitative Trader Intern", "category": "Internship", "text": "TransMarket Group Quantitative Trader Intern Chicago, IL "}, {"domain": "Summer 2027", "id": "S27-00020", "title": "Medpace - Feasibility Informatics Internship/Co-op", "category": "Internship", "text": "Medpace Feasibility Informatics Internship/Co-op Cincinnati, OH "}, {"domain": "Summer 2027", "id": "S27-00021", "title": "Susquehanna International Group (SIG) - Electricity + Natural Gas Analyst Intern", "category": "Internship", "text": "Susquehanna International Group (SIG) Electricity + Natural Gas Analyst Intern Ardmore, PA "}, {"domain": "Summer 2027", "id": "S27-00022", "title": "Rippling - Machine Learning Software Engineer Intern", "category": "Internship", "text": "Rippling Machine Learning Software Engineer Intern SF "}, {"domain": "Summer 2027", "id": "S27-00023", "title": "Block - Applied Research Intern PhD / Graduate Co-op", "category": "Internship", "text": "Block Applied Research Intern PhD / Graduate Co-op Oakland, CA "}, {"domain": "Summer 2027", "id": "S27-00024", "title": "Block - Applied Research Intern Co-op", "category": "Internship", "text": "Block Applied Research Intern Co-op Toronto, ON, Canada "}, {"domain": "Summer 2027", "id": "S27-00025", "title": "Walleye Capital - Equity Volatility Quant Researcher Intern", "category": "Internship", "text": "Walleye Capital Equity Volatility Quant Researcher Intern Miami, FL "}, {"domain": "Summer 2027", "id": "S27-00026", "title": "Walleye Capital - PhD Quantitative Researcher Intern", "category": "Internship", "text": "Walleye Capital PhD Quantitative Researcher Intern Boston, MA "}, {"domain": "Summer 2027", "id": "S27-00027", "title": "Walleye Capital - Quantitative Developer Intern", "category": "Internship", "text": "Walleye Capital Quantitative Developer Intern Boston, MA "}, {"domain": "Summer 2027", "id": "S27-00028", "title": "Anduril - Software Engineer Intern", "category": "Internship", "text": "Anduril Software Engineer Intern Boston, MA, Seattle, WA, Newport Beach, CA, Irvine, CA, Reston, VA, Atlanta, GA "}, {"domain": "Summer 2027", "id": "S27-00029", "title": "SimonComputing - Software Development Internship", "category": "Internship", "text": "SimonComputing Software Development Internship Alexandria, VA "}, {"domain": "Summer 2027", "id": "S27-00030", "title": "Heron Power - Electronics Design Engineer Intern", "category": "Internship", "text": "Heron Power Electronics Design Engineer Intern Santa Cruz, CA "}, {"domain": "Summer 2027", "id": "S27-00031", "title": "Clio - Software Developer Co-op", "category": "Internship", "text": "Clio Software Developer Co-op Toronto, ON, Canada, Calgary, AB, Canada, Vancouver, BC, Canada "}, {"domain": "Summer 2027", "id": "S27-00032", "title": "Susquehanna International Group (SIG) - Quantitative Research Intern", "category": "Internship", "text": "Susquehanna International Group (SIG) Quantitative Research Intern Philadelphia, PA, NYC "}, {"domain": "Summer 2027", "id": "S27-00033", "title": "Virtu Financial - Quantitative Research Intern - Quant Research - Undergrad", "category": "Internship", "text": "Virtu Financial Quantitative Research Intern - Quant Research - Undergrad NYC "}, {"domain": "Summer 2027", "id": "S27-00034", "title": "Palantir - Forward Deployed Software Engineer Intern - Commercial", "category": "Internship", "text": "Palantir Forward Deployed Software Engineer Intern - Commercial Chicago, IL "}, {"domain": "React Interview", "id": "REACT-0", "title": "What is Concurrent Rendering? (Legacy)", "category": "React 18 / 19 & Server Components", "text": "What is Concurrent Rendering? (Legacy) The Concurrent rendering makes React apps to be more responsive by rendering component trees without "}, {"domain": "React Interview", "id": "REACT-1", "title": "What is React?", "category": "State & Lifecycle", "text": "What is React? React (aka React.js or ReactJS) is an **open-source front-end JavaScript library** for building user interfaces based on comp"}, {"domain": "React Interview", "id": "REACT-1", "title": "Why should we not update the state directly?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "Why should we not update the state directly? If you try to update the state directly then it won't re-render the component.\n\n   ```javascrip"}, {"domain": "React Interview", "id": "REACT-2", "title": "What is the purpose of callback function as an argument of `setState()`?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What is the purpose of callback function as an argument of `setState()`? The callback function provided as the second argument to `setState`"}, {"domain": "React Interview", "id": "REACT-3", "title": "What are the major features of React?", "category": "Core React & JSX", "text": "What are the major features of React? React offers a powerful set of features that have made it one of the most popular JavaScript libraries"}, {"domain": "React Interview", "id": "REACT-3", "title": "How to bind methods or event handlers in JSX callbacks?", "category": "Forms & Events", "text": "How to bind methods or event handlers in JSX callbacks? There are 3 possible ways to achieve this in class components:\n\n   1. **Binding in C"}, {"domain": "React Interview", "id": "REACT-4", "title": "What is JSX?", "category": "Components & Props", "text": "What is JSX? _JSX_ stands for _JavaScript XML_ and it is an XML-like syntax extension to ECMAScript. Basically it just provides the syntacti"}, {"domain": "React Interview", "id": "REACT-4", "title": "How to pass a parameter to an event handler or callback?", "category": "Forms & Events", "text": "How to pass a parameter to an event handler or callback? You can use an _arrow function_ to wrap around an _event handler_ and pass paramete"}, {"domain": "React Interview", "id": "REACT-5", "title": "What is the difference between an Element and a Component?", "category": "Performance Optimization", "text": "What is the difference between an Element and a Component? **Element:**\n      - A React **Element** is a plain JavaScript object that descri"}, {"domain": "React Interview", "id": "REACT-5", "title": "What is the use of refs?", "category": "Core React & JSX", "text": "What is the use of refs? The _ref_ is used to return a reference to the element. They _should be avoided_ in most cases, however, they can b"}, {"domain": "React Interview", "id": "REACT-6", "title": "How to create components in React?", "category": "Components & Props", "text": "How to create components in React? Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways "}, {"domain": "React Interview", "id": "REACT-6", "title": "How to create refs?", "category": "Core React & JSX", "text": "How to create refs? There are two approaches\n\n   1. This is a recently added approach. _Refs_ are created using `React.createRef()` method a"}, {"domain": "React Interview", "id": "REACT-7", "title": "When to use a Class Component over a Function Component?", "category": "React Hooks", "text": "When to use a Class Component over a Function Component? After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to us"}, {"domain": "React Interview", "id": "REACT-7", "title": "What are forward refs?", "category": "Components & Props", "text": "What are forward refs? _Ref forwarding_ is a feature that lets some components take a _ref_ they receive, and pass it further down to a chil"}, {"domain": "React Interview", "id": "REACT-8", "title": "What are Pure Components?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What are Pure Components? Pure components are the components which render the same output for the same state and props. In function componen"}, {"domain": "React Interview", "id": "REACT-8", "title": "Which is preferred option with in callback refs and findDOMNode()?", "category": "State & Lifecycle", "text": "Which is preferred option with in callback refs and findDOMNode()? It is preferred to use _callback refs_ over `findDOMNode()` API. Because "}, {"domain": "React Interview", "id": "REACT-9", "title": "What is state in React?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What is state in React? _State_ of a component is an object that holds some information that may change over the lifetime of the component. "}, {"domain": "React Interview", "id": "REACT-9", "title": "Why are String Refs legacy?", "category": "Forms & Events", "text": "Why are String Refs legacy? If you worked with React before, you might be familiar with an older API where the `ref` attribute is a string, "}, {"domain": "React Interview", "id": "REACT-10", "title": "What are props in React?", "category": "Components & Props", "text": "What are props in React? _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to c"}, {"domain": "React Interview", "id": "REACT-10", "title": "What are the different phases of component lifecycle?", "category": "State & Lifecycle", "text": "What are the different phases of component lifecycle? The component lifecycle has three distinct lifecycle phases:\n\n    1. **Mounting:** The"}, {"domain": "React Interview", "id": "REACT-11", "title": "What is the difference between state and props?", "category": "State & Lifecycle", "text": "What is the difference between state and props? In React, both **state** and **props** are plain JavaScript objects, but they serve differen"}, {"domain": "React Interview", "id": "REACT-11", "title": "What are the lifecycle methods of React?", "category": "State & Lifecycle", "text": "What are the lifecycle methods of React? Before React 16.3\n\n    - **componentWillMount:** Executed before rendering and is used for App leve"}, {"domain": "React Interview", "id": "REACT-12", "title": "What is the difference between HTML and React event handling?", "category": "Forms & Events", "text": "What is the difference between HTML and React event handling? Below are some of the main differences between HTML and React event handling,\n"}, {"domain": "React Interview", "id": "REACT-12", "title": "How to create props proxy for HOC component?", "category": "Components & Props", "text": "How to create props proxy for HOC component? You can add/edit props passed to the component using _props proxy_ pattern like this:\n\n    ```j"}, {"domain": "React Interview", "id": "REACT-13", "title": "What are synthetic events in React?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What are synthetic events in React? `SyntheticEvent` is a cross-browser wrapper around the browser's native event. Its API is same as the br"}, {"domain": "React Interview", "id": "REACT-13", "title": "What is context?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What is context? _Context_ provides a way to pass data through the component tree without having to pass props down manually at every level."}, {"domain": "React Interview", "id": "REACT-14", "title": "What are inline conditional expressions?", "category": "State & Lifecycle", "text": "What are inline conditional expressions? You can use either _if statements_ or _ternary expressions_ which are available in JS(and JSX in Re"}, {"domain": "React Interview", "id": "REACT-14", "title": "What is the purpose of using super constructor with props argument?", "category": "Components & Props", "text": "What is the purpose of using super constructor with props argument? A child class constructor cannot make use of `this` reference until the "}, {"domain": "React Interview", "id": "REACT-15", "title": "What is \"key\" prop and what is the benefit of using it in arrays of elements?", "category": "Forms & Events", "text": "What is \"key\" prop and what is the benefit of using it in arrays of elements? A `key` is a special attribute you **should** include when map"}, {"domain": "React Interview", "id": "REACT-15", "title": "How to set state with a dynamic key name?", "category": "State & Lifecycle", "text": "How to set state with a dynamic key name? If you are using ES6 or the Babel transpiler to transform your JSX code then you can accomplish th"}, {"domain": "React Interview", "id": "REACT-16", "title": "What is Virtual DOM?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What is Virtual DOM? The _Virtual DOM_ (VDOM) is a lightweight, in-memory representation of _Real DOM_ used by libraries like React to optim"}, {"domain": "React Interview", "id": "REACT-16", "title": "What would be the common mistake of function being called every time the component renders?", "category": "Core React & JSX", "text": "What would be the common mistake of function being called every time the component renders? You need to make sure that function is not being"}, {"domain": "React Interview", "id": "REACT-17", "title": "How Virtual DOM works?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "How Virtual DOM works? The _Virtual DOM_ works in five simple steps.\n\n    **1. Initial Render**  \n        When a UI component renders for th"}, {"domain": "React Interview", "id": "REACT-17", "title": "What are error boundaries in React v16?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What are error boundaries in React v16? **Note:** Error boundaries were introduced in React 16 and remain valid in current React versions (1"}, {"domain": "React Interview", "id": "REACT-18", "title": "What is the difference between Shadow DOM and Virtual DOM?", "category": "Virtual DOM, Fiber & Reconciliation", "text": "What is the difference between Shadow DOM and Virtual DOM? The _Shadow DOM_ is a browser technology designed primarily for scoping variables"}];
+let activeDomain = 'All';
+
+function getDomainBadge(dom) {
+  if (dom.includes('Summer')) return 'badge-summer';
+  if (dom.includes('New Grad 2026')) return 'badge-newgrad';
+  if (dom.includes('New Grad 2027')) return 'badge-newgrad27';
+  if (dom.includes('AI')) return 'badge-ai';
+  if (dom.includes('React')) return 'badge-react';
+  if (dom.includes('n8n')) return 'badge-n8n';
+  if (dom.includes('Whiteboard')) return 'badge-hww';
+  if (dom.includes('Challenges')) return 'badge-challenges';
+  if (dom.includes('JustHireMe')) return 'badge-jhm';
+  if (dom.includes('JobFunnel')) return 'badge-funnel';
+  return 'badge-ai';
+}
+
+function getDomainLink(dom) {
+  if (dom.includes('Summer')) return 'summer_2027_dashboard.html';
+  if (dom.includes('New Grad 2026')) return 'new_grad_dashboard.html';
+  if (dom.includes('New Grad 2027')) return 'new_grad_2027_dashboard.html';
+  if (dom.includes('AI')) return 'ai_college_jobs_dashboard.html';
+  if (dom.includes('React')) return 'react_interview_command_center.html';
+  if (dom.includes('n8n')) return 'n8n_command_center.html';
+  if (dom.includes('Whiteboard')) return 'hiring_without_whiteboards_dashboard.html';
+  if (dom.includes('Challenges')) return 'frontend_challenges_dashboard.html';
+  if (dom.includes('JustHireMe')) return 'justhireme_dashboard.html';
+  if (dom.includes('JobFunnel')) return 'jobfunnel_dashboard.html';
+  return 'omega_master_nexus.html';
+}
+
+function handleSearch() {
+  const query = document.getElementById('omnibar-input').value.toLowerCase().trim();
+  const grid = document.getElementById('results-grid');
+  
+  if (!query) {
+    grid.innerHTML = '<div style="color:var(--text-dim); font-size:0.9rem; grid-column:1/-1; text-align:center; padding:3rem 0;">Type any keyword into the Omnibar to query the unified SQLite FTS5 index.</div>';
+    return;
+  }
+
+  const matches = masterEntities.filter(e => {
+    if (activeDomain !== 'All' && e.domain !== activeDomain) return false;
+    return (
+      e.title.toLowerCase().includes(query) ||
+      e.text.toLowerCase().includes(query) ||
+      e.category.toLowerCase().includes(query)
+    );
+  });
+
+  if (!matches.length) {
+    grid.innerHTML = '<div style="color:var(--text-dim); font-size:0.9rem; grid-column:1/-1; text-align:center; padding:3rem 0;">No matches in visual cache for "' + query + '". Run <code>python omega_master_engine.py --search "' + query + '"</code> in console to query all 17,657 records.</div>';
+    return;
+  }
+
+  grid.innerHTML = matches.slice(0, 15).map(m => `
+    <div class="result-card">
+      <div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+          <span class="badge ${getDomainBadge(m.domain)}">${m.domain}</span>
+          <span style="font-size:0.75rem; color:var(--text-dim); font-family:'JetBrains Mono';">${m.id}</span>
+        </div>
+        <div style="font-weight:700; font-size:1.02rem; margin-bottom:0.25rem;">${m.title}</div>
+        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.45;">${m.text}...</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem;">
+        <span style="font-size:0.75rem; color:var(--text-dim);">${m.category}</span>
+        <a href="${getDomainLink(m.domain)}" class="btn" style="padding:0.3rem 0.75rem; font-size:0.75rem;">Open Dashboard →</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setDomain(dom, btn) {
+  activeDomain = dom;
+  document.querySelectorAll('.domain-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  handleSearch();
+}
+
+document.getElementById('omnibar-input').value = 'Intern';
+handleSearch();
+</script>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIVILIZATION Ω∞ | Planetary Agent Swarm & Global Skills Cockpit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #020617;
+            --bg-card: #0f172a;
+            --bg-card-hover: #1e293b;
+            --border: #1e293b;
+            --border-highlight: #38bdf8;
+            --emerald: #10b981;
+            --cyan: #38bdf8;
+            --amber: #f59e0b;
+            --purple: #a855f7;
+            --rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 24px 32px;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+        .brand-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: var(--font-mono);
+        }
+
+        /* Macro Metrics Grid */
+        .macro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .macro-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+        .macro-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .macro-val {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+        }
+        .macro-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Section Headings */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 32px 0 16px 0;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .badge {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--cyan);
+            font-family: var(--font-mono);
+        }
+
+        /* Nodes Grid */
+        .nodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+        .node-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            transition: all 0.2s ease;
+        }
+        .node-card:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-2px);
+        }
+        .node-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+        .node-region {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .node-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .pill-status {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--emerald);
+            border: 1px solid var(--emerald);
+            font-family: var(--font-mono);
+        }
+        .node-body {
+            background: rgba(2, 6, 23, 0.6);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 14px;
+        }
+        .node-stat-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .node-stat-row:last-child { border-bottom: none; }
+        .node-footer .footer-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+        .node-footer .footer-text {
+            font-size: 12px;
+            color: var(--text-main);
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+
+        /* Table */
+        .table-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            background: rgba(2, 6, 23, 0.8);
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+        tr:hover td {
+            background: rgba(30, 41, 59, 0.4);
+        }
+        .code-pill {
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--cyan);
+            font-family: var(--font-mono);
+            font-size: 11px;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--purple);
+            font-size: 11px;
+            font-family: var(--font-mono);
+            margin: 2px;
+        }
+        .skills-cell {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 380px;
+        }
+        .status-live {
+            color: var(--emerald);
+            font-weight: 700;
+            font-family: var(--font-mono);
+            font-size: 11px;
+        }
+
+        /* Skills Categories Grid */
+        .skills-cats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+        .skill-category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .cat-count {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        /* Utilities */
+        .text-cyan { color: var(--cyan); }
+        .text-emerald { color: var(--emerald); }
+        .text-amber { color: var(--amber); }
+        .text-purple { color: var(--purple); }
+        .text-main { color: var(--text-main); }
+        .text-muted { color: var(--text-muted); }
+        .font-bold { font-weight: 700; }
+        .font-mono { font-family: var(--font-mono); }
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .text-sm { font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <div class="brand-title">CIVILIZATION Ω∞ • PLANETARY AGENT SWARM</div>
+            <div class="brand-sub">Sovereign Principal: Aditya Mehra | Bengaluru Command | Planetary Scale Engine</div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <span class="badge" style="background: rgba(16,185,129,0.15); color: var(--emerald); border: 1px solid var(--emerald);">ALL CONTINENTS SYNCED</span>
+            <span class="badge">166 ACTIVE AGENTS</span>
+        </div>
+    </header>
+
+    <!-- Macro Metrics -->
+    <div class="macro-grid">
+        <div class="macro-card">
+            <div class="macro-label">Global Nodes</div>
+            <div class="macro-val text-cyan">10</div>
+            <div class="macro-sub">10 Sovereign Financial Hubs</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Active Agent Swarms</div>
+            <div class="macro-val text-emerald">166</div>
+            <div class="macro-sub">24/7 Autonomous Dispatch</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Agent Divisions</div>
+            <div class="macro-val text-purple">8</div>
+            <div class="macro-sub">Sovereign Functional Tracks</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Registered Skills</div>
+            <div class="macro-val text-amber">3801</div>
+            <div class="macro-sub">Curated Autonomous Capabilities</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Currencies Cleared</div>
+            <div class="macro-val text-main">8</div>
+            <div class="macro-sub">USD, EUR, GBP, INR, AED, SGD...</div>
+        </div>
+    </div>
+
+    <!-- Skills Category Breakdown -->
+    <div class="section-header">
+        <div class="section-title">
+            WORKSPACE SKILLS FEDERATION (OVERVIEW)
+            <span class="badge">3801 TOTAL SKILLS</span>
+        </div>
+    </div>
+    <div class="skills-cats-grid">
+        
+        <div class="skill-category-card">
+            <div class="cat-label">B2B Sales</div>
+            <div class="cat-count font-mono">232 Skills</div>
+        </div>
+        
+        <div class="skill-category-card">
+            <div class="cat-label">Cloud Devops</div>
+            <div class="cat-count font-mono">432 Skills</div>
+        </div>
+        
+        <div class="skill-category-card">
+            <div class="cat-label">Exim Trade</div>
+            <div class="cat-count font-mono">235 Skills</div>
+        </div>
+        
+        <div class="skill-category-card">
+            <div class="cat-label">Finance Treasury</div>
+            <div class="cat-count font-mono">232 Skills</div>
+        </div>
+        
+        <div class="skill-category-card">
+            <div class="cat-label">Ai Agentic</div>
+            <div class="cat-count font-mono">281 Skills</div>
+        </div>
+        
+        <div class="skill-category-card">
+            <div class="cat-label">Talent Ops</div>
+            <div class="cat-count font-mono">230 Skills</div>
+        </div>
+        
+        <div class="skill-category-card">
+            <div class="cat-label">Security Gov</div>
+            <div class="cat-count font-mono">215 Skills</div>
+        </div>
+        
+        <div class="skill-category-card">
+            <div class="cat-label">Software Core</div>
+            <div class="cat-count font-mono">424 Skills</div>
+        </div>
+        
+    </div>
+
+    <!-- Planetary Country Nodes -->
+    <div class="section-header">
+        <div class="section-title">
+            PLANETARY CORRIDOR NODES (ALL COUNTRIES & HUBS)
+            <span class="badge">24/7 CONTINUOUS VELOCITY</span>
+        </div>
+    </div>
+    <div class="nodes-grid">
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">North America • UTC-5 / UTC-8</span>
+                    <h4 class="node-title">United States (New York / Silicon Valley)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">USD</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">28 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">$28,500/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">Wall Street Equities, Enterprise SaaS, AI GPU Compute Infrastructure</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Europe • UTC+0</span>
+                    <h4 class="node-title">United Kingdom (London)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">GBP / EUR</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">18 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">$16,200/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">City of London Financial Hub, Cross-Border Legal, European Retainers</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Asia-Pacific • UTC+5:30</span>
+                    <h4 class="node-title">India (Bengaluru (HQ))</h4>
+                </div>
+                <span class="pill-status">HQ COMMAND - OPTIMAL</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">INR / USD</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">42 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">₹3,18,600/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">Global Capability Centers (GCCs), High-Velocity AI Engineering, Tech EXIM</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Middle East & GCC • UTC+4</span>
+                    <h4 class="node-title">United Arab Emirates (Dubai / Abu Dhabi)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">AED / USD</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">16 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">$19,800/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">0% Tax Domicile, Sovereign Wealth Syndication (ADIA), Re-Export Corridors</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Southeast Asia • UTC+8</span>
+                    <h4 class="node-title">Singapore (Singapore)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">SGD / USD</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">14 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">$14,500/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">Straits of Malacca Maritime Trade, APAC Commodity Settlement, Family Offices</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Europe • UTC+1</span>
+                    <h4 class="node-title">Germany (Frankfurt / Munich)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">EUR</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">12 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">€11,400/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">Industrial Automation, Mittelstand Hardware, Automotive Electronics</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Europe • UTC+1</span>
+                    <h4 class="node-title">Switzerland (Zurich / Geneva)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">CHF</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">10 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">$22,000/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">Private Wealth Custody, Sovereign Arbitrage, Deep Tech Cryptography</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Asia-Pacific • UTC+9</span>
+                    <h4 class="node-title">Japan (Tokyo)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">JPY</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">11 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">¥1,850,000/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">Robotics & Mechatronics, Yen Carry Arbitrage, Institutional Electronics</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Latin America • UTC-3</span>
+                    <h4 class="node-title">Brazil (São Paulo)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">BRL / USD</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">8 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">$8,200/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">AgTech Commodities, Pix Digital Rails, Nearshoring Software</p>
+            </div>
+        </div>
+        
+        <div class="node-card">
+            <div class="node-top">
+                <div>
+                    <span class="node-region">Africa • UTC+2</span>
+                    <h4 class="node-title">South Africa (Johannesburg)</h4>
+                </div>
+                <span class="pill-status">ONLINE - ACTIVE</span>
+            </div>
+            <div class="node-body">
+                <div class="node-stat-row">
+                    <span class="label">Primary Currency</span>
+                    <span class="val font-mono text-cyan">ZAR / USD</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Active Autonomous Agents</span>
+                    <span class="val font-mono text-emerald">7 Units</span>
+                </div>
+                <div class="node-stat-row">
+                    <span class="label">Daily Liquidity Velocity</span>
+                    <span class="val font-mono text-amber">$6,400/day</span>
+                </div>
+            </div>
+            <div class="node-footer">
+                <span class="footer-label">CORRIDOR SPECIALIZATION:</span>
+                <p class="footer-text">Precious Metals & Critical Transition Minerals (PGM/Gold), Pan-African Tech</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Agent Divisions Table -->
+    <div class="section-header">
+        <div class="section-title">
+            THE 8 SOVEREIGN AGENT DIVISIONS
+            <span class="badge">AUTONOMOUS OPERATIONAL DAGS</span>
+        </div>
+    </div>
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Division Name</th>
+                    <th>Code</th>
+                    <th>Autonomous Mission</th>
+                    <th>Assigned Skill Capabilities</th>
+                    <th class="text-right">Active Instances</th>
+                    <th class="text-center">State</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td class="font-bold text-main">Sovereign Macro & Treasury Intelligence</td>
+            <td><span class="code-pill">DIV-MACRO-01</span></td>
+            <td class="text-muted text-sm">Monitors interest rate spreads, FX tick differentials, and sovereign debt yield curves.</td>
+            <td><div class="skills-cell"><span class="skill-tag">finance-treasury-skill-001</span> <span class="skill-tag">sovereign-banking-engine</span> <span class="skill-tag">empire-capital-allocator</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">32 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Cross-Border EXIM & Landed Cost Notary</td>
+            <td><span class="code-pill">DIV-EXIM-02</span></td>
+            <td class="text-muted text-sm">Executes Incoterms 2020 audits, customs HS code classification, and freight corridor calculations.</td>
+            <td><div class="skills-cell"><span class="skill-tag">exim-trade-skill-001</span> <span class="skill-tag">skill-bangalore-exim-logistics</span> <span class="skill-tag">customs-trade-compliance</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">24 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Global Enterprise Outbound & Deal Swarm</td>
+            <td><span class="code-pill">DIV-SALES-03</span></td>
+            <td class="text-muted text-sm">Scrapes, qualifies, and dispatches value-first proposals to Fortune 500 decision-makers.</td>
+            <td><div class="skills-cell"><span class="skill-tag">b2b-sales-skill-001</span> <span class="skill-tag">ai-sdr</span> <span class="skill-tag">lead-enrichment</span> <span class="skill-tag">sales-motion-design</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">48 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Autonomous Micro-API & Agentic Tollbooths</td>
+            <td><span class="code-pill">DIV-API-04</span></td>
+            <td class="text-muted text-sm">Operates 24/7 webhooks, Stripe/LemonSqueezy checkout listeners, and x402 micro-payment billing.</td>
+            <td><div class="skills-cell"><span class="skill-tag">api-connector-builder</span> <span class="skill-tag">fastapi-patterns</span> <span class="skill-tag">m2m-settlement-clearing</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">22 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Sovereign Shield & International Compliance</td>
+            <td><span class="code-pill">DIV-SHIELD-05</span></td>
+            <td class="text-muted text-sm">Screens contracts against OFAC/CFIUS sanctions, dual-use export rules, and regulatory arbitrage.</td>
+            <td><div class="skills-cell"><span class="skill-tag">geopolitical-sovereign-shield</span> <span class="skill-tag">security-threat-model</span> <span class="skill-tag">skill-comply</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">15 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Digital IP & Technical Knowledge Synthesizer</td>
+            <td><span class="code-pill">DIV-IP-06</span></td>
+            <td class="text-muted text-sm">Packages prompt architectures, software boilerplates, and developer guides into commercial assets.</td>
+            <td><div class="skills-cell"><span class="skill-tag">system-prompts-intelligence</span> <span class="skill-tag">writing-for-agents</span> <span class="skill-tag">product-marketing</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">19 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Global Capability Center (GCC) Talent Ops</td>
+            <td><span class="code-pill">DIV-GCC-07</span></td>
+            <td class="text-muted text-sm">Coordinates executive placement, founders' office alignments, and Tier-1 MNC hiring strikes.</td>
+            <td><div class="skills-cell"><span class="skill-tag">talent-people-skill-001</span> <span class="skill-tag">skill-bangalore-global-gcc-ops</span> <span class="skill-tag">lead-intelligence</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">26 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Adversarial Red Team & Antifragile Audit</td>
+            <td><span class="code-pill">DIV-REDTEAM-08</span></td>
+            <td class="text-muted text-sm">Simulates payment gateway outages, supply chain severance, and systemic model failure modes.</td>
+            <td><div class="skills-cell"><span class="skill-tag">antifragile-red-team</span> <span class="skill-tag">the-fool</span> <span class="skill-tag">the-judge</span> <span class="skill-tag">verification-before-completion</span></div></td>
+            <td class="text-right font-mono text-emerald font-bold">12 Swarms</td>
+            <td class="text-center"><span class="status-live">● RUNNING</span></td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

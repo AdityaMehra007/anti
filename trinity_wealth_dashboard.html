@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mehra | Trinity Scale Wealth Command Center (Millions • Billions • Trillions)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #030712;
+            --bg-surface: #0b1120;
+            --bg-card: #111827;
+            --bg-card-hover: #1f2937;
+            --border: #1e293b;
+            --border-highlight: #334155;
+            --emerald: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.15);
+            --cyan: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.15);
+            --amber: #f59e0b;
+            --amber-glow: rgba(245, 158, 11, 0.15);
+            --purple: #8b5cf6;
+            --purple-glow: rgba(139, 92, 246, 0.15);
+            --rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 24px 32px;
+            min-height: 100vh;
+        }
+
+        /* Top Nav / Banner */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 24px;
+            font-size: 13px;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--cyan);
+        }
+
+        /* Header Hero */
+        .header {
+            padding: 36px 40px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.9));
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--emerald) 0%, var(--cyan) 50%, var(--purple) 100%);
+        }
+        .hero-title {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 900px;
+            line-height: 1.6;
+        }
+        .badges-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            letter-spacing: 0.04em;
+        }
+        .badge-green { background: var(--emerald-glow); color: var(--emerald); border: 1px solid var(--emerald); }
+        .badge-cyan { background: var(--cyan-glow); color: var(--cyan); border: 1px solid var(--cyan); }
+        .badge-purple { background: var(--purple-glow); color: var(--purple); border: 1px solid var(--purple); }
+        .badge-amber { background: var(--amber-glow); color: var(--amber); border: 1px solid var(--amber); }
+
+        /* Trinity Architecture Overview (3 Pillar Cards) */
+        .trinity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .tier-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+        .tier-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+        }
+        .tier-card.tier-1 { border-top: 4px solid var(--emerald); }
+        .tier-card.tier-2 { border-top: 4px solid var(--cyan); }
+        .tier-card.tier-3 { border-top: 4px solid var(--purple); }
+
+        .tier-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        .tier-card.tier-1 .tier-label { color: var(--emerald); }
+        .tier-card.tier-2 .tier-label { color: var(--cyan); }
+        .tier-card.tier-3 .tier-label { color: var(--purple); }
+
+        .tier-name {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .tier-range {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .tier-metric-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .tier-metric-val {
+            font-size: 26px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            margin-bottom: 4px;
+        }
+        .tier-metric-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .tier-features {
+            list-style: none;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+        .tier-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tier-features li::before {
+            content: "•";
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .tier-1 .tier-features li::before { color: var(--emerald); }
+        .tier-2 .tier-features li::before { color: var(--cyan); }
+        .tier-3 .tier-features li::before { color: var(--purple); }
+
+        /* Section Containers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Two Column Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        /* Data Tables */
+        .table-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+        th {
+            padding: 12px 14px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 14px;
+            border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+        }
+        tr:hover td {
+            background: rgba(30, 41, 59, 0.3);
+        }
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        /* Sovereign Mechanism Cards */
+        .mechanisms-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+        .mech-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            transition: border-color 0.2s;
+        }
+        .mech-card:hover {
+            border-color: var(--cyan);
+        }
+        .mech-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+        .mech-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Live Telemetry Status Bar */
+        .telemetry-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090e17;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 24px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .pulse-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--emerald);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 1100px) {
+            .trinity-grid, .grid-2, .mechanisms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Hub -->
+    <div class="top-nav">
+        <div>
+            <strong style="color: #ffffff;">OMEGA ∞ ARCHITECTURE</strong> | Sovereign Continuum Command
+        </div>
+        <div class="nav-links">
+            <a href="million_dollar_company_dashboard.html">Millions Dashboard</a>
+            <a href="billionaire_wealth_dashboard.html">Billions Dashboard</a>
+            <a href="global_money_dashboard.html">Trillions Dashboard</a>
+            <a href="hyperscale_velocity_dashboard.html">Velocity Dashboard</a>
+            <a href="client_onboarding_portal.html">Client Portal</a>
+            <a href="#" class="active">Trinity Unified</a>
+        </div>
+    </div>
+
+    <!-- Header Hero -->
+    <div class="header">
+        <h1 class="hero-title">Trinity Scale Wealth Command Center</h1>
+        <p class="hero-subtitle">
+            Autonomous multi-tier wealth operating system synthesized for Aditya Mehra (BBA International Business '26, Bengaluru Hub). Uniting micro-enterprise cashflow, billionaire family offices, and macro-planetary liquidity under an unassailable zero-payroll autonomous stack.
+        </p>
+        <div class="badges-row">
+            <span class="badge badge-green"><span class="pulse-indicator"></span> AUTONOMOUS ENGINES ACTIVE</span>
+            <span class="badge badge-cyan">96 PIPELINE ACCOUNTS ($2.24M USD)</span>
+            <span class="badge badge-purple">140 BILLIONAIRES / FAMILY OFFICES</span>
+            <span class="badge badge-amber">$1,472.0 TRILLION USD MACRO LIQUIDITY</span>
+            <span class="badge badge-green">97.2% NET MARGIN</span>
+        </div>
+    </div>
+
+    <!-- Trinity Three Pillars -->
+    <div class="trinity-grid">
+        <!-- Pillar 1: Millions Tier -->
+        <div class="tier-card tier-1">
+            <div>
+                <div class="tier-label">Tier 1 • Micro-Operational Engine</div>
+                <div class="tier-name">The Millions Engine</div>
+                <div class="tier-range">$1,000,000 to $100,000,000 ARR</div>
+                
+                <div class="tier-metric-box">
+                    <div class="tier-metric-val" style="color: var(--emerald);">$2,239,200</div>
+                    <div class="tier-metric-desc">Identified Pipeline ACV across 96 Verified Accounts</div>
+                </div>
+
+                <div class="tier-metric-box">
+                    <div class="tier-metric-val mono" style="color: #ffffff;">INR 318,600/mo</div>
+                    <div class="tier-metric-desc">Reconciled Monthly Retainer Cashflow ($45,878/yr base)</div>
+                </div>
+
+                <ul class="tier-features">
+                    <li>Cross-Border EXIM Landed Cost Optimization (Customs/FTP)</li>
+                    <li>Autonomous n8n Lead Qualification & Cold Outreach DAGs</li>
+                    <li>Zero-Payroll Operational Overhead (97.2% Net Margin)</li>
+                    <li>Verified Client Onboarding & Retainer Agreement Portals</li>
+                </ul>
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="million_dollar_company_dashboard.html" style="color: var(--emerald); font-weight: 700; text-decoration: none; font-size: 13px;">Explore Tier 1 Metrics &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Pillar 2: Billions Tier -->
+        <div class="tier-card tier-2">
+            <div>
+                <div class="tier-label">Tier 2 • Meso-Institutional Engine</div>
+                <div class="tier-name">The Billions Engine</div>
+                <div class="tier-range">$1,000,000,000 to $100,000,000,000 Net Worth</div>
+
+                <div class="tier-metric-box">
+                    <div class="tier-metric-val" style="color: var(--cyan);">140 Promoters</div>
+                    <div class="tier-metric-desc">Sovereign Promoters & Tier-1 Family Offices Indexed</div>
+                </div>
+
+                <div class="tier-metric-box">
+                    <div class="tier-metric-val mono" style="color: #ffffff;">Premji, Catamaran, Rainmatter</div>
+                    <div class="tier-metric-desc">Direct Strategic Alignment Corridors in Bengaluru Hub</div>
+                </div>
+
+                <ul class="tier-features">
+                    <li>Single Family Office (SFO) & Multi Family Office (MFO) Structures</li>
+                    <li>Promoter Holding Company (HoldCo) Equity Architecture</li>
+                    <li>Strategic AI & Trade Automation Advisory Retainers</li>
+                    <li>Direct Access to Conglomerate Supply Chain Decision Makers</li>
+                </ul>
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="billionaire_wealth_dashboard.html" style="color: var(--cyan); font-weight: 700; text-decoration: none; font-size: 13px;">Explore Tier 2 Intelligence &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Pillar 3: Trillions Tier -->
+        <div class="tier-card tier-3">
+            <div>
+                <div class="tier-label">Tier 3 • Macro-Planetary Liquidity</div>
+                <div class="tier-name">The Trillions Engine</div>
+                <div class="tier-range">$1,472,000,000,000,000 Total Capital</div>
+
+                <div class="tier-metric-box">
+                    <div class="tier-metric-val" style="color: var(--purple);">$1,472.0 T</div>
+                    <div class="tier-metric-desc">Planetary Capital Mapped Across 8 Global Liquidity Pillars</div>
+                </div>
+
+                <div class="tier-metric-box">
+                    <div class="tier-metric-val mono" style="color: #ffffff;">8 Deep Pillars</div>
+                    <div class="tier-metric-desc">Derivatives, Real Estate, Asset Mgmt, DCM, Public Equity, etc.</div>
+                </div>
+
+                <ul class="tier-features">
+                    <li>Real-Time FX Arbitrage & Cross-Border Settlement Clearing</li>
+                    <li>Sovereign Wealth Fund (SWF) Infrastructure Syndication</li>
+                    <li>Enterprise Bond Tranches & Securitized Trade Paper</li>
+                    <li>High-Frequency Data Routing & Algorithmic Siphon Channels</li>
+                </ul>
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="global_money_dashboard.html" style="color: var(--purple); font-weight: 700; text-decoration: none; font-size: 13px;">Explore Tier 3 Architecture &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: Trillions Breakdown & Sovereign Siphons -->
+    <div class="grid-2">
+        <!-- Table: 8 Global Capital Pillars -->
+        <div class="table-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <span>Macro Liquidity Pillars ($1,472 Trillion USD)</span>
+                </div>
+                <span class="mono" style="font-size: 12px; color: var(--purple);">8 PILLARS</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pillar Name</th>
+                        <th>Mapped Pool</th>
+                        <th>% Share</th>
+                        <th>Primary Siphon Mechanism</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Global OTC Derivatives</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$630.0 Trillion</td>
+                        <td class="mono">42.8%</td>
+                        <td>Clearing fees, synthetic yield, volatility spreads</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Global Real Estate</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$380.0 Trillion</td>
+                        <td class="mono">25.8%</td>
+                        <td>REIT syndication, securitized debt, prime collateral</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Global Asset Management (AUM)</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$140.0 Trillion</td>
+                        <td class="mono">9.5%</td>
+                        <td>2/20 asset management fees, custody AUC, indexation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Global Debt & Fixed Income (DCM)</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$135.0 Trillion</td>
+                        <td class="mono">9.2%</td>
+                        <td>Sovereign bonds, commercial paper, treasury repos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Public Listed Equities</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$115.0 Trillion</td>
+                        <td class="mono">7.8%</td>
+                        <td>Hedge funds, algorithmic alpha, promoter buybacks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Annual Global Trade Volume</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$32.0 Trillion</td>
+                        <td class="mono">2.2%</td>
+                        <td>Letters of credit, supply chain factoring, tariff rebate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sovereign Wealth Funds (SWFs)</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$27.0 Trillion</td>
+                        <td class="mono">1.8%</td>
+                        <td>Strategic infrastructure allocation, national debt tranches</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Private Equity & Venture Capital</strong></td>
+                        <td class="mono" style="color: var(--purple); font-weight: 700;">$13.0 Trillion</td>
+                        <td class="mono">0.9%</td>
+                        <td>Growth equity, leveraged buyouts (LBOs), secondary shares</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table: Key Promoter Ecosystems & Family Offices -->
+        <div class="table-card">
+            <div class="section-header">
+                <div class="section-title">
+                    <span>Key Promoter Ecosystems (Billions Tier)</span>
+                </div>
+                <span class="mono" style="font-size: 12px; color: var(--cyan);">140 INDEXED</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Promoter / Family Office</th>
+                        <th>Hub / Base</th>
+                        <th>Dominant Holdings</th>
+                        <th>Strategic Arbitrage Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PremjiInvest (Azim Premji)</strong></td>
+                        <td>Bengaluru</td>
+                        <td>Wipro, Enterprise SaaS, Tech PE</td>
+                        <td>B2B SaaS deployment, IT supply chain audits</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Catamaran Ventures (N. R. Narayana Murthy)</strong></td>
+                        <td>Bengaluru</td>
+                        <td>Infosys, E-commerce, Clean Energy</td>
+                        <td>Cross-border logistics & enterprise modernization</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rainmatter Capital (Nithin Kamath)</strong></td>
+                        <td>Bengaluru</td>
+                        <td>Zerodha, FinTech, Health, Climate</td>
+                        <td>Algorithmic trade micro-clearing & financial APIs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gruhas Proptech (Nikhil Kamath)</strong></td>
+                        <td>Bengaluru</td>
+                        <td>Real Estate, Hospitality, PropTech</td>
+                        <td>Commercial warehousing & supply chain land banks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reliance Industries (Mukesh Ambani)</strong></td>
+                        <td>Mumbai</td>
+                        <td>Jio, Retail, Petrochemicals, Green Energy</td>
+                        <td>Mega-scale distribution & telecom infrastructure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tata Sons (N. Chandrasekaran)</strong></td>
+                        <td>Mumbai</td>
+                        <td>TCS, Tata Motors, Steel, Electronics</td>
+                        <td>Global manufacturing & tier-1 industrial contracts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adani Enterprises (Gautam Adani)</strong></td>
+                        <td>Ahmedabad</td>
+                        <td>Ports, Power, Green H2, Logistics</td>
+                        <td>Maritime trade customs & port clearance optimization</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Sovereign Mechanisms Matrix -->
+    <div class="section-header">
+        <div class="section-title">
+            <span>Sovereign Wealth Compounding Mechanisms</span>
+        </div>
+        <span class="mono" style="font-size: 12px; color: var(--emerald);">CONTINUUM MECHANISMS</span>
+    </div>
+    <div class="mechanisms-grid">
+        <div class="mech-card">
+            <div class="mech-title" style="color: var(--emerald);">Micro-Cashflow Velocity</div>
+            <div class="mech-desc">
+                Deploying zero-payroll automation DAGs to generate recurring monthly retainers (\$3k–\$15k/mo) from trade-intensive corporations, securing Day 1 solvency and continuous working capital.
+            </div>
+        </div>
+        <div class="mech-card">
+            <div class="mech-title" style="color: var(--cyan);">Meso Equity Stacking</div>
+            <div class="mech-desc">
+                Partnering with billionaire family offices via technology advisory and performance-fee share, earning advisory equity and promoter holdco allocations without dilution.
+            </div>
+        </div>
+        <div class="mech-card">
+            <div class="mech-title" style="color: var(--purple);">Macro Liquidity Arteries</div>
+            <div class="mech-desc">
+                Positioning algorithmic data connectors at high-friction clearing points across the \$32T annual global trade network and \$140T institutional asset pools to extract basis-point toll gates.
+            </div>
+        </div>
+        <div class="mech-card">
+            <div class="mech-title" style="color: var(--amber);">Planetary Fleet Compounding</div>
+            <div class="mech-desc">
+                Reinvesting 97%+ net operational cashflow into autonomous software capital, physical robotics, and sovereign compute capacity, eliminating labor scaling bottlenecks forever.
+            </div>
+        </div>
+    </div>
+
+    <!-- Telemetry Bar -->
+    <div class="telemetry-bar">
+        <div>
+            FOUNDER: <strong>ADITYA MEHRA</strong> | BBA INTERNATIONAL BUSINESS '26 | BANGALORE SOVEREIGN HUB
+        </div>
+        <div>
+            MASTER DB: <code>data/omega_unified_master.db</code> (26 TABLES, 17,615 ENTITIES)
+        </div>
+        <div>
+            STATUS: <strong style="color: var(--emerald);">NOMINAL • AUTONOMOUS CYCLE ACTIVE</strong>
+        </div>
+    </div>
+
+</body>
+</html>

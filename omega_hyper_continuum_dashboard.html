@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMEGA HYPER-CONTINUUM | Skills • Jobs • Agents • Funds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #020617;
+            --bg-surface: #0b1120;
+            --bg-card: #0f172a;
+            --border: #1e293b;
+            --border-highlight: #38bdf8;
+            --cyan: #38bdf8;
+            --emerald: #10b981;
+            --amber: #f59e0b;
+            --purple: #c084fc;
+            --rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 24px 32px;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 30px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+        .brand-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8, #34d399, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: var(--font-mono);
+        }
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--cyan);
+            border: 1px solid var(--cyan);
+            font-family: var(--font-mono);
+        }
+
+        /* The 4 Core Pillar Summary Cards */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+        .pillar-summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .pillar-summary-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--cyan);
+        }
+        .p-number {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .p-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .p-stat {
+            font-size: 32px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            margin-bottom: 6px;
+        }
+        .p-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Section Headings */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 36px 0 16px 0;
+        }
+        .section-title {
+            font-size: 19px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Capital Pillars Grid */
+        .pillars-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+        .pillar-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .pillar-scale {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .pillar-sub {
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        .pillar-arb {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* Table Box */
+        .table-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            background: rgba(2, 6, 23, 0.9);
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+        tr:hover td {
+            background: rgba(30, 41, 59, 0.4);
+        }
+        .role-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: rgba(192, 132, 252, 0.15);
+            color: var(--purple);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Money Flows Grid */
+        .flows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .flow-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+        }
+        .flow-corridor {
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+        .flow-velocity {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* Utilities */
+        .text-cyan { color: var(--cyan); }
+        .text-emerald { color: var(--emerald); }
+        .text-amber { color: var(--amber); }
+        .text-purple { color: var(--purple); }
+        .text-main { color: var(--text-main); }
+        .text-muted { color: var(--text-muted); }
+        .font-bold { font-weight: 700; }
+        .font-mono { font-family: var(--font-mono); }
+        .text-sm { font-size: 12px; }
+        .text-xs { font-size: 11px; }
+        .mt-2 { margin-top: 8px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <div class="brand-title">OMEGA HYPER-CONTINUUM COMMAND CENTER</div>
+            <div class="brand-sub">Sovereign Principal: Aditya Mehra | BBA Intl Business (DSU '26) | Bengaluru</div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <span class="badge" style="background: rgba(16,185,129,0.15); color: var(--emerald); border-color: var(--emerald);">4 PILLARS UNIFIED</span>
+            <span class="badge">$1,472 TRILLION CAPITAL MAPPED</span>
+        </div>
+    </header>
+
+    <!-- The 4 Sovereign Pillars -->
+    <div class="pillar-grid">
+        <div class="pillar-summary-card">
+            <div class="p-number">PILLAR 1 • CAPABILITIES</div>
+            <div class="p-title">Skills Federation</div>
+            <div class="p-stat text-cyan">3801</div>
+            <div class="p-sub">Autonomous Modular Skills in .agents/skills</div>
+        </div>
+        <div class="pillar-summary-card">
+            <div class="p-number">PILLAR 2 • EMPLOYMENT & DEALS</div>
+            <div class="p-title">Company Jobs & Career</div>
+            <div class="p-stat text-emerald">16,553</div>
+            <div class="p-sub">Live Roles, 300 Recruiters & 20 Unicorns</div>
+        </div>
+        <div class="pillar-summary-card">
+            <div class="p-number">PILLAR 3 • PLANETARY WORKFORCE</div>
+            <div class="p-title">Planetary Agent Swarms</div>
+            <div class="p-stat text-purple">166</div>
+            <div class="p-sub">Units Across 10 Countries & 8 Divisions</div>
+        </div>
+        <div class="pillar-summary-card">
+            <div class="p-number">PILLAR 4 • WEALTH & CAPITAL</div>
+            <div class="p-title">Family Offices & Funds</div>
+            <div class="p-stat text-amber">140</div>
+            <div class="p-sub">PremjiInvest, Catamaran, Rainmatter Pools</div>
+        </div>
+    </div>
+
+    <!-- Section: $1,472 Trillion Capital Pillars -->
+    <div class="section-header">
+        <div class="section-title">
+            PLANETARY CAPITAL PILLARS ($1,472 TRILLION TOTAL SCALE)
+            <span class="badge">GLOBAL AUM & DEBT MATRICES</span>
+        </div>
+    </div>
+    <div class="pillars-cards-grid">
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Global Derivatives & Notional Contracts</div>
+            <div class="pillar-scale font-mono text-cyan">$630 Trillion USD</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> BIS Basel, ISDA, CME Group, ICE, DTCC</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Macro volatility hedging, rate swaps, liquidity clearance.</div>
+        </div>
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Global Real Estate & Physical Property</div>
+            <div class="pillar-scale font-mono text-cyan">$380 Trillion USD</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> Brookfield, Blackstone, Prologis, Sovereign Property Trusts</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Logistics hub leases, industrial SEZ bonded warehousing, real asset collateralization.</div>
+        </div>
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Global Bond & Debt Capital Markets (DCM)</div>
+            <div class="pillar-scale font-mono text-cyan">$135 Trillion USD</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> US Treasury, Euroclear, J.P. Morgan DCM, RBI, PIMCO</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Yield curve carry trades, sovereign debt rollover, corporate commercial paper.</div>
+        </div>
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Global Public Listed Equities</div>
+            <div class="pillar-scale font-mono text-cyan">$115 Trillion USD</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> NYSE, Nasdaq, Shanghai Stock Exchange, Euronext, NSE India ($5T+)</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Enterprise equity compounding, public multiples (P/E, EV/EBITDA), IPO liquidity events.</div>
+        </div>
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Global Asset Management (AUM Pools)</div>
+            <div class="pillar-scale font-mono text-cyan">$140 Trillion USD</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> BlackRock ($10.5T), Vanguard ($9T), State Street ($4T), Fidelity ($4.5T)</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Institutional asset custody, index inclusion rebalancing, fee extraction.</div>
+        </div>
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Cross-Border International Trade & EXIM Flows</div>
+            <div class="pillar-scale font-mono text-cyan">$32 Trillion USD / Year</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> WTO, SWIFT, Maersk, MSC, CBIC India, US Customs (CBP)</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Landed cost mitigation, Indo-ASEAN FTA tariff concessions, port demurrage optimization.</div>
+        </div>
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Sovereign Wealth Funds & FX Reserves</div>
+            <div class="pillar-scale font-mono text-cyan">$27 Trillion USD</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> Norway GPFG ($1.7T), China CIC ($1.3T), ADIA ($1T), PIF Saudi ($925B), RBI FX ($700B+)</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Bilateral sovereign infrastructure deals, gigawatt AI compute collocations, SMR nuclear financing.</div>
+        </div>
+        
+        <div class="pillar-card">
+            <div class="pillar-title">Global Private Equity & Venture Capital</div>
+            <div class="pillar-scale font-mono text-cyan">$13 Trillion USD</div>
+            <div class="pillar-sub text-muted"><strong>Institutions:</strong> Sequoia Capital, Andreessen Horowitz, SoftBank Vision Fund, KKR, Carlyle</div>
+            <div class="pillar-arb text-emerald"><strong>Arbitrage Vector:</strong> Founders' office advisory, 0-to-1 autonomous venture incubation, technical due diligence.</div>
+        </div>
+        
+    </div>
+
+    <!-- Section: Macro Money Flows -->
+    <div class="section-header">
+        <div class="section-title">
+            SOVEREIGN LIQUIDITY CORRIDORS & VELOCITY FLOWS
+            <span class="badge">ANNUAL THROUGHPUT</span>
+        </div>
+    </div>
+    <div class="flows-grid">
+        
+        <div class="flow-card">
+            <div class="flow-corridor font-bold">US Dollar Reserve & SWIFT Network ➔ Asia Manufacturing & India GCC Hubs</div>
+            <div class="flow-velocity font-mono text-amber">3200000000000.0 / yr</div>
+            <div class="flow-asset text-purple font-mono text-sm">Trade Invoicing & IT Services</div>
+            <div class="flow-role text-muted text-xs mt-2">Incoterms Landed Cost & Python Automated Reconciliation</div>
+        </div>
+        
+        <div class="flow-card">
+            <div class="flow-corridor font-bold">Middle East Sovereign Capital (PIF/ADIA) ➔ Global Tech & Indian Infrastructure</div>
+            <div class="flow-velocity font-mono text-amber">450000000000.0 / yr</div>
+            <div class="flow-asset text-purple font-mono text-sm">Direct Infrastructure & Compute Hubs</div>
+            <div class="flow-role text-muted text-xs mt-2">Autonomous Operations & Strategic Deal Due Diligence</div>
+        </div>
+        
+        <div class="flow-card">
+            <div class="flow-corridor font-bold">Institutional Asset Managers (BlackRock/Vanguard) ➔ Global Listed Equities & Corporate Bonds</div>
+            <div class="flow-velocity font-mono text-amber">8500000000000.0 / yr</div>
+            <div class="flow-asset text-purple font-mono text-sm">Public Debt & Equity Capital</div>
+            <div class="flow-role text-muted text-xs mt-2">Algorithmic Market Intelligence & Systems Architecture</div>
+        </div>
+        
+        <div class="flow-card">
+            <div class="flow-corridor font-bold">Cross-Border Indo-ASEAN Trade Corridor ➔ Indian Ports & Inland Container Depots (BLR)</div>
+            <div class="flow-velocity font-mono text-amber">125000000000.0 / yr</div>
+            <div class="flow-asset text-purple font-mono text-sm">Physical Electronics & Hardware Logistics</div>
+            <div class="flow-role text-muted text-xs mt-2">Customs Tariff Harmonization & 14-18% Duty Concessions</div>
+        </div>
+        
+    </div>
+
+    <!-- Section: Family Offices -->
+    <div class="section-header">
+        <div class="section-title">
+            INDEXED BILLIONAIRE FAMILY OFFICES & PROMOTERS (SAMPLE)
+            <span class="badge">140 TOTAL FAMILY OFFICES</span>
+        </div>
+    </div>
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Promoter / Principal</th>
+                    <th>Family Office Entity</th>
+                    <th>Net Worth Scale</th>
+                    <th>Headquarters Location</th>
+                    <th>Strategic Role</th>
+                    <th>Target Compensation</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td class="font-bold text-main">Azim Premji & Rishad Premji</td>
+            <td><span class="role-tag">PremjiInvest (India's Largest Family Office - $10B+ AUM)</span></td>
+            <td class="font-mono text-cyan font-bold">$25 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (Sarjapur / Richmond Road)</td>
+            <td class="text-amber font-bold text-sm">Family Office Operations & Investment Associate</td>
+            <td class="font-mono text-emerald">₹14.0L - ₹20.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">N.R. Narayana Murthy & Sudha Murty</td>
+            <td><span class="role-tag">Catamaran Ventures (Private Family Investment Firm)</span></td>
+            <td class="font-mono text-cyan font-bold">$5 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (Jayanagar / Electronic City)</td>
+            <td class="text-amber font-bold text-sm">Founder's Office / Venture Operations Analyst</td>
+            <td class="font-mono text-emerald">₹12.0L - ₹18.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Nandan Nilekani</td>
+            <td><span class="role-tag">Fundamentum Partnership (Scale-up Growth Fund)</span></td>
+            <td class="font-mono text-cyan font-bold">$4 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (Koramangala 3rd Block)</td>
+            <td class="text-amber font-bold text-sm">Strategic Operations & Portfolio Associate</td>
+            <td class="font-mono text-emerald">₹12.0L - ₹18.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Nithin Kamath & Nikhil Kamath</td>
+            <td><span class="role-tag">Rainmatter Capital & Gruhas Proptech / Consumer Fund</span></td>
+            <td class="font-mono text-cyan font-bold">$4.5 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (JP Nagar 4th Phase & Indiranagar)</td>
+            <td class="text-amber font-bold text-sm">Founder's Office / Rainmatter Operations Associate</td>
+            <td class="font-mono text-emerald">₹12.0L - ₹18.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Kiran Mazumdar-Shaw</td>
+            <td><span class="role-tag">Biocon Executive Chairman's Office</span></td>
+            <td class="font-mono text-cyan font-bold">$3.2 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (Hosur Road, Electronic City)</td>
+            <td class="text-amber font-bold text-sm">Executive Operations & SCM Governance Associate</td>
+            <td class="font-mono text-emerald">₹10.0L - ₹15.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Sachin Bansal</td>
+            <td><span class="role-tag">Navi Technologies Founder's Office</span></td>
+            <td class="font-mono text-cyan font-bold">$1.5 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (Koramangala 3rd Block)</td>
+            <td class="text-amber font-bold text-sm">Founder's Office - Operations & Credit Risk Associate</td>
+            <td class="font-mono text-emerald">₹12.0L - ₹16.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Binny Bansal</td>
+            <td><span class="role-tag">Three State Ventures (Private Investment Office)</span></td>
+            <td class="font-mono text-cyan font-bold">$1.4 Billion</td>
+            <td class="text-muted text-sm">Bengaluru / Singapore (Koramangala)</td>
+            <td class="text-amber font-bold text-sm">Family Office Operations Analyst</td>
+            <td class="font-mono text-emerald">₹12.0L - ₹16.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Kunal Shah</td>
+            <td><span class="role-tag">CRED Founder's Office / Strategic Brand Operations</span></td>
+            <td class="font-mono text-cyan font-bold">$800M+ (Unicorn Promoters)</td>
+            <td class="text-muted text-sm">Bengaluru (100 Feet Road, Indiranagar)</td>
+            <td class="text-amber font-bold text-sm">Founder's Office Associate - Brand & Commerce Ops</td>
+            <td class="font-mono text-emerald">₹12.0L - ₹18.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Bhavish Aggarwal</td>
+            <td><span class="role-tag">Ola Electric Founder's Office & Gigafactory Ops</span></td>
+            <td class="font-mono text-cyan font-bold">$1.8 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (Koramangala & Electronic City)</td>
+            <td class="text-amber font-bold text-sm">Founder's Office - Manufacturing & SCM Lead</td>
+            <td class="font-mono text-emerald">₹11.0L - ₹16.0L</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Sriharsha Majety</td>
+            <td><span class="role-tag">Swiggy CEO's Office / Instamart Leadership</span></td>
+            <td class="font-mono text-cyan font-bold">$1.5 Billion</td>
+            <td class="text-muted text-sm">Bengaluru (Embassy TechVillage, Bellandur)</td>
+            <td class="text-amber font-bold text-sm">Chief of Staff Associate - Instamart & Dark Stores</td>
+            <td class="font-mono text-emerald">₹10.0L - ₹15.0L</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

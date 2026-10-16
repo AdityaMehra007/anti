@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  aios-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aios_gateway
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    environment:
+      - AIOS_PORT=8090
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    volumes:
+      - aios-data:/app/data
+      - ./dashboards:/app/dashboards:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request, sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8090/health').status == 200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  aios-dashboard:
+    image: python:3.12-slim
+    container_name: aios_dashboard
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    working_dir: /dashboards
+    volumes:
+      - ./dashboards:/dashboards:ro
+    command: ["python", "-m", "http.server", "3000"]
+    depends_on:
+      - aios-gateway
+
+  aios-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aios_scheduler
+    restart: unless-stopped
+    command: ["python", "automation/scheduler.py", "--interval", "60"]
+    volumes:
+      - aios-data:/app/data
+    depends_on:
+      - aios-gateway
+
+volumes:
+  aios-data:
+    driver: local

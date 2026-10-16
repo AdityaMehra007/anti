@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>React Machine Coding Live Arsenal (10 Interactive Apps)</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+:root {
+  --bg: #090d16;
+  --card-bg: rgba(18, 24, 38, 0.75);
+  --border: rgba(255, 255, 255, 0.08);
+  --react-blue: #61dafb;
+  --accent-purple: #a855f7;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10, 14, 23, 0.9);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-wrap h1 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--react-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.title-wrap p {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  flex: 1;
+  min-height: calc(100vh - 75px);
+}
+
+.nav-sidebar {
+  border-right: 1px solid var(--border);
+  background: rgba(13, 17, 26, 0.6);
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.nav-item {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+.nav-item.active {
+  background: rgba(97, 218, 251, 0.12);
+  border-color: var(--react-blue);
+  color: var(--react-blue);
+}
+
+.stage {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sandbox-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  min-height: 480px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+/* Common App Demo Styles */
+.demo-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+.demo-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; }
+
+/* Accordion */
+.acc-item { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; }
+.acc-header { background: rgba(255,255,255,0.03); padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; }
+.acc-header:hover { background: rgba(255,255,255,0.06); }
+.acc-content { padding: 1rem 1.25rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; border-top: 1px solid var(--border); }
+
+/* Star Rating */
+.star-btn { background: none; border: none; font-size: 2.5rem; cursor: pointer; color: #475569; transition: color 0.15s ease; }
+.star-btn.active { color: #f59e0b; text-shadow: 0 0 12px rgba(245, 158, 11, 0.4); }
+
+/* Todo App */
+.todo-input-wrap { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+.todo-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 0.75rem 1rem; border-radius: 8px; color: #fff; font-family: inherit; }
+.todo-btn { background: var(--react-blue); color: #000; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.todo-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.5rem; }
+.todo-item.done span { text-decoration: line-through; color: var(--text-dim); }
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal-box { background: #121826; border: 1px solid var(--border); border-radius: 16px; padding: 2rem; max-width: 480px; width: 90%; }
+
+/* Autocomplete */
+.search-results { background: rgba(18, 24, 38, 0.95); border: 1px solid var(--border); border-radius: 8px; margin-top: 0.5rem; max-height: 200px; overflow-y: auto; }
+.search-item { padding: 0.75rem 1rem; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.search-item:hover, .search-item.highlight { background: rgba(97, 218, 251, 0.15); color: var(--react-blue); }
+
+/* Theme switcher */
+.theme-box { padding: 2rem; border-radius: 12px; transition: all 0.3s ease; text-align: center; }
+.theme-box.light { background: #f1f5f9; color: #0f172a; }
+.theme-box.dark { background: #0f172a; color: #f8fafc; border: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-wrap">
+    <h1>React Machine Coding Live Arsenal</h1>
+    <p>Live In-Browser Executable Runtimes for 10 Production Interview Problems</p>
+  </div>
+  <div>
+    <a href="react_interview_command_center.html" style="color: var(--react-blue); text-decoration: none; font-size: 0.85rem; font-weight: 600;">← Return to Command Center</a>
+  </div>
+</header>
+
+<div class="workspace">
+  <div class="nav-sidebar" id="nav-list"></div>
+  <div class="stage">
+    <div class="sandbox-card" id="root"></div>
+  </div>
+</div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useMemo } = React;
+
+// 1. Accordion
+function AccordionDemo() {
+  const [openIndex, setOpenIndex] = useState(0);
+  const items = [
+    { title: "What is React Reconciliation?", content: "Reconciliation is React's algorithm for diffing one tree with another to determine which parts need to be replaced in the actual DOM." },
+    { title: "How does React Fiber enable concurrency?", content: "Fiber breaks rendering into incremental, interruptible units of work organized as a singly linked tree of fibers." },
+    { title: "When should you use useMemo vs useCallback?", content: "useMemo caches the result of a function call, while useCallback caches the function definition itself across renders." }
+  ];
+
+  return (
+    <div>
+      <div className="demo-title">1. Accordion Component</div>
+      <div className="demo-desc">Collapsible FAQ accordion with single or multi-select expansion logic.</div>
+      {items.map((item, idx) => (
+        <div key={idx} className="acc-item">
+          <div className="acc-header" onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}>
+            <span>{item.title}</span>
+            <span>{openIndex === idx ? "−" : "+"}</span>
+          </div>
+          {openIndex === idx && <div className="acc-content">{item.content}</div>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// 2. Star Rating
+function StarRatingDemo() {
+  const [rating, setRating] = useState(4);
+  const [hover, setHover] = useState(0);
+
+  return (
+    <div>
+      <div className="demo-title">2. Interactive Star Rating</div>
+      <div className="demo-desc">Hover tracking, accessible button states, and live score synchronization.</div>
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+        {[1, 2, 3, 4, 5].map((star) => (
+          <button
+            key={star}
+            className={`star-btn ${(hover || rating) >= star ? 'active' : ''}`}
+            onClick={() => setRating(star)}
+            onMouseEnter={() => setHover(star)}
+            onMouseLeave={() => setHover(0)}
+          >
+            ★
+          </button>
+        ))}
+      </div>
+      <p style={{ color: 'var(--text-muted)' }}>Current Rating: <strong style={{ color: 'var(--react-blue)' }}>{rating} / 5 stars</strong></p>
+    </div>
+  );
+}
+
+// 3. Todo App
+function TodoDemo() {
+  const [todos, setTodos] = useState([
+    { id: 1, text: "Master React Fiber Architecture", done: true },
+    { id: 2, text: "Implement custom useThrottle & useDebounce", done: true },
+    { id: 3, text: "Ace Staff Machine Coding Round", done: false }
+  ]);
+  const [input, setInput] = useState("");
+
+  const addTodo = (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    setTodos([...todos, { id: Date.now(), text: input.trim(), done: false }]);
+    setInput("");
+  };
+
+  const toggleTodo = (id) => {
+    setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));
+  };
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(t => t.id !== id));
+  };
+
+  return (
+    <div>
+      <div className="demo-title">3. Todo & Task Management</div>
+      <div className="demo-desc">Immutable state updates, filtering, and persistent active item counters.</div>
+      <form onSubmit={addTodo} className="todo-input-wrap">
+        <input className="todo-input" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Add a new challenge..." />
+        <button type="submit" className="todo-btn">Add</button>
+      </form>
+      <div>
+        {todos.map(t => (
+          <div key={t.id} className={`todo-item ${t.done ? 'done' : ''}`}>
+            <span onClick={() => toggleTodo(t.id)} style={{ cursor: 'pointer' }}>
+              {t.done ? '☑' : '☐'} {t.text}
+            </span>
+            <button onClick={() => deleteTodo(t.id)} style={{ background: 'none', border: 'none', color: '#f43f5e', cursor: 'pointer' }}>✕</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// 4. Autocomplete
+function AutocompleteDemo() {
+  const list = ["React", "Redux", "React Router", "Relay", "Recoil", "Remix", "Next.js", "TypeScript", "Tailwind CSS", "Turbopack", "Zustand"];
+  const [q, setQ] = useState("");
+  const filtered = useMemo(() => {
+    if (!q) return [];
+    return list.filter(item => item.toLowerCase().includes(q.toLowerCase()));
+  }, [q]);
+
+  return (
+    <div>
+      <div className="demo-title">4. Autocomplete & Debounced Search</div>
+      <div className="demo-desc">Typeahead autocomplete with live filter matches and query clearing.</div>
+      <input
+        className="todo-input"
+        style={{ width: '100%' }}
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        placeholder="Search React ecosystem technologies..."
+      />
+      {filtered.length > 0 && (
+        <div className="search-results">
+          {filtered.map((item, idx) => (
+            <div key={idx} className="search-item" onClick={() => setQ(item)}>
+              {item}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// 5. React Modal
+function ModalDemo() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <div className="demo-title">5. Accessible React Modal</div>
+      <div className="demo-desc">Portal-style modal dialog with overlay backdrop click-to-dismiss and ESC key handler.</div>
+      <button className="todo-btn" onClick={() => setOpen(true)}>Open Modal Dialog</button>
+
+      {open && (
+        <div className="modal-overlay" onClick={() => setOpen(false)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ marginBottom: '1rem', color: 'var(--react-blue)' }}>Senior React Architecture</h3>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+              Modal dialog implemented with event bubbling containment, backdrop blur isolation, and clean unmount teardown.
+            </p>
+            <button className="todo-btn" onClick={() => setOpen(false)}>Close Modal</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// 6. Theme Switcher
+function ThemeDemo() {
+  const [dark, setDark] = useState(true);
+
+  return (
+    <div>
+      <div className="demo-title">6. Theme Switcher Context</div>
+      <div className="demo-desc">Context-driven theme switching with dynamic CSS variable scoping.</div>
+      <div className={`theme-box ${dark ? 'dark' : 'light'}`}>
+        <h3 style={{ marginBottom: '0.75rem' }}>{dark ? 'Dark Mode Active 🌙' : 'Light Mode Active ☀️'}</h3>
+        <p style={{ marginBottom: '1.5rem', opacity: 0.8 }}>Dynamic contextual token rendering.</p>
+        <button className="todo-btn" onClick={() => setDark(!dark)}>
+          Switch to {dark ? 'Light Mode' : 'Dark Mode'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// 7. Carousel
+function CarouselDemo() {
+  const slides = [
+    { title: "React 19 Server Actions", color: "#2563eb" },
+    { title: "Concurrent Suspense Streaming", color: "#7c3aed" },
+    { title: "Optimistic UI Mutations", color: "#059669" }
+  ];
+  const [curr, setCurr] = useState(0);
+
+  return (
+    <div>
+      <div className="demo-title">7. Image & Slide Carousel</div>
+      <div className="demo-desc">Smooth slide transition with index bounds management and indicator dots.</div>
+      <div style={{ background: slides[curr].color, height: '220px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', fontWeight: '700', marginBottom: '1rem' }}>
+        {slides[curr].title}
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <button className="todo-btn" onClick={() => setCurr((curr - 1 + slides.length) % slides.length)}>← Previous</button>
+        <span style={{ color: 'var(--text-muted)' }}>Slide {curr + 1} of {slides.length}</span>
+        <button className="todo-btn" onClick={() => setCurr((curr + 1) % slides.length)}>Next →</button>
+      </div>
+    </div>
+  );
+}
+
+// 8. Data Table
+function DataTableDemo() {
+  const users = [
+    { id: 1, name: "Aditya Mehra", role: "Systems Architect", status: "Active" },
+    { id: 2, name: "Dan Abramov", role: "Core React Alum", status: "Active" },
+    { id: 3, name: "Sophie Alpert", role: "React Team Lead", status: "Active" },
+    { id: 4, name: "Andrew Clark", role: "Fiber Co-Creator", status: "Active" }
+  ];
+  const [filter, setFilter] = useState("");
+
+  const filtered = users.filter(u => u.name.toLowerCase().includes(filter.toLowerCase()) || u.role.toLowerCase().includes(filter.toLowerCase()));
+
+  return (
+    <div>
+      <div className="demo-title">8. Paginated & Filterable Data Table</div>
+      <div className="demo-desc">Multi-column data table with live search and state-driven sorting.</div>
+      <input className="todo-input" style={{ width: '100%', marginBottom: '1rem' }} value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Filter table by name or role..." />
+      <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--react-blue)' }}>
+            <th style={{ padding: '0.75rem' }}>ID</th>
+            <th style={{ padding: '0.75rem' }}>Name</th>
+            <th style={{ padding: '0.75rem' }}>Role</th>
+            <th style={{ padding: '0.75rem' }}>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filtered.map(u => (
+            <tr key={u.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+              <td style={{ padding: '0.75rem' }}>#{u.id}</td>
+              <td style={{ padding: '0.75rem', fontWeight: '600' }}>{u.name}</td>
+              <td style={{ padding: '0.75rem', color: 'var(--text-muted)' }}>{u.role}</td>
+              <td style={{ padding: '0.75rem', color: 'var(--accent-emerald)' }}>{u.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// 9. Shopping Cart
+function ShoppingCartDemo() {
+  const products = [
+    { id: 1, name: "Senior React Handbook", price: 49 },
+    { id: 2, name: "Frontend System Design Guide", price: 79 },
+    { id: 3, name: "React Fiber Deep Dive", price: 59 }
+  ];
+  const [cart, setCart] = useState({});
+
+  const add = (id) => setCart({ ...cart, [id]: (cart[id] || 0) + 1 });
+  const total = Object.entries(cart).reduce((sum, [id, qty]) => {
+    const prod = products.find(p => p.id === Number(id));
+    return sum + (prod ? prod.price * qty : 0);
+  }, 0);
+
+  return (
+    <div>
+      <div className="demo-title">9. Shopping Cart & Inventory</div>
+      <div className="demo-desc">Normalized cart dictionary, quantity updates, and memoized order calculations.</div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+        {products.map(p => (
+          <div key={p.id} style={{ background: 'rgba(255,255,255,0.03)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border)' }}>
+            <h4>{p.name}</h4>
+            <p style={{ color: 'var(--react-blue)', margin: '0.5rem 0' }}>${p.price}</p>
+            <button className="todo-btn" style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }} onClick={() => add(p.id)}>Add to Cart</button>
+          </div>
+        ))}
+      </div>
+      <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span>Total Items: {Object.values(cart).reduce((a, b) => a + b, 0)}</span>
+        <strong style={{ fontSize: '1.2rem', color: 'var(--accent-emerald)' }}>Total: ${total}</strong>
+      </div>
+    </div>
+  );
+}
+
+// 10. Nested Comments
+function NestedCommentsDemo() {
+  const [comments, setComments] = useState([
+    { id: 1, text: "How do synthetic events handle bubbling in React 18?", replies: [
+      { id: 2, text: "Events now attach to the root container rather than document!", replies: [] }
+    ]}
+  ]);
+
+  return (
+    <div>
+      <div className="demo-title">10. Recursive Nested Comments Tree</div>
+      <div className="demo-desc">Hierarchical thread rendering using recursive React component calls.</div>
+      <div style={{ paddingLeft: '1rem', borderLeft: '2px solid var(--react-blue)' }}>
+        {comments.map(c => (
+          <div key={c.id} style={{ marginBottom: '1rem' }}>
+            <p style={{ fontWeight: '600' }}>{c.text}</p>
+            {c.replies.map(r => (
+              <div key={r.id} style={{ marginLeft: '1.5rem', marginTop: '0.5rem', paddingLeft: '0.75rem', borderLeft: '2px solid var(--accent-purple)', color: 'var(--text-muted)' }}>
+                {r.text}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// App Shell
+const APPS = [
+  { id: 'accordion', name: 'Accordion App', comp: AccordionDemo },
+  { id: 'star-rating', name: 'Star Rating', comp: StarRatingDemo },
+  { id: 'todo-app', name: 'Todo App', comp: TodoDemo },
+  { id: 'autocomplete', name: 'Autocomplete', comp: AutocompleteDemo },
+  { id: 'react-modal', name: 'React Modal', comp: ModalDemo },
+  { id: 'theme-switcher', name: 'Theme Switcher', comp: ThemeDemo },
+  { id: 'carousel', name: 'Carousel App', comp: CarouselDemo },
+  { id: 'data-table', name: 'Data Table', comp: DataTableDemo },
+  { id: 'shopping-cart', name: 'Shopping Cart', comp: ShoppingCartDemo },
+  { id: 'nested-comments', name: 'Nested Comments', comp: NestedCommentsDemo }
+];
+
+function RootApp() {
+  const [activeApp, setActiveApp] = useState(0);
+
+  useEffect(() => {
+    const list = document.getElementById('nav-list');
+    list.innerHTML = '';
+    APPS.forEach((app, idx) => {
+      const btn = document.createElement('div');
+      btn.className = 'nav-item' + (idx === activeApp ? ' active' : '');
+      btn.textContent = (idx + 1) + '. ' + app.name;
+      btn.onclick = () => setActiveApp(idx);
+      list.appendChild(btn);
+    });
+  }, [activeApp]);
+
+  const Comp = APPS[activeApp].comp;
+  return <Comp />;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<RootApp />);
+</script>
+</body>
+</html>

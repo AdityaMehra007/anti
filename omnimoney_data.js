@@ -419,7 +419,7 @@ window.OMNIMONEY_DATA = {
         "status": "NEW",
         "notes": "Currently running 4 active Meta ads for HydraFacial & Acne treatments. Response time to inquiry tested at 4.5 hours.",
         "deal_value_inr": 20000.0,
-        "last_activity": "2026-09-28"
+        "last_activity": "2026-10-14"
       },
       {
         "id": "LEAD-002",
@@ -433,7 +433,7 @@ window.OMNIMONEY_DATA = {
         "status": "AUDIT_SENT",
         "notes": "Sent 60-second Loom showing instant free trial WhatsApp booking bot. WhatsApp opened.",
         "deal_value_inr": 15000.0,
-        "last_activity": "2026-09-28"
+        "last_activity": "2026-10-14"
       },
       {
         "id": "LEAD-003",
@@ -447,7 +447,7 @@ window.OMNIMONEY_DATA = {
         "status": "CONTACTED",
         "notes": "Follow-up scheduled regarding filtering pre-launch villa leads in Hope Farm area.",
         "deal_value_inr": 25000.0,
-        "last_activity": "2026-09-28"
+        "last_activity": "2026-10-14"
       },
       {
         "id": "LEAD-004",
@@ -461,7 +461,7 @@ window.OMNIMONEY_DATA = {
         "status": "NEW",
         "notes": "Exporting high-precision automotive components to EU. Target trade buyer dossier prepared for German distributor network.",
         "deal_value_inr": 25000.0,
-        "last_activity": "2026-09-28"
+        "last_activity": "2026-10-14"
       },
       {
         "id": "LEAD-005",
@@ -475,7 +475,7 @@ window.OMNIMONEY_DATA = {
         "status": "CALL_SCHEDULED",
         "notes": "Demo call confirmed for tomorrow 4:30 PM to review automated Invisalign appointment setter.",
         "deal_value_inr": 20000.0,
-        "last_activity": "2026-09-28"
+        "last_activity": "2026-10-14"
       }
     ]
   }

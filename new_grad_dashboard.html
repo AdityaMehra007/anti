@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Grad 2026 Positions — Autonomous Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #111827;
+      --border: #1f2937;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.2);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --tag-bg: #1e293b;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 30px;
+      line-height: 1.5;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .brand h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .stats-bar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .stat-pill span {
+      font-weight: 700;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #374151;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .company-name {
+      color: #60a5fa;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .category-badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      background: #1e293b;
+      color: #94a3b8;
+      border: 1px solid #334155;
+    }
+    .card-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 12px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-meta div {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .apply-btn {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .apply-btn:hover {
+      background: #2563eb;
+    }
+    .sponsor-tag {
+      font-size: 11px;
+      color: #10b981;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>New Grad 2026 Positions</h1>
+      <p>SimplifyJobs Autonomous Data Nexus • 3,132 Active Roles Indexed</p>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-pill">Active Roles: <span id="total-count">3,132</span></div>
+      <div class="stat-pill">Categories: <span>7 Tracks</span></div>
+      <div class="stat-pill">Updated: <span id="update-date">October 2026</span></div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search by company, title, or location (e.g., Stripe, NYC, AI)...">
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="Software">Software</button>
+      <button class="filter-btn" data-cat="AI/ML/Data">AI / Data</button>
+      <button class="filter-btn" data-cat="Hardware">Hardware</button>
+      <button class="filter-btn" data-cat="Quant">Quant</button>
+      <button class="filter-btn" data-cat="Product">Product</button>
+    </div>
+  </div>
+
+  <div class="listings-grid" id="listingsContainer"></div>
+
+  <script>
+    let allListings = [];
+    let currentFilter = 'all';
+
+    async function loadData() {
+      try {
+        const res = await fetch('data/new_grad_active.json');
+        allListings = await res.json();
+        document.getElementById('total-count').textContent = allListings.length.toLocaleString();
+        render();
+      } catch (err) {
+        console.error('Failed to load JSON:', err);
+      }
+    }
+
+    function render() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const container = document.getElementById('listingsContainer');
+      container.innerHTML = '';
+
+      const filtered = allListings.filter(item => {
+        const matchCat = currentFilter === 'all' || item.category === currentFilter;
+        const locStr = Array.isArray(item.locations) ? item.locations.join(' ') : (item.locations || '');
+        const matchQuery = !q || 
+          item.company_name.toLowerCase().includes(q) || 
+          item.title.toLowerCase().includes(q) || 
+          locStr.toLowerCase().includes(q);
+        return matchCat && matchQuery;
+      });
+
+      filtered.slice(0, 100).forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const locs = Array.isArray(item.locations) ? item.locations.join(', ') : item.locations;
+        const sponsor = item.sponsorship ? `<span class="sponsor-tag">${item.sponsorship}</span>` : '<span></span>';
+        card.innerHTML = `
+          <div>
+            <div class="card-head">
+              <div>
+                <div class="card-title">${item.title}</div>
+                <div class="company-name">${item.company_name}</div>
+              </div>
+              <span class="category-badge">${item.category || 'Software'}</span>
+            </div>
+            <div class="card-meta">
+              <div>📍 ${locs || 'Various Locations'}</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            ${sponsor}
+            <a href="${item.url}" target="_blank" class="apply-btn">Apply Now ↗</a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', render);
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.cat;
+        render();
+      });
+    });
+
+    loadData();
+  </script>
+</body>
+</html>

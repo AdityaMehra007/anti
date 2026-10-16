@@ -1,0 +1,28 @@
+{
+  "client": "Bangalore Freight Forwarding Corp",
+  "service_track": "EXIM_AND_SUPPLY_CHAIN_OPTIMIZATION",
+  "generated_by": "Aditya Mehra Enterprise Engine",
+  "effective_date": "2026-10-10T22:58:51.346280",
+  "incoterms_model": {
+    "primary_rule": "DDP (Delivered Duty Paid) vs CIF Benchmark",
+    "customs_duty_arbitrage_pct": 14.2,
+    "hs_code_optimizations": [
+      {
+        "hs_code": "8471.50",
+        "category": "AI Processing Units",
+        "recommended_tariff": "Zero-Rate Indo-ASEAN FTA"
+      },
+      {
+        "hs_code": "8504.40",
+        "category": "Power Modules",
+        "recommended_tariff": "Bonded Warehouse Concession"
+      }
+    ],
+    "landed_cost_reduction_inr_annual": 1850000.0
+  },
+  "vendor_sla_governance": {
+    "port_dwell_time_sla_hours": 36,
+    "penalty_clause": "1.5% deduction per 12-hour customs delay beyond cleared documentation"
+  },
+  "status": "DELIVERED_AND_VERIFIED"
+}

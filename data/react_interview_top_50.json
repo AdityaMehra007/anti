@@ -1,0 +1,452 @@
+[
+  {
+    "id": 0,
+    "title": "What is Concurrent Rendering? (Legacy)",
+    "category": "React 18 / 19 & Server Components",
+    "difficulty": "Senior / Staff",
+    "has_code": true,
+    "answer_markdown": "The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, When you enabled concurrent Mode, React will keep an eye on other tasks that need to be done, and if there's something with a higher priority it will pause what it is currently rendering and let the other task finish first. You can enable this in two ways,\n\n   ```javascript\n   // 1. Part of an app by wrapping with ConcurrentMode\n   <React.unstable_ConcurrentMode>\n     <Something />\n   </React.unstable_ConcurrentMode>;\n\n   // 2. Whole app using createRoot\n   ReactDOM.unstable_createRoot(domNode).render(<App />);\n   ```",
+    "answer_preview": "The Concurrent rendering makes React apps to be more responsive by rendering component trees without blocking the main UI thread. It allows React to interrupt a long-running render to handle a high-priority event. i.e, W..."
+  },
+  {
+    "id": 19,
+    "title": "What is React Fiber?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "**React Fiber** is the **new reconciliation engine** in React, introduced in React 16. It\u2019s a complete rewrite of React\u2019s core algorithm(old stack-based algorithm) for rendering and updating the UI. Fiber enhances React\u2019s ability to handle **asynchronous rendering**, **prioritized updates**(assign priority to different types of updates), and **interruption**(ability to pause, abort, or reuse work) of rendering work, enabling smoother and more responsive user interfaces.",
+    "answer_preview": "**React Fiber** is the **new reconciliation engine** in React, introduced in React 16. It\u2019s a complete rewrite of React\u2019s core algorithm(old stack-based algorithm) for rendering and updating the UI. Fiber enhances React\u2019..."
+  },
+  {
+    "id": 20,
+    "title": "What is the main goal of React Fiber?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "The goal of _React Fiber_ is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is **incremental rendering**: the ability to split rendering work into chunks and spread it out over multiple frames.\n\n    Its main goals are:\n\n    *   **Incremental Rendering** \u2013 Breaks work into chunks for smoother updates.\n    *   **Interruptible Rendering** \u2013 Pauses and resumes rendering to keep the UI responsive.\n    *   **Prioritization** \u2013 Handles high-priority updates (e.g. animations) before low-priority ones.\n    *   **Concurrency Support** \u2013 Enables working on multiple UI versions simultaneously.\n    *   **Better Error Handling** \u2013 Supports component-level error boundaries.\n    *   **Suspense Support** \u2013 Allows waiting for async data before rendering.\n    *   **Improved DevTools** \u2013 Enables better debugging and performance tracking.",
+    "answer_preview": "The goal of _React Fiber_ is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is **incremental rendering**: the ability to split rendering work into chunks and spread it ou..."
+  },
+  {
+    "id": 28,
+    "title": "What is reconciliation?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "`Reconciliation` is the process through which React updates the Browser DOM and makes React work faster. React use a `diffing algorithm` so that component updates are predictable and faster. React would first calculate the difference between the `real DOM` and the copy of DOM `(Virtual DOM)` when there's an update of components.\n    React stores a copy of Browser DOM which is called `Virtual DOM`. When we make changes or add data, React creates a new Virtual DOM and compares it with the previous one. This comparison is done by `Diffing Algorithm`.\n    Now React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called _Reconciliation_.",
+    "answer_preview": "`Reconciliation` is the process through which React updates the Browser DOM and makes React work faster. React use a `diffing algorithm` so that component updates are predictable and faster. React would first calculate t..."
+  },
+  {
+    "id": 132,
+    "title": "How to add multiple middlewares to Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Senior / Staff",
+    "has_code": true,
+    "answer_markdown": "You can use `applyMiddleware()`.\n\n     For example, you can add `redux-thunk` and `logger` passing them as arguments to `applyMiddleware()`:\n\n     ```javascript\n     import { createStore, applyMiddleware } from \"redux\";\n     const createStoreWithMiddleware = applyMiddleware(\n       ReduxThunk,\n       logger\n     )(createStore);\n     ```",
+    "answer_preview": "You can use `applyMiddleware()`.       For example, you can add `redux-thunk` and `logger` passing them as arguments to `applyMiddleware()`:       ```javascript      import { createStore, applyMiddleware } from \"redux\";..."
+  },
+  {
+    "id": 224,
+    "title": "What are typical middleware choices for handling asynchronous calls in Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "Some of the popular middleware choices for handling asynchronous calls in Redux eco system are `Redux Thunk, Redux Promise, Redux Saga`.",
+    "answer_preview": "Some of the popular middleware choices for handling asynchronous calls in Redux eco system are `Redux Thunk, Redux Promise, Redux Saga`...."
+  },
+  {
+    "id": 230,
+    "title": "Explain concurrent rendering with an example",
+    "category": "React 18 / 19 & Server Components",
+    "difficulty": "Senior / Staff",
+    "has_code": true,
+    "answer_markdown": "Concurrent rendering in React 18 lets React prepare UI updates in a non-blocking way. This means React can pause low-priority rendering work, handle urgent updates first (like typing or clicking), and then continue rendering.\n\n     #### Example: Search input stays responsive while filtering a large list\n\n     ```jsx\n     import { useMemo, useState, useTransition } from \"react\";\n\n     const items = Array.from({ length: 10000 }, (_, i) => `Item ${i + 1}`);\n\n     export default function SearchList() {\n       const [query, setQuery] = useState(\"\");\n       const [filter, setFilter] = useState(\"\");\n       const [isPending, startTransition] = useTransition();\n\n       function handleChange(e) {\n         const value = e.target.value;\n         setQuery(value); // urgent: keep input in sync\n\n         // non-urgent: expensive list filtering can be interrupted\n         startTransition(() => {\n           setFilter(value);\n         });\n       }\n\n       const filteredItems = useMemo(\n         () => items.filter((item) => item.toLowerCase().includes(filter.toLowerCase())),\n         [filter]\n       );\n\n       return (\n         <div>\n           <input value={query} onChange={handleChange} placeholder=\"Type to filter\" />\n           {isPending && <p>Updating results...</p>}\n           <ul>\n             {filteredItems.slice(0, 200).map((item) => (\n               <li key={item}>{item}</li>\n             ))}\n           </ul>\n         </div>\n       );\n     }\n     ```\n\n     In this example, typing remains smooth because React prioritizes updating the input first, while list filtering is treated as interruptible background work.",
+    "answer_preview": "Concurrent rendering in React 18 lets React prepare UI updates in a non-blocking way. This means React can pause low-priority rendering work, handle urgent updates first (like typing or clicking), and then continue rende..."
+  },
+  {
+    "id": 231,
+    "title": "What is the difference between async mode and concurrent mode?",
+    "category": "React 18 / 19 & Server Components",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "Both refers the same thing. Previously concurrent Mode being referred to as \"Async Mode\" by React team. The name has been changed to highlight React\u2019s ability to perform work on different priority levels. So it avoids the confusion from other approaches to Async Rendering.",
+    "answer_preview": "Both refers the same thing. Previously concurrent Mode being referred to as \"Async Mode\" by React team. The name has been changed to highlight React\u2019s ability to perform work on different priority levels. So it avoids th..."
+  },
+  {
+    "id": 239,
+    "title": "What are React Server components?",
+    "category": "React 18 / 19 & Server Components",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend.\n\n     **Note:** React Server Components is still under development and not recommended for production yet.",
+    "answer_preview": "React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend.       **N..."
+  },
+  {
+    "id": 269,
+    "title": "When to use client and server components?",
+    "category": "React 18 / 19 & Server Components",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "You can efficiently build nextjs application if you are aware about which part of the application needs to use client components and which other parts needs to use server components. The common cases of both client and server components are listed below:\n\n        **Client components:**\n        1. Whenever your need to add interactivity and event listeners such as onClick(), onChange(), etc to the pages\n        2. If you need to use State and Lifecycle Effects like useState(), useReducer(), useEffect() etc.\n        3. If there is a requirement to use browser-only APIs.\n        4. If you need to implement custom hooks that depend on state, effects, or browser-only APIs.\n        5. There are React Class components in the pages.\n\n        **Server components:**\n        1. If the component logic is about data fetching.\n        2. If you need to access backend resources directly.\n        3. When you need to keep sensitive information((access tokens, API keys, etc)\t) on the server.\n        4. If you want reduce client-side JavaScript and placing large dependencies on the server.",
+    "answer_preview": "You can efficiently build nextjs application if you are aware about which part of the application needs to use client components and which other parts needs to use server components. The common cases of both client and s..."
+  },
+  {
+    "id": 278,
+    "title": "Can you explain how useState works internally?",
+    "category": "React Hooks",
+    "difficulty": "Senior / Staff",
+    "has_code": true,
+    "answer_markdown": "React\u2019s hooks, including `useState`, rely on some internal machinery that keeps track of state **per component** and **per hook call** during rendering. Here's a simplified explanation of the internal mechanics:\n\n      #### 1. **Hook List / Linked List**\n\n      *   React maintains a linked list or array of \"hook states\" for each component.\n      *   When a component renders, React keeps track of which hook it is currently processing via a cursor/index.\n      *   Each call to `useState()` corresponds to one \"slot\" in this list.\n\n      #### 2. **State Storage**\n\n      *   Each slot stores:\n        *   The current state value.\n        *   A queue of pending state updates.\n\n      #### 3. **Initial Render**\n        \n      *   When the component first renders, React:\n         *   Creates a new slot for `useState` with the initial state (e.g., `0`).\n         *   Returns `[state, updaterFunction]`.\n\n      #### 4. **Updater Function**\n    \n      *   The updater function (`setCount`) is a closure that, when called:\n        *   Enqueues a state update to React's internal queue.\n        *   Schedules a re-render of the component.\n    \n      #### 5. **Re-render and State Update**\n    \n      *   On the next render:\n        *   React processes all queued updates for each hook slot.\n        *   Updates the stored state value accordingly.\n        *   Returns the new state to the component.\n\n      #### 6. **Important: Hook Order**\n\n      *   Hooks must be called in the same order on every render so React can match hook calls to their internal slots.\n      *   That\u2019s why you can\u2019t call hooks conditionally.\n      \n      The pseudocode for internal implementation of `useState` looks like below,\n      ```js\n        let hookIndex = 0;\n        const hooks = [];\n        \n        function useState(initialValue) {\n            const currentIndex = hookIndex;\n        \n            if (!hooks[currentIndex]) {\n                // First render: initialize state\n                hooks[currentIndex] = {\n                    state: initialValue,\n                    queue: [],\n                };\n            }\n        \n            const hook = hooks[currentIndex];\n        \n            // Process queued updates\n            hook.queue.forEach(update => {\n                hook.state = update(hook.state);\n            });\n            hook.queue = [];\n        \n            // Define updater function\n            function setState(action) {\n                // action can be new state or function(state) => new state\n                hook.queue.push(typeof action === 'function' ? action : () => action);\n                scheduleRender(); // triggers React re-render\n            }\n        \n            hookIndex++;\n            return [hook.state, setState];\n        }\n        ```",
+    "answer_preview": "React\u2019s hooks, including `useState`, rely on some internal machinery that keeps track of state **per component** and **per hook call** during rendering. Here's a simplified explanation of the internal mechanics:        #..."
+  },
+  {
+    "id": 309,
+    "title": "How does React Fiber works? Explain in detail.",
+    "category": "React 18 / 19 & Server Components",
+    "difficulty": "Senior / Staff",
+    "has_code": false,
+    "answer_markdown": "React Fiber is the **core engine** that enables advanced features like **concurrent rendering**, **prioritization**, and **interruptibility** in React. Here's how it works:\n          \n      ### 1. **Fiber Tree Structure**\n          \n      Each component in your app is represented by a **Fiber node** in a tree structure. A Fiber node contains:\n      *   Component type\n      *   Props & state\n      *   Pointers to parent, child, and sibling nodes\n      *   Effect tags to track changes (e.g., update, placement)\n      *   This forms the **Fiber Tree**, a data structure React uses instead of the traditional call stack.\n          \n      ### 2. **Two Phases of Rendering**\n          \n        #### **A. Render Phase (work-in-progress)**\n          \n      *   React builds a **work-in-progress Fiber tree**.\n      *   It walks through each component (begin phase), calculates what needs to change, and collects side effects (complete phase).\n      *   This phase is **interruptible**\u2014React can pause it and resume later.\n        #### **B. Commit Phase**\n          \n      *   React applies changes to the **Real DOM**.\n      *   Runs lifecycle methods (e.g., `componentDidMount`, `useEffect`).\n      *   This phase is **non-interruptible** but fast.\n          \n        ### 3. **Work Units and Scheduling**\n          \n      *   React breaks rendering into **units of work** (small tasks).\n      *   These units are scheduled based on **priority** using the **React Scheduler**.\n      *   If time runs out (e.g., user starts typing), React can **pause and yield** control back to the browser.\n          \n        ### 4. **Double Buffering with Two Trees**\n          \n      *   React maintains two trees:\n      *   **Current Tree** \u2013 what's visible on the screen.\n      *   **Work-In-Progress Tree** \u2013 the next version being built in memory.\n      *   Only after the new tree is fully ready, React **commits** it, making it the new current tree.\n          \n        ### 5. **Concurrency and Prioritization**\n          \n      *   React can prepare multiple versions of UI at once (e.g., during slow data loading).\n      *   Updates can be **assigned priorities**, so urgent updates (like clicks) are handled faster than background work.",
+    "answer_preview": "React Fiber is the **core engine** that enables advanced features like **concurrent rendering**, **prioritization**, and **interruptibility** in React. Here's how it works:                  ### 1. **Fiber Tree Structure*..."
+  },
+  {
+    "id": 315,
+    "title": "How do you share state logic between components using custom hooks?",
+    "category": "React Hooks",
+    "difficulty": "Senior / Staff",
+    "has_code": true,
+    "answer_markdown": "Custom hooks allow you to **extract and share stateful logic** between components without changing their hierarchy. The state itself is not shared\u2014each component using the hook gets its own isolated state.\n\n     #### Example: useLocalStorage Hook\n     ```jsx\n     import { useState, useEffect } from 'react';\n\n     function useLocalStorage(key, initialValue) {\n       // Get stored value or use initial value\n       const [storedValue, setStoredValue] = useState(() => {\n         try {\n           const item = window.localStorage.getItem(key);\n           return item ? JSON.parse(item) : initialValue;\n         } catch (error) {\n           console.error(error);\n           return initialValue;\n         }\n       });\n\n       // Update localStorage when state changes\n       useEffect(() => {\n         try {\n           window.localStorage.setItem(key, JSON.stringify(storedValue));\n         } catch (error) {\n           console.error(error);\n         }\n       }, [key, storedValue]);\n\n       return [storedValue, setStoredValue];\n     }\n\n     // Usage in multiple components\n     function ThemeToggle() {\n       const [theme, setTheme] = useLocalStorage('theme', 'light');\n       return (\n         <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>\n           Current: {theme}\n         </button>\n       );\n     }\n\n     function FontSizeSelector() {\n       const [fontSize, setFontSize] = useLocalStorage('fontSize', 16);\n       return (\n         <input \n           type=\"range\" \n           value={fontSize} \n           onChange={(e) => setFontSize(Number(e.target.value))} \n         />\n       );\n     }\n     ```\n\n     Both components use `useLocalStorage`, but each has **its own independent state** that persists to localStorage.",
+    "answer_preview": "Custom hooks allow you to **extract and share stateful logic** between components without changing their hierarchy. The state itself is not shared\u2014each component using the hook gets its own isolated state.       #### Exa..."
+  },
+  {
+    "id": 338,
+    "title": "What is Redux middleware?",
+    "category": "Redux & State Management",
+    "difficulty": "Senior / Staff",
+    "has_code": true,
+    "answer_markdown": "**Middleware** provides a way to extend Redux with custom logic that runs **between dispatching an action and the moment it reaches the reducer**. It's the standard extension point for side effects (logging, crash reporting, async calls, analytics) since reducers themselves must stay pure and synchronous.\n\n     ```javascript\n     import { configureStore } from \"@reduxjs/toolkit\";\n\n     const logger = (store) => (next) => (action) => {\n       console.log(\"dispatching\", action);\n       const result = next(action);\n       console.log(\"next state\", store.getState());\n       return result;\n     };\n\n     const store = configureStore({\n       reducer: rootReducer,\n       middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),\n     });\n     ```\n\n     Common middleware includes `redux-thunk` (dispatch functions for async logic), `redux-saga` (generator-based side effects), `redux-logger` (action/state logging), and RTK's built-in serializable/immutable-state check middleware.",
+    "answer_preview": "**Middleware** provides a way to extend Redux with custom logic that runs **between dispatching an action and the moment it reaches the reducer**. It's the standard extension point for side effects (logging, crash report..."
+  },
+  {
+    "id": 339,
+    "title": "What is the Redux middleware signature?",
+    "category": "Redux & State Management",
+    "difficulty": "Senior / Staff",
+    "has_code": true,
+    "answer_markdown": "Middleware is written as **three nested (curried) functions**:\n\n     ```javascript\n     const exampleMiddleware = (store) => (next) => (action) => {\n       // store  => { getState, dispatch }\n       // next   => calls the next middleware in the chain (or the reducer if last)\n       // action => the action currently being dispatched\n       return next(action);\n     };\n     ```\n\n     - `store` gives access to `getState()` and `dispatch()`.\n     - `next` passes the action along to the next middleware (or the root reducer, if this is the last middleware).\n     - `action` is the action object being processed.\n\n     Middleware **must** call `next(action)` (or `dispatch(...)` for a different action) to keep the chain moving \u2014 forgetting to call `next` silently swallows every action.",
+    "answer_preview": "Middleware is written as **three nested (curried) functions**:       ```javascript      const exampleMiddleware = (store) => (next) => (action) => {        // store  => { getState, dispatch }        // next   => calls th..."
+  },
+  {
+    "id": 13,
+    "title": "What is context?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "_Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.\n\n    For example, authenticated users, locale preferences, UI themes need to be accessed in the application by many components.\n\n    ```javascript\n    const { Provider, Consumer } = React.createContext(defaultValue);\n    ```",
+    "answer_preview": "_Context_ provides a way to pass data through the component tree without having to pass props down manually at every level.      For example, authenticated users, locale preferences, UI themes need to be accessed in the..."
+  },
+  {
+    "id": 27,
+    "title": "What is the purpose of `getDerivedStateFromProps()` lifecycle method?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "The new static `getDerivedStateFromProps()` lifecycle method is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or `null` to indicate that the new props do not require any state updates.\n\n    ```javascript\n    class MyComponent extends React.Component {\n      static getDerivedStateFromProps(props, state) {\n        // ...\n      }\n    }\n    ```\n\n    This lifecycle method along with `componentDidUpdate()` covers all the use cases of `componentWillReceiveProps()`.",
+    "answer_preview": "The new static `getDerivedStateFromProps()` lifecycle method is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update state, or `null` to indicate that the new p..."
+  },
+  {
+    "id": 29,
+    "title": "Does the lazy function support named exports?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that tree shaking keeps working and don\u2019t pull unused components.\n    Let's take a component file which exports multiple named components,\n\n    ```javascript\n    // MoreComponents.js\n    export const SomeComponent = /* ... */;\n    export const UnusedComponent = /* ... */;\n    ```\n\n    and reexport `MoreComponents.js` components in an intermediate file `IntermediateComponent.js`\n\n    ```javascript\n    // IntermediateComponent.js\n    export { SomeComponent as default } from \"./MoreComponents.js\";\n    ```\n\n    Now you can import the module using lazy function as below,\n\n    ```javascript\n    import React, { lazy } from \"react\";\n    const SomeComponent = lazy(() => import(\"./IntermediateComponent.js\"));\n    ```",
+    "answer_preview": "No, currently `React.lazy` function supports default exports only. If you would like to import modules which are named exports, you can create an intermediate module that reexports it as the default. It also ensures that..."
+  },
+  {
+    "id": 51,
+    "title": "Do Hooks replace render props and higher order components?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Both render props and higher-order components render only a single child but in most of the cases Hooks are a simpler way to serve this by reducing nesting in your tree.",
+    "answer_preview": "Both render props and higher-order components render only a single child but in most of the cases Hooks are a simpler way to serve this by reducing nesting in your tree...."
+  },
+  {
+    "id": 51,
+    "title": "How to use `connect()` from React Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "You need to follow two steps to use your store in your container:\n\n    1.  **Use `mapStateToProps()`:** It maps the state variables from your store to the props that you specify.\n    2.  **Connect the above props to your container:** The object returned by the `mapStateToProps` function is connected to the container. You can import `connect()` from `react-redux`.\n\n        ```jsx harmony\n        import React from \"react\";\n        import { connect } from \"react-redux\";\n\n        class App extends React.Component {\n          render() {\n            return <div>{this.props.containerData}</div>;\n          }\n        }\n\n        function mapStateToProps(state) {\n          return { containerData: state.data };\n        }\n\n        export default connect(mapStateToProps)(App);\n        ```",
+    "answer_preview": "You need to follow two steps to use your store in your container:      1.  **Use `mapStateToProps()`:** It maps the state variables from your store to the props that you specify.     2.  **Connect the above props to your..."
+  },
+  {
+    "id": 52,
+    "title": "Whats the purpose of `at` symbol in the Redux connect decorator?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "The **@** symbol is in fact a JavaScript expression used to signify decorators. _Decorators_ make it possible to annotate and modify classes and properties at design time.\n\n    Let's take an example setting up Redux without and with a decorator.\n\n    - **Without decorator:**\n\n      ```javascript\n      import React from \"react\";\n      import * as actionCreators from \"./actionCreators\";\n      import { bindActionCreators } from \"redux\";\n      import { connect } from \"react-redux\";\n\n      function mapStateToProps(state) {\n        return { todos: state.todos };\n      }\n\n      function mapDispatchToProps(dispatch) {\n        return { actions: bindActionCreators(actionCreators, dispatch) };\n      }\n\n      class MyApp extends React.Component {\n        // ...define your main app here\n      }\n\n      export default connect(mapStateToProps, mapDispatchToProps)(MyApp);\n      ```\n\n    - **With decorator:**\n\n      ```javascript\n      import React from \"react\";\n      import * as actionCreators from \"./actionCreators\";\n      import { bindActionCreators } from \"redux\";\n      import { connect } from \"react-redux\";\n\n      function mapStateToProps(state) {\n        return { todos: state.todos };\n      }\n\n      function mapDispatchToProps(dispatch) {\n        return { actions: bindActionCreators(actionCreators, dispatch) };\n      }\n\n      @connect(mapStateToProps, mapDispatchToProps)\n      export default class MyApp extends React.Component {\n        // ...define your main app here\n      }\n      ```\n\n    The above examples are almost similar except the usage of decorator. The decorator syntax isn't built into any JavaScript runtimes yet, and is still experimental and subject to change. You can use babel for the decorators support.",
+    "answer_preview": "The **@** symbol is in fact a JavaScript expression used to signify decorators. _Decorators_ make it possible to annotate and modify classes and properties at design time.      Let's take an example setting up Redux with..."
+  },
+  {
+    "id": 75,
+    "title": "Give an example on How to use context?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "**Context** is designed to share data that can be considered **global** for a tree of React components.\n\n    For example, in the code below lets manually thread through a \u201ctheme\u201d prop in order to style the Button component.\n\n    ```javascript\n    //Lets create a context with a default theme value \"luna\"\n    const ThemeContext = React.createContext(\"luna\");\n    // Create App component where it uses provider to pass theme value in the tree\n    class App extends React.Component {\n      render() {\n        return (\n          <ThemeContext.Provider value=\"nova\">\n            <Toolbar />\n          </ThemeContext.Provider>\n        );\n      }\n    }\n    // A middle component where you don't need to pass theme prop anymore\n    function Toolbar(props) {\n      return (\n        <div>\n          <ThemedButton />\n        </div>\n      );\n    }\n    // Lets read theme value in the button component to use\n    class ThemedButton extends React.Component {\n      static contextType = ThemeContext;\n      render() {\n        return <Button theme={this.context} />;\n      }\n    }\n    ```",
+    "answer_preview": "**Context** is designed to share data that can be considered **global** for a tree of React components.      For example, in the code below lets manually thread through a \u201ctheme\u201d prop in order to style the Button compone..."
+  },
+  {
+    "id": 78,
+    "title": "How do you solve performance corner cases while using context?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider\u2019s parent re-renders.\n\n    For example, the code below will re-render all consumers every time the Provider re-renders because a new object is always created for value.\n\n    ```javascript\n    class App extends React.Component {\n      render() {\n        return (\n          <Provider value={{ something: \"something\" }}>\n            <Toolbar />\n          </Provider>\n        );\n      }\n    }\n    ```\n\n    This can be solved by lifting up the value to parent state,\n\n    ```javascript\n    class App extends React.Component {\n      constructor(props) {\n        super(props);\n        this.state = {\n          value: { something: \"something\" },\n        };\n      }\n\n      render() {\n        return (\n          <Provider value={this.state.value}>\n            <Toolbar />\n          </Provider>\n        );\n      }\n    }\n    ```",
+    "answer_preview": "The context uses reference identity to determine when to re-render, there are some gotchas that could trigger unintentional renders in consumers when a provider\u2019s parent re-renders.      For example, the code below will..."
+  },
+  {
+    "id": 88,
+    "title": "How do you get redux scaffolding using create-react-app?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "Redux team has provided official redux+js or redux+typescript templates for create-react-app project. The generated project setup includes,\n    1.  Redux Toolkit and React-Redux dependencies\n    2.  Create and configure Redux store\n    3.  React-Redux `<Provider>` passing the store to React components\n    4.  Small \"counter\" example to demo how to add redux logic and React-Redux hooks API to interact with the store from components\n        The below commands need to be executed along with template option as below,\n    5.  **Javascript template:**\n    ```js\n    npx create-react-app my-app --template redux\n    ```\n    2.  **Typescript template:**\n    ```js\n    npx create-react-app my-app --template redux-typescript\n    ```",
+    "answer_preview": "Redux team has provided official redux+js or redux+typescript templates for create-react-app project. The generated project setup includes,     1.  Redux Toolkit and React-Redux dependencies     2.  Create and configure..."
+  },
+  {
+    "id": 103,
+    "title": "What is Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Redux is a predictable state container for JavaScript applications, most commonly used with React. It helps you manage and centralize your application\u2019s state in a single source of truth, enabling easier debugging, testing, and maintenance\u2014especially in large or complex applications. Redux core is tiny library(about 2.5kB gzipped) and has no dependencies.",
+    "answer_preview": "Redux is a predictable state container for JavaScript applications, most commonly used with React. It helps you manage and centralize your application\u2019s state in a single source of truth, enabling easier debugging, testi..."
+  },
+  {
+    "id": 104,
+    "title": "What are the core principles of Redux?",
+    "category": "Virtual DOM, Fiber & Reconciliation",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "Redux follows three fundamental principles:\n\n     1. **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.\n   \n      ```jsx\n      const store = createStore(reducer);\n      ```\n     2. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened. This ensures that neither the views nor the network callbacks will ever write directly to the state.\n      ```js\n      const action = { type: 'INCREMENT' };\n      store.dispatch(action);\n      ```\n     3. **Changes are made with pure functions(Reducers):** To specify how the state tree is transformed by actions, you write reducers. Reducers are just pure functions that take the previous state and an action as parameters, and return the next state.\n      \n      ```jsx\n      function counter(state = 0, action) {\n        switch (action.type) {\n          case 'INCREMENT':\n            return state + 1;\n          case 'DECREMENT':\n            return state - 1;\n          default:\n            return state;\n        }\n      }\n      ```",
+    "answer_preview": "Redux follows three fundamental principles:       1. **Single source of truth:** The state of your whole application is stored in an object tree within a single store. The single state tree makes it easier to keep track..."
+  },
+  {
+    "id": 105,
+    "title": "What are the downsides of Redux compared to Flux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "While Redux offers a powerful and predictable state management solution, it comes with a few trade-offs when compared to Flux. These include:\n\n     1.  **Immutability is essential**  \n        Redux enforces a strict immutability model for state updates, which differs from Flux\u2019s more relaxed approach. This means you must avoid mutating state directly. Many Redux-related libraries assume immutability, so your team must be disciplined in writing pure update logic. You can use tools like `redux-immutable-state-invariant`, `Immer`, or `Immutable.js` to help enforce this practice, especially during development.\n     2.  **Careful selection of complementary packages**  \n        Redux is more minimal by design and provides extension points such as middleware and store enhancers. This has led to a large ecosystem, but it also means you must thoughtfully choose and configure additional packages for features like undo/redo, persistence, or form handling\u2014something Flux explicitly leaves out but may be simpler to manage in smaller setups.\n     3.  **Limited static type integration**  \n        While Flux has mature support for static type checking with tools like Flow, Redux\u2019s type integration is less seamless. Although TypeScript is commonly used with Redux now, early Flow support was limited, and more boilerplate was required for static type safety. This may affect teams that rely heavily on type systems for large codebases.",
+    "answer_preview": "While Redux offers a powerful and predictable state management solution, it comes with a few trade-offs when compared to Flux. These include:       1.  **Immutability is essential**           Redux enforces a strict immu..."
+  },
+  {
+    "id": 108,
+    "title": "How to access Redux store outside a component?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.\n\n     ```javascript\n     store = createStore(myReducer);\n\n     export default store;\n     ```",
+    "answer_preview": "You just need to export the store from the module where it created with `createStore()`. Also, it shouldn't pollute the global window object.       ```javascript      store = createStore(myReducer);       export default..."
+  },
+  {
+    "id": 110,
+    "title": "Are there any similarities between Redux and RxJS?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "These libraries are very different for very different purposes, but there are some vague similarities.\n\n     Redux is a tool for managing state throughout the application. It is usually used as an architecture for UIs. Think of it as an alternative to (half of) Angular. RxJS is a reactive programming library. It is usually used as a tool to accomplish asynchronous tasks in JavaScript. Think of it as an alternative to Promises. Redux uses the Reactive paradigm because the Store is reactive. The Store observes actions from a distance, and changes itself. RxJS also uses the Reactive paradigm, but instead of being an architecture, it gives you basic building blocks, Observables, to accomplish this pattern.",
+    "answer_preview": "These libraries are very different for very different purposes, but there are some vague similarities.       Redux is a tool for managing state throughout the application. It is usually used as an architecture for UIs. T..."
+  },
+  {
+    "id": 111,
+    "title": "How to reset state in Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "You need to write a _root reducer_ in your application which delegate handling the action to the reducer generated by `combineReducers()`.\n\n     For example, let us take `rootReducer()` to return the initial state after `USER_LOGOUT` action. As we know, reducers are supposed to return the initial state when they are called with `undefined` as the first argument, no matter the action.\n\n     ```javascript\n     const appReducer = combineReducers({\n       /* your app's top-level reducers */\n     });\n\n     const rootReducer = (state, action) => {\n       if (action.type === \"USER_LOGOUT\") {\n         state = undefined;\n       }\n\n       return appReducer(state, action);\n     };\n     ```\n\n     In case of using `redux-persist`, you may also need to clean your storage. `redux-persist` keeps a copy of your state in a storage engine. First, you need to import the appropriate storage engine and then, to parse the state before setting it to undefined and clean each storage state key.\n\n     ```javascript\n     const appReducer = combineReducers({\n       /* your app's top-level reducers */\n     });\n\n     const rootReducer = (state, action) => {\n       if (action.type === \"USER_LOGOUT\") {\n         Object.keys(state).forEach((key) => {\n           storage.removeItem(`persist:${key}`);\n         });\n\n         state = undefined;\n       }\n\n       return appReducer(state, action);\n     };\n     ```",
+    "answer_preview": "You need to write a _root reducer_ in your application which delegate handling the action to the reducer generated by `combineReducers()`.       For example, let us take `rootReducer()` to return the initial state after..."
+  },
+  {
+    "id": 112,
+    "title": "What is the difference between React context and React Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for.\n\n     Whereas **Redux** is much more powerful and provides a large number of features that the Context API doesn't provide. Also, React Redux uses context internally but it doesn't expose this fact in the public API.\n\n     | Aspect | Context API | Redux |\n     | --- | --- | --- |\n     | Purpose | Dependency injection \u2014 passes data through the tree without prop drilling | Full state-management library with a predictable, centralized store |\n     | State updates | Plain `useState`/`useReducer` next to the provider; no built-in middleware | Actions + reducers, with middleware support (`redux-thunk`, `redux-saga`, etc.) |\n     | Performance | Every consumer re-renders on any value change unless you split contexts/memoize | Uses selectors (`useSelector`/`connect`) so components only re-render when the selected slice changes |\n     | DevTools | None built-in | Time-travel debugging, action logs via Redux DevTools |\n     | Async logic | You wire it yourself (custom hooks, effects) | Standardized patterns via middleware |\n     | Boilerplate | Minimal \u2014 just `createContext`/`useContext` | More setup, though Redux Toolkit reduces this significantly |\n\n     #### Does Context replace Redux?\n\n     Not entirely \u2014 they solve overlapping but different problems, so the right choice depends on the app's needs:\n\n     - **Context is a good fit** for low-frequency, mostly-static data that many components need (theme, locale, authenticated user, feature flags). Combined with `useReducer`, it can even model simple local/global state without pulling in Redux (see [Can you combine useReducer with useContext?](#can-you-combine-usereducer-with-usecontext)).\n     - **Redux is still preferable** for large apps with complex, frequently-updating state, cross-cutting concerns like caching/undo/logging, a need for middleware (async flows, side effects), or debugging tools like time-travel and action replay.\n     - **Performance matters**: Context has no built-in mechanism to prevent unnecessary re-renders of all consumers when the provided value changes, whereas Redux's `useSelector` re-renders only the components that depend on the changed slice of state.\n\n     In short, Context is a simpler tool for prop-drilling/dependency-injection use cases, while Redux remains a more robust, scalable option for complex application-wide state management. Many apps use both together \u2014 Context for simple, rarely-changing values and Redux (or another store) for the rest.",
+    "answer_preview": "You can use **Context** in your application directly and is going to be great for passing down data to deeply nested components which what it was designed for.       Whereas **Redux** is much more powerful and provides a..."
+  },
+  {
+    "id": 113,
+    "title": "Why are Redux state functions called reducers?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as parameters. This state is then reduced (or accumulated) based on the action, and then the next state is returned. You could _reduce_ a collection of actions and an initial state (of the store) on which to perform these actions to get the resulting final state.",
+    "answer_preview": "Reducers always return the accumulation of the state (based on all previous and current actions). Therefore, they act as a reducer of state. Each time a Redux reducer is called, the state and action are passed as paramet..."
+  },
+  {
+    "id": 114,
+    "title": "How to make AJAX request in Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "You can use `redux-thunk` middleware which allows you to define async actions.\n\n     Let's take an example of fetching specific account as an AJAX call using _fetch API_:\n\n     ```javascript\n     export function fetchAccount(id) {\n       return (dispatch) => {\n         dispatch(setLoadingAccountState()); // Show a loading spinner\n         fetch(`/account/${id}`, (response) => {\n           dispatch(doneFetchingAccount()); // Hide loading spinner\n           if (response.status === 200) {\n             dispatch(setAccount(response.json)); // Use a normal function to set the received state\n           } else {\n             dispatch(someError);\n           }\n         });\n       };\n     }\n\n     function setAccount(data) {\n       return { type: \"SET_Account\", data: data };\n     }\n     ```",
+    "answer_preview": "You can use `redux-thunk` middleware which allows you to define async actions.       Let's take an example of fetching specific account as an AJAX call using _fetch API_:       ```javascript      export function fetchAcc..."
+  },
+  {
+    "id": 115,
+    "title": "Should I keep all component's state in Redux store?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Keep your data in the Redux store, and the UI related state internally in the component.",
+    "answer_preview": "Keep your data in the Redux store, and the UI related state internally in the component...."
+  },
+  {
+    "id": 116,
+    "title": "What is the proper way to access Redux store?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "The best way to access your store in a component is to use the `connect()` function, that creates a new component that wraps around your existing one. This pattern is called _Higher-Order Components_, and is generally the preferred way of extending a component's functionality in React. This allows you to map state and action creators to your component, and have them passed in automatically as your store updates.\n\n     Let's take an example of `<FilterLink>` component using connect:\n\n     ```javascript\n     import { connect } from \"react-redux\";\n     import { setVisibilityFilter } from \"../actions\";\n     import Link from \"../components/Link\";\n\n     const mapStateToProps = (state, ownProps) => ({\n       active: ownProps.filter === state.visibilityFilter,\n     });\n\n     const mapDispatchToProps = (dispatch, ownProps) => ({\n       onClick: () => dispatch(setVisibilityFilter(ownProps.filter)),\n     });\n\n     const FilterLink = connect(mapStateToProps, mapDispatchToProps)(Link);\n\n     export default FilterLink;\n     ```\n\n     Due to it having quite a few performance optimizations and generally being less likely to cause bugs, the Redux developers almost always recommend using `connect()` over accessing the store directly (using context API).\n\n     ```javascript\n     function MyComponent {\n       someMethod() {\n         doSomethingWith(this.context.store);\n       }\n     }\n     ```",
+    "answer_preview": "The best way to access your store in a component is to use the `connect()` function, that creates a new component that wraps around your existing one. This pattern is called _Higher-Order Components_, and is generally th..."
+  },
+  {
+    "id": 117,
+    "title": "What is the difference between component and container in React Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "**Component** is a class or function component that describes the presentational part of your application.\n\n     **Container** is an informal term for a component that is connected to a Redux store. Containers _subscribe_ to Redux state updates and _dispatch_ actions, and they usually don't render DOM elements; they delegate rendering to presentational child components.",
+    "answer_preview": "**Component** is a class or function component that describes the presentational part of your application.       **Container** is an informal term for a component that is connected to a Redux store. Containers _subscribe..."
+  },
+  {
+    "id": 118,
+    "title": "What is the purpose of the constants in Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos \u2013 in which case, you will get a `ReferenceError` immediately.\n\n     Normally we will save them in a single file (`constants.js` or `actionTypes.js`).\n\n     ```javascript\n     export const ADD_TODO = \"ADD_TODO\";\n     export const DELETE_TODO = \"DELETE_TODO\";\n     export const EDIT_TODO = \"EDIT_TODO\";\n     export const COMPLETE_TODO = \"COMPLETE_TODO\";\n     export const COMPLETE_ALL = \"COMPLETE_ALL\";\n     export const CLEAR_COMPLETED = \"CLEAR_COMPLETED\";\n     ```\n\n     In Redux, you use them in two places:\n\n     1. **During action creation:**\n\n        Let's take `actions.js`:\n\n        ```javascript\n        import { ADD_TODO } from \"./actionTypes\";\n\n        export function addTodo(text) {\n          return { type: ADD_TODO, text };\n        }\n        ```\n\n     2. **In reducers:**\n\n        Let's create `reducer.js`:\n\n        ```javascript\n        import { ADD_TODO } from \"./actionTypes\";\n\n        export default (state = [], action) => {\n          switch (action.type) {\n            case ADD_TODO:\n              return [\n                ...state,\n                {\n                  text: action.text,\n                  completed: false,\n                },\n              ];\n            default:\n              return state;\n          }\n        };\n        ```",
+    "answer_preview": "Constants allows you to easily find all usages of that specific functionality across the project when you use an IDE. It also prevents you from introducing silly bugs caused by typos \u2013 in which case, you will get a `Refe..."
+  },
+  {
+    "id": 121,
+    "title": "How to structure Redux top level directories?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Most of the applications has several top-level directories as below:\n\n     1. **Components**: Used for _dumb_ components unaware of Redux.\n     2. **Containers**: Used for _smart_ components connected to Redux.\n     3. **Actions**: Used for all action creators, where file names correspond to part of the app.\n     4. **Reducers**: Used for all reducers, where files name correspond to state key.\n     5. **Store**: Used for store initialization.\n\n     This structure works well for small and medium size apps.",
+    "answer_preview": "Most of the applications has several top-level directories as below:       1. **Components**: Used for _dumb_ components unaware of Redux.      2. **Containers**: Used for _smart_ components connected to Redux.      3. *..."
+  },
+  {
+    "id": 122,
+    "title": "What is redux-saga?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "`redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.\n\n     It is available in NPM:\n\n     ```console\n     $ npm install --save redux-saga\n     ```",
+    "answer_preview": "`redux-saga` is a library that aims to make side effects (asynchronous things like data fetching and impure things like accessing the browser cache) in React/Redux applications easier and better.       It is available in..."
+  },
+  {
+    "id": 123,
+    "title": "What is the mental model of redux-saga?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "_Saga_ is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux _middleware_, which means this thread can be started, paused and cancelled from the main application with normal Redux actions, it has access to the full Redux application state and it can dispatch Redux actions as well.",
+    "answer_preview": "_Saga_ is like a separate thread in your application, that's solely responsible for side effects. `redux-saga` is a redux _middleware_, which means this thread can be started, paused and cancelled from the main applicati..."
+  },
+  {
+    "id": 124,
+    "title": "What are the differences between `call()` and `put()` in redux-saga?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "Both `call()` and `put()` are effect creator functions. `call()` function is used to create effect description, which instructs middleware to call the promise. `put()` function creates an effect, which instructs middleware to dispatch an action to the store.\n\n     Let's take example of how these effects work for fetching particular user data.\n\n     ```javascript\n     function* fetchUserSaga(action) {\n       // `call` function accepts rest arguments, which will be passed to `api.fetchUser` function.\n       // Instructing middleware to call promise, it resolved value will be assigned to `userData` variable\n       const userData = yield call(api.fetchUser, action.userId);\n\n       // Instructing middleware to dispatch corresponding action.\n       yield put({\n         type: \"FETCH_USER_SUCCESS\",\n         userData,\n       });\n     }\n     ```",
+    "answer_preview": "Both `call()` and `put()` are effect creator functions. `call()` function is used to create effect description, which instructs middleware to call the promise. `put()` function creates an effect, which instructs middlewa..."
+  },
+  {
+    "id": 125,
+    "title": "What is Redux Thunk?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "_Redux Thunk_ middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods `dispatch()` and `getState()` as parameters.",
+    "answer_preview": "_Redux Thunk_ middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The i..."
+  },
+  {
+    "id": 126,
+    "title": "What are the differences between `redux-saga` and `redux-thunk`?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Both _Redux Thunk_ and _Redux Saga_ take care of dealing with side effects. In most of the scenarios, Thunk uses _Promises_ to deal with them, whereas Saga uses _Generators_. Thunk is simple to use and Promises are familiar to many developers, Sagas/Generators are more powerful but you will need to learn them. But both middleware can coexist, so you can start with Thunks and introduce Sagas when/if you need them.",
+    "answer_preview": "Both _Redux Thunk_ and _Redux Saga_ take care of dealing with side effects. In most of the scenarios, Thunk uses _Promises_ to deal with them, whereas Saga uses _Generators_. Thunk is simple to use and Promises are famil..."
+  },
+  {
+    "id": 127,
+    "title": "What is Redux DevTools?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "_Redux DevTools_ is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project, consider using Redux DevTools Extension for Chrome and Firefox.",
+    "answer_preview": "_Redux DevTools_ is a live-editing time travel environment for Redux with hot reloading, action replay, and customizable UI. If you don't want to bother with installing Redux DevTools and integrating it into your project..."
+  },
+  {
+    "id": 128,
+    "title": "What are the features of Redux DevTools?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Some of the main features of Redux DevTools are below,\n\n     1. Lets you inspect every state and action payload.\n     2. Lets you go back in time by _cancelling_ actions.\n     3. If you change the reducer code, each _staged_ action will be re-evaluated.\n     4. If the reducers throw, you will see during which action this happened, and what the error was.\n     5. With `persistState()` store enhancer, you can persist debug sessions across page reloads.",
+    "answer_preview": "Some of the main features of Redux DevTools are below,       1. Lets you inspect every state and action payload.      2. Lets you go back in time by _cancelling_ actions.      3. If you change the reducer code, each _sta..."
+  },
+  {
+    "id": 129,
+    "title": "What are Redux selectors and why use them?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "_Selectors_ are functions that take Redux state as an argument and return some data to pass to the component.\n\n     For example, to get user details from the state:\n\n     ```javascript\n     const getUserData = (state) => state.user.data;\n     ```\n\n     These selectors have two main benefits,\n\n     1. The selector can compute derived data, allowing Redux to store the minimal possible state\n     2. The selector is not recomputed unless one of its arguments changes",
+    "answer_preview": "_Selectors_ are functions that take Redux state as an argument and return some data to pass to the component.       For example, to get user details from the state:       ```javascript      const getUserData = (state) =>..."
+  },
+  {
+    "id": 130,
+    "title": "What is Redux Form?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "_Redux Form_ works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material UI, React Widgets and React Bootstrap.",
+    "answer_preview": "_Redux Form_ works with React and Redux to enable a form in React to use Redux to store all of its state. Redux Form can be used with raw HTML5 inputs, but it also works very well with common UI frameworks like Material..."
+  },
+  {
+    "id": 131,
+    "title": "What are the main features of Redux Form?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Some of the main features of Redux Form are:\n\n     1. Field values persistence via Redux store.\n     2. Validation (sync/async) and submission.\n     3. Formatting, parsing and normalization of field values.",
+    "answer_preview": "Some of the main features of Redux Form are:       1. Field values persistence via Redux store.      2. Validation (sync/async) and submission.      3. Formatting, parsing and normalization of field values...."
+  },
+  {
+    "id": 133,
+    "title": "How to set initial state in Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": true,
+    "answer_markdown": "You need to pass initial state as second argument to createStore:\n\n     ```javascript\n     const rootReducer = combineReducers({\n       todos: todos,\n       visibilityFilter: visibilityFilter,\n     });\n\n     const initialState = {\n       todos: [{ id: 123, name: \"example\", completed: false }],\n     };\n\n     const store = createStore(rootReducer, initialState);\n     ```",
+    "answer_preview": "You need to pass initial state as second argument to createStore:       ```javascript      const rootReducer = combineReducers({        todos: todos,        visibilityFilter: visibilityFilter,      });       const initia..."
+  },
+  {
+    "id": 134,
+    "title": "How Relay is different from Redux?",
+    "category": "Redux & State Management",
+    "difficulty": "Mid-Level",
+    "has_code": false,
+    "answer_markdown": "Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via _GraphQL_ queries (for reading data) and mutations (for changing data). Relay caches the data for you and optimizes data fetching for you, by fetching only changed data and nothing more.",
+    "answer_preview": "Relay is similar to Redux in that they both use a single store. The main difference is that relay only manages state originated from the server, and all access to the state is used via _GraphQL_ queries (for reading data..."
+  }
+]

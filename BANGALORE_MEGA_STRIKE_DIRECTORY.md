@@ -1,5 +1,5 @@
 # ANTIGRAVITY OMEGA — BANGALORE MEGA-STRIKE EMPLOYER & HR DIRECTORY
-**Compiled:** `Friday, October 09, 2026 - 00:46 IST`  
+**Compiled:** `Wednesday, October 14, 2026 - 01:14 IST`  
 **Candidate:** `Aditya Mehra | BBA Intl Business (DSU '26) | Bengaluru`  
 **Total Verified Companies & HR Leads:** `4500`  
 **Coverage:** `100% of Bangalore Tech Corridors, MNCs, Startups & GCCs`  

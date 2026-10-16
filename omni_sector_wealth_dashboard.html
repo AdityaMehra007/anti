@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AME Global | Omni-Sector Wealth Command Center (Daily Cash Engine)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #030712;
+            --bg-surface: #0b1120;
+            --bg-card: #111827;
+            --bg-card-hover: #1e293b;
+            --border: #1e293b;
+            --border-highlight: #334155;
+            --emerald: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.2);
+            --cyan: #06b6d4;
+            --cyan-glow: rgba(6, 182, 212, 0.2);
+            --amber: #f59e0b;
+            --purple: #8b5cf6;
+            --rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 24px 32px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+        .brand-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: var(--font-mono);
+        }
+        .header-status {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .status-pill {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+        }
+        .status-live {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--emerald);
+            border: 1px solid var(--emerald);
+        }
+
+        /* Hero Macro Grid */
+        .macro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .macro-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .macro-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-highlight);
+        }
+        .macro-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .macro-val {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+        }
+        .macro-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Section Title */
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 32px 0 16px 0;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-badge {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--cyan);
+            font-family: var(--font-mono);
+        }
+
+        /* Sectors Grid */
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        .sector-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .sector-card:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.1);
+        }
+        .sector-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        .sector-badge {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .sector-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .metric-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: rgba(3, 7, 18, 0.5);
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 16px;
+        }
+        .metric-item .label {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 2px;
+        }
+        .metric-item .value {
+            font-size: 16px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
+
+        .offer-box {
+            background: rgba(30, 41, 59, 0.5);
+            border-left: 3px solid var(--cyan);
+            padding: 12px 14px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+        .offer-label {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--cyan);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .offer-text {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+        .offer-pricing {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .action-box {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+        .action-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--emerald);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+        .action-text {
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--emerald);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--emerald);
+        }
+
+        /* Table */
+        .table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: middle;
+        }
+        tr:hover td {
+            background: rgba(30, 41, 59, 0.4);
+        }
+        .service-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--purple);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Interactive Daily Harvest Simulator */
+        .simulator-box {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--border-highlight);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        .sim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .sim-input-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .sim-input-group input, .sim-input-group select {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-base);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 14px;
+        }
+        .sim-result-box {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid var(--cyan);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .sim-result-val {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--emerald);
+            font-family: var(--font-mono);
+            margin: 6px 0;
+        }
+
+        /* Utilities */
+        .text-cyan { color: var(--cyan); }
+        .text-emerald { color: var(--emerald); }
+        .text-amber { color: var(--amber); }
+        .text-purple { color: var(--purple); }
+        .text-main { color: var(--text-main); }
+        .text-muted { color: var(--text-muted); }
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .font-bold { font-weight: 700; }
+        .font-mono { font-family: var(--font-mono); }
+        .text-sm { font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div>
+            <div class="brand-title">AME GLOBAL • OMNI-SECTOR WEALTH MACHINE</div>
+            <div class="brand-sub">Sovereign Principal: Aditya Mehra | Bengaluru HQ | Global 24/7 Cash Flow System</div>
+        </div>
+        <div class="header-status">
+            <span class="status-pill status-live">● POWERMODE: ACTIVE</span>
+            <span class="status-pill" style="background: rgba(6,182,212,0.15); color: var(--cyan); border: 1px solid var(--cyan);">6 SECTORS ARMED</span>
+        </div>
+    </header>
+
+    <!-- Macro Telemetry Grid -->
+    <div class="macro-grid">
+        <div class="macro-card">
+            <div class="macro-label">Active B2B Pipeline ACV</div>
+            <div class="macro-val text-cyan">$2,239,200</div>
+            <div class="macro-sub">96 Enterprise Accounts</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Expected Value (Win-Weighted)</div>
+            <div class="macro-val text-emerald">$1,248,120</div>
+            <div class="macro-sub">Risk-Adjusted Net Contract Value</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Daily Cash Runrate Target</div>
+            <div class="macro-val text-amber">$6,135/day</div>
+            <div class="macro-sub">Intraday Global Velocity</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Outbound Prospect Pool</div>
+            <div class="macro-val text-purple">192</div>
+            <div class="macro-sub">Pre-Qualified Enterprise Leads</div>
+        </div>
+        <div class="macro-card">
+            <div class="macro-label">Family Offices Indexed</div>
+            <div class="macro-val text-main">140</div>
+            <div class="macro-sub">Premji, Tata, Ambani, Murthy Pools</div>
+        </div>
+    </div>
+
+    <!-- Section: 6 Global Sectors -->
+    <div class="section-heading">
+        <div class="section-title">
+            THE 6 OMNI-SECTOR MONETIZATION ENGINES
+            <span class="section-badge">AUTONOMOUS HARVEST</span>
+        </div>
+    </div>
+
+    <div class="sectors-grid">
+        
+        <div class="sector-card" data-sector="tech_automation">
+            <div class="sector-header">
+                <div>
+                    <span class="sector-badge">High-Ticket B2B & Retainers</span>
+                    <h3 class="sector-title">Enterprise Tech & AI Automation</h3>
+                </div>
+                <span class="status-pill status-live">LIVE & ACTIVATED</span>
+            </div>
+            <div class="metric-row">
+                <div class="metric-item">
+                    <span class="label">Pipeline Scale</span>
+                    <span class="value text-cyan">$2,239,200</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Expected Value</span>
+                    <span class="value text-emerald">$1,248,120</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Daily Runrate Target</span>
+                    <span class="value text-amber">$1,500/day</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Net Margin</span>
+                    <span class="value text-purple">94.5%</span>
+                </div>
+            </div>
+            <div class="offer-box">
+                <div class="offer-label">CORE MONETIZATION OFFER:</div>
+                <div class="offer-text">Autonomous SLA Reduction & Production n8n AI Workflow Pipelines</div>
+                <div class="offer-pricing"><strong>Pricing:</strong> $2,500 – $12,000 Setup + $1,000 – $2,500/mo Retainer</div>
+            </div>
+            <div class="action-box">
+                <div class="action-label"><span class="pulse-dot"></span> INTRADAY ACTION (NEXT 24 HOURS):</div>
+                <div class="action-text">Dispatch 20 audited video demos to shortlisted enterprise decision-makers in Chicago and London.</div>
+            </div>
+        </div>
+        
+        <div class="sector-card" data-sector="exim_logistics">
+            <div class="sector-header">
+                <div>
+                    <span class="sector-badge">Cross-Border Trade Flows</span>
+                    <h3 class="sector-title">Global Trade, EXIM & Supply Chain Arbitrage</h3>
+                </div>
+                <span class="status-pill status-live">OPERATIONAL</span>
+            </div>
+            <div class="metric-row">
+                <div class="metric-item">
+                    <span class="label">Pipeline Scale</span>
+                    <span class="value text-cyan">$480,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Expected Value</span>
+                    <span class="value text-emerald">$320,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Daily Runrate Target</span>
+                    <span class="value text-amber">$850/day</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Net Margin</span>
+                    <span class="value text-purple">88.0%</span>
+                </div>
+            </div>
+            <div class="offer-box">
+                <div class="offer-label">CORE MONETIZATION OFFER:</div>
+                <div class="offer-text">Incoterms 2020 Landed Cost Auditing & Customs Duty Optimization (HS 8471.50 / Tech & Industrial Goods)</div>
+                <div class="offer-pricing"><strong>Pricing:</strong> 1.5% - 3.0% of freight landed cost savings or $1,500 flat audit fee</div>
+            </div>
+            <div class="action-box">
+                <div class="action-label"><span class="pulse-dot"></span> INTRADAY ACTION (NEXT 24 HOURS):</div>
+                <div class="action-text">Run comparative CIF vs DDP tariff analysis for hardware shipments passing through Nhava Sheva & Chennai ports.</div>
+            </div>
+        </div>
+        
+        <div class="sector-card" data-sector="agentic_tollbooths">
+            <div class="sector-header">
+                <div>
+                    <span class="sector-badge">Zero-Marginal-Cost Infrastructure</span>
+                    <h3 class="sector-title">Autonomous AI Agent Swarms & Micro-APIs</h3>
+                </div>
+                <span class="status-pill status-live">LIVE</span>
+            </div>
+            <div class="metric-row">
+                <div class="metric-item">
+                    <span class="label">Pipeline Scale</span>
+                    <span class="value text-cyan">$185,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Expected Value</span>
+                    <span class="value text-emerald">$140,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Daily Runrate Target</span>
+                    <span class="value text-amber">$500/day</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Net Margin</span>
+                    <span class="value text-purple">98.2%</span>
+                </div>
+            </div>
+            <div class="offer-box">
+                <div class="offer-label">CORE MONETIZATION OFFER:</div>
+                <div class="offer-text">Autonomous Data Scrapers, PDF Parsers & API Tollbooths (x402 Micro-Invoicing)</div>
+                <div class="offer-pricing"><strong>Pricing:</strong> $0.02 - $0.15 per API transaction or $49/mo Developer Tier</div>
+            </div>
+            <div class="action-box">
+                <div class="action-label"><span class="pulse-dot"></span> INTRADAY ACTION (NEXT 24 HOURS):</div>
+                <div class="action-text">Deploy FastAPI endpoint with Stripe webhook integration for automated lead verification.</div>
+            </div>
+        </div>
+        
+        <div class="sector-card" data-sector="treasury_fx">
+            <div class="sector-header">
+                <div>
+                    <span class="sector-badge">Financial Plumbing & Capital Preservation</span>
+                    <h3 class="sector-title">Sovereign Treasury, FX Spreads & Yield Compounding</h3>
+                </div>
+                <span class="status-pill status-live">COMPOUNDING</span>
+            </div>
+            <div class="metric-row">
+                <div class="metric-item">
+                    <span class="label">Pipeline Scale</span>
+                    <span class="value text-cyan">$250,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Expected Value</span>
+                    <span class="value text-emerald">$250,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Daily Runrate Target</span>
+                    <span class="value text-amber">$35/day</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Net Margin</span>
+                    <span class="value text-purple">100.0%</span>
+                </div>
+            </div>
+            <div class="offer-box">
+                <div class="offer-label">CORE MONETIZATION OFFER:</div>
+                <div class="offer-text">USD-to-INR Conversion Velocity, Multi-Currency Reserve Netting & 5.2% US Treasury Floor Yield</div>
+                <div class="offer-pricing"><strong>Pricing:</strong> Internal Cash Generation & Yield Compounding</div>
+            </div>
+            <div class="action-box">
+                <div class="action-label"><span class="pulse-dot"></span> INTRADAY ACTION (NEXT 24 HOURS):</div>
+                <div class="action-text">Sweep intraday receipts into high-yield overnight collateralized instruments; capture favorable USD/INR tick spreads.</div>
+            </div>
+        </div>
+        
+        <div class="sector-card" data-sector="digital_ip">
+            <div class="sector-header">
+                <div>
+                    <span class="sector-badge">Code & Media Scale</span>
+                    <h3 class="sector-title">Digital Intellectual Property & Knowledge Monopolies</h3>
+                </div>
+                <span class="status-pill status-live">SCALING</span>
+            </div>
+            <div class="metric-row">
+                <div class="metric-item">
+                    <span class="label">Pipeline Scale</span>
+                    <span class="value text-cyan">$95,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Expected Value</span>
+                    <span class="value text-emerald">$75,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Daily Runrate Target</span>
+                    <span class="value text-amber">$300/day</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Net Margin</span>
+                    <span class="value text-purple">99.0%</span>
+                </div>
+            </div>
+            <div class="offer-box">
+                <div class="offer-label">CORE MONETIZATION OFFER:</div>
+                <div class="offer-text">Enterprise AI Prompt Architecture, n8n Production Templates & Software Boilerplates</div>
+                <div class="offer-pricing"><strong>Pricing:</strong> $47 - $297 Single License | $899 Team License</div>
+            </div>
+            <div class="action-box">
+                <div class="action-label"><span class="pulse-dot"></span> INTRADAY ACTION (NEXT 24 HOURS):</div>
+                <div class="action-text">Publish technical case study on GitHub and LinkedIn breakdown thread driving traffic to Gumroad/LemonSqueezy checkout.</div>
+            </div>
+        </div>
+        
+        <div class="sector-card" data-sector="gcc_talent_ops">
+            <div class="sector-header">
+                <div>
+                    <span class="sector-badge">High-Comp Strategic Operations</span>
+                    <h3 class="sector-title">Global Capability Centers (GCC) & Founders' Office Advisory</h3>
+                </div>
+                <span class="status-pill status-live">ACTIVE</span>
+            </div>
+            <div class="metric-row">
+                <div class="metric-item">
+                    <span class="label">Pipeline Scale</span>
+                    <span class="value text-cyan">$350,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Expected Value</span>
+                    <span class="value text-emerald">$280,000</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Daily Runrate Target</span>
+                    <span class="value text-amber">$650/day</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Net Margin</span>
+                    <span class="value text-purple">91.0%</span>
+                </div>
+            </div>
+            <div class="offer-box">
+                <div class="offer-label">CORE MONETIZATION OFFER:</div>
+                <div class="offer-text">Founders' Office Strategic Execution, AI Data Ops, GCC Setup & Tier-1 Operations Alignment</div>
+                <div class="offer-pricing"><strong>Pricing:</strong> ₹14L – ₹22L+ CTC Placement / Retainer</div>
+            </div>
+            <div class="action-box">
+                <div class="action-label"><span class="pulse-dot"></span> INTRADAY ACTION (NEXT 24 HOURS):</div>
+                <div class="action-text">Sync high-priority applications to target MNCs and scale-ups with personalized executive briefing packets.</div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Interactive Daily Harvest Calculator -->
+    <div class="simulator-box">
+        <div class="section-title">
+            INTERACTIVE DAILY HARVEST SIMULATOR
+            <span class="section-badge">ASYMMETRIC PROJECTION</span>
+        </div>
+        <div class="sim-grid">
+            <div class="sim-input-group">
+                <label>Daily B2B Proposals Dispatched</label>
+                <input type="number" id="simProposals" value="20" min="5" max="200" oninput="calculateDailyRevenue()">
+            </div>
+            <div class="sim-input-group">
+                <label>Average Contract Setup Fee ($)</label>
+                <input type="number" id="simDealSize" value="3500" step="500" oninput="calculateDailyRevenue()">
+            </div>
+            <div class="sim-input-group">
+                <label>Expected Close Conversion Rate (%)</label>
+                <input type="number" id="simConversion" value="2.5" step="0.5" oninput="calculateDailyRevenue()">
+            </div>
+            <div class="sim-result-box">
+                <div class="macro-label" style="color: var(--cyan);">Projected Daily Cash Yield</div>
+                <div class="sim-result-val" id="simDailyYield">$1,750 / day</div>
+                <div class="macro-sub" id="simMonthlyYield">≈ $52,500 / month (₹43.8 Lakhs)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: Top Pipeline Deals -->
+    <div class="section-heading">
+        <div class="section-title">
+            HIGH-CONVICTION ENTERPRISE PIPELINE DEALS
+            <span class="section-badge">MILLION-DOLLAR TARGETS</span>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Target Enterprise</th>
+                    <th>Automated Service Package</th>
+                    <th class="text-right">Contract ACV</th>
+                    <th class="text-center">Win Prob</th>
+                    <th class="text-right">Risk-Adj EV</th>
+                    <th>Strategic Thesis & Value Asymmetry</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td class="font-bold text-main">True Anomaly</td>
+            <td><span class="service-tag">Trade Landed-Cost Compliance & Incoterms 2020 SLA Audit</span></td>
+            <td class="text-right font-mono text-cyan">$42,000</td>
+            <td class="text-center font-mono text-emerald">45%</td>
+            <td class="text-right font-mono text-purple">$18,900</td>
+            <td class="text-muted text-sm">Replacing manual back-office SLA latency at True Anomaly with autonomous deterministic pipeline...</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">RTX</td>
+            <td><span class="service-tag">Trade Landed-Cost Compliance & Incoterms 2020 SLA Audit</span></td>
+            <td class="text-right font-mono text-cyan">$42,000</td>
+            <td class="text-center font-mono text-emerald">45%</td>
+            <td class="text-right font-mono text-purple">$18,900</td>
+            <td class="text-muted text-sm">Replacing manual back-office SLA latency at RTX with autonomous deterministic pipelines, delive...</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Citadel</td>
+            <td><span class="service-tag">Trade Landed-Cost Compliance & Incoterms 2020 SLA Audit</span></td>
+            <td class="text-right font-mono text-cyan">$42,000</td>
+            <td class="text-center font-mono text-emerald">45%</td>
+            <td class="text-right font-mono text-purple">$18,900</td>
+            <td class="text-muted text-sm">Replacing manual back-office SLA latency at Citadel with autonomous deterministic pipelines, de...</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Akuna Capital University</td>
+            <td><span class="service-tag">Trade Landed-Cost Compliance & Incoterms 2020 SLA Audit</span></td>
+            <td class="text-right font-mono text-cyan">$42,000</td>
+            <td class="text-center font-mono text-emerald">45%</td>
+            <td class="text-right font-mono text-purple">$18,900</td>
+            <td class="text-muted text-sm">Replacing manual back-office SLA latency at Akuna Capital University with autonomous determinis...</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">Akima</td>
+            <td><span class="service-tag">Trade Landed-Cost Compliance & Incoterms 2020 SLA Audit</span></td>
+            <td class="text-right font-mono text-cyan">$42,000</td>
+            <td class="text-center font-mono text-emerald">45%</td>
+            <td class="text-right font-mono text-purple">$18,900</td>
+            <td class="text-muted text-sm">Replacing manual back-office SLA latency at Akima with autonomous deterministic pipelines, deli...</td>
+        </tr>
+        
+        <tr>
+            <td class="font-bold text-main">DoorDash</td>
+            <td><span class="service-tag">Trade Landed-Cost Compliance & Incoterms 2020 SLA Audit</span></td>
+            <td class="text-right font-mono text-cyan">$42,000</td>
+            <td class="text-center font-mono text-emerald">45%</td>
+            <td class="text-right font-mono text-purple">$18,900</td>
+            <td class="text-muted text-sm">Replacing manual back-office SLA latency at DoorDash with autonomous deterministic pipelines, d...</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function calculateDailyRevenue() {
+            const proposals = parseFloat(document.getElementById('simProposals').value) || 0;
+            const dealSize = parseFloat(document.getElementById('simDealSize').value) || 0;
+            const convRate = (parseFloat(document.getElementById('simConversion').value) || 0) / 100;
+
+            const expectedDealsDaily = proposals * convRate / 7; // spread over weekly closing cycle
+            const dailyCash = expectedDealsDaily * dealSize;
+            const monthlyCash = dailyCash * 30;
+            const inrLakhs = (monthlyCash * 83.5 / 100000).toFixed(1);
+
+            document.getElementById('simDailyYield').innerText = '$' + Math.round(dailyCash).toLocaleString() + ' / day';
+            document.getElementById('simMonthlyYield').innerText = '≈ $' + Math.round(monthlyCash).toLocaleString() + ' / mo (₹' + inrLakhs + ' Lakhs)';
+        }
+    </script>
+</body>
+</html>

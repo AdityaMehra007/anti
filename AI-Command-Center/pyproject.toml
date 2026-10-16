@@ -1,0 +1,21 @@
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+    "E402",  # Module level import not at top of file (sys.path initialization needed)
+    "W291",  # Trailing whitespace in multi-line HTML string blocks
+    "W293",  # Blank line whitespace in multi-line HTML string blocks
+    "B008",  # Do not perform function call in argument defaults (FastAPI Depends/Query pattern)
+    "B904",  # Within an except clause raise from
+    "UP006", # Non-PEP 585 type annotations in legacy Pydantic models
+    "UP007", # Use X | Y for type annotations
+    "UP045", # Use X | None
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py313']

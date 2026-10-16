@@ -10,6 +10,7 @@ echo Objective : Maximize probability of securing top full-time job in Bangalore
 echo Guardrail : 100%% Evidence-Verified | 100%% Sales Exclusion (Zero Cold Calling)
 echo ===============================================================================
 echo.
+echo [0] Launch Flagship APEX CAREER SUITE (9-in-1 SPA: Audio STAR, Real-Time JD Scanner, InMail, Autofill)
 echo [1] Launch 'GET ME HIRED' Giant Interactive Web Dashboard (All 57 Subsystems)
 echo [2] Run 'WHAT SHOULD I DO NEXT?' Single Highest-ROI Action Calculation
 echo [3] View Today's Morning Job Briefing & Priorities
@@ -23,8 +24,14 @@ echo [10] Launch Master AI Workforce & Capabilities Explorer (7,142 Agents & Ski
 echo [11] Run Full System Test Suite & Validation (Pytest + Integrity Checks)
 echo [12] Exit
 echo.
-set /p choice="Select an option (1-12): "
+set /p choice="Select an option (0-12): "
 
+if "%choice%"=="0" (
+    echo.
+    echo [*] Opening Flagship APEX CAREER SUITE in browser...
+    start "" "ADITYA_APEX_CAREER_SUITE.html"
+    goto end
+)
 if "%choice%"=="1" (
     echo.
     echo [*] Opening 'GET ME HIRED' Master Dashboard in browser...

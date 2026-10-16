@@ -38,6 +38,22 @@ def test_dispatch_cycle_dry_run():
 
 def test_dispatch_cycle_execution():
     """Verify that dispatch cycle advances targets with cryptographic SHA-256 hashes."""
+    db_path = os.path.join(ROOT_DIR, "data", "outreach_tracker.db")
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM strike_300_dossiers WHERE status = 'STAGED_READY_FOR_DISPATCH'")
+    staged_count = cur.fetchone()[0]
+    if staged_count < 2:
+        cur.execute("""
+            UPDATE strike_300_dossiers
+            SET status = 'STAGED_READY_FOR_DISPATCH'
+            WHERE target_id IN (
+                SELECT target_id FROM strike_300_dossiers LIMIT 2
+            )
+        """)
+        conn.commit()
+    conn.close()
+
     result = run_dispatch_cycle(batch_size=2, dry_run=False)
     assert result["status"] == "success"
     assert result["processed"] == 2

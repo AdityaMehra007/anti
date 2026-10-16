@@ -6,12 +6,12 @@
 ---
 
 ## 1. Portfolio Overview
-- **Active Enterprise Clients**: 65 / 65
-- **Total Contracted SaaS ARR**: **₹24,300,000.00 INR**
-- **Average ARR Per Account (ARPU)**: **₹373,846.15 INR**
-- **Active Export Consignments Audited**: 182
-- **Gross Consignment Cargo Value**: **€32,180,000.00 EUR** (~₹2,928,380,000.00 INR)
-- **Cumulative Platform Audit Fees Earned**: **₹10,637,500.00 INR**
+- **Active Enterprise Clients**: 69 / 69
+- **Total Contracted SaaS ARR**: **₹25,740,000.00 INR**
+- **Average ARR Per Account (ARPU)**: **₹373,043.48 INR**
+- **Active Export Consignments Audited**: 194
+- **Gross Consignment Cargo Value**: **€34,260,000.00 EUR** (~₹3,117,660,000.00 INR)
+- **Cumulative Platform Audit Fees Earned**: **₹11,349,500.00 INR**
 
 ---
 
@@ -85,6 +85,10 @@
 | `ACC-TEST-1791109525870272800` | **Bangalore Test Hydraulics Pvt Ltd** | Doddaballapur Industrial Area, Bengaluru | High-Pressure Hydraulic Valves | €1,500,000 | Test Director (Managing Director) | `GROWTH` | ₹360,000.00 | `AA` |
 | `ACC-TEST-1791110375767273100` | **Bangalore Test Hydraulics Pvt Ltd** | Doddaballapur Industrial Area, Bengaluru | High-Pressure Hydraulic Valves | €1,500,000 | Test Director (Managing Director) | `GROWTH` | ₹360,000.00 | `AA` |
 | `ACC-TEST-1791463083524423000` | **Bangalore Test Hydraulics Pvt Ltd** | Doddaballapur Industrial Area, Bengaluru | High-Pressure Hydraulic Valves | €1,500,000 | Test Director (Managing Director) | `GROWTH` | ₹360,000.00 | `AA` |
+| `ACC-TEST-1791624852601503000` | **Bangalore Test Hydraulics Pvt Ltd** | Doddaballapur Industrial Area, Bengaluru | High-Pressure Hydraulic Valves | €1,500,000 | Test Director (Managing Director) | `GROWTH` | ₹360,000.00 | `AA` |
+| `ACC-TEST-1791625064801486400` | **Bangalore Test Hydraulics Pvt Ltd** | Doddaballapur Industrial Area, Bengaluru | High-Pressure Hydraulic Valves | €1,500,000 | Test Director (Managing Director) | `GROWTH` | ₹360,000.00 | `AA` |
+| `ACC-TEST-1791924804913764300` | **Bangalore Test Hydraulics Pvt Ltd** | Doddaballapur Industrial Area, Bengaluru | High-Pressure Hydraulic Valves | €1,500,000 | Test Director (Managing Director) | `GROWTH` | ₹360,000.00 | `AA` |
+| `ACC-TEST-1791933917982821400` | **Bangalore Test Hydraulics Pvt Ltd** | Doddaballapur Industrial Area, Bengaluru | High-Pressure Hydraulic Valves | €1,500,000 | Test Director (Managing Director) | `GROWTH` | ₹360,000.00 | `AA` |
 
 ---
 
@@ -275,6 +279,18 @@
 | `ORD-TEST-1791463083539794900` | **Precision Auto Machining Pvt Ltd** | Bosch Rexroth AG (Germany) | €220,000.00 | ₹28,000.00 | `LC-TEST-9991` | `AUDITED_PASSED` | EXEMPT | `abcdef1234567890...` |
 | `ORD-AUTO-08132847` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `VECTIS-LC-TIRUPUR-2027-104-20261008132847` | `DISCREPANCY_FLAGGED` | EXEMPT | `239aca3d05e5f919...` |
 | `ORD-AUTO-91466127` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1791466127` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
+| `ORD-AUTO-91624840` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1791624840` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
+| `ORD-TEST-1791624852620492500` | **Precision Auto Machining Pvt Ltd** | Bosch Rexroth AG (Germany) | €220,000.00 | ₹28,000.00 | `LC-TEST-9991` | `AUDITED_PASSED` | EXEMPT | `abcdef1234567890...` |
+| `ORD-AUTO-10093731` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `VECTIS-LC-TIRUPUR-2027-104-20261010093731` | `DISCREPANCY_FLAGGED` | EXEMPT | `b7730a0e6aec8cab...` |
+| `ORD-AUTO-91625051` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1791625051` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
+| `ORD-TEST-1791625064820605700` | **Precision Auto Machining Pvt Ltd** | Bosch Rexroth AG (Germany) | €220,000.00 | ₹28,000.00 | `LC-TEST-9991` | `AUDITED_PASSED` | EXEMPT | `abcdef1234567890...` |
+| `ORD-AUTO-13205311` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `VECTIS-LC-TIRUPUR-2027-104-20261013205311` | `DISCREPANCY_FLAGGED` | EXEMPT | `b3c470c49846bc8f...` |
+| `ORD-AUTO-91924791` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1791924791` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
+| `ORD-TEST-1791924804940546500` | **Precision Auto Machining Pvt Ltd** | Bosch Rexroth AG (Germany) | €220,000.00 | ₹28,000.00 | `LC-TEST-9991` | `AUDITED_PASSED` | EXEMPT | `abcdef1234567890...` |
+| `ORD-AUTO-13232501` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `VECTIS-LC-TIRUPUR-2027-104-20261013232501` | `DISCREPANCY_FLAGGED` | EXEMPT | `f1d140aeb9aacda7...` |
+| `ORD-AUTO-91933901` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1791933901` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
+| `ORD-TEST-1791933918013704000` | **Precision Auto Machining Pvt Ltd** | Bosch Rexroth AG (Germany) | €220,000.00 | ₹28,000.00 | `LC-TEST-9991` | `AUDITED_PASSED` | EXEMPT | `abcdef1234567890...` |
+| `ORD-AUTO-13232824` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `VECTIS-LC-TIRUPUR-2027-104-20261013232824` | `DISCREPANCY_FLAGGED` | EXEMPT | `f233b0d799b18754...` |
 
 ---
 

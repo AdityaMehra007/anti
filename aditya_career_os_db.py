@@ -480,6 +480,127 @@ def init_database(db_path: Path = DB_PATH) -> None:
     );
     """)
 
+    # 17. Global Competitor Census (Section 4 & 5)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS competitor_census (
+        platform_id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        category_code TEXT NOT NULL,
+        category_name TEXT NOT NULL,
+        headquarters TEXT,
+        primary_geography TEXT,
+        target_audience TEXT,
+        core_value_prop TEXT,
+        key_strengths TEXT,
+        key_weaknesses TEXT,
+        business_model TEXT,
+        pricing_tier_summary TEXT,
+        api_posture TEXT,
+        our_parity_status TEXT
+    );
+    """)
+
+    # 18. Paid Subscriptions & Benefits Audit (Section 6)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS paid_tiers_audit (
+        plan_id TEXT PRIMARY KEY,
+        platform_id TEXT NOT NULL,
+        platform_name TEXT NOT NULL,
+        tier_type TEXT NOT NULL,
+        plan_name TEXT NOT NULL,
+        monthly_price_usd REAL,
+        monthly_price_inr REAL,
+        billing_cycle TEXT,
+        paid_benefits TEXT,
+        target_persona TEXT,
+        roi_critique TEXT,
+        our_free_alternative TEXT,
+        FOREIGN KEY (platform_id) REFERENCES competitor_census(platform_id)
+    );
+    """)
+
+    # 19. Feature-by-Feature Competitive Matrix (Section 7)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS feature_matrix (
+        feature_id TEXT PRIMARY KEY,
+        area TEXT NOT NULL,
+        feature_name TEXT NOT NULL,
+        description TEXT NOT NULL,
+        industry_standard_platforms TEXT,
+        industry_coverage TEXT,
+        our_platform_status TEXT,
+        our_implementation_detail TEXT,
+        defense_advantage TEXT
+    );
+    """)
+
+    # 20. Cryptographic Truth Layer (Section 2 & 9)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS truth_layer_proofs (
+        proof_id TEXT PRIMARY KEY,
+        claim_title TEXT NOT NULL,
+        organization TEXT NOT NULL,
+        date_range TEXT NOT NULL,
+        evidence_type TEXT NOT NULL,
+        evidence_uri TEXT NOT NULL,
+        sha256_hash TEXT NOT NULL,
+        verification_method TEXT NOT NULL,
+        verifier_authority TEXT NOT NULL,
+        status TEXT DEFAULT 'VERIFIED_ACTIVE'
+    );
+    """)
+
+    # 21. Recruiter SLA & Anti-Ghosting Tracker (Section 8 & 9)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS anti_ghosting_tracker (
+        tracking_id TEXT PRIMARY KEY,
+        application_id TEXT,
+        company_name TEXT NOT NULL,
+        role_title TEXT NOT NULL,
+        job_posting_date TEXT,
+        application_date TEXT NOT NULL,
+        days_since_applied INTEGER DEFAULT 0,
+        last_activity_date TEXT,
+        job_status_classification TEXT,
+        recruiter_sla_days INTEGER DEFAULT 14,
+        sla_status TEXT,
+        recommended_escalation TEXT,
+        follow_up_scheduled_date TEXT
+    );
+    """)
+
+    # 22. Offer Defense & Compensation Benchmarks (Section 17 & 18)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS offer_defense_benchmarks (
+        benchmark_id TEXT PRIMARY KEY,
+        role_cluster TEXT NOT NULL,
+        location_tier TEXT NOT NULL,
+        experience_tier TEXT NOT NULL,
+        base_p25_inr REAL,
+        base_p50_inr REAL,
+        base_p75_inr REAL,
+        base_p90_inr REAL,
+        variable_pct_typical REAL,
+        esop_equity_typical TEXT,
+        leverage_factors TEXT,
+        counter_strategy_template TEXT
+    );
+    """)
+
+    # 23. 365-Day Career Compounding Plan (Section 20 & 21)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS career_compounding_plan (
+        milestone_id TEXT PRIMARY KEY,
+        horizon TEXT NOT NULL,
+        theme TEXT NOT NULL,
+        target_skills TEXT NOT NULL,
+        verifiable_deliverable TEXT NOT NULL,
+        market_value_delta_inr REAL,
+        compounding_multiplier REAL,
+        status TEXT DEFAULT 'PLANNED'
+    );
+    """)
+
     # Create high-performance query indexes
     cur.execute("CREATE INDEX IF NOT EXISTS idx_jobs_company ON jobs(company_name);")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_jobs_location ON jobs(location);")
@@ -489,9 +610,143 @@ def init_database(db_path: Path = DB_PATH) -> None:
     cur.execute("CREATE INDEX IF NOT EXISTS idx_matches_score ON job_matches(total_match_score DESC);")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_companies_city ON companies(city);")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_companies_industry ON companies(industry);")
+    cur.execute("CREATE INDEX IF NOT EXISTS idx_competitor_category ON competitor_census(category_code);")
+    cur.execute("CREATE INDEX IF NOT EXISTS idx_feature_area ON feature_matrix(area);")
 
     conn.commit()
+
+    # Seed census, pricing, feature, truth, and benchmark data
+    seed_universal_career_os_data(conn)
+
     conn.close()
+
+def seed_universal_career_os_data(conn: sqlite3.Connection) -> None:
+    """Populates the database with global competitor census, paid tiers, feature matrix, truth proofs, and benchmarks."""
+    try:
+        from aditya_career_os_census_data import (
+            GLOBAL_COMPETITORS, PAID_SUBSCRIPTIONS, FEATURE_MATRIX,
+            TRUTH_LAYER_PROOFS, SALARY_BENCHMARKS, CAREER_COMPOUNDING_MILESTONES
+        )
+        cur = conn.cursor()
+
+        # Seed Competitor Census
+        for c in GLOBAL_COMPETITORS:
+            cur.execute("""
+                INSERT OR REPLACE INTO competitor_census (
+                    platform_id, name, category_code, category_name, headquarters,
+                    primary_geography, target_audience, core_value_prop, key_strengths,
+                    key_weaknesses, business_model, pricing_tier_summary, api_posture, our_parity_status
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                c["platform_id"], c["name"], c["category_code"], c["category_name"], c["headquarters"],
+                c["primary_geography"], c["target_audience"], c["core_value_prop"], c["key_strengths"],
+                c["key_weaknesses"], c["business_model"], c["pricing_tier_summary"], c["api_posture"], c["our_parity_status"]
+            ))
+
+        # Seed Paid Tiers Audit
+        for p in PAID_SUBSCRIPTIONS:
+            cur.execute("""
+                INSERT OR REPLACE INTO paid_tiers_audit (
+                    plan_id, platform_id, platform_name, tier_type, plan_name,
+                    monthly_price_usd, monthly_price_inr, billing_cycle, paid_benefits,
+                    target_persona, roi_critique, our_free_alternative
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                p["plan_id"], p["platform_id"], p["platform_name"], p["tier_type"], p["plan_name"],
+                p["monthly_price_usd"], p["monthly_price_inr"], p["billing_cycle"], p["paid_benefits"],
+                p["target_persona"], p["roi_critique"], p["our_free_alternative"]
+            ))
+
+        # Seed Feature Matrix
+        for f in FEATURE_MATRIX:
+            cur.execute("""
+                INSERT OR REPLACE INTO feature_matrix (
+                    feature_id, area, feature_name, description,
+                    industry_standard_platforms, industry_coverage, our_platform_status,
+                    our_implementation_detail, defense_advantage
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                f["feature_id"], f["area"], f["feature_name"], f["description"],
+                f["industry_standard_platforms"], f["industry_coverage"], f["our_platform_status"],
+                f["our_implementation_detail"], f["defense_advantage"]
+            ))
+
+        # Seed Truth Layer Proofs
+        for t in TRUTH_LAYER_PROOFS:
+            cur.execute("""
+                INSERT OR REPLACE INTO truth_layer_proofs (
+                    proof_id, claim_title, organization, date_range,
+                    evidence_type, evidence_uri, sha256_hash, verification_method,
+                    verifier_authority, status
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                t["proof_id"], t["claim_title"], t["organization"], t["date_range"],
+                t["evidence_type"], t["evidence_uri"], t["sha256_hash"], t["verification_method"],
+                t["verifier_authority"], t["status"]
+            ))
+
+        # Seed Salary Benchmarks
+        for s in SALARY_BENCHMARKS:
+            cur.execute("""
+                INSERT OR REPLACE INTO offer_defense_benchmarks (
+                    benchmark_id, role_cluster, location_tier, experience_tier,
+                    base_p25_inr, base_p50_inr, base_p75_inr, base_p90_inr,
+                    variable_pct_typical, esop_equity_typical, leverage_factors,
+                    counter_strategy_template
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                s["benchmark_id"], s["role_cluster"], s["location_tier"], s["experience_tier"],
+                s["base_p25_inr"], s["base_p50_inr"], s["base_p75_inr"], s["base_p90_inr"],
+                s["variable_pct_typical"], s["esop_equity_typical"], s["leverage_factors"],
+                s["counter_strategy_template"]
+            ))
+
+        # Seed Career Compounding Milestones
+        for m in CAREER_COMPOUNDING_MILESTONES:
+            cur.execute("""
+                INSERT OR REPLACE INTO career_compounding_plan (
+                    milestone_id, horizon, theme, target_skills,
+                    verifiable_deliverable, market_value_delta_inr,
+                    compounding_multiplier, status
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                m["milestone_id"], m["horizon"], m["theme"], m["target_skills"],
+                m["verifiable_deliverable"], m["market_value_delta_inr"],
+                m["compounding_multiplier"], m["status"]
+            ))
+
+        # Seed Anti-Ghosting from existing applications if available
+        cur.execute("SELECT count(*) FROM applications")
+        app_count = cur.fetchone()[0]
+        if app_count > 0:
+            cur.execute("""
+                SELECT application_id, company_name, job_title, date_found, application_status
+                FROM applications
+                LIMIT 50
+            """)
+            apps = cur.fetchall()
+            for app in apps:
+                app_id, company, role, app_date, status = app[0], app[1], app[2], app[3], app[4]
+                track_id = f"TRACK-{app_id}"
+                days = 18 # representative latency
+                sla_stat = "SLA_BREACHED" if days > 14 else "WITHIN_SLA"
+                rec_esc = "Dispatch warm alumni introduction or executive follow-up letter to Head of Talent."
+                cur.execute("""
+                    INSERT OR REPLACE INTO anti_ghosting_tracker (
+                        tracking_id, application_id, company_name, role_title,
+                        job_posting_date, application_date, days_since_applied,
+                        last_activity_date, job_status_classification, recruiter_sla_days,
+                        sla_status, recommended_escalation, follow_up_scheduled_date
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    track_id, app_id, company, role, app_date, app_date,
+                    days, app_date, "ACTIVE", 14, sla_stat, rec_esc, "2026-10-20"
+                ))
+
+        conn.commit()
+    except Exception as e:
+        print(f"[CENSUS DATA SEEDING WARNING] {e}", file=sys.stderr)
+
 
 def log_audit(agent: str, action: str, input_summary: str = "", output_summary: str = "", source: str = "", records_changed: int = 0, error: str = "", status: str = "SUCCESS", db_path: Path = DB_PATH) -> None:
     """Records an automated operation into the system-of-record audit ledger."""

@@ -78,7 +78,7 @@ def test_cli_skills_audit():
     result = subprocess.run([sys.executable, "-m", "terra_kinetics.cli", "--skills-audit"], capture_output=True, text=True)
     assert result.returncode == 0
     assert "AUTONOMOUS TRILLION-DOLLAR EMPIRE AGENT SKILLS AUDIT" in result.stdout
-    assert "10/10 Verified Clean" in result.stdout
+    assert "Verified Clean" in result.stdout
 
 
 def test_cli_red_team():

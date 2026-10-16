@@ -37,21 +37,33 @@ external/
 external/plane/data/
 external/plane/plane.env
 .agents/
+2027-AI-College-Jobs/
 ai-engineering-from-scratch/
+airflow_upstream/
 arc-task-gen/
 claude-plugins-community/
 colibri/
 deer-flow/
 external_skills/
+frontend-challenges/
 github-cheat-sheet/
+hiring-without-whiteboards/
+JobFunnel/
+JustHireMe/
 MoneyPrinterV2/
+n8n-core/
+New-Grad-2027/
+New-Grad-Positions/
 openclaude/
 openclaw/
 opencode/
 project-nomad/
 projects/TradingAgents/
 public-apis/
+reactjs-interview-questions/
+rea/
 research/system_prompts_leaks/
+Summer2027-Internships/
 tinyagi/
 
 # Runtime Logs
@@ -97,3 +109,10 @@ data/outreach_tracker.db
 .agent/skills/brag/scripts/.venv/
 .agents/skills/brag/scripts/.venv/
 
+# Temporary Scrape Caches & Heavy Binary Archives
+scratch/
+gow3-windows.zip
+gow3_windows/
+GoW3R_Windows_Port/
+.pytest_cache/
+.ruff_cache/

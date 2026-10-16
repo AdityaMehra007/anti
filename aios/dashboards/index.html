@@ -776,9 +776,85 @@
         <button class="btn" onclick="walCheckpoint()">WAL Checkpoint</button>
         <button class="btn" onclick="triggerHealthCheck()">Full Health Audit</button>
         <button class="btn" onclick="exportMetrics()">Export Metrics</button>
+        <button class="btn" onclick="viewPrometheusMetrics()">Prometheus /metrics</button>
+        <button class="btn" onclick="listSaaSProjects()">SaaS Projects</button>
         <button class="btn" onclick="openDoc('MODEL_REGISTRY.md')">View Model Registry</button>
         <button class="btn" onclick="openDoc('ARCHITECTURE.md')">System Architecture</button>
       </div>
+    </div>
+
+    <!-- 4. STARTUP LAB & IDEA VALIDATOR -->
+    <div class="card">
+      <div class="card-header-flex">
+        <div class="card-title" style="margin-bottom: 0;">💡 Startup Lab & Idea Validator</div>
+        <button class="btn" onclick="fetchRecentIdeas()" style="padding: 6px 12px; font-size: 11px;">Refresh Ideas 🔄</button>
+      </div>
+      <div class="trigger-form">
+        <div style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Validate New Business Concept</div>
+        <input type="text" id="ideaTitle" placeholder="Concept Title (e.g. 'Autonomous Invoice Ledger')">
+        <input type="text" id="ideaUser" placeholder="Target User (e.g. 'Freelance Agencies & Accountants')">
+        <textarea id="ideaProblem" placeholder="Problem Statement: What painful bottleneck does this solve?" style="height: 60px;"></textarea>
+        <textarea id="ideaSolution" placeholder="Proposed Solution & Architecture: How will AIOS automate this?" style="height: 60px;"></textarea>
+        <div style="display:flex; gap: 8px;">
+          <button class="btn btn-primary" onclick="validateStartupIdea()">Validate Concept 🧠</button>
+          <button class="btn" onclick="scaffoldQuickSaaS()">Scaffold Project 🏗️</button>
+        </div>
+      </div>
+      <div id="ideaReportContainer" style="margin-top: 14px;"></div>
+      <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-top: 16px; margin-bottom: 8px;">Cataloged Ideas Ledger</div>
+      <table class="automation-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Target User</th>
+            <th>Status</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody id="ideasTableBody">
+          <tr><td colspan="5" style="text-align:center; color: var(--text-muted);">Loading ideas...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5. MODEL EVALUATION & QUALITY BENCHMARKS -->
+    <div class="card">
+      <div class="card-header-flex">
+        <div class="card-title" style="margin-bottom: 0;">📊 Model Evaluation & Quality Benchmarks</div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn" onclick="viewPrometheusMetrics()" style="padding: 6px 12px; font-size: 11px;">Prometheus /metrics 📈</button>
+          <button class="btn" onclick="fetchEvalHistory()" style="padding: 6px 12px; font-size: 11px;">Refresh Runs 🔄</button>
+        </div>
+      </div>
+      <div class="trigger-form">
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <select id="evalModelSelect" class="form-select" style="max-width: 280px;">
+            <option value="qwen2.5-coder:3b">qwen2.5-coder:3b (Local GPU)</option>
+            <option value="gemini-2.0-flash">gemini-2.0-flash (Cloud Router)</option>
+            <option value="claude-3-5-sonnet">claude-3-5-sonnet (Cloud Router)</option>
+            <option value="gpt-4o-mini">gpt-4o-mini (Cloud Router)</option>
+          </select>
+          <button class="btn btn-primary" onclick="runModelBenchmark()">Run Benchmark Suite ⚡</button>
+        </div>
+      </div>
+      <div id="evalActiveRun" style="margin-top: 12px;"></div>
+      <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-top: 16px; margin-bottom: 8px;">Benchmark History</div>
+      <table class="automation-table">
+        <thead>
+          <tr>
+            <th>Run ID</th>
+            <th>Model</th>
+            <th>Pass Rate</th>
+            <th>Latency (ms)</th>
+            <th>TPS</th>
+            <th>Timestamp</th>
+          </tr>
+        </thead>
+        <tbody id="evalTableBody">
+          <tr><td colspan="6" style="text-align:center; color: var(--text-muted);">Loading evaluations...</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- TERMINAL OUTPUT -->
@@ -1303,10 +1379,204 @@
       }
     }
 
+    async function validateStartupIdea() {
+      const title = document.getElementById('ideaTitle').value.trim();
+      const user = document.getElementById('ideaUser').value.trim();
+      const problem = document.getElementById('ideaProblem').value.trim();
+      const solution = document.getElementById('ideaSolution').value.trim();
+      const container = document.getElementById('ideaReportContainer');
+
+      if (!title || !problem || !solution) {
+        alert('Please fill in Concept Title, Problem, and Solution.');
+        return;
+      }
+
+      container.innerHTML = '<div class="terminal-dim">Evaluating idea and computing conviction score...</div>';
+      appendLog(`Validating startup concept '${title}'...`, 'info');
+
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/ideas/validate`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: title,
+            target_user: user || 'Enterprise B2B',
+            problem: problem,
+            proposed_solution: solution
+          })
+        });
+        const rep = await res.json();
+        const scoreColor = rep.conviction_score >= 70 ? 'var(--green)' : 'var(--yellow)';
+        container.innerHTML = `
+          <div class="rag-card" style="border-left: 3px solid ${scoreColor};">
+            <div class="rag-meta" style="color: ${scoreColor}; font-weight: 700;">
+              ✨ Conviction Score: ${rep.conviction_score}/100 [${rep.status}]
+            </div>
+            <div style="font-size: 13px; font-weight: 600; margin: 4px 0;">${escapeHtml(rep.title)} (${escapeHtml(rep.id)})</div>
+            <div class="rag-text" style="white-space: pre-line; margin-top: 6px;">${escapeHtml(rep.mvp_scope)}</div>
+            <div class="terminal-dim" style="margin-top: 6px; font-size: 11px;">${escapeHtml(rep.ai_insights)}</div>
+          </div>
+        `;
+        appendLog(`Idea validated: ${rep.title} -> Conviction: ${rep.conviction_score} (${rep.status})`, 'success');
+        fetchRecentIdeas();
+      } catch (e) {
+        container.innerHTML = `<div style="color: var(--red);">Validation error: ${escapeHtml(e.message)}</div>`;
+        appendLog(`Idea validation error: ${e.message}`, 'error');
+      }
+    }
+
+    async function scaffoldQuickSaaS() {
+      const title = document.getElementById('ideaTitle').value.trim();
+      if (!title) {
+        alert('Please provide a Concept Title for project scaffolding.');
+        return;
+      }
+      const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      appendLog(`Scaffolding SaaS project '${slug}'...`, 'info');
+
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/saas/scaffold`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: slug,
+            stack: 'nextjs-fastapi',
+            features: ['auth', 'db', 'stripe', 'analytics']
+          })
+        });
+        const d = await res.json();
+        appendLog(`Project scaffolded successfully at: ${d.path}`, 'success');
+        listSaaSProjects();
+      } catch (e) {
+        appendLog(`Scaffold failed: ${e.message}`, 'error');
+      }
+    }
+
+    async function fetchRecentIdeas() {
+      const tbody = document.getElementById('ideasTableBody');
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/ideas`);
+        if (res.ok) {
+          const data = await res.json();
+          tbody.innerHTML = '';
+          if (data.ideas && data.ideas.length > 0) {
+            data.ideas.forEach(item => {
+              const pillClass = item.status === 'VALIDATED' ? 'status-pill status-online' : 'status-pill';
+              tbody.innerHTML += `<tr>
+                <td style="font-family: var(--font-mono); font-size: 11px;">${escapeHtml(item.id)}</td>
+                <td><strong>${escapeHtml(item.title)}</strong></td>
+                <td>${escapeHtml(item.target_user || 'B2B')}</td>
+                <td><span class="${pillClass}">${escapeHtml(item.status)}</span></td>
+                <td style="font-size: 11px; color: var(--text-muted);">${escapeHtml((item.created_at || '').substring(0, 16))}</td>
+              </tr>`;
+            });
+          } else {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No ideas cataloged yet.</td></tr>';
+          }
+        }
+      } catch (e) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color: var(--text-muted);">Idea catalog offline</td></tr>';
+      }
+    }
+
+    async function runModelBenchmark() {
+      const select = document.getElementById('evalModelSelect');
+      const model = select.value;
+      const activeDiv = document.getElementById('evalActiveRun');
+      activeDiv.innerHTML = `<div class="terminal-dim">Running automated benchmark suite on ${model}... (measuring TTFT, TPS, accuracy)</div>`;
+      appendLog(`Starting benchmark run on '${model}'...`, 'info');
+
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/eval/benchmark`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ model: model })
+        });
+        const rep = await res.json();
+        activeDiv.innerHTML = `
+          <div class="rag-card" style="border-left: 3px solid var(--accent);">
+            <div class="rag-meta" style="color: var(--accent); font-weight: 700;">
+              ⚡ Benchmark Run: ${rep.eval_id} [${rep.model_name}]
+            </div>
+            <div style="font-size: 12px; margin-top: 4px;">
+              Pass Rate: <strong>${rep.pass_rate_percent}%</strong> (${rep.passed_tests}/${rep.total_tests}) | 
+              Avg Latency: <strong>${rep.avg_latency_ms} ms</strong> | 
+              Throughput: <strong>${rep.avg_tps} TPS</strong>
+            </div>
+          </div>
+        `;
+        appendLog(`Benchmark completed: ${rep.model_name} -> ${rep.pass_rate_percent}% pass rate, ${rep.avg_tps} TPS`, 'success');
+        fetchEvalHistory();
+      } catch (e) {
+        activeDiv.innerHTML = `<div style="color: var(--red);">Benchmark error: ${escapeHtml(e.message)}</div>`;
+        appendLog(`Benchmark error: ${e.message}`, 'error');
+      }
+    }
+
+    async function fetchEvalHistory() {
+      const tbody = document.getElementById('evalTableBody');
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/eval/results`);
+        if (res.ok) {
+          const data = await res.json();
+          tbody.innerHTML = '';
+          if (data.evaluations && data.evaluations.length > 0) {
+            data.evaluations.forEach(ev => {
+              const passPct = (ev.pass_rate || 0).toFixed(1);
+              tbody.innerHTML += `<tr>
+                <td style="font-family: var(--font-mono); font-size: 11px;">${escapeHtml(ev.id)}</td>
+                <td><strong>${escapeHtml(ev.model_name)}</strong></td>
+                <td><span class="status-pill ${passPct >= 50 ? 'status-online' : 'status-offline'}">${passPct}%</span></td>
+                <td>${(ev.avg_latency_ms || 0).toFixed(1)}</td>
+                <td>${(ev.avg_tps || 0).toFixed(2)}</td>
+                <td style="font-size: 11px; color: var(--text-muted);">${escapeHtml((ev.timestamp || '').substring(0, 16))}</td>
+              </tr>`;
+            });
+          } else {
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No benchmark runs recorded.</td></tr>';
+          }
+        }
+      } catch (e) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color: var(--text-muted);">Eval history offline</td></tr>';
+      }
+    }
+
+    async function viewPrometheusMetrics() {
+      appendLog('Fetching live Prometheus exposition metrics from /metrics...', 'prompt');
+      try {
+        const res = await fetch(`${GATEWAY_URL}/metrics`);
+        const text = await res.text();
+        const lines = text.split('\n').filter(l => l && !l.startsWith('#')).slice(0, 10);
+        lines.forEach(l => appendLog(l, 'info'));
+        appendLog(`... view complete metrics at ${GATEWAY_URL}/metrics`, 'success');
+      } catch (e) {
+        appendLog(`Failed to fetch /metrics: ${e.message}`, 'error');
+      }
+    }
+
+    async function listSaaSProjects() {
+      appendLog('Fetching scaffolded SaaS projects from /v1/saas/projects...', 'prompt');
+      try {
+        const res = await fetch(`${GATEWAY_URL}/v1/saas/projects`);
+        const data = await res.json();
+        if (data.projects && data.projects.length > 0) {
+          data.projects.forEach(p => {
+            appendLog(`[SaaS] ${p.name} | Stack: ${p.stack} | Path: ${p.path}`, 'success');
+          });
+        } else {
+          appendLog('No SaaS projects scaffolded yet.', 'info');
+        }
+      } catch (e) {
+        appendLog(`Failed to list projects: ${e.message}`, 'error');
+      }
+    }
+
     // Initialize telemetry and dynamic models
     loadModelList();
     fetchRagStats();
     fetchAutomationStatus();
+    fetchRecentIdeas();
+    fetchEvalHistory();
     setInterval(fetchTelemetry, 4000);
     fetchTelemetry();
   </script>

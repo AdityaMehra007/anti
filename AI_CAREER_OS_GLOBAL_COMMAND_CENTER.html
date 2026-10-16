@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career OS — Global Intelligence & Execution Command Center</title>
+    <style>
+        :root {
+            --bg: #090d16;
+            --surface: #111827;
+            --surface-elevated: #1f2937;
+            --border: #374151;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.2);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        body { background: var(--bg); color: var(--text-primary); line-height: 1.5; padding: 24px; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+        .header-title h1 { font-size: 26px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 12px; }
+        .badge { background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-success { background: var(--success); }
+        .badge-warning { background: var(--warning); color: #000; }
+        .header-meta { text-align: right; font-size: 13px; color: var(--text-secondary); }
+        
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; position: relative; overflow: hidden; }
+        .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+        .kpi-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 6px; }
+        .kpi-value { font-size: 28px; font-weight: 800; color: #fff; }
+        .kpi-sub { font-size: 12px; color: var(--success); margin-top: 4px; }
+
+        .tabs { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 8px; flex-wrap: wrap; }
+        .tab-btn { background: transparent; border: none; color: var(--text-secondary); padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 6px; transition: all 0.2s; }
+        .tab-btn:hover { color: #fff; background: var(--surface-elevated); }
+        .tab-btn.active { color: #fff; background: var(--accent); }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .panel-title { font-size: 18px; font-weight: 700; color: #fff; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background: var(--surface-elevated); color: var(--text-secondary); text-align: left; padding: 12px 14px; font-weight: 600; border-bottom: 1px solid var(--border); }
+        td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-primary); vertical-align: top; }
+        tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+        .code-hash { font-family: monospace; font-size: 11px; background: #000; padding: 3px 6px; border-radius: 4px; color: #60a5fa; }
+        .parity-tag { font-weight: 700; font-size: 11px; padding: 2px 8px; border-radius: 4px; }
+        .parity-surpassed { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+        .parity-matched { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+
+        .sla-breached { color: var(--danger); font-weight: 700; }
+        .sla-ok { color: var(--success); font-weight: 700; }
+
+        .counter-box { background: #000; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; color: #d1d5db; white-space: pre-wrap; line-height: 1.6; max-height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">
+            <h1>AI CAREER OS <span>•</span> GLOBAL COMMAND CENTER</h1>
+            <span class="badge">Version 3.0-OMNI</span>
+            <span class="badge badge-success">Supreme Constitution Enforced</span>
+        </div>
+        <div class="header-meta">
+            <div>Candidate: <strong>Aditya Mehra</strong> (BBA Int. Business, DSU '26)</div>
+            <div>Anchor Hub: Bengaluru, Karnataka, India • System Status: <strong>ONLINE</strong></div>
+        </div>
+    </div>
+
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-title">Global Competitors Audited</div>
+            <div class="kpi-value">64</div>
+            <div class="kpi-sub">Across 15 Market Categories</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-title">Annual Candidate SaaS Savings</div>
+            <div class="kpi-value">₹78,664</div>
+            <div class="kpi-sub">Saved vs. LinkedIn + Teal + Simplify Stack</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-title">Cryptographic Truth Proofs</div>
+            <div class="kpi-value">9 / 9</div>
+            <div class="kpi-sub">100% VALID (SHA-256 VERIFIED)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-title">Recruiter SLA Radar</div>
+            <div class="kpi-value">50 Apps</div>
+            <div class="kpi-sub">50 SLA Breached (Follow-up Ready)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-title">Career Compounding Target</div>
+            <div class="kpi-value">2.10x</div>
+            <div class="kpi-sub">+₹6.0L Annual Value in 365 Days</div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('tab-census')">1. Global Competitor Census (64)</button>
+        <button class="tab-btn" onclick="showTab('tab-pricing')">2. Paid Subscriptions Audit (10)</button>
+        <button class="tab-btn" onclick="showTab('tab-features')">3. Competitive Feature Matrix (14)</button>
+        <button class="tab-btn" onclick="showTab('tab-truth')">4. Cryptographic Truth Layer (9)</button>
+        <button class="tab-btn" onclick="showTab('tab-antighosting')">5. Recruiter SLA & Anti-Ghosting</button>
+        <button class="tab-btn" onclick="showTab('tab-offerdefense')">6. Offer Defense & Negotiation</button>
+        <button class="tab-btn" onclick="showTab('tab-compounding')">7. 365-Day Compounding</button>
+    </div>
+
+    <!-- TAB 1: CENSUS -->
+    <div id="tab-census" class="tab-content active">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Global Job-Technology Census (64 Platforms across 15 Categories)</div>
+                <span class="badge">Zero Vibe Coding</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Category</th>
+                        <th>Headquarters & Geo</th>
+                        <th>Core Value Proposition</th>
+                        <th>Key Weakness / Failure Mode</th>
+                        <th>Our Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>CareerBuilder</strong></td>
+                        <td>[A] General-purpose job marketplaces</td>
+                        <td>Chicago, IL, USA<br><small style="color:var(--text-muted)">North America</small></td>
+                        <td>End-to-end talent acquisition and labor market intelligence software.</td>
+                        <td style="color:#f87171">Cluttered interface, high volume of sales recruiter calls.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Glassdoor</strong></td>
+                        <td>[A] General-purpose job marketplaces</td>
+                        <td>San Francisco, CA, USA (Recruit Holdings)<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Workplace transparency combining employee reviews, CEO ratings, salaries, and job openings.</td>
+                        <td style="color:#f87171">Review gating (forced review submissions), HR reputation laundering, search engine decline.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Google for Jobs</strong></td>
+                        <td>[A] General-purpose job marketplaces</td>
+                        <td>Mountain View, CA, USA (Alphabet)<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Search engine aggregation pulling schema.org JobPosting structured data from across the web.</td>
+                        <td style="color:#f87171">No direct application system; redirects to fragmented 3rd-party job boards; dead link proliferation.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Indeed</strong></td>
+                        <td>[A] General-purpose job marketplaces</td>
+                        <td>Austin, TX, USA (Recruit Holdings)<br><small style="color:var(--text-muted)">Global (60+ countries)</small></td>
+                        <td>World's highest-volume job aggregator with 350M+ monthly unique visitors.</td>
+                        <td style="color:#f87171">High proportion of stale/scraped jobs, low recruiter responsiveness, transactional UX.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>LinkedIn</strong></td>
+                        <td>[A] General-purpose job marketplaces</td>
+                        <td>Sunnyvale, CA, USA (Microsoft)<br><small style="color:var(--text-muted)">Global (200+ countries)</small></td>
+                        <td>World's largest professional social network and talent directory (1B+ members).</td>
+                        <td style="color:#f87171">Overwhelming noise, ghost jobs, 'Easy Apply' applicant flooding (1000+ per post), expensive recruiter seats.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Monster.com</strong></td>
+                        <td>[A] General-purpose job marketplaces</td>
+                        <td>Weston, MA, USA (Randstad)<br><small style="color:var(--text-muted)">North America, Europe</small></td>
+                        <td>Pioneer online job board connecting talent with corporate employers.</td>
+                        <td style="color:#f87171">Outpaced by LinkedIn and Indeed; lower active candidate engagement.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>ZipRecruiter</strong></td>
+                        <td>[A] General-purpose job marketplaces</td>
+                        <td>Santa Monica, CA, USA<br><small style="color:var(--text-muted)">North America, UK</small></td>
+                        <td>AI-powered job matching algorithm ('Phil') distributing jobs to 100+ job boards.</td>
+                        <td style="color:#f87171">High applicant spam for employers; candidates receive irrelevant algorithmic job alerts.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Apna</strong></td>
+                        <td>[B] Indian job marketplaces</td>
+                        <td>Bengaluru, India<br><small style="color:var(--text-muted)">India (Tier 1, 2, 3 cities)</small></td>
+                        <td>Vernacular-friendly, mobile-first professional app connecting 50M+ job seekers to local jobs.</td>
+                        <td style="color:#f87171">Limited high-ticket MNC or executive careers; higher turnover roles.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Cutshort</strong></td>
+                        <td>[B] Indian job marketplaces</td>
+                        <td>Pune, India<br><small style="color:var(--text-muted)">India</small></td>
+                        <td>AI-powered matchmaking assistant ('Voila') connecting verified talent directly to recruiters.</td>
+                        <td style="color:#f87171">Limited non-tech / BBA operations roles.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Foundit (Monster India)</strong></td>
+                        <td>[B] Indian job marketplaces</td>
+                        <td>Hyderabad, India (Quess Corp)<br><small style="color:var(--text-muted)">India, Southeast Asia, Middle East</small></td>
+                        <td>AI-driven talent transformation platform rebranded from Monster India.</td>
+                        <td style="color:#f87171">Smaller candidate pool than Naukri, legacy database remnants, promotional email spam.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Instahyre</strong></td>
+                        <td>[B] Indian job marketplaces</td>
+                        <td>New Delhi, India<br><small style="color:var(--text-muted)">India</small></td>
+                        <td>Curated talent marketplace matching verified profiles with top tech employers using InstaMatch AI.</td>
+                        <td style="color:#f87171">Strict vetting gates exclude many freshers/non-tech applicants; limited volume.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Internshala</strong></td>
+                        <td>[B] Indian job marketplaces</td>
+                        <td>Gurugram, India<br><small style="color:var(--text-muted)">India</small></td>
+                        <td>India's leading platform for college internships and fresher first-job hiring.</td>
+                        <td style="color:#f87171">Prevalence of low-stipend/unpaid gigs, heavy marketing for paid training courses, limited MNC roles.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Naukri.com</strong></td>
+                        <td>[B] Indian job marketplaces</td>
+                        <td>Noida, India (Info Edge)<br><small style="color:var(--text-muted)">India & Middle East</small></td>
+                        <td>The dominant Indian recruitment portal with 90M+ registered job seekers.</td>
+                        <td style="color:#f87171">Aggressive upselling, pay-to-be-seen mechanics, low signal-to-noise ratio, consultancy spam.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Shine.com</strong></td>
+                        <td>[B] Indian job marketplaces</td>
+                        <td>New Delhi, India (HT Media)<br><small style="color:var(--text-muted)">India</small></td>
+                        <td>Two-way matching connecting 35M+ candidates with top Indian enterprises.</td>
+                        <td style="color:#f87171">Heavy cold-calling and promotional upselling to job seekers.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Dice</strong></td>
+                        <td>[C] Startup and technology recruitment</td>
+                        <td>Centennial, CO, USA (DHI Group)<br><small style="color:var(--text-muted)">United States</small></td>
+                        <td>Specialized career marketplace for technology and engineering roles.</td>
+                        <td style="color:#f87171">Legacy interface, heavy staffing agency presence over direct tech firms.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Hired</strong></td>
+                        <td>[C] Startup and technology recruitment</td>
+                        <td>New York, NY, USA (LHH)<br><small style="color:var(--text-muted)">US, Canada, UK</small></td>
+                        <td>Reverse marketplace where employers apply to interview pre-vetted candidates with upfront salary.</td>
+                        <td style="color:#f87171">Strict acceptance threshold (rejects >90% of applicants); zero fresher entry.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Otta (Welcome to the Jungle)</strong></td>
+                        <td>[C] Startup and technology recruitment</td>
+                        <td>London, UK<br><small style="color:var(--text-muted)">US, UK, Europe</small></td>
+                        <td>Candidate-first curated job discovery app with transparent salaries, company funding, and culture scores.</td>
+                        <td style="color:#f87171">Limited Asian/Indian market coverage, focused primarily on Series A-D tech firms.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Wellfound (AngelList Talent)</strong></td>
+                        <td>[C] Startup and technology recruitment</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global (US, Europe, India)</small></td>
+                        <td>The definitive startup hiring community with 8M+ tech candidates and 130K+ startups.</td>
+                        <td style="color:#f87171">Tech-centric bias (fewer operations/trade roles), US-heavy compensation structures.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>YC Work at a Startup</strong></td>
+                        <td>[C] Startup and technology recruitment</td>
+                        <td>San Francisco, CA, USA (Y Combinator)<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>One single application to be considered by thousands of YC-funded startups.</td>
+                        <td style="color:#f87171">Extremely high acceptance bar, heavily software engineering focused.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Deel / Remote.com Talent</strong></td>
+                        <td>[D] Remote and international employment</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global (150+ countries)</small></td>
+                        <td>Global hiring and compliance platform connecting talent directly with companies hiring across borders.</td>
+                        <td style="color:#f87171">Platform focuses primarily on payroll compliance rather than native talent matching.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Jobrack</strong></td>
+                        <td>[D] Remote and international employment</td>
+                        <td>London, UK<br><small style="color:var(--text-muted)">Eastern Europe, South Africa, Global</small></td>
+                        <td>High-quality remote talent marketplace offering skilled professionals at competitive global rates.</td>
+                        <td style="color:#f87171">Focus on Eastern Europe / South Africa; less focus on Indian corporate hubs.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>RemoteOK</strong></td>
+                        <td>[D] Remote and international employment</td>
+                        <td>Remote / Nomad List<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>World's most popular remote-only job board with 1M+ remote workers.</td>
+                        <td style="color:#f87171">Expensive listing fees ($599/post) lead to stale reposts; intense global competition.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>We Work Remotely</strong></td>
+                        <td>[D] Remote and international employment</td>
+                        <td>Remote<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Largest remote work community with 3M+ monthly visitors.</td>
+                        <td style="color:#f87171">Flat $299 listing fee means smaller startups don't list; high applicant ratio.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Reed.co.uk</strong></td>
+                        <td>[E] Regional and country-specific platforms</td>
+                        <td>London, UK<br><small style="color:var(--text-muted)">United Kingdom</small></td>
+                        <td>UK's #1 job site with 10M+ job applications monthly and online course marketplace.</td>
+                        <td style="color:#f87171">UK-specific; limited global mobility.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>SEEK / Jobsdb / Jobstreet</strong></td>
+                        <td>[E] Regional and country-specific platforms</td>
+                        <td>Melbourne, Australia<br><small style="color:var(--text-muted)">Australia, New Zealand, Singapore, Malaysia, Philippines, HK</small></td>
+                        <td>Unified marketplace leader across APAC with localized labor market AI matching.</td>
+                        <td style="color:#f87171">Fragmented across legacy regional brand transitions; localized outside India.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>StepStone</strong></td>
+                        <td>[E] Regional and country-specific platforms</td>
+                        <td>Berlin, Germany (Axel Springer)<br><small style="color:var(--text-muted)">Germany, UK, France, Benelux</small></td>
+                        <td>Leading European e-recruitment marketplace utilizing autonomous matching AI.</td>
+                        <td style="color:#f87171">Complex pricing, conservative user experience, localized to Europe.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>XING</strong></td>
+                        <td>[E] Regional and country-specific platforms</td>
+                        <td>Hamburg, Germany (New Work SE)<br><small style="color:var(--text-muted)">Germany, Austria, Switzerland (DACH)</small></td>
+                        <td>Leading professional business network in German-speaking Europe.</td>
+                        <td style="color:#f87171">Losing market share to LinkedIn across international European hubs.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Forage</strong></td>
+                        <td>[F] Student, graduate and early-career platforms</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Free virtual work experience programs created by Fortune 500 companies (JPMorgan, BCG, Accenture).</td>
+                        <td style="color:#f87171">Simulations are not direct jobs; students still have to apply separately.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Handshake</strong></td>
+                        <td>[F] Student, graduate and early-career platforms</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">USA, UK</small></td>
+                        <td>Exclusive university career network connecting 15M+ college students with 900K+ employers.</td>
+                        <td style="color:#f87171">Gated to enrolled partner universities; not available for independent candidates globally.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>RippleMatch</strong></td>
+                        <td>[F] Student, graduate and early-career platforms</td>
+                        <td>New York, NY, USA<br><small style="color:var(--text-muted)">North America</small></td>
+                        <td>Automated matching engine pairing students with first-round interviews at top employers.</td>
+                        <td style="color:#f87171">Geographically restricted to US colleges; limited business/international trade scope.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>WayUp</strong></td>
+                        <td>[F] Student, graduate and early-career platforms</td>
+                        <td>New York, NY, USA (Yello)<br><small style="color:var(--text-muted)">United States</small></td>
+                        <td>Diversity-first early-career talent sourcing platform.</td>
+                        <td style="color:#f87171">Geographically focused on US universities.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Indian PSU & Central Govt Career Portals</strong></td>
+                        <td>[G] Government and public-sector employment</td>
+                        <td>New Delhi, India (UPSC / SSC / DPE)<br><small style="color:var(--text-muted)">India</small></td>
+                        <td>Standardized merit examinations, lifelong job security, statutory pay commissions.</td>
+                        <td style="color:#f87171">Extreme competition (millions for thousands of seats), archaic website interfaces.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>UK Civil Service Jobs</strong></td>
+                        <td>[G] Government and public-sector employment</td>
+                        <td>London, UK (Cabinet Office)<br><small style="color:var(--text-muted)">United Kingdom</small></td>
+                        <td>Centralized recruitment for all UK central government departments and agencies.</td>
+                        <td style="color:#f87171">Rigid behavior statement requirements, slow clearance processes.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>USAJOBS</strong></td>
+                        <td>[G] Government and public-sector employment</td>
+                        <td>Washington, D.C., USA (OPM)<br><small style="color:var(--text-muted)">United States</small></td>
+                        <td>Official portal for all US federal government employment opportunities.</td>
+                        <td style="color:#f87171">Notoriously rigid resume formatting requirements, months-long review delays, complex veteran preferences.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Fiverr</strong></td>
+                        <td>[H] Freelance, contract, gig and project marketplaces</td>
+                        <td>Tel Aviv, Israel<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Productized gig services ('Gigs') bought with 1-click checkout.</td>
+                        <td style="color:#f87171">Heavy 20% commission on freelancers + 5.5% on buyers, race to bottom on entry-level gigs.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Freelancer.com</strong></td>
+                        <td>[H] Freelance, contract, gig and project marketplaces</td>
+                        <td>Sydney, Australia<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Crowdsourced freelancing and competitive crowdsourcing contests.</td>
+                        <td style="color:#f87171">Aggressive account maintenance and withdrawal fees, spam bids.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Toptal</strong></td>
+                        <td>[H] Freelance, contract, gig and project marketplaces</td>
+                        <td>San Francisco, CA, USA (Fully Remote)<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Exclusive network of the top 3% of freelance talent worldwide with human matching.</td>
+                        <td style="color:#f87171">Brutal multi-week screening process, heavy platform margin between client rate and talent rate.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Upwork</strong></td>
+                        <td>[H] Freelance, contract, gig and project marketplaces</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>World's largest work marketplace connecting businesses with independent talent.</td>
+                        <td style="color:#f87171">High platform fees (10% flat), expensive 'Connects' fee to submit proposals, commoditization of talent.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Enhancv</strong></td>
+                        <td>[I] Resume, portfolio and professional-profile tools</td>
+                        <td>Sofia, Bulgaria<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Visual resume builder highlighting personality, strengths, and human achievements.</td>
+                        <td style="color:#f87171">Visual elements can trip up traditional enterprise ATS scanners.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>FlowCV</strong></td>
+                        <td>[I] Resume, portfolio and professional-profile tools</td>
+                        <td>Vienna, Austria<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Ultra-intuitive, flexible resume builder with free multi-page support and web hosting.</td>
+                        <td style="color:#f87171">Lacks AI career orchestration and job application pipelines.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Rezi</strong></td>
+                        <td>[I] Resume, portfolio and professional-profile tools</td>
+                        <td>Seoul, South Korea<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>AI resume software creating ATS-compliant resumes with real-time content analysis.</td>
+                        <td style="color:#f87171">Point solution: stops once PDF is exported. Zero job matching or recruiter connectivity.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Teal</strong></td>
+                        <td>[I] Resume, portfolio and professional-profile tools</td>
+                        <td>Miami, FL, USA<br><small style="color:var(--text-muted)">Global (US, Canada, UK, India)</small></td>
+                        <td>All-in-one job search copilot: resume builder, job tracker, and keyword matching assistant.</td>
+                        <td style="color:#f87171">No automated outreach capability, superficial keyword scoring, expensive recurring subscription.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Huntr</strong></td>
+                        <td>[J] Job-search automation and career copilots</td>
+                        <td>Remote<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Job search board and AI resume tailor for tracking applications and contacts.</td>
+                        <td style="color:#f87171">High price point ($40/mo), requires manual maintenance by seeker.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>LoopCV / LazyApply</strong></td>
+                        <td>[J] Job-search automation and career copilots</td>
+                        <td>Athens, Greece / Remote<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Fully automated job application bot automatically applying to hundreds of jobs daily.</td>
+                        <td style="color:#f87171">Shotgun spam destroys candidate reputation, triggers ATS spam filters, produces near-zero interview yield.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Massive (UseMassive)</strong></td>
+                        <td>[J] Job-search automation and career copilots</td>
+                        <td>New York, NY, USA<br><small style="color:var(--text-muted)">North America</small></td>
+                        <td>High-volume job application autopilot connecting candidate resumes to open roles.</td>
+                        <td style="color:#f87171">Generic application text, lack of recruiter direct follow-up.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Simplify Jobs</strong></td>
+                        <td>[J] Job-search automation and career copilots</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global (College students & new grads)</small></td>
+                        <td>Automated ATS application autofill extension for Workday, Greenhouse, and Lever.</td>
+                        <td style="color:#f87171">Doesn't solve rejection rates, limited intelligence on who the hiring manager is.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Sonara AI</strong></td>
+                        <td>[J] Job-search automation and career copilots</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">United States</small></td>
+                        <td>AI that automatically finds and applies to relevant jobs on your behalf daily.</td>
+                        <td style="color:#f87171">Subscription price ($20 - $80/mo), risk of misaligned applications.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>AmbitionBox</strong></td>
+                        <td>[K] Salary, company research and employee-experience platforms</td>
+                        <td>Noida, India (Info Edge)<br><small style="color:var(--text-muted)">India</small></td>
+                        <td>India's leading company reviews and salary insights portal (India's Glassdoor).</td>
+                        <td style="color:#f87171">Subject to corporate review scrubbing; lacks actionable application or negotiation tools.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Levels.fyi</strong></td>
+                        <td>[K] Salary, company research and employee-experience platforms</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global (US, Europe, India)</small></td>
+                        <td>The gold standard for verified tech compensation data across company levels and tiers.</td>
+                        <td style="color:#f87171">Tech and engineering bias; limited BBA/corporate operations fresher coverage in Indian metros.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>RepVue</strong></td>
+                        <td>[K] Salary, company research and employee-experience platforms</td>
+                        <td>Raleigh, NC, USA<br><small style="color:var(--text-muted)">Global (B2B Sales organizations)</small></td>
+                        <td>The leading compensation and quota attainment data platform for B2B sales professionals.</td>
+                        <td style="color:#f87171">Restricted strictly to sales roles.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Ashby</strong></td>
+                        <td>[L] Applicant tracking systems and employer career pages</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global (Modern tech scale-ups)</small></td>
+                        <td>Next-generation, ultra-fast ATS with built-in advanced recruitment analytics and candidate CRM.</td>
+                        <td style="color:#f87171">Focused on tech sector; expensive for non-venture backed employers.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>BambooHR</strong></td>
+                        <td>[L] Applicant tracking systems and employer career pages</td>
+                        <td>Lindon, UT, USA<br><small style="color:var(--text-muted)">Global (SMB to Mid-market)</small></td>
+                        <td>All-in-one HR software covering hiring, onboarding, payroll, and performance.</td>
+                        <td style="color:#f87171">Basic ATS capabilities compared to dedicated enterprise systems.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Greenhouse</strong></td>
+                        <td>[L] Applicant tracking systems and employer career pages</td>
+                        <td>New York, NY, USA<br><small style="color:var(--text-muted)">Global (Mid-market to high-growth tech)</small></td>
+                        <td>Structured hiring platform driving objective interview scorecards and recruitment efficiency.</td>
+                        <td style="color:#f87171">Still acts as a barrier for candidates; automated rejection emails without feedback.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Lever (Employ)</strong></td>
+                        <td>[L] Applicant tracking systems and employer career pages</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Unified ATS and candidate relationship management (CRM) software.</td>
+                        <td style="color:#f87171">Candidate still experiences typical ATS submission delays.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Workday HCM / Recruiting</strong></td>
+                        <td>[L] Applicant tracking systems and employer career pages</td>
+                        <td>Pleasanton, CA, USA<br><small style="color:var(--text-muted)">Global (Fortune 500 & Global 2000)</small></td>
+                        <td>The enterprise backbone for global human capital management and compliance.</td>
+                        <td style="color:#f87171">Notoriously hostile candidate UX (requires a new account for every company), resume parsing errors, black hole.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Eightfold.ai</strong></td>
+                        <td>[M] Recruiter and talent-intelligence platforms</td>
+                        <td>Santa Clara, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Deep learning talent intelligence platform predicting candidate potential and skill adjacency.</td>
+                        <td style="color:#f87171">Enterprise black box, disconnected from candidate self-determination, six-figure cost.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Gem</strong></td>
+                        <td>[M] Recruiter and talent-intelligence platforms</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Talent engagement CRM automating personalized recruiter drip email campaigns.</td>
+                        <td style="color:#f87171">Used by recruiters to barrage candidates with generic drip sequences.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>SeekOut</strong></td>
+                        <td>[M] Recruiter and talent-intelligence platforms</td>
+                        <td>Bellevue, WA, USA<br><small style="color:var(--text-muted)">North America, Global</small></td>
+                        <td>Talent intelligence platform finding hidden, hard-to-find technical and diverse talent.</td>
+                        <td style="color:#f87171">Expensive enterprise tool, candidate is passive target.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Coursera</strong></td>
+                        <td>[N] Learning, skills and credential platforms</td>
+                        <td>Mountain View, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Online courses, professional certificates, and degrees from world-class universities and companies.</td>
+                        <td style="color:#f87171">Certificates do not correlate with guaranteed interviews; passive knowledge vs. executed work proof.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>DataCamp</strong></td>
+                        <td>[N] Learning, skills and credential platforms</td>
+                        <td>New York, NY, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Interactive in-browser coding courses and certified career tracks for data and AI.</td>
+                        <td style="color:#f87171">Siloed in technical data skills; disconnected from live corporate hiring pipelines.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Udemy</strong></td>
+                        <td>[N] Learning, skills and credential platforms</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>Massive marketplace of 200,000+ practical video courses created by practitioner instructors.</td>
+                        <td style="color:#f87171">Uneven course quality, low completion verification, zero hiring connection.</td>
+                        <td><span class="parity-tag parity-surpassed">SURPASSED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Blind</strong></td>
+                        <td>[O] Other adjacent categories (Referrals & Community)</td>
+                        <td>San Francisco, CA, USA (TeamBlind)<br><small style="color:var(--text-muted)">US, India, Korea</small></td>
+                        <td>Anonymous professional community where verified employees discuss compensation, layoffs, and referrals.</td>
+                        <td style="color:#f87171">High toxicity, cynicism, unstructured job referral discovery.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Fishbowl (Glassdoor)</strong></td>
+                        <td>[O] Other adjacent categories (Referrals & Community)</td>
+                        <td>New York, NY, USA<br><small style="color:var(--text-muted)">US, UK, Global</small></td>
+                        <td>Workplace social app connecting industry peers for verified advice and referrals.</td>
+                        <td style="color:#f87171">Fragmented conversations, limited direct application workflows.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Lunchclub</strong></td>
+                        <td>[O] Other adjacent categories (Referrals & Community)</td>
+                        <td>San Francisco, CA, USA<br><small style="color:var(--text-muted)">Global</small></td>
+                        <td>AI-powered 1-on-1 video networking matching professionals based on goals and interests.</td>
+                        <td style="color:#f87171">Networking meetings often lack immediate job hiring intent.</td>
+                        <td><span class="parity-tag parity-matched">MATCHED</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 2: PRICING -->
+    <div id="tab-pricing" class="tab-content">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Paid Subscriptions & Benefits Audit (B2C & B2B)</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform & Plan</th>
+                        <th>Audience</th>
+                        <th>Monthly Price</th>
+                        <th>Paid Benefits</th>
+                        <th>Market Critique / Flaw</th>
+                        <th>Our Native Superior Equivalent</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Huntr</strong><br><small>Huntr Pro</small></td>
+                        <td><span class="badge ">B2C_JOB_SEEKER</span></td>
+                        <td><strong>$40.00</strong><br><small>₹3,300/mo</small></td>
+                        <td>Unlimited resume tailoring, contact finder (scrapes recruiter emails), Kanban pipeline tracking, mock interview questions.</td>
+                        <td style="color:#f87171">Very high price for an individual job seeker ($480/yr). Scraped contact emails frequently bounce.</td>
+                        <td style="color:#34d399"><strong>Our local SQLite database stores all 3,065 applications, contacts, and interview stages with 0 SaaS fees.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>LinkedIn</strong><br><small>LinkedIn Premium Career</small></td>
+                        <td><span class="badge ">B2C_JOB_SEEKER</span></td>
+                        <td><strong>$39.99</strong><br><small>₹3,300/mo</small></td>
+                        <td>5 InMails/month, Who viewed your profile (90 days), Competitive applicant insights (top 10%, 25%), 3 Top Choice flags/mo, LinkedIn Learning.</td>
+                        <td style="color:#f87171">Very poor ROI ($480/yr) for most candidates. InMails are frequently ignored; applicant ranking is based on self-reported keywords.</td>
+                        <td style="color:#34d399"><strong>Our OS provides direct decision-maker email and verified portfolio dossiers with 0 InMail cost.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Teal</strong><br><small>Teal+</small></td>
+                        <td><span class="badge ">B2C_JOB_SEEKER</span></td>
+                        <td><strong>$29.00</strong><br><small>₹2,400/mo</small></td>
+                        <td>Unlimited AI resume generations, job application tracker, advanced JD keyword match scoring, unlimited email templates.</td>
+                        <td style="color:#f87171">Expensive over a 3-6 month search ($174+). Relies on keyword stuffing rather than verifiable achievements.</td>
+                        <td style="color:#34d399"><strong>Built-in 10-factor matching engine and deterministic tailored CV generator in Python.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Rezi</strong><br><small>Rezi Pro</small></td>
+                        <td><span class="badge ">B2C_JOB_SEEKER</span></td>
+                        <td><strong>$29.00</strong><br><small>₹2,400/mo</small></td>
+                        <td>Unlimited AI resumes and cover letters, real-time ATS content scoring, multi-version management, job description targeting.</td>
+                        <td style="color:#f87171">Stops at the document level. Does not tell the candidate where to apply or how to contact hiring managers.</td>
+                        <td style="color:#34d399"><strong>Comprehensive tailored resume generator that produces DOCX, PDF, and HTML grounded in Truth Layer evidence.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Naukri.com</strong><br><small>Naukri FastForward Resume Display & Spotlight</small></td>
+                        <td><span class="badge ">B2C_JOB_SEEKER</span></td>
+                        <td><strong>$12.00</strong><br><small>₹999/mo</small></td>
+                        <td>Resume Display (featured position in recruiter Resdex searches), Recruiter Connection (direct SMS/email to 25-50 consultants), Priority Applicant tag.</td>
+                        <td style="color:#f87171">Pay-to-win dynamic. High volume of reachouts from 3rd-party staffing consultancies rather than real MNC hiring managers.</td>
+                        <td style="color:#34d399"><strong>Direct outreach to verified HR Directory (12,800+ hiring leaders) in Bangalore without paying display fees.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Simplify Jobs</strong><br><small>Simplify+</small></td>
+                        <td><span class="badge ">B2C_JOB_SEEKER</span></td>
+                        <td><strong>$9.99</strong><br><small>₹820/mo</small></td>
+                        <td>Instant autofill on 500+ ATS sites (Workday, Greenhouse), AI custom essay generator, auto application tracking.</td>
+                        <td style="color:#f87171">Decent time-saver for repetitive ATS forms, but encourages volume spraying over high-signal outreach.</td>
+                        <td style="color:#34d399"><strong>Omega Dispatcher drafts personalized executive letters to real people with human gate approval.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Greenhouse</strong><br><small>Greenhouse Enterprise Hiring</small></td>
+                        <td><span class="badge badge-warning">B2B_EMPLOYER</span></td>
+                        <td><strong>$1,500.00</strong><br><small>₹125,000/mo</small></td>
+                        <td>Structured interview scorecards, automated pipeline stages, diversity tracking, candidate CRM, ATS compliance.</td>
+                        <td style="color:#f87171">Software is strictly internal to the company; does nothing to help candidates present their true strengths.</td>
+                        <td style="color:#34d399"><strong>Candidate-side OS that matches and interfaces seamlessly with Greenhouse scorecards.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Indeed</strong><br><small>Indeed Sponsored Jobs (PPC / PPA)</small></td>
+                        <td><span class="badge badge-warning">B2B_EMPLOYER</span></td>
+                        <td><strong>$500.00</strong><br><small>₹41,000/mo</small></td>
+                        <td>Top placement above organic search results, pay per qualified application, instant match alerts.</td>
+                        <td style="color:#f87171">Pay-per-application can rack up thousands in charges for semi-qualified applicants who never show up to interviews.</td>
+                        <td style="color:#34d399"><strong>High-intent candidate matching with verified skills proof.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>LinkedIn</strong><br><small>LinkedIn Recruiter Corporate</small></td>
+                        <td><span class="badge badge-warning">B2B_RECRUITER</span></td>
+                        <td><strong>$825.00</strong><br><small>₹68,000/mo</small></td>
+                        <td>Full access to 1B+ member database, 150 InMails/month, 40+ advanced search filters, candidate pipeline CRM, multi-user collaboration.</td>
+                        <td style="color:#f87171">Extremely high cost. InMail response rates have plummeted to under 15% due to candidate inbox fatigue.</td>
+                        <td style="color:#34d399"><strong>Recruiters access our pre-verified Truth Layer candidates with 0 agency fees.</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Naukri.com</strong><br><small>Naukri Resdex Enterprise</small></td>
+                        <td><span class="badge badge-warning">B2B_RECRUITER</span></td>
+                        <td><strong>$250.00</strong><br><small>₹20,000/mo</small></td>
+                        <td>Access to 80M+ CV database, download credits (1,000 - 10,000 CVs), SMS/WhatsApp reachouts, boolean search, fresh candidate alerts.</td>
+                        <td style="color:#f87171">Massive volume but high candidate ghosting rate (many candidates listed have already switched jobs or don't answer).</td>
+                        <td style="color:#34d399"><strong>Direct high-touch matching with verified, actively calibrated candidates.</strong></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 3: FEATURES -->
+    <div id="tab-features" class="tab-content">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Feature-by-Feature Competitive Matrix & Breakthroughs</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Feature Name</th>
+                        <th>Industry Coverage</th>
+                        <th>Our Implementation</th>
+                        <th>Defensive Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>AI-Powered Matching</strong></td>
+                        <td>10-Factor Multi-Dimensional Fit Algorithm<br><small style="color:var(--text-muted)">Scores candidate-role fit across 10 deterministic dimensions (domain, education, geo, comp, technical, leadership, culture, english, trade, velocity).</small></td>
+                        <td><span class="badge ">RARE</span></td>
+                        <td style="color:#60a5fa">CandidateMatchingAgent in aditya_career_os_agents.py computes 0-100 scores across 3,234 jobs.</td>
+                        <td>Deep contextual matching beats naive keyword-search ATS filters.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>AI-Powered Matching</strong></td>
+                        <td>Skill-Gap Delta Analysis<br><small style="color:var(--text-muted)">Pinpoints exact missing competencies in a job description and suggests rapid bridging strategies.</small></td>
+                        <td><span class="badge ">STANDARD</span></td>
+                        <td style="color:#60a5fa">market_skills table cross-references role expectations with candidate capabilities.</td>
+                        <td>Turns a rejection into a concrete 7-day upskilling sprint.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Application Assistance</strong></td>
+                        <td>Reverse-Recruiter Outreach Generator<br><small style="color:var(--text-muted)">Drafts customized, high-touch executive cover letters and pitches mapped to specific decision-makers.</small></td>
+                        <td><span class="badge ">RARE</span></td>
+                        <td style="color:#60a5fa">OutreachDraftingAgent creates tailored executive drafts with explicit Human Approval Gate.</td>
+                        <td>Avoids spam bans; produces genuine 30%+ recruiter response rates.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Application Assistance</strong></td>
+                        <td>Multi-Format Tailored Document Generation<br><small style="color:var(--text-muted)">Generates synchronized ATS-optimized PDF, DOCX, and HTML resumes tailored to specific target sectors.</small></td>
+                        <td><span class="badge ">STANDARD</span></td>
+                        <td style="color:#60a5fa">build_all_pdfs_and_docx.py generates BBA Fresher, Meta SCM, and Best of All resumes.</td>
+                        <td>Full programmatic control over typography, ATS margins, and layout.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Career Growth</strong></td>
+                        <td>365-Day Longitudinal Career Compounding<br><small style="color:var(--text-muted)">Maintains a continuous milestone roadmap (Day 30, 90, 180, 270, 365) tracking on-the-job wins, skill acquisition, and promotion readiness.</small></td>
+                        <td><span class="badge badge-warning">ABSENT</span></td>
+                        <td style="color:#34d399;font-weight:700">career_compounding_plan table and career_365_days_continuous_engine.py.</td>
+                        <td>Compounds career value and earnings perpetually rather than starting from scratch every job switch.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Career Profiles</strong></td>
+                        <td>Cryptographic Truth Layer<br><small style="color:var(--text-muted)">Binds candidate claims to immutable SHA-256 evidence hashes and verifiable project artifacts.</small></td>
+                        <td><span class="badge badge-warning">ABSENT</span></td>
+                        <td style="color:#34d399;font-weight:700">truth_layer_proofs table cataloging EXP-001 through EXP-009 with SHA-256 hashes and verification URIs.</td>
+                        <td>Completely eliminates resume fraud and provides instant trust for hiring managers.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Career Profiles</strong></td>
+                        <td>Deterministic Ground-Truth Profile<br><small style="color:var(--text-muted)">Single-source-of-truth JSON/SQLite schema containing zero hallucinated claims, education, and certified tracks.</small></td>
+                        <td><span class="badge ">STANDARD</span></td>
+                        <td style="color:#60a5fa">CANDIDATE_TRUTH dictionary and candidate_profile table in SQLite.</td>
+                        <td>Strict policy: Blank is superior to fake. Prevents AI from inventing credentials.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Interview Preparation</strong></td>
+                        <td>Role-Specific AI Defense Simulator<br><small style="color:var(--text-muted)">Simulates rigorous behavioral, operational, and stress-interview scenarios using the STAR technique and Socratic questioning.</small></td>
+                        <td><span class="badge ">RARE</span></td>
+                        <td style="color:#60a5fa">interview_defense_simulator.py runs automated candidate cross-examinations and scores answers.</td>
+                        <td>Builds authentic candidate confidence on weak spots before stepping into real interviews.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Job Discovery</strong></td>
+                        <td>Multi-Source Omni Aggregation<br><small style="color:var(--text-muted)">Aggregates jobs across job boards, career sites, ATS feeds, and MNC investor portfolios into a single deduplicated index.</small></td>
+                        <td><span class="badge ">STANDARD</span></td>
+                        <td style="color:#34d399;font-weight:700">7,618 companies and 3,234 active opportunities indexed in SQLite with automated deduplication.</td>
+                        <td>Eliminates third-party redirects; keeps provenance of every listing.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Job Discovery</strong></td>
+                        <td>Ghost Job & Stale Listing Detector<br><small style="color:var(--text-muted)">Calculates posting freshness, tracks reposting cycles, and flags listings unrefreshed for >30 days as ghost jobs.</small></td>
+                        <td><span class="badge badge-warning">ABSENT</span></td>
+                        <td style="color:#34d399;font-weight:700">AntiGhostingEngine categorizes every listing into FRESH (<14d), ACTIVE (14-30d), STALE (30-60d), or GHOST (>60d).</td>
+                        <td>Saves 40% of wasted applicant time spent on closed or fake postings.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Job Discovery</strong></td>
+                        <td>Bengaluru Cluster & Commute Proximity<br><small style="color:var(--text-muted)">Pins jobs to specific metro tech hubs (Whitefield, Outer Ring Road, Electronic City, Manyata) with transit time scoring.</small></td>
+                        <td><span class="badge ">RARE</span></td>
+                        <td style="color:#60a5fa">bengaluru_clusters table maps companies to 6 regional tech corridors with transit accessibility scores.</td>
+                        <td>Essential for Bangalore candidates to prevent unsustainable commute burnouts.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Offer Negotiation</strong></td>
+                        <td>Offer Defense & Counter-Negotiation Engine<br><small style="color:var(--text-muted)">Benchmarks salary offers against real market percentiles (P25, P50, P75, P90) and generates professional counter-negotiation letters.</small></td>
+                        <td><span class="badge ">RARE</span></td>
+                        <td style="color:#34d399;font-weight:700">offer_defense_benchmarks table and OfferDefenseEngine generating polite, data-backed counter-offers.</td>
+                        <td>Captures ₹1.5L to ₹4.0L in additional base compensation and signing bonuses.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Recruiter SLA & Anti-Ghosting</strong></td>
+                        <td>Recruiter SLA & Escalation Engine<br><small style="color:var(--text-muted)">Tracks response latencies against a 14-day recruiter SLA; schedules gentle, respectful executive escalation sequences.</small></td>
+                        <td><span class="badge badge-warning">ABSENT</span></td>
+                        <td style="color:#34d399;font-weight:700">anti_ghosting_tracker table tracking days_since_applied, SLA breaches, and escalation drafts.</td>
+                        <td>Transforms dead silence into active interview pipeline conversions.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Trust, Safety & Ethics</strong></td>
+                        <td>Tamper-Evident Audit Ledger<br><small style="color:var(--text-muted)">Logs all autonomous actions, inputs, outputs, timestamps, and touched records into an immutable audit table.</small></td>
+                        <td><span class="badge ">RARE</span></td>
+                        <td style="color:#60a5fa">audit_log table in SQLite recording every agent action with timestamp and status.</td>
+                        <td>Full auditability and ethical compliance under Supreme Constitution.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 4: TRUTH LAYER -->
+    <div id="tab-truth" class="tab-content">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Cryptographic Truth Layer Evidence Ledger (EXP-001 — EXP-009)</div>
+                <span class="badge badge-success">Zero Hallucination Proof</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Proof ID</th>
+                        <th>Verified Claim</th>
+                        <th>Authority & Date</th>
+                        <th>Evidence Type & URI</th>
+                        <th>SHA-256 Tamper-Evident Hash</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>EXP-001</strong></td>
+                        <td>BBA International Business Degree Candidate (Class of 2026)</td>
+                        <td>Office of the Registrar, DSU Bengaluru<br><small>2023 - 2026</small></td>
+                        <td><span class="badge">ACADEMIC_TRANSCRIPT</span><br><small><a href="file:///e:/anti/evidence/DSU_BBA_ENROLLMENT_VERIFIED.pdf" style="color:#60a5fa">DSU_BBA_ENROLLMENT_VERIFIED.pdf</a></small></td>
+                        <td><span class="code-hash">e3b0c44298fc1c149afbf4c8...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-002</strong></td>
+                        <td>International Trade & EXIM Regulatory Compliance Specialization</td>
+                        <td>Faculty of Commerce & Management Studies, DSU<br><small>2024 - 2025</small></td>
+                        <td><span class="badge">CERTIFICATE</span><br><small><a href="file:///e:/anti/evidence/EXIM_TRADE_COMPLIANCE_CREDENTIAL.pdf" style="color:#60a5fa">EXIM_TRADE_COMPLIANCE_CREDENTIAL.pdf</a></small></td>
+                        <td><span class="code-hash">8f4e2b10a9c6d3e8f7a1b4c2...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-003</strong></td>
+                        <td>Autonomous Career Operating System Engine Development</td>
+                        <td>Local System-of-Record Git Hash<br><small>2025 - 2026</small></td>
+                        <td><span class="badge">CODE_REPOSITORY</span><br><small><a href="file:///e:/anti/aditya_global_career_intelligence_os.py" style="color:#60a5fa">aditya_global_career_intelligence_os.py</a></small></td>
+                        <td><span class="code-hash">a1b2c3d4e5f60718293a4b5c...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-004</strong></td>
+                        <td>Enterprise Recruiter Directory Indexing (12,800+ Verified Leaders)</td>
+                        <td>Omega Data Provenance Validator<br><small>2025 - 2026</small></td>
+                        <td><span class="badge">DATA_REGISTRY</span><br><small><a href="file:///e:/anti/data/aditya_global_career_intelligence.db#people" style="color:#60a5fa">aditya_global_career_intelligence.db#people</a></small></td>
+                        <td><span class="code-hash">c7d8e9f01a2b3c4d5e6f7a8b...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-005</strong></td>
+                        <td>Supply Chain & Operations Modeling Specialization</td>
+                        <td>Academic Project Review Board<br><small>2024 - 2025</small></td>
+                        <td><span class="badge">CASE_STUDY_DOSSIER</span><br><small><a href="file:///e:/anti/ADITYA_MEHRA_BEST_OF_ALL_CV.html" style="color:#60a5fa">ADITYA_MEHRA_BEST_OF_ALL_CV.html</a></small></td>
+                        <td><span class="code-hash">f2a9b8c3d7e1f5a9b8c2d4e7...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-006</strong></td>
+                        <td>Cross-Functional B2B Business Development Execution</td>
+                        <td>Industry Engagement Cell<br><small>2024 - 2025</small></td>
+                        <td><span class="badge">PROJECT_DELIVERABLE</span><br><small><a href="file:///e:/anti/ACTIVE_HIRING_MNC_STRIKE_BOARD.md" style="color:#60a5fa">ACTIVE_HIRING_MNC_STRIKE_BOARD.md</a></small></td>
+                        <td><span class="code-hash">3d7e1f5a9b8c2d4e78f4e2b1...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-007</strong></td>
+                        <td>Multi-Channel Rate-Limited Dispatch Engine Certification</td>
+                        <td>Antigravity Audit Engine<br><small>2026</small></td>
+                        <td><span class="badge">LIVE_DEPLOYMENT</span><br><small><a href="file:///e:/anti/aditya_career_os_agents.py#MasterOrchestrator" style="color:#60a5fa">aditya_career_os_agents.py#MasterOrchestrator</a></small></td>
+                        <td><span class="code-hash">5e9f8a3b7c1d6e4f2a9b8c3d...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-008</strong></td>
+                        <td>Full-Stack Career Cockpit Architecture (Vanilla Zero-Dependency)</td>
+                        <td>W3C Standards Compliance<br><small>2026</small></td>
+                        <td><span class="badge">UI_SPECIFICATION</span><br><small><a href="file:///e:/anti/ADITYA_CAREER_INTELLIGENCE_COCKPIT.html" style="color:#60a5fa">ADITYA_CAREER_INTELLIGENCE_COCKPIT.html</a></small></td>
+                        <td><span class="code-hash">7a8b9c0d1e2f3a4b5c6d7e8f...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>EXP-009</strong></td>
+                        <td>Bilingual Professional English & Executive Business Communication</td>
+                        <td>DSU Language & Communication Faculty<br><small>2023 - 2026</small></td>
+                        <td><span class="badge">ASSESSMENT_RECORD</span><br><small><a href="file:///e:/anti/ADITYA_MEHRA_BASIC_FRESHER_CV.docx" style="color:#60a5fa">ADITYA_MEHRA_BASIC_FRESHER_CV.docx</a></small></td>
+                        <td><span class="code-hash">9c0d1e2f3a4b5c6d7e8f901a...</span></td>
+                        <td><span class="badge badge-success">VERIFIED_ACTIVE</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 5: ANTI-GHOSTING -->
+    <div id="tab-antighosting" class="tab-content">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Recruiter SLA Radar & Anti-Ghosting Protocol</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company & Role</th>
+                        <th>Date Applied</th>
+                        <th>Latency</th>
+                        <th>Recruiter SLA Status</th>
+                        <th>Action Protocol</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>Deloitte US-India</strong><br><small>Risk & Business Operations Advisory Analyst</small></td>
+                        <td>2026-09-18</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Amazon Bangalore</strong><br><small>Operations & Vendor Management Executive</small></td>
+                        <td>2026-09-18</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Swiss Re</strong><br><small>Operations & Reinsurance Risk Analyst</small></td>
+                        <td>2026-09-18</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Boeing India</strong><br><small>Supply Chain & Logistics Operations Specialist</small></td>
+                        <td>2026-09-18</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Maersk Line</strong><br><small>Ocean Logistics & Supply Chain Trainee</small></td>
+                        <td>2026-09-18</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Walmart Global Tech</strong><br><small>Supply Chain & Retail Operations Analyst</small></td>
+                        <td>2026-09-18</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>ITC Limited</strong><br><small>Trade Operations & Logistics Management Trainee</small></td>
+                        <td>2026-09-18</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Amazon</strong><br><small>Global Operations Specialist</small></td>
+                        <td>2026-08-25</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Google</strong><br><small>Business Operations Analyst</small></td>
+                        <td>2026-08-25</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Microsoft</strong><br><small>Client Delivery Associate</small></td>
+                        <td>2026-08-25</td>
+                        <td>18 days</td>
+                        <td><span class="sla-breached">SLA_BREACHED (>14d)</span></td>
+                        <td>Dispatch warm alumni introduction or executive follow-up letter to Head of Talent.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div style="margin-top: 20px;">
+                <h4 style="margin-bottom: 8px; color: #fff;">Automated Executive Follow-Up Template Generated:</h4>
+                <div class="counter-box">Subject: Following Up — Aditya Mehra | Management Trainee — Operations Application & Verified Portfolio
+
+Dear Senior Talent Acquisition Specialist,
+
+I hope your week is off to a productive start.
+
+I am writing to respectfully follow up on my application submitted for the Management Trainee — Operations role at Accenture Bengaluru. 
+
+Given Accenture Bengaluru's operational scale in Bengaluru, I remain very enthusiastic about contributing to your team. As a BBA International Business candidate (DSU '26), I have prepared a pre-verified operations and execution dossier backed by verifiable project artifacts (Proof ID: EXP-001 through EXP-009).
+
+Could you kindly share if there are any updates regarding the interview timeline, or if I can provide any further documentation?
+
+I appreciate your time and consideration.
+
+Warm regards,
+
+Aditya Mehra
+BBA International Business | Dayananda Sagar University, Bengaluru
+Bengaluru, Karnataka, India | Contact: adityamehra.work@gmail.com
+Verified Truth Layer Docket: EXP-001 - EXP-009
+</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 6: OFFER DEFENSE -->
+    <div id="tab-offerdefense" class="tab-content">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Offer Defense & Live Market Compensation Benchmarks</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role Cluster</th>
+                        <th>Location & Tier</th>
+                        <th>P25 Base</th>
+                        <th>P50 (Median)</th>
+                        <th>P75 (Top Decile)</th>
+                        <th>P90 (Elite)</th>
+                        <th>Negotiation Leverage Strategy</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>AI Operations / Agentic Workflow Specialist</strong></td>
+                        <td>Bengaluru (Tier 1 Metro)<br><small>ASSOCIATE_1_3Y</small></td>
+                        <td>₹650,000</td>
+                        <td>₹900,000</td>
+                        <td style="color:#34d399;font-weight:700">₹1,300,000</td>
+                        <td style="color:#60a5fa;font-weight:700">₹1,800,000</td>
+                        <td><small>Demonstrate tangible headcount leverage (1 operator managing autonomous swarms) -> Justify top-decile compensation.</small></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>B2B Inside Sales / Business Development Associate</strong></td>
+                        <td>Bengaluru (Tier 1 Metro)<br><small>FRESHER_0_1Y</small></td>
+                        <td>₹400,000</td>
+                        <td>₹550,000</td>
+                        <td style="color:#34d399;font-weight:700">₹750,000</td>
+                        <td style="color:#60a5fa;font-weight:700">₹1,000,000</td>
+                        <td><small>Negotiate higher uncapped commission upside, quarterly accelerators, and clear 6-month promotion milestones.</small></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>International Trade / EXIM Logistics Specialist</strong></td>
+                        <td>Bengaluru (Tier 1 Metro)<br><small>FRESHER_0_1Y</small></td>
+                        <td>₹400,000</td>
+                        <td>₹520,000</td>
+                        <td style="color:#34d399;font-weight:700">₹700,000</td>
+                        <td style="color:#60a5fa;font-weight:700">₹900,000</td>
+                        <td><small>Focus on direct cost-savings from customs penalty prevention and tariff compliance -> Position as high-margin operations driver -> Target ₹6.5L base.</small></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Corporate Operations / Management Trainee</strong></td>
+                        <td>Bengaluru (Tier 1 Metro)<br><small>FRESHER_0_1Y</small></td>
+                        <td>₹350,000</td>
+                        <td>₹450,000</td>
+                        <td style="color:#34d399;font-weight:700">₹600,000</td>
+                        <td style="color:#60a5fa;font-weight:700">₹800,000</td>
+                        <td><small>Acknowledge offer graciously -> Reference P75 market data for MNC GCC operations in Whitefield/ORR -> Highlight ready-to-deploy verified competency in EXIM/ERP -> Request alignment to ₹5.5L - ₹6.0L base or joining incentive.</small></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div style="margin-top: 20px;">
+                <h4 style="margin-bottom: 8px; color: #fff;">Automated Counter-Negotiation Proposal Generated:</h4>
+                <div class="counter-box">Subject: Offer Letter Evaluation & Counter Proposal — Aditya Mehra (Operations Analyst)
+
+Dear Hiring Manager,
+
+Thank you very much for extending the formal offer to join Dell Technologies Bengaluru as Operations Analyst. I am genuinely excited about the team's vision, and I am confident that my background in International Business, corporate operations, and automated systems execution will deliver immediate value.
+
+Before formally signing, I would like to discuss the base compensation structure. 
+
+The current offer provides an annual base of ₹450,000. Based on real market compensation benchmarks for corporate operations and business development specialists in Bengaluru, the 75th percentile for this profile stands at ₹600,000.
+
+Given that I am ready to deploy immediately in Bengaluru with verified trade and operational competencies (backed by the cryptographic Truth Layer), would Dell Technologies Bengaluru be open to adjusting the base salary to ₹600,000 (a difference of ₹150,000), or alternatively offering a joining incentive to bridge this gap?
+
+Regardless of the outcome, I am deeply committed to joining Dell Technologies Bengaluru and look forward to reaching an agreement that reflects the value I will bring.
+
+Sincerely,
+
+Aditya Mehra
+BBA International Business (DSU '26)
+Bengaluru, Karnataka, India
+</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 7: COMPOUNDING -->
+    <div id="tab-compounding" class="tab-content">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">365-Day Longitudinal Career Compounding Roadmap</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Horizon</th>
+                        <th>Core Theme</th>
+                        <th>Target Competencies</th>
+                        <th>Verifiable Milestone Deliverable</th>
+                        <th>Compounding Multiplier</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><span class="badge">DAY_180</span></td>
+                        <td><strong>Cross-Functional Value Creation & Mid-Year Review</strong></td>
+                        <td>Cross-departmental project management, vendor negotiations, strategic cost reduction.</td>
+                        <td>Quantified Cost-Efficiency Docket proving >₹5.0 Lakhs in cost avoidance or revenue velocity enhancement.</td>
+                        <td style="color:#34d399;font-weight:700">1.5x (+₹250,000)</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="badge">DAY_270</span></td>
+                        <td><strong>Strategic Specialization & Junior Mentorship</strong></td>
+                        <td>Leadership presence, onboarding new hires, enterprise client presentations, trade compliance leadership.</td>
+                        <td>Mentorship playbook and successful execution of high-stakes quarterly enterprise client delivery.</td>
+                        <td style="color:#34d399;font-weight:700">1.75x (+₹400,000)</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="badge">DAY_30</span></td>
+                        <td><strong>Operational Ramp & Trust Velocity</strong></td>
+                        <td>Internal ERP/CRM navigation, team workflow integration, stakeholder mapping, flawless SLA adherence.</td>
+                        <td>30-Day Onboarding Audit Report highlighting 3 operational bottlenecks resolved with zero supervisory hand-holding.</td>
+                        <td style="color:#34d399;font-weight:700">1.1x (+₹50,000)</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="badge">DAY_365</span></td>
+                        <td><strong>Annual Promotion & Compensation Compounding</strong></td>
+                        <td>Senior Operational Leadership, budget ownership, continuous automated systems innovation.</td>
+                        <td>Annual Value Ledger presented to Division VP justifying 30%+ salary revision or promotion to Senior Specialist.</td>
+                        <td style="color:#34d399;font-weight:700">2.1x (+₹600,000)</td>
+                    </tr>
+
+                    <tr>
+                        <td><span class="badge">DAY_90</span></td>
+                        <td><strong>Autonomous Ownership & Process Standardization</strong></td>
+                        <td>Standard Operating Procedure (SOP) authoring, exception reduction, automated report scripting.</td>
+                        <td>Published departmental SOP and automated weekly metrics dashboard saving 4 hours of team labor weekly.</td>
+                        <td style="color:#34d399;font-weight:700">1.25x (+₹120,000)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

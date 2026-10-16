@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mehra Enterprise Solutions | Client Onboarding & Audit Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #06090f;
+            --bg-surface: #0b111a;
+            --bg-card: #121a28;
+            --border: #1e2c42;
+            --emerald: #10b981;
+            --cyan: #06b6d4;
+            --amber: #f59e0b;
+            --purple: #8b5cf6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 32px 24px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--cyan);
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--cyan), #0284c7);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: opacity 0.2s;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .result-box {
+            background: var(--bg-card);
+            border: 1px dashed var(--emerald);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        .res-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 13px;
+        }
+        .nav-deck {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .nav-btn {
+            padding: 10px 18px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .nav-btn:hover {
+            color: #fff;
+            border-color: var(--cyan);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>ADITYA MEHRA ENTERPRISE SOLUTIONS</h1>
+            <p>Self-Serve Client Onboarding, Customs Landed-Cost Simulator & Automation Scoping Portal</p>
+        </div>
+
+        <div class="grid-2">
+            <!-- Form 1: Landed-Cost Simulator -->
+            <div class="card">
+                <div class="card-title"><span>🚢</span> Cross-Border Customs & Incoterms Audit</div>
+                <div class="form-group">
+                    <label>Company / Importer Name</label>
+                    <input type="text" id="impCompany" value="Apex Global Logistics Ltd">
+                </div>
+                <div class="form-group">
+                    <label>HS Tariff Code</label>
+                    <select id="hsCode">
+                        <option value="8471.50">8471.50 — AI Processing & Compute Servers (FTA: 0% BCD)</option>
+                        <option value="8504.40">8504.40 — Static Converters & Power Regulators (FTA: 2.5% BCD)</option>
+                        <option value="8517.62">8517.62 — High-Speed Optical Switching Equipment (FTA: 5% BCD)</option>
+                        <option value="9031.80">9031.80 — Automated Optical Inspection Apparatus (FTA: 0% BCD)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Invoice CIF Value (USD)</label>
+                    <input type="number" id="cifUsd" value="100000">
+                </div>
+                <button class="btn" onclick="calculateLandedCost()">Compute Customs Duty & Landed Cost</button>
+
+                <div id="resultBox" class="result-box">
+                    <div style="font-weight: 700; color: var(--emerald); margin-bottom: 10px;">Audit Results Verified:</div>
+                    <div class="res-row"><span>Assessable Value (INR):</span><strong id="resAssessable" style="font-family: 'JetBrains Mono';"></strong></div>
+                    <div class="res-row"><span>Standard Customs Duty:</span><span id="resStdDuty" style="color: var(--text-muted); font-family: 'JetBrains Mono';"></span></div>
+                    <div class="res-row"><span>Optimized Concession Duty:</span><strong id="resOptDuty" style="color: var(--cyan); font-family: 'JetBrains Mono';"></strong></div>
+                    <div class="res-row" style="border-top: 1px solid var(--border); padding-top: 10px;">
+                        <span style="font-weight: 700;">Verified Tariff Savings:</span>
+                        <strong id="resSavings" style="color: var(--emerald); font-family: 'JetBrains Mono'; font-size: 15px;"></strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form 2: Automation & Retainer Scoping -->
+            <div class="card">
+                <div class="card-title"><span>⚡</span> Autonomous Workflow & Retainer Scoping</div>
+                <div class="form-group">
+                    <label>Client Organization</label>
+                    <input type="text" value="Aura Scaleups Inc">
+                </div>
+                <div class="form-group">
+                    <label>Service Practice</label>
+                    <select id="serviceSelect">
+                        <option value="EXIM_RETAINER">Enterprise Trade Landed-Cost Retainer ($3,500/mo)</option>
+                        <option value="N8N_WORKFLOW">Production Agentic Workflow & n8n License ($1,800/mo)</option>
+                        <option value="TALENT_INTEL">High-Yield Candidate Intelligence License ($1,000/mo)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Primary Integration Trigger</label>
+                    <select>
+                        <option>Real-Time Webhook + SQLite WAL State Engine</option>
+                        <option>CRON 24h Autonomous Reconciliation DAG</option>
+                        <option>Multi-Channel Alerting & Anomaly Shield</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Target SLA Commitment</label>
+                    <input type="text" value="99.95% Uptime • Zero-Latency Fallback" readonly>
+                </div>
+                <button class="btn" style="background: linear-gradient(135deg, var(--emerald), #059669);" onclick="alert('Client onboarding proposal generated. Dispatched to AME Global Treasury Engine.')">Generate Master Services Agreement (MSA)</button>
+            </div>
+        </div>
+
+        <div class="nav-deck">
+            <a href="one_person_company_dashboard.html" class="nav-btn">🏛️ Retainer Dashboard</a>
+            <a href="million_dollar_company_dashboard.html" class="nav-btn">🚀 $1M ARR Command Center</a>
+            <a href="hyperscale_velocity_dashboard.html" class="nav-btn">⚡ Hyperscale Matrix</a>
+            <a href="billionaire_wealth_dashboard.html" class="nav-btn">👑 Wealth Intelligence</a>
+        </div>
+    </div>
+
+    <script>
+        function calculateLandedCost() {
+            const usd = parseFloat(document.getElementById('cifUsd').value) || 100000;
+            const code = document.getElementById('hsCode').value;
+            const inr = usd * 85.0;
+
+            let stdRate = 0.075;
+            let ftaRate = 0.0;
+            if (code === "8504.40") { stdRate = 0.10; ftaRate = 0.025; }
+            if (code === "8517.62") { stdRate = 0.20; ftaRate = 0.05; }
+
+            const stdBcd = inr * stdRate;
+            const stdSws = stdBcd * 0.10;
+            const stdIgst = (inr + stdBcd + stdSws) * 0.18;
+            const stdTotal = stdBcd + stdSws + stdIgst;
+
+            const optBcd = inr * ftaRate;
+            const optSws = optBcd * 0.10;
+            const optIgst = (inr + optBcd + optSws) * 0.18;
+            const optTotal = optBcd + optSws + optIgst;
+
+            const savings = stdTotal - optTotal;
+
+            document.getElementById('resAssessable').innerText = 'INR ' + inr.toLocaleString('en-IN');
+            document.getElementById('resStdDuty').innerText = 'INR ' + Math.round(stdTotal).toLocaleString('en-IN');
+            document.getElementById('resOptDuty').innerText = 'INR ' + Math.round(optTotal).toLocaleString('en-IN');
+            document.getElementById('resSavings').innerText = 'INR ' + Math.round(savings).toLocaleString('en-IN') + ' SAVED';
+            document.getElementById('resultBox').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

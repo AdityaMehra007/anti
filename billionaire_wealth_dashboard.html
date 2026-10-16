@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mehra | Billionaires, Family Offices & Mega-Deals Intelligence Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #06090e;
+            --bg-surface: #0b111a;
+            --bg-card: #121a29;
+            --border: #1d2a3f;
+            --amber: #f59e0b;
+            --gold: #fbbf24;
+            --emerald: #10b981;
+            --cyan: #06b6d4;
+            --purple: #8b5cf6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 24px;
+            min-height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 36px;
+            background: linear-gradient(135deg, rgba(11, 17, 26, 0.95), rgba(18, 26, 41, 0.9));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--amber), var(--emerald), var(--cyan));
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px;
+            position: relative;
+        }
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: var(--gold);
+        }
+        .kpi-val {
+            font-size: 30px;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--gold);
+            margin: 8px 0 4px;
+        }
+        .kpi-lbl {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        @media(max-width: 1024px) { .grid-2 { grid-template-columns: 1fr; } }
+        .panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px;
+        }
+        .panel-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gold);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .tag-pill {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        .tag-gold { background: rgba(251, 191, 36, 0.15); color: var(--gold); border: 1px solid var(--gold); }
+        .tag-emerald { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid var(--emerald); }
+        .deal-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1 style="font-size: 26px; font-weight: 800;">ADITYA MEHRA | BILLIONAIRE & MEGA-DEAL INTELLIGENCE</h1>
+            <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Sovereign Directory of 140+ Promoters, Family Offices, Global Titans & $1M–$25M Deal Archetypes</p>
+        </div>
+        <div style="text-align: right;">
+            <span class="badge">140 BILLIONAIRES INDEXED</span>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 6px; font-family: 'JetBrains Mono';">PremjiInvest • Catamaran • Rainmatter • Global Titans</div>
+        </div>
+    </div>
+
+    <div class="grid-4">
+        <div class="kpi-card">
+            <div class="kpi-lbl">Total Billionaires & Family Offices</div>
+            <div class="kpi-val">140</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Indexed in omega_unified_master.db</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--emerald);">
+            <div class="kpi-lbl">Mega-Deal Archetypes</div>
+            <div class="kpi-val" style="color: var(--emerald);">4 Archetypes</div>
+            <div style="font-size: 12px; color: var(--emerald);">$1.2M to $25M USD Deal Sizes</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--cyan);">
+            <div class="kpi-lbl">Top Executive Comp Range</div>
+            <div class="kpi-val" style="color: var(--cyan);">₹14L – ₹20L+</div>
+            <div style="font-size: 12px; color: var(--cyan);">Founders' Office & Investment Associates</div>
+        </div>
+        <div class="kpi-card" style="border-top: 3px solid var(--purple);">
+            <div class="kpi-lbl">Ecosystems Covered</div>
+            <div class="kpi-val" style="color: var(--purple);">5 Wealth Hubs</div>
+            <div style="font-size: 12px; color: var(--purple);">Bengaluru • Mumbai • US • APAC</div>
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <div class="panel">
+            <div class="panel-title"><span>👑</span> Verified Billionaires, Family Offices & Executive Promoters</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Principal / Promoter</th>
+                        <th>Enterprise / Fund</th>
+                        <th>Net Worth Scale</th>
+                        <th>Family Office Entity</th>
+                        <th>Target High-Comp Role</th>
+                        <th>Comp Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 700; color: #fff;">Azim Premji & Rishad Premji</td>
+                        <td style="color: var(--text-muted);">PremjiInvest / Wipro Limited</td>
+                        <td><span class="tag-pill tag-gold">$25 Billion</span></td>
+                        <td style="font-size: 12px;">PremjiInvest (India's Largest </td>
+                        <td style="font-size: 12px; color: var(--cyan);">Family Office Operations & Investment Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹14.0L - ₹20.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">N.R. Narayana Murthy & Sudha Murty</td>
+                        <td style="color: var(--text-muted);">Catamaran Ventures / Infosys</td>
+                        <td><span class="tag-pill tag-gold">$5 Billion</span></td>
+                        <td style="font-size: 12px;">Catamaran Ventures (Private Fa</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Founder's Office / Venture Operations Analyst</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹18.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Nandan Nilekani</td>
+                        <td style="color: var(--text-muted);">Fundamentum / EkStep / Infosys</td>
+                        <td><span class="tag-pill tag-gold">$4 Billion</span></td>
+                        <td style="font-size: 12px;">Fundamentum Partnership (Scale</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Strategic Operations & Portfolio Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹18.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Nithin Kamath & Nikhil Kamath</td>
+                        <td style="color: var(--text-muted);">Zerodha / Rainmatter / Gruhas</td>
+                        <td><span class="tag-pill tag-gold">$4.5 Billion</span></td>
+                        <td style="font-size: 12px;">Rainmatter Capital & Gruhas Pr</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Founder's Office / Rainmatter Operations Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹18.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Kiran Mazumdar-Shaw</td>
+                        <td style="color: var(--text-muted);">Biocon / Syngene / Mazumdar Shaw Philanthropy</td>
+                        <td><span class="tag-pill tag-gold">$3.2 Billion</span></td>
+                        <td style="font-size: 12px;">Biocon Executive Chairman's Of</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Executive Operations & SCM Governance Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹10.0L - ₹15.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Sachin Bansal</td>
+                        <td style="color: var(--text-muted);">Navi Technologies / BAC Acquisitions</td>
+                        <td><span class="tag-pill tag-gold">$1.5 Billion</span></td>
+                        <td style="font-size: 12px;">Navi Technologies Founder's Of</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Founder's Office - Operations & Credit Risk Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹16.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Binny Bansal</td>
+                        <td style="color: var(--text-muted);">Three State Ventures / 021 Capital</td>
+                        <td><span class="tag-pill tag-gold">$1.4 Billion</span></td>
+                        <td style="font-size: 12px;">Three State Ventures (Private </td>
+                        <td style="font-size: 12px; color: var(--cyan);">Family Office Operations Analyst</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹16.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Kunal Shah</td>
+                        <td style="color: var(--text-muted);">CRED (Dreamplug Technologies)</td>
+                        <td><span class="tag-pill tag-gold">$800M+ (Unicorn Promoters)</span></td>
+                        <td style="font-size: 12px;">CRED Founder's Office / Strate</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Founder's Office Associate - Brand & Commerce Ops</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹18.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Bhavish Aggarwal</td>
+                        <td style="color: var(--text-muted);">Ola / Ola Electric / Krutrim AI</td>
+                        <td><span class="tag-pill tag-gold">$1.8 Billion</span></td>
+                        <td style="font-size: 12px;">Ola Electric Founder's Office </td>
+                        <td style="font-size: 12px; color: var(--cyan);">Founder's Office - Manufacturing & SCM Lead</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹11.0L - ₹16.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Sriharsha Majety</td>
+                        <td style="color: var(--text-muted);">Swiggy Limited</td>
+                        <td><span class="tag-pill tag-gold">$1.5 Billion</span></td>
+                        <td style="font-size: 12px;">Swiggy CEO's Office / Instamar</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Chief of Staff Associate - Instamart & Dark Stores</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹10.0L - ₹15.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Aadit Palicha & Kaivalya Vohra</td>
+                        <td style="color: var(--text-muted);">Zepto (KiranaKart Technologies)</td>
+                        <td><span class="tag-pill tag-gold">$1.2 Billion</span></td>
+                        <td style="font-size: 12px;">Zepto Founder's Office</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Founder's Office Associate - City Expansion</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹10.0L - ₹15.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Tarun Mehta & Swapnil Jain</td>
+                        <td style="color: var(--text-muted);">Ather Energy Limited</td>
+                        <td><span class="tag-pill tag-gold">$600M+</span></td>
+                        <td style="font-size: 12px;">Ather CEO's Office & Supply Ch</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Founder's Office - Integrated SCM Trainee</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹9.0L - ₹13.5L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Mukesh Ambani / Ambani Family</td>
+                        <td style="color: var(--text-muted);">Reliance Industries / Reliance Retail</td>
+                        <td><span class="tag-pill tag-gold">$115 Billion (Asia #1)</span></td>
+                        <td style="font-size: 12px;">Reliance Strategic Business Ve</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Strategic Business Operations Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹18.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Tata Trusts / N. Chandrasekaran</td>
+                        <td style="color: var(--text-muted);">Tata Sons / Tata Group</td>
+                        <td><span class="tag-pill tag-gold">Tata Trusts ($150B+ Ecosystem)</span></td>
+                        <td style="font-size: 12px;">Tata Sons Chairman's Office / </td>
+                        <td style="font-size: 12px; color: var(--cyan);">Tata Administrative Operations Trainee</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹10.0L - ₹16.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Gautam Adani / Karan Adani</td>
+                        <td style="color: var(--text-muted);">Adani Group / Adani Ports & Logistics</td>
+                        <td><span class="tag-pill tag-gold">$85 Billion</span></td>
+                        <td style="font-size: 12px;">Adani Ports & SEZ Logistics Le</td>
+                        <td style="font-size: 12px; color: var(--cyan);">EXIM Logistics & Port Turnaround Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹10.0L - ₹15.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Shiv Nadar & Roshni Nadar Malhotra</td>
+                        <td style="color: var(--text-muted);">HCL Technologies / Shiv Nadar Foundation</td>
+                        <td><span class="tag-pill tag-gold">$38 Billion</span></td>
+                        <td style="font-size: 12px;">Chairman's Office & HCL Global</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Global Business Operations Trainee</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹9.0L - ₹14.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Sunil Bharti Mittal</td>
+                        <td style="color: var(--text-muted);">Bharti Enterprises / Bharti Airtel</td>
+                        <td><span class="tag-pill tag-gold">$22 Billion</span></td>
+                        <td style="font-size: 12px;">Bharti Airtel Managing Directo</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Enterprise Operations & Infrastructure Coordinator</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹9.5L - ₹14.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Kumar Mangalam Birla</td>
+                        <td style="color: var(--text-muted);">Aditya Birla Group (Grasim / Hindalco / UltraTech)</td>
+                        <td><span class="tag-pill tag-gold">$23 Billion</span></td>
+                        <td style="font-size: 12px;">Aditya Birla Group Leadership </td>
+                        <td style="font-size: 12px; color: var(--cyan);">Group Business Operations Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹10.0L - ₹15.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Uday Kotak</td>
+                        <td style="color: var(--text-muted);">Kotak Mahindra Bank / Kotak Family Office</td>
+                        <td><span class="tag-pill tag-gold">$16 Billion</span></td>
+                        <td style="font-size: 12px;">Kotak Family Investment Office</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Treasury & Investment Operations Analyst</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹10.0L - ₹15.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Radhakishan Damani</td>
+                        <td style="color: var(--text-muted);">DMart (Avenue Supermarts)</td>
+                        <td><span class="tag-pill tag-gold">$22 Billion</span></td>
+                        <td style="font-size: 12px;">DMart Central Supply Chain & I</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Central Warehouse Operations Trainee</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹8.5L - ₹12.5L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Jensen Huang</td>
+                        <td style="color: var(--text-muted);">NVIDIA Corporation</td>
+                        <td><span class="tag-pill tag-gold">$115 Billion</span></td>
+                        <td style="font-size: 12px;">NVIDIA India Managing Director</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Global Compute Operations & Hardware Logistics Analyst</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹18.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Satya Nadella</td>
+                        <td style="color: var(--text-muted);">Microsoft Corporation</td>
+                        <td><span class="tag-pill tag-gold">World Tech Titan ($3.1T Market Cap)</span></td>
+                        <td style="font-size: 12px;">Microsoft India President's Of</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Global Business Operations & Commercial Contracts Associate</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹11.0L - ₹16.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Sundar Pichai</td>
+                        <td style="color: var(--text-muted);">Alphabet / Google</td>
+                        <td><span class="tag-pill tag-gold">World Tech Titan ($2.2T Market Cap)</span></td>
+                        <td style="font-size: 12px;">Google India Country Manager's</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Business Operations & Partner Services Specialist</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹11.0L - ₹16.5L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Tim Cook</td>
+                        <td style="color: var(--text-muted);">Apple Inc.</td>
+                        <td><span class="tag-pill tag-gold">World Tech Titan ($3.4T Market Cap)</span></td>
+                        <td style="font-size: 12px;">Apple India Managing Director'</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Retail Operations & Logistics Coordinator</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹9.5L - ₹14.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Elon Musk</td>
+                        <td style="color: var(--text-muted);">Tesla / SpaceX / xAI</td>
+                        <td><span class="tag-pill tag-gold">$250 Billion (World #1 Richest)</span></td>
+                        <td style="font-size: 12px;">Tesla India Motors & Energy Op</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Supply Chain & Regulatory Operations Coordinator</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">₹12.0L - ₹18.0L</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Apple Inc. (Apple India)</td>
+                        <td style="color: var(--text-muted);">NASDAQ: AAPL</td>
+                        <td><span class="tag-pill tag-gold">$3,400 Billion (World #1)</span></td>
+                        <td style="font-size: 12px;">Consumer Tech, Hardware & Reta</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Prestige Minsk Square, Cubbon Road / UB City</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Retail Operations & SCM Coordinator</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Microsoft Corporation (Microsoft India)</td>
+                        <td style="color: var(--text-muted);">NASDAQ: MSFT</td>
+                        <td><span class="tag-pill tag-gold">$3,100 Billion</span></td>
+                        <td style="font-size: 12px;">Enterprise Cloud, Software & A</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Prestige Ferns Galaxy & Vigyan, Bellandur, ORR</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Global Business Operations & Commercial Contracts</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">NVIDIA Corporation (NVIDIA India)</td>
+                        <td style="color: var(--text-muted);">NASDAQ: NVDA</td>
+                        <td><span class="tag-pill tag-gold">$2,800 Billion</span></td>
+                        <td style="font-size: 12px;">AI Semiconductors & Accelerate</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Manyata Embassy Business Park & Bagmane Tech Park</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Global Operations & Supply Planning Analyst</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Alphabet Inc. (Google India)</td>
+                        <td style="color: var(--text-muted);">NASDAQ: GOOGL</td>
+                        <td><span class="tag-pill tag-gold">$2,200 Billion</span></td>
+                        <td style="font-size: 12px;">Search, Cloud Tech & Digital E</td>
+                        <td style="font-size: 12px; color: var(--cyan);">RMZ Infinity, Old Madras Road & Bagmane Tech Park</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Business Operations & Partner Services Associate</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Amazon.com Inc. (Amazon India)</td>
+                        <td style="color: var(--text-muted);">NASDAQ: AMZN</td>
+                        <td><span class="tag-pill tag-gold">$1,900 Billion</span></td>
+                        <td style="font-size: 12px;">E-Commerce, Cloud & Logistics</td>
+                        <td style="font-size: 12px; color: var(--cyan);">World Trade Center (WTC), Rajajinagar & Bagmane ORR</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Operations Specialist / TRMS Risk Investigator</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Meta Platforms Inc. (Meta India)</td>
+                        <td style="color: var(--text-muted);">NASDAQ: META</td>
+                        <td><span class="tag-pill tag-gold">$1,300 Billion</span></td>
+                        <td style="font-size: 12px;">Social Technology & AI Infrast</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Central CBD / Richmond Road Corridor</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Global Business Operations & Risk Associate</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Walmart Inc. (Walmart Global Tech)</td>
+                        <td style="color: var(--text-muted);">NYSE: WMT</td>
+                        <td><span class="tag-pill tag-gold">$650 Billion (Fortune #1)</span></td>
+                        <td style="font-size: 12px;">Global Retail Tech & Supply Ch</td>
+                        <td style="font-size: 12px; color: var(--cyan);">RMZ Ecospace, Outer Ring Road, Bellandur</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Associate Operations Analyst (Global SCM)</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">JPMorgan Chase & Co. (JPMorgan India)</td>
+                        <td style="color: var(--text-muted);">NYSE: JPM</td>
+                        <td><span class="tag-pill tag-gold">$580 Billion</span></td>
+                        <td style="font-size: 12px;">Global Investment Banking & Fi</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Embassy TechVillage, Outer Ring Road, Bellandur</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Global Operations & Trade Finance Associate</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Novo Nordisk A/S (Novo Nordisk GBS)</td>
+                        <td style="color: var(--text-muted);">CPH: NOVO-B</td>
+                        <td><span class="tag-pill tag-gold">$550 Billion</span></td>
+                        <td style="font-size: 12px;">Biotech & Global Healthcare SC</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Prestige Tech Park, Outer Ring Road, Kadubeesanahalli</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Global Business Operations & Data Analyst</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">ExxonMobil Corporation</td>
+                        <td style="color: var(--text-muted);">NYSE: XOM</td>
+                        <td><span class="tag-pill tag-gold">$480 Billion</span></td>
+                        <td style="font-size: 12px;">Energy, Petrochemicals & SCM L</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Prestige Shantiniketan, Whitefield Main Road</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Commercial Logistics & Fleet Procurement Trainee</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Oracle Corporation (Oracle India)</td>
+                        <td style="color: var(--text-muted);">NYSE: ORCL</td>
+                        <td><span class="tag-pill tag-gold">$380 Billion</span></td>
+                        <td style="font-size: 12px;">Enterprise Cloud & Database Te</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Kalyani Magnum Tech Park, JP Nagar & Prestige Tech Park</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Commercial Contracts & Operations Specialist</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Bank of America (BofA Continuum)</td>
+                        <td style="color: var(--text-muted);">NYSE: BAC</td>
+                        <td><span class="tag-pill tag-gold">$310 Billion</span></td>
+                        <td style="font-size: 12px;">Global Commercial & Investment</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Manyata Embassy Business Park & RMZ Ecoworld</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Global Trade Operations Associate</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Cisco Systems Inc. (Cisco India)</td>
+                        <td style="color: var(--text-muted);">NASDAQ: CSCO</td>
+                        <td><span class="tag-pill tag-gold">$220 Billion</span></td>
+                        <td style="font-size: 12px;">Networking, Telecom Systems & </td>
+                        <td style="font-size: 12px; color: var(--cyan);">Cessna Business Park, Kadubeesanahalli, ORR</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Global Supply Chain Operations Analyst</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Shell plc (Shell Technology Centre)</td>
+                        <td style="color: var(--text-muted);">LSE: SHEL</td>
+                        <td><span class="tag-pill tag-gold">$220 Billion</span></td>
+                        <td style="font-size: 12px;">Energy Technology, LNG & Globa</td>
+                        <td style="font-size: 12px; color: var(--cyan);">Shell Technology Centre, Devanahalli / Whitefield</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Supply Chain & Trade Operations Associate</td>
+                    </tr><tr>
+                        <td style="font-weight: 700; color: #fff;">Morgan Stanley Advantage Services</td>
+                        <td style="color: var(--text-muted);">NYSE: MS</td>
+                        <td><span class="tag-pill tag-gold">$170 Billion</span></td>
+                        <td style="font-size: 12px;">Institutional Equity & Trade S</td>
+                        <td style="font-size: 12px; color: var(--cyan);">RMZ Ecoworld, Bellandur, Outer Ring Road</td>
+                        <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--emerald);">Institutional Operations & Settlements Analyst</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <div class="panel">
+                <div class="panel-title"><span>💼</span> Multi-Million Dollar Deal Archetypes ($1M – $25M)</div>
+                <div class="deal-box">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <strong style="color: var(--gold); font-size: 15px;">Cross-Border Electronics Supply Chain Tariff Arbitrage</strong>
+                        <span class="tag-pill tag-emerald">TRADE_ADVISORY</span>
+                    </div>
+                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Target Industry: Consumer Tech & Semiconductor Logistics</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-family: 'JetBrains Mono'; font-size: 13px;">
+                        <span>Deal Size: <strong style="color: #fff;">$15,000,000 USD</strong> (INR 127.5 Cr)</span>
+                        <span style="color: var(--amber);">Margin: 15.0%</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 6px; font-style: italic;">
+                        Levers: Incoterms 2020 DDP optimization, FTA concession duty classification, customs demurrage mitigation.
+                    </div>
+                </div><div class="deal-box">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <strong style="color: var(--gold); font-size: 15px;">Autonomous Agentic Automation of Multi-Warehouse Network</strong>
+                        <span class="tag-pill tag-emerald">SYSTEMS_INTEGRATION</span>
+                    </div>
+                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Target Industry: Third-Party Logistics (3PL) & E-Commerce</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-family: 'JetBrains Mono'; font-size: 13px;">
+                        <span>Deal Size: <strong style="color: #fff;">$3,500,000 USD</strong> (INR 29.8 Cr)</span>
+                        <span style="color: var(--amber);">Margin: 85.0%</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 6px; font-style: italic;">
+                        Levers: Self-healing n8n DAG pipelines, real-time inventory reconciliation, zero-latency webhook alerting.
+                    </div>
+                </div><div class="deal-box">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <strong style="color: var(--gold); font-size: 15px;">Family Office Direct Investment Operations Due Diligence</strong>
+                        <span class="tag-pill tag-emerald">M&A_OPERATIONS</span>
+                    </div>
+                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Target Industry: Sovereign Family Offices & Growth Equity</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-family: 'JetBrains Mono'; font-size: 13px;">
+                        <span>Deal Size: <strong style="color: #fff;">$25,000,000 USD</strong> (INR 212.5 Cr)</span>
+                        <span style="color: var(--amber);">Margin: 20.0%</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 6px; font-style: italic;">
+                        Levers: Operational audit, SLA compliance verification, vendor contract leak mitigation, executive triage.
+                    </div>
+                </div><div class="deal-box">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <strong style="color: var(--gold); font-size: 15px;">Global Talent Pipeline & Technical Placement Retainer</strong>
+                        <span class="tag-pill tag-emerald">EXECUTIVE_SEARCH</span>
+                    </div>
+                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Target Industry: AI Labs & Tier-1 Engineering Scaleups</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-family: 'JetBrains Mono'; font-size: 13px;">
+                        <span>Deal Size: <strong style="color: #fff;">$1,200,000 USD</strong> (INR 10.2 Cr)</span>
+                        <span style="color: var(--amber);">Margin: 90.0%</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 6px; font-style: italic;">
+                        Levers: Direct pipeline matching from 17,615+ vetted records, automated ATS dossier syndication.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
