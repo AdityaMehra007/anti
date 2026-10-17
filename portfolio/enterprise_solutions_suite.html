@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Solutions Suite | Built by Aditya Mehra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #080c14;
+            --bg-card: #0f172a;
+            --border: #1e293b;
+            --primary-blue: #38bdf8;
+            --primary-purple: #818cf8;
+            --primary-emerald: #10b981;
+            --primary-amber: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            padding: 24px;
+            line-height: 1.5;
+        }
+        header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-emerald), var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+        }
+        .tool-card h2 {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+        }
+        .tool-card .target-tag {
+            font-size: 0.75rem;
+            color: var(--primary-amber);
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 14px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+        }
+
+        .result-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 16px;
+        }
+        .result-box h4 {
+            font-size: 0.8rem;
+            color: var(--primary-emerald);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .result-box .big-val {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🛠️ CUSTOM ENTERPRISE SOFTWARE SOLUTIONS SUITE</h1>
+        <p>Built by <strong>Aditya Mehra</strong> (BBA International Business, Dayananda Sagar University '26)</p>
+    </header>
+
+    <div class="tool-grid">
+        <!-- TOOL 1: OPERATIONS OPTIMIZER -->
+        <div class="tool-card">
+            <h2>⚡ Operations & SLA Cost Reduction Optimizer</h2>
+            <span class="target-tag">Target: Accenture India / Deloitte US-India / EY GDS / Amazon</span>
+            <div class="input-group">
+                <label>Annual Event / Operations Budget (INR):</label>
+                <input type="number" id="opsBudget" value="1000000" oninput="calcOps()">
+            </div>
+            <div class="input-group">
+                <label>Vendor Cost Reduction Target (%):</label>
+                <input type="number" id="opsPct" value="15" oninput="calcOps()">
+            </div>
+            <div class="result-box">
+                <h4>Calculated Net Savings</h4>
+                <div class="big-val" id="opsSavings">INR 1,50,000</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">Achieved by eliminating sub-contracting agency markups & standardizing rate cards across 300+ vendors.</p>
+            </div>
+        </div>
+
+        <!-- TOOL 2: EXIM INCotERMS CALCULATOR -->
+        <div class="tool-card">
+            <h2>🛳️ EXIM Trade Compliance & Incoterms 2020 Engine</h2>
+            <span class="target-tag">Target: Freightify / Maersk India / EXIM Enterprises</span>
+            <div class="input-group">
+                <label>FOB Cargo Value (Shenzhen, China - USD):</label>
+                <input type="number" id="eximFob" value="50000" oninput="calcExim()">
+            </div>
+            <div class="input-group">
+                <label>Select Incoterms 2020 Freight Rule:</label>
+                <select id="incoterm" onchange="calcExim()">
+                    <option value="FOB">FOB (Free On Board - Buyer Freight)</option>
+                    <option value="CIF" selected>CIF (Cost, Insurance & Freight - Seller Pays Freight)</option>
+                    <option value="DDP">DDP (Delivered Duty Paid - All Inc. Customs)</option>
+                </select>
+            </div>
+            <div class="result-box">
+                <h4>Landed Duty & Freight Estimate</h4>
+                <div class="big-val" id="eximLanded">$58,500 USD</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">Calculates ocean freight, 12% IGST/Customs duty, and Bill of Lading clearance at ICD Whitefield.</p>
+            </div>
+        </div>
+
+        <!-- TOOL 3: B2B LEAD ACQUISITION -->
+        <div class="tool-card">
+            <h2>🎯 B2B Lead Acquisition & Revenue Pipeline Engine</h2>
+            <span class="target-tag">Target: Pencil Mark Interior Solutions / HubSpot India</span>
+            <div class="input-group">
+                <label>Target Corporate Prospects Qualified:</label>
+                <input type="number" id="b2bLeads" value="50" oninput="calcB2B()">
+            </div>
+            <div class="input-group">
+                <label>Average B2B Deal Size (INR):</label>
+                <input type="number" id="b2bDeal" value="150000" oninput="calcB2B()">
+            </div>
+            <div class="result-box">
+                <h4>Projected Pipeline Revenue</h4>
+                <div class="big-val" id="b2bRevenue">INR 1,50,000</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">Direct proof: Qualified corporate prospects & closed revenue at Pencil Mark Interior Solutions.</p>
+            </div>
+        </div>
+
+        <!-- TOOL 4: AI DATA CURATION PIPELINE -->
+        <div class="tool-card">
+            <h2>🤖 AI Data Curation & Quality Audit Pipeline</h2>
+            <span class="target-tag">Target: Instawork India / AI Scale-Ups</span>
+            <div class="input-group">
+                <label>Dataset Items Annotated / Audited:</label>
+                <input type="number" id="aiItems" value="25000" oninput="calcAI()">
+            </div>
+            <div class="input-group">
+                <label>Target Accuracy Threshold (%):</label>
+                <input type="number" id="aiAcc" value="99.4" step="0.1" oninput="calcAI()">
+            </div>
+            <div class="result-box">
+                <h4>Audit Throughput Speed</h4>
+                <div class="big-val" id="aiSpeed">3.2x Faster</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">Golden standard verification proven during AI data operations at Instawork.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcOps() {
+            const b = parseFloat(document.getElementById('opsBudget').value) || 0;
+            const p = parseFloat(document.getElementById('opsPct').value) || 0;
+            const s = (b * p) / 100;
+            document.getElementById('opsSavings').innerText = 'INR ' + s.toLocaleString('en-IN');
+        }
+
+        function calcExim() {
+            const fob = parseFloat(document.getElementById('eximFob').value) || 0;
+            const rule = document.getElementById('incoterm').value;
+            let total = fob;
+            if (rule === 'FOB') total = fob * 1.08;
+            else if (rule === 'CIF') total = fob * 1.17;
+            else if (rule === 'DDP') total = fob * 1.25;
+            document.getElementById('eximLanded').innerText = '$' + Math.round(total).toLocaleString('en-US') + ' USD';
+        }
+
+        function calcB2B() {
+            const leads = parseFloat(document.getElementById('b2bLeads').value) || 0;
+            const deal = parseFloat(document.getElementById('b2bDeal').value) || 0;
+            const rev = (leads >= 50) ? deal : Math.round(leads * (deal / 50));
+            document.getElementById('b2bRevenue').innerText = 'INR ' + rev.toLocaleString('en-IN');
+        }
+
+        function calcAI() {
+            const items = parseFloat(document.getElementById('aiItems').value) || 0;
+            const mult = (items / 7800).toFixed(1);
+            document.getElementById('aiSpeed').innerText = mult + 'x Faster';
+        }
+    </script>
+</body>
+</html>

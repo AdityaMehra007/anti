@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mehra | Career Intelligence Command Center</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --glass-bg: rgba(25, 33, 50, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f0f4f8;
+            --text-muted: #9baec8;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%);
+            animation: pulseBackground 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBackground {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px var(--accent-glow);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 3px solid var(--accent-primary);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-role {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .timeline-company {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Intelligence Panel */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-secondary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lists-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .data-list {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .data-list h4 {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Skills Matrix */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card h3 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>Aditya Mehra</h1>
+            <h2>International Business × Event Operations × AI</h2>
+            <p>Bengaluru, India | Creating synergy between global operations and intelligent systems</p>
+        </header>
+
+        <div class="grid-2">
+            <!-- Experience -->
+            <section class="glass-panel">
+                <h2 class="section-title">Operational Trajectory</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-role">Event Coordinator</div>
+                        <div class="timeline-company">Aero India 2025 | Tata Communications | Puma | VH1 Supersonic</div>
+                        <p class="text-muted" style="color: var(--text-muted)">Orchestrating large-scale event logistics, vendor management, and on-ground execution for high-profile international and corporate events.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-role">Operations Lead</div>
+                        <div class="timeline-company">Salt in My Coca</div>
+                        <p class="text-muted" style="color: var(--text-muted)">Spearheaded operational workflows, team coordination, and process optimization to drive efficiency.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-role">Business Development Intern</div>
+                        <div class="timeline-company">Pencil Mark Interior Solutions LLP</div>
+                        <p class="text-muted" style="color: var(--text-muted)">Drove client acquisition strategies, market research, and partnership development.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 - 2026</div>
+                        <div class="timeline-role">BBA International Business</div>
+                        <div class="timeline-company">Dayananda Sagar University</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Network Intelligence -->
+            <section class="glass-panel">
+                <h2 class="section-title">Network Intelligence</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number counter" data-target="9223">0</div>
+                        <div class="stat-label">Connections</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number counter" data-target="5226">0</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                </div>
+
+                <div class="lists-container">
+                    <div class="data-list">
+                        <h4>Top Sectors</h4>
+                        <div class="data-item"><span>Big 4 & Consulting</span> <span>447</span></div>
+                        <div class="data-item"><span>Global Tech</span> <span>198</span></div>
+                        <div class="data-item"><span>Banking & FinTech</span> <span>174</span></div>
+                    </div>
+                    <div class="data-list">
+                        <h4>Top Companies</h4>
+                        <div class="data-item"><span>EY</span> <span>116</span></div>
+                        <div class="data-item"><span>Accenture</span> <span>115</span></div>
+                        <div class="data-item"><span>Deloitte</span> <span>106</span></div>
+                        <div class="data-item"><span>IBM</span> <span>81</span></div>
+                        <div class="data-item"><span>Goldman Sachs</span> <span>78</span></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Skills Matrix -->
+        <section class="glass-panel">
+            <h2 class="section-title">Strategic Capabilities</h2>
+            <div class="skills-container">
+                <div class="skill-tag">International Business Strategy</div>
+                <div class="skill-tag">Large-Scale Event Operations</div>
+                <div class="skill-tag">Vendor Management</div>
+                <div class="skill-tag">Logistics Coordination</div>
+                <div class="skill-tag">Business Development</div>
+                <div class="skill-tag">AI Integrations & Workflows</div>
+                <div class="skill-tag">Cross-functional Leadership</div>
+                <div class="skill-tag">Market Research</div>
+                <div class="skill-tag">Client Acquisition</div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <h2 class="section-title" style="margin-left: 2rem;">Strategic Initiatives</h2>
+            <div class="projects-grid">
+                <div class="glass-panel project-card">
+                    <h3>Omega Platform</h3>
+                    <p>Advanced intelligence aggregation platform designed to parse and structure complex business datasets into actionable operational insights.</p>
+                </div>
+                <div class="glass-panel project-card">
+                    <h3>Sovereign Platform</h3>
+                    <p>Enterprise-grade ecosystem focusing on sovereign data management and localized AI deployment for sensitive business operations.</p>
+                </div>
+                <div class="glass-panel project-card">
+                    <h3>Nexus Event Engine</h3>
+                    <p>Comprehensive logistical framework developed to streamline vendor coordination, scheduling, and crisis management for mega-events.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <a href="#" class="cta-btn">Initiate Communication</a>
+        </section>
+    </div>
+
+    <script>
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                const increment = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if(current < target) {
+                        counter.innerText = Math.ceil(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        // Trigger animation when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) {
+                animateCounters();
+                observer.disconnect();
+            }
+        });
+        
+        const statsGrid = document.querySelector('.stats-grid');
+        if (statsGrid) {
+            observer.observe(statsGrid);
+        } else {
+            animateCounters();
+        }
+    </script>
+</body>
+</html>

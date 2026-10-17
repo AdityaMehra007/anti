@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS OMEGA ? Autonomous Event Operations & B2B Sponsorship Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #020617;
+            --bg-base: #090e1a;
+            --bg-surface: #0f172a;
+            --bg-card: #141f36;
+            --border: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-rose: #f43f5e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 24px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 28px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-emerald);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-emerald);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-7 { grid-column: span 7; }
+        .col-5 { grid-column: span 5; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .stat-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-top: 2px;
+        }
+
+        .table-custom {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .table-custom th, .table-custom td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .table-custom th {
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .pill {
+            display: inline-block;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .pill-plat { background: rgba(56, 189, 248, 0.15); border-color: var(--accent-blue); color: var(--accent-blue); }
+        .pill-gold { background: rgba(245, 158, 11, 0.15); border-color: var(--accent-amber); color: var(--accent-amber); }
+
+        .btn {
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.9; }
+
+        a { color: var(--accent-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1>?? NEXUS OMEGA ? AUTONOMOUS EVENT OS</h1>
+            <p>High-Stakes Operations & B2B Sponsorship Intelligence Platform | Lead: Aditya Mehra</p>
+        </div>
+        <div class="badge-live">
+            ? SIMULATION & OPS ENGINE: ACTIVE
+        </div>
+    </div>
+
+    <!-- HIGH LEVEL METRICS -->
+    <div class="stat-grid">
+        <div class="stat-box">
+            <div class="stat-label">Active Flagship Event</div>
+            <div class="stat-val" style="font-size: 18px; color: var(--accent-blue);">Aero India Summit 2026</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Expected Delegates</div>
+            <div class="stat-val" style="color: var(--accent-emerald);">5,000+</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Sponsorship Pipeline</div>
+            <div class="stat-val" style="color: var(--accent-purple);">INR 2,750,000</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Projected Net Margin</div>
+            <div class="stat-val" style="color: var(--accent-emerald);">62.5%</div>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- 1. RUN OF SHOW & OPS TIMELINE -->
+        <div class="card col-7">
+            <h2 style="color: var(--accent-blue);">?? Master Run-of-Show & Operational Timeline</h2>
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Activity & Milestones</th>
+                        <th>Operational Lead</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>08:00 - 09:30</code></td>
+                        <td><strong>VIP & Delegate Security Screening</strong><br><span style="font-size: 11px; color: var(--text-muted);">Biometric gate verification & press clearance</span></td>
+                        <td>Security Gov Agent</td>
+                        <td><span class="pill" style="color: var(--accent-emerald);">CONFIRMED</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>09:30 - 11:00</code></td>
+                        <td><strong>Grand Exhibition Inauguration & Keynote</strong><br><span style="font-size: 11px; color: var(--text-muted);">Main Stage Audio-Visual & Protocol Management</span></td>
+                        <td><strong>Aditya Mehra</strong></td>
+                        <td><span class="pill" style="color: var(--accent-blue);">READY</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>11:00 - 13:30</code></td>
+                        <td><strong>B2B Sponsor Roundtables & Partner Demos</strong><br><span style="font-size: 11px; color: var(--text-muted);">Enterprise deal rooms & sponsor activations</span></td>
+                        <td>B2B Sales Agent</td>
+                        <td><span class="pill" style="color: var(--accent-amber);">IN PROGRESS</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>14:30 - 17:00</code></td>
+                        <td><strong>Industry Transformation Panel</strong><br><span style="font-size: 11px; color: var(--text-muted);">Live Q&A, media broadcasts & crowd logistics</span></td>
+                        <td>Operations Lead</td>
+                        <td><span class="pill" style="color: var(--text-muted);">SCHEDULED</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>17:00 - 18:30</code></td>
+                        <td><strong>Executive Networking Reception</strong><br><span style="font-size: 11px; color: var(--text-muted);">High-level closing reception & sponsor appreciation</span></td>
+                        <td>Event Coordinator</td>
+                        <td><span class="pill" style="color: var(--text-muted);">SCHEDULED</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 2. B2B SPONSOR MATCHING (9,223 NETWORK) -->
+        <div class="card col-5">
+            <h2 style="color: var(--accent-cyan);">?? Matched B2B Sponsors (9,223 Network)</h2>
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Target Sponsor</th>
+                        <th>Tier</th>
+                        <th>Pledged</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tata Communications</strong></td>
+                        <td><span class="pill pill-plat">PLATINUM</span></td>
+                        <td style="color: var(--accent-emerald); font-weight: 700;">INR 500,000</td>
+                        <td><span style="font-size: 11px; color: var(--accent-emerald);">VERIFIED</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>EY GDS</strong></td>
+                        <td><span class="pill pill-plat">PLATINUM</span></td>
+                        <td style="color: var(--accent-emerald); font-weight: 700;">INR 500,000</td>
+                        <td><span style="font-size: 11px; color: var(--accent-cyan);">PROSPECT</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deloitte</strong></td>
+                        <td><span class="pill pill-plat">PLATINUM</span></td>
+                        <td style="color: var(--accent-emerald); font-weight: 700;">INR 500,000</td>
+                        <td><span style="font-size: 11px; color: var(--accent-cyan);">PROSPECT</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accenture</strong></td>
+                        <td><span class="pill pill-gold">GOLD</span></td>
+                        <td style="color: var(--accent-amber); font-weight: 700;">INR 250,000</td>
+                        <td><span style="font-size: 11px; color: var(--accent-cyan);">PROSPECT</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Puma India</strong></td>
+                        <td><span class="pill pill-gold">GOLD</span></td>
+                        <td style="color: var(--accent-amber); font-weight: 700;">INR 250,000</td>
+                        <td><span style="font-size: 11px; color: var(--accent-emerald);">VERIFIED</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 16px;">
+                <button class="btn" onclick="alert('Simulation: Real-time telemetry pulse synchronized with SQLite WAL Database.')">? Run Live Telemetry Pulse</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

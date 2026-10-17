@@ -7,7 +7,10 @@ pages = [
     "index.html",
     "vendor_sla_dashboard.html",
     "interview_simulator.html",
-    "Aditya_Mehra_Resume_Printable.html"
+    "Aditya_Mehra_Resume_Printable.html",
+    "ANTIGRAVITY_OMNI_HUB.html",
+    "compensation_negotiator.html",
+    "aero_india_logistics_console.html"
 ]
 
 all_clean = True
@@ -25,7 +28,7 @@ for page in pages:
     links = re.findall(r'(?:href|src)=["\']([^"\']+)["\']', content)
     broken = []
     for item in links:
-        if item.startswith("#") or item.startswith("mailto:") or item.startswith("tel:") or item.startswith("javascript:"):
+        if item.startswith("#") or item.startswith("mailto:") or item.startswith("tel:") or item.startswith("javascript:") or item.startswith("${"):
             continue
         if item.startswith("http://") or item.startswith("https://"):
             continue
