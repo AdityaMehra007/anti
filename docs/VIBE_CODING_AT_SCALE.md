@@ -56,7 +56,7 @@ The codebases in this ecosystem serve as verifiable proof of what one discipline
 ### Case Study A: Autonomous Career & Operations Engine ([`anti`](https://github.com/AdityaMehra007/anti))
 * **Stack:** Python 3.11+, FastAPI, SQLite, RFC 5545 `.ics` generators, Python-Docx.
 * **Architecture:** 18 autonomous agents arranged in a strategy-to-execution DAG.
-* **Verification:** 16 hermetic pytest suites verifying salary floor boundaries (₹3.0 LPA counter-offers), calendar conflict resolution, and recruiter email parsing with 100% pass rates.
+* **Verification:** 16 hermetic pytest suites verifying salary floor boundaries (₹6.0 LPA counter-offers), calendar conflict resolution, and recruiter email parsing with 100% pass rates.
 
 ### Case Study B: Modular Android System Powers ([`ADI-OS`](https://github.com/AdityaMehra007/ADI-OS))
 * **Stack:** Kotlin, Android Architecture Components, Reactive StateFlow, Headless CI.

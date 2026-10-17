@@ -19,7 +19,7 @@ This repository serves as the **verifiable Proof of Work (PoW) and live autonomo
 
 It showcases real, hands-on capabilities across:
 1. **AI-Assisted Development ("Vibe Coding"):** Prototyping full-stack web applications, REST APIs, and automated tools using modern AI coding systems (**Google Antigravity**, Cursor, Claude, LLMs). Read the full technical philosophy: [**The Vibe Coding Manifesto**](docs/VIBE_CODING_AT_SCALE.md).
-2. **Operations Automation:** Autonomous recruiter communication parsers, compensation filters (₹3.0 LPA floor), and calendar event dispatchers (`.ics` generation).
+2. **Operations Automation:** Autonomous recruiter communication parsers, compensation filters (₹6.0 LPA floor), and calendar event dispatchers (`.ics` generation).
 3. **Database & Data Management:** Structured SQLite schemas tracking company outreach, application events, and recruiter interactions.
 4. **Hermetic Software Testing:** 100% test-driven Python test suite with green pytest execution.
 
@@ -27,8 +27,8 @@ It showcases real, hands-on capabilities across:
 flowchart TD
     subgraph INGESTION["1. Opportunity & Inbound Ingestion"]
         A["Recruiter Inbounds / Market Opportunities"] --> B["Recruiter Dispatcher & Evaluation"]
-        B -->|CTC < ₹3.0 LPA| C["Automated Counter-Offer Engine"]
-        B -->|CTC >= ₹3.0 LPA| D["RFC 5545 Calendar Dispatcher (.ics)"]
+        B -->|CTC < ₹6.0 LPA| C["Automated Counter-Offer Engine"]
+        B -->|CTC >= ₹6.0 LPA| D["RFC 5545 Calendar Dispatcher (.ics)"]
     end
 
     subgraph ORCHESTRATION["2. OMEGA Autonomous Agent Swarm"]
@@ -66,7 +66,7 @@ flowchart TD
 
 ### 1. Autonomous Inbound Recruiter & Calendar Dispatcher
 * **File:** [`omega/orchestration/recruiter_dispatcher.py`](omega/orchestration/recruiter_dispatcher.py)
-* **What it does:** Automatically parses inbound recruiter emails, detects proposed CTC and interview slots, compares offers against a ₹3.0 LPA floor, generates polite counter-negotiation responses, and saves event records to SQLite.
+* **What it does:** Automatically parses inbound recruiter emails, detects proposed CTC and interview slots, compares offers against a ₹6.0 LPA floor, generates polite counter-negotiation responses, and saves event records to SQLite.
 
 ### 2. RFC 5545 Calendar Generator
 * **File:** [`omega/orchestration/calendar_dispatcher.py`](omega/orchestration/calendar_dispatcher.py)
