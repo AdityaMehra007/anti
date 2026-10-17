@@ -28,7 +28,7 @@ for page in pages:
     links = re.findall(r'(?:href|src)=["\']([^"\']+)["\']', content)
     broken = []
     for item in links:
-        if item.startswith("#") or item.startswith("mailto:") or item.startswith("tel:") or item.startswith("javascript:") or item.startswith("${"):
+        if item.startswith("#") or item.startswith("mailto:") or item.startswith("tel:") or item.startswith("javascript:") or "${" in item:
             continue
         if item.startswith("http://") or item.startswith("https://"):
             continue
