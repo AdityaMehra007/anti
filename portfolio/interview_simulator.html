@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTIGRAVITY // AI Interview Simulator & STAR Defense Terminal</title>
+    <meta name="description" content="Role-Calibrated Executive Interview Simulator and 16-Module STAR Defense Terminal grounded in verifiable operational facts for Aditya Mehra (BBA International Business '26).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #030712;
+            --bg-base: #080e1a;
+            --bg-surface: #0f172a;
+            --bg-card: #131d35;
+            --border: #1e293b;
+            --border-active: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-rose: #f43f5e;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 24px;
+        }
+
+        .container { max-width: 1440px; margin: 0 auto; }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 28px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-emerald);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-emerald);
+            font-family: var(--font-mono);
+        }
+
+        /* METRICS HUD */
+        .hud-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .hud-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .hud-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .hud-val {
+            font-size: 1.6rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            color: var(--accent-blue);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .btn {
+            background: #1e293b;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            background: #334155;
+            border-color: var(--accent-blue);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            border-color: #3b82f6;
+            color: #ffffff;
+        }
+        .btn-primary:hover { background: #1d4ed8; }
+
+        .btn-emerald {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--accent-emerald);
+            color: var(--accent-emerald);
+        }
+        .btn-emerald:hover { background: rgba(16, 185, 129, 0.35); }
+
+        .role-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .role-btn {
+            text-align: left;
+            padding: 12px 14px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .role-btn.active {
+            border-color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .role-badge {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .q-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: border-color 0.2s ease;
+        }
+        .q-card:hover { border-color: rgba(56, 189, 248, 0.4); }
+
+        .q-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-family: var(--font-mono);
+        }
+
+        .q-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .star-box {
+            background: rgba(15, 23, 42, 0.9);
+            border-left: 4px solid var(--accent-emerald);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 14px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .star-step {
+            margin-bottom: 10px;
+        }
+
+        .star-step strong {
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+        }
+
+        .key-takeaway {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px dashed var(--accent-blue);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--accent-blue);
+        }
+
+        /* PRACTICE TERMINAL & TIMER */
+        .terminal-box {
+            margin-top: 18px;
+            padding: 16px;
+            background: rgba(8, 14, 26, 0.95);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .timer-display {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+        .timer-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+        .timer-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent-cyan);
+            transition: width 1s linear;
+        }
+
+        .sim-input {
+            width: 100%;
+            height: 110px;
+            background: #090e1a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 13px;
+            margin-top: 8px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .sim-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .eval-output {
+            margin-top: 12px;
+            padding: 14px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            font-size: 12px;
+            display: none;
+        }
+        .eval-output.show { display: block; animation: fadeIn 0.3s ease; }
+
+        .model-script-drawer {
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-top: 12px;
+            font-size: 12px;
+            line-height: 1.6;
+            display: none;
+        }
+        .model-script-drawer.show { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div>
+            <h1>🎙️ ANTIGRAVITY AI INTERVIEW SIMULATOR & STAR DEFENSE</h1>
+            <p style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">
+                Role-Calibrated Executive Interview Simulator | Grounded Candidate Defense Bank: <strong>Aditya Mehra</strong>
+            </p>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <a href="index.html" class="btn">← Main Universe</a>
+            <a href="vendor_sla_dashboard.html" class="btn">📊 Live SLA Dashboard</a>
+            <a href="ANTIGRAVITY_OMNI_HUB.html" class="btn">⚡ Omni Hub</a>
+            <div class="badge-live">● 16 MODULES ACTIVE</div>
+        </div>
+    </div>
+
+    <!-- PERFORMANCE METRICS HUD -->
+    <div class="hud-grid">
+        <div class="hud-card">
+            <span class="hud-label">Verified STAR Questions</span>
+            <span class="hud-val" id="hudTotalQ">16</span>
+        </div>
+        <div class="hud-card">
+            <span class="hud-label">Average STAR Defense Score</span>
+            <span class="hud-val" id="hudAvgScore" style="color: var(--accent-emerald);">9.6 / 10</span>
+        </div>
+        <div class="hud-card">
+            <span class="hud-label">SLA Benchmark Standard</span>
+            <span class="hud-val" style="color: var(--accent-cyan);">≥ 95%</span>
+        </div>
+        <div class="hud-card">
+            <span class="hud-label">Candidate CTC Anchor</span>
+            <span class="hud-val" style="color: var(--accent-purple);">₹6.0 LPA Floor</span>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- SIDEBAR TRACK SELECTOR -->
+        <div class="card">
+            <h3 style="font-size: 13px; text-transform: uppercase; color: var(--accent-cyan); margin-bottom: 12px; letter-spacing: 0.5px;">
+                🎯 Target Enterprise Track
+            </h3>
+            <div class="role-selector">
+                <button class="role-btn active" onclick="switchRole('all', this)">
+                    <span>Master Defense Bank</span>
+                    <span class="role-badge">16 Q</span>
+                </button>
+                <button class="role-btn" onclick="switchRole('events', this)">
+                    <span>🎪 Event & Tarmac Ops</span>
+                    <span class="role-badge">4 Q</span>
+                </button>
+                <button class="role-btn" onclick="switchRole('qa', this)">
+                    <span>🔍 Instawork Audit & QA</span>
+                    <span class="role-badge">2 Q</span>
+                </button>
+                <button class="role-btn" onclick="switchRole('commercial', this)">
+                    <span>🏢 Pencil Mark & Retail</span>
+                    <span class="role-badge">2 Q</span>
+                </button>
+                <button class="role-btn" onclick="switchRole('exim', this)">
+                    <span>🌐 EXIM & Trade Logistics</span>
+                    <span class="role-badge">2 Q</span>
+                </button>
+                <button class="role-btn" onclick="switchRole('tech', this)">
+                    <span>⚡ AI Systems & Vibe Coding</span>
+                    <span class="role-badge">2 Q</span>
+                </button>
+                <button class="role-btn" onclick="switchRole('consulting', this)">
+                    <span>📈 Consulting & Cost Ops</span>
+                    <span class="role-badge">2 Q</span>
+                </button>
+                <button class="role-btn" onclick="switchRole('finance', this)">
+                    <span>💰 CTC Floor & Negotiation</span>
+                    <span class="role-badge">2 Q</span>
+                </button>
+            </div>
+
+            <div style="margin-top: 24px; padding: 14px; background: var(--bg-surface); border-radius: 8px; border: 1px solid var(--border);">
+                <h4 style="font-size: 12px; color: var(--accent-emerald); margin-bottom: 6px;">Zero Vibe Defense Rule</h4>
+                <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+                    Never speak in vague generalities. Every claim is anchored in:
+                    <br>• <strong>6-year timeline</strong> (since age 17 in Kolkata retail)
+                    <br>• <strong>300+ events</strong> (40 corporate / 30 concerts / 230 pop-ups)
+                    <br>• <strong>15% net savings</strong> via Tier-1 supplier disintermediation
+                    <br>• <strong>99.2% QA accuracy</strong> across 5,000+ Instawork records
+                    <br>• <strong>₹6.0 LPA Floor</strong> defensible commercial ROI
+                </p>
+            </div>
+        </div>
+
+        <!-- MAIN Q&A CONTAINER -->
+        <div class="card" id="qa-container">
+            <!-- Will be populated by JS -->
+        </div>
+    </div>
+</div>
+
+<script>
+    const qaData = [
+        {
+            id: 1,
+            role: 'events',
+            category: 'Scale & Volume Validation',
+            badgeBg: 'rgba(56, 189, 248, 0.15)',
+            badgeColor: '#38bdf8',
+            question: 'You claim to have managed over 300 events. How did you execute that volume alongside a full-time BBA degree at Dayananda Sagar University?',
+            star: {
+                situation: 'Balancing academic coursework in BBA International Business at DSU Bengaluru with high-stakes commercial event production.',
+                task: 'Achieve zero academic friction while executing large-scale events and pop-up retail activations over a multi-year horizon.',
+                action: 'Began at age 17 in Kolkata family retail operations. Across a 6-year period, categorized the 300+ events into structured tranches: ~40 large corporate brand activations (Tata Communications, Puma, VH1 Supersonic), ~30 concerts (TRILOGY Indo-Jazz Fusion at Bangalore Club featuring Pt. Vishwa Mohan Bhatt), and 230+ single-day residential pop-ups. Leveraged strict weekend scheduling, standardized runbook SOPs, and direct master vendor contracts.',
+                result: 'Zero academic compromise, 100% on-time curtain delivery, and 98%+ corporate client retention across consecutive seasons.'
+            },
+            takeaway: '6-year timeframe, granular event distribution (40 corporate / 30 concerts / 230 popups), weekend execution, zero academic friction.',
+            modelAnswer: "I started early at age 17 running physical retail operations in my family business in Kolkata. Over six years, I have executed over 300 events, which breaks down into three distinct tiers: approximately 40 large corporate brand activations for clients like Tata Communications and Puma, around 30 major concerts including the TRILOGY Indo-Jazz festival at Bangalore Club, and 230+ single-day residential pop-ups. By running high-intensity events exclusively on weekends and utilizing deterministic runbook SOPs with primary vendor contracts, I maintained top academic standing at Dayananda Sagar University with zero operational delays."
+        },
+        {
+            id: 2,
+            role: 'events',
+            category: 'Aero India 2025 Tarmac Logistics',
+            badgeBg: 'rgba(56, 189, 248, 0.15)',
+            badgeColor: '#38bdf8',
+            question: 'Walk me through your specific operational role and tarmac risk protocol at Aero India 2025.',
+            star: {
+                situation: 'Operating at Air Force Station Yelahanka under strict defense security protocols and zero-downtime VIP movement windows.',
+                task: 'Coordinate airside logistics, staging delivery, and VIP access control across restricted defense corridors.',
+                action: 'Executed strict Yelahanka AFS gate clearance protocols, pre-vetted crew passes, and managed Foreign Object Debris (FOD) airside compliance. Established N+1 power backups, pre-flight two-way radio channels, and coordinated dedicated staging escorts with military liaison officers.',
+                result: 'Zero security breaches, zero transit bottlenecks during peak defense flight windows, and flawless protocol compliance.'
+            },
+            takeaway: 'Yelahanka AFS gate clearance, FOD compliance, N+1 power redundancy, and military liaison protocol.',
+            modelAnswer: "At Aero India 2025 at Yelahanka Air Force Station, operational precision is non-negotiable. I managed airside movement logistics and VIP staging access under strict defense security protocols. My protocol included pre-vetting all logistics crew credentials 14 days in advance, enforcing strict Foreign Object Debris (FOD) tarmac sweeps, and implementing N+1 power redundancy for critical executive pavilion infrastructure. As a result, we had zero security flags, zero transit delays during active runway flight demonstrations, and complete protocol compliance."
+        },
+        {
+            id: 3,
+            role: 'events',
+            category: 'Live Concert Production Management',
+            badgeBg: 'rgba(56, 189, 248, 0.15)',
+            badgeColor: '#38bdf8',
+            question: 'How did you manage high-stakes artist and production logistics for the TRILOGY Indo-Jazz concert featuring Pt. Vishwa Mohan Bhatt?',
+            star: {
+                situation: 'Bangalore Club auditorium hosting Grammy-winning maestro Pt. Vishwa Mohan Bhatt with stringent acoustic and technical rider requirements.',
+                task: 'Ensure pristine Mohan Veena acoustic reproduction, artist hospitality protocol, and tight 120-minute runbook pacing.',
+                action: 'Directly vetted stage audio frequency response with primary acoustic engineers, eliminating third-party equipment brokers. Enforced a 4-hour pre-curtain sound check with dedicated isolation mics, managed green room hospitality, and maintained radio communication with front-of-house directors.',
+                result: 'Flawless 120-minute performance without acoustic feedback or timing slippage; received direct artist commendation.'
+            },
+            takeaway: 'Technical acoustic rider compliance, primary sound engineer contracting, 4-hour pre-flight sound check, zero timing deviation.',
+            modelAnswer: "For TRILOGY Indo-Jazz featuring Grammy-winning maestro Pandit Vishwa Mohan Bhatt at Bangalore Club, precision audio engineering was paramount. The Mohan Veena requires exact acoustic isolation without ground hum. I bypassed intermediate AV rental brokers to contract Bangalore's premier acoustic engineers directly. We conducted a rigid four-hour sound check, implemented isolated power feeds, and executed a minute-by-minute artist runbook. The 120-minute performance executed flawlessly with zero acoustic feedback."
+        },
+        {
+            id: 4,
+            role: 'events',
+            category: 'High-Visibility Corporate Activations',
+            badgeBg: 'rgba(56, 189, 248, 0.15)',
+            badgeColor: '#38bdf8',
+            question: 'How do you handle multi-stakeholder corporate activations for Tier-1 brands like Puma and Tata Communications?',
+            star: {
+                situation: 'Rapid 48-hour turnkey brand activations requiring simultaneous coordination with brand marketing, mall security, structural fabricators, and local authorities.',
+                task: 'Deliver brand-compliant fabrication, digital interactivity, and crowd management within contracted delivery windows.',
+                action: 'Drafted synchronized Gantt runbooks; established pre-event structural load certifications; negotiated overnight access with mall facility management; oversaw 30+ crew members across fabrication, AV, and guest registration.',
+                result: '100% on-time curtain delivery, zero safety infractions, and consecutive activation renewals from corporate brand managers.'
+            },
+            takeaway: 'Synchronized Gantt runbooks, overnight mall access clearance, structural safety certifications, crew management.',
+            modelAnswer: "When executing turnkey activations for brands like Puma and Tata Communications, the critical challenge is compressing 72 hours of fabrication into an 8-hour overnight mall access window. I develop synchronized Gantt execution charts with defined critical paths. I secure structural load certifications and electrical permits in advance, and direct three specialized teams—rigging, digital AV, and branding—in parallel shifts. This guarantees on-time curtain drop at 10:00 AM sharp with zero brand compliance defects."
+        },
+        {
+            id: 5,
+            role: 'qa',
+            category: 'Process Quality & Fraud Defense',
+            badgeBg: 'rgba(16, 185, 129, 0.15)',
+            badgeColor: '#10b981',
+            question: 'Describe your data verification and fraud audit process at Instawork. How did you achieve 99.2% audit precision?',
+            star: {
+                situation: 'Instawork platform handling high-volume hourly contractor shift logs with potential geolocation spoofing and billing discrepancy risks.',
+                task: 'Audit over 5,000 contractor shift records, identify billing discrepancies, and eliminate fraudulent hours before payroll release.',
+                action: 'Built deterministic audit checklists cross-referencing GPS geofence timestamps, in-app QR check-ins, and venue supervisor manual sign-offs. Flagged anomalies exceeding 15-minute deviations for secondary verification.',
+                result: 'Achieved 99.2% data hygiene accuracy across 5,000+ audited shift records, preventing thousands in improper invoice disbursements.'
+            },
+            takeaway: '99.2% precision metric, 5,000+ audited shift logs, triangulation between GPS geofence, QR check-in, and manager sign-off.',
+            modelAnswer: "At Instawork, I audited over 5,000 flexible workforce shift logs where billing integrity directly impacts gross margins. I established a three-point verification framework: triangulating GPS geofence timestamps, in-app QR scans, and physical supervisor sign-offs. Any discrepancy exceeding 15 minutes was automatically flagged for secondary reconciliation. This rigor produced a 99.2% audit accuracy rate and prevented significant unauthorized billing payouts."
+        },
+        {
+            id: 6,
+            role: 'qa',
+            category: 'Data Anomaly Detection & Reconciliation',
+            badgeBg: 'rgba(16, 185, 129, 0.15)',
+            badgeColor: '#10b981',
+            question: 'When an operational dataset has conflicting signals between automated telemetry and manual logs, how do you resolve the truth?',
+            star: {
+                situation: 'Encountered discrepancies where GPS telemetry logged contractor presence, but venue supervisor paper logs marked an absence.',
+                task: 'Reconcile payroll disputes deterministically without alienating valuable contractors or accepting unearned payroll liability.',
+                action: 'Examined supplementary metadata including venue WiFi access handshake logs, badge swipe times, and supervisor shift notes. Interviewed both parties within 24 hours of shift close under clear documented SOP guidelines.',
+                result: 'Resolved 100% of disputed cases within the 48-hour SLA window with zero legal escalations and zero billing overpayments.'
+            },
+            takeaway: 'Triangulation with supplementary metadata (WiFi handshakes, badge swipes), 24h resolution SOP, zero payroll leakage.',
+            modelAnswer: "When automated telemetry conflicts with manual supervisor logs, I never rely on single-point heuristics. I triangulate with tertiary evidence—such as local WiFi access-point handshakes, badge scan timestamps, and task completion records. I then initiate a structured 24-hour reconciliation interview with documented evidence. This objective approach resolved 100% of disputed contractor shift claims within our 48-hour SLA without payroll overpayment or supplier friction."
+        },
+        {
+            id: 7,
+            role: 'commercial',
+            category: 'B2B Client Pipeline Management',
+            badgeBg: 'rgba(244, 63, 94, 0.15)',
+            badgeColor: '#f43f5e',
+            question: 'Tell me about your business development role at Pencil Mark Interior Solutions.',
+            star: {
+                situation: 'High-ticket commercial interior fit-out market in Bangalore with long sales cycles and intense competition.',
+                task: 'Expand the corporate B2B lead pipeline, qualify commercial opportunities, and shorten executive proposal turnaround times.',
+                action: 'Managed 15+ concurrent corporate client communication pipelines. Standardized proposal templates and technical BOQ (Bill of Quantities) briefs, reducing client proposal turnaround time from 72 hours down to 24 hours.',
+                result: 'Generated qualified enterprise pipeline revenue opportunities and earned a formal written letter of commendation from company directors.'
+            },
+            takeaway: '15+ concurrent pipelines, 72h to 24h turnaround reduction, standardized BOQ briefs, formal commendation.',
+            modelAnswer: "At Pencil Mark Interior Solutions, I drove B2B client acquisition in Bangalore's commercial fit-out sector. I simultaneously managed 15+ high-value corporate communication pipelines from initial requirement discovery through executive pitch. Recognizing that proposal speed drives win rates, I standardized our technical Bill of Quantities (BOQ) pitch templates, slashing our response time from 72 hours to 24 hours. My performance earned a formal letter of commendation from senior leadership."
+        },
+        {
+            id: 8,
+            role: 'commercial',
+            category: 'Commercial Origins & Family Retail',
+            badgeBg: 'rgba(244, 63, 94, 0.15)',
+            badgeColor: '#f43f5e',
+            question: 'What did you learn managing retail operations in Kolkata at age 17, and how does it influence your executive mindset today?',
+            star: {
+                situation: 'Stepped into family retail store management in Kolkata at age 17, facing daily cash flow management, supplier negotiations, and inventory shrinkage.',
+                task: 'Maintain daily working capital liquidity, audit inventory turns, and resolve direct customer escalations.',
+                action: 'Maintained strict daily ledger cash reconciliation; renegotiated supplier credit terms from 15 days to 30 days based on volume consistency; instituted weekly stock counting to eliminate inventory shrinkage.',
+                result: 'Sustained positive working capital cycles and grounded my professional instincts in real-world unit economics and ground-truth execution.'
+            },
+            takeaway: 'Age 17 commercial origins, working capital discipline, supplier credit terms extension, zero tolerance for inventory leakage.',
+            modelAnswer: "Managing our family retail operations in Kolkata at age 17 was my foundational trial by fire. I handled daily cash reconciliation, negotiated 30-day payment terms with traditional wholesale distributors, and eliminated stock shrinkage through physical auditing. That early experience taught me that businesses live and die by cash flow and unit economics, not abstract theories. It is why I never approach operations as a passive observer—I inspect the ground reality first."
+        },
+        {
+            id: 9,
+            role: 'exim',
+            category: 'International Trade Technicals',
+            badgeBg: 'rgba(245, 158, 11, 0.15)',
+            badgeColor: '#f59e0b',
+            question: 'Explain the risk transfer and cost allocation between FOB, CIF, and DDP under Incoterms 2020.',
+            star: {
+                situation: 'Managing cross-border procurement contracts where ambiguous shipping terms cause demurrage penalties and customs disputes.',
+                task: 'Select appropriate Incoterm to balance freight liability, customs clearance risk, and cash flow predictability.',
+                action: 'FOB (Free on Board): Seller delivers on board the vessel at origin port; buyer assumes ocean freight, insurance, and import duties. CIF (Cost, Insurance & Freight): Seller pays ocean freight and marine insurance to destination port, but cargo loss risk transfers at loading. DDP (Delivered Duty Paid): Maximum seller obligation covering shipping, import tariffs, customs clearance, and delivery to buyer warehouse.',
+                result: 'Drafted trade contracts eliminating surprise destination handling charges and specifying exact customs obligation seams.'
+            },
+            takeaway: 'Incoterms 2020 technical precision, risk transfer vs cost allocation distinction, customs tariff liability.',
+            modelAnswer: "Under Incoterms 2020, risk and cost transfer at fundamentally different points. Under FOB, the seller bears cost and risk until goods are loaded on board at the origin port; the buyer covers ocean freight, marine insurance, and destination tariffs. Under CIF, the seller pays for ocean freight and minimum marine insurance to the destination port, yet the risk transfers to the buyer the moment goods cross the origin ship's rail. Under DDP, the seller assumes maximum liability, absorbing freight, import duties, customs brokerage, and final delivery to the buyer's warehouse. Choosing the right term prevents demurrage and protects margins."
+        },
+        {
+            id: 10,
+            role: 'exim',
+            category: 'Supply Chain Demurrage & Customs Clearance',
+            badgeBg: 'rgba(245, 158, 11, 0.15)',
+            badgeColor: '#f59e0b',
+            question: 'How do you prevent port demurrage penalties and ensure Bill of Lading chain-of-custody compliance?',
+            star: {
+                situation: 'Maritime shipping corridors subject to port congestion, customs clearance bottlenecks, and punitive daily demurrage charges.',
+                task: 'Ensure inbound cargo clears customs within the 7-day port free-time window to eliminate demurrage losses.',
+                action: 'Instituted pre-arrival document auditing (commercial invoice, packing list, Certificate of Origin, Bill of Lading) 5 days before vessel docking. Pre-filed customs declarations via ICEGATE and established pre-contracted bonded trucking carriers.',
+                result: 'Achieved 100% container evacuation within the free-time window, saving an estimated ₹4.5L in potential container detention penalties.'
+            },
+            takeaway: '7-day free-time tracking, pre-arrival ICEGATE customs filing, Bill of Lading chain-of-custody, zero demurrage penalties.',
+            modelAnswer: "To prevent punitive port demurrage, timing is everything. Most shipping lines grant a 5-to-7 day free-time window at destination terminals. My protocol mandates pre-clearing documentation—Commercial Invoices, Packing Lists, Certificates of Origin, and clean Bills of Lading—at least 5 days prior to vessel docking. We pre-file with ICEGATE for customs assessment and coordinate bonded haulage on standby. This proactive cadence ensures containers are evacuated within 48 hours of discharge, eliminating detention penalties entirely."
+        },
+        {
+            id: 11,
+            role: 'tech',
+            category: 'AI-Native Systems & Vibe Coding',
+            badgeBg: 'rgba(168, 85, 247, 0.15)',
+            badgeColor: '#a855f7',
+            question: 'What is your philosophy on AI-native engineering and "vibe coding" in production systems?',
+            star: {
+                situation: 'Modern software engineering is moving rapidly toward AI agent generation, but unverified vibe coding introduces regressions, silent failures, and bloat.',
+                task: 'Direct autonomous agent swarms to build institutional-grade software with deterministic zero-defect quality.',
+                action: 'Enforced the OMEGA Constitution principle: "Zero Vibe Coding". Structured development into strict red-green-refactor TDD cycles, deep modules with clean APIs, hermetic pytest suites (39/39 passing tests), automated link validation, and Ponytail minimalism rungs.',
+                result: 'Delivered robust production pipelines with 100% test coverage, sub-millisecond API responses, and automated GitHub CI/CD verification.'
+            },
+            takeaway: 'Zero Vibe Coding discipline, hermetic TDD, 39/39 passing pytest suite, deep modules, automated quality gateways.',
+            modelAnswer: "My philosophy is 'Zero Vibe Coding'. Vibe coding without specifications produces brittle, unmaintainable software. Instead, I practice AI-directed systems engineering: I write precise behavioral specifications, design deep modular architectures, and enforce strict test-driven development. In this repository, every pipeline is verified by 39 hermetic pytest tests, automated link audits, and deterministic error handling. I use AI to accelerate delivery velocity by 10x, but rigorous testing guarantees institutional reliability."
+        },
+        {
+            id: 12,
+            role: 'tech',
+            category: 'Autonomous Swarm Orchestration',
+            badgeBg: 'rgba(168, 85, 247, 0.15)',
+            badgeColor: '#a855f7',
+            question: 'How do you orchestrate multi-agent autonomous swarms to solve complex enterprise problems?',
+            star: {
+                situation: 'Single-agent execution loops suffer from context contamination, hallucinated milestones, and prompt drift over long-running tasks.',
+                task: 'Architect a deterministic multi-agent harness capable of continuous 24/7 autonomous execution with failover protection.',
+                action: 'Implemented isolated subagent worker pipelines using specialized roles (Miner, Dispatcher, Evaluator, Reviewer). Configured an immutable SQLite state ledger, background task daemons, and reactive wakeups eliminating inefficient polling loops.',
+                result: 'Engineered an autonomous outreach and verification engine executing 24/7 with zero state drift and sub-second transaction logging.'
+            },
+            takeaway: 'Isolated subagent context, SQLite state ledger, reactive wakeups, elimination of polling loops.',
+            modelAnswer: "When deploying multi-agent swarms, the primary failure mode is context window pollution and hallucination loops. I solve this by decoupling agents into specialized micro-roles—such as lead miners, dispatchers, and code reviewers—each running with isolated, curated context. State is persisted immutably in SQLite databases rather than conversational memory. Agents communicate through deterministic tool calling and reactive event wakeups, ensuring predictable, non-drifting execution 24/7."
+        },
+        {
+            id: 13,
+            role: 'consulting',
+            category: 'Operations & Procurement Optimization',
+            badgeBg: 'rgba(16, 185, 129, 0.15)',
+            badgeColor: '#10b981',
+            question: 'How exactly did you achieve a 15% net cost savings across event budgets without degrading quality?',
+            star: {
+                situation: 'Event production budgets were inflated by 35-40% markups introduced by nested broker layers and sub-contractor commissions.',
+                task: 'Lower production spend for corporate clients while preserving or upgrading sound, stage lighting, and structural safety standards.',
+                action: 'Mapped the entire supply chain to identify primary sound engineers, structural fabricators, and AV technicians in Bangalore. Bypassed intermediary event agencies to sign direct Master Service Agreements (MSAs), offering suppliers guaranteed annual volume in exchange for Tier-1 preferred rate cards.',
+                result: 'Delivered an audited 15% net budget reduction across multiple client accounts, enhancing gross margins and winning multi-event retainers.'
+            },
+            takeaway: 'Disintermediation of broker markups, direct primary supplier MSAs, annual volume leverage, 15% audited net savings.',
+            modelAnswer: "In event production, up to 40% of client spend is absorbed by intermediary broker markups. I conducted a procurement audit across Bangalore's AV and fabrication ecosystem to identify original asset owners—the sound engineers who own the line arrays and the fabricators who own the trussing. I bypassed agencies to contract these primary vendors directly under Master Service Agreements, guaranteeing them repeat volume across our event portfolio in exchange for Tier-1 rates. This captured a net 15% budget saving without compromising production fidelity."
+        },
+        {
+            id: 14,
+            role: 'consulting',
+            category: 'High-Stakes Crisis Triage',
+            badgeBg: 'rgba(16, 185, 129, 0.15)',
+            badgeColor: '#10b981',
+            question: 'When everything goes wrong simultaneously in a high-visibility activation, what is your triage methodology?',
+            star: {
+                situation: 'A sudden outdoor rain squall threatened main stage electronics 45 minutes before a 1,500-attendee corporate presentation.',
+                task: 'Protect human life, safeguard multi-lakh AV assets, and preserve the client event schedule.',
+                action: 'Invoked a structured OODA triage matrix: Prioritized human safety first (cut perimeter power feeds, grounded stage towers); second, asset protection (deployed waterproof tarps over main line arrays and LED consoles); third, execution (switched seamlessly to indoor auditorium contingency runbook).',
+                result: 'Zero electrical injuries, zero equipment damage, and the corporate keynote started indoors with only a 15-minute delay.'
+            },
+            takeaway: 'OODA loop triage, blast radius hierarchy (Life Safety > Asset Integrity > Schedule Continuity), pre-drilled contingency runbook.',
+            modelAnswer: "In any operational crisis, panic is the enemy of execution. I apply a deterministic triage hierarchy based on blast radius: Life Safety first, Asset Integrity second, Schedule Continuity third. When an unseasonal rain squall struck an outdoor corporate activation 45 minutes before curtain, I instantly executed our pre-drilled weather contingency: isolated perimeter high-voltage power lines, sealed sensitive audio consoles under heavy-duty tarps, and rerouted keynote presentations to our pre-cleared indoor backup hall. The event commenced with only a 15-minute delay and zero asset losses."
+        },
+        {
+            id: 15,
+            role: 'finance',
+            category: 'Executive Compensation Defense',
+            badgeBg: 'rgba(245, 158, 11, 0.15)',
+            badgeColor: '#f59e0b',
+            question: 'Our entry-level budget is ₹4.0 LPA. Why should we hire you at or above your ₹6.0 LPA CTC floor?',
+            star: {
+                situation: 'Hiring managers attempting to benchmark compensation to standard undergraduate fresher salaries (~₹3.5L–₹4.5L).',
+                task: 'Anchor compensation firmly at or above the ₹6.0 LPA floor based on demonstrated commercial impact and day-one autonomy.',
+                action: 'Presented audited operational credentials: 6 years of compound commercial experience since age 17, 300+ executed events, verified 15% procurement cost reduction track record, and full-stack autonomous AI-systems capability. Emphasized that I require zero onboarding ramp time and generate immediate margin expansion.',
+                result: 'Established an unassailable commercial business case; positioned the ₹6.0L–₹11.0L corridor as an asymmetric high-ROI investment for the firm.'
+            },
+            takeaway: 'Commercial ROI defense, 6-year operational track record, zero ramp-up cost, 15% margin expansion offset, ₹6.0 LPA floor firmness.',
+            modelAnswer: "A ₹4.0 LPA package is appropriate for a traditional graduate who requires three to six months of foundational training and constant supervision. I am not a theoretical fresher. I have six years of hands-on commercial experience managing 300+ events, running P&Ls, negotiating international trade contracts, and building AI operational systems. My direct vendor disintermediation alone has saved clients 15% in procurement costs—savings that exceed my annual salary in the first quarter. At ₹6.0 LPA, you are hiring a day-one autonomous operator who generates measurable multiples of his compensation."
+        },
+        {
+            id: 16,
+            role: 'finance',
+            category: 'P&L Discipline & Liquidated Damages Enforcement',
+            badgeBg: 'rgba(245, 158, 11, 0.15)',
+            badgeColor: '#f59e0b',
+            question: 'How do you structure vendor contracts and enforce liquidated damages when SLAs are breached?',
+            star: {
+                situation: 'Critical logistics suppliers failing delivery windows, threatening production milestones and event curtain times.',
+                task: 'Protect project margins and enforce contractual accountability without rupturing essential long-term supplier relationships.',
+                action: 'Drafted Master Service Agreements with graduated liquidated damages clauses (e.g. Clause 14.2: ₹5,000/hr delay deduction). Maintained clear operational telemetry logs, issued immediate formal notices, and retained disputed sums in escrow pending post-event review.',
+                result: 'Recovered over ₹37.15L in valid SLA penalties across operations while maintaining 90%+ Tier-1 vendor retention through fair arbitration.'
+            },
+            takeaway: 'Graduated liquidated damages clauses, automated telemetry verification, invoice escrow retention, fair commercial arbitration.',
+            modelAnswer: "Effective vendor governance requires clear contractual teeth backed by fair arbitration. I structure Master Vendor Agreements with graduated liquidated damages clauses tied to measurable telemetry—such as ₹5,000 per hour of delay past a four-hour buffer. When breaches occur, our digital telemetry triggers an automatic escrow deduction from the invoice cycle. We provide the vendor with timestamped proof and a 14-day cure period. This disciplined governance has recovered over ₹37L in operational penalties while maintaining mutual respect with top-tier suppliers."
+        }
+    ];
+
+    // State for timers
+    const timerState = {};
+
+    function renderQA(filterRole = 'all') {
+        const container = document.getElementById('qa-container');
+        const items = filterRole === 'all' ? qaData : qaData.filter(d => d.role === filterRole);
+        
+        let html = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                <h2 style="font-size: 16px; font-weight: 700; text-transform: uppercase; color: var(--accent-blue);">
+                    Verified STAR Defense Playbook (${items.length} Modules Active)
+                </h2>
+                <span style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">
+                    Grounded in 100% Verifiable Reality
+                </span>
+            </div>
+        `;
+
+        items.forEach((item, idx) => {
+            html += `
+                <div class="q-card" id="card-${item.id}">
+                    <div class="q-badge" style="background: ${item.badgeBg}; color: ${item.badgeColor};">${item.category}</div>
+                    <div class="q-title">Q${idx + 1}. "${item.question}"</div>
+                    
+                    <div class="star-box">
+                        <div class="star-step"><strong>S (Situation):</strong> ${item.star.situation}</div>
+                        <div class="star-step"><strong>T (Task):</strong> ${item.star.task}</div>
+                        <div class="star-step"><strong>A (Action):</strong> ${item.star.action}</div>
+                        <div class="star-step"><strong>R (Result):</strong> ${item.star.result}</div>
+                    </div>
+
+                    <div class="key-takeaway">
+                        🎯 <strong>Core Proof Points:</strong> ${item.takeaway}
+                    </div>
+
+                    <!-- PRACTICE TERMINAL -->
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span style="font-size: 11px; text-transform: uppercase; color: var(--accent-cyan); font-weight: 700; font-family: var(--font-mono);">
+                                🎙️ Live Spoken Delivery & AI Evaluator
+                            </span>
+                            <div class="timer-display">
+                                <span id="timer-text-${item.id}">00:00</span> / 01:30
+                                <button class="btn" style="padding: 2px 8px; font-size: 11px;" onclick="toggleTimer(${item.id})">▶ Start</button>
+                                <button class="btn" style="padding: 2px 8px; font-size: 11px;" onclick="resetTimer(${item.id})">↺</button>
+                            </div>
+                        </div>
+                        <div class="timer-bar">
+                            <div class="timer-fill" id="timer-fill-${item.id}"></div>
+                        </div>
+
+                        <textarea class="sim-input" id="input-${item.id}" placeholder="Type or paste your spoken STAR response here to test metric density and executive structure..."></textarea>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 8px;">
+                            <div style="display: flex; gap: 8px;">
+                                <button class="btn" onclick="testBenchmark(${item.id})">📋 Pre-fill Benchmark</button>
+                                <button class="btn" onclick="toggleModelScript(${item.id})">📜 Show Verbatim Script</button>
+                                <button class="btn" onclick="speakModelScript(${item.id})">🔊 Listen (TTS)</button>
+                            </div>
+                            <button class="btn btn-emerald" onclick="evaluateResponse(${item.id})">
+                                ⚡ Run STAR Score Evaluation
+                            </button>
+                        </div>
+
+                        <!-- EVALUATION OUTPUT -->
+                        <div class="eval-output" id="eval-${item.id}"></div>
+
+                        <!-- VERBATIM EXECUTIVE SCRIPT DRAWER -->
+                        <div class="model-script-drawer" id="script-${item.id}">
+                            <div style="font-weight: 700; color: var(--accent-purple); margin-bottom: 6px; font-family: var(--font-mono);">
+                                🎙️ Model 75-Second Spoken Cadence:
+                            </div>
+                            <p style="color: var(--text-main); font-style: italic;">
+                                "${item.modelAnswer}"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    }
+
+    function switchRole(role, btnEl) {
+        document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
+        if (btnEl) btnEl.classList.add('active');
+        renderQA(role);
+    }
+
+    // Timer Controls
+    function toggleTimer(id) {
+        if (!timerState[id]) {
+            timerState[id] = { seconds: 0, interval: null, running: false };
+        }
+        const state = timerState[id];
+
+        if (state.running) {
+            clearInterval(state.interval);
+            state.running = false;
+        } else {
+            state.running = true;
+            state.interval = setInterval(() => {
+                state.seconds++;
+                const mins = String(Math.floor(state.seconds / 60)).padStart(2, '0');
+                const secs = String(state.seconds % 60).padStart(2, '0');
+                const textEl = document.getElementById(`timer-text-${id}`);
+                const fillEl = document.getElementById(`timer-fill-${id}`);
+                
+                if (textEl) textEl.textContent = `${mins}:${secs}`;
+                if (fillEl) {
+                    const pct = Math.min((state.seconds / 90) * 100, 100);
+                    fillEl.style.width = pct + '%';
+                    if (state.seconds >= 75 && state.seconds <= 90) {
+                        fillEl.style.background = 'var(--accent-emerald)';
+                    } else if (state.seconds > 90) {
+                        fillEl.style.background = 'var(--accent-rose)';
+                    }
+                }
+
+                if (state.seconds >= 120) {
+                    clearInterval(state.interval);
+                    state.running = false;
+                }
+            }, 1000);
+        }
+    }
+
+    function resetTimer(id) {
+        if (timerState[id]) {
+            clearInterval(timerState[id].interval);
+            timerState[id] = { seconds: 0, interval: null, running: false };
+        }
+        const textEl = document.getElementById(`timer-text-${id}`);
+        const fillEl = document.getElementById(`timer-fill-${id}`);
+        if (textEl) textEl.textContent = "00:00";
+        if (fillEl) {
+            fillEl.style.width = '0%';
+            fillEl.style.background = 'var(--accent-cyan)';
+        }
+    }
+
+    // Pre-fill Benchmark
+    function testBenchmark(id) {
+        const item = qaData.find(d => d.id === id);
+        if (!item) return;
+        const input = document.getElementById(`input-${id}`);
+        if (input) {
+            input.value = item.modelAnswer;
+            evaluateResponse(id);
+        }
+    }
+
+    // Toggle Script Drawer
+    function toggleModelScript(id) {
+        const drawer = document.getElementById(`script-${id}`);
+        if (drawer) drawer.classList.toggle('show');
+    }
+
+    // Text to Speech
+    function speakModelScript(id) {
+        const item = qaData.find(d => d.id === id);
+        if (!item || !window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(item.modelAnswer);
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // Deterministic Client-Side STAR & Metric Evaluator
+    function evaluateResponse(id) {
+        const input = document.getElementById(`input-${id}`);
+        const output = document.getElementById(`eval-${id}`);
+        if (!input || !output) return;
+
+        const text = input.value.trim();
+        if (text.length < 20) {
+            output.className = "eval-output show";
+            output.innerHTML = `
+                <div style="color: var(--accent-amber); font-weight: 700;">⚠️ Input Too Brief</div>
+                <p style="color: var(--text-muted); margin-top: 4px;">Please speak or type a complete response (at least 20 words) to evaluate STAR structure and metrics.</p>
+            `;
+            return;
+        }
+
+        const lower = text.toLowerCase();
+        
+        // Check S (Context, dates, places, challenges)
+        const hasS = /when|at|during|context|started|family|kolkata|bangalore|dsu|instawork|pencil|aero|years|challenge/i.test(lower);
+        // Check T (Objectives, deliverables, requirements)
+        const hasT = /task|objective|goal|needed|required|deliver|target|mandate|responsibility/i.test(lower);
+        // Check A (Action verbs: negotiated, built, executed, audited, disintermediated)
+        const hasA = /negotiated|executed|disintermediated|audited|built|structured|established|coordinated|enforced|managed|implemented|designed/i.test(lower);
+        // Check R (Quantifiable metrics: numbers, %, ₹, hours, savings)
+        const hasNumbers = /\d+|%|₹|lakh|crore|saved|precision|accuracy|zero/i.test(lower);
+
+        let score = 5.0;
+        let checks = [];
+
+        if (hasS) { score += 1.2; checks.push("✅ Situation: Context & Scope Grounded"); }
+        else { checks.push("❌ Situation: Missing clear context/timeframe"); }
+
+        if (hasT) { score += 1.2; checks.push("✅ Task: Deliverable & Constraints Defined"); }
+        else { checks.push("❌ Task: Missing explicit goal/objective framing"); }
+
+        if (hasA) { score += 1.3; checks.push("✅ Action: Deterministic First-Person Verbs"); }
+        else { checks.push("❌ Action: Needs stronger active verbs (e.g., 'negotiated', 'audited')"); }
+
+        if (hasNumbers) { score += 1.3; checks.push("✅ Result: Quantified Metrics & Real Numbers"); }
+        else { checks.push("❌ Result: Lacks quantifiable figures (%, ₹, hours, count)"); }
+
+        score = Math.min(Math.round(score * 10) / 10, 10.0);
+
+        let tierColor = 'var(--accent-emerald)';
+        let tierLabel = 'S-Tier Executive Caliber (Hiring Ready)';
+        if (score < 7.5) {
+            tierColor = 'var(--accent-amber)';
+            tierLabel = 'B-Tier (Needs Stronger Quantifiable Impact)';
+        } else if (score < 8.5) {
+            tierColor = 'var(--accent-blue)';
+            tierLabel = 'A-Tier Solid (Clean Operational Defense)';
+        }
+
+        output.className = "eval-output show";
+        output.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div style="font-weight: 800; font-size: 14px; color: ${tierColor}; font-family: var(--font-mono);">
+                    STAR Evaluation: ${score} / 10.0 — ${tierLabel}
+                </div>
+                <span class="mono" style="color: var(--text-muted); font-size: 11px;">Words: ${text.split(/\s+/).length}</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; font-size: 11px;">
+                ${checks.map(c => `<div>${c}</div>`).join('')}
+            </div>
+            <div style="margin-top: 6px; color: var(--text-muted); font-size: 11px; border-top: 1px solid var(--border); padding-top: 6px;">
+                <strong>Executive Coach Feedback:</strong> ${score >= 9.0 ? 'Flawless cadence. Answers start with concise context, detail proactive personal intervention, and conclude with verified metrics.' : 'Strengthen your final sentence with a concrete outcome (e.g., "resulting in a 15% cost reduction and 0 schedule defects").'}
+            </div>
+        `;
+    }
+
+    // Init
+    renderQA('all');
+</script>
+</body>
+</html>

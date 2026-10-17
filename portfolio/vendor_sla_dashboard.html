@@ -18,6 +18,7 @@
             --accent-green: #10b981;
             --accent-amber: #f59e0b;
             --accent-rose: #f43f5e;
+            --accent-purple: #a855f7;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
@@ -48,6 +49,9 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            background: linear-gradient(90deg, #00e5ff, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .header-title p {
             font-size: 0.88rem;
@@ -58,15 +62,18 @@
             background: rgba(16, 185, 129, 0.15);
             border: 1px solid var(--accent-green);
             color: var(--accent-green);
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 999px;
             font-size: 0.75rem;
             font-family: var(--font-mono);
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         .controls-bar {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -76,9 +83,10 @@
             color: var(--text-main);
             padding: 8px 14px;
             border-radius: 8px;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-family: var(--font-sans);
             outline: none;
+            transition: border-color 0.2s ease;
         }
         select:focus, input:focus { border-color: var(--accent-cyan); }
         .btn {
@@ -91,8 +99,85 @@
             cursor: pointer;
             font-size: 0.85rem;
             transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* SCENARIO BAR */
+        .scenario-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .scenario-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scenario-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .scenario-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .scenario-btn:hover {
+            color: var(--text-main);
+            border-color: #3b82f6;
+        }
+        .scenario-btn.active {
+            background: rgba(0, 229, 255, 0.15);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .multiplier-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .multiplier-control input[type="range"] {
+            accent-color: var(--accent-cyan);
+            cursor: pointer;
+        }
+
+        /* KPI GRID */
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -106,6 +191,7 @@
             padding: 18px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         .kpi-card::before {
             content: '';
@@ -116,6 +202,7 @@
         .kpi-card.green::before { background: var(--accent-green); }
         .kpi-card.amber::before { background: var(--accent-amber); }
         .kpi-card.rose::before { background: var(--accent-rose); }
+        .kpi-card.purple::before { background: var(--accent-purple); }
         .kpi-label {
             font-size: 0.78rem;
             font-weight: 600;
@@ -133,6 +220,8 @@
             font-size: 0.78rem;
             color: var(--text-muted);
         }
+
+        /* CONTENT PANELS */
         .content-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -147,6 +236,7 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         .panel-header {
             display: flex;
@@ -155,10 +245,15 @@
             margin-bottom: 16px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .panel-header h3 {
             font-size: 1.05rem;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         table {
             width: 100%;
@@ -191,10 +286,11 @@
         .risk-low { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
         .risk-med { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
         .risk-high { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); }
+        
         .bar-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
         .bar-item { display: flex; flex-direction: column; gap: 4px; }
         .bar-header {
@@ -211,8 +307,24 @@
         .bar-fill {
             height: 100%;
             border-radius: 999px;
-            background: var(--accent-cyan);
+            background: linear-gradient(90deg, var(--accent-cyan), #3b82f6);
+            transition: width 0.4s ease;
         }
+
+        /* INTERACTIVE AUDIT SEAM */
+        .audit-modal {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            display: none;
+        }
+        .audit-modal.open { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
         footer {
             margin-top: 30px;
             padding-top: 20px;
@@ -231,11 +343,13 @@
     <div class="container">
         <header>
             <div class="header-title">
-                <h1>??? Vendor SLA & Operational Governance Command Center</h1>
+                <h1>📊 Vendor SLA & Operational Governance Command Center</h1>
                 <p>Architected by <strong>Aditya Mehra</strong> | BBA International Business '26 | Relational Star Schema Simulation</p>
             </div>
             <div class="controls-bar">
-                <span class="badge-verified">DATA SCHEMA: KIMBALL STAR (H1 2025)</span>
+                <a href="index.html" class="btn btn-outline">← Back to Portfolio</a>
+                <a href="interview_simulator.html" class="btn btn-outline">🎙️ STAR Defense</a>
+                <span class="badge-verified">● DATA SCHEMA: KIMBALL STAR (H1 2025)</span>
                 <select id="corridorFilter" onchange="applyFilters()">
                     <option value="ALL">All Bangalore Corridors</option>
                     <option value="Whitefield Corridor">Whitefield Corridor</option>
@@ -244,31 +358,51 @@
                     <option value="Peenya Industrial Area">Peenya Industrial Area</option>
                     <option value="Devenahalli Airport Zone">Devenahalli Airport Zone</option>
                 </select>
-                <button class="btn" onclick="exportData()">Export Telemetry</button>
+                <button class="btn" onclick="exportData()">Export Telemetry (CSV)</button>
             </div>
         </header>
+
+        <!-- SCENARIO CONTROLS PRESETS -->
+        <div class="scenario-box">
+            <div>
+                <div class="scenario-title">⚡ Operational Stress-Test Scenarios</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+                    Select a dynamic contingency simulation to observe automated penalty recalculation and corridor risk shifts:
+                </div>
+            </div>
+            <div class="scenario-buttons">
+                <button class="scenario-btn active" id="btn-baseline" onclick="setScenario('baseline')">1. Baseline Normal</button>
+                <button class="scenario-btn" id="btn-redsea" onclick="setScenario('redsea')">2. Maritime / Port Congestion</button>
+                <button class="scenario-btn" id="btn-quality" onclick="setScenario('quality')">3. Quality Batch Rejection</button>
+                <button class="scenario-btn" id="btn-aero" onclick="setScenario('aero')">4. Aero India 2025 Surge</button>
+            </div>
+            <div class="multiplier-control">
+                <span>Liquidated Damages Multiplier: <strong id="multiplierVal" class="mono" style="color: var(--accent-cyan);">1.0x</strong></span>
+                <input type="range" id="damagesMultiplier" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updateMultiplier(this.value)">
+            </div>
+        </div>
 
         <!-- KPI SUMMARY CARDS -->
         <div class="kpi-grid">
             <div class="kpi-card">
                 <div class="kpi-label">Total Logged Incidents</div>
                 <div class="kpi-val" id="kpiIncidents">500</div>
-                <div class="kpi-sub">Across 5 Tier-1 & Tier-2 Suppliers</div>
+                <div class="kpi-sub" id="kpiIncidentsSub">Across 5 Tier-1 & Tier-2 Suppliers</div>
             </div>
-            <div class="kpi-card green">
+            <div class="kpi-card green" id="cardFulfillment">
                 <div class="kpi-label">On-Time SLA Fulfillment</div>
                 <div class="kpi-val" id="kpiFulfillment">82.4%</div>
-                <div class="kpi-sub">Target Benchmark: ? 85.0%</div>
+                <div class="kpi-sub">Target Benchmark: ≥ 85.0%</div>
             </div>
-            <div class="kpi-card amber">
+            <div class="kpi-card amber" id="cardBreaches">
                 <div class="kpi-label">SLA Breach Incidents</div>
                 <div class="kpi-val" id="kpiBreaches">88</div>
-                <div class="kpi-sub">17.6% Cumulative Breach Rate</div>
+                <div class="kpi-sub" id="kpiBreachRate">17.6% Cumulative Breach Rate</div>
             </div>
             <div class="kpi-card rose">
                 <div class="kpi-label">Net Recoverable Penalties</div>
-                <div class="kpi-val" id="kpiPenalty">? 37.15L</div>
-                <div class="kpi-sub">Total Incurred: ?48.25L | Disputed: ?11.10L</div>
+                <div class="kpi-val" id="kpiPenalty">₹ 37.15L</div>
+                <div class="kpi-sub" id="kpiPenaltySub">Total Incurred: ₹48.25L | Disputed: ₹11.10L</div>
             </div>
         </div>
 
@@ -278,7 +412,14 @@
             <div class="panel">
                 <div class="panel-header">
                     <h3>Vendor Scorecard & SLA League Table</h3>
-                    <input type="text" id="vendorSearch" placeholder="Filter vendor..." onkeyup="applyFilters()" style="padding: 4px 10px; font-size: 0.8rem;">
+                    <div style="display: flex; gap: 8px;">
+                        <select id="tierFilter" onchange="applyFilters()" style="padding: 4px 8px; font-size: 0.8rem;">
+                            <option value="ALL">All Tiers</option>
+                            <option value="Tier-1">Tier-1 Only</option>
+                            <option value="Tier-2">Tier-2 Only</option>
+                        </select>
+                        <input type="text" id="vendorSearch" placeholder="Search vendor..." onkeyup="applyFilters()" style="padding: 4px 10px; font-size: 0.8rem;">
+                    </div>
                 </div>
                 <table>
                     <thead>
@@ -291,12 +432,16 @@
                             <th>Breach Rate</th>
                             <th>Penalties (INR)</th>
                             <th>Risk Index</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="vendorTableBody">
                         <!-- Populated by JavaScript -->
                     </tbody>
                 </table>
+
+                <!-- AUDIT INSPECTION CONTAINER -->
+                <div id="auditContainer" class="audit-modal"></div>
             </div>
 
             <!-- CORRIDOR PENALTY DENSITY -->
@@ -308,38 +453,127 @@
                 <div class="bar-container" id="corridorBarContainer">
                     <!-- Populated by JavaScript -->
                 </div>
+
+                <div style="margin-top: 24px; padding: 14px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border);">
+                    <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-green); margin-bottom: 6px;">
+                        🛡️ Governance Protocol: Direct Disintermediation
+                    </div>
+                    <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.5;">
+                        Whenever vendor dispute ratios exceed <strong>25%</strong>, automated escrow holds are enacted per Clause 14.2 of Master Vendor Agreements. Primary sound and staging suppliers bypass broker markups to preserve a net 15% margin advantage.
+                    </p>
+                </div>
             </div>
         </div>
 
         <footer>
-            <div>Modeled from ground truth operations at <strong>Aero India 2025</strong> & Tier-1 brand activations.</div>
+            <div>Modeled from ground truth operations at <strong>Aero India 2025</strong> & Tier-1 corporate brand activations.</div>
             <div>Canonical Contact: <a href="mailto:adityamehra007@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">adityamehra007@gmail.com</a> | +91 7003456624</div>
         </footer>
     </div>
 
     <script>
-        const vendorData = [
-            { id: "VND-101", name: "Apex Logistics India", cat: "Freight & Haulage", tier: "Tier-1", total: 112, breaches: 22, penalty: 1150000, disputed: 275000 },
-            { id: "VND-102", name: "AeroGround Aviation Support", cat: "Ground Ops & Staging", tier: "Tier-1", total: 98, breaches: 14, penalty: 1400000, disputed: 350000 },
-            { id: "VND-103", name: "BlueDart DHL Express", cat: "Express Courier", tier: "Tier-1", total: 124, breaches: 16, penalty: 620000, disputed: 120000 },
-            { id: "VND-104", name: "Falcon Fleet Services", cat: "Last Mile Transport", tier: "Tier-2", total: 86, breaches: 20, penalty: 780000, disputed: 195000 },
-            { id: "VND-105", name: "Zenith Warehouse Systems", cat: "Cold Storage & Depot", tier: "Tier-2", total: 80, breaches: 16, penalty: 875000, disputed: 170000 }
-        ];
+        // MASTER SCENARIO DATABASE
+        const scenarioDB = {
+            baseline: {
+                name: "Baseline Normal",
+                incidents: 500,
+                vendors: [
+                    { id: "VND-101", name: "Apex Logistics India", cat: "Freight & Haulage", tier: "Tier-1", total: 112, breaches: 22, penalty: 1150000, disputed: 275000, clause: "Clause 14.2 (Delay Liquidated Damages: ₹5,000/hr past 4hr threshold)" },
+                    { id: "VND-102", name: "AeroGround Aviation Support", cat: "Ground Ops & Staging", tier: "Tier-1", total: 98, breaches: 14, penalty: 1400000, disputed: 350000, clause: "Clause 9.1 (Airside Security Escort & FOD Protocol Compliance)" },
+                    { id: "VND-103", name: "BlueDart DHL Express", cat: "Express Courier", tier: "Tier-1", total: 124, breaches: 16, penalty: 620000, disputed: 120000, clause: "Clause 11.4 (Document Handover & Bill of Lading Chain of Custody)" },
+                    { id: "VND-104", name: "Falcon Fleet Services", cat: "Last Mile Transport", tier: "Tier-2", total: 86, breaches: 20, penalty: 780000, disputed: 195000, clause: "Clause 16.3 (GPS Telemetry Geofence Deviation Penalty)" },
+                    { id: "VND-105", name: "Zenith Warehouse Systems", cat: "Cold Storage & Depot", tier: "Tier-2", total: 80, breaches: 16, penalty: 875000, disputed: 170000, clause: "Clause 8.5 (Temperature Excursion & Humidity Threshold Integrity)" }
+                ],
+                corridors: [
+                    { name: "Whitefield Corridor", pct: 31, amount: "₹14.95L" },
+                    { name: "Peenya Industrial Area", pct: 24, amount: "₹11.58L" },
+                    { name: "Electronic City", pct: 18, amount: "₹8.68L" },
+                    { name: "Outer Ring Road (ORR)", pct: 15, amount: "₹7.24L" },
+                    { name: "Devenahalli Airport Zone", pct: 12, amount: "₹5.80L" }
+                ]
+            },
+            redsea: {
+                name: "Port Congestion & Freight Disruption",
+                incidents: 580,
+                vendors: [
+                    { id: "VND-101", name: "Apex Logistics India", cat: "Freight & Haulage", tier: "Tier-1", total: 145, breaches: 48, penalty: 2850000, disputed: 750000, clause: "Clause 14.2 (Demurrage Escrow & Port Quarantine Delay Escalation)" },
+                    { id: "VND-102", name: "AeroGround Aviation Support", cat: "Ground Ops & Staging", tier: "Tier-1", total: 105, breaches: 18, penalty: 1800000, disputed: 420000, clause: "Clause 9.1 (Customs Bonded Area Congestion Holdover)" },
+                    { id: "VND-103", name: "BlueDart DHL Express", cat: "Express Courier", tier: "Tier-1", total: 135, breaches: 32, penalty: 1240000, disputed: 310000, clause: "Clause 11.4 (Ocean Freight Surcharge Reconciliation Failure)" },
+                    { id: "VND-104", name: "Falcon Fleet Services", cat: "Last Mile Transport", tier: "Tier-2", total: 95, breaches: 38, penalty: 1450000, disputed: 450000, clause: "Clause 16.3 (Container Yard Detention Overstay Penalty)" },
+                    { id: "VND-105", name: "Zenith Warehouse Systems", cat: "Cold Storage & Depot", tier: "Tier-2", total: 100, breaches: 28, penalty: 1500000, disputed: 380000, clause: "Clause 8.5 (Capacity Overflow & Offsite Staging Quarantine)" }
+                ],
+                corridors: [
+                    { name: "Peenya Industrial Area", pct: 36, amount: "₹31.82L" },
+                    { name: "Whitefield Corridor", pct: 28, amount: "₹24.75L" },
+                    { name: "Devenahalli Airport Zone", pct: 16, amount: "₹14.14L" },
+                    { name: "Outer Ring Road (ORR)", pct: 12, amount: "₹10.61L" },
+                    { name: "Electronic City", pct: 8, amount: "₹7.08L" }
+                ]
+            },
+            quality: {
+                name: "Quality Batch Rejection Crisis",
+                incidents: 460,
+                vendors: [
+                    { id: "VND-101", name: "Apex Logistics India", cat: "Freight & Haulage", tier: "Tier-1", total: 95, breaches: 16, penalty: 850000, disputed: 180000, clause: "Clause 14.2 (In-transit Impact Sensor Breach Verification)" },
+                    { id: "VND-102", name: "AeroGround Aviation Support", cat: "Ground Ops & Staging", tier: "Tier-1", total: 85, breaches: 12, penalty: 1100000, disputed: 220000, clause: "Clause 9.1 (Staging Surface Contamination Inspection Rejection)" },
+                    { id: "VND-103", name: "BlueDart DHL Express", cat: "Express Courier", tier: "Tier-1", total: 110, breaches: 14, penalty: 540000, disputed: 90000, clause: "Clause 11.4 (Seal Integrity & Barcode Mislabel Quarantine)" },
+                    { id: "VND-104", name: "Falcon Fleet Services", cat: "Last Mile Transport", tier: "Tier-2", total: 75, breaches: 22, penalty: 920000, disputed: 260000, clause: "Clause 16.3 (Defective Lashing & Cargo Shift Damage Surcharge)" },
+                    { id: "VND-105", name: "Zenith Warehouse Systems", cat: "Cold Storage & Depot", tier: "Tier-2", total: 95, breaches: 42, penalty: 2710000, disputed: 820000, clause: "Clause 8.5 (Critical Refrigerant Leak & Batch Spoilage Penalty)" }
+                ],
+                corridors: [
+                    { name: "Whitefield Corridor", pct: 38, amount: "₹23.25L" },
+                    { name: "Electronic City", pct: 25, amount: "₹15.30L" },
+                    { name: "Peenya Industrial Area", pct: 18, amount: "₹11.01L" },
+                    { name: "Outer Ring Road (ORR)", pct: 11, amount: "₹6.73L" },
+                    { name: "Devenahalli Airport Zone", pct: 8, amount: "₹4.91L" }
+                ]
+            },
+            aero: {
+                name: "Aero India 2025 Peak Surge",
+                incidents: 820,
+                vendors: [
+                    { id: "VND-101", name: "Apex Logistics India", cat: "Freight & Haulage", tier: "Tier-1", total: 210, breaches: 12, penalty: 650000, disputed: 110000, clause: "Clause 14.2 (Dedicated Green Corridor Airside Transit Protocol)" },
+                    { id: "VND-102", name: "AeroGround Aviation Support", cat: "Ground Ops & Staging", tier: "Tier-1", total: 240, breaches: 10, penalty: 800000, disputed: 140000, clause: "Clause 9.1 (Yelahanka AFS Defense Pass Gate Escalation)" },
+                    { id: "VND-103", name: "BlueDart DHL Express", cat: "Express Courier", tier: "Tier-1", total: 180, breaches: 8, penalty: 320000, disputed: 40000, clause: "Clause 11.4 (VIP Credentials & Exhibitor Badge Delivery Escort)" },
+                    { id: "VND-104", name: "Falcon Fleet Services", cat: "Last Mile Transport", tier: "Tier-2", total: 110, breaches: 12, penalty: 460000, disputed: 80000, clause: "Clause 16.3 (24/7 Standby Shuttles with Verified Security SOP)" },
+                    { id: "VND-105", name: "Zenith Warehouse Systems", cat: "Cold Storage & Depot", tier: "Tier-2", total: 80, breaches: 6, penalty: 310000, disputed: 50000, clause: "Clause 8.5 (Zero-Downtime Air-Conditioned VIP Pavilion Staging)" }
+                ],
+                corridors: [
+                    { name: "Devenahalli Airport Zone", pct: 46, amount: "₹11.68L" },
+                    { name: "Outer Ring Road (ORR)", pct: 22, amount: "₹5.58L" },
+                    { name: "Whitefield Corridor", pct: 15, amount: "₹3.81L" },
+                    { name: "Peenya Industrial Area", pct: 10, amount: "₹2.54L" },
+                    { name: "Electronic City", pct: 7, amount: "₹1.77L" }
+                ]
+            }
+        };
 
-        const corridorShare = [
-            { name: "Whitefield Corridor", pct: 31, amount: "?14.95L" },
-            { name: "Peenya Industrial Area", pct: 24, amount: "?11.58L" },
-            { name: "Electronic City", pct: 18, amount: "?8.68L" },
-            { name: "Outer Ring Road (ORR)", pct: 15, amount: "?7.24L" },
-            { name: "Devenahalli Airport Zone", pct: 12, amount: "?5.80L" }
-        ];
+        let currentScenarioKey = 'baseline';
+        let currentMultiplier = 1.0;
+
+        function setScenario(key) {
+            currentScenarioKey = key;
+            document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + key);
+            if (activeBtn) activeBtn.classList.add('active');
+            applyFilters();
+        }
+
+        function updateMultiplier(val) {
+            currentMultiplier = parseFloat(val);
+            document.getElementById('multiplierVal').textContent = currentMultiplier.toFixed(1) + 'x';
+            applyFilters();
+        }
 
         function renderVendorTable(data) {
             const tbody = document.getElementById("vendorTableBody");
             tbody.innerHTML = "";
+            
             data.forEach(v => {
+                const adjPenalty = v.penalty * currentMultiplier;
+                const adjDisputed = v.disputed * currentMultiplier;
                 const breachRate = ((v.breaches / v.total) * 100).toFixed(1);
-                const disputeRatio = v.disputed / v.penalty;
+                const disputeRatio = adjDisputed / adjPenalty;
                 const riskScore = ((breachRate * 0.6) + (disputeRatio * 40)).toFixed(1);
                 
                 let pillClass = "risk-low";
@@ -352,19 +586,24 @@
                     <td>${v.cat}</td>
                     <td><span class="mono">${v.tier}</span></td>
                     <td class="mono">${v.total}</td>
-                    <td class="mono">${v.breaches}</td>
+                    <td class="mono" style="color: ${v.breaches > 25 ? 'var(--accent-rose)' : 'inherit'}; font-weight: 700;">${v.breaches}</td>
                     <td class="mono">${breachRate}%</td>
-                    <td class="mono">? ${(v.penalty / 100000).toFixed(2)}L</td>
+                    <td class="mono">₹ ${(adjPenalty / 100000).toFixed(2)}L</td>
                     <td><span class="risk-pill ${pillClass}">${riskScore}</span></td>
+                    <td>
+                        <button class="btn btn-outline" style="padding: 3px 8px; font-size: 0.72rem;" onclick="auditVendor('${v.id}')">
+                            Audit 🔍
+                        </button>
+                    </td>
                 `;
                 tbody.appendChild(row);
             });
         }
 
-        function renderCorridorBars() {
+        function renderCorridorBars(corridors) {
             const container = document.getElementById("corridorBarContainer");
             container.innerHTML = "";
-            corridorShare.forEach(c => {
+            corridors.forEach(c => {
                 const item = document.createElement("div");
                 item.className = "bar-item";
                 item.innerHTML = `
@@ -380,31 +619,113 @@
             });
         }
 
+        function updateKPIs(vendors) {
+            let totalIncidents = 0;
+            let totalBreaches = 0;
+            let totalPenalty = 0;
+            let totalDisputed = 0;
+
+            vendors.forEach(v => {
+                totalIncidents += v.total;
+                totalBreaches += v.breaches;
+                totalPenalty += (v.penalty * currentMultiplier);
+                totalDisputed += (v.disputed * currentMultiplier);
+            });
+
+            const onTimeFulfillment = (((totalIncidents - totalBreaches) / totalIncidents) * 100).toFixed(1);
+            const breachRate = ((totalBreaches / totalIncidents) * 100).toFixed(1);
+            const netRecoverable = totalPenalty - totalDisputed;
+
+            document.getElementById('kpiIncidents').textContent = totalIncidents;
+            document.getElementById('kpiFulfillment').textContent = onTimeFulfillment + '%';
+            document.getElementById('kpiBreaches').textContent = totalBreaches;
+            document.getElementById('kpiBreachRate').textContent = `${breachRate}% Cumulative Breach Rate`;
+            document.getElementById('kpiPenalty').textContent = `₹ ${(netRecoverable / 100000).toFixed(2)}L`;
+            document.getElementById('kpiPenaltySub').textContent = `Total Incurred: ₹${(totalPenalty / 100000).toFixed(2)}L | Disputed: ₹${(totalDisputed / 100000).toFixed(2)}L`;
+
+            // Card states
+            const cardFulfill = document.getElementById('cardFulfillment');
+            if (parseFloat(onTimeFulfillment) >= 85.0) {
+                cardFulfill.className = "kpi-card green";
+            } else if (parseFloat(onTimeFulfillment) >= 75.0) {
+                cardFulfill.className = "kpi-card amber";
+            } else {
+                cardFulfill.className = "kpi-card rose";
+            }
+        }
+
+        function auditVendor(id) {
+            const scenario = scenarioDB[currentScenarioKey];
+            const vendor = scenario.vendors.find(v => v.id === id);
+            if (!vendor) return;
+
+            const modal = document.getElementById('auditContainer');
+            const adjPenalty = vendor.penalty * currentMultiplier;
+            const adjDisputed = vendor.disputed * currentMultiplier;
+            const net = adjPenalty - adjDisputed;
+
+            modal.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <div>
+                        <strong style="color: var(--accent-cyan); font-size: 0.95rem;">📋 Executive Seam Audit: ${vendor.name} (${vendor.id})</strong>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">${vendor.cat} | Category Tier: ${vendor.tier}</div>
+                    </div>
+                    <button class="btn btn-outline" style="padding: 2px 8px; font-size: 0.72rem;" onclick="document.getElementById('auditContainer').classList.remove('open')">✕ Close</button>
+                </div>
+                <p style="margin-bottom: 6px;">
+                    <strong>Applicable Contract Seam:</strong> <span class="mono" style="color: var(--accent-amber);">${vendor.clause}</span>
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; margin: 8px 0;" class="mono">
+                    <div>Gross Incurred: <strong>₹ ${(adjPenalty / 100000).toFixed(2)}L</strong></div>
+                    <div>Arbitration Disputed: <strong style="color: var(--accent-rose);">₹ ${(adjDisputed / 100000).toFixed(2)}L</strong></div>
+                    <div>Net Recoverable Escrow: <strong style="color: var(--accent-green);">₹ ${(net / 100000).toFixed(2)}L</strong></div>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">
+                    <strong>Aditya Mehra Recommendation:</strong> Enforce Clause 14.2 automatic deduction against invoice cycle. Issue 14-day cure notice before invoking secondary logistics fallback.
+                </div>
+            `;
+            modal.classList.add('open');
+            modal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
         function applyFilters() {
+            const scenario = scenarioDB[currentScenarioKey];
             const search = document.getElementById("vendorSearch").value.toLowerCase();
-            const filtered = vendorData.filter(v => 
-                v.name.toLowerCase().includes(search) || v.cat.toLowerCase().includes(search)
+            const tier = document.getElementById("tierFilter").value;
+            
+            let filtered = scenario.vendors.filter(v => 
+                (v.name.toLowerCase().includes(search) || v.cat.toLowerCase().includes(search)) &&
+                (tier === "ALL" || v.tier === tier)
             );
+
+            updateKPIs(scenario.vendors);
             renderVendorTable(filtered);
+            renderCorridorBars(scenario.corridors);
         }
 
         function exportData() {
-            const csvRows = [["Vendor ID", "Vendor Name", "Category", "Tier", "Total Incidents", "Breaches", "Penalty INR", "Disputed INR"]];
-            vendorData.forEach(v => {
-                csvRows.push([v.id, v.name, v.cat, v.tier, v.total, v.breaches, v.penalty, v.disputed]);
+            const scenario = scenarioDB[currentScenarioKey];
+            const csvRows = [["Vendor ID", "Vendor Name", "Category", "Tier", "Total Incidents", "Breaches", "Gross Penalty INR", "Disputed INR", "Net Recoverable INR", "Contract Clause"]];
+            
+            scenario.vendors.forEach(v => {
+                const adjPenalty = v.penalty * currentMultiplier;
+                const adjDisputed = v.disputed * currentMultiplier;
+                const net = adjPenalty - adjDisputed;
+                csvRows.push([v.id, `"${v.name}"`, `"${v.cat}"`, v.tier, v.total, v.breaches, adjPenalty, adjDisputed, net, `"${v.clause}"`]);
             });
+
             const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(e => e.join(",")).join("\n");
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
             link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "Vendor_SLA_Governance_Report_H1_2025.csv");
+            link.setAttribute("download", `Vendor_SLA_${currentScenarioKey.toUpperCase()}_Report_H1_2025.csv`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         }
 
-        renderVendorTable(vendorData);
-        renderCorridorBars();
+        // Initialize with Baseline
+        setScenario('baseline');
     </script>
 </body>
 </html>
