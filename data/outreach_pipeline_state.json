@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-10-14T04:54:22.776506",
+  "exported_at": "2026-10-17T20:21:50.370760",
   "funnel_summary": {
     "total_contacts": 50,
     "active_pipeline": 50,
@@ -272,6 +272,15 @@
           "actor": "OmegaDispatcher",
           "reason": "External API connector inactive; downgraded to PREPARED (Ready for human copy-paste)",
           "evidence_hash": "49eb82ed929efed1"
+        },
+        {
+          "timestamp": "2026-10-17T20:21:50.370634",
+          "from_stage": "QUEUED",
+          "to_stage": "READY",
+          "execution_status": "PREPARED",
+          "actor": "OmegaDispatcher",
+          "reason": "External API connector inactive; downgraded to PREPARED (Ready for human copy-paste)",
+          "evidence_hash": "ee01f29368f1cf02"
         }
       ],
       "execution_status": "PREPARED"
