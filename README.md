@@ -2,12 +2,13 @@
 
 > **Proof of Work & Autonomous Engineering Platform**  
 > Built & Maintained by **Aditya Mehra** | Bengaluru, Karnataka, India  
-> **GitHub:** [@AdityaMehra007](https://github.com/AdityaMehra007) | **Portfolio:** [adi-digital-universe.ai.studio](https://adi-digital-universe.ai.studio/) | **Contact:** [+91 7003456624](tel:+917003456624) | [adityamehra007@gmail.com](mailto:adityamehra007@gmail.com)
+> **GitHub:** [@AdityaMehra007](https://github.com/AdityaMehra007) | **Live Universe:** [adityamehra007.github.io](https://adityamehra007.github.io/) | **Contact:** [+91 7003456624](tel:+917003456624) | [adityamehra007@gmail.com](mailto:adityamehra007@gmail.com)
 
+[![Live Universe](https://img.shields.io/badge/Live%20Universe-adityamehra007.github.io-success?style=flat&logo=githubpages&logoColor=white)](https://adityamehra007.github.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com)
-[![Tests Passing](https://img.shields.io/badge/Tests-16%2F16%20Passed-brightgreen.svg)](tests/)
+[![Tests Passing](https://img.shields.io/badge/Tests-34%2F34%20Passed-brightgreen.svg)](tests/)
 [![Architecture](https://img.shields.io/badge/Architecture-Autonomous%20AI-blueviolet.svg)](https://github.com/AdityaMehra007/anti)
 [![Methodology: Vibe Coding](https://img.shields.io/badge/Methodology-Vibe%20Coding%20%26%20Agentic%20AI-7928CA?style=flat&logo=openai&logoColor=white)](https://github.com/AdityaMehra007)
 
@@ -142,6 +143,6 @@ pytest tests/test_recruiter_dispatcher.py
 * **Location:** Bengaluru, Karnataka, India
 * **Phone:** `+91 7003456624`
 * **Email:** `adityamehra007@gmail.com`
-* **Portfolio Website:** [adi-digital-universe.ai.studio](https://adi-digital-universe.ai.studio/)
+* **Portfolio Website:** [adityamehra007.github.io](https://adityamehra007.github.io/)
 * **LinkedIn:** [linkedin.com/in/aditya-mehra](https://linkedin.com/in/aditya-mehra)
 * **GitHub Profile:** [github.com/AdityaMehra007](https://github.com/AdityaMehra007)
