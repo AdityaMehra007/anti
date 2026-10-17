@@ -137,6 +137,21 @@ pytest tests/test_recruiter_dispatcher.py
 
 ---
 
+## 📊 Live Contribution Activity & Engineering Velocity
+
+<div align="center">
+
+[![Aditya's GitHub Activity](https://ghchart.rshah.org/2ea44f/AdityaMehra007)](https://github.com/AdityaMehra007)
+
+<br/>
+
+[![GitHub Streak](https://streak-stats.demolab.com/?user=AdityaMehra007&theme=tokyonight&hide_border=true)](https://github.com/AdityaMehra007)
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=AdityaMehra007&show_icons=true&include_all_commits=true&theme=tokyonight&hide_border=true&count_private=true)](https://github.com/AdityaMehra007)
+
+</div>
+
+---
+
 ## 📬 Contact & Direct Connect
 
 * **Author:** Aditya Mehra
