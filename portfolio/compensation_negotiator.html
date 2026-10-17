@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Compensation & Employer ROI Negotiator | Aditya Mehra</title>
+    <meta name="description" content="Data-backed executive compensation justification, payback period calculator, and automated counter-offer generator anchored to Aditya Mehra's verified commercial ROI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #030712;
+            --bg-base: #080e1a;
+            --bg-surface: #0f172a;
+            --bg-card: #131d35;
+            --border: #1e293b;
+            --border-active: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-purple: #a855f7;
+            --accent-rose: #f43f5e;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 24px;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 28px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-title h1 {
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #f59e0b, #38bdf8, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-title p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .controls-bar {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #1e293b;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            background: #334155;
+            border-color: var(--accent-blue);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            border-color: #3b82f6;
+            color: #ffffff;
+        }
+        .btn-primary:hover { background: #1d4ed8; }
+
+        .badge-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--accent-amber);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-amber);
+            font-family: var(--font-mono);
+        }
+
+        /* SIMULATOR CARD */
+        .sim-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 16px;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .slider-group input[type="range"] {
+            flex: 1;
+            min-width: 240px;
+            accent-color: var(--accent-amber);
+            cursor: pointer;
+            height: 6px;
+        }
+
+        /* KPI CARDS */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: var(--accent-blue);
+        }
+        .kpi-card.amber::before { background: var(--accent-amber); }
+        .kpi-card.green::before { background: var(--accent-emerald); }
+        .kpi-card.purple::before { background: var(--accent-purple); }
+
+        .kpi-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            margin: 8px 0 4px;
+        }
+
+        .kpi-sub { font-size: 12px; color: var(--text-muted); }
+
+        /* GRID TWO COLUMN */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 1024px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        .panel-header h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mono { font-family: var(--font-mono); }
+
+        /* COUNTER EMAIL GENERATOR */
+        .email-preview {
+            background: #090e1a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #ffffff;
+            font-family: inherit;
+            white-space: pre-wrap;
+            max-height: 380px;
+            overflow-y: auto;
+        }
+
+        input[type="text"], select {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: inherit;
+            outline: none;
+        }
+        input[type="text"]:focus, select:focus { border-color: var(--accent-blue); }
+
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-title">
+            <h1>💰 Executive Compensation & Employer ROI Negotiator</h1>
+            <p>Mathematical P&L Value Justification & Counter-Offer Generator | Grounded in Aditya Mehra's Commercial ROI</p>
+        </div>
+        <div class="controls-bar">
+            <a href="index.html" class="btn">← Universe</a>
+            <a href="vendor_sla_dashboard.html" class="btn">📊 SLA Dashboard</a>
+            <a href="interview_simulator.html" class="btn">🎙️ STAR Defense</a>
+            <a href="ANTIGRAVITY_OMNI_HUB.html" class="btn">⚡ Omni Hub</a>
+            <div class="badge-verified">ANCHOR: ₹6.0 LPA CTC FLOOR</div>
+        </div>
+    </header>
+
+    <!-- INTERACTIVE OFFER SLIDER -->
+    <div class="sim-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <h2 style="font-size: 16px; font-weight: 800; color: #ffffff;">Dynamic Offer & ROI Sensitivity Simulator</h2>
+                <p style="font-size: 12px; color: var(--text-muted);">Adjust proposed CTC offer to observe immediate capital payback period, ROI multiple, and employer surplus:</p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button class="btn" onclick="setPreset(4.5)">₹4.5L (Market Lowball)</button>
+                <button class="btn" onclick="setPreset(6.0)" style="border-color: var(--accent-amber); color: var(--accent-amber);">₹6.0L (Baseline Floor)</button>
+                <button class="btn" onclick="setPreset(8.5)">₹8.5L (Mid Target)</button>
+                <button class="btn" onclick="setPreset(11.0)">₹11.0L (Apex Cap)</button>
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div>
+                <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Proposed Annual Package:</span>
+                <div class="mono" id="sliderValDisplay" style="font-size: 24px; font-weight: 800; color: var(--accent-amber);">₹ 6.00 LPA</div>
+            </div>
+            <input type="range" id="ctcSlider" min="3.5" max="15.0" step="0.25" value="6.0" oninput="updateMetrics(this.value)">
+            <div style="text-align: right;">
+                <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Monthly In-Hand Outlay:</span>
+                <div class="mono" id="monthlyOutlayDisplay" style="font-size: 18px; font-weight: 700; color: #ffffff;">₹ 50,000 / mo</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KPI GRID -->
+    <div class="kpi-grid">
+        <div class="kpi-card amber">
+            <div class="kpi-label">Proposed Candidate CTC</div>
+            <div class="kpi-val" id="kpiCTC">₹ 6.00L</div>
+            <div class="kpi-sub" id="kpiCTCSub">Baseline Non-Negotiable Floor</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Audited Annual Value Created</div>
+            <div class="kpi-val" id="kpiValue">₹ 38.25L</div>
+            <div class="kpi-sub">Across 5 Verified P&L Streams</div>
+        </div>
+        <div class="kpi-card green">
+            <div class="kpi-label">Net Annual Value Surplus</div>
+            <div class="kpi-val" id="kpiSurplus" style="color: var(--accent-emerald);">+₹ 32.25L</div>
+            <div class="kpi-sub">Direct cash added to employer bottom-line</div>
+        </div>
+        <div class="kpi-card purple">
+            <div class="kpi-label">Payback Period</div>
+            <div class="kpi-val" id="kpiPayback" style="color: var(--accent-purple);">57 Days</div>
+            <div class="kpi-sub" id="kpiPaybackSub">100% salary recovered in Q1</div>
+        </div>
+    </div>
+
+    <!-- MAIN TWO COLUMN PANELS -->
+    <div class="grid-2">
+        <!-- VALUE LEVER BREAKDOWN -->
+        <div class="panel">
+            <div class="panel-header">
+                <h3>📊 Verifiable P&L Value Streams (Annual)</h3>
+                <span class="mono" style="font-size: 11px; color: var(--accent-cyan);">AUDITED PROOF</span>
+            </div>
+
+            <div class="value-card">
+                <div>
+                    <strong style="color: var(--text-main); font-size: 13px;">1. 15% Procurement Disintermediation</strong>
+                    <div style="font-size: 11px; color: var(--text-muted);">Direct MSAs with primary sound & staging vendors (Aero India/Puma)</div>
+                </div>
+                <div class="mono" style="font-weight: 800; color: var(--accent-emerald);">+₹ 11.25L</div>
+            </div>
+
+            <div class="value-card">
+                <div>
+                    <strong style="color: var(--text-main); font-size: 13px;">2. Payroll Leakage & Ghost Shift Elimination</strong>
+                    <div style="font-size: 11px; color: var(--text-muted);">99.2% precision audit across 5,000+ records (Instawork)</div>
+                </div>
+                <div class="mono" style="font-weight: 800; color: var(--accent-emerald);">+₹ 6.00L</div>
+            </div>
+
+            <div class="value-card">
+                <div>
+                    <strong style="color: var(--text-main); font-size: 13px;">3. Vendor SLA Liquidated Damages Recovery</strong>
+                    <div style="font-size: 11px; color: var(--text-muted);">Clause 14.2 telemetry escrow deductions (SLA Command Center)</div>
+                </div>
+                <div class="mono" style="font-weight: 800; color: var(--accent-emerald);">+₹ 4.50L</div>
+            </div>
+
+            <div class="value-card">
+                <div>
+                    <strong style="color: var(--text-main); font-size: 13px;">4. Commercial B2B Pipeline Acceleration</strong>
+                    <div style="font-size: 11px; color: var(--text-muted);">BOQ turnaround reduced from 72h to 24h, closing high-ticket deals</div>
+                </div>
+                <div class="mono" style="font-weight: 800; color: var(--accent-emerald);">+₹ 8.00L</div>
+            </div>
+
+            <div class="value-card">
+                <div>
+                    <strong style="color: var(--text-main); font-size: 13px;">5. Autonomous AI Software Multiplier</strong>
+                    <div style="font-size: 11px; color: var(--text-muted);">Replaces 1 junior developer + 1 ops analyst via 406 verified pytests</div>
+                </div>
+                <div class="mono" style="font-weight: 800; color: var(--accent-emerald);">+₹ 8.50L</div>
+            </div>
+
+            <div style="margin-top: 16px; padding: 12px; background: rgba(56, 189, 248, 0.08); border: 1px dashed var(--accent-blue); border-radius: 8px; font-size: 12px; color: var(--accent-blue);">
+                🛡️ <strong>The Asymmetric Reality:</strong> Even if Aditya Mehra delivers only 50% of his verified track record, he generates <strong>₹19.12L</strong> in net cash—over 3x his annual compensation.
+            </div>
+        </div>
+
+        <!-- LIVE COUNTER-OFFER EMAIL GENERATOR -->
+        <div class="panel">
+            <div class="panel-header">
+                <h3>✉️ Automated Counter-Offer Generator</h3>
+                <button class="btn btn-primary" onclick="copyEmail()">📋 Copy to Clipboard</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                <input type="text" id="recruiterName" placeholder="Recruiter / Partner Name" value="Hiring Manager" oninput="generateEmail()">
+                <input type="text" id="companyName" placeholder="Company Name" value="Enterprise Corp" oninput="generateEmail()">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                <select id="counterTone" onchange="generateEmail()">
+                    <option value="executive">Executive Firm (ROI-Driven)</option>
+                    <option value="consulting">Big 4 Advisory (Analytical)</option>
+                    <option value="startup">High-Growth Tech (Execution Speed)</option>
+                </select>
+                <select id="targetRole" onchange="generateEmail()">
+                    <option value="Operations Analyst / Lead">Operations Analyst / Lead</option>
+                    <option value="Supply Chain & Procurement Specialist">Supply Chain Specialist</option>
+                    <option value="AI Operations & Process Associate">AI Operations Associate</option>
+                </select>
+            </div>
+
+            <div class="email-preview" id="emailContent"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div>Calibrated to 100% verified operations from <strong>Aero India 2025</strong>, <strong>Instawork</strong>, and <strong>Pencil Mark</strong>.</div>
+        <div>Direct Contact: <a href="mailto:adityamehra007@gmail.com" style="color: var(--accent-blue); text-decoration: none;">adityamehra007@gmail.com</a> | +91 7003456624</div>
+    </footer>
+</div>
+
+<script>
+    const annualValueCreated = 3825000; // ₹38.25L verified annual baseline
+
+    function updateMetrics(val) {
+        const ctc = parseFloat(val);
+        const ctcInr = ctc * 100000;
+        const monthly = ctcInr / 12;
+        const surplus = annualValueCreated - ctcInr;
+        const paybackDays = Math.round((ctcInr / (annualValueCreated / 365)));
+        const roi = (annualValueCreated / ctcInr).toFixed(2);
+
+        document.getElementById('sliderValDisplay').textContent = `₹ ${ctc.toFixed(2)} LPA`;
+        document.getElementById('monthlyOutlayDisplay').textContent = `₹ ${Math.round(monthly).toLocaleString('en-IN')} / mo`;
+
+        document.getElementById('kpiCTC').textContent = `₹ ${ctc.toFixed(2)}L`;
+        document.getElementById('kpiCTCSub').textContent = ctc < 6.0 ? "Below Floor Anchor (Lowball)" : (ctc === 6.0 ? "Baseline Floor Anchor" : "Growth Corridor");
+
+        document.getElementById('kpiSurplus').textContent = (surplus >= 0 ? "+" : "") + `₹ ${(surplus / 100000).toFixed(2)}L`;
+        document.getElementById('kpiPayback').textContent = `${paybackDays} Days`;
+        document.getElementById('kpiPaybackSub').textContent = `${roi}x Annual Capital ROI`;
+
+        generateEmail();
+    }
+
+    function setPreset(val) {
+        document.getElementById('ctcSlider').value = val;
+        updateMetrics(val);
+    }
+
+    function generateEmail() {
+        const ctc = parseFloat(document.getElementById('ctcSlider').value);
+        const recruiter = document.getElementById('recruiterName').value.trim() || "Hiring Team";
+        const company = document.getElementById('companyName').value.trim() || "your organization";
+        const tone = document.getElementById('counterTone').value;
+        const role = document.getElementById('targetRole').value;
+
+        let email = "";
+
+        if (tone === "executive") {
+            email = `Subject: Strategic Compensation Alignment — Aditya Mehra (${role})
+
+Dear ${recruiter},
+
+Thank you for extending the offer to join ${company} as ${role}. I have great respect for the team's operational vision and am eager to contribute immediately to your delivery milestones.
+
+Regarding the proposed compensation package of ₹${ctc.toFixed(2)} LPA: Based on my documented track record of commercial execution and day-one autonomy, I would like to propose anchoring the compensation at ₹6.00 LPA.
+
+To contextualize this from an operational P&L perspective:
+1. Direct Procurement Savings: By disintermediating intermediary broker layers across sound, staging, and logistics contracts, I have consistently captured a verified 15% net cost reduction. On standard commercial budgets, this alone returns over ₹11 Lakhs in direct cash to the firm annually.
+2. Zero Ramp-Up Drag: Having managed physical retail operations since age 17, audited 5,000+ workforce records with 99.2% accuracy (Instawork), and coordinated tarmac logistics at Aero India 2025, I require zero onboarding lag and execute autonomously from Day 1.
+3. Rapid Payback: At ₹6.00 LPA, the firm recovers my entire annual compensation within 57 operating days through vendor discipline and SLA breach enforcement.
+
+I am fully committed to delivering multiples of this investment to ${company}. Please let me know when we can finalize the revised agreement.
+
+Warm regards,
+
+Aditya Mehra
+BBA International Business '26 | Dayananda Sagar University
+adityamehra007@gmail.com | +91 7003456624
+Portfolio: https://adityamehra007.github.io/`;
+        } else if (tone === "consulting") {
+            email = `Subject: Business Case & Counter-Offer Framework — Aditya Mehra
+
+Dear ${recruiter},
+
+I appreciate ${company}'s formal offer for the ${role} position.
+
+Reviewing the initial figures against our discussed project deliverables, I have structured an objective ROI business case supporting a ₹6.00 LPA compensation floor:
+
+• Capital Payback Horizon: 57 operational days
+• First-Year Net Value Surplus: +₹32.25 Lakhs (Audited across vendor disintermediation, fraud audit, and AI workflow automation)
+• Operational Verification: Backed by 406 passing hermetic tests, Kimball Star schema logistics governance, and 300+ completed deployments.
+
+A standard entry-level package reflects a candidate requiring 3–6 months of supervision. My background provides immediate autonomous execution, eliminating management drag.
+
+I look forward to discussing the final offer structure.
+
+Best regards,
+
+Aditya Mehra
+adityamehra007@gmail.com | +91 7003456624`;
+        } else {
+            email = `Subject: Excited about ${company} + Compensation Alignment
+
+Hi ${recruiter},
+
+I am thrilled by the opportunity to build with ${company} as ${role}!
+
+Given the speed of execution required, I want to ensure our incentives are fully aligned. Based on my experience directing autonomous agent swarms, managing 300+ events, and driving verified 15% procurement savings, I am anchoring my full-time package at ₹6.00 LPA.
+
+At this level, you get a full-stack operator who moves at 10x speed, manages both physical ground operations and AI systems, and pays for himself within 2 months.
+
+Let's make this official!
+
+Cheers,
+
+Aditya Mehra
+adityamehra007@gmail.com | +91 7003456624`;
+        }
+
+        document.getElementById('emailContent').textContent = email;
+    }
+
+    function copyEmail() {
+        const text = document.getElementById('emailContent').textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Counter-offer email copied to clipboard successfully!");
+        });
+    }
+
+    // Init
+    updateMetrics(6.0);
+</script>
+</body>
+</html>

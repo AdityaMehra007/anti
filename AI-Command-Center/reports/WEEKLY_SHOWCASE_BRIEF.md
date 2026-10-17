@@ -1,5 +1,5 @@
 # WEEKLY PORTFOLIO & LINKEDIN SHOWCASE BRIEF
-**Date:** Friday, 16 October 2026 — 11:01 AM  
+**Date:** Saturday, 17 October 2026 — 11:24 PM  
 **Candidate:** Aditya Mehra | BBA International Business (DSU '26)  
 **Profile:** [github.com/AdityaMehra007](https://github.com/AdityaMehra007) | [adi-digital-universe.ai.studio](https://adi-digital-universe.ai.studio/)  
 
@@ -7,10 +7,10 @@
 
 ## 1. Weekly Engineering Velocity Snapshot
 
-- **Total Deduplicated Opportunities in Vault:** `257`
+- **Total Deduplicated Opportunities in Vault:** `263`
 - **High-Fit Target Roles Scored (>= 80 pts):** `32`
 - **Automated Test Suite Status:** `ALL 20 TEST CASES PASSED (100% OK)`
-- **Recent Git Commits Recorded:** `11 commits`
+- **Recent Git Commits Recorded:** `24 commits`
 - **Security Perimeter Status:** `CLEAN (0 secrets or private keys exposed)`
 
 ---
@@ -27,7 +27,7 @@ As someone completing a BBA in International Business at Dayananda Sagar Univers
 Over the past few weeks, I built an offline-first AI Career Operations Command Center to treat my corporate search like an enterprise logistics pipeline:
 
 1. Deterministic Scoring Engine: Evaluates requisitions on a 0-100 rubric across 6 factors (location hub in Bengaluru, non-sales alignment, SCM/ops relevance, corporate scale). Cold-calling telemarketing and 5+ year experience gates are eliminated automatically.
-2. Relational Vault: Indexed 257 verified Bengaluru corporate openings across Target, EY, Accenture, Deloitte, Walmart Global Tech, and Genpact with strict URL deduplication.
+2. Relational Vault: Indexed 263 verified Bengaluru corporate openings across Target, EY, Accenture, Deloitte, Walmart Global Tech, and Genpact with strict URL deduplication.
 3. Automated Evidence Grounding: Automatically aligns ATS-optimized resumes and recruiter notes strictly to verified achievements—like managing VIP logistics at AERO India 2025 and 99%+ QA computer vision labeling at Instawork—with zero hallucination.
 4. Vendor Rate Card Audit: Integrated a procurement optimization tool that audits equipment rental quotes against market baselines, detecting 20%+ vendor markup before contract sign-off.
 

@@ -1,15 +1,15 @@
 @echo off
-TITLE Fortune 500 Bangalore Daily Job & Referral Radar
+TITLE Mega Top 500 Startups & Fortune 500 MNC Daily Radar
 cd /d "e:\anti"
 echo ======================================================================
-echo    STARTING DAILY FORTUNE 500 BANGALORE JOB & REFERRAL RADAR
+echo    STARTING MEGA TOP 500 STARTUPS & FORTUNE 500 MNC JOB & REFERRAL RADAR
 echo ======================================================================
 echo Timestamp: %DATE% %TIME%
-python daily_fortune500_bangalore_radar.py
+python mega_startups_and_f500_radar.py
 echo.
 echo ======================================================================
-echo    CYCLE COMPLETE!
-echo    View Dashboard: fortune_500_bangalore_radar.html
-echo    View Markdown : FORTUNE_500_BANGLORE_DAILY_REFERRAL_RADAR.md
+echo    RADAR CYCLE COMPLETE!
+echo    View Dashboard: mega_startups_and_f500_radar.html
+echo    View Markdown : MEGA_TOP500_STARTUPS_AND_F500_MNC_RADAR.md
 echo ======================================================================
 pause

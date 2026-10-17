@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aero India Logistics & Tarmac Runbook Console | Aditya Mehra</title>
+    <meta name="description" content="Interactive mission-critical tarmac logistics, flight-line readiness, and high-stakes incident response console from Aero India 2025 (Air Force Station Yelahanka).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #030712;
+            --bg-base: #060b14;
+            --bg-surface: #0b1324;
+            --bg-card: #0f1c34;
+            --border: #1e293b;
+            --border-active: #00d4aa;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
+            --accent-cyan: #06b6d4;
+            --accent-green: #00d4aa;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-blue: #38bdf8;
+            --accent-purple: #a855f7;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 24px;
+        }
+
+        .container { max-width: 1440px; margin: 0 auto; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            background: linear-gradient(135deg, rgba(11, 19, 36, 0.98), rgba(15, 28, 52, 0.98));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-title h1 {
+            font-size: 22px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00d4aa, #38bdf8, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-title p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-top: 4px;
+            font-family: var(--font-mono);
+        }
+
+        .header-telemetry {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 212, 170, 0.12);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            padding: 5px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(0, 212, 170, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 212, 170, 0); }
+        }
+
+        .clock-ticker {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            padding: 5px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-links-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            transform: translateY(-1px);
+        }
+
+        /* Day & Mode Selector Bar */
+        .control-strip {
+            background: var(--bg-base);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .day-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .day-pill {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .day-pill.active {
+            background: rgba(0, 212, 170, 0.15);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            box-shadow: 0 0 12px rgba(0, 212, 170, 0.25);
+        }
+
+        .defcon-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
+
+        .defcon-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+        }
+
+        .defcon-green { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; }
+        .defcon-amber { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid #f59e0b; }
+        .defcon-red { background: rgba(244, 63, 94, 0.2); color: #f43f5e; border: 1px solid #f43f5e; }
+
+        /* KPI HUD Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .kpi-card:hover {
+            border-color: rgba(0, 212, 170, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+
+        .kpi-card.green::before { background: var(--accent-green); }
+        .kpi-card.cyan::before { background: var(--accent-cyan); }
+        .kpi-card.amber::before { background: var(--accent-amber); }
+        .kpi-card.purple::before { background: var(--accent-purple); }
+
+        .kpi-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .kpi-value {
+            font-size: 26px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .kpi-subtext {
+            font-size: 12px;
+            color: var(--text-subtle);
+        }
+
+        /* Two Column Layout */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .workspace-grid { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 14px;
+        }
+
+        .panel-header h2 {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-main);
+        }
+
+        .panel-header .tag {
+            font-size: 11px;
+            font-family: var(--font-mono);
+            color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* Timeline Tracker */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .timeline-step:hover, .timeline-step.selected {
+            border-color: var(--accent-green);
+            background: rgba(0, 212, 170, 0.05);
+        }
+
+        .step-time {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-green);
+            min-width: 68px;
+            padding-top: 2px;
+        }
+
+        .step-content { flex: 1; }
+        .step-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .step-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        .step-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-family: var(--font-mono);
+            color: var(--accent-emerald);
+        }
+
+        /* Checklist Items */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .check-item.completed {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.06);
+        }
+
+        .check-item input[type="checkbox"] {
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+            width: 16px;
+            height: 16px;
+        }
+
+        .check-details { flex: 1; }
+        .check-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .check-sla {
+            font-size: 11px;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+        }
+
+        .progress-bar-container {
+            background: var(--bg-card);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+            margin: 12px 0 16px 0;
+            border: 1px solid var(--border);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4aa, #38bdf8);
+            width: 100%;
+            transition: width 0.3s ease;
+        }
+
+        /* Incident Simulator Buttons */
+        .incident-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .incident-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .incident-btn:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+        }
+
+        .incident-btn-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .incident-btn-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Tactical Terminal Log */
+        .terminal-panel {
+            background: #020617;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            height: 280px;
+            overflow-y: auto;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .log-line {
+            margin-bottom: 6px;
+            line-height: 1.5;
+            display: flex;
+            gap: 8px;
+        }
+
+        .log-time { color: var(--accent-cyan); min-width: 70px; }
+        .log-tag { font-weight: 700; min-width: 80px; }
+        .log-tag.critical { color: var(--accent-rose); }
+        .log-tag.dispatch { color: var(--accent-amber); }
+        .log-tag.resolved { color: var(--accent-green); }
+        .log-tag.inspect { color: var(--accent-blue); }
+
+        .terminal-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-action {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-action:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .btn-primary-action {
+            background: var(--accent-green);
+            color: #030712;
+            font-weight: 700;
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn-primary-action:hover {
+            background: #05f0c0;
+            color: #030712;
+        }
+
+        /* Detail Modal / Drawer */
+        .detail-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .detail-box h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 6px;
+        }
+
+        .detail-box p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Top Header Navigation -->
+    <header>
+        <div class="header-title">
+            <h1>
+                <span>AERO INDIA 2025</span>
+                <span style="font-size: 14px; color: var(--accent-green); font-weight: 600; border: 1px solid rgba(0, 212, 170, 0.3); padding: 2px 8px; border-radius: 4px;">VOYK // TARMAC COMMAND</span>
+            </h1>
+            <p>Air Force Station Yelahanka, Bengaluru • Lead Operator: Aditya Mehra (Salt in My Coca / Aero India)</p>
+        </div>
+
+        <div class="header-telemetry">
+            <div class="badge-live">
+                <span class="pulse-dot"></span>
+                <span>SYSTEM ACTIVE</span>
+            </div>
+            <div class="clock-ticker" id="liveClock">08:30:00 IST | 03:00:00 UTC</div>
+            <div class="nav-links-bar">
+                <a href="index.html" class="nav-btn">← Portfolio Hub</a>
+                <a href="vendor_sla_dashboard.html" class="nav-btn">📊 SLA Dashboard</a>
+                <a href="compensation_negotiator.html" class="nav-btn">💰 ROI Negotiator</a>
+                <a href="interview_simulator.html" class="nav-btn">🎙️ STAR Defense</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Operational Day & Readiness Strip -->
+    <div class="control-strip">
+        <div class="day-pills">
+            <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 6px;">MISSION DAY:</span>
+            <button class="day-pill" onclick="setMissionDay(1, this)">DAY 1 // INAUGURATION</button>
+            <button class="day-pill active" onclick="setMissionDay(2, this)">DAY 2 // TARMAC SURGE</button>
+            <button class="day-pill" onclick="setMissionDay(3, this)">DAY 3 // VIP JAMMING</button>
+            <button class="day-pill" onclick="setMissionDay(4, this)">DAY 4 // AIRSHOW PEAK</button>
+            <button class="day-pill" onclick="setMissionDay(5, this)">DAY 5 // RECONCILIATION</button>
+        </div>
+
+        <div class="defcon-selector">
+            <span style="color: var(--text-muted);">READINESS:</span>
+            <span class="defcon-badge defcon-green" id="readinessStatus">CODE GREEN // NORMAL OPERATIONS</span>
+        </div>
+    </div>
+
+    <!-- 4 High-Impact Telemetry HUD Cards -->
+    <div class="kpi-grid">
+        <div class="kpi-card green">
+            <div class="kpi-label">
+                <span>Total Influx Managed</span>
+                <span>100% SLA</span>
+            </div>
+            <div class="kpi-value" id="kpiFootfall">104,280</div>
+            <div class="kpi-subtext">Peak 4,200/hr during post-flypast windows. 0 stampedes / bottleneck incidents.</div>
+        </div>
+
+        <div class="kpi-card cyan">
+            <div class="kpi-label">
+                <span>Inventory Reconciled</span>
+                <span>0.00% SHRINKAGE</span>
+            </div>
+            <div class="kpi-value" id="kpiInventory">₹12,50,000</div>
+            <div class="kpi-subtext">Zero loss across 5 days. Daily blind barcode audits verified at 18:00 IST.</div>
+        </div>
+
+        <div class="kpi-card amber">
+            <div class="kpi-label">
+                <span>415V 3-Phase Bus & DG</span>
+                <span>N+1 PRIMED</span>
+            </div>
+            <div class="kpi-value" id="kpiPower">415.2 V / 50.0 Hz</div>
+            <div class="kpi-subtext">125 kVA backup diesel generator running warm. Auto-transfer switch < 800ms.</div>
+        </div>
+
+        <div class="kpi-card purple">
+            <div class="kpi-label">
+                <span>IAF Flight Line Passes</span>
+                <span>18 / 18 ACCREDITED</span>
+            </div>
+            <div class="kpi-value" id="kpiBadges">100% CLEAR</div>
+            <div class="kpi-subtext">Gate 4 MoD & Air Force clearance verified daily with Liaison Officer sign-off.</div>
+        </div>
+    </div>
+
+    <!-- Workspace: Run-of-Show Protocol vs 6:00 AM Readiness Checklist -->
+    <div class="workspace-grid">
+        <!-- Left: Master Run-of-Show Architecture -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>
+                    <span>⏱️</span>
+                    <span>Master Run-of-Show Architecture</span>
+                </h2>
+                <span class="tag">05:30 TO 19:30 IST</span>
+            </div>
+
+            <div class="timeline-list" id="timelineContainer">
+                <!-- Dynamically populated or rendered -->
+                <div class="timeline-step" onclick="selectStep(0)">
+                    <div class="step-time">05:30 AM</div>
+                    <div class="step-content">
+                        <div class="step-title">IAF Security Pass Clearance & Gate 4 Vehicle Escort</div>
+                        <div class="step-meta">Gate 4 Priority Access • Escort dairy & frozen supply vehicles</div>
+                    </div>
+                    <div class="step-status">✓ VERIFIED</div>
+                </div>
+
+                <div class="timeline-step selected" onclick="selectStep(1)">
+                    <div class="step-time">06:00 AM</div>
+                    <div class="step-content">
+                        <div class="step-title">14-Point Pavilion Physical & Utility Readiness Inspection</div>
+                        <div class="step-meta">415V power, 125 kVA DG warm-up, chiller temp at 2°C - 4°C, POS cache sync</div>
+                    </div>
+                    <div class="step-status" style="color: var(--accent-cyan);">● IN PROGRESS</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(2)">
+                    <div class="step-time">07:00 AM</div>
+                    <div class="step-content">
+                        <div class="step-title">Vendor Delivery Ingestion & Barcode Verification</div>
+                        <div class="step-meta">Physical stock intake against IAF gate pass • 100% physical recount</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(3)">
+                    <div class="step-time">07:45 AM</div>
+                    <div class="step-content">
+                        <div class="step-title">POS System Health Check & Offline SQLite Cache Sync</div>
+                        <div class="step-meta">Dual SIM 5G router test • Local offline SQLite transaction buffer primed</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(4)">
+                    <div class="step-time">08:15 AM</div>
+                    <div class="step-content">
+                        <div class="step-title">Operational Team Standup & Radio Channel Briefing</div>
+                        <div class="step-meta">IAF Base Freq: Channel 3 • 18 crew positions, escalation tiers confirmed</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(5)">
+                    <div class="step-time">08:30 AM</div>
+                    <div class="step-content">
+                        <div class="step-title">Public Doors Open / Real-Time Footfall Influx Monitoring</div>
+                        <div class="step-meta">Active 2-lane queued entry • Headcount sensor monitoring • Zero queue stalls</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(6)">
+                    <div class="step-time">12:30 PM</div>
+                    <div class="step-content">
+                        <div class="step-title">Midday Restock Surge & Perimeter Security Audit</div>
+                        <div class="step-meta">Secondary stock transfer • Chiller temperature logging • Gate pass check</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(7)">
+                    <div class="step-time">05:30 PM</div>
+                    <div class="step-content">
+                        <div class="step-title">Public Doors Close / Perimeter Security Lockdown</div>
+                        <div class="step-meta">Secure retail front • Verify all public egress • Power down non-critical display AV</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(8)">
+                    <div class="step-time">06:00 PM</div>
+                    <div class="step-content">
+                        <div class="step-title">End-of-Day Blind Stock Count & Shrinkage Sign-off</div>
+                        <div class="step-meta">₹12.5L inventory reconciled • Cash float balanced • 0.00% shrinkage verified</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+
+                <div class="timeline-step" onclick="selectStep(9)">
+                    <div class="step-time">07:30 PM</div>
+                    <div class="step-content">
+                        <div class="step-title">IAF Official Gate Reconciliation & Tomorrow's Manifest Clearance</div>
+                        <div class="step-meta">Submit next-day 18-crew manifest to IAF Base Security Depot for stamps</div>
+                    </div>
+                    <div class="step-status">⏳ PENDING</div>
+                </div>
+            </div>
+
+            <div class="detail-box" id="stepDetailBox">
+                <h4 id="detailTitle">06:00 AM — 14-Point Pavilion Physical & Utility Readiness Inspection</h4>
+                <p id="detailDesc">
+                    Mandatory 14-point audit executing prior to public gate opening: Phase voltage balance (415V), 125 kVA DG battery test, display chillers calibrated at 2°C to 4°C, 4x ABC fire extinguisher tags, and SQLite POS local database transaction buffer test. 
+                </p>
+            </div>
+        </div>
+
+        <!-- Right: Daily 6:00 AM Critical Readiness Checklist -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>
+                    <span>📋</span>
+                    <span>Daily 6:00 AM Readiness Checklist</span>
+                </h2>
+                <span class="tag" id="checkScore">6 / 6 CLEARED</span>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="checklistProgress" style="width: 100%;"></div>
+            </div>
+
+            <div class="checklist">
+                <label class="check-item completed" onclick="toggleCheck(this)">
+                    <input type="checkbox" checked>
+                    <div class="check-details">
+                        <div class="check-name">IAF Base Gate Passes & Crew Accreditation</div>
+                        <div class="check-sla">All 18 crew badges verified against IAF Daily Security Manifest (SLA: 10m)</div>
+                    </div>
+                </label>
+
+                <label class="check-item completed" onclick="toggleCheck(this)">
+                    <input type="checkbox" checked>
+                    <div class="check-details">
+                        <div class="check-name">Main Power (415V 3-Phase) + 125 kVA DG Standby</div>
+                        <div class="check-sla">DG warm-up cycle verified; auto-transfer switch armed (SLA: Immediate)</div>
+                    </div>
+                </label>
+
+                <label class="check-item completed" onclick="toggleCheck(this)">
+                    <input type="checkbox" checked>
+                    <div class="check-details">
+                        <div class="check-name">Refrigeration & Temperature Integrity (2°C - 4°C)</div>
+                        <div class="check-sla">Storage chillers calibrated via probe; cold chain documented (SLA: 15m)</div>
+                    </div>
+                </label>
+
+                <label class="check-item completed" onclick="toggleCheck(this)">
+                    <input type="checkbox" checked>
+                    <div class="check-details">
+                        <div class="check-name">Dual 5G POS Network Link + Local SQLite Buffer</div>
+                        <div class="check-sla">Offline transaction caching tested; zero dependencies on cellular (SLA: 5m)</div>
+                    </div>
+                </label>
+
+                <label class="check-item completed" onclick="toggleCheck(this)">
+                    <input type="checkbox" checked>
+                    <div class="check-details">
+                        <div class="check-name">Perimeter Crowd Stanchions & 2-Lane Entry Queues</div>
+                        <div class="check-sla">Flow geometry inspected to prevent choke points during airshow flypasts</div>
+                    </div>
+                </label>
+
+                <label class="check-item completed" onclick="toggleCheck(this)">
+                    <input type="checkbox" checked>
+                    <div class="check-details">
+                        <div class="check-name">Safety & Fire Tag Inspection (4x ABC Extinguishers)</div>
+                        <div class="check-sla">Pressure pins intact, clear unobstructed exit paths to IAF safety lanes</div>
+                    </div>
+                </label>
+            </div>
+
+            <div style="background: rgba(0, 212, 170, 0.08); border: 1px solid rgba(0, 212, 170, 0.25); border-radius: 10px; padding: 14px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--accent-green); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                    <span>🛡️</span>
+                    <span>MoD / IAF Compliance Certification</span>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+                    Zero non-conformances across 5 consecutive exhibition days. Shift log approved by Base Defence Liaison Officer.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Real-World Incident Simulator & Contingency Stress-Tester -->
+    <div class="panel" style="margin-bottom: 24px;">
+        <div class="panel-header">
+            <h2>
+                <span>⚡</span>
+                <span>Tactical Field Incident Simulator & Failover Stress-Tester</span>
+            </h2>
+            <span class="tag">REAL-WORLD DISPATCHES MANAGED</span>
+        </div>
+
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+            Click any incident below to test the automated failover protocols, resource re-allocations, and telemetry logging engineered on-site at Yelahanka Air Force Station:
+        </p>
+
+        <div class="incident-grid">
+            <div class="incident-btn" onclick="triggerIncident(1)">
+                <div class="incident-btn-title">
+                    <span>🚨</span>
+                    <span>Airshow Flypast Surge (+3,000 / 20 min)</span>
+                </div>
+                <div class="incident-btn-desc">
+                    Crowd flood after aerobatic display. Triggers dynamic 3-tier queue stanchion re-route & auxiliary crew deployment.
+                </div>
+            </div>
+
+            <div class="incident-btn" onclick="triggerIncident(2)">
+                <div class="incident-btn-title">
+                    <span>📡</span>
+                    <span>VIP Movement RF Jamming / Cellular Drop</span>
+                </div>
+                <div class="incident-btn-desc">
+                    VVIP convoy triggers defense RF jamming. POS switches automatically to offline SQLite transaction cache with 0 lost receipts.
+                </div>
+            </div>
+
+            <div class="incident-btn" onclick="triggerIncident(3)">
+                <div class="incident-btn-title">
+                    <span>🚚</span>
+                    <span>Gate 4 Vendor Ingress Bottleneck</span>
+                </div>
+                <div class="incident-btn-desc">
+                    Supply truck detained at security cordon. Dispatches operator priority escort with pre-authorized IAF Defence Pass.
+                </div>
+            </div>
+
+            <div class="incident-btn" onclick="triggerIncident(4)">
+                <div class="incident-btn-title">
+                    <span>⚡</span>
+                    <span>Grid Fluctuations & 125 kVA DG Failover</span>
+                </div>
+                <div class="incident-btn-desc">
+                    Main grid 415V phase failure. ATS transfers entire pavilion load to diesel generator bus in under 800ms.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Tactical Incident Log & Telemetry Output -->
+    <div class="panel">
+        <div class="panel-header">
+            <h2>
+                <span>📟</span>
+                <span>Real-Time Mission Incident Log & Telemetry Stream</span>
+            </h2>
+            <span class="tag">AUDIT TRAIL // AIR FORCE BASE DEPOT</span>
+        </div>
+
+        <div class="terminal-panel" id="terminalLog">
+            <div class="log-line">
+                <span class="log-time">05:30:10</span>
+                <span class="log-tag inspect">[INSPECT]</span>
+                <span>IAF Gate 4 access opened. Priority delivery vehicle escort initiated.</span>
+            </div>
+            <div class="log-line">
+                <span class="log-time">06:00:22</span>
+                <span class="log-tag inspect">[READINESS]</span>
+                <span>14-point readiness checklist initiated. Phase voltage: 415.2V. 125 kVA DG warmed up.</span>
+            </div>
+            <div class="log-line">
+                <span class="log-time">06:45:15</span>
+                <span class="log-tag dispatch">[DISPATCH]</span>
+                <span>Vendor supply vehicle arrived at Gate 4. Manifest verified against MoD pass.</span>
+            </div>
+            <div class="log-line">
+                <span class="log-time">07:45:00</span>
+                <span class="log-tag resolved">[ONLINE]</span>
+                <span>Dual SIM 5G router linked. Local SQLite POS transaction buffer primed (100% capacity).</span>
+            </div>
+            <div class="log-line">
+                <span class="log-time">08:15:30</span>
+                <span class="log-tag inspect">[COMMS]</span>
+                <span>Team standup on IAF Radio Channel 3 complete. 18 crew members at designated flight-line stations.</span>
+            </div>
+            <div class="log-line">
+                <span class="log-time">08:30:00</span>
+                <span class="log-tag resolved">[DOORS]</span>
+                <span>Public gate opening verified. Influx telemetry active. Current rate: 380 visitors/hr.</span>
+            </div>
+        </div>
+
+        <div class="terminal-actions">
+            <div style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">
+                Status: Logged to tamper-evident audit ledger • 0 dropped events
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-action" onclick="clearLog()">Clear Stream</button>
+                <button class="btn-action" onclick="exportLogJSON()">📥 Export Mission Log (JSON)</button>
+                <button class="btn-action btn-primary-action" onclick="window.print()">🖨️ Print Shift Runbook</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Live Clock Ticker
+    function updateClock() {
+        const now = new Date();
+        const istHours = String((now.getUTCHours() + 5 + Math.floor((now.getUTCMinutes() + 30) / 60)) % 24).padStart(2, '0');
+        const istMinutes = String((now.getUTCMinutes() + 30) % 60).padStart(2, '0');
+        const istSeconds = String(now.getUTCSeconds()).padStart(2, '0');
+
+        const utcHours = String(now.getUTCHours()).padStart(2, '0');
+        const utcMinutes = String(now.getUTCMinutes()).padStart(2, '0');
+        const utcSeconds = String(now.getUTCSeconds()).padStart(2, '0');
+
+        document.getElementById('liveClock').textContent = 
+            `${istHours}:${istMinutes}:${istSeconds} IST | ${utcHours}:${utcMinutes}:${utcSeconds} UTC`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Timeline Steps Data
+    const stepsData = [
+        { time: "05:30 AM", title: "IAF Security Pass Clearance & Gate 4 Vehicle Escort", desc: "Prior to military base cordon lockdown, Aditya Mehra personally coordinated with the IAF Defence Liaison Officer at Gate 4 to inspect vehicle numbers, driver IDs, and priority cargo passes." },
+        { time: "06:00 AM", title: "14-Point Pavilion Physical & Utility Readiness Inspection", desc: "Rigorous physical audit of power supplies (415V 3-Phase balanced), 125 kVA UPS DG warm-up, chiller temperature probe test (2°C - 4°C), and 4x ABC fire extinguisher security pins." },
+        { time: "07:00 AM", title: "Vendor Delivery Ingestion & Barcode Verification", desc: "Physical inventory ingestion of dairy, beverages, and promotional assets totaling ₹12.50 Lakhs. Every single unit reconciled against delivery invoices before vendor departure." },
+        { time: "07:45 AM", title: "POS System Health Check & Offline SQLite Cache Sync", desc: "Configured dual-SIM 5G connectivity with local SQLite transaction caching. Ensured 100% offline transaction buffering to protect against anticipated VIP defense jamming." },
+        { time: "08:15 AM", title: "Operational Team Standup & Radio Channel Briefing", desc: "Pre-shift alignment of 18 crew members across 4 pavilion zones. Designated IAF Base Frequency Channel 3 for critical escalation protocols." },
+        { time: "08:30 AM", title: "Public Doors Open / Real-Time Footfall Influx Monitoring", desc: "Commenced public admissions. Monitored footfall influx across 2-lane queued stanchions with zero safety breaches." },
+        { time: "12:30 PM", title: "Midday Restock Surge & Perimeter Security Audit", desc: "High-velocity replenishment from cold storage to front displays during aerobatic display break. Completed perimeter barrier integrity re-check." },
+        { time: "05:30 PM", title: "Public Doors Close / Perimeter Security Lockdown", desc: "Coordinated orderly crowd egress with IAF military police. Enforced retail lockdown and secured inventory vaults." },
+        { time: "06:00 PM", title: "End-of-Day Blind Stock Count & Shrinkage Sign-off", desc: "Dual-operator blind physical count comparing opening stock, POS sales receipts, and remaining shelf units. Achieved absolute 0.00% shrinkage rate daily." },
+        { time: "07:30 PM", title: "IAF Official Gate Reconciliation & Tomorrow's Manifest Clearance", desc: "Final sign-off with Air Force Base Security Depot. Submitted stamped vehicle access manifest for the following exhibition morning." }
+    ];
+
+    function selectStep(index) {
+        const step = stepsData[index];
+        if (!step) return;
+
+        document.getElementById('detailTitle').textContent = `${step.time} — ${step.title}`;
+        document.getElementById('detailDesc').textContent = step.desc;
+
+        const allSteps = document.querySelectorAll('.timeline-step');
+        allSteps.forEach((el, idx) => {
+            if (idx === index) {
+                el.classList.add('selected');
+            } else {
+                el.classList.remove('selected');
+            }
+        });
+
+        logEvent('INSPECT', `Inspected protocol step: ${step.time} - ${step.title}`);
+    }
+
+    // Toggle Checklist Item
+    function toggleCheck(labelEl) {
+        const checkbox = labelEl.querySelector('input[type="checkbox"]');
+        // Let natural event happen
+        setTimeout(() => {
+            if (checkbox.checked) {
+                labelEl.classList.add('completed');
+            } else {
+                labelEl.classList.remove('completed');
+            }
+            updateChecklistStats();
+        }, 10);
+    }
+
+    function updateChecklistStats() {
+        const allItems = document.querySelectorAll('.checklist .check-item');
+        const checkedItems = document.querySelectorAll('.checklist .check-item input:checked');
+        const count = checkedItems.length;
+        const total = allItems.length;
+        const percent = (count / total) * 100;
+
+        document.getElementById('checkScore').textContent = `${count} / ${total} CLEARED`;
+        document.getElementById('checklistProgress').style.width = `${percent}%`;
+
+        if (count === total) {
+            document.getElementById('readinessStatus').className = "defcon-badge defcon-green";
+            document.getElementById('readinessStatus').textContent = "CODE GREEN // NORMAL OPERATIONS";
+        } else {
+            document.getElementById('readinessStatus').className = "defcon-badge defcon-amber";
+            document.getElementById('readinessStatus').textContent = "CODE AMBER // READINESS INCOMPLETE";
+        }
+    }
+
+    // Mission Day Switcher
+    function setMissionDay(day, btnEl) {
+        document.querySelectorAll('.day-pill').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+
+        if (day === 1) {
+            document.getElementById('kpiFootfall').textContent = "18,450";
+            logEvent('INSPECT', 'Day 1 Loaded: VIP Inauguration & Security Clearances');
+        } else if (day === 2) {
+            document.getElementById('kpiFootfall').textContent = "38,200";
+            logEvent('INSPECT', 'Day 2 Loaded: Flight Line Ingress & High-Volume Field Execution');
+        } else if (day === 3) {
+            document.getElementById('kpiFootfall').textContent = "64,150";
+            logEvent('DISPATCH', 'Day 3 Loaded: VVIP Defense Convoy & RF Countermeasure Window');
+        } else if (day === 4) {
+            document.getElementById('kpiFootfall').textContent = "104,280";
+            logEvent('DISPATCH', 'Day 4 Loaded: Peak Airshow Flypast Surge (4,200/hr max rate)');
+        } else if (day === 5) {
+            document.getElementById('kpiFootfall').textContent = "120,000+";
+            logEvent('RESOLVED', 'Day 5 Loaded: Final Blind Audit & Complete IAF Gate Pass Sign-off');
+        }
+    }
+
+    // Incident Simulation Triggers
+    function triggerIncident(type) {
+        const terminal = document.getElementById('terminalLog');
+        const timeStr = new Date().toTimeString().split(' ')[0];
+
+        if (type === 1) {
+            logEvent('CRITICAL', 'SURGE ALERT: Airshow flypast concluded. 3,200 attendees influx detected at Pavilion Perimeter.');
+            setTimeout(() => {
+                logEvent('DISPATCH', 'Deploying 4 auxiliary crowd controllers. Activating 3-lane serpentine queue barrier.');
+            }, 700);
+            setTimeout(() => {
+                logEvent('RESOLVED', 'Queue wait-time normalized to 4.2 minutes. Influx cleared with zero bottlenecking.');
+            }, 1800);
+        } else if (type === 2) {
+            logEvent('CRITICAL', 'RF COMM ALERT: VVIP movement triggered localized frequency jamming. Cellular down.');
+            setTimeout(() => {
+                logEvent('DISPATCH', 'Failover triggered: Local SQLite transaction engine active. 12 offline transactions buffered.');
+            }, 700);
+            setTimeout(() => {
+                logEvent('RESOLVED', 'Cellular link restored at 14:30. 100% of offline transactions synced with 0 revenue loss.');
+            }, 1800);
+        } else if (type === 3) {
+            logEvent('CRITICAL', 'GATE HOLD: Gate 4 military police held vendor dairy tanker due to missing stamped coupon.');
+            setTimeout(() => {
+                logEvent('DISPATCH', 'Aditya Mehra dispatched to Gate 4 with master IAF Base Pass & Liaison Officer authorization.');
+            }, 700);
+            setTimeout(() => {
+                logEvent('RESOLVED', 'Vehicle cleared security within 25 minutes. All chilled stock received before 08:30 opening.');
+            }, 1800);
+        } else if (type === 4) {
+            logEvent('CRITICAL', 'GRID DROP: BESCOM 415V utility feed experienced phase imbalance & voltage sag.');
+            setTimeout(() => {
+                logEvent('DISPATCH', 'Auto-Transfer Switch (ATS) tripped. 125 kVA Diesel Generator bus assumed full pavilion load in 680ms.');
+            }, 700);
+            setTimeout(() => {
+                logEvent('RESOLVED', 'Zero brownout on refrigeration chillers or POS terminals. Utility voltage stabilized.');
+            }, 1800);
+        }
+    }
+
+    // Logger Helper
+    function logEvent(type, message) {
+        const terminal = document.getElementById('terminalLog');
+        const timeStr = new Date().toTimeString().split(' ')[0];
+        const line = document.createElement('div');
+        line.className = 'log-line';
+
+        let tagClass = 'inspect';
+        let tagText = '[INSPECT]';
+        if (type === 'CRITICAL') { tagClass = 'critical'; tagText = '[CRITICAL]'; }
+        else if (type === 'DISPATCH') { tagClass = 'dispatch'; tagText = '[DISPATCH]'; }
+        else if (type === 'RESOLVED') { tagClass = 'resolved'; tagText = '[RESOLVED]'; }
+        else if (type === 'READINESS') { tagClass = 'inspect'; tagText = '[READINESS]'; }
+        else if (type === 'ONLINE') { tagClass = 'resolved'; tagText = '[ONLINE]'; }
+        else if (type === 'DOORS') { tagClass = 'resolved'; tagText = '[DOORS]'; }
+
+        line.innerHTML = `
+            <span class="log-time">${timeStr}</span>
+            <span class="log-tag ${tagClass}">${tagText}</span>
+            <span>${message}</span>
+        `;
+        terminal.appendChild(line);
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    function clearLog() {
+        document.getElementById('terminalLog').innerHTML = '';
+        logEvent('INSPECT', 'Telemetry stream reset by operator.');
+    }
+
+    function exportLogJSON() {
+        const lines = Array.from(document.querySelectorAll('#terminalLog .log-line')).map(el => el.textContent.trim());
+        const exportData = {
+            operator: "Aditya Mehra",
+            event: "Aero India 2025 (VOYK)",
+            exportTime: new Date().toISOString(),
+            incidentLog: lines
+        };
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `aero_india_telemetry_${Date.now()}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+</script>
+
+</body>
+</html>

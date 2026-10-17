@@ -344,6 +344,26 @@
         }
         .model-script-drawer.show { display: block; animation: fadeIn 0.3s ease; }
 
+        .btn-mic {
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid var(--accent-rose);
+            color: var(--accent-rose);
+            font-weight: 700;
+        }
+        .btn-mic:hover {
+            background: rgba(244, 63, 94, 0.25);
+            color: #ffffff;
+        }
+        .btn-mic.recording {
+            background: var(--accent-rose);
+            color: #ffffff;
+            animation: pulseMic 1.2s infinite ease-in-out;
+        }
+        @keyframes pulseMic {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            50% { box-shadow: 0 0 0 8px rgba(244, 63, 94, 0); }
+        }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -357,9 +377,11 @@
                 Role-Calibrated Executive Interview Simulator | Grounded Candidate Defense Bank: <strong>Aditya Mehra</strong>
             </p>
         </div>
-        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-            <a href="index.html" class="btn">← Main Universe</a>
-            <a href="vendor_sla_dashboard.html" class="btn">📊 Live SLA Dashboard</a>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <a href="index.html" class="btn">← Universe</a>
+            <a href="vendor_sla_dashboard.html" class="btn">📊 SLA Dashboard</a>
+            <a href="compensation_negotiator.html" class="btn" style="border-color: rgba(245, 158, 11, 0.5); color: #f59e0b;">💰 Offer ROI</a>
+            <a href="aero_india_logistics_console.html" class="btn" style="border-color: rgba(56, 189, 248, 0.5); color: #38bdf8;">🎪 Aero India Ops</a>
             <a href="ANTIGRAVITY_OMNI_HUB.html" class="btn">⚡ Omni Hub</a>
             <div class="badge-live">● 16 MODULES ACTIVE</div>
         </div>
@@ -760,7 +782,8 @@
                         <textarea class="sim-input" id="input-${item.id}" placeholder="Type or paste your spoken STAR response here to test metric density and executive structure..."></textarea>
                         
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 8px;">
-                            <div style="display: flex; gap: 8px;">
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-mic" id="btn-mic-${item.id}" onclick="toggleLiveVoice(${item.id})">🎤 Speak Live Answer</button>
                                 <button class="btn" onclick="testBenchmark(${item.id})">📋 Pre-fill Benchmark</button>
                                 <button class="btn" onclick="toggleModelScript(${item.id})">📜 Show Verbatim Script</button>
                                 <button class="btn" onclick="speakModelScript(${item.id})">🔊 Listen (TTS)</button>
@@ -945,6 +968,94 @@
                 <strong>Executive Coach Feedback:</strong> ${score >= 9.0 ? 'Flawless cadence. Answers start with concise context, detail proactive personal intervention, and conclude with verified metrics.' : 'Strengthen your final sentence with a concrete outcome (e.g., "resulting in a 15% cost reduction and 0 schedule defects").'}
             </div>
         `;
+    }
+
+    // Live Voice Web Speech Recognition Handler
+    let speechRecognition = null;
+    let activeMicId = null;
+
+    function toggleLiveVoice(id) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+            alert("Web Speech Recognition is supported natively in Google Chrome, Microsoft Edge, and Safari. Please use Chrome/Edge or type directly into the terminal.");
+            return;
+        }
+
+        const micBtn = document.getElementById(`btn-mic-${id}`);
+        const input = document.getElementById(`input-${id}`);
+
+        if (activeMicId === id && speechRecognition) {
+            // Stop recording
+            speechRecognition.stop();
+            activeMicId = null;
+            if (micBtn) {
+                micBtn.innerHTML = "🎤 Speak Live Answer";
+                micBtn.classList.remove("recording");
+            }
+            evaluateResponse(id);
+            return;
+        }
+
+        if (speechRecognition) {
+            speechRecognition.abort();
+        }
+
+        speechRecognition = new SpeechRecognition();
+        speechRecognition.continuous = true;
+        speechRecognition.interimResults = true;
+        speechRecognition.lang = 'en-IN';
+
+        activeMicId = id;
+        if (micBtn) {
+            micBtn.innerHTML = "⏹️ Stop & Score (Listening...)";
+            micBtn.classList.add("recording");
+        }
+
+        // Auto-start timer if not running
+        if (!timerState[id] || !timerState[id].running) {
+            toggleTimer(id);
+        }
+
+        let baseTranscript = input.value ? input.value.trim() + " " : "";
+
+        speechRecognition.onresult = (event) => {
+            let interimTranscript = "";
+            let finalTranscript = "";
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    finalTranscript += event.results[i][0].transcript + " ";
+                } else {
+                    interimTranscript += event.results[i][0].transcript;
+                }
+            }
+            input.value = baseTranscript + finalTranscript + interimTranscript;
+        };
+
+        speechRecognition.onerror = (event) => {
+            console.warn("Speech recognition notice:", event.error);
+            if (micBtn) {
+                micBtn.innerHTML = "🎤 Speak Live Answer";
+                micBtn.classList.remove("recording");
+            }
+            activeMicId = null;
+        };
+
+        speechRecognition.onend = () => {
+            if (activeMicId === id) {
+                if (micBtn) {
+                    micBtn.innerHTML = "🎤 Speak Live Answer";
+                    micBtn.classList.remove("recording");
+                }
+                activeMicId = null;
+                evaluateResponse(id);
+            }
+        };
+
+        try {
+            speechRecognition.start();
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     // Init
