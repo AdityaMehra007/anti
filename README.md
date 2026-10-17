@@ -22,6 +22,27 @@ It showcases real, hands-on capabilities across:
 3. **Database & Data Management:** Structured SQLite schemas tracking company outreach, application events, and recruiter interactions.
 4. **Hermetic Software Testing:** 100% test-driven Python test suite with green pytest execution.
 
+```mermaid
+flowchart TD
+    subgraph INGESTION["1. Opportunity & Inbound Ingestion"]
+        A["Recruiter Inbounds / Market Opportunities"] --> B["Recruiter Dispatcher & Evaluation"]
+        B -->|CTC < ₹3.0 LPA| C["Automated Counter-Offer Engine"]
+        B -->|CTC >= ₹3.0 LPA| D["RFC 5545 Calendar Dispatcher (.ics)"]
+    end
+
+    subgraph ORCHESTRATION["2. OMEGA Autonomous Agent Swarm"]
+        D --> E["FastAPI Control Plane & Telemetry"]
+        E --> F["18-Agent Autonomous Hierarchy"]
+        F --> G["4,500+ Prospect B2B Sales & Talent DAG"]
+    end
+
+    subgraph PERSISTENCE["3. Verification & Hermetic Persistence"]
+        G --> H[("SQLite Outreach Tracker DB")]
+        G --> I["ATS Resume Builder (.docx & .html)"]
+        H --> J["16/16 Hermetic Pytest Verification Suite"]
+    end
+```
+
 ---
 
 ## 👤 About the Author: Aditya Mehra
