@@ -9,6 +9,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com)
 [![Tests Passing](https://img.shields.io/badge/Tests-16%2F16%20Passed-brightgreen.svg)](tests/)
 [![Architecture](https://img.shields.io/badge/Architecture-Autonomous%20AI-blueviolet.svg)](https://github.com/AdityaMehra007/anti)
+[![Methodology: Vibe Coding](https://img.shields.io/badge/Methodology-Vibe%20Coding%20%26%20Agentic%20AI-7928CA?style=flat&logo=openai&logoColor=white)](https://github.com/AdityaMehra007)
 
 ---
 
