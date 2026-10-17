@@ -9,9 +9,9 @@
 - **Active Enterprise Clients**: 70 / 70
 - **Total Contracted SaaS ARR**: **₹26,100,000.00 INR**
 - **Average ARR Per Account (ARPU)**: **₹372,857.14 INR**
-- **Active Export Consignments Audited**: 199
-- **Gross Consignment Cargo Value**: **€35,080,000.00 EUR** (~₹3,192,280,000.00 INR)
-- **Cumulative Platform Audit Fees Earned**: **₹11,677,500.00 INR**
+- **Active Export Consignments Audited**: 200
+- **Gross Consignment Cargo Value**: **€35,230,000.00 EUR** (~₹3,205,930,000.00 INR)
+- **Cumulative Platform Audit Fees Earned**: **₹11,752,500.00 INR**
 
 ---
 
@@ -297,6 +297,7 @@
 | `ORD-AUTO-17145456` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `VECTIS-LC-TIRUPUR-2027-104-20261017145456` | `DISCREPANCY_FLAGGED` | EXEMPT | `960c478787d2ca74...` |
 | `ORD-AUTO-92248896` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1792248896` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
 | `ORD-AUTO-92248965` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1792248965` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
+| `ORD-AUTO-92250406` | **Precision Auto Machining Pvt Ltd** | Muller Automobiltechnik GmbH (Germany) | €150,000.00 | ₹75,000.00 | `DKT-1792250406` | `DISCREPANCY_FLAGGED` | EXEMPT | `0000000000000000...` |
 
 ---
 

@@ -61,7 +61,7 @@ CANDIDATE = {
     "graduation_year": "2026",
     "location": "Bengaluru, Karnataka, India",
     "phone": "+91 7003456624",
-    "email": "ashishiash007@gmail.com",
+    "email": "adityamehra007@gmail.com",
     "alt_email": "adityamehra799@gmail.com",
     "linkedin": "https://www.linkedin.com/in/adityamehra",
     "headline": "Corporate Operations | Global SCM & EXIM Logistics | AI Operations & Quality Analytics",
@@ -1424,7 +1424,7 @@ Click "Generate Counter-Negotiation Strategy" to run the salary defense algorith
         function copyPaidTemplate(type) {{
             let t = "";
             if (type === 'inmail') {{
-                t = `Subject: BBA (Intl Business) | Operations & Business Analysis Track - Bengaluru Requisitions\\n\\nHi [Hiring Manager],\\n\\nI noticed your team's operational expansion in Bengaluru and wanted to introduce myself directly.\\n\\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My background centers on ground operational execution, workflow optimization, and AI leverage:\\n• Operations & Logistics: Lead Coordinator at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\\n• Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by 15%.\\n• AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation (99%+ QA at Instawork AI).\\n\\nI would welcome 5 minutes to discuss how my hands-on operational rigor fits your active openings in Bengaluru.\\n\\nBest regards,\\nAditya Mehra\\n+91 7003456624 | ashishiash007@gmail.com | linkedin.com/in/adityamehra`;
+                t = `Subject: BBA (Intl Business) | Operations & Business Analysis Track - Bengaluru Requisitions\\n\\nHi [Hiring Manager],\\n\\nI noticed your team's operational expansion in Bengaluru and wanted to introduce myself directly.\\n\\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My background centers on ground operational execution, workflow optimization, and AI leverage:\\n• Operations & Logistics: Lead Coordinator at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\\n• Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by 15%.\\n• AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation (99%+ QA at Instawork AI).\\n\\nI would welcome 5 minutes to discuss how my hands-on operational rigor fits your active openings in Bengaluru.\\n\\nBest regards,\\nAditya Mehra\\n+91 7003456624 | adityamehra007@gmail.com | linkedin.com/in/adityamehra`;
             }} else if (type === 'fastforward') {{
                 t = `Aditya Mehra | BBA Intl Business (DSU '26) | Operations Lead at Aero India 2025, 15% Vendor Cost Reduction, 99% AI QA at Instawork. Ready for Bangalore ops/analyst roles. Call: +91 7003456624`;
             }} else if (type === 'simplify') {{
@@ -1443,7 +1443,7 @@ Click "Generate Counter-Negotiation Strategy" to run the salary defense algorith
         function copyCadenceTouch(company, name, touchNum) {{
             let t = "";
             if (touchNum === 1) {{
-                t = `Subject: BBA (Intl Business) | Operations & Business Analysis Track - Bengaluru Requisitions\\n\\nHi ${{name}},\\n\\nI noticed ${{company}}'s operational expansion in Bengaluru and wanted to introduce myself directly.\\n\\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My background centers on ground operational execution, workflow optimization, and AI leverage:\\n• Operations & Logistics: Lead Coordinator at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\\n• Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by 15%.\\n• AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation (99%+ QA at Instawork AI).\\n\\nI would welcome 5 minutes to discuss how my hands-on operational rigor fits your active openings in Bengaluru.\\n\\nBest regards,\\nAditya Mehra\\n+91 7003456624 | ashishiash007@gmail.com | linkedin.com/in/adityamehra`;
+                t = `Subject: BBA (Intl Business) | Operations & Business Analysis Track - Bengaluru Requisitions\\n\\nHi ${{name}},\\n\\nI noticed ${{company}}'s operational expansion in Bengaluru and wanted to introduce myself directly.\\n\\nI graduate with a BBA in International Business from Dayananda Sagar University (DSU) in 2026. My background centers on ground operational execution, workflow optimization, and AI leverage:\\n• Operations & Logistics: Lead Coordinator at AERO India 2025 (Yelahanka AFB) and premier brand activations (Puma India, Tata Communications, Dyson).\\n• Vendor Governance: Supplier rate card structuring, contract adherence, and process standardization reducing manual reconciliation by 15%.\\n• AI-Augmented Operations: Advanced prompt engineering, structured data synthesis, and workflow automation (99%+ QA at Instawork AI).\\n\\nI would welcome 5 minutes to discuss how my hands-on operational rigor fits your active openings in Bengaluru.\\n\\nBest regards,\\nAditya Mehra\\n+91 7003456624 | adityamehra007@gmail.com | linkedin.com/in/adityamehra`;
             }} else if (touchNum === 2) {{
                 t = `Subject: Re: BBA (Intl Business) | Operations & Business Analysis Track - Bengaluru Requisitions\\n\\nHi ${{name}},\\n\\nFollowing up on my note earlier this week. I wanted to share a concrete example of how I handle high-pressure operational bottlenecks:\\n\\nDuring Aero India 2025 at Yelahanka Air Force Station, a key AV staging vendor was delayed at Gate 4 due to pass discrepancies 90 minutes before VIP walkthrough. I decoupled the physical delivery from the commercial dispute, dispatched our accredited liaison to hand-clear secondary gear, and authorized manual perimeter unloading. Setup was certified at 07:22 AM (8 mins ahead of schedule), achieving 100% operational uptime and zero inventory shrinkage across ₹12.5L in display inventory.\\n\\nI bring this exact rapid triage and ownership to ${{company}}'s operations team in Bengaluru. Would you be open to a brief introductory call this week?\\n\\nBest,\\nAditya Mehra\\n+91 7003456624`;
             }} else if (touchNum === 3) {{
@@ -1534,7 +1534,7 @@ I am eager to finalize our agreement and commit fully to ${{company}}.
 
 Warm regards,
 Aditya Mehra
-+91 7003456624 | ashishiash007@gmail.com`;
++91 7003456624 | adityamehra007@gmail.com`;
 
             document.getElementById('comp-defense-output').innerText = script;
             showToast("Compensation Counter-Script Generated!");

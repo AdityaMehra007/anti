@@ -59,7 +59,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on operational rigor fits your active openings in Bengaluru.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 ```
 
 ---

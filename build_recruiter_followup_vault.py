@@ -84,7 +84,7 @@ I would welcome 5 minutes to discuss how my hands-on operational rigor fits your
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | ashishiash007@gmail.com | linkedin.com/in/adityamehra
++91 7003456624 | adityamehra007@gmail.com | linkedin.com/in/adityamehra
 ```
 
 ### Touch 2 (Day 3): Proof-of-Work Drop (Aero India 2025 Case Study)

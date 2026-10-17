@@ -1,16 +1,16 @@
 {
   "is_running": false,
-  "started_at": "2026-10-17T20:26:19.517721",
-  "uptime_seconds": 1.3093554973602295,
-  "total_pulses": 215,
-  "realtime_cycles": 282,
-  "hourly_cycles": 147,
-  "daily_cycles": 135,
-  "weekly_cycles": 135,
-  "dockets_processed": 189,
-  "autonomous_revenue_inr": 14175000.0,
-  "anomalies_healed": 80,
-  "last_pulse_timestamp": "2026-10-17T20:26:20.861883",
+  "started_at": "2026-10-17T20:50:31.938056",
+  "uptime_seconds": 0.7091217041015625,
+  "total_pulses": 218,
+  "realtime_cycles": 286,
+  "hourly_cycles": 150,
+  "daily_cycles": 137,
+  "weekly_cycles": 137,
+  "dockets_processed": 190,
+  "autonomous_revenue_inr": 14250000.0,
+  "anomalies_healed": 81,
+  "last_pulse_timestamp": "2026-10-17T20:50:32.738578",
   "health_status": "OPTIMAL",
   "resilience_verdict": "SOVEREIGN ANTIFRAGILITY CONFIRMED",
   "active_cadences": [
@@ -20,6 +20,96 @@
     "WEEKLY (604800s)"
   ],
   "recent_logs": [
+    {
+      "timestamp": "2026-10-17T20:50:32.736505",
+      "category": "DAEMON_STOP",
+      "message": "OMEGA \u221e 24/7 Sovereign Autopilot Gracefully Terminated."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:32.734775",
+      "category": "HOURLY_TREASURY",
+      "message": "Treasury balance verified: \u20b988,497,500.00 | Runway: 2441.3 mos"
+    },
+    {
+      "timestamp": "2026-10-17T20:50:32.734712",
+      "category": "HOURLY_REGULATORY",
+      "message": "Surveillance confirmed 100% compliance with DGFT & EU CBAM."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:32.734702",
+      "category": "HOURLY_PROSPECTING",
+      "message": "Scanned 0 B2B trade leads across Peenya/Hosur."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:32.029170",
+      "category": "DAEMON_START",
+      "message": "OMEGA \u221e 24/7 Sovereign Autopilot Thread Launched."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:31.306025",
+      "category": "WEEKLY_VALUATION",
+      "message": "Valuation Compounding Recalibrated: 2027 (\u20b91,675,800,000.00) -> 2050 (\u20b9500,000,000,000.00) | Planetary GDP: $108.5T -> $1,000T (2060)"
+    },
+    {
+      "timestamp": "2026-10-17T20:50:31.303593",
+      "category": "DAILY_PULSE_COMPLETE",
+      "message": "DO EVERYTHING executed in 9.007s. Red Team: SOVEREIGN ANTIFRAGILITY CONFIRMED (99.26%)"
+    },
+    {
+      "timestamp": "2026-10-17T20:50:21.359681",
+      "category": "DAILY_PULSE_START",
+      "message": "Initiating Supreme Constitutional DO EVERYTHING Protocol (Modes A - M)..."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:21.359617",
+      "category": "HOURLY_TREASURY",
+      "message": "Treasury balance verified: \u20b988,497,500.00 | Runway: 2441.3 mos"
+    },
+    {
+      "timestamp": "2026-10-17T20:50:21.359384",
+      "category": "HOURLY_REGULATORY",
+      "message": "Surveillance confirmed 100% compliance with DGFT & EU CBAM."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:21.359351",
+      "category": "HOURLY_PROSPECTING",
+      "message": "Scanned 0 B2B trade leads across Peenya/Hosur."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:20.451466",
+      "category": "WEEKLY_VALUATION",
+      "message": "Valuation Compounding Recalibrated: 2027 (\u20b91,675,800,000.00) -> 2050 (\u20b9500,000,000,000.00) | Planetary GDP: $108.5T -> $1,000T (2060)"
+    },
+    {
+      "timestamp": "2026-10-17T20:50:20.321401",
+      "category": "DAILY_PULSE_COMPLETE",
+      "message": "DO EVERYTHING executed in 7.118s. Red Team: SOVEREIGN ANTIFRAGILITY CONFIRMED (99.26%)"
+    },
+    {
+      "timestamp": "2026-10-17T20:50:09.874220",
+      "category": "DAILY_PULSE_START",
+      "message": "Initiating Supreme Constitutional DO EVERYTHING Protocol (Modes A - M)..."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:09.541399",
+      "category": "HOURLY_TREASURY",
+      "message": "Treasury balance verified: \u20b988,497,500.00 | Runway: 2441.3 mos"
+    },
+    {
+      "timestamp": "2026-10-17T20:50:09.540832",
+      "category": "HOURLY_REGULATORY",
+      "message": "Surveillance confirmed 100% compliance with DGFT & EU CBAM."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:09.540766",
+      "category": "HOURLY_PROSPECTING",
+      "message": "Scanned 0 B2B trade leads across Peenya/Hosur."
+    },
+    {
+      "timestamp": "2026-10-17T20:50:06.688763",
+      "category": "REALTIME_DOCKET",
+      "message": "Auto-audited docket DKT-1792250406 -> Status: DISCREPANCY_FLAGGED | Fee: \u20b975,000.00"
+    },
     {
       "timestamp": "2026-10-17T20:26:20.860062",
       "category": "DAEMON_STOP",
@@ -179,96 +269,6 @@
       "timestamp": "2026-10-17T20:24:56.599301",
       "category": "REALTIME_DOCKET",
       "message": "Auto-audited docket VECTIS-LC-PEENYA-2027-889-20261017145456 -> Status: AUDITED_PASSED | Fee: \u20b975,000.00"
-    },
-    {
-      "timestamp": "2026-10-17T20:22:53.684476",
-      "category": "DAEMON_STOP",
-      "message": "OMEGA \u221e 24/7 Sovereign Autopilot Gracefully Terminated."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:53.007630",
-      "category": "DAEMON_START",
-      "message": "OMEGA \u221e 24/7 Sovereign Autopilot Thread Launched."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:51.777255",
-      "category": "WEEKLY_VALUATION",
-      "message": "Valuation Compounding Recalibrated: 2027 (\u20b91,632,840,000.00) -> 2050 (\u20b9500,000,000,000.00) | Planetary GDP: $108.5T -> $1,000T (2060)"
-    },
-    {
-      "timestamp": "2026-10-17T20:22:51.773626",
-      "category": "DAILY_PULSE_COMPLETE",
-      "message": "DO EVERYTHING executed in 4.629s. Red Team: SOVEREIGN ANTIFRAGILITY CONFIRMED (99.26%)"
-    },
-    {
-      "timestamp": "2026-10-17T20:22:44.756822",
-      "category": "DAILY_PULSE_START",
-      "message": "Initiating Supreme Constitutional DO EVERYTHING Protocol (Modes A - M)..."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:44.756813",
-      "category": "HOURLY_TREASURY",
-      "message": "Treasury balance verified: \u20b986,349,500.00 | Runway: 2382.1 mos"
-    },
-    {
-      "timestamp": "2026-10-17T20:22:44.756735",
-      "category": "HOURLY_REGULATORY",
-      "message": "Surveillance confirmed 100% compliance with DGFT & EU CBAM."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:44.756722",
-      "category": "HOURLY_PROSPECTING",
-      "message": "Scanned 0 B2B trade leads across Peenya/Hosur."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:43.603451",
-      "category": "WEEKLY_VALUATION",
-      "message": "Valuation Compounding Recalibrated: 2027 (\u20b91,632,840,000.00) -> 2050 (\u20b9500,000,000,000.00) | Planetary GDP: $108.5T -> $1,000T (2060)"
-    },
-    {
-      "timestamp": "2026-10-17T20:22:33.311056",
-      "category": "DAILY_PULSE_START",
-      "message": "Initiating Supreme Constitutional DO EVERYTHING Protocol (Modes A - M)..."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:33.237023",
-      "category": "HOURLY_TREASURY",
-      "message": "Treasury balance verified: \u20b986,349,500.00 | Runway: 2382.1 mos"
-    },
-    {
-      "timestamp": "2026-10-17T20:22:33.236939",
-      "category": "HOURLY_REGULATORY",
-      "message": "Surveillance confirmed 100% compliance with DGFT & EU CBAM."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:33.236926",
-      "category": "HOURLY_PROSPECTING",
-      "message": "Scanned 0 B2B trade leads across Peenya/Hosur."
-    },
-    {
-      "timestamp": "2026-10-17T20:22:32.689016",
-      "category": "REALTIME_DOCKET",
-      "message": "Auto-audited docket DKT-1792248752 -> Status: DISCREPANCY_FLAGGED | Fee: \u20b975,000.00"
-    },
-    {
-      "timestamp": "2026-10-14T04:58:29.907163",
-      "category": "WEEKLY_VALUATION",
-      "message": "Valuation Compounding Recalibrated: 2027 (\u20b91,623,840,000.00) -> 2050 (\u20b9500,000,000,000.00) | Planetary GDP: $108.5T -> $1,000T (2060)"
-    },
-    {
-      "timestamp": "2026-10-14T04:58:29.900055",
-      "category": "DAILY_PULSE_COMPLETE",
-      "message": "DO EVERYTHING executed in 3.213s. Red Team: SOVEREIGN ANTIFRAGILITY CONFIRMED (99.26%)"
-    },
-    {
-      "timestamp": "2026-10-14T04:58:25.382025",
-      "category": "DAILY_PULSE_START",
-      "message": "Initiating Supreme Constitutional DO EVERYTHING Protocol (Modes A - M)..."
-    },
-    {
-      "timestamp": "2026-10-14T04:58:25.382014",
-      "category": "HOURLY_TREASURY",
-      "message": "Treasury balance verified: \u20b985,899,500.00 | Runway: 2369.6 mos"
     }
   ],
   "recent_errors": []

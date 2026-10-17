@@ -11,7 +11,7 @@
 | :--- | :--- | :--- |
 | **First Name** | `Aditya` | `first_name`, `First`, `FName` |
 | **Last Name** | `Mehra` | `last_name`, `Last`, `LName` |
-| **Email** | `ashishiash007@gmail.com` | `email`, `EmailAddress` |
+| **Email** | `adityamehra007@gmail.com` | `email`, `EmailAddress` |
 | **Phone** | `+91 7003456624` | `phone`, `mobile`, `cell` |
 | **Location** | `Bengaluru, Karnataka, India` | `city`, `location`, `address` |
 | **Postal Code** | `560068` | `postal_code`, `zip` |

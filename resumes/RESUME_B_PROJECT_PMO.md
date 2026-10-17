@@ -1,5 +1,5 @@
 # ADITYA MEHRA (ADI)
-**Bengaluru, Karnataka, India** | +91-7003456624 | ashishiash007@gmail.com | [LinkedIn Profile](https://www.linkedin.com/in/adityamehra)
+**Bengaluru, Karnataka, India** | +91-7003456624 | adityamehra007@gmail.com | [LinkedIn Profile](https://www.linkedin.com/in/adityamehra)
 
 ---
 

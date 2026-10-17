@@ -106,7 +106,7 @@ class OmegaCareerBrain:
         return {
             "candidate": {
                 "full_name": "Aditya Mehra",
-                "email": "ashishiash007@gmail.com",
+                "email": "adityamehra007@gmail.com",
                 "phone": "+91-7003456624",
                 "location": "Bengaluru, India",
                 "education": "BBA International Business, Dayananda Sagar University (2026)"

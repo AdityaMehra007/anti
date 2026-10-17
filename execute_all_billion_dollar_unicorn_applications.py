@@ -30,7 +30,7 @@ CANDIDATE = {
     "name": "Aditya Mehra",
     "degree": "BBA in International Business (Dayananda Sagar University, Bengaluru '26, CGPA: 6.33)",
     "phone": "+91-7003456624",
-    "email": "ashishiash007@gmail.com",
+    "email": "adityamehra007@gmail.com",
     "location": "Bengaluru, Karnataka, India"
 }
 
@@ -55,7 +55,7 @@ def generate_merkle_block(prev_hash: str, payload: dict, block_num: int) -> dict
 
 def build_resume(u: dict) -> str:
     return f"""# ADITYA MEHRA
-**Bengaluru, Karnataka, India** | **+91-7003456624** | **ashishiash007@gmail.com**  
+**Bengaluru, Karnataka, India** | **+91-7003456624** | **adityamehra007@gmail.com**  
 **Target Role:** {u['target_operational_role']}  
 **Target Company:** {u['company_name']} ({u['headquarters']})  
 **Target Valuation:** {u['valuation']} | **Time to $1B:** {u['time_to_1b']}  
@@ -108,7 +108,7 @@ def build_cover_letter(u: dict) -> str:
 **To:** The Office of {u['primary_founders']} & Executive Talent Acquisition  
 **Company:** {u['company_name']}  
 **Location Hub:** {u['bengaluru_india_presence']}  
-**From:** Aditya Mehra (+91-7003456624 | ashishiash007@gmail.com | Bengaluru, India)  
+**From:** Aditya Mehra (+91-7003456624 | adityamehra007@gmail.com | Bengaluru, India)  
 **Subject:** Application for {u['target_operational_role']} ({u['ctc_lpa']})  
 
 Dear {u['primary_founders'].split(',')[0]} and the {u['company_name']} Executive Team,
@@ -134,7 +134,7 @@ Sincerely,
 **Aditya Mehra**  
 BBA in International Business (Class of 2026)  
 Dayananda Sagar University, Bengaluru  
-Phone: +91-7003456624 | Email: ashishiash007@gmail.com  
+Phone: +91-7003456624 | Email: adityamehra007@gmail.com  
 """
 
 def build_scaleup_analysis(u: dict, block: dict) -> str:

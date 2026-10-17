@@ -115,7 +115,7 @@ os.makedirs(DISPATCH_DIR, exist_ok=True)
 for i, t in enumerate(TARGETS, 1):
     eml_file = os.path.join(DISPATCH_DIR, f"{i:02d}_{t['company'].replace(' ', '_').replace('/', '_')}_{t['id']}.eml")
     eml_content = f"""To: {t['recruiter']} <{t['email']}>
-From: Aditya Mehra <ashishiash007@gmail.com>
+From: Aditya Mehra <adityamehra007@gmail.com>
 Subject: {t['subject']}
 Date: {datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0530")}
 MIME-Version: 1.0
@@ -137,7 +137,7 @@ My full application dossier is prepared and available for review. I would welcom
 Best regards,
 
 Aditya Mehra
-ashishiash007@gmail.com | +91-7003456624
+adityamehra007@gmail.com | +91-7003456624
 Bangalore, India | Open to Relocation ({t['location']})
 """
     with open(eml_file, "w", encoding="utf-8") as f:
@@ -149,7 +149,7 @@ print(f"Generated {len(TARGETS)} .eml dispatch files in {DISPATCH_DIR}!")
 ledger_file = r"e:\anti\reports\SUMMER_2027_ELITE_CAMPAIGN_LEDGER.md"
 ledger_content = f"""# SUMMER 2027 ELITE INTERNSHIP CAMPAIGN LEDGER
 **Source**: SimplifyJobs/Summer2027-Internships  
-**Candidate**: Aditya Mehra (`ashishiash007@gmail.com` | `+91-7003456624`)  
+**Candidate**: Aditya Mehra (`adityamehra007@gmail.com` | `+91-7003456624`)  
 **Generated Date**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  
 **Total Target Dossiers Prepared**: 10
 

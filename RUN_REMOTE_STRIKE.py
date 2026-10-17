@@ -75,7 +75,7 @@ def generate_pitch(job: dict) -> str:
         f"I also build automated Python/Excel reporting pipelines that eliminate manual reconciliation and enforce strict SLAs.\n\n"
         f"Given your distributed culture, I thrive in async, documentation-first workflows where autonomous execution "
         f"and structured communication are standard. I'd welcome the chance to discuss how I can contribute to {company}'s operational velocity.\n\n"
-        f"Best regards,\nAditya Mehra\nBengaluru, India | +91 7003456624 | ashishiash007@gmail.com"
+        f"Best regards,\nAditya Mehra\nBengaluru, India | +91 7003456624 | adityamehra007@gmail.com"
     )
 
 def run():

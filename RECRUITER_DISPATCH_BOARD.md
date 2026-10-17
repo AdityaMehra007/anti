@@ -33,7 +33,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -58,7 +58,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -83,7 +83,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -108,7 +108,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at IBM.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -133,7 +133,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at KPMG.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -158,7 +158,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at KPMG.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -183,7 +183,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at KPMG.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -208,7 +208,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at KPMG.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -233,7 +233,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at KPMG.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -258,7 +258,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at PricewaterhouseCoopers (PwC).
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -283,7 +283,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at PricewaterhouseCoopers (PwC).
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -308,7 +308,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -333,7 +333,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Deloitte.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -358,7 +358,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Deloitte.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -383,7 +383,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Ernst & Young (EY).
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -408,7 +408,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Amazon.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -433,7 +433,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Goldman Sachs.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -458,7 +458,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at JPMorgan Chase & Co..
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -483,7 +483,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at IBM.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -508,7 +508,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at PricewaterhouseCoopers (PwC).
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -533,7 +533,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Walmart Global Tech.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -558,7 +558,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Delhivery.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -583,7 +583,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -608,7 +608,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -633,7 +633,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Deloitte.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -658,7 +658,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Ernst & Young (EY).
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -683,7 +683,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at IBM.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -708,7 +708,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Microsoft.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -733,7 +733,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -758,7 +758,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -783,7 +783,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -808,7 +808,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -833,7 +833,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -858,7 +858,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -883,7 +883,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -908,7 +908,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -933,7 +933,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -958,7 +958,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -983,7 +983,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1008,7 +1008,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1033,7 +1033,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1058,7 +1058,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1083,7 +1083,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1108,7 +1108,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1133,7 +1133,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1158,7 +1158,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1183,7 +1183,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Accenture.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1208,7 +1208,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Deloitte.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1233,7 +1233,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Deloitte.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---
@@ -1258,7 +1258,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings on your team at Deloitte.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | ashishiash007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
 `
 
 ---

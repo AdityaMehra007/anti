@@ -27,7 +27,7 @@ CANDIDATE = {
     "name": "Aditya Mehra",
     "location": "Bengaluru, Karnataka, India",
     "phone": "+91 7003456624",
-    "email": "ashishiash007@gmail.com",
+    "email": "adityamehra007@gmail.com",
     "alt_email": "adityamehra799@gmail.com",
     "linkedin": "linkedin.com/in/adityamehra",
     "education": "Bachelor of Business Administration (BBA) in International Business",
@@ -224,7 +224,7 @@ Wishing you and the {company} team continued success!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | ashishiash007@gmail.com
++91 7003456624 | adityamehra007@gmail.com
 ```
 
 ## 4. WhatsApp / SMS Recruiter Ping (<50 Words)

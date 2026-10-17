@@ -35,7 +35,7 @@ CANDIDATE = {
     "graduation_year": "2026",
     "cgpa": "6.33",
     "phone": "+91-7003456624",
-    "email": "ashishiash007@gmail.com",
+    "email": "adityamehra007@gmail.com",
     "location": "Bengaluru, Karnataka, India",
     "evidence_pillars": [
         "High-stakes crowd density triage, gate security clearance, and VIP protocol coordination at AERO INDIA 2025 (15,000+ daily delegate flow at Yelahanka Air Force Base).",

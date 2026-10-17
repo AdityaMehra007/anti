@@ -198,7 +198,7 @@ def create_packages():
             "candidate": {
                 "name": "Aditya Mehra",
                 "phone": "+91-7003456624",
-                "email": "ashishiash007@gmail.com",
+                "email": "adityamehra007@gmail.com",
                 "degree": "BBA International Business (DSU 2026)",
                 "specialization": "Operations, Systems Analytics & Global Logistics",
                 "verified_credentials": [
@@ -246,7 +246,7 @@ def create_packages():
 
         # 3. ATS_RESUME.md
         resume = f"""# ADITYA MEHRA
-**Phone**: +91-7003456624 | **Email**: ashishiash007@gmail.com | **LinkedIn**: linkedin.com/in/aditya-mehra
+**Phone**: +91-7003456624 | **Email**: adityamehra007@gmail.com | **LinkedIn**: linkedin.com/in/aditya-mehra
 **Location**: Bangalore, India / Open to Relocation ({t['locations']})
 
 ---
@@ -300,7 +300,7 @@ Results-driven Operations & Systems Analyst with formal education in Internation
         # 4. COVER_LETTER.md
         cover_letter = f"""# APPLICATION FOR {t['role'].upper()}
 **To**: Hiring Team & University Recruiting, {t['company']}
-**From**: Aditya Mehra (ashishiash007@gmail.com | +91-7003456624)
+**From**: Aditya Mehra (adityamehra007@gmail.com | +91-7003456624)
 **Date**: October 10, 2026
 
 Dear Hiring Team at {t['company']},
@@ -340,7 +340,7 @@ I'm very excited about {t['company']}'s work in {t['sector']} and would welcome 
 
 Best regards,  
 **Aditya Mehra**  
-ashishiash007@gmail.com | +91-7003456624  
+adityamehra007@gmail.com | +91-7003456624  
 Portfolio / Resume attached
 
 ---
@@ -362,7 +362,7 @@ My resume and tailored 30-60-90 day execution plan are ready for review. I would
 
 Respectfully,  
 **Aditya Mehra**  
-ashishiash007@gmail.com | +91-7003456624
+adityamehra007@gmail.com | +91-7003456624
 """
         with open(os.path.join(pkg_dir, "DIRECT_OUTREACH_INMAIL.md"), "w", encoding="utf-8") as f:
             f.write(outreach)

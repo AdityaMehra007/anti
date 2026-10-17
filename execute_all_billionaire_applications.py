@@ -33,7 +33,7 @@ CANDIDATE = {
     "name": "Aditya Mehra",
     "degree": "BBA in International Business (Dayananda Sagar University, Bengaluru '26)",
     "phone": "+91-7003456624",
-    "email": "ashishiash007@gmail.com",
+    "email": "adityamehra007@gmail.com",
     "location": "Bengaluru, Karnataka, India"
 }
 
