@@ -18,7 +18,7 @@
 This repository serves as the **verifiable Proof of Work (PoW) and live autonomous operational platform** developed by **Aditya Mehra**, a BBA graduate from **Dayananda Sagar University (DSU), Bengaluru**.
 
 It showcases real, hands-on capabilities across:
-1. **AI-Assisted Development ("Vibe Coding"):** Prototyping full-stack web applications, REST APIs, and automated tools using modern AI coding systems (**Google Antigravity**, Cursor, Claude, LLMs).
+1. **AI-Assisted Development ("Vibe Coding"):** Prototyping full-stack web applications, REST APIs, and automated tools using modern AI coding systems (**Google Antigravity**, Cursor, Claude, LLMs). Read the full technical philosophy: [**The Vibe Coding Manifesto**](docs/VIBE_CODING_AT_SCALE.md).
 2. **Operations Automation:** Autonomous recruiter communication parsers, compensation filters (₹3.0 LPA floor), and calendar event dispatchers (`.ics` generation).
 3. **Database & Data Management:** Structured SQLite schemas tracking company outreach, application events, and recruiter interactions.
 4. **Hermetic Software Testing:** 100% test-driven Python test suite with green pytest execution.
