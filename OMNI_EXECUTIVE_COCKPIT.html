@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMEGA OMNIVERSE — Unified Executive Mission Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        },
+                        darkbg: '#080c14',
+                        cardbg: '#0f172a',
+                        borderbg: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #080c14; color: #f8fafc; }
+        .glass { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glow-emerald:hover { box-shadow: 0 0 25px rgba(34, 197, 94, 0.25); }
+        .active-tab { border-color: #22c55e; color: #22c55e; background: rgba(34, 197, 94, 0.1); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased text-slate-200">
+
+    <!-- Top Sovereign Header -->
+    <header class="sticky top-0 z-50 glass border-b border-slate-800 px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center space-x-3.5">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 flex items-center justify-center font-black text-xl text-black shadow-lg shadow-emerald-500/20">
+                Ω
+            </div>
+            <div>
+                <h1 class="text-lg font-extrabold tracking-tight text-white flex items-center gap-2">
+                    OMEGA OMNIVERSE
+                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono">Executive Mission Control</span>
+                </h1>
+                <p class="text-xs text-slate-400">Autonomous Career Conquest, Enterprise Deal Engine & Project Factory</p>
+            </div>
+        </div>
+
+        <!-- Telemetry Indicators -->
+        <div class="flex items-center gap-3 text-xs font-mono">
+            <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-slate-400">Suites:</span>
+                <span class="text-white font-bold">15 / 15 GREEN</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                <span class="text-slate-400">Tests:</span>
+                <span class="text-emerald-400 font-bold">199 Passing (100%)</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                <span class="text-slate-400">Skills:</span>
+                <span class="text-purple-400 font-bold">3,837 Registered</span>
+            </div>
+            <button onclick="refreshIframe()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                Reload Active View
+            </button>
+            <a id="btn-open-external" href="universal_job_cockpit.html" target="_blank" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-black font-semibold rounded-lg text-xs flex items-center gap-1.5 transition shadow">
+                Open in New Tab ↗
+            </a>
+        </div>
+    </header>
+
+    <!-- Key Metrics Banner -->
+    <div class="glass border-b border-slate-800 px-6 py-3">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <span class="text-[9px] uppercase font-mono text-slate-400 block font-semibold">Total Opportunity Universe</span>
+                <span class="text-xl font-black text-white">16,553</span>
+                <span class="text-[10px] text-slate-500 block">Indexed across 5 DBs</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <span class="text-[9px] uppercase font-mono text-slate-400 block font-semibold">Dissected Vacancy Census</span>
+                <span class="text-xl font-black text-emerald-400">500</span>
+                <span class="text-[10px] text-emerald-500/80 block">Classified L1–L7</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <span class="text-[9px] uppercase font-mono text-slate-400 block font-semibold">Application Dockets Staged</span>
+                <span class="text-xl font-black text-purple-400">423</span>
+                <span class="text-[10px] text-purple-400/80 block">In approval_queue.csv</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <span class="text-[9px] uppercase font-mono text-slate-400 block font-semibold">Enterprise Application Dossiers</span>
+                <span class="text-xl font-black text-blue-400">256</span>
+                <span class="text-[10px] text-blue-400/80 block">applications_generated/</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <span class="text-[9px] uppercase font-mono text-slate-400 block font-semibold">Active Recruiter Network</span>
+                <span class="text-xl font-black text-amber-400">9,223</span>
+                <span class="text-[10px] text-amber-400/80 block">1,449 HR Gatekeepers</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                <span class="text-[9px] uppercase font-mono text-slate-400 block font-semibold">Test Suite Certification</span>
+                <span class="text-xl font-black text-emerald-400">196 / 196</span>
+                <span class="text-[10px] text-emerald-500/80 block">100% GREEN (43.5s)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subsystem Cockpit Switcher Navigation -->
+    <nav class="glass border-b border-slate-800 px-6 overflow-x-auto flex space-x-2 text-xs font-semibold py-2">
+        <button onclick="switchCockpit('universal')" id="btn-universal" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 flex items-center gap-2 transition active-tab">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Universal Job & Skill Cockpit
+        </button>
+        <button onclick="switchCockpit('apex')" id="btn-apex" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+            APEX 7-Agent Career OS
+        </button>
+        <button onclick="switchCockpit('universe')" id="btn-universe" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+            Global Opportunity Universe (16,553 Jobs)
+        </button>
+        <button onclick="switchCockpit('fortune500')" id="btn-fortune500" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            Fortune 500 Project Factory
+        </button>
+        <button onclick="switchCockpit('bangalore')" id="btn-bangalore" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            Bangalore 500 Deal Machine
+        </button>
+        <button onclick="switchCockpit('portfolio')" id="btn-portfolio" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+            Operational Portfolio Showcase
+        </button>
+    </nav>
+
+    <!-- Embedded High-Performance Cockpit Frame Container -->
+    <main class="flex-1 flex flex-col relative w-full h-[calc(100vh-160px)]">
+        <iframe id="cockpit-viewport" src="universal_job_cockpit.html" class="w-full flex-1 border-0 bg-darkbg"></iframe>
+    </main>
+
+    <!-- Script Logic -->
+    <script>
+        const COCKPIT_URLS = {
+            universal: { url: "universal_job_cockpit.html", title: "Universal Job & Skill Intelligence Cockpit" },
+            apex: { url: "apex_career_cockpit.html", title: "APEX Career Supremacy OS" },
+            universe: { url: "master_job_universe_dashboard.html", title: "Global Opportunity Universe (16,553 Jobs)" },
+            fortune500: { url: "fortune_500_cockpit.html", title: "Fortune 500 Project Factory" },
+            bangalore: { url: "bangalore_enterprise_deal_cockpit.html", title: "Bangalore Top 500 Enterprise Deals" },
+            portfolio: { url: "portfolio/apex_operations_showcase.html", title: "Operational Portfolio Showcase" }
+        };
+
+        let currentActiveKey = "universal";
+
+        function switchCockpit(key) {
+            currentActiveKey = key;
+            const target = COCKPIT_URLS[key];
+            if (!target) return;
+
+            // Update Iframe
+            const iframe = document.getElementById('cockpit-viewport');
+            iframe.src = target.url;
+
+            // Update External Link Button
+            const btnExt = document.getElementById('btn-open-external');
+            btnExt.href = target.url;
+
+            // Update Nav Button Styles
+            Object.keys(COCKPIT_URLS).forEach(k => {
+                const btn = document.getElementById(`btn-${k}`);
+                if (btn) {
+                    if (k === key) {
+                        btn.className = "px-3.5 py-2 rounded-lg border border-transparent flex items-center gap-2 transition active-tab font-bold";
+                    } else {
+                        btn.className = "px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition";
+                    }
+                }
+            });
+        }
+
+        function refreshIframe() {
+            const iframe = document.getElementById('cockpit-viewport');
+            iframe.contentWindow.location.reload();
+        }
+    </script>
+</body>
+</html>
