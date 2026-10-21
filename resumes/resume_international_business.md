@@ -1,5 +1,5 @@
 # Aditya Mehra
-**Bengaluru, India** | **adityamehra007@gmail.com** | **+91 7003456624**
+**Bengaluru, India** | **adityamehra799@gmail.com** | **+91 7003456624**
 
 ---
 

@@ -29,7 +29,7 @@ CANDIDATE = {
     "first_name": "Aditya",
     "last_name": "Mehra",
     "full_name": "Aditya Mehra",
-    "email": "adityamehra007@gmail.com",
+    "email": "adityamehra799@gmail.com",
     "alt_email": "adityamehra799@gmail.com",
     "phone": "+91 7003456624",
     "country_code": "+91",
@@ -156,7 +156,7 @@ md_content = f"""# ATS AUTO-FILL & COPILOT PRE-FILL MASTER DOSSIER
 | :--- | :--- | :--- |
 | **First Name** | `Aditya` | `first_name`, `First`, `FName` |
 | **Last Name** | `Mehra` | `last_name`, `Last`, `LName` |
-| **Email** | `adityamehra007@gmail.com` | `email`, `EmailAddress` |
+| **Email** | `adityamehra799@gmail.com` | `email`, `EmailAddress` |
 | **Phone** | `+91 7003456624` | `phone`, `mobile`, `cell` |
 | **Location** | `Bengaluru, Karnataka, India` | `city`, `location`, `address` |
 | **Postal Code** | `560068` | `postal_code`, `zip` |

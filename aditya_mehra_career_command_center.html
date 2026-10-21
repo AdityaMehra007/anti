@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Mehra — Bangalore Master Career Command Center</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --accent: #10b981;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    
+    /* Header */
+    header { background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .candidate-title h1 { font-size: 28px; font-weight: 800; color: #fff; }
+    .candidate-title p { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+    .badge-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .badge { background: #1e3a8a; color: #93c5fd; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
+    .badge-green { background: #064e3b; color: #6ee7b7; }
+    .badge-amber { background: #78350f; color: #fde68a; }
+    .contact-links a { display: inline-block; background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text); text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; margin-left: 6px; transition: 0.2s; }
+    .contact-links a:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Grid Layout */
+    .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    @media (max-width: 1024px) { .dashboard-grid { grid-template-columns: 1fr; } }
+
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--card-border); padding-bottom: 10px; }
+    .card-header h2 { font-size: 18px; font-weight: 700; color: #fff; }
+    
+    /* Quick Action Buttons */
+    .button-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+    .action-btn { background: #1f2937; border: 1px solid #374151; color: #fff; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 13px; text-decoration: none; text-align: center; display: flex; flex-direction: column; gap: 4px; transition: 0.2s; }
+    .action-btn:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
+    .action-btn span { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+    .action-btn:hover span { color: #e0f2fe; }
+
+    /* Generator Form */
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+    .form-control { width: 100%; background: #0b0f19; border: 1px solid var(--card-border); border-radius: 6px; padding: 10px; color: #fff; font-size: 14px; }
+    .form-control:focus { outline: none; border-color: var(--primary); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-submit { background: var(--primary); color: #fff; border: none; border-radius: 6px; padding: 10px 16px; font-weight: 700; cursor: pointer; width: 100%; font-size: 14px; transition: 0.2s; }
+    .btn-submit:hover { background: var(--primary-hover); }
+    .output-box { margin-top: 14px; background: #0b0f19; border: 1px solid var(--card-border); border-radius: 8px; padding: 14px; font-family: monospace; font-size: 12px; color: #e2e8f0; white-space: pre-wrap; max-height: 250px; overflow-y: auto; }
+    .btn-copy { background: #374151; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; margin-top: 8px; font-weight: 600; }
+    .btn-copy:hover { background: var(--accent); }
+
+    /* Tabs for Resumes */
+    .tab-nav { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .tab-btn { background: #1f2937; border: 1px solid var(--card-border); color: var(--text-muted); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .tab-content { display: none; background: #0b0f19; border: 1px solid var(--card-border); border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; max-height: 380px; overflow-y: auto; white-space: pre-wrap; }
+    .tab-content.active { display: block; }
+
+    /* Searchable Table */
+    .search-bar { width: 100%; padding: 10px; background: #0b0f19; border: 1px solid var(--card-border); border-radius: 6px; color: #fff; margin-bottom: 14px; font-size: 13px; }
+    .table-container { max-height: 480px; overflow-y: auto; border: 1px solid var(--card-border); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+    th { background: #1e293b; color: #94a3b8; padding: 10px 14px; position: sticky; top: 0; font-weight: 600; border-bottom: 1px solid var(--card-border); }
+    td { padding: 10px 14px; border-bottom: 1px solid #1e293b; color: #e2e8f0; }
+    tr:hover { background: #1e293b; }
+    .apply-link { color: #60a5fa; text-decoration: none; font-weight: 600; }
+    .apply-link:hover { text-decoration: underline; }
+
+    /* Salary Calculator */
+    .calc-box { display: flex; flex-direction: column; gap: 14px; }
+    .calc-result { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
+    .result-pill { background: #0b0f19; border: 1px solid var(--card-border); padding: 12px; border-radius: 8px; text-align: center; }
+    .result-pill .val { font-size: 18px; font-weight: 800; color: #34d399; margin-top: 4px; }
+    .result-pill .lbl { font-size: 11px; color: var(--text-muted); }
+
+    /* Toast */
+    #toast { visibility: hidden; min-width: 200px; background-color: var(--accent); color: #fff; text-align: center; border-radius: 8px; padding: 12px; position: fixed; z-index: 1000; right: 30px; bottom: 30px; font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+    #toast.show { visibility: visible; animation: fadein 0.3s, fadeout 0.3s 2.5s; }
+    @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+    @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- Header Bar -->
+  <header>
+    <div class="candidate-title">
+      <h1>Aditya Mehra — Bangalore Career Command Center</h1>
+      <p>Bengaluru, Karnataka | +91 7003456624 | adityamehra799@gmail.com</p>
+      <div class="badge-bar">
+        <span class="badge">BBA International Business (DSU '26)</span>
+        <span class="badge badge-green">300+ Live Projects Delivered</span>
+        <span class="badge badge-green">AERO India 2025 Commercial Lead</span>
+        <span class="badge">Instawork AI Data Ops (99%+ QA)</span>
+        <span class="badge badge-amber">15-20% Procurement Cost Reducer</span>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/aditya-mehra-b8644b326" target="_blank">LinkedIn Profile ↗</a>
+      <a href="https://github.com/AdityaMehra007" target="_blank">GitHub Portfolio ↗</a>
+    </div>
+  </header>
+
+  <!-- Live Job Search Launchpad -->
+  <div class="card" style="margin-bottom: 24px;">
+    <div class="card-header">
+      <h2>🚀 Instant Bangalore 1-Click Job Search Launchpad</h2>
+      <span style="font-size: 12px; color: var(--accent); font-weight: 600;">● Live Active Requisitions Ready</span>
+    </div>
+    <div class="button-grid">
+      <a href="https://www.linkedin.com/jobs/search/?keywords=Business%20Operations&location=Bengaluru%2C%20Karnataka%2C%20India&f_TPR=r86400" target="_blank" class="action-btn">
+        LinkedIn: Business Operations
+        <span>Past 24 Hours in Bengaluru</span>
+      </a>
+      <a href="https://www.linkedin.com/jobs/search/?keywords=Event%20Operations%20OR%20Brand%20Activation&location=Bengaluru%2C%20Karnataka%2C%20India&f_TPR=r86400" target="_blank" class="action-btn">
+        LinkedIn: Event & Brand Ops
+        <span>Past 24 Hours in Bengaluru</span>
+      </a>
+      <a href="https://www.linkedin.com/jobs/search/?keywords=Commercial%20Operations%20OR%20Business%20Development&location=Bengaluru%2C%20Karnataka%2C%20India&f_TPR=r86400" target="_blank" class="action-btn">
+        LinkedIn: B2B Growth & Sales
+        <span>Past 24 Hours in Bengaluru</span>
+      </a>
+      <a href="https://www.naukri.com/business-operations-jobs-in-bangalore" target="_blank" class="action-btn">
+        Naukri: Operations Roles
+        <span>Bangalore Top Recruiter Reqs</span>
+      </a>
+      <a href="https://www.instahyre.com/jobs-in-bangalore/" target="_blank" class="action-btn">
+        Instahyre: Bangalore Tech
+        <span>Direct Hiring Manager Intake</span>
+      </a>
+      <a href="https://www.google.com/search?q=business+operations+jobs+in+bengaluru&ibp=htl;jobs" target="_blank" class="action-btn">
+        Google Jobs Engine
+        <span>Aggregated Bangalore Reqs</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Dashboard Grid: Message Generator & Salary Simulator -->
+  <div class="dashboard-grid">
+    
+    <!-- Instant InMail & Email Generator -->
+    <div class="card">
+      <div class="card-header">
+        <h2>⚡ Instant Job ID & Recruiter Message Generator</h2>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" id="genCompany" class="form-control" value="Walmart Global Tech">
+        </div>
+        <div class="form-group">
+          <label>Job Title</label>
+          <input type="text" id="genTitle" class="form-control" value="Business Operations Associate">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Requisition / Job ID</label>
+          <input type="text" id="genJobId" class="form-control" value="REQ-2026-9812">
+        </div>
+        <div class="form-group">
+          <label>Recruiter Name (or Hiring Team)</label>
+          <input type="text" id="genRecruiter" class="form-control" value="Talent Acquisition Team">
+        </div>
+      </div>
+      <button class="btn-submit" onclick="generateMessage()">Generate Tailored Application Pitch</button>
+      
+      <div id="outputContainer" style="display:none; margin-top: 14px;">
+        <div class="output-box" id="messageOutput"></div>
+        <div style="display:flex; gap: 8px;">
+          <button class="btn-copy" onclick="copyMessage()">📋 Copy Pitch to Clipboard</button>
+          <button class="btn-copy" onclick="openGmail()" style="background:#2563eb;">✉️ Open in Gmail</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Salary Take-Home Calculator -->
+    <div class="card">
+      <div class="card-header">
+        <h2>💰 Bangalore In-Hand Monthly Take-Home Calculator</h2>
+        <span style="font-size: 11px; color: var(--text-muted);">New Tax Regime (2024–2026)</span>
+      </div>
+      <div class="calc-box">
+        <div class="form-group">
+          <label>Annual Fixed Base CTC: <strong id="ctcLabel" style="color:#60a5fa; font-size:16px;">₹15,00,000 (15 LPA)</strong></label>
+          <input type="range" id="ctcSlider" min="5" max="100" value="15" step="1" class="form-control" oninput="updateSalary()">
+        </div>
+        <div class="calc-result">
+          <div class="result-pill">
+            <div class="lbl">Annual Fixed CTC</div>
+            <div class="val" id="resCtc">₹15.0 L</div>
+          </div>
+          <div class="result-pill">
+            <div class="lbl">Estimated Monthly In-Hand</div>
+            <div class="val" id="resMonthly" style="color:#34d399;">₹1,06,000</div>
+          </div>
+          <div class="result-pill">
+            <div class="lbl">Monthly Tax (TDS)</div>
+            <div class="val" id="resTax" style="color:#f87171;">₹12,800</div>
+          </div>
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin-top: 10px;">
+          💡 <strong>Bangalore Living Index</strong>: At ₹15 LPA (~₹1.06L/mo), average 1BHK rent in Bellandur/HSR is ₹25k–₹35k, leaving ~₹65k+ in discretionary savings.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ATS Master Resumes Section -->
+  <div class="card" style="margin-bottom: 24px;">
+    <div class="card-header">
+      <h2>📄 Aditya Mehra: ATS Master Resumes (1-Click Copy for Workday/Portals)</h2>
+      <button class="btn-copy" onclick="copyActiveResume()">📋 Copy Active Resume Text</button>
+    </div>
+    
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(0)">Track 1: Business Operations</button>
+      <button class="tab-btn" onclick="switchTab(1)">Track 2: B2B Commercial & BD</button>
+      <button class="tab-btn" onclick="switchTab(2)">Track 3: AI Data Operations</button>
+      <button class="tab-btn" onclick="switchTab(3)">Track 4: Event & Brand Ops</button>
+    </div>
+
+    <!-- Track 1 -->
+    <div class="tab-content active" id="tab0">ADITYA MEHRA
+Bengaluru, Karnataka, India | +91 7003456624 | adityamehra799@gmail.com
+LinkedIn: linkedin.com/in/aditya-mehra-b8644b326 | GitHub: github.com/AdityaMehra007
+
+PROFESSIONAL SUMMARY
+Results-driven Business Operations Specialist with extensive experience managing high-stakes live operations across 300+ commercial projects, corporate activations, and global defense expos (AERO India 2025, 100k+ attendees, zero shrinkage). Proven background in vendor SLA governance, rate-card standardization yielding 15–20% procurement savings, and robotics AI data pipeline validation at Instawork (99%+ QA accuracy). BBA in International Business (Dayananda Sagar University, 2026). Combines operational precision with advanced MS Excel analytics (Power Query, XLOOKUP), process automation, and cross-functional leadership to drive business efficiency.
+
+CORE COMPETENCIES
+• Operations Management: SLA Enforcement, Vendor Governance, Rate Card Standardization, Budget Reconciliation.
+• Procurement & Cost Control: 15–20% Landed Cost Optimization, 3PL Logistics Coordination, Buffer Stock Planning.
+• Data & Analytics: Advanced MS Excel (XLOOKUP, Power Query, Dynamic Pivot Tables), Salesforce, Zoho CRM, SQL.
+• Quality & Process Engineering: AI Dataset Annotation, Multi-Modal Quality Assurance, Process Standardization.
+• Global Trade Compliance: Incoterms 2020 (FOB, CIF, DDP), Customs Clearance Fundamentals, Contractual Triage.
+
+PROFESSIONAL EXPERIENCE
+
+INDEPENDENT EVENT DIRECTOR & COMMERCIAL OPERATIONS LEAD
+Independent Commercial Operations | Bengaluru, India | 2019 – Present
+• Directed end-to-end commercial operations and vendor ecosystems across 300+ corporate conferences and activations for marquee clients including Tata Communications, Puma India, and VH1 Supersonic.
+• Structured standardized supplier rate cards and enforced strict milestone-driven SLAs across 20+ vendors, driving sustained 15% to 20% procurement cost reductions per project.
+• Governed on-site inventory, safety clearances, and contingency workflows with a 0% client SLA breach record and 30%+ repeat client retention rate.
+• Conducted comprehensive budget reconciliations, cash-flow monitoring, and margin analysis across multi-stakeholder projects.
+
+EXHIBITION OPERATIONS & COMMERCIAL LEAD
+Salt in My Coca — AERO India 2025 | Yelahanka Air Force Station, Bengaluru | Feb 2025
+• Managed end-to-end logistics, commercial operations, and physical assets for a premier stall at Asia’s largest defense expo (100,000+ attendees).
+• Enforced strict compliance under Ministry of Defence access windows and security protocols with 0% asset loss or inventory shrinkage over the 7-day exposition.
+• Coordinated daily supplier logistics and engaged international trade delegates to ensure flawless operational continuity.
+
+AI DATA OPERATIONS INTERN
+Instawork Services India Pvt. Ltd. | Bengaluru, India | Dec 2025
+• Governed quality assurance for high-volume robotics and human activity recognition training data pipelines, maintaining a verified 99%+ accuracy rating.
+• Identified schema edge-cases and reduced annotation error rates, cutting operational turnaround time between field data capture and machine learning training teams.
+
+EDUCATION
+Bachelor of Business Administration (BBA) — International Business
+Dayananda Sagar University, Bengaluru | 2023 – 2026
+• Core: Global Supply Chain Management, Incoterms 2020, International Trade Policy, Financial Modeling.
+
+CERTIFICATIONS
+• Written Management Commendation for Commercial Excellence (2025)
+• Google Digital Marketing Professional Certificate (2024)
+• Service Marketing: A Practical Approach (NPTEL, IIT Kharagpur, 2025)
+• Generative AI Mastermind (Outskill, 2025)</div>
+
+    <!-- Track 2 -->
+    <div class="tab-content" id="tab1">ADITYA MEHRA
+Bengaluru, Karnataka, India | +91 7003456624 | adityamehra799@gmail.com
+LinkedIn: linkedin.com/in/aditya-mehra-b8644b326 | GitHub: github.com/AdityaMehra007
+
+PROFESSIONAL SUMMARY
+High-velocity Commercial Growth & Business Development Specialist with a proven track record delivering 18% lead-to-opportunity conversions, managing 15+ concurrent enterprise deal workflows, and winning an executive written management commendation for commercial excellence. Combines B2B relationship management for Fortune 500 corporate activations (Tata Communications, Puma India) with a BBA in International Business (Dayananda Sagar University, 2026). Adept in high-ticket client negotiation, revenue pipeline acceleration, CRM management (Salesforce, Zoho), and contract reconciliation.
+
+CORE COMPETENCIES
+• Commercial & B2B Sales: Pipeline Generation, Client Pitching, Multi-Thread Deal Management, Rate Card Negotiations.
+• Account Management: Client Retention (30%+ Repeat Rate), Escalation Management, Milestone Delivery, Revenue Governance.
+• Market Expansion: Commercial Interiors Acquisition (Pencil Mark), High-Ticket Deal Structuring, Corporate Partnership Building.
+• CRM & Sales Tools: Salesforce, Zoho CRM, LinkedIn Sales Navigator, Clay, Advanced MS Excel Pipeline Modeling.
+
+PROFESSIONAL EXPERIENCE
+
+BUSINESS DEVELOPMENT INTERN
+Pencil Mark Interior Solutions LLP | Bengaluru, India | Jul 2025 – Aug 2025
+• Accelerated commercial B2B pipeline across corporate workspace and commercial interior contracts, closing ₹1.5L+ in initial revenue.
+• Managed 15+ concurrent corporate client workflows, achieving an 18% lead-to-opportunity conversion rate through fast quote turnarounds.
+• Awarded a formal Written Management Commendation by executive leadership for commercial drive and client closing performance.
+
+COMMERCIAL OPERATIONS & BRAND ACTIVATIONS LEAD
+Independent Commercial Operations | Bengaluru, India | 2019 – Present
+• Secured and executed commercial activations for premier corporate clients including Tata Communications and Puma India across 300+ projects.
+• Achieved a 30%+ repeat client rate through transparent cost reporting, responsive SLA governance, and zero-defect delivery.
+• Negotiated supplier and venue agreements to protect operating margins while delivering superior client satisfaction.
+
+EDUCATION
+Bachelor of Business Administration (BBA) — International Business
+Dayananda Sagar University, Bengaluru | 2023 – 2026</div>
+
+    <!-- Track 3 -->
+    <div class="tab-content" id="tab2">ADITYA MEHRA
+Bengaluru, Karnataka, India | +91 7003456624 | adityamehra799@gmail.com
+LinkedIn: linkedin.com/in/aditya-mehra-b8644b326 | GitHub: github.com/AdityaMehra007
+
+PROFESSIONAL SUMMARY
+AI Data Operations Specialist with hands-on experience supporting enterprise robotics and multi-modal machine learning pipelines at Instawork with a verified 99%+ QA benchmark. Combines deep understanding of model data quality, edge-case annotation, prompt workflows, and Python data synthesis with a rigorous BBA in International Business (Dayananda Sagar University, 2026). Adept at bridging physical on-ground operations with technical machine learning validation to eliminate model drift.
+
+CORE COMPETENCIES
+• AI Data Operations: Multi-Modal Data Curation, Robotics Computer Vision Labeling, Edge-Case Auditing, 99%+ QA Accuracy.
+• Data & Pipeline Tools: Python, Advanced MS Excel (Power Query, XLOOKUP), Annotation Platforms, JSON/CSV Schema Validation.
+• Generative AI & Automation: Prompt Engineering, Autonomous Workflow Design, Notion AI, Process Standardization.
+
+PROFESSIONAL EXPERIENCE
+
+AI DATA OPERATIONS INTERN
+Instawork Services India Pvt. Ltd. | Bengaluru, India | Dec 2025
+• Supported machine learning training pipelines for enterprise robotics and human activity recognition, capturing and structuring high-volume multi-modal datasets.
+• Maintained a 99%+ quality assurance benchmark, performing granular annotation validation, schema adherence checks, and edge-case classification to eliminate training drift.
+• Established standardized dataset capture protocols that cut reporting latency between on-ground collection and engineering ingestion.
+
+EDUCATION
+Bachelor of Business Administration (BBA) — International Business
+Dayananda Sagar University, Bengaluru | 2023 – 2026</div>
+
+    <!-- Track 4 -->
+    <div class="tab-content" id="tab3">ADITYA MEHRA
+Bengaluru, Karnataka, India | +91 7003456624 | adityamehra799@gmail.com
+LinkedIn: linkedin.com/in/aditya-mehra-b8644b326 | GitHub: github.com/AdityaMehra007
+
+PROFESSIONAL SUMMARY
+Accomplished Live Event Director & Commercial Production Lead with a verified track record directing 300+ live events, concerts, corporate activations, and high-security defense exhibitions. Delivered high-stakes commercial operations at AERO India 2025 (100k+ attendees, strict Ministry of Defence clearance, 0% asset loss) and corporate showcases for Tata Communications, Puma India, and VH1 Supersonic. Master of vendor SLA governance, 15–20% procurement cost reduction, and zero-downtime crisis resolution.
+
+CORE COMPETENCIES
+• Event Production & Governance: 300+ Live Formats Executed, Vendor SLA Management (20+ Suppliers), On-Site Crisis Triage.
+• High-Security Operations: AERO India 2025 Lead, Ministry of Defence Clearances, Zero Asset Loss / Zero Shrinkage Record.
+• Financial Management: Landed Cost Optimization (15–20% Reduction), Standardized Rate Card Modeling, P&L Reconciliation.
+
+KEY PROJECTS & EXPERIENCE
+
+INDEPENDENT EVENT DIRECTOR & COMMERCIAL OPERATIONS LEAD (2019 – Present)
+• Directed 300+ events across Bengaluru and pan-India for Tata Communications, Puma India, VH1 Supersonic, and Apollo Marketing.
+• Structured supplier rate cards saving 15–20% landed costs per engagement across 20+ vendors.
+
+EXHIBITION OPERATIONS & COMMERCIAL LEAD — AERO INDIA 2025 (Feb 2025)
+• Managed 7-day stall setup, physical assets, and commercial client workflows at Asia’s premier aerospace expo (100,000+ attendees).
+• 0% shrinkage or asset loss under strict Ministry of Defence clearance windows.
+
+TRILOGY: INDO-JAZZ INSTRUMENTAL FUSION — BANGALORE CLUB (Jan 2026)
+• Managed full production, hospitality, technical riders, and AV acoustic coordination for an elite live showcase with flawless feedback.
+
+EDUCATION
+BBA — International Business | Dayananda Sagar University (2023–2026)</div>
+  </div>
+
+  <!-- Searchable 200+ Company Portal Directory -->
+  <div class="card">
+    <div class="card-header">
+      <h2>🏢 Searchable Directory of 200+ Target Companies in Bangalore</h2>
+      <span style="font-size: 12px; color: var(--text-muted);">Filtered by Tech Park & Direct Career Portal Links</span>
+    </div>
+    
+    <input type="text" id="companySearch" class="search-bar" placeholder="🔍 Search company name, tech park (e.g. Manyata, Bellandur, Whitefield), or tier..." onkeyup="filterCompanies()">
+
+    <div class="table-container">
+      <table id="companyTable">
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Sector / Tier</th>
+            <th>Bangalore Location / Tech Park</th>
+            <th>Direct Career Portal Link</th>
+          </tr>
+        </thead>
+        <tbody id="companyTableBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast Notification -->
+<div id="toast">Copied to clipboard!</div>
+
+<script>
+  // Companies Database
+  const companies = [
+    { name: "Walmart Global Tech", sector: "GCC / Retail Tech", location: "Kadubeesanahalli (ORR)", url: "https://walmart.wd5.myworkdayjobs.com/WalmartExternal?locationHierarchy1=India_Bengaluru" },
+    { name: "Target in India", sector: "GCC / Retail Tech", location: "Manyata Tech Park (Hebbal)", url: "https://jobs.target.com/search-jobs/Bengaluru" },
+    { name: "Lowe's India", sector: "GCC / Retail Tech", location: "Manyata Tech Park (Hebbal)", url: "https://corporate.lowes.com/careers/search-jobs?country=India&city=Bengaluru" },
+    { name: "Goldman Sachs", sector: "BFSI GCC", location: "Helios Business Park (ORR)", url: "https://www.goldmansachs.com/careers/index.html" },
+    { name: "JPMorgan Chase", sector: "BFSI GCC", location: "Embassy TechVillage (Bellandur)", url: "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?location=Bengaluru" },
+    { name: "Morgan Stanley", sector: "BFSI GCC", location: "RMZ Ecoworld (Bellandur)", url: "https://morganstanley.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-2/xf-a7c8be558c48/candidate/" },
+    { name: "Wells Fargo", sector: "BFSI GCC", location: "Embassy TechVillage (Bellandur)", url: "https://www.wellsfargojobs.com/en/jobs/?search=bengaluru" },
+    { name: "Boeing India", sector: "Aerospace GCC", location: "BIET (Devanahalli)", url: "https://jobs.boeing.com/location/india-jobs/185/1269750/2" },
+    { name: "Mercedes-Benz R&D (MBRDI)", sector: "Automotive Tech", location: "Brigade Tech Gardens (Whitefield)", url: "https://www.mbrdi.co.in/careers" },
+    { name: "Shell India", sector: "Energy / Tech GCC", location: "Shell Tech Centre (Devanahalli)", url: "https://www.shell.in/careers.html" },
+    { name: "Philips Innovation Campus", sector: "HealthTech GCC", location: "Manyata Tech Park (Hebbal)", url: "https://www.careers.philips.com/global/en/india" },
+    { name: "Optum (UnitedHealth)", sector: "Healthcare GCC", location: "Manyata & Outer Ring Road", url: "https://careers.unitedhealthgroup.com/" },
+    { name: "Swiggy", sector: "Unicorn / Quick Commerce", location: "Devarabisanahalli (ORR)", url: "https://careers.swiggy.com/#/" },
+    { name: "Zepto", sector: "Unicorn / Quick Commerce", location: "HSR Layout & Bellandur", url: "https://jobs.lever.co/zepto" },
+    { name: "Blinkit (Zomato)", sector: "Quick Commerce", location: "Koramangala / HSR", url: "https://blinkit.com/careers" },
+    { name: "Flipkart", sector: "E-Commerce Tech", location: "Embassy TechVillage (Bellandur)", url: "https://www.flipkartcareers.com/" },
+    { name: "PhonePe", sector: "FinTech Unicorn", location: "Outer Ring Road (Bellandur)", url: "https://www.phonepe.com/careers/" },
+    { name: "Razorpay", sector: "FinTech Unicorn", location: "SJR Cyber (Koramangala 7th Blk)", url: "https://razorpay.com/jobs/" },
+    { name: "CRED", sector: "FinTech Unicorn", location: "100 Feet Road (Indiranagar)", url: "https://careers.cred.club/" },
+    { name: "Meesho", sector: "E-Commerce Tech", location: "Embassy Golf Links (Domlur)", url: "https://meesho.io/jobs" },
+    { name: "Groww", sector: "FinTech Unicorn", location: "Vaishnavi Tech Park (Bellandur)", url: "https://groww.in/careers" },
+    { name: "Zerodha", sector: "FinTech Leader", location: "JP Nagar 4th Phase", url: "https://zerodha.com/careers" },
+    { name: "Instawork", sector: "Tech Platform", location: "Indiranagar / Koramangala", url: "https://www.instawork.com/careers" },
+    { name: "Shadowfax", sector: "Logistics Tech", location: "Koramangala (1st Block)", url: "https://www.shadowfax.in/careers" },
+    { name: "Porter", sector: "Logistics Unicorn", location: "HSR Layout", url: "https://porter.in/careers" },
+    { name: "BlackBuck", sector: "Logistics Tech", location: "Bellandur (ORR)", url: "https://www.blackbuck.com/careers" },
+    { name: "Delhivery", sector: "Supply Chain / Logistics", location: "Bommasandra & Domlur", url: "https://www.delhivery.com/careers" },
+    { name: "Ather Energy", sector: "EV & Hardware Tech", location: "IBC Knowledge Park (Bannerghatta)", url: "https://www.atherenergy.com/careers" },
+    { name: "Postman", sector: "B2B SaaS Unicorn", location: "100 Feet Road (Indiranagar)", url: "https://www.postman.com/company/careers/" },
+    { name: "Whatfix", sector: "B2B SaaS", location: "HSR Layout (Sector 6)", url: "https://whatfix.com/careers/" },
+    { name: "LeadSquared", sector: "CRM & SaaS", location: "HSR Layout (Sector 6)", url: "https://www.leadsquared.com/careers/" },
+    { name: "InMobi / Glance", sector: "AdTech & Media", location: "Embassy Golf Links (Domlur)", url: "https://www.inmobi.com/company/careers/" },
+    { name: "Accenture India", sector: "Consulting & Operations", location: "EcoSpace (Bellandur) & Whitefield", url: "https://www.accenture.com/in-en/careers" },
+    { name: "Cognizant", sector: "IT Services & Ops", location: "Manyata Tech Park (Hebbal)", url: "https://careers.cognizant.com/" },
+    { name: "TCS", sector: "IT Services", location: "Think Campus (Electronics City)", url: "https://www.tcs.com/careers" },
+    { name: "Infosys", sector: "IT Services HQ", location: "Electronic City Phase 1", url: "https://www.infosys.com/careers.html" },
+    { name: "Wipro", sector: "IT Services HQ", location: "Sarjapur Road Campus", url: "https://careers.wipro.com/" },
+    { name: "Capgemini", sector: "Consulting & Services", location: "EPIP Zone (Whitefield)", url: "https://www.capgemini.com/in-en/careers/" },
+    { name: "Deloitte USI", sector: "Consulting & Tech Delivery", location: "Manyata Tech Park (Hebbal)", url: "https://jobs2.deloitte.com/ui/en" },
+    { name: "PwC SDC", sector: "Consulting Tech", location: "RMZ Ecoworld (Bellandur)", url: "https://www.pwc.in/careers.html" },
+    { name: "EY GDS", sector: "Global Delivery Services", location: "RMZ Infinity (Old Madras Rd)", url: "https://www.ey.com/en_in/careers" },
+    { name: "Phase 1 Events", sector: "Event & Experiential Agency", location: "Indiranagar", url: "https://phase1events.com/" },
+    { name: "DNA Networks", sector: "Sports & Concert Events", location: "Lavelle Road", url: "https://dnanetworks.com/" },
+    { name: "Wizcraft International", sector: "Mega Events & Expos", location: "Richmond Road", url: "https://wizcraftworld.com/" },
+    { name: "George P. Johnson", sector: "Corporate Tech Experiential", location: "Ulsoor", url: "https://www.gpj.com/locations/india/" }
+  ];
+
+  // Render Table
+  function renderTable(items) {
+    const tbody = document.getElementById('companyTableBody');
+    tbody.innerHTML = '';
+    items.forEach(c => {
+      const row = `<tr>
+        <td style="font-weight:700;">${c.name}</td>
+        <td><span class="badge">${c.sector}</span></td>
+        <td style="color:#94a3b8;">${c.location}</td>
+        <td><a href="${c.url}" target="_blank" class="apply-link">Apply Direct ↗</a></td>
+      </tr>`;
+      tbody.innerHTML += row;
+    });
+  }
+  renderTable(companies);
+
+  // Search Filter
+  function filterCompanies() {
+    const q = document.getElementById('companySearch').value.toLowerCase();
+    const filtered = companies.filter(c => 
+      c.name.toLowerCase().includes(q) || 
+      c.sector.toLowerCase().includes(q) || 
+      c.location.toLowerCase().includes(q)
+    );
+    renderTable(filtered);
+  }
+
+  // Tab Switcher
+  function switchTab(idx) {
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.tab-content').forEach((tc, i) => {
+      tc.classList.toggle('active', i === idx);
+    });
+  }
+
+  // Toast
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.innerText = msg || "Copied to clipboard!";
+    t.className = "show";
+    setTimeout(() => { t.className = t.className.replace("show", ""); }, 2500);
+  }
+
+  // Copy Resume
+  function copyActiveResume() {
+    const activeTab = document.querySelector('.tab-content.active');
+    if (activeTab) {
+      navigator.clipboard.writeText(activeTab.innerText).then(() => showToast("Resume copied to clipboard!"));
+    }
+  }
+
+  // Message Generator
+  let currentPitch = "";
+  function generateMessage() {
+    const company = document.getElementById('genCompany').value.trim();
+    const title = document.getElementById('genTitle').value.trim();
+    const jobId = document.getElementById('genJobId').value.trim();
+    const recruiter = document.getElementById('genRecruiter').value.trim();
+
+    currentPitch = `Subject: Application: ${title} (Req ID: ${jobId}) - Aditya Mehra
+
+Hi ${recruiter},
+
+I am writing to express my strong interest in the ${title} position (Req ID: ${jobId}) at ${company} in Bengaluru.
+
+With a track record delivering 300+ live commercial projects, managing mission-critical operations at AERO India 2025 (100k+ attendees, strict Ministry of Defence security, 0% asset loss), and maintaining 99%+ QA accuracy for robotics data pipelines at Instawork, I bring proven operational discipline, vendor SLA governance, and 15–20% procurement cost reduction.
+
+Key Operational Highlights:
+• Commercial Leadership: 300+ projects delivered (Tata Communications, Puma India, VH1 Supersonic) with 30%+ client retention.
+• Vendor & SLA Governance: Structured direct rate cards and enforced milestone SLAs across 20+ suppliers.
+• High-Growth Drive: BBA in International Business (Dayananda Sagar University) with formal executive commendation for commercial performance.
+
+My resume is attached, and I am available for immediate technical and operational screening.
+
+LinkedIn: https://linkedin.com/in/aditya-mehra-b8644b326
+Phone: +91 7003456624 | Email: adityamehra799@gmail.com
+
+Looking forward to hearing from your team!
+
+Best regards,
+Aditya Mehra`;
+
+    document.getElementById('messageOutput').innerText = currentPitch;
+    document.getElementById('outputContainer').style.display = 'block';
+  }
+
+  function copyMessage() {
+    if (currentPitch) {
+      navigator.clipboard.writeText(currentPitch).then(() => showToast("Pitch copied to clipboard!"));
+    }
+  }
+
+  function openGmail() {
+    const title = document.getElementById('genTitle').value.trim();
+    const jobId = document.getElementById('genJobId').value.trim();
+    const subject = encodeURIComponent(`Application: ${title} (Req ID: ${jobId}) - Aditya Mehra`);
+    const body = encodeURIComponent(currentPitch);
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`, '_blank');
+  }
+
+  // Salary Calculator
+  function updateSalary() {
+    const lpa = parseInt(document.getElementById('ctcSlider').value);
+    document.getElementById('ctcLabel').innerText = `₹${lpa},00,000 (${lpa} LPA)`;
+    document.getElementById('resCtc').innerText = `₹${lpa}.0 L`;
+
+    // Monthly Math (approx New Tax Regime)
+    const annualFixed = lpa * 100000;
+    const monthlyGross = annualFixed / 12;
+    
+    // Tax slabs (New Tax Regime approx)
+    let tax = 0;
+    if (annualFixed > 1500000) {
+      tax = (annualFixed - 1500000) * 0.30 + 150000;
+    } else if (annualFixed > 1200000) {
+      tax = (annualFixed - 1200000) * 0.20 + 90000;
+    } else if (annualFixed > 900000) {
+      tax = (annualFixed - 900000) * 0.15 + 45000;
+    } else if (annualFixed > 600000) {
+      tax = (annualFixed - 600000) * 0.10 + 15000;
+    } else if (annualFixed > 300000) {
+      tax = (annualFixed - 300000) * 0.05;
+    }
+    const monthlyTax = tax / 12;
+    const monthlyEpf = Math.min(monthlyGross * 0.06, 15000);
+    const monthlyInHand = Math.round(monthlyGross - monthlyTax - monthlyEpf - 200);
+
+    document.getElementById('resMonthly').innerText = `₹${monthlyInHand.toLocaleString('en-IN')}`;
+    document.getElementById('resTax').innerText = `₹${Math.round(monthlyTax).toLocaleString('en-IN')}`;
+  }
+</script>
+
+</body>
+</html>

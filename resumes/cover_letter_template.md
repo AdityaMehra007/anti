@@ -1,5 +1,5 @@
 [Your Name / Aditya Mehra]  
-[Your Phone Number / +91 7003456624] | [Your Email / adityamehra007@gmail.com] | Bengaluru, India  
+[Your Phone Number / +91 7003456624] | [Your Email / adityamehra799@gmail.com] | Bengaluru, India  
 [Your LinkedIn Profile URL]  
 
 [Date]  

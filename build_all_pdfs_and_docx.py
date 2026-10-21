@@ -69,7 +69,7 @@ def create_resume_docx(pkg_dir, manifest, skills):
     p_c.paragraph_format.space_after = Pt(4)
     p_c.paragraph_format.space_before = Pt(0)
     p_c.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_c = p_c.add_run(f"Bangalore, India | adityamehra007@gmail.com | +91-7003456624 | Open to Relocation ({manifest['locations']})")
+    r_c = p_c.add_run(f"Bangalore, India | adityamehra799@gmail.com | +91-7003456624 | Open to Relocation ({manifest['locations']})")
     r_c.font.name = "Calibri"
     r_c.font.size = Pt(9)
     r_c.font.color.rgb = RGBColor(71, 85, 105)
@@ -162,7 +162,7 @@ def create_cover_letter_docx(pkg_dir, manifest, skills, mission):
     r_h.font.bold = True
     r_h.font.size = Pt(14)
     r_h.font.color.rgb = RGBColor(15, 23, 42)
-    r_sub = p_h.add_run(f"Bangalore, India | adityamehra007@gmail.com | +91-7003456624 | Open to Relocation ({manifest['locations']})")
+    r_sub = p_h.add_run(f"Bangalore, India | adityamehra799@gmail.com | +91-7003456624 | Open to Relocation ({manifest['locations']})")
     r_sub.font.size = Pt(9.5)
     r_sub.font.color.rgb = RGBColor(71, 85, 105)
 

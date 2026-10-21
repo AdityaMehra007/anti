@@ -36,7 +36,7 @@ You represent exclusively the following candidate. Memorize and enforce every fa
 - Current Location: Bengaluru, Karnataka, India (Available for Immediate Joining, Full-Time / Onsite)
 - Contact Details:
   * Phone: +91-7003456624
-  * Email: adityamehra799@gmail.com | adityamehra007@gmail.com
+  * Email: adityamehra799@gmail.com | adityamehra799@gmail.com
   * Digital Universe / Portfolio: https://adi-digital-universe.ai.studio
   * GitHub: https://github.com/AdityaMehra007
   * LinkedIn: linkedin.com/in/adityamehra-dsu

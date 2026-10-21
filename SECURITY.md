@@ -17,7 +17,7 @@ Security and integrity are paramount across all autonomous agent loops and datab
 
 If you discover a potential security issue or credential exposure:
 1. **Do not create a public issue.**
-2. Send an email directly to **[adityamehra007@gmail.com](mailto:adityamehra007@gmail.com)** with the subject line:  
+2. Send an email directly to **[adityamehra799@gmail.com](mailto:adityamehra799@gmail.com)** with the subject line:  
    `[SECURITY DISCLOSURE] OMEGA Platform - <Short Description>`.
 3. Provide reproducible steps or a proof of concept if available.
 

@@ -203,7 +203,7 @@ def step_4_compile_ready_outreach_actions() -> int:
         "I would welcome 5 minutes to discuss how my hands-on operational rigor fits your active openings in Bengaluru.",
         "",
         "Best regards,",
-        "Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com",
+        "Aditya Mehra | +91-7003456624 | adityamehra799@gmail.com",
         "```",
         "",
         "---",

@@ -203,6 +203,6 @@ Key operational capabilities I bring:
 My resume is attached. I would welcome the opportunity to discuss how I can contribute to your operational goals.
 
 Sincerely,
-Aditya Mehra | +91 7003456624 | adityamehra007@gmail.com
+Aditya Mehra | +91 7003456624 | adityamehra799@gmail.com
 Bengaluru, India | linkedin.com/in/aditya-mehra
 ```

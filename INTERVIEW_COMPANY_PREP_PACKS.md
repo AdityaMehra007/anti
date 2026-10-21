@@ -2,7 +2,7 @@
 
 **Autonomous AI Job Search, Career Intelligence & Operations System (ADI CAREER OS)**  
 **Candidate Ground Truth**: Aditya Mehra | BBA in International Business (Dayananda Sagar University '26) | Bengaluru  
-**Canonical Contact**: adityamehra007@gmail.com | +91 7003456624  
+**Canonical Contact**: adityamehra799@gmail.com | +91 7003456624  
 **Verified Evidence Ledger**:  
 1. **Aero India 2025 (Salt in My Coca)**: Yelahanka Air Force Station, 100,000+ attendees, 100% on-time opening, 0% inventory shrinkage, ?12.5L dual-reconciled ledger.  
 2. **Brand Activations (Tata Communications, Puma Global, Dyson)**: 300+ live event and operational deployments, vendor SLA penalty governance.  

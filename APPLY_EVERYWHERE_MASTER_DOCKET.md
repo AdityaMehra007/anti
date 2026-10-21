@@ -216,7 +216,7 @@ Aditya Mehra
 
 ```markdown
 ADITYA MEHRA
-Bengaluru, India | +91 7003456624 | adityamehra007@gmail.com
+Bengaluru, India | +91 7003456624 | adityamehra799@gmail.com
 Portfolio: adi-digital-universe.ai.studio | LinkedIn: linkedin.com/in/aditya-mehra | GitHub: github.com/AdityaMehra007
 
 PROFILE

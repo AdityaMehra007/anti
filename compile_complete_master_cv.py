@@ -1,0 +1,750 @@
+"""
+compile_complete_master_cv.py
+Generates the ULTIMATE COMPLETE MASTER CV for Aditya Mehra covering EVERYTHING:
+- Every past experience: Pencil Mark, Instawork, Aero India 2025, TRILOGY & 300+ Live Events,
+  Mehra's Kitchen, Family Retail Enterprise, NGO Community Volunteering.
+- All technical projects: Job Portal Automation & ADI Digital Universe Web Studio.
+- Complete 6-domain competency matrix (P2P, Procurement, KYC/QA, Supply Chain, Finance, Tech).
+- All 5 Certifications & Honors.
+- Full multilingual fluency.
+- Beautiful, strictly 2-Page A4 Executive Master Dossier.
+"""
+
+import os
+import subprocess
+import re
+import docx
+from docx.shared import Inches, Pt, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+
+ROOT_DIR = "e:\\anti"
+OUTPUT_DIR_PDF = os.path.join(ROOT_DIR, "resumes_pdf")
+OUTPUT_DIR_HTML = os.path.join(ROOT_DIR, "resumes")
+os.makedirs(OUTPUT_DIR_PDF, exist_ok=True)
+os.makedirs(OUTPUT_DIR_HTML, exist_ok=True)
+
+CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+if not os.path.exists(CHROME_PATH):
+    CHROME_PATH = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aditya Mehra - Complete Master Operations CV</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm 12mm 14mm;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #0f172a;
+    background: #ffffff;
+    line-height: 1.30;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 12mm 15mm;
+    margin: 0 auto;
+    background: #ffffff;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 5px;
+    margin-bottom: 6px;
+  }
+  .name {
+    font-size: 21pt;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    color: #0f172a;
+    text-transform: uppercase;
+  }
+  .subtitle {
+    font-size: 9.6pt;
+    font-weight: 700;
+    color: #1d4ed8;
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .contact {
+    font-size: 8.4pt;
+    color: #475569;
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-weight: 500;
+  }
+  .contact a {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .badge {
+    margin-top: 3.5px;
+    font-size: 7.8pt;
+    font-weight: 700;
+    color: #065f46;
+    background: #ecfdf5;
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    border: 1px solid #a7f3d0;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 9.4pt;
+    font-weight: 800;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 1.5px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+  }
+  
+  /* Content Blocks */
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5px;
+  }
+  .title {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 8.8pt;
+  }
+  .sub {
+    color: #1d4ed8;
+    font-weight: 600;
+    font-size: 8.4pt;
+  }
+  .date {
+    font-size: 8.0pt;
+    color: #64748b;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .text {
+    font-size: 8.4pt;
+    color: #334155;
+    text-align: justify;
+    line-height: 1.30;
+  }
+  ul {
+    padding-left: 15px;
+    margin-bottom: 3.5px;
+  }
+  li {
+    font-size: 8.1pt;
+    color: #334155;
+    margin-bottom: 1.5px;
+    line-height: 1.26;
+  }
+  li strong {
+    color: #0f172a;
+  }
+
+  /* Skills Table */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.1pt;
+    margin-bottom: 3px;
+  }
+  .skills-table td {
+    padding: 1.5px 0;
+    vertical-align: top;
+  }
+  .skill-label {
+    font-weight: 700;
+    color: #0f172a;
+    width: 27%;
+    white-space: nowrap;
+  }
+  .skill-val {
+    color: #334155;
+    width: 73%;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { padding: 0; min-height: auto; }
+    .print-btn { display: none; }
+  }
+  @media screen {
+    body { background: #f1f5f9; padding: 25px; }
+    .page {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 4px;
+      margin-bottom: 25px;
+    }
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1d4ed8;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      z-index: 100;
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<!-- ================= PAGE 1 ================= -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="name">ADITYA MEHRA</div>
+    <div class="subtitle">BBA Graduate (Batch of 2026) // Business Operations, Procurement & Digital Systems Associate</div>
+    <div class="contact">
+      <span>Bengaluru, Karnataka, India</span>
+      <span>•</span>
+      <span>+91 7003456624</span>
+      <span>•</span>
+      <span><a href="mailto:adityamehra799@gmail.com">adityamehra799@gmail.com</a></span>
+      <span>•</span>
+      <span><a href="https://www.linkedin.com/in/aditya-mehra" target="_blank">linkedin.com/in/aditya-mehra</a></span>
+      <span>•</span>
+      <span><a href="https://github.com/AdityaMehra007" target="_blank">github.com/AdityaMehra007</a></span>
+    </div>
+    <div class="badge">
+      Fresher (0–1 Yrs) • High-Precision Execution & Diligent Work Ethic • Immediate Availability (0 Days Notice) • 24/7 Rotational Shifts Adaptable • Bengaluru Resident
+    </div>
+  </div>
+
+  <!-- EXECUTIVE PROFILE -->
+  <div class="section-title">Executive Profile & Career Summary</div>
+  <p class="text">
+    Results-driven and detail-oriented <strong>2026 BBA graduate in International Business from Dayananda Sagar University</strong>, targeting the <strong>Operations New Associate / Procurement Support & Procure-to-Pay (P2P) Associate</strong> position at Accenture Operations. Offers hands-on operational acumen spanning purchase order (PO) administration, vendor invoice reconciliation, regulatory document verification, and high-density inventory governance. Proven record of strict Standard Operating Procedure (SOP) compliance, attaining an audited <strong>99.4% data verification precision</strong> and <strong>100% financial balancing</strong> across multi-channel transaction ledgers. Proficient in Advanced MS Excel (XLOOKUP, Pivot Tables, SUMIFS, Reconciliation Models) and Python automation. Bengaluru resident with <strong>immediate availability (0 days notice)</strong> and <strong>complete flexibility across 24/7 rotational shifts and night operations</strong>.
+  </p>
+
+  <!-- EDUCATION -->
+  <div class="section-title">Education</div>
+  <div class="row">
+    <div>
+      <span class="title">Bachelor of Business Administration (BBA) — International Business</span><br>
+      <span class="sub">Dayananda Sagar University (DSU), Bengaluru, Karnataka</span>
+    </div>
+    <div class="date">2023 – 2026 | Fresh Graduate (Immediate Availability)</div>
+  </div>
+
+  <!-- COMPREHENSIVE CORE COMPETENCIES -->
+  <div class="section-title">Comprehensive Core Competencies</div>
+  <table class="skills-table">
+    <tr>
+      <td class="skill-label">Procure-to-Pay (P2P) & Invoicing:</td>
+      <td class="skill-val">Three-Way Matching Concepts (PO / GRN / Invoice), Invoice Processing - P1, Hold Code & Discrepancy Clearance, Early Discount Capture, Month-End Support.</td>
+    </tr>
+    <tr>
+      <td class="skill-label">Procurement & PO Administration:</td>
+      <td class="skill-val">Procurement Support - P1, Purchase Order (PO) Lifecycle Tracking, PR-to-PO Follow-ups, Supplier Quotation Evaluation, Pricing Comparison Sheets.</td>
+    </tr>
+    <tr>
+      <td class="skill-label">Quality, KYC & Verification QA:</td>
+      <td class="skill-val">Customer Identification Program (CIP), Document Verification Checklists, Data Quality Auditing (99.4% Audited Precision), Strict SOP Adherence.</td>
+    </tr>
+    <tr>
+      <td class="skill-label">Supply Chain & Inventory Governance:</td>
+      <td class="skill-val">Dual-Custody Stock Counting, 0.0% Inventory Shrinkage Governance, Goods Receipt Inspection, Warehouse Replenishment, Stock Auditing.</td>
+    </tr>
+    <tr>
+      <td class="skill-label">Computer & Software Systems:</td>
+      <td class="skill-val">MS Excel (VLOOKUP, XLOOKUP, Pivot Tables, SUMIFS, Power Query, Data Validation), Google Workspace, MS Office Suite, Python Automation Basics.</td>
+    </tr>
+    <tr>
+      <td class="skill-label">Operational Execution & Reliability:</td>
+      <td class="skill-val">High-Throughput Queue Triage, Cross-Functional Coordination, Vendor SLA Enforcement (15%–20% Cost Optimization), 100% 24/7 Rotational Shift Adaptability.</td>
+    </tr>
+  </table>
+
+  <!-- PRIMARY CORPORATE EXPERIENCES -->
+  <div class="section-title">Corporate & Operational Experience</div>
+
+  <!-- Role 1: Pencil Mark -->
+  <div class="row">
+    <div><span class="title">Commercial & Procurement Operations Intern</span> — <span class="sub">Pencil Mark Interior Solutions LLP</span></div>
+    <div class="date">Jul 2024 – Aug 2025 | Bengaluru, India</div>
+  </div>
+  <ul>
+    <li>Engineered supplier quotation comparison models and pricing matrices in MS Excel, empowering commercial estimators to analyze landed unit costs and evaluate vendor competitiveness.</li>
+    <li>Administered end-to-end Purchase Order (PO) lifecycles from issuance to delivery confirmation, cross-referencing vendor delivery challans against contract milestones to eliminate billing exceptions.</li>
+    <li>Collaborated with senior procurement leads in formulating client cost estimations and commercial bids, directly facilitating the successful closure of <strong>₹1.5L+ in corporate interior contracts</strong>.</li>
+    <li>Conferred formal <strong>Written Management Commendation for Excellence</strong> by executive leadership for operational diligence, swift vendor follow-ups, and commercial execution.</li>
+  </ul>
+
+  <!-- Role 2: Instawork -->
+  <div class="row">
+    <div><span class="title">Operations & Data Verification Intern</span> — <span class="sub">Instawork Services India Pvt. Ltd.</span></div>
+    <div class="date">2025 | Bengaluru, India</div>
+  </div>
+  <ul>
+    <li>Audited high-throughput partner onboarding records and commercial identity documentation against stringent compliance frameworks, maintaining an audited <strong>99.4% data precision rating</strong>.</li>
+    <li>Executed daily queue triage under rigorous Service Level Agreements (SLAs), collaborating with team members to <strong>reduce verification cycle time by 12%</strong>.</li>
+    <li>Validated multi-modal dataset annotations for computer vision and robotics engineering pipelines, enforcing standard operating procedures (SOPs) and data integrity protocols.</li>
+  </ul>
+
+  <!-- Role 3: Aero India 2025 -->
+  <div class="row">
+    <div><span class="title">Exhibition Operations & Logistics Lead</span> — <span class="sub">Salt in My Cocoa (AERO India 2025)</span></div>
+    <div class="date">Feb 2025 | Yelahanka Air Force Station, Bengaluru</div>
+  </div>
+  <ul>
+    <li>Directed end-to-end inventory intake, physical goods receipt notes (GRN), and daily replenishment logistics catering to <strong>100,000+ international and defense attendees</strong> under strict security protocols.</li>
+    <li>Implemented rigorous dual-custody physical stock audits across shift transitions to maintain a <strong>0.0% inventory shrinkage benchmark</strong> throughout the exposition.</li>
+    <li>Conducted comprehensive daily 3-way financial reconciliations across digital POS logs, merchant UPI settlement reports, and physical cash drawers with <strong>100% balancing and zero variance</strong>.</li>
+  </ul>
+
+</div>
+
+<!-- ================= PAGE 2 ================= -->
+<div class="page">
+
+  <!-- Role 4: TRILOGY & 300+ Live Events -->
+  <div class="section-title">Commercial Event Operations & Vendor Leadership</div>
+  <div class="row">
+    <div><span class="title">Event Operations Coordinator & Independent Production Lead</span> — <span class="sub">TRILOGY & Commercial Events</span></div>
+    <div class="date">2019 – 2026 | Bengaluru, India</div>
+  </div>
+  <ul>
+    <li>Orchestrated on-ground production logistics, technical crew riders, and artist hospitality for the marquee <strong>TRILOGY concert at Bangalore Club (Jan 2026)</strong>, achieving flawless stage execution with zero downtime.</li>
+    <li>Supervised field operations, vendor coordination, and stage deliverables across <strong>300+ corporate conferences, exhibitions, and brand activations</strong> for premier clients including <strong>Tata Communications</strong>, <strong>Puma India</strong>, and <strong>VH1 Supersonic</strong>.</li>
+    <li>Governed supplier Service Level Agreements (SLAs) across audiovisual, staging, and logistics partners, achieving <strong>15%–20% procurement savings</strong> via competitive bidding and contract negotiations.</li>
+    <li>Maintained a <strong>30%+ client re-engagement rate</strong> through meticulous budget administration, transparent cost reporting, and agile contingency management.</li>
+  </ul>
+
+  <!-- Role 5: Mehra's Kitchen & Family Commercial Enterprise -->
+  <div class="section-title">Retail, Food Operations & Cash Management</div>
+  <div class="row">
+    <div><span class="title">Retail Store & Food Operations Associate</span> — <span class="sub">Family Commercial Enterprise & Mehra's Kitchen</span></div>
+    <div class="date">2018 – 2025 | Kolkata & Bengaluru</div>
+  </div>
+  <ul>
+    <li>Managed retail counter operations, digital POS register transactions, daily inventory replenishment, and customer relations within a fast-paced commercial retail enterprise.</li>
+    <li>Directed procurement and operational workflows for commercial culinary ventures, managing bulk raw material sourcing, supplier price negotiations, landed ingredient costing, and working capital cycles.</li>
+    <li>Ensured <strong>100% ledger integrity</strong> through systematic daily reconciliations of digital card settlements, UPI merchant transfers, and physical cash deposits with zero discrepancy.</li>
+  </ul>
+
+  <!-- Role 6: Community Operations Volunteer -->
+  <div class="section-title">Community & Social Welfare Operations</div>
+  <div class="row">
+    <div><span class="title">Community Operations Volunteer</span> — <span class="sub">NGO & Social Welfare Initiative</span></div>
+    <div class="date">2024 | Bengaluru, India</div>
+  </div>
+  <ul>
+    <li>Administered participant intake, identity credential verification, and document auditing adhering to organizational governance standards, maintaining real-time audit logs in Google Sheets.</li>
+    <li>Coordinated volunteer shift rosters, crowd flow logistics, and material distribution schedules, facilitating seamless community outreach operations for multi-hundred attendee initiatives.</li>
+  </ul>
+
+  <!-- ACADEMIC & TECHNICAL PROJECTS -->
+  <div class="section-title">Academic & Self-Taught Technical Projects</div>
+
+  <div class="row">
+    <div><span class="title">Job Portal Automation & Spreadsheet Tracker</span> — <span class="sub">Student Technical Initiative</span></div>
+    <div class="date">2025 – 2026 | Python & Spreadsheets</div>
+  </div>
+  <ul>
+    <li>Engineered an automated Python data extraction tool to scrape, parse, and categorize corporate job requisitions into structured Excel databases, eliminating manual workflow redundancies and saving 15+ hours weekly.</li>
+  </ul>
+
+  <div class="row">
+    <div><span class="title">ADI Digital Universe — Web Showcase & Interactive Applications</span> — <span class="sub">Personal Tech Portfolio</span></div>
+    <div class="date">2025 – 2026 | Web Tools & AI Workflows</div>
+  </div>
+  <ul>
+    <li>Designed and deployed an interactive digital portfolio (<a href="https://adi-digital-universe.ai.studio" target="_blank">adi-digital-universe.ai.studio</a>) and open-source repositories on GitHub (<a href="https://github.com/AdityaMehra007" target="_blank">github.com/AdityaMehra007</a>) demonstrating modern AI tool fluency and workflow automation.</li>
+  </ul>
+
+  <!-- CERTIFICATIONS & HONORS -->
+  <div class="section-title">Certifications & Honors</div>
+  <ul style="list-style-type: disc;">
+    <li><strong>Written Management Commendation for Excellence:</strong> Awarded by Pencil Mark Interior Solutions LLP for outstanding commercial and operations performance (2025).</li>
+    <li><strong>Google Digital Marketing Fundamentals Professional Certificate:</strong> Google (2024).</li>
+    <li><strong>Service Marketing: A Practical Approach:</strong> NPTEL, Indian Institute of Technology (IIT) Kharagpur (2025).</li>
+    <li><strong>Generative AI Mastermind:</strong> Outskill (2025).</li>
+    <li><strong>AI Tools & ChatGPT for Business Productivity:</strong> be10x (2025).</li>
+  </ul>
+
+  <!-- LANGUAGES & ADDITIONAL DETAILS -->
+  <div class="section-title">Languages & Workplace Details</div>
+  <p class="text">
+    <strong>Languages:</strong> English (Fluent Professional Proficiency), Hindi (Native / Bilingual), Punjabi (Native), Bengali (Proficient).<br>
+    <strong>Availability & Shifts:</strong> Immediate Availability (0 Days Notice) • 100% Prepared & Adaptable for 24/7 Rotational & Night Shifts • Resident of Bengaluru, Karnataka.
+  </p>
+
+</div>
+
+</body>
+</html>
+"""
+
+html_path = os.path.join(OUTPUT_DIR_HTML, "Aditya_Mehra_Complete_Master_CV.html")
+pdf_path = os.path.join(OUTPUT_DIR_PDF, "Aditya_Mehra_Complete_Master_CV.pdf")
+root_pdf = os.path.join(ROOT_DIR, "Aditya_Mehra_Complete_Master_CV.pdf")
+root_docx = os.path.join(ROOT_DIR, "Aditya_Mehra_Complete_Master_CV.docx")
+docx_path = os.path.join(OUTPUT_DIR_HTML, "Aditya_Mehra_Complete_Master_CV.docx")
+
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+# Render HTML to PDF via Chrome
+cmd = [
+    CHROME_PATH,
+    "--headless=new",
+    "--disable-gpu",
+    "--run-all-compositor-stages-before-draw",
+    "--no-pdf-header-footer",
+    f"--print-to-pdf={pdf_path}",
+    html_path
+]
+subprocess.run(cmd, check=True)
+
+with open(pdf_path, "rb") as f_in:
+    pdf_bytes = f_in.read()
+    with open(root_pdf, "wb") as f_out:
+        f_out.write(pdf_bytes)
+
+print(f"Generated Complete Master PDF: {root_pdf} (Size: {len(pdf_bytes)} bytes)")
+
+# ==========================================
+# GENERATE COMPLETE NATIVE DOCX
+# ==========================================
+doc = docx.Document()
+
+# Margins: 0.40 in
+for section in doc.sections:
+    section.top_margin = Inches(0.40)
+    section.bottom_margin = Inches(0.40)
+    section.left_margin = Inches(0.50)
+    section.right_margin = Inches(0.50)
+    section.page_width = Inches(8.27)
+    section.page_height = Inches(11.69)
+
+C_NAVY = RGBColor(15, 23, 42)
+C_BLUE = RGBColor(29, 78, 216)
+C_SLATE = RGBColor(71, 85, 105)
+C_BODY = RGBColor(51, 65, 85)
+C_GREEN = RGBColor(6, 95, 70)
+
+def add_clean_divider(paragraph):
+    pPr = paragraph._p.get_or_add_pPr()
+    pBdr = OxmlElement('w:pBdr')
+    bottom = OxmlElement('w:bottom')
+    bottom.set(qn('w:val'), 'single')
+    bottom.set(qn('w:sz'), '4')
+    bottom.set(qn('w:space'), '1')
+    bottom.set(qn('w:color'), 'CBD5E1')
+    pBdr.append(bottom)
+    pPr.append(pBdr)
+
+# Header
+p_name = doc.add_paragraph()
+p_name.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p_name.paragraph_format.space_before = Pt(0)
+p_name.paragraph_format.space_after = Pt(1)
+r_n = p_name.add_run("ADITYA MEHRA")
+r_n.font.name = "Arial"; r_n.font.size = Pt(19); r_n.font.bold = True; r_n.font.color.rgb = C_NAVY
+
+p_sub = doc.add_paragraph()
+p_sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p_sub.paragraph_format.space_before = Pt(0)
+p_sub.paragraph_format.space_after = Pt(1.5)
+r_s = p_sub.add_run("BBA GRADUATE (BATCH OF 2026) // BUSINESS OPERATIONS, PROCUREMENT & DIGITAL SYSTEMS ASSOCIATE")
+r_s.font.name = "Arial"; r_s.font.size = Pt(8.8); r_s.font.bold = True; r_s.font.color.rgb = C_BLUE
+
+p_c = doc.add_paragraph()
+p_c.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p_c.paragraph_format.space_before = Pt(0)
+p_c.paragraph_format.space_after = Pt(1.5)
+r_c = p_c.add_run("Bengaluru, Karnataka, India  |  +91 7003456624  |  adityamehra799@gmail.com  |  linkedin.com/in/aditya-mehra  |  github.com/AdityaMehra007")
+r_c.font.name = "Arial"; r_c.font.size = Pt(8.0); r_c.font.color.rgb = C_SLATE
+
+p_b = doc.add_paragraph()
+p_b.alignment = WD_ALIGN_PARAGRAPH.CENTER
+p_b.paragraph_format.space_before = Pt(0)
+p_b.paragraph_format.space_after = Pt(3.0)
+r_b = p_b.add_run("Fresher (0-1 Yrs) | High-Precision Execution & Diligent Work Ethic | Immediate Availability (0 Days Notice) | 24/7 Rotational Shifts Adaptable | Bengaluru Resident")
+r_b.font.name = "Arial"; r_b.font.size = Pt(7.6); r_b.font.bold = True; r_b.font.color.rgb = C_GREEN
+
+def add_sec(title):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(5.0)
+    p.paragraph_format.space_after = Pt(1.5)
+    p.paragraph_format.keep_with_next = True
+    r = p.add_run(title.upper())
+    r.font.name = "Arial"; r.font.size = Pt(9.0); r.font.bold = True; r.font.color.rgb = C_NAVY
+    add_clean_divider(p)
+
+# Executive Profile
+add_sec("Executive Profile & Career Summary")
+p_sm = doc.add_paragraph()
+p_sm.paragraph_format.space_before = Pt(1)
+p_sm.paragraph_format.space_after = Pt(2)
+p_sm.paragraph_format.line_spacing = 1.15
+r_sm = p_sm.add_run(
+    "Results-driven and detail-oriented 2026 BBA graduate in International Business from Dayananda Sagar University, targeting the Operations New Associate / Procurement Support & Procure-to-Pay (P2P) Associate position at Accenture Operations. Offers hands-on operational acumen spanning purchase order (PO) administration, vendor invoice reconciliation, regulatory document verification, and high-density inventory governance. Proven record of strict Standard Operating Procedure (SOP) compliance, attaining an audited 99.4% data verification precision and 100% financial balancing across multi-channel transaction ledgers. Proficient in Advanced MS Excel (XLOOKUP, Pivot Tables, SUMIFS, Reconciliation Models) and Python automation. Bengaluru resident with immediate availability (0 days notice) and complete flexibility across 24/7 rotational shifts and night operations."
+)
+r_sm.font.name = "Arial"; r_sm.font.size = Pt(8.2); r_sm.font.color.rgb = C_BODY
+
+# Education
+add_sec("Education")
+p_ed = doc.add_paragraph()
+p_ed.paragraph_format.space_before = Pt(1)
+p_ed.paragraph_format.space_after = Pt(1)
+r_e1 = p_ed.add_run("Bachelor of Business Administration (BBA) - International Business\n")
+r_e1.font.name = "Arial"; r_e1.font.size = Pt(8.6); r_e1.font.bold = True; r_e1.font.color.rgb = C_NAVY
+r_e2 = p_ed.add_run("Dayananda Sagar University (DSU), Bengaluru, Karnataka  |  2023 - 2026 | Fresh Graduate (Immediate Availability)")
+r_e2.font.name = "Arial"; r_e2.font.size = Pt(8.0); r_e2.font.bold = True; r_e2.font.color.rgb = C_BLUE
+
+# Comprehensive Competencies
+add_sec("Comprehensive Core Competencies")
+skills_list = [
+    ("Procure-to-Pay (P2P) & Invoicing", "Three-Way Matching Concepts (PO / GRN / Invoice), Invoice Processing - P1, Hold Code & Discrepancy Clearance, Early Discount Capture, Month-End Support."),
+    ("Procurement & PO Administration", "Procurement Support - P1, Purchase Order (PO) Lifecycle Tracking, PR-to-PO Follow-ups, Supplier Quotation Evaluation, Pricing Comparison Sheets."),
+    ("Quality, KYC & Verification QA", "Customer Identification Program (CIP), Document Verification Checklists, Data Quality Auditing (99.4% Audited Precision), Strict SOP Adherence."),
+    ("Supply Chain & Inventory Governance", "Dual-Custody Stock Counting, 0.0% Inventory Shrinkage Governance, Goods Receipt Inspection, Warehouse Replenishment, Stock Auditing."),
+    ("Computer & Software Systems", "MS Excel (VLOOKUP, XLOOKUP, Pivot Tables, SUMIFS, Power Query, Data Validation), Google Workspace, MS Office Suite, Python Automation Basics."),
+    ("Operational Execution & Reliability", "High-Throughput Queue Triage, Cross-Functional Coordination, Vendor SLA Enforcement (15%-20% Cost Optimization), 100% 24/7 Rotational Shift Adaptability.")
+]
+for cat, txt in skills_list:
+    p_s = doc.add_paragraph()
+    p_s.paragraph_format.space_before = Pt(0)
+    p_s.paragraph_format.space_after = Pt(1.0)
+    p_s.paragraph_format.left_indent = Inches(0.12)
+    r_1 = p_s.add_run(f"- {cat}: ")
+    r_1.font.name = "Arial"; r_1.font.size = Pt(7.8); r_1.font.bold = True; r_1.font.color.rgb = C_NAVY
+    r_2 = p_s.add_run(txt)
+    r_2.font.name = "Arial"; r_2.font.size = Pt(7.8); r_2.font.color.rgb = C_BODY
+
+# Primary Corporate Experiences
+add_sec("Corporate & Operational Experience")
+jobs_p1 = [
+    {
+        "title": "Commercial & Procurement Operations Intern - Pencil Mark Interior Solutions LLP",
+        "date": "Jul 2024 - Aug 2025 | Bengaluru, India",
+        "bullets": [
+            "Engineered supplier quotation comparison models and pricing matrices in MS Excel, empowering commercial estimators to analyze landed unit costs and evaluate vendor competitiveness.",
+            "Administered end-to-end Purchase Order (PO) lifecycles from issuance to delivery confirmation, cross-referencing vendor delivery challans against contract milestones to eliminate billing exceptions.",
+            "Collaborated with senior procurement leads in formulating client cost estimations and commercial bids, directly facilitating the successful closure of INR 1.5L+ in corporate interior contracts.",
+            "Conferred formal Written Management Commendation for Excellence by executive leadership for operational diligence, swift vendor follow-ups, and commercial execution."
+        ]
+    },
+    {
+        "title": "Operations & Data Verification Intern - Instawork Services India Pvt. Ltd.",
+        "date": "2025 | Bengaluru, India",
+        "bullets": [
+            "Audited high-throughput partner onboarding records and commercial identity documentation against stringent compliance frameworks, maintaining an audited 99.4% data precision rating.",
+            "Executed daily queue triage under rigorous Service Level Agreements (SLAs), collaborating with team members to reduce verification cycle time by 12%.",
+            "Validated multi-modal dataset annotations for computer vision and robotics engineering pipelines, enforcing standard operating procedures (SOPs) and data integrity protocols."
+        ]
+    },
+    {
+        "title": "Exhibition Operations & Logistics Lead - Salt in My Cocoa (AERO India 2025)",
+        "date": "Feb 2025 | Yelahanka Air Force Station, Bengaluru",
+        "bullets": [
+            "Directed end-to-end inventory intake, physical goods receipt notes (GRN), and daily replenishment logistics catering to 100,000+ international and defense attendees under strict security protocols.",
+            "Implemented rigorous dual-custody physical stock audits across shift transitions to maintain a 0.0% inventory shrinkage benchmark throughout the exposition.",
+            "Conducted comprehensive daily 3-way financial reconciliations across digital POS logs, merchant UPI settlement reports, and physical cash drawers with 100% balancing and zero variance."
+        ]
+    }
+]
+
+for j in jobs_p1:
+    p_j = doc.add_paragraph()
+    p_j.paragraph_format.space_before = Pt(2.0)
+    p_j.paragraph_format.space_after = Pt(0.5)
+    p_j.paragraph_format.keep_with_next = True
+    r_j1 = p_j.add_run(f"{j['title']}\n")
+    r_j1.font.name = "Arial"; r_j1.font.size = Pt(8.3); r_j1.font.bold = True; r_j1.font.color.rgb = C_NAVY
+    r_j2 = p_j.add_run(j['date'])
+    r_j2.font.name = "Arial"; r_j2.font.size = Pt(7.5); r_j2.font.color.rgb = C_SLATE
+
+    for b in j["bullets"]:
+        p_b_item = doc.add_paragraph()
+        p_b_item.paragraph_format.space_before = Pt(0)
+        p_b_item.paragraph_format.space_after = Pt(0.6)
+        p_b_item.paragraph_format.left_indent = Inches(0.14)
+        p_b_item.paragraph_format.line_spacing = 1.15
+        r_bullet = p_b_item.add_run(f"- {b}")
+        r_bullet.font.name = "Arial"; r_bullet.font.size = Pt(7.8); r_bullet.font.color.rgb = C_BODY
+
+# Page Break for clean 2-page flow
+doc.add_page_break()
+
+# Commercial Event Operations & Leadership
+add_sec("Commercial Event Operations & Vendor Leadership")
+p_ev = doc.add_paragraph()
+p_ev.paragraph_format.space_before = Pt(1.5)
+p_ev.paragraph_format.space_after = Pt(0.5)
+p_ev.paragraph_format.keep_with_next = True
+r_ev1 = p_ev.add_run("Event Operations Coordinator & Independent Production Lead - TRILOGY & Commercial Events\n")
+r_ev1.font.name = "Arial"; r_ev1.font.size = Pt(8.3); r_ev1.font.bold = True; r_ev1.font.color.rgb = C_NAVY
+r_ev2 = p_ev.add_run("2019 - 2026 | Bengaluru, India")
+r_ev2.font.name = "Arial"; r_ev2.font.size = Pt(7.5); r_ev2.font.color.rgb = C_SLATE
+
+ev_bullets = [
+    "Orchestrated on-ground production logistics, technical crew riders, and artist hospitality for the marquee TRILOGY concert at Bangalore Club (Jan 2026), achieving flawless stage execution with zero downtime.",
+    "Supervised field operations, vendor coordination, and stage deliverables across 300+ corporate conferences, exhibitions, and brand activations for premier clients including Tata Communications, Puma India, and VH1 Supersonic.",
+    "Governed supplier Service Level Agreements (SLAs) across audiovisual, staging, and logistics partners, achieving 15%-20% procurement savings via competitive bidding and contract negotiations.",
+    "Maintained a 30%+ client re-engagement rate through meticulous budget administration, transparent cost reporting, and agile contingency management."
+]
+for b in ev_bullets:
+    p_b_item = doc.add_paragraph()
+    p_b_item.paragraph_format.space_before = Pt(0)
+    p_b_item.paragraph_format.space_after = Pt(0.6)
+    p_b_item.paragraph_format.left_indent = Inches(0.14)
+    p_b_item.paragraph_format.line_spacing = 1.15
+    r_bullet = p_b_item.add_run(f"- {b}")
+    r_bullet.font.name = "Arial"; r_bullet.font.size = Pt(7.8); r_bullet.font.color.rgb = C_BODY
+
+# Retail & Food Operations
+add_sec("Retail, Food Operations & Cash Management")
+p_ret = doc.add_paragraph()
+p_ret.paragraph_format.space_before = Pt(1.5)
+p_ret.paragraph_format.space_after = Pt(0.5)
+p_ret.paragraph_format.keep_with_next = True
+r_ret1 = p_ret.add_run("Retail Store & Food Operations Associate - Family Commercial Enterprise & Mehra's Kitchen\n")
+r_ret1.font.name = "Arial"; r_ret1.font.size = Pt(8.3); r_ret1.font.bold = True; r_ret1.font.color.rgb = C_NAVY
+r_ret2 = p_ret.add_run("2018 - 2025 | Kolkata & Bengaluru")
+r_ret2.font.name = "Arial"; r_ret2.font.size = Pt(7.5); r_ret2.font.color.rgb = C_SLATE
+
+ret_bullets = [
+    "Managed retail counter operations, digital POS register transactions, daily inventory replenishment, and customer relations within a fast-paced commercial retail enterprise.",
+    "Directed procurement and operational workflows for commercial culinary ventures, managing bulk raw material sourcing, supplier price negotiations, landed ingredient costing, and working capital cycles.",
+    "Ensured 100% ledger integrity through systematic daily reconciliations of digital card settlements, UPI merchant transfers, and physical cash deposits with zero discrepancy."
+]
+for b in ret_bullets:
+    p_b_item = doc.add_paragraph()
+    p_b_item.paragraph_format.space_before = Pt(0)
+    p_b_item.paragraph_format.space_after = Pt(0.6)
+    p_b_item.paragraph_format.left_indent = Inches(0.14)
+    p_b_item.paragraph_format.line_spacing = 1.15
+    r_bullet = p_b_item.add_run(f"- {b}")
+    r_bullet.font.name = "Arial"; r_bullet.font.size = Pt(7.8); r_bullet.font.color.rgb = C_BODY
+
+# Community Volunteering
+add_sec("Community & Social Welfare Operations")
+p_ngo = doc.add_paragraph()
+p_ngo.paragraph_format.space_before = Pt(1.5)
+p_ngo.paragraph_format.space_after = Pt(0.5)
+p_ngo.paragraph_format.keep_with_next = True
+r_ngo1 = p_ngo.add_run("Community Operations Volunteer - NGO & Social Welfare Initiative\n")
+r_ngo1.font.name = "Arial"; r_ngo1.font.size = Pt(8.3); r_ngo1.font.bold = True; r_ngo1.font.color.rgb = C_NAVY
+r_ngo2 = p_ngo.add_run("2024 | Bengaluru, India")
+r_ngo2.font.name = "Arial"; r_ngo2.font.size = Pt(7.5); r_ngo2.font.color.rgb = C_SLATE
+
+ngo_bullets = [
+    "Administered participant intake, identity credential verification, and document auditing adhering to organizational governance standards, maintaining real-time audit logs in Google Sheets.",
+    "Coordinated volunteer shift rosters, crowd flow logistics, and material distribution schedules, facilitating seamless community outreach operations for multi-hundred attendee initiatives."
+]
+for b in ngo_bullets:
+    p_b_item = doc.add_paragraph()
+    p_b_item.paragraph_format.space_before = Pt(0)
+    p_b_item.paragraph_format.space_after = Pt(0.6)
+    p_b_item.paragraph_format.left_indent = Inches(0.14)
+    p_b_item.paragraph_format.line_spacing = 1.15
+    r_bullet = p_b_item.add_run(f"- {b}")
+    r_bullet.font.name = "Arial"; r_bullet.font.size = Pt(7.8); r_bullet.font.color.rgb = C_BODY
+
+# Academic & Technical Projects
+add_sec("Academic & Self-Taught Technical Projects")
+projects = [
+    {
+        "title": "Job Portal Automation & Spreadsheet Tracker - Student Technical Initiative",
+        "date": "2025 - 2026 | Python & Spreadsheets",
+        "desc": "Engineered an automated Python data extraction tool to scrape, parse, and categorize corporate job requisitions into structured Excel databases, eliminating manual workflow redundancies and saving 15+ hours weekly."
+    },
+    {
+        "title": "ADI Digital Universe - Web Showcase & Interactive Applications - Personal Tech Portfolio",
+        "date": "2025 - 2026 | Web Tools & AI Workflows",
+        "desc": "Designed and deployed an interactive digital portfolio (adi-digital-universe.ai.studio) and open-source repositories on GitHub (github.com/AdityaMehra007) demonstrating modern AI tool fluency and workflow automation."
+    }
+]
+for pr in projects:
+    p_p = doc.add_paragraph()
+    p_p.paragraph_format.space_before = Pt(1.5)
+    p_p.paragraph_format.space_after = Pt(0.4)
+    p_p.paragraph_format.keep_with_next = True
+    r_p1 = p_p.add_run(f"{pr['title']}\n")
+    r_p1.font.name = "Arial"; r_p1.font.size = Pt(8.2); r_p1.font.bold = True; r_p1.font.color.rgb = C_NAVY
+    r_p2 = p_p.add_run(pr['date'])
+    r_p2.font.name = "Arial"; r_p2.font.size = Pt(7.4); r_p2.font.color.rgb = C_SLATE
+
+    p_pd = doc.add_paragraph()
+    p_pd.paragraph_format.space_before = Pt(0)
+    p_pd.paragraph_format.space_after = Pt(0.6)
+    p_pd.paragraph_format.left_indent = Inches(0.14)
+    p_pd.paragraph_format.line_spacing = 1.15
+    r_pdesc = p_pd.add_run(f"- {pr['desc']}")
+    r_pdesc.font.name = "Arial"; r_pdesc.font.size = Pt(7.8); r_pdesc.font.color.rgb = C_BODY
+
+# Certifications & Honors
+add_sec("Certifications & Honors")
+certs = [
+    "Written Management Commendation for Excellence: Awarded by Pencil Mark Interior Solutions LLP for outstanding commercial and operations performance (2025).",
+    "Google Digital Marketing Fundamentals Professional Certificate: Google (2024).",
+    "Service Marketing: A Practical Approach: NPTEL, Indian Institute of Technology (IIT) Kharagpur (2025).",
+    "Generative AI Mastermind: Outskill (2025).",
+    "AI Tools & ChatGPT for Business Productivity: be10x (2025)."
+]
+for c in certs:
+    p_c_item = doc.add_paragraph()
+    p_c_item.paragraph_format.space_before = Pt(0)
+    p_c_item.paragraph_format.space_after = Pt(0.6)
+    p_c_item.paragraph_format.left_indent = Inches(0.14)
+    r_c_bullet = p_c_item.add_run(f"- {c}")
+    r_c_bullet.font.name = "Arial"; r_c_bullet.font.size = Pt(7.8); r_c_bullet.font.color.rgb = C_BODY
+
+# Languages & Details
+add_sec("Languages & Workplace Details")
+p_lang = doc.add_paragraph()
+p_lang.paragraph_format.space_before = Pt(1)
+p_lang.paragraph_format.space_after = Pt(1)
+r_l1 = p_lang.add_run("Languages: English (Fluent Professional Proficiency), Hindi (Native / Bilingual), Punjabi (Native), Bengali (Proficient).\n")
+r_l1.font.name = "Arial"; r_l1.font.size = Pt(7.8); r_l1.font.color.rgb = C_BODY
+r_l2 = p_lang.add_run("Availability & Shifts: Immediate Availability (0 Days Notice) | 100% Prepared & Adaptable for 24/7 Rotational & Night Shifts | Resident of Bengaluru, Karnataka.")
+r_l2.font.name = "Arial"; r_l2.font.size = Pt(7.8); r_l2.font.color.rgb = C_BODY
+
+doc.save(docx_path)
+doc.save(root_docx)
+print(f"Generated Complete Master DOCX: {root_docx} (Size: {os.path.getsize(root_docx)} bytes)")
+
+# Verify Page Count
+with open(root_pdf, "rb") as f:
+    pdf_data = f.read()
+    page_count = len(re.findall(rb'/Type\s*/Page[^s]', pdf_data))
+    print(f"Verified Complete Master PDF Page Count: {page_count} Pages")

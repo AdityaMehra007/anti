@@ -1,0 +1,786 @@
+import csv
+import json
+import os
+
+# Complete 25+ Fresher & Entry-Level MNC Programs Catalog for Aditya Mehra
+fresher_programs = [
+    {
+        "category": "Investment Banking & Finance",
+        "company": "Goldman Sachs",
+        "program_name": "New Analyst Program / Global Banking & Markets Operations",
+        "job_id": "4452387165",
+        "role_title": "Operations Analyst - IB Ops Client Onboarding & Settlements",
+        "portal_type": "Goldman Sachs Careers / Workday Internal Referral",
+        "portal_url": "https://www.goldmansachs.com/careers/students/programs/new-analyst-program.html",
+        "job_url": "http://www.linkedin.com/jobs/view/4452387165",
+        "compensation": "₹16L - ₹24 LPA (Full Time) / ₹75k - ₹1.2L/month (Internship)",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates (BBA / B.Com / B.Tech / MBA)",
+        "key_skills": "Client onboarding, trade finance, operational compliance, vendor SLA management",
+        "matched_connections": ["Syed Sumbul Shahbaz (Senior Exec HR)", "Amisha Jat (Senior Ops Analyst)", "Nikita Sharma (Associate)", "Sejal Dixit (Analyst)"],
+        "resume_file": "Aditya_Mehra_Resume_005_goldman_sachs.pdf",
+        "feel_good_hook": "Praising Goldman Sachs' uncompromising standards of execution, citing Aditya's zero-shrinkage record at AERO INDIA 2025, and providing pre-packaged candidate data so referral takes under 60 seconds."
+    },
+    {
+        "category": "Investment Banking & Finance",
+        "company": "JPMorganChase",
+        "program_name": "Corporate & Investment Bank (CIB) Operations Analyst / SEP",
+        "job_id": "4440836681",
+        "role_title": "Data Management Associate / Operations Analyst",
+        "portal_type": "JPMC Internal Oracle Taleo / Workday Referral",
+        "portal_url": "https://careers.jpmorgan.com/global/en/students/programs",
+        "job_url": "http://www.linkedin.com/jobs/view/4440836681",
+        "compensation": "₹14L - ₹22 LPA (Operations/Data Analyst)",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates",
+        "key_skills": "Data governance, transaction reconciliation, operational integrity, SLA compliance",
+        "matched_connections": ["Varsha G (Team Lead)", "Shivangi Agrawal (Ops Analyst)", "Archita S, CFA (IB Associate)", "Alice Rethi (Ops Analyst)"],
+        "resume_file": "Aditya_Mehra_Resume_006_jp_morgan_chase.pdf",
+        "feel_good_hook": "Honoring JPMC's institutional integrity, highlighting quantitative reconciliation across 100k+ event attendees, and asking for their guidance."
+    },
+    {
+        "category": "Investment Banking & Finance",
+        "company": "Deutsche Bank",
+        "program_name": "Global Graduate Programme / CIB Operations Analyst",
+        "job_id": "DB_CIB_OPS_2026",
+        "role_title": "Clearing & Settlements Operations Analyst / Financial Analyst",
+        "portal_type": "Deutsche Bank Internal Referral Portal (Workday)",
+        "portal_url": "https://careers.db.com/students-graduates/",
+        "job_url": "https://careers.db.com",
+        "compensation": "₹11L - ₹18 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates",
+        "key_skills": "Clearing and settlements, transaction lifecycle, trade documentation, risk mitigation",
+        "matched_connections": ["Lakshita Sharma (Operations Analyst)", "Arpitha B A (Clearing and settlements Analyst)", "Sejal Verma (Financial Analyst)", "Soumya Murali (Apprentice)"],
+        "resume_file": "Aditya_Mehra_Resume_EXIM_International_Trade_2026.pdf",
+        "feel_good_hook": "Highlighting international trade documentation and landed cost modeling from DSU, zero pressure, and a warm, supportive closing."
+    },
+    {
+        "category": "Investment Banking & Finance",
+        "company": "Commonwealth Bank of Australia (CBA India)",
+        "program_name": "Technology & Operations Graduate Program",
+        "job_id": "CBA_INDIA_GRAD_2026",
+        "role_title": "Credit Risk & Operations Analyst / Technology Associate",
+        "portal_type": "Workday Internal Referral",
+        "portal_url": "https://www.commbank.com.au/about-us/careers.html",
+        "job_url": "https://www.commbank.com.au/about-us/careers",
+        "compensation": "₹10L - ₹16 LPA",
+        "location": "Bengaluru, Karnataka (Manyata Tech Park)",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates",
+        "key_skills": "Credit risk evaluation, process automation, operational governance, SLA reporting",
+        "matched_connections": ["Anjana Priya D (Credit Risk Analyst)", "Ankita Mallik (Operation Analyst)", "Bandhavya . (Apprentice)", "Juhi Jain (Apprentice)"],
+        "resume_file": "Aditya_Mehra_Resume_EXIM_International_Trade_2026.pdf",
+        "feel_good_hook": "Expressing admiration for CBA's expanding Bengaluru tech & ops hub, sharing verified high-accountability execution, and offering mutual support."
+    },
+    {
+        "category": "Investment Banking & Finance",
+        "company": "HSBC",
+        "program_name": "Global Graduate Programme / Commercial Banking Operations",
+        "job_id": "4452434953",
+        "role_title": "Business Analyst / Global Portfolio Analytics",
+        "portal_type": "HSBC Taleo Internal Referral",
+        "portal_url": "https://www.hsbc.com/careers/students-and-graduates",
+        "job_url": "http://www.linkedin.com/jobs/view/4452434953",
+        "compensation": "₹9L - ₹15 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025, 2026 Graduates",
+        "key_skills": "Trade finance (INCOTERMS 2020, LCs), portfolio reporting, compliance management",
+        "matched_connections": ["Archana Rao Sarrgur (Leadership Hiring Mgr)", "Ekta Agarwal (Portfolio Analytics)", "Ayushi Jain (Manager)"],
+        "resume_file": "Aditya_Mehra_Resume_EXIM_International_Trade_2026.pdf",
+        "feel_good_hook": "Demonstrating specific familiarity with trade finance instruments and vendor SLAs, packaged in a zero-effort format."
+    },
+    {
+        "category": "Investment Banking & Finance",
+        "company": "ICICI Bank",
+        "program_name": "Probationary Officer (PO) & Commercial Banking Trainee",
+        "job_id": "ICICI_PO_2026",
+        "role_title": "Deputy Manager / Commercial Banking Relationship Associate",
+        "portal_type": "ICICI Careers Internal Referral Portal",
+        "portal_url": "https://www.icicicareers.com",
+        "job_url": "https://www.icicicareers.com",
+        "compensation": "₹6.5L - ₹9.5 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Commercial banking, working capital credit, customer relationship operations",
+        "matched_connections": ["Shriya Gattani (Deputy Manager II)", "Aadil S Prabhath (Senior Officer Relationship Manager)", "Sivabharathi E (HR Intern)", "Jiya Punjabi (HR Intern)"],
+        "resume_file": "Aditya_Mehra_Resume_EXIM_International_Trade_2026.pdf",
+        "feel_good_hook": "Respecting ICICI's market leadership in Indian private banking, connecting international business education to commercial credit operations."
+    },
+    {
+        "category": "Big 4 & Management Consulting",
+        "company": "EY",
+        "program_name": "EY GDS Campus & Early Career Hiring",
+        "job_id": "4444908737",
+        "role_title": "GDS Meetings and Events - Events Manager / Business Consulting Intern",
+        "portal_type": "EY GDS SuccessFactors / Workday Employee Referral Portal",
+        "portal_url": "https://www.ey.com/en_gl/careers/students",
+        "job_url": "http://www.linkedin.com/jobs/view/4444908737",
+        "compensation": "₹6L - ₹12 LPA (Associate / Manager) / ₹35k - ₹50k/month (Intern)",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Event operations, run-of-show execution, vendor SLA governance, budget tracking",
+        "matched_connections": ["ASHWINI CHANDRASHEKHAR (Manager TA)", "Kinjal Chauhan (Relationship Mgr TA)", "Jasmin Shaik (TA Specialist)", "Shivanshi Dutta (Risk Consultant)"],
+        "resume_file": "Aditya_Mehra_Resume_003_ey_ernst_young_gds.pdf",
+        "feel_good_hook": "Recognizing EY's global excellence in events and consulting, showcasing verified 100k+ attendee coordination at AERO INDIA, and leaving them feeling appreciated as mentors."
+    },
+    {
+        "category": "Big 4 & Management Consulting",
+        "company": "Deloitte",
+        "program_name": "Deloitte US-India (USI) Consulting & Advisory Analyst",
+        "job_id": "DELOITTE_USI_ANALYST_2026",
+        "role_title": "Analyst / Associate Consultant - Operations Transformation",
+        "portal_type": "Deloitte Internal Talent Referral System (Workday)",
+        "portal_url": "https://www2.deloitte.com/ui/en/pages/careers/articles/students.html",
+        "job_url": "https://jobsindia.deloitte.com",
+        "compensation": "₹6.5L - ₹13 LPA",
+        "location": "Bengaluru / Hyderabad",
+        "batch_eligibility": "Batch 2025, 2026 Graduates",
+        "key_skills": "Business consulting, technology enablement, financial analysis, risk review",
+        "matched_connections": ["Yuvika Dwivedi (Audit & Assurance)", "Saswati Sahoo (Senior Consultant)", "Aditya Vikram (Consultant)", "100+ Deloitte Connections"],
+        "resume_file": "Aditya_Mehra_Resume_002_deloitte_us_india.pdf",
+        "feel_good_hook": "Celebrating their journey at Deloitte, presenting a rock-solid operations portfolio, and making the employee feel like an appreciated mentor."
+    },
+    {
+        "category": "Big 4 & Management Consulting",
+        "company": "PwC India",
+        "program_name": "PwC Acceleration Centers & Associate Hiring",
+        "job_id": "4409108662",
+        "role_title": "Associate (Advisory & Operations Transformation)",
+        "portal_type": "PwC Workday Employee Referral",
+        "portal_url": "https://www.pwc.in/careers.html",
+        "job_url": "http://www.linkedin.com/jobs/view/4409108662",
+        "compensation": "₹6L - ₹12 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025, 2026 Graduates",
+        "key_skills": "Risk management, assurance, business analytics, vendor compliance",
+        "matched_connections": ["Nikhitha Simon (HRBP)", "Nidhi Jha (Sourcer, AC India)", "Dinashree M (Campus Associate)", "Mishfa Kazi (Manager)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Respecting PwC's trust culture, sharing verified track record with Puma and Tata Communications, and offering open reciprocal support."
+    },
+    {
+        "category": "Big 4 & Management Consulting",
+        "company": "KPMG India & Global Services",
+        "program_name": "KPMG Early Careers / Lakehouse Analyst Track",
+        "job_id": "KPMG_INDIA_ANALYST_2026",
+        "role_title": "Analyst - Business Advisory / Deal Advisory & Operations",
+        "portal_type": "KPMG Internal Referral Portal (SuccessFactors)",
+        "portal_url": "https://kpmg.com/in/en/home/careers.html",
+        "job_url": "https://kpmg.com/in/en/home/careers.html",
+        "compensation": "₹6L - ₹11 LPA",
+        "location": "Bengaluru, Karnataka (Embassy GolfLinks)",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates",
+        "key_skills": "Advisory analytics, risk compliance, M&A process support, vendor governance",
+        "matched_connections": ["Jenet Ann Tom (UK Tax Associate)", "Ishika Gupta (Engineer Intern)", "Reyaa Shetty (Deal Advisory - M&A Tax and PE Intern)", "Kohely Ghosal (HR Intern)"],
+        "resume_file": "Aditya_Mehra_Resume_012_kpmg_global_services.pdf",
+        "feel_good_hook": "Commending KPMG's advisory depth, highlighting SLA enforcement and operational rigor from large-scale corporate summits."
+    },
+    {
+        "category": "Tech Giants & Cloud",
+        "company": "Amazon / AWS",
+        "program_name": "Student Programs & Operations Early Career",
+        "job_id": "4443027895 / 4455781999",
+        "role_title": "Event Program Manager, AWS Global Events / Business Analyst, IN Supply Chain",
+        "portal_type": "Amazon Jobs / Internal iCIMS Referral Portal",
+        "portal_url": "https://www.amazon.jobs/en/landing_pages/student-programs",
+        "job_url": "http://www.linkedin.com/jobs/view/4443027895",
+        "compensation": "₹12L - ₹22 LPA (Operations/Program) / ₹28L - ₹48 LPA (SDE)",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025, 2026 Graduates",
+        "key_skills": "Customer Obsession, Bias for Action, high-throughput logistics, 0% shrinkage",
+        "matched_connections": ["Sangini Sahay (Sourcing Recruiter)", "Dipali Sharma (BDM, AWS)", "Shraddha Chhetri (Ops Associate)", "Bindu Shree M (Support Ops)"],
+        "resume_file": "Aditya_Mehra_Resume_004_amazon_bangalore.pdf",
+        "feel_good_hook": "Framing achievements through Amazon Leadership Principles (Bias for Action, Deliver Results) and ensuring zero friction for the internal submitter."
+    },
+    {
+        "category": "Tech Giants & Cloud",
+        "company": "Microsoft",
+        "program_name": "University Graduate Programs & Research",
+        "job_id": "4379272973 / 4052096504",
+        "role_title": "Research Sciences INTERN / Product Management Intern",
+        "portal_type": "Microsoft Careers / Internal Referral Tool",
+        "portal_url": "https://jobs.careers.microsoft.com/global/en/search?exp=Students%20and%20graduates",
+        "job_url": "http://www.linkedin.com/jobs/view/4379272973",
+        "compensation": "₹22L - ₹44 LPA (Full Time) / ₹1.2L - ₹1.5L/month (Internship)",
+        "location": "Bengaluru / Hyderabad",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates",
+        "key_skills": "Cross-functional execution, data intelligence, customer empathy, operational excellence",
+        "matched_connections": ["Ashwini Ramdas (Senior Mgr TA)", "Madhumitha Srinivasan (Recruiter)", "Kashish Mishra (PM)", "Khushboo S. Barde (PM II)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Aligning with Microsoft's growth mindset, highlighting discipline and curiosity, and providing everything in a 1-click format."
+    },
+    {
+        "category": "Tech Giants & Cloud",
+        "company": "Google",
+        "program_name": "Google Early Career & Student Programs",
+        "job_id": "GOOGLE_IN_PEOPLE_OPS",
+        "role_title": "Product Support Specialist (GPay) / Operations Specialist",
+        "portal_type": "Google Internal Referral Portal (gHire)",
+        "portal_url": "https://www.google.com/about/careers/applications/students/",
+        "job_url": "https://www.google.com/about/careers/applications",
+        "compensation": "₹16L - ₹28 LPA",
+        "location": "Bengaluru / Hyderabad",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates",
+        "key_skills": "User advocacy, product support analytics, operational workflows, escalation handling",
+        "matched_connections": ["Rachana Kamath (Product Support Manager - GPay)", "Samridhi Bisht (Project Management: Operations)", "Tushi Saha (Senior Implementation Analyst)", "Chanchal Vora (Ambassador)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Celebrating Google's user-first engineering philosophy, demonstrating composure under pressure (Aero India 100k+ crowd logistics), and expressing warmth."
+    },
+    {
+        "category": "Tech Giants & Cloud",
+        "company": "Cisco",
+        "program_name": "Early Career & University Programs",
+        "job_id": "4446332173",
+        "role_title": "Data & Supply Chain Analyst Associate",
+        "portal_type": "Cisco Avature Referral Portal",
+        "portal_url": "https://www.cisco.com/c/en/us/about/careers.html",
+        "job_url": "http://www.linkedin.com/jobs/view/4446332173",
+        "compensation": "₹12L - ₹18 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025, 2026 Graduates",
+        "key_skills": "Data modeling, SLA tracking, reporting dashboards, operational analytics",
+        "matched_connections": ["Shimna M (Talent Advisor)", "Ananya Singh (Data Analyst)", "Aditi Gupta (Software Engineer)"],
+        "resume_file": "Aditya_Mehra_Resume_PMO_Vendor_Logistics_2026.pdf",
+        "feel_good_hook": "Expressing admiration for Cisco's networking backbone, pairing quantitative operations rigor with heartfelt gratitude."
+    },
+    {
+        "category": "Tech Giants & Cloud",
+        "company": "IBM",
+        "program_name": "IBM India Early Career Professional / Associate Trainee",
+        "job_id": "IBM_INDIA_EARLY_CAREER_2026",
+        "role_title": "Associate System Operations Specialist / Accounts Receivable Analyst",
+        "portal_type": "IBM BrassRing / Workday Employee Referral",
+        "portal_url": "https://www.ibm.com/careers/in-en",
+        "job_url": "https://www.ibm.com/careers/in-en",
+        "compensation": "₹5.5L - ₹9.5 LPA",
+        "location": "Bengaluru, Karnataka (Manyata Tech Park)",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Accounts receivable, operational compliance, ERP workflows, vendor reconciliation",
+        "matched_connections": ["Sandhya B Sriram (Talent Acquisition Manager - Workday/ServiceNow)", "Pratima Sony (Accounts Receivable Analyst)", "Swetha Rani (Risk Analyst)", "Snigdha Abbineni (Firmware Developer)"],
+        "resume_file": "Aditya_Mehra_Resume_009_ibm_india.pdf",
+        "feel_good_hook": "Honoring IBM's century-long legacy of technology leadership, highlighting enterprise contract reconciliation with Tata Communications."
+    },
+    {
+        "category": "IT Services & Consulting",
+        "company": "Accenture in India",
+        "program_name": "Entry-Level Campus & Business Advisory Hiring",
+        "job_id": "4429242140 / 4448338203",
+        "role_title": "Business Advisory New Associate / Supply Chain Operations Senior Analyst",
+        "portal_type": "Accenture Workday Employee Referral Tool",
+        "portal_url": "https://indiacampus.accenture.com/candidate-registration",
+        "job_url": "http://www.linkedin.com/jobs/view/4429242140",
+        "compensation": "₹5.5L - ₹11 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Supply chain optimization, client delivery, process governance, vendor SLAs",
+        "matched_connections": ["Himanshi Sahu (Senior Recruiter)", "Samiksha Sharma (HR Associate)", "Sakshi Tripathi (Consulting Mgr)", "Shweta Das (Mgmt Consultant)"],
+        "resume_file": "Aditya_Mehra_Resume_001_accenture_india.pdf",
+        "feel_good_hook": "Praising Accenture's culture of innovation, demonstrating operational value with Tata Communications contracts, and making referral submission instantaneous."
+    },
+    {
+        "category": "IT Services & Consulting",
+        "company": "Tata Consultancy Services (TCS)",
+        "program_name": "TCS National Qualifier Test (NQT) - Prime / Digital / Ninja",
+        "job_id": "TCS_NQT_CAMPUS_2026",
+        "role_title": "TCS Prime (₹9-11.5L) / Digital (₹7-7.5L) / Ninja (₹3.6-4L)",
+        "portal_type": "TCS NextStep Campus Portal",
+        "portal_url": "https://nextstep.tcs.com/campus/#/",
+        "job_url": "https://nextstep.tcs.com",
+        "compensation": "₹3.6L - ₹11.5 LPA",
+        "location": "Bengaluru / Pan-India",
+        "batch_eligibility": "Batch 2025 & 2026 Graduates",
+        "key_skills": "Business operations, analytics, cognitive problem solving, client service",
+        "matched_connections": ["72 TCS Connections (Talent Acquisition Associates, HRBPs, Backend Engineers)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Honoring the Tata ethos, referencing Aditya's verified execution with Tata Communications, making them feel proud to refer a fellow Tata network contributor."
+    },
+    {
+        "category": "IT Services & Consulting",
+        "company": "Capgemini",
+        "program_name": "Capgemini Exceller / Early Career Analyst",
+        "job_id": "CAPGEMINI_EXCELLER_2026",
+        "role_title": "Financial & Operations Analyst / Business Trainee",
+        "portal_type": "Capgemini Internal Referral Tool",
+        "portal_url": "https://www.capgemini.com/in-en/careers/",
+        "job_url": "https://www.capgemini.com/in-en/careers",
+        "compensation": "₹4.5L - ₹8.5 LPA",
+        "location": "Bengaluru, Karnataka (Whitefield / Manyata)",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Financial analysis, business workflows, client operations, process governance",
+        "matched_connections": ["Bhavya Singh (Finance Intern)", "Asha K (Human Resources Consultant)", "SUMEDHA SARKAR (Analyst)", "SANGEETHA GOWDA (Software Engineer)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Praising Capgemini's collaborative European heritage and culture, sharing international business foundation from DSU."
+    },
+    {
+        "category": "IT Services & Consulting",
+        "company": "Cognizant",
+        "program_name": "Cognizant GenC / Business Process Executive",
+        "job_id": "CTS_GENC_2026",
+        "role_title": "Process Executive - Digital Operations / Analyst Trainee",
+        "portal_type": "Cognizant 1Careers / Internal Referral",
+        "portal_url": "https://careers.cognizant.com/in/en",
+        "job_url": "https://careers.cognizant.com/in/en",
+        "compensation": "₹4L - ₹7.5 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Digital operations, risk analysis, implementation support, SLA monitoring",
+        "matched_connections": ["DHARINI M (IT Recruiter)", "Rincy K E (Senior Risk Analyst)", "Ankita Dey (Senior Process Executive)", "Arpita Sahoo (Analyst Trainee)"],
+        "resume_file": "Aditya_Mehra_Resume_Process_Risk_Ops_2026.pdf",
+        "feel_good_hook": "Respecting Cognizant's digital transformation scale, connecting SLA discipline from Aero India 2025 to client service delivery."
+    },
+    {
+        "category": "IT Services & Consulting",
+        "company": "Infosys",
+        "program_name": "Specialist Programmer (SP) / Specialist Operations",
+        "job_id": "INFOSYS_EARLY_CAREER_2026",
+        "role_title": "Associate Consultant / Specialist Operations",
+        "portal_type": "Infosys Internal Referral Portal (Wingspan)",
+        "portal_url": "https://infytq.onwingspan.com/",
+        "job_url": "https://www.infosys.com/careers.html",
+        "compensation": "₹3.6L - ₹13.5 LPA",
+        "location": "Bengaluru, Karnataka (Electronic City)",
+        "batch_eligibility": "Batch 2025, 2026 Graduates",
+        "key_skills": "Operations management, business analysis, enterprise ERP support",
+        "matched_connections": ["31 Infosys & Infosys BPM Connections (Talent Acquisition Associates, Associate Consultants)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Respecting Infosys's foundational role in Bengaluru tech, warm alumnus/peer tone, and complete candidate data block."
+    },
+    {
+        "category": "IT Services & Consulting",
+        "company": "Wipro",
+        "program_name": "Wipro Elite / Business Operations Associate",
+        "job_id": "WIPRO_ELITE_2026",
+        "role_title": "Business Analyst / Project Operations Coordinator",
+        "portal_type": "Wipro Internal MyTalent Referral",
+        "portal_url": "https://careers.wipro.com",
+        "job_url": "https://careers.wipro.com",
+        "compensation": "₹3.8L - ₹7 LPA",
+        "location": "Bengaluru, Karnataka (Sarjapur HQ)",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Business requirements gathering, PMO coordination, client reporting, vendor SLAs",
+        "matched_connections": ["Ruchi Bhakt (Assistant Manager - Talent Acquisition)", "Aishwarya Behera (Business Analyst)", "Lavi Singh A (Administrator)", "Arya Chouhan (Marketing Intern)"],
+        "resume_file": "Aditya_Mehra_Resume_PMO_Vendor_Logistics_2026.pdf",
+        "feel_good_hook": "Praising Wipro's ethical leadership in Indian enterprise, sharing concrete PMO logistics background from Puma and Tata."
+    },
+    {
+        "category": "Global Capability Centers (GCCs)",
+        "company": "Target in India",
+        "program_name": "Target India Early Career Associate / Campus Program",
+        "job_id": "TARGET_IN_OPS_2026",
+        "role_title": "Merchandise Payables Specialist / HR & Business Operations Specialist",
+        "portal_type": "Target Workday Internal Referral Portal",
+        "portal_url": "https://india.target.com/careers",
+        "job_url": "https://india.target.com/careers",
+        "compensation": "₹7L - ₹12 LPA",
+        "location": "Bengaluru, Karnataka (Manyata Tech Park HQ)",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Merchandise accounting, vendor reconciliation, logistics invoice audits, SAP MM",
+        "matched_connections": ["Sahana Gowda (Senior Specialist HR Operations)", "Anusha A (Accounting Merchandise Payable)", "Shambhavi Sharma (Merchandise Payables)", "Anushka Singh (Consultant)"],
+        "resume_file": "Aditya_Mehra_Resume_PMO_Vendor_Logistics_2026.pdf",
+        "feel_good_hook": "Praising Target India's exceptional retail supply chain engine, directly connecting Aditya's vendor invoice SLA discipline to merchandise payables."
+    },
+    {
+        "category": "FinTech & Growth Startups",
+        "company": "Razorpay",
+        "program_name": "FinTech Operations & Early Career Associate",
+        "job_id": "4439995783 / RAZORPAY_MERCHANT_004",
+        "role_title": "Analyst - Business Operations / Merchant Operations Specialist",
+        "portal_type": "Ashby Internal Referral Portal",
+        "portal_url": "https://jobs.ashbyhq.com/razorpay",
+        "job_url": "http://www.linkedin.com/jobs/view/4439995783",
+        "compensation": "₹8L - ₹14 LPA",
+        "location": "Bengaluru, Karnataka (Koramangala HQ)",
+        "batch_eligibility": "Freshers & Batch 2025/2026 Graduates",
+        "key_skills": "Merchant onboarding, trade settlements, dispute resolution, zero-escalation track record",
+        "matched_connections": ["Pinki Kumari (Junior Analyst)", "Kirubhavani B (Inside Sales)", "Mukthi Kb (SME Sales)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Enthusiasm for Razorpay's payments engine, highlighting 0% unresolved escalation discipline, and warm peer-to-peer encouragement."
+    },
+    {
+        "category": "FinTech & Growth Startups",
+        "company": "Rippling",
+        "program_name": "Product Operations & Integration Specialist",
+        "job_id": "RIPPLING_OPS_2026",
+        "role_title": "Identity & Integration Specialist / Platform Support Specialist",
+        "portal_type": "Greenhouse Internal Referral Portal",
+        "portal_url": "https://www.rippling.com/careers",
+        "job_url": "https://www.rippling.com/careers",
+        "compensation": "₹12L - ₹20 LPA",
+        "location": "Bengaluru, Karnataka (Indiranagar / ORR)",
+        "batch_eligibility": "Batch 2025, 2026 & Early Career",
+        "key_skills": "Integration workflows, contractor hub operations, HRIS configuration, customer success",
+        "matched_connections": ["Sara Mansoor (Contractor Hub Support Specialist)", "Rishita Bakshi (Platform Support Specialist)", "Prapty Chaudhary (Identity and Integration Specialist)", "Joanne Rose (Customer Support Specialist)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Recognizing Rippling's compound software momentum, demonstrating strong systems thinking and operational rigor."
+    },
+    {
+        "category": "FinTech & Growth Startups",
+        "company": "Ditto Insurance",
+        "program_name": "FinTech Advisory & Operations Associate",
+        "job_id": "DITTO_OPS_2026",
+        "role_title": "Insurance Operations Consultant / Advisory Specialist",
+        "portal_type": "Ditto Careers Portal",
+        "portal_url": "https://joinditto.in/careers/",
+        "job_url": "https://joinditto.in/careers/",
+        "compensation": "₹5.5L - ₹9 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Customer consultation, operational empathy, policy workflow review, trust building",
+        "matched_connections": ["Chalcy singh (Insurance Advisor)", "Sheetal Raj (Insurance Advisor)", "Titas Dawn (Consultant)", "Sparshi Singh (Insurance Advisor)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Commending Ditto's zero-spam spam-free customer philosophy, demonstrating deep integrity and clear communication."
+    },
+    {
+        "category": "Quick Commerce & Logistics",
+        "company": "Swiggy & Zepto",
+        "program_name": "Quick Commerce & Hyperlocal Operations Leads",
+        "job_id": "SWIGGY_OPS_001 / ZEPTO_OPS_002",
+        "role_title": "Operations & Expansion Associate / Dark Store City Operations Lead",
+        "portal_type": "Internal Greenhouse / Ashby Portals",
+        "portal_url": "https://careers.swiggy.com | https://www.zeptonow.com/careers",
+        "job_url": "https://careers.swiggy.com",
+        "compensation": "₹7L - ₹14 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025, 2026 & Early Career",
+        "key_skills": "High-throughput inventory control, 0% shrinkage, turnaround time SLA enforcement",
+        "matched_connections": ["Prerna Khedkar (Swiggy HR)", "ANANYA G (Swiggy Lead)", "Yashaswini L (Zepto TA)"],
+        "resume_file": "Aditya_Mehra_Resume_PMO_Vendor_Logistics_2026.pdf",
+        "feel_good_hook": "Energetic, startup-friendly tone celebrating their incredible consumer growth, connecting directly to Aditya's 0% shrinkage record at AERO INDIA."
+    },
+    {
+        "category": "Enterprise & Consumer Brands",
+        "company": "ITC Limited",
+        "program_name": "Supply Chain & Operations Graduate Trainee",
+        "job_id": "ITC_SCM_2026",
+        "role_title": "Area Supply Chain Executive / Finance & Logistics Intern",
+        "portal_type": "ITC Careers Portal",
+        "portal_url": "https://www.itcportal.com/careers/",
+        "job_url": "https://www.itcportal.com/careers/",
+        "compensation": "₹7L - ₹12 LPA",
+        "location": "Bengaluru, Karnataka",
+        "batch_eligibility": "Batch 2025, 2026 Graduates",
+        "key_skills": "FMCG distribution logistics, inventory auditing, vendor compliance, cost control",
+        "matched_connections": ["Neelam Gupta (Area Executive)", "Manasa H N (HR Generalist)", "Jaya Bhadoria (Finance Intern)", "ADITI BANSAL (Finance Intern)"],
+        "resume_file": "Aditya_Mehra_Resume_PMO_Vendor_Logistics_2026.pdf",
+        "feel_good_hook": "Honoring ITC's FMCG operational excellence in India, sharing proven logistics execution from Aero India and Puma."
+    },
+    {
+        "category": "EdTech & Operations",
+        "company": "PhysicsWallah (PW)",
+        "program_name": "Operations & Academic Program Associate",
+        "job_id": "PW_OPS_2026",
+        "role_title": "Operations Associate / Center Operations Lead",
+        "portal_type": "PW Careers Internal Portal",
+        "portal_url": "https://pw.live/careers",
+        "job_url": "https://pw.live/careers",
+        "compensation": "₹6L - ₹10 LPA",
+        "location": "Bengaluru, Karnataka (HSR / Koramangala)",
+        "batch_eligibility": "Batch 2024, 2025, 2026 Graduates",
+        "key_skills": "Offline center operations, student scheduling, vendor management, team leadership",
+        "matched_connections": ["Ashwini Barve (Associate Manager)", "Aradhana Pradhan (Manager)", "Roopam Sethi (Deputy General Manager)", "Nidhi H V (Professor)"],
+        "resume_file": "Aditya_Mehra_Resume_Master_Operations_2026.pdf",
+        "feel_good_hook": "Praising PW's student-centric mission and democratization of education, highlighting ground-level execution and operational responsibility."
+    }
+]
+
+# Generate Ultra-Polished Interactive Web Companion
+html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresher & Entry-Level Referral Companion — OMEGA Master Hub</title>
+<style>
+  :root {{
+    --bg: #090d16;
+    --card: #131c2e;
+    --card-hover: #1a2740;
+    --border: #23324d;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.25);
+    --green: #22c55e;
+    --green-bg: rgba(34, 197, 94, 0.12);
+    --purple: #c084fc;
+    --purple-bg: rgba(168, 85, 247, 0.12);
+    --amber: #fbbf24;
+  }}
+  * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }}
+  body {{ background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }}
+  .container {{ max-width: 1440px; margin: 0 auto; }}
+
+  /* Top Navigation Banner */
+  .top-nav {{ display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }}
+  .nav-link {{ background: var(--card); border: 1px solid var(--border); color: #cbd5e1; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }}
+  .nav-link:hover, .nav-link.active {{ background: #1e293b; color: var(--accent); border-color: var(--accent); }}
+
+  header {{ margin-bottom: 20px; }}
+  h1 {{ font-size: 26px; font-weight: 700; color: #fff; }}
+  .subtitle {{ color: var(--text-muted); font-size: 14px; margin-top: 6px; line-height: 1.5; }}
+  
+  .feel-good-banner {{ background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(168, 85, 247, 0.12)); border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 14px; line-height: 1.6; color: #e2e8f0; }}
+  .feel-good-banner strong {{ color: var(--accent); }}
+
+  /* Category Filter Pills */
+  .category-bar {{ display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }}
+  .cat-btn {{ background: var(--card); border: 1px solid var(--border); color: #94a3b8; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }}
+  .cat-btn:hover, .cat-btn.active {{ background: var(--accent); color: #090d16; border-color: var(--accent); }}
+
+  .search-row {{ display: flex; gap: 12px; margin-bottom: 24px; }}
+  input[type="text"] {{ flex: 1; padding: 12px 18px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 14px; outline: none; }}
+  input[type="text"]:focus {{ border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }}
+
+  .programs-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(680px, 1fr)); gap: 24px; }}
+  @media(max-width: 768px) {{ .programs-grid {{ grid-template-columns: 1fr; }} }}
+
+  .program-card {{ background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.2s; }}
+  .program-card:hover {{ border-color: var(--accent); }}
+  
+  .card-header {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px; }}
+  .co-title {{ font-size: 22px; font-weight: 700; color: #fff; }}
+  .prog-badge {{ background: var(--purple-bg); color: var(--purple); border: 1px solid rgba(168, 85, 247, 0.3); padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; white-space: nowrap; }}
+  
+  .meta-grid {{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 13px; margin: 14px 0; background: #0c1322; padding: 14px; border-radius: 8px; border: 1px solid #1a2740; }}
+  .meta-item span {{ color: var(--text-muted); display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }}
+  .meta-item strong {{ color: #e2e8f0; }}
+
+  .section-label {{ font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin: 16px 0 8px 0; display: flex; justify-content: space-between; align-items: center; }}
+  
+  .guidance-box {{ background: #0a1120; border: 1px solid #1e293b; border-radius: 6px; padding: 12px 14px; font-size: 13px; line-height: 1.5; color: #94a3b8; margin-bottom: 12px; }}
+  .guidance-box strong {{ color: #f8fafc; }}
+
+  .msg-box {{ background: #070b14; border: 1px solid #1e2c47; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #e2e8f0; white-space: pre-wrap; max-height: 250px; overflow-y: auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }}
+
+  .resume-pill {{ background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ade80; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }}
+  .resume-pill:hover {{ background: rgba(34, 197, 94, 0.2); }}
+
+  .btn-row {{ display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }}
+  .btn-action {{ padding: 10px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; border: none; }}
+  .btn-copy-msg {{ background: #0284c7; color: #fff; flex: 1; min-width: 180px; }}
+  .btn-copy-msg:hover {{ background: #0369a1; }}
+  .btn-copy-packet {{ background: #1e293b; color: #38bdf8; border: 1px solid var(--border); }}
+  .btn-copy-packet:hover {{ background: #273549; }}
+  .btn-copy-followup {{ background: #2e1065; color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); }}
+  .btn-copy-followup:hover {{ background: #3b0764; }}
+  .copied {{ background: #16a34a !important; color: #fff !important; }}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Top Navigation Links -->
+  <div class="top-nav">
+    <a href="fresher_referral_companion.html" class="nav-link active">🌟 Fresher Referral Companion</a>
+    <a href="connection_messenger_center.html" class="nav-link">💬 LinkedIn Messenger Center</a>
+    <a href="connections_directory.html" class="nav-link">📇 All 9,223 Connections Directory</a>
+    <a href="../resumes_pdf/" class="nav-link" target="_blank">📂 Tailored PDF Resumes Folder</a>
+    <a href="connections_company_summary.csv" class="nav-link" download>📊 Company Network Summary</a>
+  </div>
+
+  <header>
+    <h1>Fresher & Entry-Level Referral Companion & Guidance Hub</h1>
+    <div class="subtitle">
+      Candidate: <strong>Aditya Mehra</strong> (ashishiash007@gmail.com | +91 7003456624 | Bengaluru, India)<br>
+      Final-Year BBA International Business, Dayananda Sagar University (DSU) | Operations Lead, AERO INDIA 2025
+    </div>
+  </header>
+
+  <div class="feel-good-banner">
+    ✨ <strong>The OMEGA "Feel-Good" Relationship Protocol:</strong> Every message is written to make your connection feel respected, valued, and empowered as a mentor. It embeds an automated <strong>60-Second Frictionless Referral Packet</strong> containing your exact legal name, contact details, university degree, target Job ID, and verified achievements so employees can submit you directly into Workday, Taleo, Ashby, or Greenhouse without any friction or guesswork!
+  </div>
+
+  <!-- Category Filters -->
+  <div class="category-bar">
+    <button class="cat-btn active" onclick="filterByCategory('All', this)">All Employers ({len(fresher_programs)})</button>
+    <button class="cat-btn" onclick="filterByCategory('Investment Banking & Finance', this)">Investment Banking & Finance</button>
+    <button class="cat-btn" onclick="filterByCategory('Big 4 & Management Consulting', this)">Big 4 & Consulting</button>
+    <button class="cat-btn" onclick="filterByCategory('Tech Giants & Cloud', this)">Tech Giants & Cloud</button>
+    <button class="cat-btn" onclick="filterByCategory('IT Services & Consulting', this)">IT Services</button>
+    <button class="cat-btn" onclick="filterByCategory('Global Capability Centers (GCCs)', this)">Global Capability Centers</button>
+    <button class="cat-btn" onclick="filterByCategory('FinTech & Growth Startups', this)">FinTech & Startups</button>
+    <button class="cat-btn" onclick="filterByCategory('Quick Commerce & Logistics', this)">Quick Commerce & SCM</button>
+  </div>
+
+  <div class="search-row">
+    <input type="text" id="progSearch" placeholder="Search by company name, role title, Job ID, skills, or program name..." oninput="onSearch()">
+  </div>
+
+  <div class="programs-grid" id="progGrid"></div>
+</div>
+
+<script>
+const PROGRAMS = {json.dumps(fresher_programs, ensure_ascii=False)};
+let currentCategory = 'All';
+
+function renderPrograms(list) {{
+  const grid = document.getElementById('progGrid');
+  grid.innerHTML = list.map((p, idx) => {{
+    const packetText = `--- PRE-FILLED CANDIDATE REFERRAL PACKET ---
+Candidate Legal Name : Aditya Mehra
+Preferred Email      : ashishiash007@gmail.com
+Primary Phone        : +91 7003456624
+Current Location     : Bengaluru, Karnataka, India
+University / College : Dayananda Sagar University (DSU), Bengaluru
+Degree & Batch       : BBA - International Business (Batch 2026 / Final Year)
+Target Position      : ${{p.role_title}}
+Requisition / Job ID : ${{p.job_id}}
+Tailored Resume File : ${{p.resume_file}}
+LinkedIn Profile     : https://www.linkedin.com/in/aditya-mehra
+
+Verified Operational Proof Points:
+• Operations Lead at AERO INDIA 2025: Directed airside logistics and high-density crowd routing for 100,000+ public and VIP attendees at Yelahanka Air Force Station with zero security breaches and 0.0% inventory shrinkage.
+• Enterprise Run-of-Show Logistics: Supervised 15+ sub-contractor vendors, ground crews, and SLA contract enforcement for Tata Communications and Puma Global with zero unresolved contract escalations.
+• ERP & Systems Competencies: SAP S/4HANA (SD/MM logistics flows), Trade Finance documentation (INCOTERMS 2020, Letters of Credit, Bill of Lading), and Python-based operational automation.
+--------------------------------------------`;
+
+    const feelGoodMessage = `Hi [First Name],
+
+I hope your week is off to a wonderful start! Always inspiring seeing your journey and growth with ${{p.company}}.
+
+I'm reaching out with genuine respect for your craft and leadership. As a final-year BBA (International Business) student at Dayananda Sagar University here in Bengaluru, I'm preparing to step into a full-time operations and project management role. Recently, I had the privilege of serving as Operations Lead at AERO INDIA 2025 (managing high-density crowd logistics and vendor operations for 100,000+ delegates at Yelahanka AFB with zero security breaches and 0.0% inventory shrinkage) alongside managing run-of-show contracts for Tata Communications and Puma Global summits.
+
+I noticed an active opening at ${{p.company}} that matches my execution background:
+• Role: ${{p.role_title}}
+• Job ID: ${{p.job_id}}
+
+Knowing how much operational excellence and team standards matter at ${{p.company}}, I would be deeply honored if you might consider putting in an internal referral for my profile. To save you time and make this completely effortless, I've prepared all the required portal details below so you can copy and paste directly into your internal referral tool in 30 seconds:
+
+${{packetText}}
+
+Please know there is absolutely zero pressure if company referral guidelines or bandwidth make this difficult right now—just connecting and hearing your perspective on ${{p.company}} is already a true privilege. If you're ever open to a brief coffee or quick 5-minute call, I'd love to catch up.
+
+Wishing you and your team continued success, and please let me know if I can ever support you in any way here in Bengaluru!
+
+Warm regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru`;
+
+    const followUpMessage = `Hi [First Name],
+
+Hope you're having a great week! 
+
+I just wanted to send a quick note of gratitude for connecting. I know how demanding work gets at ${{p.company}}, so please don't worry if you haven't had a chance to look at the referral or if internal policies prevent referrals right now. 
+
+I'm always following the great work you and your team are putting out, and I'd love to stay in touch as I finish my degree at DSU. Wishing you a restful and productive week ahead!
+
+Warmly,
+Aditya Mehra`;
+
+    return `
+      <div class="program-card">
+        <div>
+          <div class="card-header">
+            <div>
+              <div class="co-title">${{escapeHtml(p.company)}}</div>
+              <div style="color:var(--accent); font-size:14px; font-weight:600; margin-top:2px;">${{escapeHtml(p.role_title)}}</div>
+            </div>
+            <span class="prog-badge">Job ID: ${{escapeHtml(p.job_id)}}</span>
+          </div>
+
+          <div class="meta-grid">
+            <div class="meta-item">
+              <span>Fresher Program</span>
+              <strong>${{escapeHtml(p.program_name)}}</strong>
+            </div>
+            <div class="meta-item">
+              <span>Portal System</span>
+              <strong>${{escapeHtml(p.portal_type)}}</strong>
+            </div>
+            <div class="meta-item">
+              <span>Eligibility</span>
+              <strong>${{escapeHtml(p.batch_eligibility)}}</strong>
+            </div>
+            <div class="meta-item">
+              <span>Compensation</span>
+              <strong style="color:#4ade80">${{escapeHtml(p.compensation)}}</strong>
+            </div>
+          </div>
+
+          <div class="section-label">
+            <span>📌 Internal ATS Submission Instructions</span>
+            <a href="../resumes_pdf/${{p.resume_file}}" target="_blank" class="resume-pill">📄 ${{p.resume_file}}</a>
+          </div>
+          <div class="guidance-box">
+            • <strong>How to submit:</strong> Open your internal portal (Workday / SuccessFactors / Taleo / Ashby), search Job ID <strong>${{escapeHtml(p.job_id)}}</strong>, paste the candidate packet below, and attach <code>${{p.resume_file}}</code>.<br>
+            • <strong>Verified connections in network:</strong> ${{escapeHtml(p.matched_connections.slice(0, 3).join(', '))}}
+          </div>
+
+          <div class="section-label">💌 "Feel-Good" Outreach Message (Click to Copy)</div>
+          <div class="msg-box" id="msg-${{idx}}">${{escapeHtml(feelGoodMessage)}}</div>
+          
+          <!-- Hidden stores for safe clipboard copying without quotation errors -->
+          <div id="packet-${{idx}}" style="display:none;">${{escapeHtml(packetText)}}</div>
+          <div id="followup-${{idx}}" style="display:none;">${{escapeHtml(followUpMessage)}}</div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-action btn-copy-msg" onclick="copyById('msg-${{idx}}', this)">Copy "Feel-Good" Message</button>
+          <button class="btn-action btn-copy-packet" onclick="copyById('packet-${{idx}}', this)">Copy Packet Only</button>
+          <button class="btn-action btn-copy-followup" onclick="copyById('followup-${{idx}}', this)">Copy 5-Day Follow-Up</button>
+        </div>
+      </div>
+    `;
+  }}).join('');
+}}
+
+function escapeHtml(str) {{
+  if (!str) return '';
+  return str.replace(/[&<>'"]/g, tag => ({{
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+  }}[tag] || tag));
+}}
+
+function copyById(elementId, btn) {{
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(() => {{
+    const originalText = btn.innerText;
+    btn.innerText = '✓ Copied to Clipboard!';
+    btn.classList.add('copied');
+    setTimeout(() => {{
+      btn.innerText = originalText;
+      btn.classList.remove('copied');
+    }}, 2000);
+  }}).catch(err => {{
+    console.error('Clipboard copy failed:', err);
+  }});
+}}
+
+function filterByCategory(cat, btn) {{
+  currentCategory = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  applyFilters();
+}}
+
+function onSearch() {{
+  applyFilters();
+}}
+
+function applyFilters() {{
+  const q = document.getElementById('progSearch').value.toLowerCase().trim();
+  const filtered = PROGRAMS.filter(p => {{
+    const matchesCat = (currentCategory === 'All') || (p.category === currentCategory);
+    const matchesQuery = !q || 
+      p.company.toLowerCase().includes(q) ||
+      p.role_title.toLowerCase().includes(q) ||
+      p.job_id.toLowerCase().includes(q) ||
+      p.key_skills.toLowerCase().includes(q) ||
+      p.program_name.toLowerCase().includes(q);
+    return matchesCat && matchesQuery;
+  }});
+  renderPrograms(filtered);
+}}
+
+// Initial Render
+renderPrograms(PROGRAMS);
+</script>
+</body>
+</html>
+"""
+
+out_companion = r'e:\anti\linkedin_export\fresher_referral_companion.html'
+with open(out_companion, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print(f"Generated {out_companion} successfully with {len(fresher_programs)} corporate programs.")

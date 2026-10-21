@@ -116,7 +116,7 @@ Given your distributed culture, I thrive in async, documentation-first workflows
 
 Best regards,
 Aditya Mehra
-Bengaluru, India | +91 7003456624 | adityamehra007@gmail.com
+Bengaluru, India | +91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### [RMT-002] Junior Digital Assets Operations Analyst @ Omega Enterprises (Score: 95)
@@ -132,7 +132,7 @@ Given your distributed culture, I thrive in async, documentation-first workflows
 
 Best regards,
 Aditya Mehra
-Bengaluru, India | +91 7003456624 | adityamehra007@gmail.com
+Bengaluru, India | +91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### [RMT-003] Brand Protection & Marketplace Compliance Analyst @ MultiplyMii (Score: 95)
@@ -148,7 +148,7 @@ Given your distributed culture, I thrive in async, documentation-first workflows
 
 Best regards,
 Aditya Mehra
-Bengaluru, India | +91 7003456624 | adityamehra007@gmail.com
+Bengaluru, India | +91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### [RMT-004] People Operations Coordinator @ Ashby (Score: 95)
@@ -164,7 +164,7 @@ Given your distributed culture, I thrive in async, documentation-first workflows
 
 Best regards,
 Aditya Mehra
-Bengaluru, India | +91 7003456624 | adityamehra007@gmail.com
+Bengaluru, India | +91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### [RMT-005] Operations Administrator @ RECSEEKERS (Score: 95)
@@ -180,6 +180,6 @@ Given your distributed culture, I thrive in async, documentation-first workflows
 
 Best regards,
 Aditya Mehra
-Bengaluru, India | +91 7003456624 | adityamehra007@gmail.com
+Bengaluru, India | +91 7003456624 | adityamehra799@gmail.com
 ```
 

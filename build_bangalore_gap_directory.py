@@ -167,7 +167,7 @@ def synthesize_gap_records(mega_targets):
             f"- Vendor & SLA Governance: Structured rate cards and enforced milestone delivery contracts with zero downtime.\n"
             f"- AI Data & Process Rigor: Managed AI data curation at Instawork AI (99%+ QA benchmark) and automated manual reporting by 25%.\n\n"
             f"I would welcome a brief 5-minute introductory screen to discuss how my operational grit and vendor discipline can support {comp_name}'s Bengaluru requisitions.\n\n"
-            f"Best regards,\nAditya Mehra | +91-7003456624 | adityamehra007@gmail.com\nBengaluru, India"
+            f"Best regards,\nAditya Mehra | +91-7003456624 | adityamehra799@gmail.com\nBengaluru, India"
         )
         
         rec = {

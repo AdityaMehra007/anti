@@ -77,7 +77,7 @@ def build_email_message(docket: dict, recipient_email: str) -> EmailMessage:
     msg = EmailMessage()
     
     sender_name = "Aditya Mehra"
-    sender_email = "adityamehra.business@gmail.com"
+    sender_email = "adityamehra799@gmail.com"
     role_title = docket["target_role"]
     job_id = docket["job_id"]
     company_name = docket["company_name"]
@@ -124,7 +124,7 @@ def build_email_message(docket: dict, recipient_email: str) -> EmailMessage:
     {html_paragraphs}
     <div class="footer">
         <p><strong>Aditya Mehra</strong> | BBA in International Business (Dayananda Sagar University, Bengaluru)<br/>
-        LinkedIn: <a href="https://www.linkedin.com/in/adityamehra-business">adityamehra-business</a> | Phone: +91 99000 00000<br/>
+        LinkedIn: <a href="https://www.linkedin.com/in/aditya-mehra-b8644b326">aditya-mehra-b8644b326</a> | Phone: +91-7003456624<br/>
         Direct ATS Link: <a href="{apply_url}">{apply_url}</a></p>
     </div>
 </div>

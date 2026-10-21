@@ -23,7 +23,7 @@ BASE_DIR = Path(r"e:\anti\applications_generated")
 CANDIDATE = {
     "name": "Aditya Mehra",
     "phone": "+91 7003456624",
-    "email": "adityamehra007@gmail.com",
+    "email": "adityamehra799@gmail.com",
     "linkedin": "linkedin.com/in/adityamehra",
     "location": "Bengaluru, Karnataka, India",
 }

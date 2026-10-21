@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Roles & LinkedIn Outreach Command Center</title>
+<style>
+  :root {
+    --bg: #090d16;
+    --card: #131c2e;
+    --card-hover: #1a2740;
+    --border: #23324d;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.25);
+    --green: #22c55e;
+    --tag-bg: rgba(56, 189, 248, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+  .container { max-width: 1400px; margin: 0 auto; }
+  header { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  h1 { font-size: 24px; font-weight: 700; color: #fff; }
+  .subtitle { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+  
+  .tabs { display: flex; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .tab-btn { background: transparent; border: none; color: var(--text-muted); font-size: 15px; font-weight: 600; padding: 8px 16px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+  .tab-btn.active { background: var(--card); color: var(--accent); border: 1px solid var(--border); }
+  
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 20px; }
+  .msg-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+  .card-header { margin-bottom: 14px; }
+  .contact-name { font-size: 18px; font-weight: 700; color: #fff; }
+  .contact-title { color: var(--accent); font-size: 13px; font-weight: 500; margin-top: 2px; }
+  .company-tag { display: inline-block; background: var(--tag-bg); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.3); margin-top: 8px; }
+  .job-target { margin-top: 10px; font-size: 13px; color: var(--text-muted); }
+  .job-id-badge { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); padding: 1px 6px; border-radius: 4px; font-family: monospace; font-size: 12px; }
+  
+  .message-box { background: #0c1322; border: 1px solid #1a2740; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.5; color: #cbd5e1; white-space: pre-wrap; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 12px 0; max-height: 240px; overflow-y: auto; }
+  
+  .action-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+  .copy-btn { background: #0284c7; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; }
+  .copy-btn:hover { background: #0369a1; }
+  .copy-btn.copied { background: #16a34a; }
+  .job-link { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; }
+  .job-link:hover { text-decoration: underline; }
+  
+  /* Table styling for roles */
+  table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  th { background: #0c1322; padding: 12px 16px; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:hover td { background: var(--card-hover); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>Job Requisition & LinkedIn Outreach Command Center</h1>
+      <div class="subtitle">Candidate: <strong>Aditya Mehra</strong> | Bengaluru | AERO INDIA 2025 Operations Lead & DSU Graduate</div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('tab-contacts')">Personalized Messages for Connections (15)</button>
+    <button class="tab-btn" onclick="switchTab('tab-roles')">All Open Roles with Job IDs (42)</button>
+    <button class="tab-btn" onclick="switchTab('tab-templates')">Plug-and-Play Outreach Templates</button>
+  </div>
+
+  <!-- Tab 1: Named Contacts -->
+  <div id="tab-contacts" class="tab-content active">
+    <div class="card-grid">
+
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Syed Sumbul Shahbaz</div>
+          <div class="contact-title">Senior Executive HR</div>
+          <span class="company-tag">Goldman Sachs</span>
+          <div class="job-target">
+            Role: <strong>Global Banking & Markets Operations - IB Ops Client Onboarding Analyst (Bengaluru)</strong><br>
+            Job ID: <span class="job-id-badge">4452387165</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-0">Hi Syed Sumbul,
+
+Hope you are having a productive week. I am reaching out regarding the open Global Banking & Markets Operations - IB Ops Client Onboarding Analyst position at Goldman Sachs Bengaluru (Job ID: 4452387165).
+
+As a final-year International Business candidate at Dayananda Sagar University, I bring proven ground execution in high-stakes SLA compliance, audit adherence, and vendor contract operations. Most recently, as Operations Lead at AERO INDIA 2025 (Yelahanka Air Force Station), I managed complex operations for 100,000+ attendees with zero security breaches and 0.0% shrinkage, alongside managing run-of-show logistics for enterprise activations like Tata Communications.
+
+I have applied directly on the portal and would be deeply grateful if you could route my profile for internal consideration or direct referral. May I send my resume across for your review?
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4452387165" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-0', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Amisha Jat</div>
+          <div class="contact-title">Senior Operations Analyst</div>
+          <span class="company-tag">Goldman Sachs</span>
+          <div class="job-target">
+            Role: <strong>Global Banking & Markets Operations - IB Ops Client Onboarding Analyst</strong><br>
+            Job ID: <span class="job-id-badge">4452387165</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-1">Hi Amisha,
+
+Hope you are doing well! I noticed the open Global Banking & Markets Operations - IB Ops Client Onboarding Analyst role (Job ID: 4452387165) in your department at Goldman Sachs Bengaluru.
+
+I'm a final-year International Business student at Dayananda Sagar University with a strong background in operational workflows, trade finance documentation, and high-density execution (Operations Lead at AERO INDIA 2025 with 100k+ footfall, 0 breaches, 0.0% shrinkage; and activations for Tata Communications).
+
+Would you be open to submitting an internal referral or connecting for a quick 5-minute chat about the team's culture and onboarding process? Truly appreciate your guidance!
+
+Warm regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4452387165" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-1', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">ASHWINI CHANDRASHEKHAR</div>
+          <div class="contact-title">Manager - Talent Acquisition/Attraction</div>
+          <span class="company-tag">EY</span>
+          <div class="job-target">
+            Role: <strong>GDS Meetings and Events - Events Manager</strong><br>
+            Job ID: <span class="job-id-badge">4444908737</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-2">Hi Ashwini,
+
+I hope this message finds you well. I am reaching out to express my strong enthusiasm for the GDS Meetings and Events - Events Manager role at EY Bengaluru (Job ID: 4444908737).
+
+I specialize in high-density event logistics and end-to-end operational execution. At AERO INDIA 2025, I served as Operations Lead at Yelahanka Air Force Station, overseeing crowd management, multi-vendor coordination, and inventory integrity for 100,000+ delegates with zero security breaches. In addition, I have managed high-pressure enterprise activations and run-of-show schedules for Tata Communications and Puma Global.
+
+Given my hands-on background in vendor SLA enforcement and high-profile corporate activations, I am confident in adding immediate value to EY GDS Events. Could we connect for a brief conversation regarding this opening?
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4444908737" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-2', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Kinjal Chauhan</div>
+          <div class="contact-title">Relationship Manager - Talent Acquisition and Attraction</div>
+          <span class="company-tag">EY</span>
+          <div class="job-target">
+            Role: <strong>GDS Meetings and Events - Events Manager</strong><br>
+            Job ID: <span class="job-id-badge">4444908737</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-3">Hi Kinjal,
+
+Hope you are having a great week! I am writing to bring my candidacy to your attention for the GDS Meetings and Events - Events Manager opening at EY (Job ID: 4444908737).
+
+With demonstrated execution as Operations Lead at AERO INDIA 2025 (100,000+ attendees at Yelahanka Air Force Base, 0 breaches, 0.0% shrinkage) and enterprise activations for Tata Communications and Puma Global, I bring rigorous vendor SLA contract governance, run-of-show logistics, and crisis escalation management.
+
+I have applied online and would welcome the chance to share my CV directly for your team's consideration. Thank you for your time!
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4444908737" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-3', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Sangini Sahay</div>
+          <div class="contact-title">Sourcing Recruiter</div>
+          <span class="company-tag">Amazon</span>
+          <div class="job-target">
+            Role: <strong>Event Program Manager, AWS Global Events / Supply Chain BA</strong><br>
+            Job ID: <span class="job-id-badge">4443027895 / 4455781999</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-4">Hi Sangini,
+
+Hope you are well! I am writing regarding the Event Program Manager, AWS Global Events role (Job ID: 4443027895) and Business Analyst Support, IN Supply Chain (Job ID: 4455781999) at Amazon Bengaluru.
+
+My background combines rigorous analytical education in International Business at Dayananda Sagar University with proven ground-level event and supply chain execution. As Operations Lead at AERO INDIA 2025 (100,000+ footfall, 0 security breaches, 0.0% shrinkage) and run-of-show lead for Tata Communications & Puma Global, I specialize in Bias for Action, Deliver Results, and zero-defect SLA compliance.
+
+I would be grateful for the opportunity to have my profile considered for an interview loop. I'd be delighted to share my resume if you have a moment.
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4443027895" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-4', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Dipali Sharma</div>
+          <div class="contact-title">Business Development Manager</div>
+          <span class="company-tag">Amazon Web Services (AWS)</span>
+          <div class="job-target">
+            Role: <strong>Event Program Manager, AWS Global Events</strong><br>
+            Job ID: <span class="job-id-badge">4443027895</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-5">Hi Dipali,
+
+Hope all is well with you. I noticed the Event Program Manager opening for AWS Global Events (Job ID: 4443027895) based out of Bengaluru.
+
+Having led large-scale operations at AERO INDIA 2025 at Yelahanka Air Force Station (100,000+ delegates, multi-tier security coordination, 0 shrinkage) and executed high-touch corporate activations for Tata Communications and Puma Global, I am deeply passionate about enterprise-scale event logistics and stakeholder experiences.
+
+Would you be open to referring me internally or putting me in touch with the hiring manager for AWS Global Events? Appreciate your support!
+
+Warm regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4443027895" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-5', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Varsha G</div>
+          <div class="contact-title">Team Lead</div>
+          <span class="company-tag">JPMorganChase</span>
+          <div class="job-target">
+            Role: <strong>Data Management Associate</strong><br>
+            Job ID: <span class="job-id-badge">4440836681</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-6">Hi Varsha,
+
+Hope you are doing well! I am reaching out regarding the Data Management Associate opening at JPMorganChase Bengaluru (Job ID: 4440836681).
+
+As a final-year International Business student at Dayananda Sagar University, I have developed strict data governance discipline, audit tracking, and operational rigor. During AERO INDIA 2025, I handled real-time reconciliation and operational logistics across 100k+ attendees with 0.0% shrinkage and 0 unresolved escalations.
+
+I would love the opportunity to join your operations ecosystem at JPMC. Could you consider referring my application or taking a quick glance at my profile?
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4440836681" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-6', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Himanshi Sahu</div>
+          <div class="contact-title">Senior Corporate Recruiter</div>
+          <span class="company-tag">Accenture</span>
+          <div class="job-target">
+            Role: <strong>Business Advisory New Associate / Supply Chain Ops Analyst</strong><br>
+            Job ID: <span class="job-id-badge">4429242140 / 4448338203</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-7">Hi Himanshi,
+
+Hope you are having a wonderful week. I am reaching out regarding the Business Advisory New Associate (Job ID: 4429242140 / 4440553796) and Supply Chain Operations Senior Analyst (Job ID: 4448338203) roles at Accenture in India.
+
+I graduate this year in International Business from Dayananda Sagar University. My practical background includes leading field operations at AERO INDIA 2025 (100k+ attendees, 0 breaches, 0.0% shrinkage) and vendor SLA enforcement for enterprise activations with Tata Communications and Puma Global.
+
+I have registered on the Accenture candidate portal and would love to have my profile reviewed for these positions. May I forward my CV to your email for direct routing?
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4429242140" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-7', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Nikhitha Simon</div>
+          <div class="contact-title">HR Business Partner</div>
+          <span class="company-tag">PwC</span>
+          <div class="job-target">
+            Role: <strong>Associate</strong><br>
+            Job ID: <span class="job-id-badge">4409108662</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-8">Hi Nikhitha,
+
+Hope you are well! I am writing to share my application for the Associate position at PwC India (Job ID: 4409108662).
+
+I bring strong analytical and operational grounding from my International Business degree at Dayananda Sagar University, bolstered by high-accountability execution as Operations Lead at AERO INDIA 2025 (100k+ visitors, 0 security infractions, 0 shrinkage) and corporate logistics for Tata Communications.
+
+I would be honored to be considered for PwC's advisory/consulting practice. Could we connect or may I share my resume directly with you for review?
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4409108662" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-8', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Pinki Kumari</div>
+          <div class="contact-title">Junior Analyst</div>
+          <span class="company-tag">Razorpay</span>
+          <div class="job-target">
+            Role: <strong>Analyst - Business Operations / Merchant Operations Specialist</strong><br>
+            Job ID: <span class="job-id-badge">4439995783 / RAZORPAY_MERCHANT_004</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-9">Hi Pinki,
+
+Hope you're having a good week! I noticed Razorpay is hiring for the Analyst - Business Operations role (Job ID: 4439995783) and Merchant Operations Specialist in Bengaluru.
+
+I'm graduating in International Business from Dayananda Sagar University with hands-on experience in vendor contracts, operational reconciliation, and multi-stakeholder management (Operations Lead at AERO INDIA 2025 and activations for Tata Communications with zero unresolved escalations).
+
+Would you be open to referring me internally or sharing a word of advice on the team's interview process? Would really appreciate your help!
+
+Warm regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4439995783" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-9', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Shimna M</div>
+          <div class="contact-title">Talent Advisor</div>
+          <span class="company-tag">Cisco</span>
+          <div class="job-target">
+            Role: <strong>Data Analyst</strong><br>
+            Job ID: <span class="job-id-badge">4446332173</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-10">Hi Shimna,
+
+I hope you are well. I am reaching out regarding the Data Analyst opening at Cisco Bengaluru (Job ID: 4446332173).
+
+I am completing my International Business degree at Dayananda Sagar University, combining quantitative data analysis, SLA metrics tracking, and operational leadership (Operations Lead at AERO INDIA 2025 for 100,000+ delegates with 0 shrinkage and 0 breaches).
+
+I would welcome the opportunity to submit my resume for internal review. Could we connect briefly regarding this role?
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4446332173" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-10', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Archana Rao Sarrgur</div>
+          <div class="contact-title">Manager - Leadership Hiring</div>
+          <span class="company-tag">HSBC</span>
+          <div class="job-target">
+            Role: <strong>Business Analyst</strong><br>
+            Job ID: <span class="job-id-badge">4452434953</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-11">Hi Archana,
+
+Hope you are having a productive week! I am writing regarding the Business Analyst position at HSBC Bengaluru (Job ID: 4452434953).
+
+With an academic foundation in International Business from Dayananda Sagar University and field experience handling large-scale SLA execution, financial reconciliation, and vendor contract enforcement (AERO INDIA 2025 and Tata Communications activations), I am eager to contribute to HSBC's global operations.
+
+I have applied online and would be grateful if you could direct my profile to the relevant hiring team. Thank you for your consideration!
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4452434953" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-11', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Prerna Khedkar</div>
+          <div class="contact-title">Senior Executive Human Resources</div>
+          <span class="company-tag">Swiggy</span>
+          <div class="job-target">
+            Role: <strong>Operations & Expansion Associate</strong><br>
+            Job ID: <span class="job-id-badge">SWIGGY_OPS_001</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-12">Hi Prerna,
+
+Hope all is well! I am reaching out to share my interest in Swiggy's Operations & Expansion Associate openings in Bengaluru.
+
+Having led mission-critical operations at AERO INDIA 2025 (managing high-density logistics for 100,000+ footfall with 0 breaches and 0.0% shrinkage) and driven vendor SLA enforcement for Tata Communications, I thrive in fast-paced operational ecosystems with strict delivery metrics.
+
+Could I share my CV with you for upcoming operations and expansion hiring batches? Would love to connect!
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="https://careers.swiggy.com" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-12', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Yashaswini L</div>
+          <div class="contact-title">Talent Acquisition Specialist</div>
+          <span class="company-tag">Zepto</span>
+          <div class="job-target">
+            Role: <strong>City Operations Lead / Dark Store SCM</strong><br>
+            Job ID: <span class="job-id-badge">ZEPTO_OPS_002</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-13">Hi Yashaswini,
+
+Hope you are having a great week! I am reaching out regarding operations and dark store management opportunities at Zepto Bengaluru.
+
+My experience is centered on fast-turnaround inventory control, loss prevention, and SLA compliance. As Operations Lead at AERO INDIA 2025, I handled high-throughput stock and delegate logistics for 100,000+ attendees with a proven 0.0% shrinkage record and zero unresolved escalations across multi-vendor contracts.
+
+I'm keen to bring this rigorous discipline to Zepto's quick commerce operations. May I share my resume with you for consideration?
+
+Warm regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="https://www.zeptonow.com/careers" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-13', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Nupur Niswan Pal</div>
+          <div class="contact-title">Assistant Manager Finance</div>
+          <span class="company-tag">Hilton</span>
+          <div class="job-target">
+            Role: <strong>Events Executive | Conrad Bengaluru</strong><br>
+            Job ID: <span class="job-id-badge">4450278984</span>
+          </div>
+        </div>
+        <div class="message-box" id="msg-14">Hi Nupur,
+
+Hope you are doing well! I noticed the opening for Events Executive at Conrad Bengaluru by Hilton (Job ID: 4450278984).
+
+Having managed high-stakes event operations at AERO INDIA 2025 (100,000+ delegates, zero security infractions, 0.0% shrinkage) and enterprise activations for Puma Global and Tata Communications, I have deep respect for luxury guest experiences, run-of-show precision, and budget discipline.
+
+Would you be open to referring me internally or introducing me to the events hiring team? Appreciate your time and guidance!
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <a href="http://www.linkedin.com/jobs/view/4450278984" target="_blank" class="job-link">View Job Posting &nearr;</a>
+          <button class="copy-btn" onclick="copyText('msg-14', this)">Copy Outreach Message</button>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+  <!-- Tab 2: All Open Roles Table -->
+  <div id="tab-roles" class="tab-content">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Job ID</th>
+          <th>Job Title</th>
+          <th>Domain / Type</th>
+          <th>Location</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td style="font-weight:600; color:#fff;">Goldman Sachs</td>
+          <td><span class="job-id-badge">4452387165</span></td>
+          <td>Global Banking & Markets Operations - IB Ops Client Onboarding Analyst</td>
+          <td style="color:var(--accent); font-size:13px;">Investment Banking Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4452387165" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">JPMorganChase</td>
+          <td><span class="job-id-badge">4440836681</span></td>
+          <td>Data Management Associate</td>
+          <td style="color:var(--accent); font-size:13px;">Data & Operations Management</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4440836681" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">EY</td>
+          <td><span class="job-id-badge">4444908737</span></td>
+          <td>GDS Meetings and Events - Events Manager</td>
+          <td style="color:var(--accent); font-size:13px;">Event Operations & Program Management</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4444908737" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Amazon Web Services (AWS)</td>
+          <td><span class="job-id-badge">4443027895</span></td>
+          <td>Event Program Manager, AWS Global Events</td>
+          <td style="color:var(--accent); font-size:13px;">Global Event Programs</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4443027895" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Amazon</td>
+          <td><span class="job-id-badge">4455781999</span></td>
+          <td>Business Analyst Support, IN Supply Chain</td>
+          <td style="color:var(--accent); font-size:13px;">Supply Chain & Operations Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://www.linkedin.com/jobs/view/4455781999" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Amazon</td>
+          <td><span class="job-id-badge">4051593590</span></td>
+          <td>Financial Analyst Intern, Stores Finance</td>
+          <td style="color:var(--accent); font-size:13px;">Finance & Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4051593590" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Amazon</td>
+          <td><span class="job-id-badge">4055834186</span></td>
+          <td>Finance Analyst Intern, Devices and Services Finance</td>
+          <td style="color:var(--accent); font-size:13px;">Finance & Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4055834186" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Accenture in India</td>
+          <td><span class="job-id-badge">4448338203</span></td>
+          <td>Supply Chain Operations Senior Analyst</td>
+          <td style="color:var(--accent); font-size:13px;">Supply Chain Consulting</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://www.linkedin.com/jobs/view/4448338203" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Accenture in India</td>
+          <td><span class="job-id-badge">4429242140</span></td>
+          <td>Business Advisory New Associate</td>
+          <td style="color:var(--accent); font-size:13px;">Business Advisory</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4429242140" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Accenture in India</td>
+          <td><span class="job-id-badge">4440553796</span></td>
+          <td>Business Advisory New Associate</td>
+          <td style="color:var(--accent); font-size:13px;">Business Advisory</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4440553796" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">PwC India</td>
+          <td><span class="job-id-badge">4409108662</span></td>
+          <td>Associate</td>
+          <td style="color:var(--accent); font-size:13px;">Consulting & Assurance</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4409108662" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Razorpay</td>
+          <td><span class="job-id-badge">4439995783</span></td>
+          <td>Analyst - Business Operations</td>
+          <td style="color:var(--accent); font-size:13px;">FinTech Business Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4439995783" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Razorpay</td>
+          <td><span class="job-id-badge">4434954818</span></td>
+          <td>Analyst, Business Operations</td>
+          <td style="color:var(--accent); font-size:13px;">FinTech Business Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4434954818" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Razorpay</td>
+          <td><span class="job-id-badge">RAZORPAY_MERCHANT_004</span></td>
+          <td>Merchant Operations Specialist</td>
+          <td style="color:var(--accent); font-size:13px;">Merchant Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://jobs.ashbyhq.com/razorpay" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Microsoft</td>
+          <td><span class="job-id-badge">4379272973</span></td>
+          <td>Research Sciences INTERN</td>
+          <td style="color:var(--accent); font-size:13px;">Research & Technology</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4379272973" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Microsoft</td>
+          <td><span class="job-id-badge">4052096504</span></td>
+          <td>Product Management Intern</td>
+          <td style="color:var(--accent); font-size:13px;">Product Management</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4052096504" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Cisco</td>
+          <td><span class="job-id-badge">4446332173</span></td>
+          <td>Data Analyst</td>
+          <td style="color:var(--accent); font-size:13px;">Data Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4446332173" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">HSBC</td>
+          <td><span class="job-id-badge">4452434953</span></td>
+          <td>Business Analyst</td>
+          <td style="color:var(--accent); font-size:13px;">Banking & Operations Analysis</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4452434953" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Swiggy</td>
+          <td><span class="job-id-badge">SWIGGY_OPS_001</span></td>
+          <td>Operations & Expansion Associate</td>
+          <td style="color:var(--accent); font-size:13px;">Hyperlocal Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://careers.swiggy.com" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Zepto</td>
+          <td><span class="job-id-badge">ZEPTO_OPS_002</span></td>
+          <td>City Operations Lead (Dark Store SCM)</td>
+          <td style="color:var(--accent); font-size:13px;">Quick Commerce Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://www.zeptonow.com/careers" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Ather Energy</td>
+          <td><span class="job-id-badge">ATHER_SC_001</span></td>
+          <td>Supply Chain & Operations Lead</td>
+          <td style="color:var(--accent); font-size:13px;">EV Supply Chain</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://www.atherenergy.com/careers" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Glean</td>
+          <td><span class="job-id-badge">4453740312</span></td>
+          <td>Cost & Commercial Operations Associate</td>
+          <td style="color:var(--accent); font-size:13px;">Commercial Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://jobs.ashbyhq.com/glean" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Postman</td>
+          <td><span class="job-id-badge">POSTMAN_OPS_003</span></td>
+          <td>Business Operations Analyst</td>
+          <td style="color:var(--accent); font-size:13px;">SaaS Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://boards.greenhouse.io/postman" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Wrike</td>
+          <td><span class="job-id-badge">4440968428</span></td>
+          <td>Partner Operations Specialist</td>
+          <td style="color:var(--accent); font-size:13px;">Partner Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="https://boards.greenhouse.io/wrike" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Hilton</td>
+          <td><span class="job-id-badge">4450278984</span></td>
+          <td>Events Executive | Conrad Bengaluru</td>
+          <td style="color:var(--accent); font-size:13px;">Hospitality & Event Management</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4450278984" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">JW Marriott</td>
+          <td><span class="job-id-badge">4436777567</span></td>
+          <td>Assistant Events Manager</td>
+          <td style="color:var(--accent); font-size:13px;">Event Management</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4436777567" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Thomson Reuters</td>
+          <td><span class="job-id-badge">4446747144</span></td>
+          <td>Events Coordinator</td>
+          <td style="color:var(--accent); font-size:13px;">Corporate Events</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4446747144" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">MathWorks</td>
+          <td><span class="job-id-badge">4406706536</span></td>
+          <td>Marketing Event Specialist</td>
+          <td style="color:var(--accent); font-size:13px;">Event Marketing</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4406706536" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">GlobalLogic</td>
+          <td><span class="job-id-badge">4451402094</span></td>
+          <td>Event Marketing Specialist IRC298882</td>
+          <td style="color:var(--accent); font-size:13px;">Event Marketing</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4451402094" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Oracle</td>
+          <td><span class="job-id-badge">4048014873</span></td>
+          <td>Student / Intern</td>
+          <td style="color:var(--accent); font-size:13px;">Technology Internship</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4048014873" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">CoinDCX</td>
+          <td><span class="job-id-badge">4424404412</span></td>
+          <td>Analyst - Operations</td>
+          <td style="color:var(--accent); font-size:13px;">FinTech Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4424404412" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">UST</td>
+          <td><span class="job-id-badge">4441571067</span></td>
+          <td>Business Operations Support</td>
+          <td style="color:var(--accent); font-size:13px;">Business Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4441571067" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">WNS</td>
+          <td><span class="job-id-badge">4430704372</span></td>
+          <td>Bangalore Walkins</td>
+          <td style="color:var(--accent); font-size:13px;">Business Process Operations</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4430704372" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Blissclub</td>
+          <td><span class="job-id-badge">4437012823</span></td>
+          <td>Business Analyst</td>
+          <td style="color:var(--accent); font-size:13px;">D2C & Retail Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4437012823" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">tokens&</td>
+          <td><span class="job-id-badge">4449673093</span></td>
+          <td>Operations Associate – Founder's Office (Remote)</td>
+          <td style="color:var(--accent); font-size:13px;">Founder's Office Operations</td>
+          <td style="color:var(--text-muted);">Remote, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4449673093" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">BNI Global</td>
+          <td><span class="job-id-badge">4406514782</span></td>
+          <td>Event Logistics Coordinator</td>
+          <td style="color:var(--accent); font-size:13px;">Event Logistics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4406514782" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">GalaxEye</td>
+          <td><span class="job-id-badge">4373303563</span></td>
+          <td>Market Research Intern</td>
+          <td style="color:var(--accent); font-size:13px;">SpaceTech Market Research</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4373303563" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Tyfone, Inc.</td>
+          <td><span class="job-id-badge">4371505461</span></td>
+          <td>Business Intelligence & Data Analyst Intern</td>
+          <td style="color:var(--accent); font-size:13px;">BI & Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4371505461" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Expedify</td>
+          <td><span class="job-id-badge">4374985662</span></td>
+          <td>AI Product Analytics Intern</td>
+          <td style="color:var(--accent); font-size:13px;">AI Product Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4374985662" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Emergent</td>
+          <td><span class="job-id-badge">4439983503</span></td>
+          <td>AI Analyst - Business Analytics and Product Intelligence</td>
+          <td style="color:var(--accent); font-size:13px;">AI & Business Analytics</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4439983503" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">Volvo Construction Equipment</td>
+          <td><span class="job-id-badge">4429029965</span></td>
+          <td>Graduate Apprentice Trainee</td>
+          <td style="color:var(--accent); font-size:13px;">Operations & Engineering Trainee</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4429029965" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+        <tr>
+          <td style="font-weight:600; color:#fff;">InspironLabs</td>
+          <td><span class="job-id-badge">4370182887</span></td>
+          <td>Management Trainee</td>
+          <td style="color:var(--accent); font-size:13px;">Management Trainee</td>
+          <td style="color:var(--text-muted);">Bengaluru, India</td>
+          <td><a href="http://www.linkedin.com/jobs/view/4370182887" target="_blank" class="job-link">Apply / View &nearr;</a></td>
+        </tr>
+    
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tab 3: Templates -->
+  <div id="tab-templates" class="tab-content">
+    <div class="card-grid">
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Template 1: Recruiter / Talent Acquisition Specialist</div>
+          <div class="contact-title">Direct Job ID Application Referral</div>
+        </div>
+        <div class="message-box" id="tmpl-1">Hi [Recruiter Name],
+
+Hope you are having a productive week! I recently submitted my application for the [Job Title] role at [Company] (Job ID: [Job ID]).
+
+As an International Business graduate from Dayananda Sagar University, I combine analytical operations grounding with on-the-ground execution. Most recently, as Operations Lead at AERO INDIA 2025 (Yelahanka Air Base), I led high-density crowd logistics and vendor operations for 100,000+ delegates with zero security breaches and 0.0% shrinkage, alongside managing run-of-show logistics for Tata Communications and Puma Global.
+
+Given my verified track record in strict SLA compliance and operational rigor, I would be grateful for the opportunity to have my profile considered for the interview loop. May I share my resume directly with you?
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <button class="copy-btn" onclick="copyText('tmpl-1', this)">Copy Template</button>
+        </div>
+      </div>
+
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Template 2: Hiring Manager / Operations Lead</div>
+          <div class="contact-title">Direct Team Impact & 5-Min Coffee Chat</div>
+        </div>
+        <div class="message-box" id="tmpl-2">Hi [Manager Name],
+
+Hope you're having a great week! I came across the open [Job Title] position (Job ID: [Job ID]) within your group at [Company].
+
+My background is centered on high-accountability execution: leading operations at AERO INDIA 2025 across 100k+ attendees (0 breaches, 0.0% inventory shrinkage) and enforcing multi-vendor contract SLAs for Tata Communications with zero unresolved escalations.
+
+I would love to learn more about the team's operational goals and explore how my execution rigor can take pressure off your team. Would you be open to a brief 5-minute conversation sometime this week?
+
+Warm regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624 | Bengaluru</div>
+        <div class="action-bar">
+          <button class="copy-btn" onclick="copyText('tmpl-2', this)">Copy Template</button>
+        </div>
+      </div>
+
+      <div class="msg-card">
+        <div class="card-header">
+          <div class="contact-name">Template 3: College Alumni (Christ Univ / DSU)</div>
+          <div class="contact-title">Warm Internal Referral Ask</div>
+        </div>
+        <div class="message-box" id="tmpl-3">Hi [Alumni Name],
+
+Hope you are doing well! As a fellow [Dayananda Sagar / Christ University] student, it's wonderful seeing your journey at [Company].
+
+I'm currently applying for the [Job Title] role (Job ID: [Job ID]) at [Company] Bengaluru. My background includes leading operations at AERO INDIA 2025 (100k+ attendees, 0 security infractions, 0 shrinkage) and vendor logistics for Tata Communications.
+
+If you have a quick minute, would you be comfortable submitting an internal employee referral for my application? I can send over my resume and the job requisition link right away.
+
+Thank you so much for your support!
+
+Best regards,
+Aditya Mehra
+ashishiash007@gmail.com | +91 7003456624</div>
+        <div class="action-bar">
+          <button class="copy-btn" onclick="copyText('tmpl-3', this)">Copy Template</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function copyText(elementId, btn) {
+  const text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const originalText = btn.innerText;
+    btn.innerText = '✓ Copied to Clipboard!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerText = originalText;
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>

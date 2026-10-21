@@ -1,7 +1,7 @@
 # 🚀 Accenture Bengaluru 116-Person Tailored Dispatch Dossier
-> **Status:** 100% Verified Job IDs, Live Workday URLs & Individualized 1-on-1 Messages
+> **Status:** 100% Verified Job IDs, Live Workday URLs & Individualized 1-on-1 Messages with ALL Top Openings
 > **Candidate:** Aditya Mehra | BBA (International Business) — Dayananda Sagar University
-> **Direct Contact:** adityamehra007@gmail.com | +91 7003456624 | Bengaluru
+> **Direct Contact:** adityamehra799@gmail.com | +91 7003456624 | Bengaluru
 
 ---
 
@@ -14,34 +14,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 2. Triyasa Barat — Associate Software Engineer
@@ -53,18 +75,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -75,7 +124,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 3. Varsha K — Order to Cash Operations New Associate
@@ -85,31 +134,58 @@ Hi Varsha,
 
 Hope you're doing well!
 
-I noticed your work as Order to Cash Operations New Associate at Accenture Bengaluru. I recently graduated with a BBA specializing in International Business from Dayananda Sagar University and am looking to start my career in corporate procurement operations.
+I noticed your work as Order to Cash Operations New Associate at Accenture Bengaluru. I recently graduated with a BBA specializing in International Business from Dayananda Sagar University and am looking to start my career in corporate operations.
 
 I saw these fresh Level 13 openings active on Workday:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for the Workday MyReferrals portal:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you kindly submit a quick referral for me for Job ID AIOC-S01664213-1? Happy to share my updated resume right away. Would truly appreciate your support!
+Could you kindly submit an internal referral for me for any of these openings (Job ID AIOC-S01664213-1 or AIOC-S01670871-1 preferred)? Happy to share my updated resume right away. Would truly appreciate your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 4. Sakshi Tripathi — Change Management Consulting Manager
@@ -122,28 +198,55 @@ I hope you are having a productive week.
 I noticed your leadership as Change Management Consulting Manager at Accenture. I recently graduated with a BBA in International Business from Dayananda Sagar University, Bengaluru, and am seeking an entry-level operational role within Accenture Operations.
 
 I have identified active Level 13 back-office requisitions aligned with my background:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I would be honored if you could refer me or direct my profile to the aligned hiring team. I have my resume ready for review. Thank you for your time and guidance!
+I would be honored if you could refer me or direct my profile to the aligned hiring team for any of these openings. I have my resume ready for review. Thank you for your time and guidance!
 
 Sincerely,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 5. Anushka bonu — Cloud Tech Support
@@ -155,18 +258,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -177,7 +307,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 6. Christinal Manivannan — Record To Report
@@ -189,18 +319,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -211,7 +368,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 7. Himanshi Sahu — Senior Corporate Recruiter
@@ -223,34 +380,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 8. Shweta Das — Management Consultant
@@ -262,34 +441,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 9. Darshana Mahesh — Human Resources Associate
@@ -301,34 +502,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 10. Vijetha Puthran — Human Resources Manager
@@ -340,34 +563,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 11. Keerthana Venkatesan — HR Operations
@@ -379,34 +624,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 12. Nisha Sree — HR
@@ -418,34 +685,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 13. Rachana R — Business Advisory New Associate
@@ -457,18 +746,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -479,7 +795,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 14. Ranu Bose — Design Analyst
@@ -491,18 +807,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -513,7 +856,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 15. Ankita Yadav — Order to Cash Operation Analyst
@@ -523,31 +866,58 @@ Hi Ankita,
 
 Hope you're doing well!
 
-I noticed your work as Order to Cash Operation Analyst at Accenture Bengaluru. I recently graduated with a BBA specializing in International Business from Dayananda Sagar University and am looking to start my career in corporate procurement operations.
+I noticed your work as Order to Cash Operation Analyst at Accenture Bengaluru. I recently graduated with a BBA specializing in International Business from Dayananda Sagar University and am looking to start my career in corporate operations.
 
 I saw these fresh Level 13 openings active on Workday:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for the Workday MyReferrals portal:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you kindly submit a quick referral for me for Job ID AIOC-S01664213-1? Happy to share my updated resume right away. Would truly appreciate your support!
+Could you kindly submit an internal referral for me for any of these openings (Job ID AIOC-S01664213-1 or AIOC-S01670871-1 preferred)? Happy to share my updated resume right away. Would truly appreciate your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 16. Gunjita Bhatia — I&F Sci Practitioner Senior Analyst
@@ -559,18 +929,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -581,7 +978,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 17. garima parashar — Business Interlock Senior Analyst
@@ -593,18 +990,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -615,7 +1039,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 18. Binita Dhar — Human Resource Business Advisory
@@ -627,18 +1051,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -649,7 +1100,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 19. Nikita Singh — Inside Sales
@@ -661,18 +1112,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -683,7 +1161,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 20. Akanksha Mudragiri — Non IT Sourcer
@@ -695,18 +1173,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -717,7 +1222,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 21. Vydehi Saragadam — Infra Managed Service Associate at Accenture
@@ -729,18 +1234,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -751,7 +1283,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 22. Deepali Bhitale — Business Analyst Project Management
@@ -763,18 +1295,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -785,7 +1344,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 23. Neesha Singh — Package App Development Associate
@@ -797,18 +1356,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -819,7 +1405,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 24. Rashmi Kanta Kumari — HR Service Delivery Analyst
@@ -831,34 +1417,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 25. Nisha Manjunath — Training Specialist
@@ -870,18 +1478,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -892,7 +1527,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 26. SAHHASRA S — HR Partner Analyst
@@ -904,34 +1539,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 27. Likhitha V — Trust and Safety Quality Analyst
@@ -943,34 +1600,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 28. Anshika Brijpuria — People Advisor Analyst
@@ -982,18 +1661,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1004,7 +1710,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 29. vanya arora — Procurement Practice Associate
@@ -1014,31 +1720,58 @@ Hi Vanya,
 
 Hope you're doing well!
 
-I noticed your work as Procurement Practice Associate at Accenture Bengaluru. I recently graduated with a BBA specializing in International Business from Dayananda Sagar University and am looking to start my career in corporate procurement operations.
+I noticed your work as Procurement Practice Associate at Accenture Bengaluru. I recently graduated with a BBA specializing in International Business from Dayananda Sagar University and am looking to start my career in corporate operations.
 
 I saw these fresh Level 13 openings active on Workday:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for the Workday MyReferrals portal:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you kindly submit a quick referral for me for Job ID AIOC-S01664213-1? Happy to share my updated resume right away. Would truly appreciate your support!
+Could you kindly submit an internal referral for me for any of these openings (Job ID AIOC-S01664213-1 or AIOC-S01670871-1 preferred)? Happy to share my updated resume right away. Would truly appreciate your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 30. Rachitha M — Online Content Moderator
@@ -1050,18 +1783,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1072,7 +1832,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 31. Kruti Jain — Management Consultant
@@ -1084,34 +1844,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 32. Chandana GA — Business Operations Analyst | Quality & Compliance
@@ -1123,18 +1905,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1145,7 +1954,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 33. Nama Virmani — Consultant
@@ -1157,34 +1966,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 34. Ishwarya Ramanathan — Associate Software Engineer
@@ -1196,18 +2027,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1218,7 +2076,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 35. Bharani S — HR service Delivery Associate
@@ -1230,34 +2088,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 36. Anjali P — Human Resource Practitioner
@@ -1269,18 +2149,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1291,7 +2198,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 37. Shruti Gupta — HR Practitioner
@@ -1303,34 +2210,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 38. Rucha Mahakulkar — Strategy Consultant
@@ -1342,18 +2271,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1364,7 +2320,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 39. Shuvannita Dey — Management Consulting Analyst
@@ -1376,34 +2332,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 40. Akshitha Murali — Business Advisory New Associate ￼
@@ -1415,18 +2393,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1437,7 +2442,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 41. Akshita . — Sales Operations Analyst and admin assistant
@@ -1449,18 +2454,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1471,7 +2503,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 42. Nishtha Gupta — Management Consulting Senior Analyst
@@ -1483,34 +2515,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 43. Maahi Shrivastava — Cybersecurity Consultant
@@ -1522,18 +2576,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1544,7 +2625,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 44. Smitha G — Record to Report Ops Associate
@@ -1556,34 +2637,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 45. Rubina Rani Mahapatra — Software Developer
@@ -1595,18 +2698,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1617,7 +2747,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 46. Sukrutha Paul — People Advisor Lead
@@ -1630,28 +2760,55 @@ I hope you are having a productive week.
 I noticed your leadership as People Advisor Lead at Accenture. I recently graduated with a BBA in International Business from Dayananda Sagar University, Bengaluru, and am seeking an entry-level operational role within Accenture Operations.
 
 I have identified active Level 13 back-office requisitions aligned with my background:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I would be honored if you could refer me or direct my profile to the aligned hiring team. I have my resume ready for review. Thank you for your time and guidance!
+I would be honored if you could refer me or direct my profile to the aligned hiring team for any of these openings. I have my resume ready for review. Thank you for your time and guidance!
 
 Sincerely,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 47. Krishnendhu Harilal Nair — Senior Analyst
@@ -1663,34 +2820,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 48. Prakrati Singh — Customer Service Associate
@@ -1702,34 +2881,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 49. SHIVANGI SHARMA — Business Architecture Associate Manager
@@ -1742,28 +2943,55 @@ I hope you are having a productive week.
 I noticed your leadership as Business Architecture Associate Manager at Accenture. I recently graduated with a BBA in International Business from Dayananda Sagar University, Bengaluru, and am seeking an entry-level operational role within Accenture Operations.
 
 I have identified active Level 13 back-office requisitions aligned with my background:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I would be honored if you could refer me or direct my profile to the aligned hiring team. I have my resume ready for review. Thank you for your time and guidance!
+I would be honored if you could refer me or direct my profile to the aligned hiring team for any of these openings. I have my resume ready for review. Thank you for your time and guidance!
 
 Sincerely,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 50. Atshaya Sree — Sourcing and Category Representative
@@ -1775,34 +3003,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 51. Kavya Bopaiah — HR Service Delivery Analyst
@@ -1814,34 +3064,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 52. PUSHPALATHA SHETTY — Recruitment Senior Analyst
@@ -1853,18 +3125,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1875,7 +3174,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 53. Namrata Vaswani — Product Support Analyst
@@ -1887,18 +3186,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1909,7 +3235,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 54. Adithi kempadala — Cloud migration & imp analyst
@@ -1921,18 +3247,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -1943,7 +3296,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 55. Ruhi Taslim M — Human Resources Specialist
@@ -1955,34 +3308,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 56. Chithra Muruga — Associate
@@ -1994,18 +3369,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2016,7 +3418,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 57. Shripragnya Swain — Manager Management Consulting
@@ -2029,28 +3431,55 @@ I hope you are having a productive week.
 I noticed your leadership as Manager Management Consulting at Accenture. I recently graduated with a BBA in International Business from Dayananda Sagar University, Bengaluru, and am seeking an entry-level operational role within Accenture Operations.
 
 I have identified active Level 13 back-office requisitions aligned with my background:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I would be honored if you could refer me or direct my profile to the aligned hiring team. I have my resume ready for review. Thank you for your time and guidance!
+I would be honored if you could refer me or direct my profile to the aligned hiring team for any of these openings. I have my resume ready for review. Thank you for your time and guidance!
 
 Sincerely,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 58. Keerthana N — Trust and Safety Associate
@@ -2060,27 +3489,58 @@ Hi Keerthana,
 
 Hope you're doing well!
 
-I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level Trust & Safety / Content Moderation roles.
+I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level operations and Trust & Safety roles.
 
-Could you kindly submit an internal referral for:
-• Trust & Safety New Associate (Non-Voice Screen Review)
-• Job ID: AIOC-S01668350-1
-• Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+I have shortlisted these active Level 13 non-sales requisitions on Workday:
 
-My details for Workday:
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
+
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
+   • Job ID: AIOC-S01670871-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
+
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
+My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I have my resume ready to share right away. Thank you so much for your support!
+Could you kindly submit an internal referral for me for Job ID AIOC-S01668350-1 or whichever requisition you prefer? I have my resume ready to share right away. Thank you so much for your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 59. Vyshali R — Management Consultant
@@ -2092,18 +3552,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2114,7 +3601,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 60. Sai Keerthana K — Senior Recruiting Analyst
@@ -2126,34 +3613,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 61. Gayathri Prathap — Software Engineer
@@ -2165,18 +3674,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2187,7 +3723,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 62. Archana B — Packaged App Development Associate
@@ -2199,18 +3735,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2221,7 +3784,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 63. Sahana Mruthyunjaya — Trust and Safety Associate
@@ -2231,27 +3794,58 @@ Hi Sahana,
 
 Hope you're doing well!
 
-I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level Trust & Safety / Content Moderation roles.
+I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level operations and Trust & Safety roles.
 
-Could you kindly submit an internal referral for:
-• Trust & Safety New Associate (Non-Voice Screen Review)
-• Job ID: AIOC-S01668350-1
-• Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+I have shortlisted these active Level 13 non-sales requisitions on Workday:
 
-My details for Workday:
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
+
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
+   • Job ID: AIOC-S01670871-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
+
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
+My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I have my resume ready to share right away. Thank you so much for your support!
+Could you kindly submit an internal referral for me for Job ID AIOC-S01668350-1 or whichever requisition you prefer? I have my resume ready to share right away. Thank you so much for your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 64. Divya GS — Corporate Mobility Specialist
@@ -2263,18 +3857,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2285,7 +3906,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 65. Russhell Steffi — Recruting Analyst
@@ -2297,18 +3918,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2319,7 +3967,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 66. Keerthi G Ganiga — Associate Software Engineer
@@ -2331,18 +3979,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2353,7 +4028,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 67. Ritika Pravesh — Associate Software Engineer
@@ -2365,18 +4040,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2387,7 +4089,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 68. Ankita Gangopadhyay — Business Advisory Associate
@@ -2399,18 +4101,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2421,7 +4150,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 69. Zulfa Taskeen — Human Resources Associate - Background Verification
@@ -2433,34 +4162,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 70. Mekhala Karlawad — Manager
@@ -2472,34 +4223,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 71. Shivangi Tripathi — HR Associate
@@ -2511,34 +4284,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 72. Akshata Dharnatti — Human Resources Associate
@@ -2550,34 +4345,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 73. Sushma Rani M — Talent Acquisition Specialist
@@ -2589,34 +4406,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 74. Shafia Khadri J.K — Capital markets operation associate
@@ -2628,18 +4467,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2650,7 +4516,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 75. Fathima Kauser — HR Operations and Service Delivery Associate
@@ -2662,34 +4528,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 76. Poojaa P — Senior Recruiter Talent Acquisition
@@ -2701,34 +4589,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 77. Mageswari N — HR Reporting and Analytics Specialist
@@ -2740,34 +4650,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 78. Agni Shikha — Delivery Operations Senior Analyst
@@ -2779,18 +4711,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2801,7 +4760,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 79. Navya L — HR Service Delivery Associate Manager
@@ -2813,34 +4772,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 80. Arpita Panesar — People Analytics and modeling specialist
@@ -2852,18 +4833,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2874,7 +4882,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 81. Komal Tiwari — Management Consulting
@@ -2886,18 +4894,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -2908,7 +4943,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 82. Manisha Raman — Strategy Consultant
@@ -2920,34 +4955,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 83. Sowmya C — Human Resources Associate
@@ -2959,34 +5016,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 84. Tejaswini C — HR Service Delivery Analyst
@@ -2998,34 +5077,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 85. nikitha manjunath — Record to Report Ops new Associate
@@ -3037,18 +5138,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3059,7 +5187,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 86. Asha Y.C — Talent fulfilment specialist
@@ -3071,34 +5199,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 87. Hari Chandana — Recruiting Analyst
@@ -3110,34 +5260,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 88. Arushi Pandirkar — Management Consultant
@@ -3149,34 +5321,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 89. Ranjitha Y S — Associate content moderater
@@ -3188,18 +5382,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3210,7 +5431,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 90. Anusha Balsundar — Drug Safety Associate
@@ -3220,27 +5441,58 @@ Hi Anusha,
 
 Hope you're doing well!
 
-I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level Trust & Safety / Content Moderation roles.
+I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level operations and Trust & Safety roles.
 
-Could you kindly submit an internal referral for:
-• Trust & Safety New Associate (Non-Voice Screen Review)
-• Job ID: AIOC-S01668350-1
-• Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+I have shortlisted these active Level 13 non-sales requisitions on Workday:
 
-My details for Workday:
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
+
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
+   • Job ID: AIOC-S01670871-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
+
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
+My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I have my resume ready to share right away. Thank you so much for your support!
+Could you kindly submit an internal referral for me for Job ID AIOC-S01668350-1 or whichever requisition you prefer? I have my resume ready to share right away. Thank you so much for your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 91. TANYA KUNWAR — Software Engineer
@@ -3252,34 +5504,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 92. Rituparna Dey — Consultant (Team Lead)
@@ -3291,34 +5565,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 93. Ahisha Priyadarshini — Management Consulting Analyst
@@ -3330,34 +5626,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 94. Prathiba E T — Recruitment Analyst
@@ -3369,34 +5687,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 95. Juli Jaiswal — Trust and safety Associate
@@ -3406,27 +5746,58 @@ Hi Juli,
 
 Hope you're doing well!
 
-I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level Trust & Safety / Content Moderation roles.
+I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level operations and Trust & Safety roles.
 
-Could you kindly submit an internal referral for:
-• Trust & Safety New Associate (Non-Voice Screen Review)
-• Job ID: AIOC-S01668350-1
-• Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+I have shortlisted these active Level 13 non-sales requisitions on Workday:
 
-My details for Workday:
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
+
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
+   • Job ID: AIOC-S01670871-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
+
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
+My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I have my resume ready to share right away. Thank you so much for your support!
+Could you kindly submit an internal referral for me for Job ID AIOC-S01668350-1 or whichever requisition you prefer? I have my resume ready to share right away. Thank you so much for your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 96. Swathi S — Software Engineer
@@ -3438,18 +5809,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3460,7 +5858,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 97. Namitha k — Packaged app development associate
@@ -3472,18 +5870,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3494,7 +5919,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 98. Mownika Reddy K A — App/Cloud Analyst
@@ -3506,18 +5931,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3528,7 +5980,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 99. Srushti B — Drug Safety Associate
@@ -3538,27 +5990,58 @@ Hi Srushti,
 
 Hope you're doing well!
 
-I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level Trust & Safety / Content Moderation roles.
+I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level operations and Trust & Safety roles.
 
-Could you kindly submit an internal referral for:
-• Trust & Safety New Associate (Non-Voice Screen Review)
-• Job ID: AIOC-S01668350-1
-• Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+I have shortlisted these active Level 13 non-sales requisitions on Workday:
 
-My details for Workday:
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
+
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
+   • Job ID: AIOC-S01670871-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
+
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
+My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I have my resume ready to share right away. Thank you so much for your support!
+Could you kindly submit an internal referral for me for Job ID AIOC-S01668350-1 or whichever requisition you prefer? I have my resume ready to share right away. Thank you so much for your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 100. C Rameswari — Human Resources Executive
@@ -3570,34 +6053,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 101. Akshara Baburaj — Business Advisory Analyst
@@ -3609,18 +6114,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3631,7 +6163,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 102. Jyoti Daddikar — Senior Software Engineer, Accenture Services Pvt. Ltd
@@ -3643,18 +6175,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3665,7 +6224,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 103. Aishwarya S Kulala — MC Delivery Senior Analyst
@@ -3677,18 +6236,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3699,7 +6285,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 104. Heera N — Management Consulting Analyst
@@ -3711,34 +6297,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 105. Navanisha S — Associate Software Engineer
@@ -3750,18 +6358,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3772,7 +6407,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 106. Varshini A — DevOps Engineer
@@ -3784,18 +6419,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3806,7 +6468,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 107. Aashrita Ganatra — Associate
@@ -3818,18 +6480,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3840,7 +6529,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 108. Shravanthi N — Bi engineerning senior analyst
@@ -3852,18 +6541,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3874,7 +6590,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 109. Sanaa Kittur — Packaged App Development Analyst
@@ -3886,18 +6602,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3908,7 +6651,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 110. Sai Sowmya Aasi — Management Consulting Analyst
@@ -3920,18 +6663,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -3942,7 +6712,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 111. NIVEDITHA VK — Management Consultant Analyst
@@ -3954,34 +6724,56 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 112. Mrigna Mahanta — SAP BW Analyst
@@ -3993,18 +6785,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -4015,7 +6834,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 113. Ankita Banerjee — Packaged App Development Analyst
@@ -4027,18 +6846,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -4049,7 +6895,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 114. Sohini Bhattacharjee — Associate Software Engineer
@@ -4061,18 +6907,45 @@ Hope you're doing well!
 
 I noticed you're working at Accenture Bengaluru. I am a fellow Bengaluru graduate (BBA in International Business from DSU) looking to start my career at Accenture in an entry-level back-office operations role.
 
-Could you help me with a quick internal referral for:
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1
+Could you help me with a quick internal referral for any of these active Level 13 non-sales requisitions on Workday (whichever is easiest for you to refer):
+
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
@@ -4083,7 +6956,7 @@ I have my resume ready to share immediately. Would truly appreciate your referra
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 115. Navya Rao K — Trust & Safety New Associate
@@ -4093,27 +6966,58 @@ Hi Navya,
 
 Hope you're doing well!
 
-I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level Trust & Safety / Content Moderation roles.
+I noticed you're working in Trust & Safety at Accenture Bengaluru. I am a BBA graduate from DSU and an immediate joiner interested in entry-level operations and Trust & Safety roles.
 
-Could you kindly submit an internal referral for:
-• Trust & Safety New Associate (Non-Voice Screen Review)
-• Job ID: AIOC-S01668350-1
-• Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+I have shortlisted these active Level 13 non-sales requisitions on Workday:
 
-My details for Workday:
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
+
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
+   • Job ID: AIOC-S01670871-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
+
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
+   • Job ID: AIOC-S01669615-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
+
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
+My details for Workday MyReferrals:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-I have my resume ready to share right away. Thank you so much for your support!
+Could you kindly submit an internal referral for me for Job ID AIOC-S01668350-1 or whichever requisition you prefer? I have my resume ready to share right away. Thank you so much for your support!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```
 
 ### 116. Manoj Nambiar — Lead Talent Acquisition Partner – EXIM & Supply Chain
@@ -4125,32 +7029,54 @@ Hope you're having a great week!
 
 I am reaching out as a 1st-degree connection regarding entry-level fresher hiring at Accenture Operations Bengaluru. I graduated with a BBA in International Business from Dayananda Sagar University and am available for immediate onboarding (0 Days Notice).
 
-I am eager to be screened for these newly posted Level 13 non-sales operations requisitions:
+I am eager to be screened for any of these newly posted Level 13 non-sales operations requisitions:
 
-1. Procurement Operations New Associate (Posted 2 Days Ago)
-   • Job ID: AIOC-S01664213-1  (Backup: AIOC-S01664212-1)
+Top Matched Level 13 Back-Office Requisitions (0–1 Yrs Freshers):
+
+1. Procurement Operations New Associate (Posted 2 Days Ago | Top Fit)
+   • Job ID: AIOC-S01664213-1  (Parallel Slot: AIOC-S01664212-1)
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procurement-Operations-Associate_AIOC-S01664213-1
 
-2. Procure to Pay Operations New Associate (Posted Yesterday)
+2. Procure to Pay (P2P) Operations New Associate (Posted Yesterday | Fresh Opening)
    • Job ID: AIOC-S01670871-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Procure-to-Pay-Operations-New-Associate_AIOC-S01670871-1
 
-3. Sales Operations New Associate (Order Management — 100% Non-Sales)
+3. Sales Operations New Associate (Order Management & Contract Ops — 100% Non-Sales)
    • Job ID: AIOC-S01669615-1
    • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Sales-Operations-New-Associate_AIOC-S01669615-1
 
+4. Regulatory Compliance New Associate (KYC & Sanctions Risk Operations)
+   • Job ID: AIOC-S01667647-1  (Parallel Slot: AIOC-S01668628-1)
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Regulatory-Compliance-New-Associate_AIOC-S01667647-1
+
+5. Supply Chain Operations New Associate (Vendor Logistics & Shipping Tracking)
+   • Job ID: AIOC-S01665657-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Supply-Chain-Operations-New-Associate_AIOC-S01665657-1
+
+6. Trust & Safety New Associate (Policy & Content Operations — Non-Voice)
+   • Job ID: AIOC-S01668350-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Trust---Safety-New-Associate_AIOC-S01668350-1
+
+7. Customer Contact Comms New Associate (Digital Messaging & Chat Operations)
+   • Job ID: AIOC-S01665940-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/Customer-Contact-Comms-Associate-Messaging_AIOC-S01665940-1
+
+8. HR Service Delivery New Associate (Employee Operations)
+   • Job ID: AIOC-S01663367-1
+   • Link: https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Bengaluru/HR-Service-Delivery-New-Associate_AIOC-S01663367-1
+
 Candidate Summary:
 • Candidate Legal Name: Aditya Mehra
-• Email: adityamehra007@gmail.com
+• Email: adityamehra799@gmail.com
 • Phone: +91 7003456624
 • Degree: BBA in International Business (Dayananda Sagar University, Bengaluru)
 • Notice Period: Immediate Joiner (0 Days Notice)
 • Shift Flexibility: 100% flexible with 24/7 rotational & night shifts
 • Location: Bengaluru (Local resident)
 
-Could you guide me on the screening process or connect me with the aligned recruiter for these requisitions? I have my resume ready for review. Thank you for your time and guidance!
+Could you guide me on the screening process or connect me with the aligned recruiter for any of these requisitions? I have my resume ready for review. Thank you for your time and guidance!
 
 Best regards,
 Aditya Mehra
-+91 7003456624 | adityamehra007@gmail.com
++91 7003456624 | adityamehra799@gmail.com
 ```

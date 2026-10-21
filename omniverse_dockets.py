@@ -22,9 +22,9 @@ CANDIDATE = {
     "specialization": "International Business & Global Operations",
     "institution": "Dayananda Sagar University (DSU), Bengaluru",
     "location": "Bengaluru, Karnataka, India",
-    "email": "adityamehra.business@gmail.com",
-    "phone": "+91 99000 00000",
-    "linkedin": "https://www.linkedin.com/in/adityamehra-business",
+    "email": "adityamehra799@gmail.com",
+    "phone": "+91-7003456624",
+    "linkedin": "https://www.linkedin.com/in/aditya-mehra-b8644b326",
     "core_competencies": [
         "Global Business & Cross-Border Trade Operations",
         "Process Optimization & Operations Execution",

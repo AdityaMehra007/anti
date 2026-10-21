@@ -2,7 +2,7 @@
 
 > **Proof of Work & Autonomous Engineering Platform**  
 > Built & Maintained by **Aditya Mehra** | Bengaluru, Karnataka, India  
-> **GitHub:** [@AdityaMehra007](https://github.com/AdityaMehra007) | **Live Universe:** [adityamehra007.github.io](https://adityamehra007.github.io/) | **Contact:** [+91 7003456624](tel:+917003456624) | [adityamehra007@gmail.com](mailto:adityamehra007@gmail.com)
+> **GitHub:** [@AdityaMehra007](https://github.com/AdityaMehra007) | **Live Universe:** [adityamehra007.github.io](https://adityamehra007.github.io/) | **Contact:** [+91 7003456624](tel:+917003456624) | [adityamehra799@gmail.com](mailto:adityamehra799@gmail.com)
 
 [![Live Universe](https://img.shields.io/badge/Live%20Universe-adityamehra007.github.io-success?style=flat&logo=githubpages&logoColor=white)](https://adityamehra007.github.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -157,7 +157,7 @@ pytest tests/test_recruiter_dispatcher.py
 * **Author:** Aditya Mehra
 * **Location:** Bengaluru, Karnataka, India
 * **Phone:** `+91 7003456624`
-* **Email:** `adityamehra007@gmail.com`
+* **Email:** `adityamehra799@gmail.com`
 * **Portfolio Website:** [adityamehra007.github.io](https://adityamehra007.github.io/)
 * **LinkedIn:** [linkedin.com/in/aditya-mehra](https://linkedin.com/in/aditya-mehra)
 * **GitHub Profile:** [github.com/AdityaMehra007](https://github.com/AdityaMehra007)

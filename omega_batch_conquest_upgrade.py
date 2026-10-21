@@ -27,7 +27,7 @@ CANDIDATE = {
     "name": "Aditya Mehra",
     "location": "Bengaluru, Karnataka, India",
     "phone": "+91 7003456624",
-    "email": "adityamehra007@gmail.com",
+    "email": "adityamehra799@gmail.com",
     "alt_email": "adityamehra799@gmail.com",
     "linkedin": "linkedin.com/in/adityamehra",
     "education": "Bachelor of Business Administration (BBA) in International Business",

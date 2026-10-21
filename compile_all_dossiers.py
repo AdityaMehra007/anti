@@ -98,7 +98,7 @@ HTML_RESUME_TEMPLATE = """<!DOCTYPE html>
 <div class="header">
   <h1>ADITYA MEHRA</h1>
   <div class="contact">
-    Bangalore, India &bull; adityamehra007@gmail.com &bull; +91-7003456624 &bull; Open to Relocation ({locations})
+    Bangalore, India &bull; adityamehra799@gmail.com &bull; +91-7003456624 &bull; Open to Relocation ({locations})
   </div>
 </div>
 
@@ -250,7 +250,7 @@ HTML_COVER_LETTER_TEMPLATE = """<!DOCTYPE html>
 <div class="header">
   <h1>ADITYA MEHRA</h1>
   <div class="contact">
-    Bangalore, India &bull; adityamehra007@gmail.com &bull; +91-7003456624 &bull; Open to Relocation ({locations})
+    Bangalore, India &bull; adityamehra799@gmail.com &bull; +91-7003456624 &bull; Open to Relocation ({locations})
   </div>
 </div>
 
@@ -322,7 +322,7 @@ def build_docx(pkg_dir, manifest):
 
     p_contact = doc.add_paragraph()
     p_contact.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run_contact = p_contact.add_run(f"Bangalore, India | adityamehra007@gmail.com | +91-7003456624 | Open to Relocation ({manifest['locations']})")
+    run_contact = p_contact.add_run(f"Bangalore, India | adityamehra799@gmail.com | +91-7003456624 | Open to Relocation ({manifest['locations']})")
     run_contact.font.name = "Calibri"
     run_contact.font.size = Pt(9.5)
     run_contact.font.color.rgb = RGBColor(71, 85, 105)

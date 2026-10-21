@@ -99,7 +99,7 @@ I welcome an opportunity to discuss how my execution background can add immediat
 
 Sincerely,
 Aditya Mehra
-Phone: +91-7003456624 | Email: adityamehra007@gmail.com
+Phone: +91-7003456624 | Email: adityamehra799@gmail.com
 Bengaluru, Karnataka | LinkedIn: https://www.linkedin.com/in/aditya-mehra-dsu
 """
 
@@ -138,7 +138,7 @@ I graduate with a BBA in International Business from Dayananda Sagar University 
 I am based in Bengaluru and ready for immediate onboarding. I would welcome 5 minutes to discuss how my hands-on execution rigor aligns with active openings at {company}.
 
 Best regards,
-Aditya Mehra | +91-7003456624 | adityamehra007@gmail.com
+Aditya Mehra | +91-7003456624 | adityamehra799@gmail.com
 LinkedIn: https://www.linkedin.com/in/aditya-mehra-dsu
 """
         (pkg_dir / "DIRECT_OUTREACH_INMAIL.md").write_text(inmail_content, encoding="utf-8")
@@ -160,7 +160,7 @@ LinkedIn: https://www.linkedin.com/in/aditya-mehra-dsu
             "candidate": {
                 "name": "Aditya Mehra",
                 "phone": "+91-7003456624",
-                "email": "adityamehra007@gmail.com",
+                "email": "adityamehra799@gmail.com",
                 "degree": "BBA International Business (DSU 2026)",
                 "verified_credentials": [
                     "Aero India 2025 Ground Operations Lead",

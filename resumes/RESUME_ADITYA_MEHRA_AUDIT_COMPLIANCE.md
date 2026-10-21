@@ -1,7 +1,7 @@
 # ADITYA MEHRA
 **Audit, Assurance & Commercial Compliance**  
-Bengaluru, Karnataka, India | +91 99000 00000 | adityamehra.business@gmail.com  
-LinkedIn: https://www.linkedin.com/in/adityamehra-business
+Bengaluru, Karnataka, India | +91-7003456624 | adityamehra799@gmail.com  
+LinkedIn: https://www.linkedin.com/in/aditya-mehra-b8644b326
 
 ---
 

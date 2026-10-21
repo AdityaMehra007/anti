@@ -4,7 +4,7 @@ generate_new_grad_2027_dossiers.py — Generate 10 Elite Tailored Application Do
 Compliant with Aditya Mehra's verified profile:
 - Aditya Mehra, BBA International Business (Dayananda Sagar University 2026), GPA 8.78/10.0
 - Systems & Operations Analyst, Autonomous AI Agent Architect, Full-Stack / Distributed Backend
-- adityamehra007@gmail.com | +91-7003456624 | Bengaluru, India
+- adityamehra799@gmail.com | +91-7003456624 | Bengaluru, India
 """
 
 import sys
@@ -142,7 +142,7 @@ def generate_markdown_dossier(tgt):
 **Location**: {tgt['location']}  
 **Application URL**: [{tgt['url']}]({tgt['url']})  
 **Candidate**: Aditya Mehra (BBA International Business '26, Dayananda Sagar University, GPA 8.78/10.0)  
-**Contact**: adityamehra007@gmail.com | +91-7003456624 | Bengaluru, India  
+**Contact**: adityamehra799@gmail.com | +91-7003456624 | Bengaluru, India  
 
 ---
 
@@ -193,7 +193,7 @@ def generate_one_page_doc(tgt, word_app):
 
     p_sub = doc.add_paragraph()
     p_sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_s = p_sub.add_run(f"{tgt['role']} | Dossier {tgt['id']} | Bengaluru, India • +91-7003456624 • adityamehra007@gmail.com")
+    r_s = p_sub.add_run(f"{tgt['role']} | Dossier {tgt['id']} | Bengaluru, India • +91-7003456624 • adityamehra799@gmail.com")
     r_s.font.size = Pt(8.5)
     r_s.font.color.rgb = RGBColor(0x47, 0x55, 0x69)
 
