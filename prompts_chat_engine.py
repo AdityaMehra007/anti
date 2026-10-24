@@ -565,4 +565,90 @@ class PromptsChatEngine:
         title = raw_title.replace("-", " ").title()
 
         return {
-  
+            "slug": slug,
+            "title": title,
+            "filename": file_path.name,
+            "content": content,
+            "word_count": len(content.split())
+        }
+
+    def export_enriched_json(self, out_path: Optional[Path] = None) -> Path:
+        """Exports all 2,627 prompts with enriched metadata to a structured JSON file."""
+        if out_path is None:
+            out_path = ROOT_DIR / "data" / "prompts_chat_enriched.json"
+        out_path = Path(out_path)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+
+        with self._get_connection() as conn:
+            cur = conn.execute("SELECT * FROM prompts ORDER BY id ASC")
+            records = [self._row_to_record(r).to_dict() for r in cur.fetchall()]
+
+        out_path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")
+        return out_path
+
+    def get_skill_index(self) -> List[Dict[str, str]]:
+        """Caches and returns the index of all installed agent skills."""
+        if not hasattr(self, "_skills_cache") or self._skills_cache is None:
+            skills_dir = ROOT_DIR / ".agents" / "skills"
+            cached = []
+            if skills_dir.exists():
+                for p in sorted(skills_dir.iterdir()):
+                    if p.is_dir():
+                        skill_file = p / "SKILL.md"
+                        desc = ""
+                        if skill_file.exists():
+                            try:
+                                text = skill_file.read_text(encoding="utf-8", errors="ignore")[:600]
+                                m = re.search(r"description:\s*([^\n\r]+)", text, re.I)
+                                if m:
+                                    desc = m.group(1).strip().strip('"').strip("'")
+                            except Exception:
+                                pass
+                        cached.append({"name": p.name, "description": desc, "path": str(p)})
+            self._skills_cache = cached
+        return self._skills_cache
+
+    def search_skills(self, query: str, limit: int = 10) -> List[Dict[str, str]]:
+        """Searches across all 3,841+ installed agent skills."""
+        all_skills = self.get_skill_index()
+        q = query.strip().lower()
+        if not q:
+            return all_skills[:limit]
+        terms = q.split()
+        matches = []
+        for s in all_skills:
+            name_lower = s["name"].lower()
+            desc_lower = s["description"].lower()
+            if all(t in name_lower or t in desc_lower for t in terms):
+                matches.append(s)
+                if len(matches) >= limit:
+                    break
+        return matches
+
+    def get_skill(self, name_or_slug: str) -> Optional[Dict[str, Any]]:
+        """Retrieves full skill definition and files."""
+        target_dir = ROOT_DIR / ".agents" / "skills" / name_or_slug.strip()
+        if not target_dir.exists() or not target_dir.is_dir():
+            return None
+        skill_file = target_dir / "SKILL.md"
+        content = skill_file.read_text(encoding="utf-8", errors="ignore") if skill_file.exists() else ""
+        files = [f.name for f in target_dir.iterdir() if f.is_file()]
+        return {
+            "name": name_or_slug.strip(),
+            "path": str(target_dir),
+            "files": files,
+            "content": content
+        }
+
+
+# Global singleton instance
+_engine_instance: Optional[PromptsChatEngine] = None
+
+
+def get_engine() -> PromptsChatEngine:
+    global _engine_instance
+    if _engine_instance is None:
+        _engine_instance = PromptsChatEngine()
+        if _engine_instance.count() == 0:
+            _engine_instance.sync()
+    return _engine_instance

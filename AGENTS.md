@@ -169,6 +169,8 @@ Self-hosted PaaS alternative to Heroku/Vercel/Netlify for multi-server Docker, T
 ### System Prompts Intelligence Ecosystem
 - [`system-prompts-intelligence`](.agents/skills/system-prompts-intelligence/SKILL.md): Query and inspect system prompt architectures, extracted tool signatures, and prompt patterns from Google Antigravity, Anthropic Claude Code, OpenAI Codex, Cursor, and Grok.
 - [`prompts-chat`](.agents/skills/prompts-chat/SKILL.md): Query, retrieve, interpolate variables, and improve prompts from the 2,627 curated prompts library (f/prompts.chat).
+- [`prompt-lookup`](.agents/skills/prompt-lookup/SKILL.md): Discover, search, and retrieve battle-tested prompt templates via MCP.
+- [`skill-lookup`](.agents/skills/skill-lookup/SKILL.md): Search, retrieve, and inspect across all 3,841+ installed agent skills.
 - **Prompts Studio Cockpit**: [`prompts_chat_cockpit.html`](prompts_chat_cockpit.html) / `START_PROMPTS_CHAT_COCKPIT.bat`
 - **Prompts Deep Engine & CLI**: [`prompts_chat_engine.py`](prompts_chat_engine.py) / [`prompts_chat_cli.py`](prompts_chat_cli.py)
 - **Local MCP Server**: [`prompts_chat_mcp_server.py`](prompts_chat_mcp_server.py)

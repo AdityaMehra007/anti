@@ -337,4 +337,60 @@ def main() -> None:
             print(f"For Devs:    {rec.for_devs}")
             print(f"Contributor: {rec.contributor or 'Community'}")
             if rec.variables:
- 
+                print(f"Variables:   {', '.join([v.name for v in rec.variables])}")
+            print("\n--- Prompt Content ---")
+            print(rec.prompt)
+            print("----------------------\n")
+        else:
+            print(f"Prompt '{args.get}' not found.")
+        return
+
+    if args.fill:
+        var_dict = {}
+        if args.vars:
+            for pair in args.vars:
+                if "=" in pair:
+                    k, v = pair.split("=", 1)
+                    var_dict[k.strip()] = v.strip()
+        filled = engine.fill_prompt(args.fill, var_dict)
+        if filled:
+            print(f"\n--- Filled Prompt: {args.fill} ---")
+            print(filled)
+            print("----------------------------------\n")
+        else:
+            print(f"Prompt '{args.fill}' not found.")
+        return
+
+    if args.search:
+        records, total = engine.search(
+            query=args.search,
+            category=args.category,
+            for_devs=True if args.for_devs else None,
+            limit=20
+        )
+        print(f"\nFound {total} matching prompts for '{args.search}':")
+        for idx, r in enumerate(records, 1):
+            dev_badge = " [DEV]" if r.for_devs else ""
+            print(f"{idx:2}. {r.act}{dev_badge} (Score: {r.quality_score} | {r.category})")
+            snippet = r.prompt[:120].replace("\n", " ") + "..."
+            print(f"    {snippet}")
+        print()
+        return
+
+    if args.quality:
+        score, strengths = QualityScorer.score(args.quality)
+        print(f"\nPrompt Quality Score: {score}/100")
+        print("Detected Strengths:")
+        for s in strengths:
+            print(f"  + {s}")
+        print()
+        return
+
+    # Default if no arguments: print help
+    print("prompts.chat CLI — Use --search, --get, --fill, --random, --stats, or --serve")
+    print("Example: python prompts_chat_cli.py --search 'linux'")
+    print("Example: python prompts_chat_cli.py --serve 8877")
+
+
+if __name__ == "__main__":
+    main()

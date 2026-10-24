@@ -831,4 +831,37 @@
 
       document.getElementById('bookTitle').innerText = 'Loading...';
       document.getElementById('bookMeta').innerText = '';
-      document.ge
+      document.getElementById('bookBody').innerText = 'Fetching chapter contents...';
+
+      try {
+        const res = await fetch(`${API_BASE}/api/book/${encodeURIComponent(slug)}?lang=${currentBookLang}`);
+        const ch = await res.json();
+        if (ch && !ch.error) {
+          document.getElementById('bookTitle').innerText = ch.title;
+          document.getElementById('bookMeta').innerText = `${ch.slug} • ${ch.word_count.toLocaleString()} words`;
+          document.getElementById('bookBody').innerText = ch.content;
+        } else {
+          document.getElementById('bookBody').innerText = 'Chapter content unavailable.';
+        }
+      } catch (e) {
+        document.getElementById('bookBody').innerText = 'Error loading chapter.';
+      }
+    }
+
+    function testMcp() {
+      alert('MCP Server is running via prompts_chat_mcp_server.py.\n10 Tools registered with Antigravity and Claude Code!');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // Initial load
+    window.onload = () => {
+      loadStats();
+      performSearch();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+{
+  "search_queries": {
+    "linux terminal": {
+      "total_matches": 7,
+      "top_acts": [
+        "Linux Terminal",
+        "claude-md-master",
+        "AI Trying to Escape the Box"
+      ],
+      "sample_snippet": "I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply "
+    },
+    "job interviewer": {
+      "total_matches": 8,
+      "top_acts": [
+        "Job Interviewer",
+        "Job Posting Snapshot & Preservation Engine",
+        "Customer Interview Insight Extractor (JSON)"
+      ],
+      "sample_snippet": "I want you to act as an interviewer. I will be the candidate and you will ask me the interview questions for the ${Position:Software Develop"
+    },
+    "ethereum developer": {
+      "total_matches": 1,
+      "top_acts": [
+        "Ethereum Developer"
+      ],
+      "sample_snippet": "Imagine you are an experienced Ethereum developer tasked with creating a smart contract for a blockchain messenger. The objective is to save"
+    },
+    "financial analyst": {
+      "total_matches": 22,
+      "top_acts": [
+        "Advanced Account Research",
+        "Industry/Market Intelligence",
+        "Prompt Engineering Expert"
+      ],
+      "sample_snippet": "<role> You are an Expert Market Research Analyst with deep expertise in: - Company intelligence gathering and competitive positioning analys"
+    },
+    "translator": {
+      "total_matches": 17,
+      "top_acts": [
+        "English Translator and Improver",
+        "Biblical Translator",
+        "Household Maintenance & Safety Assistant"
+      ],
+      "sample_snippet": "I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the lan"
+    }
+  },
+  "filled_prompts": [
+    {
+      "act": "Job Interviewer",
+      "variables": {
+        "Position": "Principal Autonomous Systems Architect"
+      },
+      "filled_preview": "I want you to act as an interviewer. I will be the candidate and you will ask me the interview questions for the Principal Autonomous Systems Architect position. I want you to only reply as the interv"
+    },
+    {
+      "act": "English Translator and Improver",
+      "variables": {},
+      "filled_preview": "I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved"
+    },
+    {
+      "act": "Mockup Interview using Gemini Live",
+      "variables": {
+        "job_title": "Head of AI Infrastructure",
+        "COMPANY TYPE/NAME": "Global Tech GCC"
+      },
+      "filled_preview": "Head of AI Infrastructure at [COMPANY TYPE/NAME].\n\n**Rules:**\n- Ask ONE question at a time. Wait for my answer before continuing.\n- Mix question types: behavioral (STAR), technical, situational, and c"
+    }
+  ],
+  "quality_improvement": {
+    "raw": "Build me a fast web scraper in python and store items in sqlite.",
+    "score_before": 20,
+    "score_after": 65,
+    "improved_prompt": "You are an expert specialist. Build me a fast web scraper in python and store items in sqlite.\n\nOperating Constraints:\n- Do not include unsolicited preamble or postamble.\n- Only output the exact requested content.\n- Adhere strictly to the required format.\n\nOutput Format:\n- Format your response using clean GitHub-flavored markdown."
+  },
+  "skills_searches": {
+    "tdd": [
+      "create-rfc",
+      "create-technical-design-doc",
+      "django-tdd"
+    ],
+    "docker": [
+      "coolify-orchestrator",
+      "deployment-patterns",
+      "docker-patterns"
+    ],
+    "security": [
+      "aws-advisor",
+      "defi-amm-security",
+      "django-security"
+    ],
+    "career": [
+      "apex-career-os",
+      "career-velocity-ladder",
+      "job-learning-sentinel"
+    ],
+    "prompts": [
+      "gh-address-comments",
+      "mcp-server-patterns",
+      "plan-orchestrate"
+    ]
+  },
+  "book_multilingual": [
+    {
+      "language": "en",
+      "title": "Understanding Ai Models",
+      "word_count": 2109,
+      "first_line": "Before learning prompt techniques, it helps to understand how AI language models actually work. This knowledge will make you better at writing prompts."
+    },
+    {
+      "language": "es",
+      "title": "Understanding Ai Models",
+      "word_count": 2326,
+      "first_line": "Antes de aprender t\u00e9cnicas de prompts, ayuda entender c\u00f3mo funcionan realmente los modelos de lenguaje de IA. Este conocimiento te har\u00e1 mejor escribiendo prompts."
+    },
+    {
+      "language": "de",
+      "title": "Understanding Ai Models",
+      "word_count": 2124,
+      "first_line": "Bevor du Prompt-Techniken lernst, hilft es zu verstehen, wie KI-Sprachmodelle tats\u00e4chlich funktionieren. Dieses Wissen wird dich besser im Schreiben von Prompts machen."
+    }
+  ],
+  "api_checks": {
+    "/api/stats": {
+      "status": 200,
+      "keys": [
+        "total_prompts",
+        "developer_prompts",
+        "average_quality",
+        "unique_contributors",
+        "categories",
+        "types",
+        "top_contributors"
+      ]
+    },
+    "/api/book-languages": {
+      "status": 200,
+      "keys": [
+        "languages"
+      ]
+    },
+    "/api/search?q=docker&limit=2": {
+      "status": 200,
+      "keys": [
+        "total",
+        "count",
+        "offset",
+        "limit",
+        "results"
+      ]
+    },
+    "/api/skills?q=test&limit=2": {
+      "status": 200,
+      "keys": [
+        "total",
+        "query",
+        "skills"
+      ]
+    }
+  }
+}

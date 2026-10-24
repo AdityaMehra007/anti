@@ -276,4 +276,50 @@ def main():
                 "result": {
                     "protocolVersion": "2024-11-05",
                     "capabilities": {"tools": {}},
-                    "serverInfo": {"name": SERVER_NA
+                    "serverInfo": {"name": SERVER_NAME, "version": SERVER_VERSION}
+                }
+            }
+        elif method == "notifications/initialized":
+            continue
+        elif method == "tools/list":
+            res = {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {"tools": TOOLS}
+            }
+        elif method == "tools/call":
+            tool_name = params.get("name", "")
+            tool_args = params.get("arguments", {})
+            try:
+                result_payload = handle_call_tool(tool_name, tool_args)
+                res = {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "result": {
+                        "content": [
+                            {"type": "text", "text": json.dumps(result_payload, indent=2)}
+                        ]
+                    }
+                }
+            except Exception as e:
+                res = {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "isError": True,
+                    "result": {
+                        "content": [{"type": "text", "text": f"Tool execution failed: {str(e)}"}]
+                    }
+                }
+        else:
+            res = {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "error": {"code": -32601, "message": f"Method not found: {method}"}
+            }
+
+        sys.stdout.write(json.dumps(res) + "\n")
+        sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    main()

@@ -296,4 +296,51 @@ def test_http_api_endpoints():
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/book") as resp:
             assert resp.status == 200
             data = json.loads(resp.read().decode("utf-8"))
-           
+            assert len(data["chapters"]) == 31
+
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/book/01-understanding-ai-models") as resp:
+            assert resp.status == 200
+            data = json.loads(resp.read().decode("utf-8"))
+            assert data["slug"] == "01-understanding-ai-models"
+
+        # 2c. Skills endpoints
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/skills?q=tdd") as resp:
+            assert resp.status == 200
+            data = json.loads(resp.read().decode("utf-8"))
+            assert data["total"] > 0
+
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/skill/tdd") as resp:
+            assert resp.status == 200
+            data = json.loads(resp.read().decode("utf-8"))
+            assert data["name"] == "tdd"
+
+        # 3. Search endpoint
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/search?q=developer&limit=3") as resp:
+            assert resp.status == 200
+            data = json.loads(resp.read().decode("utf-8"))
+            assert len(data["results"]) == 3
+
+        # 4. Prompt by act endpoint
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/prompt/Linux%20Terminal") as resp:
+            assert resp.status == 200
+            data = json.loads(resp.read().decode("utf-8"))
+            assert data["act"] == "Linux Terminal"
+
+        # 5. POST Fill endpoint
+        post_data = json.dumps({
+            "act": "Job Interviewer",
+            "variables": {"Position": "Principal AI Architect"}
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            f"http://127.0.0.1:{port}/api/fill",
+            data=post_data,
+            headers={"Content-Type": "application/json"}
+        )
+        with urllib.request.urlopen(req) as resp:
+            assert resp.status == 200
+            data = json.loads(resp.read().decode("utf-8"))
+            assert "Principal AI Architect" in data["filled"]
+
+    finally:
+        httpd.shutdown()
+
