@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navi_technologies-deployment
+  labels:
+    app: navi_technologies
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: navi_technologies
+  template:
+    metadata:
+      labels:
+        app: navi_technologies
+    spec:
+      containers:
+      - name: navi_technologies-node
+        image: navi_technologies:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: navi_technologies-service
+spec:
+  type: ClusterIP
+  selector:
+    app: navi_technologies
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-352",
+  "rank": 352,
+  "company_name": "Apex Works",
+  "sector": "Workforce, Talent, HRTech & Gig Economy",
+  "corridor": "HSR Layout (Unicorn Valley)",
+  "stage": "Unicorn",
+  "valuation": "$1.1B Unicorn",
+  "flagship_project": {
+    "name": "Project GigForce-Core: Apex Works Enterprise System",
+    "pillar": "Frontline Workforce Operating System & Instant Wage Access",
+    "strategic_thesis": "Scales Apex Works's operations across HSR Layout (Unicorn Valley) by deploying an enterprise-grade frontline workforce operating system & instant wage access to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Go, PostgreSQL, Redis, Kafka, Flutter",
+    "kpis": "Schedules 1M+ daily frontline shifts; automates instant wage payouts upon shift completion"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

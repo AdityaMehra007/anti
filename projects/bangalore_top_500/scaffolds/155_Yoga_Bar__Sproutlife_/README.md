@@ -1,0 +1,41 @@
+# Yoga Bar (Sproutlife) — Project PrimeRoute: Yoga Bar (Sproutlife) Enterprise System
+
+## Executive Overview
+- **Enterprise**: Yoga Bar (Sproutlife) (Rank #155 in Bangalore)
+- **Sector**: E-Commerce, Marketplaces & D2C Brands
+- **Corridor**: Indiranagar
+- **Stage**: Scale-up ($60M Acquisition)
+- **Engineering Pillar**: Predictive Reverse Logistics & Real-Time Carrier Selection
+- **Tech Stack**: `Go, LightGBM, PostgreSQL, Kafka, Redis`
+- **Target Scale KPIs**: Reduces RTO (Return to Origin) delivery failures by 42%; cuts average shipment costs by ₹18/parcel
+
+---
+
+## Strategic Thesis
+Scales Yoga Bar (Sproutlife)'s operations across Indiranagar by deploying an enterprise-grade predictive reverse logistics & real-time carrier selection to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.
+
+---
+
+## Architectural Invariants & Non-Negotiables
+1. **Zero Vibe Coding**: Strict typing, contract verification, and mathematical consistency.
+2. **Linearizable State Synchronization**: Zero data loss across active-active micro-hubs.
+3. **Continuous Chaos Resilience**: Automatic circuit breaking and zero-downtime failover.
+4. **P99 Latency Guarantee**: Sub-5ms to sub-15ms execution envelope under peak loads.
+
+---
+
+## Microservices Topology
+- **`ingestion-gateway`**: High-concurrency edge entrypoint terminating mTLS 1.3.
+- **`core-consensus-engine`**: High-throughput distributed state machine.
+- **`telemetry-sentinel`**: Real-time OpenTelemetry & forensic audit trail.
+
+---
+
+## Deployment & Verification
+```bash
+# Run local microservice simulation
+python service_blueprint.py
+
+# Launch multi-container stack
+docker-compose up -d
+```

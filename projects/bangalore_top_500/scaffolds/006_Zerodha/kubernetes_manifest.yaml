@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zerodha-deployment
+  labels:
+    app: zerodha
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: zerodha
+  template:
+    metadata:
+      labels:
+        app: zerodha
+    spec:
+      containers:
+      - name: zerodha-node
+        image: zerodha:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zerodha-service
+spec:
+  type: ClusterIP
+  selector:
+    app: zerodha
+  ports:
+  - port: 8080
+    targetPort: 8080

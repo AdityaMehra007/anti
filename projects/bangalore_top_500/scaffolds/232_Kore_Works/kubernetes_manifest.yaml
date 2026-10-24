@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kore_works-deployment
+  labels:
+    app: kore_works
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kore_works
+  template:
+    metadata:
+      labels:
+        app: kore_works
+    spec:
+      containers:
+      - name: kore_works-node
+        image: kore_works:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kore_works-service
+spec:
+  type: ClusterIP
+  selector:
+    app: kore_works
+  ports:
+  - port: 8080
+    targetPort: 8080

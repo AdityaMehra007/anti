@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yulu-deployment
+  labels:
+    app: yulu
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yulu
+  template:
+    metadata:
+      labels:
+        app: yulu
+    spec:
+      containers:
+      - name: yulu-node
+        image: yulu:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yulu-service
+spec:
+  type: ClusterIP
+  selector:
+    app: yulu
+  ports:
+  - port: 8080
+    targetPort: 8080

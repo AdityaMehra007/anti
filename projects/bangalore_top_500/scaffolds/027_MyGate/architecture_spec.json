@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-027",
+  "rank": 27,
+  "company_name": "MyGate",
+  "sector": "PropTech, Real Estate & Smart Living",
+  "corridor": "HSR Layout",
+  "stage": "Soonicorn",
+  "valuation": "$350M Series C",
+  "flagship_project": {
+    "name": "Project RentEngine: MyGate Enterprise System",
+    "pillar": "Residential Property Management & Autonomous Escrow Settlement",
+    "strategic_thesis": "Scales MyGate's operations across HSR Layout by deploying an enterprise-grade residential property management & autonomous escrow settlement to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "TypeScript, Node.js, PostgreSQL, Redis, Stripe/Razorpay",
+    "kpis": "Automates lease lifecycle and instant repair technician dispatch in under 2 hours"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wint_wealth-deployment
+  labels:
+    app: wint_wealth
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wint_wealth
+  template:
+    metadata:
+      labels:
+        app: wint_wealth
+    spec:
+      containers:
+      - name: wint_wealth-node
+        image: wint_wealth:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wint_wealth-service
+spec:
+  type: ClusterIP
+  selector:
+    app: wint_wealth
+  ports:
+  - port: 8080
+    targetPort: 8080

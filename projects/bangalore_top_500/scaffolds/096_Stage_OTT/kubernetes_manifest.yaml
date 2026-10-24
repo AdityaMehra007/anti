@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stage_ott-deployment
+  labels:
+    app: stage_ott
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stage_ott
+  template:
+    metadata:
+      labels:
+        app: stage_ott
+    spec:
+      containers:
+      - name: stage_ott-node
+        image: stage_ott:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stage_ott-service
+spec:
+  type: ClusterIP
+  selector:
+    app: stage_ott
+  ports:
+  - port: 8080
+    targetPort: 8080

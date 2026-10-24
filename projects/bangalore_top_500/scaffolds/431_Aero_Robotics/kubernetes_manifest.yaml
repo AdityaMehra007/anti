@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aero_robotics-deployment
+  labels:
+    app: aero_robotics
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aero_robotics
+  template:
+    metadata:
+      labels:
+        app: aero_robotics
+    spec:
+      containers:
+      - name: aero_robotics-node
+        image: aero_robotics:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aero_robotics-service
+spec:
+  type: ClusterIP
+  selector:
+    app: aero_robotics
+  ports:
+  - port: 8080
+    targetPort: 8080

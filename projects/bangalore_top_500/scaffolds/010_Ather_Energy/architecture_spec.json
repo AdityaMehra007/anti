@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-010",
+  "rank": 10,
+  "company_name": "Ather Energy",
+  "sector": "Electric Vehicles, CleanTech & Deep Mobility",
+  "corridor": "IBC Knowledge Park (Bannerghatta Road)",
+  "stage": "Unicorn",
+  "valuation": "$1.3B Valuation",
+  "flagship_project": {
+    "name": "Project GridMatrix: Distributed Vehicle-to-Grid Terawatt Telemetry, Fast-Charge Load Balancer & Battery Swarm Digital Twin",
+    "pillar": "Distributed Smart Charging Infrastructure & Dynamic V2G Energy Arbitrage",
+    "strategic_thesis": "Ather's competitive advantage lies in AtherStack software and Ather Grid. GridMatrix turns the entire Ather vehicle fleet and charging network into an active distributed virtual power plant (VPP), intelligently scheduling charging loads, balancing grid harmonics, and enabling vehicle-to-grid energy exchange.",
+    "tech_stack": "Rust (Embedded AtherOS Telemetry), Go (Ather Grid Cloud Controller), MQTT (Micro-broker over TLS 1.3), InfluxDB / ClickHouse, Python (Distributed Reinforcement Learning for Grid Balancing), AWS Greengrass / IoT Core",
+    "kpis": "40% reduction in peak commercial power demand charges for grid hosts; 99.8% Ather Grid charger uptime; real-time battery digital twin updating in 100ms."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veda_ai-deployment
+  labels:
+    app: veda_ai
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: veda_ai
+  template:
+    metadata:
+      labels:
+        app: veda_ai
+    spec:
+      containers:
+      - name: veda_ai-node
+        image: veda_ai:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: veda_ai-service
+spec:
+  type: ClusterIP
+  selector:
+    app: veda_ai
+  ports:
+  - port: 8080
+    targetPort: 8080

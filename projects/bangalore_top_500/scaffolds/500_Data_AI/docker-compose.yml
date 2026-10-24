@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  data_ai-core:
+    image: python:3.13-slim
+    container_name: data_ai-engine
+    restart: always
+    environment:
+      - APP_NAME=Data AI
+      - PROJECT_NAME=Project ChargeGrid-OS: Data AI Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: data_ai-cache
+    ports:
+      - "6379"

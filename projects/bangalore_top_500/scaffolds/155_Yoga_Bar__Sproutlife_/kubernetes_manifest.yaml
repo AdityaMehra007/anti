@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yoga_bar__sproutlife_-deployment
+  labels:
+    app: yoga_bar__sproutlife_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yoga_bar__sproutlife_
+  template:
+    metadata:
+      labels:
+        app: yoga_bar__sproutlife_
+    spec:
+      containers:
+      - name: yoga_bar__sproutlife_-node
+        image: yoga_bar__sproutlife_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yoga_bar__sproutlife_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: yoga_bar__sproutlife_
+  ports:
+  - port: 8080
+    targetPort: 8080

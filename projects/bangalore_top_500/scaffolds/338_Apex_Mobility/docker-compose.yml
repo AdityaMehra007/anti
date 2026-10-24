@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  apex_mobility-core:
+    image: python:3.13-slim
+    container_name: apex_mobility-engine
+    restart: always
+    environment:
+      - APP_NAME=Apex Mobility
+      - PROJECT_NAME=Project RealEstate-Mesh: Apex Mobility Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: apex_mobility-cache
+    ports:
+      - "6379"

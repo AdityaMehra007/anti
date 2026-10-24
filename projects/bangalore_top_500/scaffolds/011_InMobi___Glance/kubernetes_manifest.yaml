@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inmobi___glance-deployment
+  labels:
+    app: inmobi___glance
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: inmobi___glance
+  template:
+    metadata:
+      labels:
+        app: inmobi___glance
+    spec:
+      containers:
+      - name: inmobi___glance-node
+        image: inmobi___glance:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inmobi___glance-service
+spec:
+  type: ClusterIP
+  selector:
+    app: inmobi___glance
+  ports:
+  - port: 8080
+    targetPort: 8080

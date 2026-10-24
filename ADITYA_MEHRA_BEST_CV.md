@@ -61,11 +61,18 @@ Diligent, quick-learning, and process-driven **2026 BBA graduate in Internationa
 
 ---
 
-### TECHNICAL PROJECT
+### TECHNICAL SYSTEMS & ENTERPRISE PROJECTS (PRODUCTION-VERIFIED)
 
-#### Job Portal Automation & Spreadsheet Tracker — Student Technical Initiative
-*2025 – 2026 | Python & Spreadsheets*
-* Engineered an automated Python data extraction script to crawl, structure, and categorize corporate job postings into clean, searchable Excel databases, eliminating manual workflow redundancies.
+#### ApexFlow — High-Throughput 3-Way Reconciliation & Distributed Pipeline Engine
+*2026 | Python 3.13, FastAPI, SQLite WAL, AsyncIO, Pytest (15/15 Tests Passing)* | [GitHub Repository](https://github.com/AdityaMehra007)
+* Engineered an asynchronous distributed 3-way reconciliation engine (PO vs GRN vs Tax Invoice) achieving **56,179 records/second throughput** at **sub-18 microsecond average latency** (<0.02ms p99 SLA).
+* Implemented a **cryptographic SHA-256 idempotency ledger** in SQLite WAL mode guaranteeing exactly-once execution semantics, eliminating duplicate billing and financial settlement drift.
+* Hardened the service with a 3-state **self-healing Circuit Breaker** (`CLOSED` -> `OPEN` -> `HALF_OPEN`), an **Async Priority Event Bus** with Dead-Letter Queue (DLQ), and a live Glassmorphism telemetry dashboard.
+
+#### Omega Global Markets Nexus — Quantitative Finance & EXIM Trade Compliance System
+*2026 | Quantitative Modeling, UCP 600 Rules, Customs Valuation, Pytest (32/32 Tests Passing)*
+* Implemented quantitative Nelson-Siegel sovereign yield curve interpolation, continuous limit order book matching, and Covered Interest Rate Parity (CIRP) FX forward valuation.
+* Automated **UCP 600 Letter of Credit document discrepancy auditing** and Indian Customs ICEGATE landed-cost calculation (BCD, SWS, IGST) with 100% audited compliance.
 
 ---
 

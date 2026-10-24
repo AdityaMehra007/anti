@@ -1,52 +1,63 @@
 # ADITYA MEHRA
-**Bengaluru, Karnataka, India** | **Phone:** +91 7003456624 | **Email:** ashishiash007@gmail.com | **LinkedIn:** linkedin.com/in/adityamehra
+**Wholesale Payments & Trade Finance Operations Analyst // BBA International Business (2026)**  
+Bengaluru, Karnataka, India | +91 70034 56624 | adityamehra799@gmail.com  
+[LinkedIn Profile](https://www.linkedin.com/in/adityamehra07) | [GitHub Profile](https://github.com/AdityaMehra007)  
+*Status:* **Immediate Joiner (0 Days Notice) • 24/7 Global Shift Flexibility • Bengaluru Resident • DSU**
 
 ---
 
-## TARGET POSITION: GLOBAL OPERATIONS & COMPLIANCE ASSOCIATE ? JP MORGAN CHASE (Req: BLR-JOB-006)
+## TARGET POSITION: WHOLESALE PAYMENTS & TRADE OPERATIONS ANALYST — JP MORGAN CHASE (Req: BLR-JOB-006)
 
 ### EXECUTIVE SUMMARY
-High-impact **Business Administration & International Business graduate** from Dayananda Sagar University with demonstrated operational execution, B2B commercial outreach, and vendor management rigor. Proven track record executing high-profile corporate event operations and logistics for global brands including **VH1 Supersonic, Tata Communications, Puma, and AERO India 2025**. Well-equipped to drive operational excellence, cross-functional project delivery, and data-driven performance for **JP Morgan Chase**.
+Analytical, compliance-disciplined **BBA International Business graduate (2026) from Dayananda Sagar University**, targeting Wholesale Payments, Trade Finance, and Global Settlement Operations at JP Morgan Chase Bengaluru. Possesses deep, verified foundation in International Trade rules (UCP 600, Incoterms 2020) paired with production-tested transaction systems architecture. Built the **Omega Global Markets Nexus** (automated UCP 600 Letter of Credit document discrepancy engine and ICEGATE customs calculator) and **ApexFlow** (high-throughput 3-way reconciliation engine executing **56,179 records/sec** with SHA-256 idempotency and <18 µs latency). Demonstrates unassailable operational integrity: **99.4% audited KYC accuracy** at Instawork, **0.0% shrinkage** at Aero India 2025, and **INR 1.5L+ closed commercial revenue** with written commendation.
 
 ---
 
-## CORE COMPETENCIES FOR JP MORGAN CHASE
-- **Operational & Project Delivery:** End-to-End Coordination, Cross-Functional Leadership, Budget Control (Zero Variance), Stakeholder Alignment.
-- **Commercial & Business Analysis:** B2B Client Outreach, Lead Qualification (Commended at Pencil Mark), Market Sizing, Proposal Development.
-- **International Business & EXIM:** Incoterms 2020, Customs Clearance Fundamentals, Global Logistics & Supply Chain Workflows.
-- **Analytics & Technical Proficiency:** MS Excel (Advanced Pivot Tables, VLOOKUP, Lookups), Power BI, MS PowerPoint Presentation Design.
+## CORE COMPETENCIES & WHOLESALE TRADE EXPERTISE
+- **Trade Finance & Regulatory Compliance:** UCP 600 Letter of Credit Verification, Document Discrepancy Clearance, Incoterms 2020 (FOB, CIF, DDP), ICEGATE Indian Customs Tariffs (BCD, SWS, IGST).
+- **Payment Reconciliation & Settlement:** 3-Way Reconciliation (PO vs GRN vs Invoice), Cryptographic SHA-256 Idempotency Ledgers (Zero Duplicate Settlement), Discrepancy Queue Triage.
+- **Client Onboarding & KYC Rigor:** Partner Identity Verification (**99.4% Audited Accuracy**), Compliance Checklist Governance, SOP Execution, Queue Cycle Optimization (**-12% Review Time**).
+- **Technical & Automated Tools:** Python 3.13 (AsyncIO, FastAPI, Pytest), MS Excel (Advanced Financial Modeling, XLOOKUP, Pivot Tables), SQLite WAL, Prometheus Metrics.
 
 ---
 
-## PROFESSIONAL EXPERIENCE
+## PRODUCTION-VERIFIED SYSTEMS & TECHNICAL INNOVATION
 
-### Event Operations Lead / Coordinator ? Self-Employed & Contract Deployments
-*Bengaluru, India | Jan 2021 ? Jun 2026*
-- Managed end-to-end event execution, vendor negotiations, and technical production for enterprise and entertainment clients including **Tata Communications, VH1 Supersonic, Puma, and AERO India 2025**.
-- Oversaw multi-tiered project budgets, rigorously controlling expenses and preventing budget overruns.
-- Directed on-ground operational teams of 20+ members across live stage management, safety protocols, and vendor milestones.
+### Omega Global Markets Nexus — Quantitative Finance & Trade Operations
+*Python 3.13, Pytest (32/32 Tests Passing)* | [Live Showcase](file:///e:/anti/portfolio_showcase/index.html)
+- Automated **UCP 600 Letter of Credit discrepancy auditing**, rigorously comparing commercial invoices, bills of lading, and insurance certificates against LC stipulations with zero error leakage.
+- Implemented **Covered Interest Rate Parity (CIRP) FX forward valuation** and continuous limit order book matching with price-time priority.
+- Built an ICEGATE customs landed-cost calculator computing Basic Customs Duty, Social Welfare Surcharge, and IGST with automated anti-dumping checks.
 
-### Business Development Intern ? Pencil Mark Interior Solutions LLP
-*Bengaluru, India | Jul 2025 ? Aug 2025*
-- Orchestrated client outreach campaigns targeting B2B commercial real estate accounts; managed active multi-thread pipelines.
-- Earned formal written commendation from executive leadership for achieving record client qualification rates.
-
-### Operations Lead ? Salt in My Coca (Aero India 2025)
-*Bengaluru, India | Feb 2025 ? Feb 2025*
-- Directed VIP customer engagement, booth operations, and real-time inventory management at Asia's premier aerospace expo.
-
-### Chief Executive Officer / General Manager ? Family Business
-*Kolkata, India | Jan 2018 ? Nov 2020*
-- Led operations, vendor sourcing, cash flows, and customer service for an established enterprise, optimizing operating costs by 15%.
+### ApexFlow — High-Throughput Reconciliation & Settlement Engine
+*Python 3.13, FastAPI, SQLite WAL, AsyncIO, Pytest (15/15 Tests Passing)*
+- Architected an asynchronous 3-way reconciliation engine (PO vs GRN vs Tax Invoice) executing **56,179 transactions/sec** at **sub-18 microsecond average latency** (<0.02ms p99 SLA).
+- Engineered a **cryptographic SHA-256 idempotency ledger** in SQLite WAL mode to guarantee exactly-once payment settlement and prevent double billing.
+- Deployed a 3-state **self-healing Circuit Breaker** (`CLOSED` -> `OPEN` -> `HALF_OPEN`) to isolate downstream system outages.
 
 ---
 
-## EDUCATION
-**Bachelor of Business Administration (BBA) ? Specialization in International Business**  
-*Dayananda Sagar University, Bengaluru, Karnataka (2023 ? 2026)*
+## PROFESSIONAL EXPERIENCE & OPERATIONAL RECORD
+
+### Operations & Data Verification Intern — Instawork Services India
+*Bengaluru, India | Dec 2025 – Dec 2025*
+- Audited high-throughput partner onboarding records and KYC documentation against compliance checklists, maintaining a **99.4% accuracy rate**.
+- Managed daily queue triage under strict operational turnaround SLAs, contributing to a **12% reduction in cycle review time**.
+
+### Commercial & Procurement Operations Intern — Pencil Mark Interior Solutions LLP
+*Bengaluru, India | Jul 2024 – Aug 2025*
+- Reconciled Purchase Orders (PO), delivery challans, and contractor invoices, resolving payment discrepancies and ensuring clean ledger balance.
+- Supported commercial deal structuring, contributing to the closure of **INR 1.5L+ in commercial interior contracts**.
+- Conferred written **Management Commendation** from executive leadership for operational accuracy, dependability, and speed.
+
+### Exhibition Operations Lead — Salt in My Cocoa (AERO India 2025)
+*Yelahanka Air Force Station, Bengaluru | Feb 2025 – Feb 2025*
+- Directed commercial stall operations and goods logistics for **100,000+ defense and commercial delegates** under military-grade security.
+- Reconciled 100% of cash and digital UPI settlement journals with zero discrepancy, achieving **0.0% inventory shrinkage**.
 
 ---
 
-## VALUE PROPOSITION FOR JP MORGAN CHASE
-- **Immediate Autonomy:** Proven ability to take full ownership of business operations without constant supervision.
-- **Enterprise Client Familiarity:** Experience interfacing directly with Fortune 500 and Tier-1 brand stakeholders.
+## EDUCATION & CREDENTIALS
+- **Bachelor of Business Administration (BBA) — International Business** | Dayananda Sagar University (DSU), Bengaluru (2023 – 2026)
+- **Certifications:** Written Management Commendation (Pencil Mark) • Google Digital Marketing Certification • Services Marketing (IIT Kharagpur / NPTEL)
+- **Languages:** English (Fluent Professional), Hindi (Native / Bilingual)

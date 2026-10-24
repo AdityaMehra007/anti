@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  kore_health-core:
+    image: python:3.13-slim
+    container_name: kore_health-engine
+    restart: always
+    environment:
+      - APP_NAME=Kore Health
+      - PROJECT_NAME=Project NeuroGen-Indic: Kore Health Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: kore_health-cache
+    ports:
+      - "6379"

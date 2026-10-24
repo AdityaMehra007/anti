@@ -1,0 +1,1585 @@
+{
+  "metadata": {
+    "title": "OMEGA Universal Job-to-Skill Master Matrix",
+    "total_existing_skills": 3837,
+    "total_archetypes": 31,
+    "version": "2.0.0"
+  },
+  "mappings": [
+    {
+      "role_key": "frontend_engineer",
+      "role_title": "Frontend Engineer",
+      "family_key": "software_engineering",
+      "family_name": "Software Engineering & Systems Architecture",
+      "master_skill_name": "skill-master-frontend-engineer",
+      "required_hard_skills": [
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "React.js",
+        "Next.js",
+        "HTML5/CSS3",
+        "Tailwind CSS",
+        "Redux/Zustand",
+        "Webpack/Turbopack/Vite",
+        "REST/GraphQL APIs",
+        "Web Vitals & Performance",
+        "Jest/Playwright"
+      ],
+      "required_soft_skills": [
+        "Design Empathy",
+        "Cross-Functional Collaboration",
+        "Attention to Detail",
+        "Continuous Learning",
+        "Usability Advocacy"
+      ],
+      "top_ats_keywords": [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Virtual DOM",
+        "Server-Side Rendering (SSR)",
+        "State Management",
+        "TailwindCSS",
+        "CSS Modules",
+        "Responsive Design",
+        "Accessibility (WCAG 2.1)"
+      ],
+      "sample_kpis": [
+        "First Contentful Paint (FCP) < 1.2s",
+        "Largest Contentful Paint (LCP) < 2.5s",
+        "Cumulative Layout Shift (CLS) < 0.1",
+        "100% WCAG 2.1 AA compliance",
+        "Zero regression bugs on client releases"
+      ],
+      "total_matched_agent_skills": 248,
+      "sample_matched_agent_skills": [
+        "coding-guidelines",
+        "coding-standards",
+        "devops-skill-01",
+        "devops-skill-02",
+        "devops-skill-03",
+        "devops-skill-04",
+        "devops-skill-05",
+        "devops-skill-06"
+      ]
+    },
+    {
+      "role_key": "backend_engineer",
+      "role_title": "Backend Engineer",
+      "family_key": "software_engineering",
+      "family_name": "Software Engineering & Systems Architecture",
+      "master_skill_name": "skill-master-backend-engineer",
+      "required_hard_skills": [
+        "Python",
+        "Go",
+        "Java",
+        "Node.js",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Kafka/RabbitMQ",
+        "Docker",
+        "REST & gRPC",
+        "System Design",
+        "Database Indexing & Query Tuning"
+      ],
+      "required_soft_skills": [
+        "Architectural Rigor",
+        "Root-Cause Debugging",
+        "Systems Thinking",
+        "Trade-Off Analysis",
+        "Documentation Integrity"
+      ],
+      "top_ats_keywords": [
+        "Microservices",
+        "RESTful APIs",
+        "gRPC",
+        "PostgreSQL",
+        "Redis",
+        "Distributed Systems",
+        "Kafka",
+        "Docker",
+        "Kubernetes",
+        "Database Optimization"
+      ],
+      "sample_kpis": [
+        "P99 API Latency < 150ms",
+        "99.99% system availability",
+        "Zero data loss during peak load failovers",
+        "Zero unindexed slow queries in production"
+      ],
+      "total_matched_agent_skills": 248,
+      "sample_matched_agent_skills": [
+        "coding-guidelines",
+        "coding-standards",
+        "devops-skill-01",
+        "devops-skill-02",
+        "devops-skill-03",
+        "devops-skill-04",
+        "devops-skill-05",
+        "devops-skill-06"
+      ]
+    },
+    {
+      "role_key": "fullstack_engineer",
+      "role_title": "Full Stack Engineer",
+      "family_key": "software_engineering",
+      "family_name": "Software Engineering & Systems Architecture",
+      "master_skill_name": "skill-master-fullstack-engineer",
+      "required_hard_skills": [
+        "TypeScript/JavaScript",
+        "React/Next.js",
+        "Node.js/Python/Go",
+        "PostgreSQL",
+        "REST & GraphQL",
+        "Tailwind CSS",
+        "Docker",
+        "Git/CI-CD",
+        "Prisma/TypeORM",
+        "Redis"
+      ],
+      "required_soft_skills": [
+        "Product Sense",
+        "Speed of Execution",
+        "Full-Lifecycle Ownership",
+        "Pragmatism"
+      ],
+      "top_ats_keywords": [
+        "Full Stack",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Node.js",
+        "Python",
+        "PostgreSQL",
+        "Prisma",
+        "TailwindCSS",
+        "REST APIs"
+      ],
+      "sample_kpis": [
+        "Cycle time from PRD to production < 7 days",
+        "Zero critical security flaws",
+        "99.9% uptime for feature microservices"
+      ],
+      "total_matched_agent_skills": 248,
+      "sample_matched_agent_skills": [
+        "coding-guidelines",
+        "coding-standards",
+        "devops-skill-01",
+        "devops-skill-02",
+        "devops-skill-03",
+        "devops-skill-04",
+        "devops-skill-05",
+        "devops-skill-06"
+      ]
+    },
+    {
+      "role_key": "devops_platform_engineer",
+      "role_title": "DevOps & Platform Engineer",
+      "family_key": "software_engineering",
+      "family_name": "Software Engineering & Systems Architecture",
+      "master_skill_name": "skill-master-devops-platform-engineer",
+      "required_hard_skills": [
+        "Kubernetes",
+        "Docker",
+        "Terraform",
+        "AWS/GCP/Azure",
+        "CI/CD (GitHub Actions/GitLab)",
+        "Linux/Bash",
+        "Prometheus",
+        "Grafana",
+        "ArgoCD",
+        "Networking & DNS",
+        "Ansible"
+      ],
+      "required_soft_skills": [
+        "Calm Under Fire",
+        "Automation First Mindset",
+        "Safety Guardrails",
+        "Cross-Team Enablement"
+      ],
+      "top_ats_keywords": [
+        "Kubernetes",
+        "Terraform",
+        "Infrastructure as Code (IaC)",
+        "Docker",
+        "AWS",
+        "GCP",
+        "CI/CD",
+        "Helm",
+        "GitOps",
+        "Prometheus"
+      ],
+      "sample_kpis": [
+        "Deployment frequency > 10x/day",
+        "Mean Time to Recovery (MTTR) < 15 mins",
+        "Infrastructure cloud cost reduction by > 20%",
+        "Zero security vulnerabilities in base images"
+      ],
+      "total_matched_agent_skills": 248,
+      "sample_matched_agent_skills": [
+        "coding-guidelines",
+        "coding-standards",
+        "devops-skill-01",
+        "devops-skill-02",
+        "devops-skill-03",
+        "devops-skill-04",
+        "devops-skill-05",
+        "devops-skill-06"
+      ]
+    },
+    {
+      "role_key": "mobile_engineer",
+      "role_title": "Mobile Engineer (iOS / Android / React Native)",
+      "family_key": "software_engineering",
+      "family_name": "Software Engineering & Systems Architecture",
+      "master_skill_name": "skill-master-mobile-engineer",
+      "required_hard_skills": [
+        "Swift/SwiftUI",
+        "Kotlin/Jetpack Compose",
+        "React Native",
+        "Flutter",
+        "Mobile Architecture (MVVM/MVI)",
+        "Core Data / Room / SQLite",
+        "REST & WebSockets",
+        "App Store & Google Play Deployment",
+        "CI/CD for Mobile (Fastlane)"
+      ],
+      "required_soft_skills": [
+        "Obsession with Frame Rates",
+        "Touch Precision",
+        "Device Diversity Awareness"
+      ],
+      "top_ats_keywords": [
+        "Swift",
+        "SwiftUI",
+        "Kotlin",
+        "Jetpack Compose",
+        "React Native",
+        "Flutter",
+        "iOS",
+        "Android",
+        "Fastlane",
+        "App Store Submission"
+      ],
+      "sample_kpis": [
+        "App launch time < 800ms",
+        "Crash-free sessions > 99.8%",
+        "60fps smooth scrolling performance"
+      ],
+      "total_matched_agent_skills": 248,
+      "sample_matched_agent_skills": [
+        "coding-guidelines",
+        "coding-standards",
+        "devops-skill-01",
+        "devops-skill-02",
+        "devops-skill-03",
+        "devops-skill-04",
+        "devops-skill-05",
+        "devops-skill-06"
+      ]
+    },
+    {
+      "role_key": "qa_sdet_engineer",
+      "role_title": "Software Development Engineer in Test (SDET)",
+      "family_key": "software_engineering",
+      "family_name": "Software Engineering & Systems Architecture",
+      "master_skill_name": "skill-master-qa-sdet-engineer",
+      "required_hard_skills": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Python/TypeScript",
+        "Pytest/JUnit",
+        "API Testing (Postman/REST Assured)",
+        "CI/CD Test Pipelines",
+        "Performance Testing (k6/JMeter)"
+      ],
+      "required_soft_skills": [
+        "Edge Case Paranoia",
+        "Tenacious Testing",
+        "Quality Advocacy"
+      ],
+      "top_ats_keywords": [
+        "SDET",
+        "Automation Testing",
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "API Testing",
+        "Regression Testing",
+        "CI/CD Quality Gate",
+        "k6",
+        "JMeter"
+      ],
+      "sample_kpis": [
+        "Automated test coverage > 85%",
+        "Flaky test rate < 1%",
+        "Regression run time < 15 minutes"
+      ],
+      "total_matched_agent_skills": 248,
+      "sample_matched_agent_skills": [
+        "coding-guidelines",
+        "coding-standards",
+        "devops-skill-01",
+        "devops-skill-02",
+        "devops-skill-03",
+        "devops-skill-04",
+        "devops-skill-05",
+        "devops-skill-06"
+      ]
+    },
+    {
+      "role_key": "genai_llm_engineer",
+      "role_title": "Generative AI & LLM Solutions Engineer",
+      "family_key": "ai_ml_data",
+      "family_name": "Artificial Intelligence, Machine Learning & Data Systems",
+      "master_skill_name": "skill-master-genai-llm-engineer",
+      "required_hard_skills": [
+        "Python",
+        "OpenAI / Claude API",
+        "LangChain / LlamaIndex",
+        "Vector DBs (Pinecone, Chroma, Qdrant, Milvus)",
+        "Embeddings & Semantic Search",
+        "Prompt Engineering",
+        "Fine-Tuning (LoRA/QLoRA)",
+        "vLLM / Ollama",
+        "FastAPI",
+        "Evaluation Frameworks (Ragas, TruLens)"
+      ],
+      "required_soft_skills": [
+        "Empirical Experimentation",
+        "Safety & Alignment Awareness",
+        "Rapid Prototyping",
+        "Curiosity"
+      ],
+      "top_ats_keywords": [
+        "Generative AI",
+        "Large Language Models (LLM)",
+        "RAG (Retrieval-Augmented Generation)",
+        "Vector Databases",
+        "Embeddings",
+        "LangChain",
+        "LlamaIndex",
+        "Prompt Engineering",
+        "LoRA",
+        "Hugging Face"
+      ],
+      "sample_kpis": [
+        "RAG retrieval precision > 92%",
+        "End-to-end token latency < 600ms",
+        "Hallucination rate < 1.5%",
+        "LLM API inference cost reduction > 35%"
+      ],
+      "total_matched_agent_skills": 462,
+      "sample_matched_agent_skills": [
+        "ai-infra-skill-001",
+        "ai-infra-skill-002",
+        "ai-infra-skill-003",
+        "ai-infra-skill-004",
+        "ai-infra-skill-005",
+        "ai-infra-skill-006",
+        "ai-infra-skill-007",
+        "ai-infra-skill-008"
+      ]
+    },
+    {
+      "role_key": "machine_learning_engineer",
+      "role_title": "Machine Learning Engineer",
+      "family_key": "ai_ml_data",
+      "family_name": "Artificial Intelligence, Machine Learning & Data Systems",
+      "master_skill_name": "skill-master-machine-learning-engineer",
+      "required_hard_skills": [
+        "Python",
+        "PyTorch",
+        "TensorFlow",
+        "Scikit-Learn",
+        "Feature Engineering",
+        "MLflow / Weights & Biases",
+        "Triton / TorchServe",
+        "Docker",
+        "Model Monitoring & Drift Detection",
+        "Hyperparameter Tuning (Optuna)"
+      ],
+      "required_soft_skills": [
+        "Statistical Rigor",
+        "Scientific Skepticism",
+        "Problem Scoping"
+      ],
+      "top_ats_keywords": [
+        "Machine Learning",
+        "Deep Learning",
+        "PyTorch",
+        "TensorFlow",
+        "Scikit-Learn",
+        "Feature Engineering",
+        "MLOps",
+        "Model Deployment",
+        "MLflow",
+        "Drift Detection"
+      ],
+      "sample_kpis": [
+        "Model AUC-ROC > 0.92",
+        "P95 inference latency < 25ms",
+        "Automated model retraining cycle time < 4 hours"
+      ],
+      "total_matched_agent_skills": 462,
+      "sample_matched_agent_skills": [
+        "ai-infra-skill-001",
+        "ai-infra-skill-002",
+        "ai-infra-skill-003",
+        "ai-infra-skill-004",
+        "ai-infra-skill-005",
+        "ai-infra-skill-006",
+        "ai-infra-skill-007",
+        "ai-infra-skill-008"
+      ]
+    },
+    {
+      "role_key": "data_engineer",
+      "role_title": "Data Engineer",
+      "family_key": "ai_ml_data",
+      "family_name": "Artificial Intelligence, Machine Learning & Data Systems",
+      "master_skill_name": "skill-master-data-engineer",
+      "required_hard_skills": [
+        "SQL (Advanced)",
+        "Python",
+        "Apache Spark / PySpark",
+        "Snowflake / Databricks / BigQuery",
+        "dbt (data build tool)",
+        "Airflow / Prefect",
+        "Kafka",
+        "Data Modeling (Star Schema / Data Vault)",
+        "Parquet / Iceberg",
+        "Delta Lake"
+      ],
+      "required_soft_skills": [
+        "Data Governance Mindset",
+        "Detail Oriented",
+        "Business Understanding",
+        "Reliability Focus"
+      ],
+      "top_ats_keywords": [
+        "Data Pipeline",
+        "ETL/ELT",
+        "Apache Spark",
+        "PySpark",
+        "Snowflake",
+        "Databricks",
+        "dbt",
+        "Airflow",
+        "SQL Optimization",
+        "Kafka"
+      ],
+      "sample_kpis": [
+        "Data pipeline SLA > 99.8%",
+        "Query runtime reduction > 50%",
+        "Zero data freshness delays for business dashboards",
+        "100% automated data contract schema tests"
+      ],
+      "total_matched_agent_skills": 462,
+      "sample_matched_agent_skills": [
+        "ai-infra-skill-001",
+        "ai-infra-skill-002",
+        "ai-infra-skill-003",
+        "ai-infra-skill-004",
+        "ai-infra-skill-005",
+        "ai-infra-skill-006",
+        "ai-infra-skill-007",
+        "ai-infra-skill-008"
+      ]
+    },
+    {
+      "role_key": "data_scientist",
+      "role_title": "Data Scientist",
+      "family_key": "ai_ml_data",
+      "family_name": "Artificial Intelligence, Machine Learning & Data Systems",
+      "master_skill_name": "skill-master-data-scientist",
+      "required_hard_skills": [
+        "Python / R",
+        "SQL (Advanced)",
+        "Statistical Hypothesis Testing (A/B Testing)",
+        "Causal Inference",
+        "Pandas/NumPy",
+        "Predictive Modeling",
+        "Tableau/Seaborn",
+        "Experimentation Design"
+      ],
+      "required_soft_skills": [
+        "Curiosity",
+        "Storytelling with Data",
+        "Business Value Focus"
+      ],
+      "top_ats_keywords": [
+        "Data Scientist",
+        "Statistical Modeling",
+        "A/B Testing",
+        "Hypothesis Testing",
+        "Python",
+        "SQL",
+        "Predictive Analytics",
+        "Causal Inference",
+        "Machine Learning",
+        "Customer Lifetime Value"
+      ],
+      "sample_kpis": [
+        "Experiment statistical power > 80%",
+        "Actionable insights directly driving > $100k revenue lift"
+      ],
+      "total_matched_agent_skills": 462,
+      "sample_matched_agent_skills": [
+        "ai-infra-skill-001",
+        "ai-infra-skill-002",
+        "ai-infra-skill-003",
+        "ai-infra-skill-004",
+        "ai-infra-skill-005",
+        "ai-infra-skill-006",
+        "ai-infra-skill-007",
+        "ai-infra-skill-008"
+      ]
+    },
+    {
+      "role_key": "bi_analytics_engineer",
+      "role_title": "BI & Analytics Engineer",
+      "family_key": "ai_ml_data",
+      "family_name": "Artificial Intelligence, Machine Learning & Data Systems",
+      "master_skill_name": "skill-master-bi-analytics-engineer",
+      "required_hard_skills": [
+        "SQL (Complex Window Functions)",
+        "Tableau / PowerBI / Looker",
+        "dbt",
+        "Data Modeling",
+        "Excel Modeling",
+        "Dashboard UX Design"
+      ],
+      "required_soft_skills": [
+        "Clarity",
+        "Cross-Functional Partnership",
+        "Patience with Stakeholders"
+      ],
+      "top_ats_keywords": [
+        "Business Intelligence",
+        "PowerBI",
+        "Tableau",
+        "Looker",
+        "SQL",
+        "dbt",
+        "KPI Dashboards",
+        "Executive Reporting",
+        "Data Warehousing",
+        "Data Modeling"
+      ],
+      "sample_kpis": [
+        "Dashboard load time < 3s",
+        "Executive daily active usage > 80%",
+        "Zero data discrepancies between reports"
+      ],
+      "total_matched_agent_skills": 462,
+      "sample_matched_agent_skills": [
+        "ai-infra-skill-001",
+        "ai-infra-skill-002",
+        "ai-infra-skill-003",
+        "ai-infra-skill-004",
+        "ai-infra-skill-005",
+        "ai-infra-skill-006",
+        "ai-infra-skill-007",
+        "ai-infra-skill-008"
+      ]
+    },
+    {
+      "role_key": "product_manager",
+      "role_title": "Product Manager",
+      "family_key": "product_design",
+      "family_name": "Product Management & UX/UI Product Design",
+      "master_skill_name": "skill-master-product-manager",
+      "required_hard_skills": [
+        "Product Strategy",
+        "PRD Authoring",
+        "User Research",
+        "Agile / Scrum",
+        "Data Analysis (SQL / Mixpanel / Amplitude)",
+        "A/B Testing",
+        "Wireframing",
+        "Roadmap Planning",
+        "Financial Modeling / Unit Economics",
+        "Competitive Analysis"
+      ],
+      "required_soft_skills": [
+        "Influence Without Authority",
+        "Customer Obsession",
+        "Ruthless Prioritization",
+        "Clear Communication",
+        "Executive Storytelling"
+      ],
+      "top_ats_keywords": [
+        "Product Management",
+        "PRD",
+        "Product Roadmap",
+        "User Stories",
+        "Customer Discovery",
+        "A/B Testing",
+        "Mixpanel",
+        "Amplitude",
+        "SQL",
+        "Agile/Scrum"
+      ],
+      "sample_kpis": [
+        "User retention lift > 15%",
+        "NPS score increase by 12 points",
+        "Feature adoption rate > 40% in first 30 days",
+        "On-time delivery of quarterly roadmap commitments"
+      ],
+      "total_matched_agent_skills": 204,
+      "sample_matched_agent_skills": [
+        "canvas-design",
+        "design-system",
+        "figma",
+        "figma-implement-design",
+        "product-ux-skill-001",
+        "product-ux-skill-002",
+        "product-ux-skill-003",
+        "product-ux-skill-004"
+      ]
+    },
+    {
+      "role_key": "technical_product_manager",
+      "role_title": "Technical Product Manager (TPM)",
+      "family_key": "product_design",
+      "family_name": "Product Management & UX/UI Product Design",
+      "master_skill_name": "skill-master-technical-product-manager",
+      "required_hard_skills": [
+        "API Design (REST/gRPC)",
+        "System Architecture Understanding",
+        "Developer Experience (DX)",
+        "SQL & Telemetry",
+        "PRD & RFC Authoring",
+        "Agile / Scrum"
+      ],
+      "required_soft_skills": [
+        "Technical Credibility",
+        "Engineering Empathy",
+        "Complex Deconstruction"
+      ],
+      "top_ats_keywords": [
+        "Technical Product Manager",
+        "API Product",
+        "Developer Experience",
+        "Platform Architecture",
+        "RESTful APIs",
+        "RFCs",
+        "Microservices",
+        "Data Infrastructure",
+        "Technical Roadmaps"
+      ],
+      "sample_kpis": [
+        "API developer onboarding time < 15 mins",
+        "Platform uptime SLA > 99.95%",
+        "Reduction in engineering integration friction by 40%"
+      ],
+      "total_matched_agent_skills": 204,
+      "sample_matched_agent_skills": [
+        "canvas-design",
+        "design-system",
+        "figma",
+        "figma-implement-design",
+        "product-ux-skill-001",
+        "product-ux-skill-002",
+        "product-ux-skill-003",
+        "product-ux-skill-004"
+      ]
+    },
+    {
+      "role_key": "ui_ux_product_designer",
+      "role_title": "UI/UX Product Designer",
+      "family_key": "product_design",
+      "family_name": "Product Management & UX/UI Product Design",
+      "master_skill_name": "skill-master-ui-ux-product-designer",
+      "required_hard_skills": [
+        "Figma",
+        "Design Systems",
+        "Prototyping",
+        "User Research & Usability Testing",
+        "Wireframing",
+        "Information Architecture",
+        "Micro-Interactions",
+        "Accessibility (WCAG 2.1)",
+        "Design Tokens",
+        "Mobile (iOS/Android) Guidelines"
+      ],
+      "required_soft_skills": [
+        "Visual Craft",
+        "User Empathy",
+        "Feedback Receptivity",
+        "Storytelling",
+        "Cross-Functional Synergy"
+      ],
+      "top_ats_keywords": [
+        "Figma",
+        "UI/UX Design",
+        "Design System",
+        "User Research",
+        "Wireframing",
+        "Interactive Prototypes",
+        "Usability Testing",
+        "Information Architecture",
+        "User Personas",
+        "Design Tokens"
+      ],
+      "sample_kpis": [
+        "Usability task completion rate > 90%",
+        "Design System adoption across 100% of product squads",
+        "Reduction in user friction drop-off by 25%",
+        "Zero accessibility contrast violations"
+      ],
+      "total_matched_agent_skills": 204,
+      "sample_matched_agent_skills": [
+        "canvas-design",
+        "design-system",
+        "figma",
+        "figma-implement-design",
+        "product-ux-skill-001",
+        "product-ux-skill-002",
+        "product-ux-skill-003",
+        "product-ux-skill-004"
+      ]
+    },
+    {
+      "role_key": "security_engineer",
+      "role_title": "Security Engineer (AppSec / Cloud Security)",
+      "family_key": "cybersecurity_governance",
+      "family_name": "Cybersecurity, InfoSec & Regulatory Compliance",
+      "master_skill_name": "skill-master-security-engineer",
+      "required_hard_skills": [
+        "OWASP Top 10",
+        "Threat Modeling",
+        "SAST / DAST (Snyk, Semgrep)",
+        "Cloud Security (AWS IAM, GuardDuty)",
+        "Penetration Testing (Burp Suite)",
+        "Cryptography & PKI",
+        "Network Security & Firewalls"
+      ],
+      "required_soft_skills": [
+        "Paranoid Mindset",
+        "Discretion",
+        "Calm Under Pressure",
+        "Diplomatic Communication"
+      ],
+      "top_ats_keywords": [
+        "Cybersecurity",
+        "Application Security (AppSec)",
+        "OWASP Top 10",
+        "Penetration Testing",
+        "Vulnerability Management",
+        "Burp Suite",
+        "SAST/DAST",
+        "Cloud Security",
+        "Threat Modeling",
+        "Zero Trust"
+      ],
+      "sample_kpis": [
+        "Mean time to remediate critical vulnerabilities < 48 hours",
+        "Zero high-severity breaches in production",
+        "100% CI/CD automated security scan coverage"
+      ],
+      "total_matched_agent_skills": 207,
+      "sample_matched_agent_skills": [
+        "hipaa-compliance",
+        "security-best-practices",
+        "security-bounty-hunter",
+        "security-gov-skill-001",
+        "security-gov-skill-002",
+        "security-gov-skill-003",
+        "security-gov-skill-004",
+        "security-gov-skill-005"
+      ]
+    },
+    {
+      "role_key": "infosec_compliance_analyst",
+      "role_title": "Information Security & Compliance Analyst (SOC 2 / ISO 27001)",
+      "family_key": "cybersecurity_governance",
+      "family_name": "Cybersecurity, InfoSec & Regulatory Compliance",
+      "master_skill_name": "skill-master-infosec-compliance-analyst",
+      "required_hard_skills": [
+        "SOC 2 Type II",
+        "ISO 27001",
+        "GDPR / HIPAA",
+        "Vendor Risk Assessment",
+        "Policy Authoring",
+        "Auditing Platforms (Vanta, Drata)",
+        "Access Reviews"
+      ],
+      "required_soft_skills": [
+        "Meticulous Documentation",
+        "Regulatory Precision",
+        "High Integrity"
+      ],
+      "top_ats_keywords": [
+        "SOC 2",
+        "ISO 27001",
+        "GRC",
+        "Compliance Audit",
+        "Vanta",
+        "Drata",
+        "Risk Assessment",
+        "Information Security Policy",
+        "GDPR",
+        "Access Management"
+      ],
+      "sample_kpis": [
+        "Zero non-conformities during external audits",
+        "100% on-time annual SOC 2 Type II certification renewal",
+        "Vendor risk assessment turnaround < 3 days"
+      ],
+      "total_matched_agent_skills": 207,
+      "sample_matched_agent_skills": [
+        "hipaa-compliance",
+        "security-best-practices",
+        "security-bounty-hunter",
+        "security-gov-skill-001",
+        "security-gov-skill-002",
+        "security-gov-skill-003",
+        "security-gov-skill-004",
+        "security-gov-skill-005"
+      ]
+    },
+    {
+      "role_key": "financial_analyst_fpa",
+      "role_title": "Financial Analyst (FP&A)",
+      "family_key": "corporate_finance_treasury",
+      "family_name": "Corporate Finance, Investment Banking, FP&A & Treasury",
+      "master_skill_name": "skill-master-financial-analyst-fpa",
+      "required_hard_skills": [
+        "Financial Modeling (3-Statement & DCF)",
+        "Advanced Excel / Google Sheets",
+        "Variance Analysis (Budget vs Actual)",
+        "SQL & PowerBI / Tableau",
+        "ERP Systems (SAP / NetSuite / Oracle)",
+        "Cash Flow Forecasting",
+        "Cost Accounting & Unit Economics"
+      ],
+      "required_soft_skills": [
+        "Analytical Precision",
+        "Integrity",
+        "Executive Presentation",
+        "Proactive Insight"
+      ],
+      "top_ats_keywords": [
+        "Financial Analyst",
+        "FP&A",
+        "Financial Modeling",
+        "Budgeting and Forecasting",
+        "Variance Analysis",
+        "3-Statement Model",
+        "Cash Flow Modeling",
+        "NetSuite",
+        "SAP",
+        "Advanced Excel"
+      ],
+      "sample_kpis": [
+        "Forecast variance < 3.5% across quarters",
+        "Monthly financial close analysis completed within 48h",
+        "Identification of $200k+ in cost optimization opportunities",
+        "Zero errors in board reporting metrics"
+      ],
+      "total_matched_agent_skills": 231,
+      "sample_matched_agent_skills": [
+        "finance-skill-01",
+        "finance-skill-02",
+        "finance-skill-03",
+        "finance-skill-04",
+        "finance-skill-05",
+        "finance-skill-06",
+        "finance-skill-07",
+        "finance-skill-08"
+      ]
+    },
+    {
+      "role_key": "investment_banking_analyst",
+      "role_title": "Investment Banking & Corporate Development Analyst",
+      "family_key": "corporate_finance_treasury",
+      "family_name": "Corporate Finance, Investment Banking, FP&A & Treasury",
+      "master_skill_name": "skill-master-investment-banking-analyst",
+      "required_hard_skills": [
+        "Discounted Cash Flow (DCF)",
+        "Leveraged Buyout (LBO)",
+        "Comparable Company Analysis (Trading Comps)",
+        "Merger Modeling & Accretion/Dilution",
+        "Capital IQ / Bloomberg Terminal",
+        "Pitchbook Creation"
+      ],
+      "required_soft_skills": [
+        "Uncompromising Stamina",
+        "Absolute Numerical Precision",
+        "High Presentation Polish"
+      ],
+      "top_ats_keywords": [
+        "Investment Banking",
+        "M&A",
+        "DCF Modeling",
+        "LBO",
+        "Valuation",
+        "Pitchbooks",
+        "Financial Modeling",
+        "Corporate Development",
+        "Due Diligence",
+        "Capital Raising"
+      ],
+      "sample_kpis": [
+        "Zero formula or formatting errors in confidential information memorandums (CIMs)",
+        "Financial model turnaround within tight 24h client windows"
+      ],
+      "total_matched_agent_skills": 231,
+      "sample_matched_agent_skills": [
+        "finance-skill-01",
+        "finance-skill-02",
+        "finance-skill-03",
+        "finance-skill-04",
+        "finance-skill-05",
+        "finance-skill-06",
+        "finance-skill-07",
+        "finance-skill-08"
+      ]
+    },
+    {
+      "role_key": "account_executive",
+      "role_title": "Enterprise Account Executive",
+      "family_key": "b2b_sales_revenue",
+      "family_name": "B2B Commercial Sales, Revenue Operations & Sales Engineering",
+      "master_skill_name": "skill-master-account-executive",
+      "required_hard_skills": [
+        "MEDDPICC / BANT Qualification",
+        "Enterprise Deal Negotiation",
+        "Contract Structuring & MSAs",
+        "Salesforce / HubSpot CRM",
+        "Pipeline Management",
+        "Executive Pitching & Demos",
+        "Territory Planning",
+        "Account Mapping",
+        "Objection Handling"
+      ],
+      "required_soft_skills": [
+        "Active Listening",
+        "High Grit & Persistence",
+        "Emotional Intelligence",
+        "Executive Presence",
+        "Commercial Acumen"
+      ],
+      "top_ats_keywords": [
+        "Enterprise Sales",
+        "B2B Sales",
+        "Quota Attainment",
+        "MEDDPICC",
+        "Salesforce",
+        "Contract Negotiation",
+        "Enterprise Pipeline",
+        "Full Sales Cycle",
+        "C-Suite Presentation",
+        "ARR Generation"
+      ],
+      "sample_kpis": [
+        "> 110% annual quota attainment",
+        "Average contract value (ACV) > $60k",
+        "Win rate > 28%",
+        "Sales cycle velocity < 75 days"
+      ],
+      "total_matched_agent_skills": 232,
+      "sample_matched_agent_skills": [
+        "ai-sdr",
+        "b2b-sales-skill-001",
+        "b2b-sales-skill-002",
+        "b2b-sales-skill-003",
+        "b2b-sales-skill-004",
+        "b2b-sales-skill-005",
+        "b2b-sales-skill-006",
+        "b2b-sales-skill-007"
+      ]
+    },
+    {
+      "role_key": "sales_dev_representative",
+      "role_title": "Sales Development Representative (SDR / BDR)",
+      "family_key": "b2b_sales_revenue",
+      "family_name": "B2B Commercial Sales, Revenue Operations & Sales Engineering",
+      "master_skill_name": "skill-master-sales-dev-representative",
+      "required_hard_skills": [
+        "Cold Outreach & Email Copywriting",
+        "Apollo.io / ZoomInfo / Sales Navigator",
+        "Multi-Touch Cadence Execution",
+        "CRM Hygiene (Salesforce/HubSpot)",
+        "Lead Qualification (BANT/Challenger)",
+        "Cold Calling",
+        "Objection Handling"
+      ],
+      "required_soft_skills": [
+        "Tenacity & Drive",
+        "Rejection Resilience",
+        "Agile Thinking",
+        "Articulate Communication",
+        "Coachability"
+      ],
+      "top_ats_keywords": [
+        "Sales Development",
+        "Cold Outreach",
+        "Outbound Prospecting",
+        "Apollo.io",
+        "LinkedIn Sales Navigator",
+        "Salesforce",
+        "Lead Qualification",
+        "Pipeline Generation",
+        "Cold Calling",
+        "Email Sequences"
+      ],
+      "sample_kpis": [
+        "> 20 qualified SQLs generated per month",
+        "Email open rate > 45% and reply rate > 8%",
+        "Over 60 high-quality touchpoints per day",
+        "Pipeline contribution > $250k per quarter"
+      ],
+      "total_matched_agent_skills": 232,
+      "sample_matched_agent_skills": [
+        "ai-sdr",
+        "b2b-sales-skill-001",
+        "b2b-sales-skill-002",
+        "b2b-sales-skill-003",
+        "b2b-sales-skill-004",
+        "b2b-sales-skill-005",
+        "b2b-sales-skill-006",
+        "b2b-sales-skill-007"
+      ]
+    },
+    {
+      "role_key": "solutions_architect_sales_eng",
+      "role_title": "Solutions Architect / Sales Engineer",
+      "family_key": "b2b_sales_revenue",
+      "family_name": "B2B Commercial Sales, Revenue Operations & Sales Engineering",
+      "master_skill_name": "skill-master-solutions-architect-sales-eng",
+      "required_hard_skills": [
+        "Cloud Architecture (AWS/GCP/Azure)",
+        "API Integrations & Webhooks",
+        "Technical Demos & PoC Buildout",
+        "RFP / RFI Technical Defense",
+        "Security Questionnaire Response",
+        "Enterprise System Design"
+      ],
+      "required_soft_skills": [
+        "Technical Storytelling",
+        "Customer Empathy",
+        "Composure"
+      ],
+      "top_ats_keywords": [
+        "Solutions Architect",
+        "Sales Engineering",
+        "Pre-Sales",
+        "Proof of Concept (PoC)",
+        "RFP",
+        "Technical Demos",
+        "Cloud Architecture",
+        "System Integration",
+        "Enterprise Software"
+      ],
+      "sample_kpis": [
+        "PoC conversion to deal close > 75%",
+        "Technical RFP win rate > 80%",
+        "Average PoC turnaround < 10 days"
+      ],
+      "total_matched_agent_skills": 232,
+      "sample_matched_agent_skills": [
+        "ai-sdr",
+        "b2b-sales-skill-001",
+        "b2b-sales-skill-002",
+        "b2b-sales-skill-003",
+        "b2b-sales-skill-004",
+        "b2b-sales-skill-005",
+        "b2b-sales-skill-006",
+        "b2b-sales-skill-007"
+      ]
+    },
+    {
+      "role_key": "growth_marketing_manager",
+      "role_title": "Growth Marketing Manager",
+      "family_key": "growth_marketing_seo",
+      "family_name": "Growth Marketing, Technical SEO & Brand Activation",
+      "master_skill_name": "skill-master-growth-marketing-manager",
+      "required_hard_skills": [
+        "Paid Ads (Google Ads, Meta, LinkedIn Ads)",
+        "Conversion Rate Optimization (CRO)",
+        "Attribution Modeling",
+        "Google Analytics 4 (GA4)",
+        "Landing Page Builders",
+        "A/B Testing",
+        "Funnel Analytics"
+      ],
+      "required_soft_skills": [
+        "Scientific Mindset",
+        "Budget Discipline",
+        "Creative Copywriting"
+      ],
+      "top_ats_keywords": [
+        "Growth Marketing",
+        "Demand Generation",
+        "Performance Marketing",
+        "CAC",
+        "LTV",
+        "ROAS",
+        "Conversion Rate Optimization",
+        "Google Ads",
+        "LinkedIn Ads",
+        "GA4"
+      ],
+      "sample_kpis": [
+        "Customer Acquisition Cost (CAC) reduction > 20%",
+        "Return on Ad Spend (ROAS) > 3.8x",
+        "Monthly inbound pipeline growth > 30%"
+      ],
+      "total_matched_agent_skills": 232,
+      "sample_matched_agent_skills": [
+        "content-engine",
+        "growth-seo-skill-001",
+        "growth-seo-skill-002",
+        "growth-seo-skill-003",
+        "growth-seo-skill-004",
+        "growth-seo-skill-005",
+        "growth-seo-skill-006",
+        "growth-seo-skill-007"
+      ]
+    },
+    {
+      "role_key": "technical_seo_specialist",
+      "role_title": "Technical SEO & Programmatic Growth Specialist",
+      "family_key": "growth_marketing_seo",
+      "family_name": "Growth Marketing, Technical SEO & Brand Activation",
+      "master_skill_name": "skill-master-technical-seo-specialist",
+      "required_hard_skills": [
+        "Technical SEO Auditing (Screaming Frog)",
+        "Schema.org Markup & Structured Data",
+        "Core Web Vitals Optimization",
+        "Programmatic SEO Architecture",
+        "Keyword Research & Content Clustering",
+        "Search Console & Ahrefs/Semrush"
+      ],
+      "required_soft_skills": [
+        "Patience",
+        "Analytical Rigor",
+        "Cross-Team Alignment"
+      ],
+      "top_ats_keywords": [
+        "Technical SEO",
+        "Programmatic SEO",
+        "Core Web Vitals",
+        "Structured Data",
+        "Screaming Frog",
+        "Google Search Console",
+        "Ahrefs",
+        "Crawl Budget",
+        "Canonicalization",
+        "Internal Linking"
+      ],
+      "sample_kpis": [
+        "Organic search traffic growth > 100% YoY",
+        "Top 3 rankings for 50+ high-intent commercial keywords",
+        "Zero indexation or canonical errors"
+      ],
+      "total_matched_agent_skills": 232,
+      "sample_matched_agent_skills": [
+        "content-engine",
+        "growth-seo-skill-001",
+        "growth-seo-skill-002",
+        "growth-seo-skill-003",
+        "growth-seo-skill-004",
+        "growth-seo-skill-005",
+        "growth-seo-skill-006",
+        "growth-seo-skill-007"
+      ]
+    },
+    {
+      "role_key": "exim_international_trade_specialist",
+      "role_title": "International Trade & EXIM Specialist",
+      "family_key": "operations_supply_chain_exim",
+      "family_name": "Global Operations, Supply Chain, Logistics & EXIM",
+      "master_skill_name": "skill-master-exim-international-trade-specialist",
+      "required_hard_skills": [
+        "Incoterms 2020 (FOB, CIF, DDP, EXW)",
+        "Customs Tariff Classification (HS Code)",
+        "Bill of Lading (B/L) & Air Waybills",
+        "Letter of Credit (LC) & Trade Finance",
+        "DGFT / ICEGATE & Regulatory Filings",
+        "Freight Forwarder SLA Management",
+        "Marine Cargo Insurance",
+        "Foreign Exchange & Remittances"
+      ],
+      "required_soft_skills": [
+        "Zero Error Margin",
+        "Cross-Cultural Negotiation",
+        "Regulatory Discipline",
+        "Crisis De-escalation"
+      ],
+      "top_ats_keywords": [
+        "Export Import (EXIM)",
+        "Incoterms 2020",
+        "Customs Clearance",
+        "Harmonized System (HS Codes)",
+        "Letter of Credit",
+        "Bill of Lading",
+        "Freight Forwarding",
+        "ICEGATE",
+        "DGFT",
+        "Trade Compliance"
+      ],
+      "sample_kpis": [
+        "100% regulatory customs compliance (0 detention/demurrage fines)",
+        "Freight cost reduction > 12% across air/sea routes",
+        "Average port clearance turnaround time < 48 hours",
+        "Zero discrepancies in Letter of Credit documentation"
+      ],
+      "total_matched_agent_skills": 231,
+      "sample_matched_agent_skills": [
+        "exim-skill-01",
+        "exim-skill-02",
+        "exim-skill-03",
+        "exim-skill-04",
+        "exim-skill-05",
+        "exim-skill-06",
+        "exim-skill-07",
+        "exim-skill-08"
+      ]
+    },
+    {
+      "role_key": "operations_manager",
+      "role_title": "Operations Manager",
+      "family_key": "operations_supply_chain_exim",
+      "family_name": "Global Operations, Supply Chain, Logistics & EXIM",
+      "master_skill_name": "skill-master-operations-manager",
+      "required_hard_skills": [
+        "Process Optimization (Lean / Six Sigma)",
+        "Operational Dashboards & KPI Tracking",
+        "Vendor Contract Management",
+        "Budgeting & Cost Allocation",
+        "Cross-Functional Project Management",
+        "Root-Cause Analysis",
+        "SLA Enforcement"
+      ],
+      "required_soft_skills": [
+        "Operational Decisiveness",
+        "Empathetic Leadership",
+        "Crisis Management",
+        "Relentless Follow-Through"
+      ],
+      "top_ats_keywords": [
+        "Operations Management",
+        "Process Optimization",
+        "Lean Six Sigma",
+        "SLA Management",
+        "Vendor Management",
+        "Cost Reduction",
+        "Capacity Planning",
+        "KPI Dashboards",
+        "Cross-Functional Leadership",
+        "Resource Allocation"
+      ],
+      "sample_kpis": [
+        "Operational cost per unit reduced by 18%",
+        "SLA compliance rate > 99.2%",
+        "Employee operational productivity lift > 25%",
+        "Zero regulatory or safety non-conformance incidents"
+      ],
+      "total_matched_agent_skills": 231,
+      "sample_matched_agent_skills": [
+        "exim-skill-01",
+        "exim-skill-02",
+        "exim-skill-03",
+        "exim-skill-04",
+        "exim-skill-05",
+        "exim-skill-06",
+        "exim-skill-07",
+        "exim-skill-08"
+      ]
+    },
+    {
+      "role_key": "chief_of_staff",
+      "role_title": "Chief of Staff to CEO",
+      "family_key": "executive_founders_office",
+      "family_name": "Executive Leadership, Founders Office & Corporate Strategy",
+      "master_skill_name": "skill-master-chief-of-staff",
+      "required_hard_skills": [
+        "Strategic Planning",
+        "Board Deck Preparation & Executive Comms",
+        "Financial & P&L Modeling",
+        "Cross-Functional Program Management",
+        "M&A / Capital Allocation Analysis",
+        "Crisis Communications",
+        "OKRs & Performance Cascading"
+      ],
+      "required_soft_skills": [
+        "Absolute Discretion & Trust",
+        "High Emotional Intelligence",
+        "Extreme Ownership",
+        "Strategic Clarity",
+        "Executive Gravitas"
+      ],
+      "top_ats_keywords": [
+        "Chief of Staff",
+        "Founders Office",
+        "Executive Strategy",
+        "Board Deck",
+        "OKRs",
+        "Cross-Functional Alignment",
+        "P&L Management",
+        "Special Projects",
+        "Strategic Initiatives",
+        "Investor Relations"
+      ],
+      "sample_kpis": [
+        "100% on-time execution of CEO priority projects",
+        "Board meeting prep cycles reduced by 50%",
+        "Cross-functional execution roadblocks resolved within 24h",
+        "Measurable enterprise value creation across incubation initiatives"
+      ],
+      "total_matched_agent_skills": 204,
+      "sample_matched_agent_skills": [
+        "empire-capital-allocator",
+        "exec-strategy-skill-001",
+        "exec-strategy-skill-002",
+        "exec-strategy-skill-003",
+        "exec-strategy-skill-004",
+        "exec-strategy-skill-005",
+        "exec-strategy-skill-006",
+        "exec-strategy-skill-007"
+      ]
+    },
+    {
+      "role_key": "founders_office_associate",
+      "role_title": "Founder's Office Associate",
+      "family_key": "executive_founders_office",
+      "family_name": "Executive Leadership, Founders Office & Corporate Strategy",
+      "master_skill_name": "skill-master-founders-office-associate",
+      "required_hard_skills": [
+        "Financial Modeling",
+        "Market Research & Competitive Intelligence",
+        "Data Analytics (SQL/Excel)",
+        "Fast Prototyping",
+        "Investor Pitch Decks",
+        "Vendor Sourcing",
+        "Growth Hacking"
+      ],
+      "required_soft_skills": [
+        "Insatiable Curiosity",
+        "First-Principles Thinking",
+        "Speed of Execution",
+        "Hustle & Resourcefulness"
+      ],
+      "top_ats_keywords": [
+        "Founders Office",
+        "Special Projects",
+        "Market Research",
+        "Financial Modeling",
+        "Zero-to-One",
+        "Competitive Intelligence",
+        "Pitch Decks",
+        "Growth Experiments",
+        "Venture Capital",
+        "Business Strategy"
+      ],
+      "sample_kpis": [
+        "Execution of high-impact pilot projects within 14 days",
+        "Creation of investor materials leading to term sheets",
+        "Identification of new revenue opportunities worth > $100k",
+        "Zero operational downtime on ad-hoc leadership requests"
+      ],
+      "total_matched_agent_skills": 204,
+      "sample_matched_agent_skills": [
+        "empire-capital-allocator",
+        "exec-strategy-skill-001",
+        "exec-strategy-skill-002",
+        "exec-strategy-skill-003",
+        "exec-strategy-skill-004",
+        "exec-strategy-skill-005",
+        "exec-strategy-skill-006",
+        "exec-strategy-skill-007"
+      ]
+    },
+    {
+      "role_key": "technical_recruiter",
+      "role_title": "Technical Recruiter / Talent Acquisition Specialist",
+      "family_key": "people_hr_recruiting",
+      "family_name": "People Operations, HR Business Partnering & Technical Recruiting",
+      "master_skill_name": "skill-master-technical-recruiter",
+      "required_hard_skills": [
+        "Boolean Search & X-Ray Sourcing",
+        "LinkedIn Recruiter / Gem / Ashby",
+        "ATS Management (Greenhouse/Lever/Workday)",
+        "Interview Calibration & Rubrics",
+        "Offer Negotiation & Closing",
+        "Talent Pipeline Analytics",
+        "Candidate Experience Management"
+      ],
+      "required_soft_skills": [
+        "Persuasive Communication",
+        "Empathy & Relationship Building",
+        "Negotiation Tactics",
+        "Tenacity"
+      ],
+      "top_ats_keywords": [
+        "Technical Recruiter",
+        "Talent Acquisition",
+        "Full Lifecycle Recruiting",
+        "Boolean Search",
+        "LinkedIn Recruiter",
+        "Greenhouse",
+        "Lever",
+        "Candidate Sourcing",
+        "Offer Closing",
+        "Time to Hire"
+      ],
+      "sample_kpis": [
+        "Time-to-fill < 38 days for hard-to-hire tech roles",
+        "Offer acceptance rate > 85%",
+        "Candidate satisfaction score (CSAT) > 94%",
+        "Hiring manager interview-to-offer ratio < 4:1"
+      ],
+      "total_matched_agent_skills": 232,
+      "sample_matched_agent_skills": [
+        "interview-simulator-pro",
+        "recruiter-network-strike",
+        "talent-people-skill-001",
+        "talent-people-skill-002",
+        "talent-people-skill-003",
+        "talent-people-skill-004",
+        "talent-people-skill-005",
+        "talent-people-skill-006"
+      ]
+    },
+    {
+      "role_key": "customer_success_manager",
+      "role_title": "Customer Success Manager (CSM)",
+      "family_key": "customer_success_support",
+      "family_name": "Customer Success, Solutions Architecture & Support Engineering",
+      "master_skill_name": "skill-master-customer-success-manager",
+      "required_hard_skills": [
+        "Gainsight / Totango / ChurnZero",
+        "Net Retention Rate (NRR) Modeling",
+        "Executive QBR Presentations",
+        "Account Health Scoring",
+        "Product Onboarding Protocols",
+        "Contract Renewals"
+      ],
+      "required_soft_skills": [
+        "Empathy",
+        "Proactive Problem Solving",
+        "Consultative Presence"
+      ],
+      "top_ats_keywords": [
+        "Customer Success",
+        "Gainsight",
+        "Net Revenue Retention (NRR)",
+        "Churn Prevention",
+        "Quarterly Business Reviews (QBR)",
+        "Onboarding",
+        "Account Health",
+        "Customer Retention"
+      ],
+      "sample_kpis": [
+        "Net Revenue Retention (NRR) > 115%",
+        "Gross account churn < 3%",
+        "Onboarding time-to-value < 21 days"
+      ],
+      "total_matched_agent_skills": 200,
+      "sample_matched_agent_skills": [
+        "customer-success-skill-001",
+        "customer-success-skill-002",
+        "customer-success-skill-003",
+        "customer-success-skill-004",
+        "customer-success-skill-005",
+        "customer-success-skill-006",
+        "customer-success-skill-007",
+        "customer-success-skill-008"
+      ]
+    },
+    {
+      "role_key": "clinical_data_specialist",
+      "role_title": "Clinical Data & Healthcare Informatics Specialist",
+      "family_key": "healthcare_biotech",
+      "family_name": "Healthcare, Clinical Data & BioTech Informatics",
+      "master_skill_name": "skill-master-clinical-data-specialist",
+      "required_hard_skills": [
+        "FHIR / HL7 Standards",
+        "HIPAA / PHI Compliance",
+        "Electronic Health Records (Epic, Cerner)",
+        "SQL & Python",
+        "Clinical Trial Data Management (CDISC SDTM)",
+        "Medical Terminology (SNOMED, ICD-10)"
+      ],
+      "required_soft_skills": [
+        "Patient Privacy Ethics",
+        "Methodical Precision",
+        "Cross-Disciplinary Rigor"
+      ],
+      "top_ats_keywords": [
+        "Healthcare Informatics",
+        "HIPAA",
+        "FHIR",
+        "HL7",
+        "Clinical Data Management",
+        "CDISC",
+        "EHR",
+        "Epic",
+        "Cerner",
+        "ICD-10"
+      ],
+      "sample_kpis": [
+        "100% HIPAA compliance with zero PHI leaks",
+        "Clinical data query turnaround < 24h"
+      ],
+      "total_matched_agent_skills": 5,
+      "sample_matched_agent_skills": [
+        "biomanufacturing-scaling",
+        "healthcare-cdss-patterns",
+        "healthcare-emr-patterns",
+        "healthcare-eval-harness",
+        "healthcare-phi-compliance"
+      ]
+    },
+    {
+      "role_key": "management_consultant",
+      "role_title": "Management Consultant / Strategy Advisor",
+      "family_key": "consulting_advisory",
+      "family_name": "Management Consulting & Enterprise Advisory",
+      "master_skill_name": "skill-master-management-consultant",
+      "required_hard_skills": [
+        "MECE Problem Structuring",
+        "Hypothesis-Driven Problem Solving",
+        "Financial & Strategic Modeling",
+        "Executive Slide Crafting (Think-Cell/PowerPoint)",
+        "Stakeholder Interview Synthesis",
+        "Benchmarking & Competitive Analysis"
+      ],
+      "required_soft_skills": [
+        "Executive Presence",
+        "Rapid Learning Velocity",
+        "Top-Down Communication",
+        "High Poise"
+      ],
+      "top_ats_keywords": [
+        "Management Consulting",
+        "Strategy Consulting",
+        "MECE",
+        "Market Entry",
+        "Digital Transformation",
+        "Cost Optimization",
+        "Financial Modeling",
+        "Executive Presentation",
+        "Due Diligence",
+        "Benchmarking"
+      ],
+      "sample_kpis": [
+        "Quantifiable client cost reduction or revenue lift > $5M",
+        "Client project Net Promoter Score > 90%"
+      ],
+      "total_matched_agent_skills": 4,
+      "sample_matched_agent_skills": [
+        "council",
+        "council-multi-model",
+        "plan-canvas",
+        "strategic-compact"
+      ]
+    }
+  ]
+}

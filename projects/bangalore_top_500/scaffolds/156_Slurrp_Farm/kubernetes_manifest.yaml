@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slurrp_farm-deployment
+  labels:
+    app: slurrp_farm
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: slurrp_farm
+  template:
+    metadata:
+      labels:
+        app: slurrp_farm
+    spec:
+      containers:
+      - name: slurrp_farm-node
+        image: slurrp_farm:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: slurrp_farm-service
+spec:
+  type: ClusterIP
+  selector:
+    app: slurrp_farm
+  ports:
+  - port: 8080
+    targetPort: 8080

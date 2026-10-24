@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-009",
+  "rank": 9,
+  "company_name": "Ola / Ola Electric",
+  "sector": "Electric Vehicles, CleanTech & Deep Mobility",
+  "corridor": "Koramangala & Hosur Hub",
+  "stage": "Unicorn",
+  "valuation": "$5.4B Valuation",
+  "flagship_project": {
+    "name": "Project Gigafactory Core: Autonomous Edge Telemetry, 4680 Solid-State Cell Thermal Optimizer & Fleet Autopilot Mesh",
+    "pillar": "Industrial IoT Digital Twin, Battery Management System (BMS) Telemetry & Edge Autopilot",
+    "strategic_thesis": "Ola Electric's core moat is vertical integration from indigenous battery cell chemistry to connected vehicles. Gigafactory Core streams 1,000+ real-time telemetry parameters per vehicle back to an edge-cloud digital twin, dynamically adapting BMS thermal envelopes, preventing battery degradation, and automating OTA firmware safely.",
+    "tech_stack": "C/C++ (Embedded RTOS on Vehicle ECU), Rust (Edge Gateway), Apache Kafka / EMQX (Millions of MQTT IoT Conns), TimescaleDB / ClickHouse (Time-Series Sensor Telemetry), TensorFlow Lite (Edge Battery Health Model), Kubernetes Edge",
+    "kpis": "Predicts thermal anomalies 48 hours prior to cell degradation; extends battery lifecycle by 35%; processes 10B daily telemetry points across 500,000+ active EVs."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

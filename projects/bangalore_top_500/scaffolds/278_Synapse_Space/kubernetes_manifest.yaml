@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synapse_space-deployment
+  labels:
+    app: synapse_space
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: synapse_space
+  template:
+    metadata:
+      labels:
+        app: synapse_space
+    spec:
+      containers:
+      - name: synapse_space-node
+        image: synapse_space:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: synapse_space-service
+spec:
+  type: ClusterIP
+  selector:
+    app: synapse_space
+  ports:
+  - port: 8080
+    targetPort: 8080

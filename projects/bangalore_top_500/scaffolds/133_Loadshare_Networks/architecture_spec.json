@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-133",
+  "rank": 133,
+  "company_name": "Loadshare Networks",
+  "sector": "Electric Vehicles, CleanTech & Deep Mobility",
+  "corridor": "Koramangala",
+  "stage": "Series C",
+  "valuation": "$140M Series C",
+  "flagship_project": {
+    "name": "Project Telematics-Pulse: Loadshare Networks Enterprise System",
+    "pillar": "Automotive IoT Edge Streaming & Battery Lifecycle Optimization",
+    "strategic_thesis": "Scales Loadshare Networks's operations across Koramangala by deploying an enterprise-grade automotive iot edge streaming & battery lifecycle optimization to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "C/C++, Rust, EMQX MQTT, TimescaleDB, ClickHouse",
+    "kpis": "Processes 10B daily telemetry points; predicts cell degradation 30 days in advance"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

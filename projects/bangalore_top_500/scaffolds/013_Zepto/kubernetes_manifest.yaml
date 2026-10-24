@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zepto-deployment
+  labels:
+    app: zepto
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: zepto
+  template:
+    metadata:
+      labels:
+        app: zepto
+    spec:
+      containers:
+      - name: zepto-node
+        image: zepto:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zepto-service
+spec:
+  type: ClusterIP
+  selector:
+    app: zepto
+  ports:
+  - port: 8080
+    targetPort: 8080

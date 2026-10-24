@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apex_works-deployment
+  labels:
+    app: apex_works
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apex_works
+  template:
+    metadata:
+      labels:
+        app: apex_works
+    spec:
+      containers:
+      - name: apex_works-node
+        image: apex_works:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apex_works-service
+spec:
+  type: ClusterIP
+  selector:
+    app: apex_works
+  ports:
+  - port: 8080
+    targetPort: 8080

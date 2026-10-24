@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dunzo-deployment
+  labels:
+    app: dunzo
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dunzo
+  template:
+    metadata:
+      labels:
+        app: dunzo
+    spec:
+      containers:
+      - name: dunzo-node
+        image: dunzo:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dunzo-service
+spec:
+  type: ClusterIP
+  selector:
+    app: dunzo
+  ports:
+  - port: 8080
+    targetPort: 8080

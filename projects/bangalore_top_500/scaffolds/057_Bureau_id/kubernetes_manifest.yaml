@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bureau_id-deployment
+  labels:
+    app: bureau_id
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bureau_id
+  template:
+    metadata:
+      labels:
+        app: bureau_id
+    spec:
+      containers:
+      - name: bureau_id-node
+        image: bureau_id:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bureau_id-service
+spec:
+  type: ClusterIP
+  selector:
+    app: bureau_id
+  ports:
+  - port: 8080
+    targetPort: 8080

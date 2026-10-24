@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recur_club-deployment
+  labels:
+    app: recur_club
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: recur_club
+  template:
+    metadata:
+      labels:
+        app: recur_club
+    spec:
+      containers:
+      - name: recur_club-node
+        image: recur_club:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recur_club-service
+spec:
+  type: ClusterIP
+  selector:
+    app: recur_club
+  ports:
+  - port: 8080
+    targetPort: 8080

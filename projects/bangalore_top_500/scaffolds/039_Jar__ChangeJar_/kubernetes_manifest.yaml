@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jar__changejar_-deployment
+  labels:
+    app: jar__changejar_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jar__changejar_
+  template:
+    metadata:
+      labels:
+        app: jar__changejar_
+    spec:
+      containers:
+      - name: jar__changejar_-node
+        image: jar__changejar_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jar__changejar_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: jar__changejar_
+  ports:
+  - port: 8080
+    targetPort: 8080

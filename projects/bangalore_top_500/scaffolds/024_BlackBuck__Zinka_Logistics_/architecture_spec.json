@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-024",
+  "rank": 24,
+  "company_name": "BlackBuck (Zinka Logistics)",
+  "sector": "Electric Vehicles, CleanTech & Deep Mobility",
+  "corridor": "Bellandur / ORR",
+  "stage": "Unicorn",
+  "valuation": "$1.0B Valuation",
+  "flagship_project": {
+    "name": "Project FleetAutonomy: BlackBuck (Zinka Logistics) Enterprise System",
+    "pillar": "Intelligent Fleet Scheduling & Component Failure Warning System",
+    "strategic_thesis": "Scales BlackBuck (Zinka Logistics)'s operations across Bellandur / ORR by deploying an enterprise-grade intelligent fleet scheduling & component failure warning system to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, Python, Apache Kafka, Redis, InfluxDB",
+    "kpis": "Reduces fleet maintenance downtime by 50%; improves vehicle daily operating range by 14%"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

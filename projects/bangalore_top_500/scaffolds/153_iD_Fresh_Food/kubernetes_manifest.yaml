@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: id_fresh_food-deployment
+  labels:
+    app: id_fresh_food
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: id_fresh_food
+  template:
+    metadata:
+      labels:
+        app: id_fresh_food
+    spec:
+      containers:
+      - name: id_fresh_food-node
+        image: id_fresh_food:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: id_fresh_food-service
+spec:
+  type: ClusterIP
+  selector:
+    app: id_fresh_food
+  ports:
+  - port: 8080
+    targetPort: 8080

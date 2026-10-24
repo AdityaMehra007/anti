@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aero_solutions-deployment
+  labels:
+    app: aero_solutions
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aero_solutions
+  template:
+    metadata:
+      labels:
+        app: aero_solutions
+    spec:
+      containers:
+      - name: aero_solutions-node
+        image: aero_solutions:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aero_solutions-service
+spec:
+  type: ClusterIP
+  selector:
+    app: aero_solutions
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-018",
+  "rank": 18,
+  "company_name": "Infra.Market",
+  "sector": "B2B Industrial Marketplaces, Manufacturing & Supply Chain",
+  "corridor": "Koramangala",
+  "stage": "Unicorn",
+  "valuation": "$2.5B Valuation",
+  "flagship_project": {
+    "name": "Project ConcreteOS: IoT Batching Plant Telemetry, Ready-Mix Real-Time Slump Optimization & Multi-Modal Fleet Router",
+    "pillar": "Industrial Construction IoT & Ready-Mix Perishable Logistics Routing",
+    "strategic_thesis": "Ready-mix concrete has a perishable delivery window of 90 minutes before setting. ConcreteOS links automated IoT batching plant sensors with heavy mixer truck GPS, predicting traffic delays, adjusting chemical retarder admixtures dynamically, and guaranteeing zero wastage across infrastructure megaprojects.",
+    "tech_stack": "Go (Fleet & Batch Dispatch), Python (Concrete Curing & Rheology Predictive Models), MQTT / IoT Edge, PostgreSQL, TimescaleDB, RabbitMQ",
+    "kpis": "Zero failed concrete transit batches; 24% reduction in mixer truck transit idle time; manages 500+ manufacturing batch plants seamlessly."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

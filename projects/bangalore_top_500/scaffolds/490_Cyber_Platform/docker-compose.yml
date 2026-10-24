@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  cyber_platform-core:
+    image: python:3.13-slim
+    container_name: cyber_platform-engine
+    restart: always
+    environment:
+      - APP_NAME=Cyber Platform
+      - PROJECT_NAME=Project BioSovereign: Cyber Platform Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: cyber_platform-cache
+    ports:
+      - "6379"

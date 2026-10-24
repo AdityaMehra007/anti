@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangalore Top 500 Startups — The Biggest Projects & Master Prompts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #101726;
+      --surface-elevated: #162035;
+      --surface-border: #1e2d4a;
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.2);
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --warning: #f59e0b;
+      --cyan: #06b6d4;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius: 12px;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(180deg, rgba(16, 23, 38, 0.95) 0%, rgba(9, 13, 22, 0.9) 100%);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 1.25rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+    }
+
+    .header-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .brand p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .stats-strip {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 90px;
+    }
+
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      max-width: 1600px;
+      margin: 1.25rem auto 0;
+      width: 100%;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 320px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-select {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      cursor: pointer;
+      min-width: 160px;
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .action-btn {
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .action-btn:hover {
+      background: var(--surface-border);
+      border-color: var(--text-dim);
+    }
+
+    .action-btn.primary {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    .action-btn.primary:hover {
+      background: #0ea5e9;
+      border-color: #0ea5e9;
+    }
+
+    /* Main Grid */
+    main {
+      max-width: 1600px;
+      margin: 1.5rem auto;
+      width: 100%;
+      padding: 0 2rem;
+      flex: 1;
+    }
+
+    .results-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Startup Card */
+    .startup-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .startup-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 0.2s;
+    }
+
+    .startup-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .startup-card:hover::before {
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-rank {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .card-stage {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stage-Decacorn { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .stage-Unicorn { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
+    .stage-Soonicorn { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .stage-SeriesC, .stage-SeriesD, .stage-SeriesE { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .stage-SeriesB { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .stage-SeriesA, .stage-EarlyStage, .stage-Seed, .stage-Angel { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-val {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-corridor {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-project-pill {
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      border-left: 3px solid var(--cyan);
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      margin-bottom: 0.85rem;
+    }
+
+    .project-pill-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-pill-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .view-prompt-tag {
+      color: var(--primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* Multi-Tab Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius);
+      max-width: 1100px;
+      width: 100%;
+      height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+      position: relative;
+      animation: modalSlide 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    @keyframes modalSlide {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-header {
+      padding: 1.25rem 1.75rem;
+      border-bottom: 1px solid var(--surface-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-elevated);
+    }
+
+    .modal-header-info h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .modal-header-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+    }
+
+    /* Modal Nav Tabs */
+    .modal-tabs {
+      display: flex;
+      background: #0b111e;
+      border-bottom: 1px solid var(--surface-border);
+      padding: 0 1.75rem;
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.85rem 1.25rem;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    /* Modal Tab Content Panels */
+    .modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 1.75rem;
+    }
+
+    .tab-pane {
+      display: none;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .tab-pane.active {
+      display: flex;
+    }
+
+    /* Architecture Hero */
+    .project-hero {
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+
+    .project-hero h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-prop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .project-prop-item label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-prop-item div {
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    /* Prompt Box */
+    .prompt-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prompt-header h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .prompt-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .prompt-box {
+      background: #050811;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+      flex: 1;
+      min-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      user-select: text;
+    }
+
+    /* Blueprint & Code Stubs */
+    .code-preview-box {
+      background: #050811;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: #a5f3fc;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* Live Benchmark Simulator */
+    .sim-panel {
+      background: var(--surface-elevated);
+      border: 1px solid var(--surface-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .sim-card {
+      background: #090e1a;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .sim-val {
+      font-family: var(--mono);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .sim-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .canvas-container {
+      background: #050811;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      height: 220px;
+      position: relative;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--primary);
+      color: #000;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      display: none;
+      font-size: 0.9rem;
+      animation: toastIn 0.2s ease;
+    }
+
+    @keyframes toastIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      header { padding: 1rem; }
+      .controls-bar { padding: 0 1rem; }
+      main { padding: 1rem; }
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .search-row { flex-direction: column; }
+      .sim-metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-badge">Ω-BLR-500</span>
+        <div>
+          <h1>Bangalore Top 500 Startups</h1>
+          <p>The Biggest & Most Powerful Projects & Master Execution Prompts Catalog</p>
+        </div>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-pill">
+          <span class="stat-num" id="stat-total">500</span>
+          <span class="stat-label">Startups</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">95</span>
+          <span class="stat-label">Unicorns/Decacorns</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">12</span>
+          <span class="stat-label">Sectors</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">1.49M</span>
+          <span class="stat-label">Prompt Chars</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="controls-bar">
+    <div class="search-row">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search by startup name, project codename, tech stack, corridor, or keyword...">
+      </div>
+      <button class="action-btn" onclick="exportFilteredJSON()">📥 Export JSON</button>
+      <button class="action-btn" onclick="exportFilteredCSV()">📊 Export CSV</button>
+    </div>
+    <div class="filter-group">
+      <select class="filter-select" id="sectorFilter">
+        <option value="">All Sectors (12)</option>
+      </select>
+      <select class="filter-select" id="stageFilter">
+        <option value="">All Stages</option>
+      </select>
+      <select class="filter-select" id="corridorFilter">
+        <option value="">All Corridors</option>
+      </select>
+      <button class="action-btn" onclick="resetFilters()">Reset Filters</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="results-meta">
+      <span id="resultsCount">Showing 500 startups</span>
+      <span>Click any startup card to view the flagship project, master prompt, code blueprint, & benchmark simulator</span>
+    </div>
+    <div class="grid-container" id="startupsGrid"></div>
+  </main>
+
+  <!-- Multi-Tab Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <h2 id="modalTitle">Company Name</h2>
+          <p id="modalSubtitle">Sector | Corridor | Valuation</p>
+        </div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="modal-tabs">
+        <button class="tab-btn active" onclick="switchTab('promptTab', this)">
+          📜 Master Prompt
+        </button>
+        <button class="tab-btn" onclick="switchTab('archTab', this)">
+          🏗️ Deep Architecture & KPIs
+        </button>
+        <button class="tab-btn" onclick="switchTab('blueprintTab', this)">
+          💻 Code Blueprint & Scaffolds
+        </button>
+        <button class="tab-btn" onclick="switchTab('benchmarkTab', this)">
+          ⚡ Live 10k TPS Simulator
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Tab 1: Master Prompt -->
+        <div class="tab-pane active" id="promptTab">
+          <div class="prompt-container">
+            <div class="prompt-header">
+              <h4 id="promptHeaderMeta">THE MASTER EXECUTION PROMPT</h4>
+              <div class="prompt-actions">
+                <button class="action-btn primary" onclick="copyModalPrompt()">📋 Copy Prompt</button>
+                <button class="action-btn" onclick="downloadModalPrompt()">💾 Download .md</button>
+              </div>
+            </div>
+            <div class="prompt-box" id="modalPromptText"></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Deep Architecture & KPIs -->
+        <div class="tab-pane" id="archTab">
+          <div class="project-hero">
+            <div class="project-pill-label">FLAGSHIP INITIATIVE</div>
+            <h3 id="modalProjectName">Project Title</h3>
+            <p id="modalProjectThesis" style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.75rem;"></p>
+            <div class="project-prop-grid">
+              <div class="project-prop-item">
+                <label>Architectural Pillar</label>
+                <div id="modalProjectPillar"></div>
+              </div>
+              <div class="project-prop-item">
+                <label>Tech Stack & Infrastructure</label>
+                <div id="modalTechStack" style="font-family: var(--mono); font-size: 0.8rem; color: #38bdf8;"></div>
+              </div>
+              <div class="project-prop-item">
+                <label>Target Scale KPIs & Impact</label>
+                <div id="modalImpactMetrics" style="color: var(--primary); font-weight: 600;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--surface-elevated); border: 1px solid var(--surface-border); border-radius: 8px; padding: 1.25rem;">
+            <h4 style="font-size: 0.9rem; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.75rem;">Production Invariants & Rigor</h4>
+            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+              <p>• <strong>Zero Data Loss:</strong> Linearizable write logs replicated synchronously across 3 Availability Zones.</p>
+              <p>• <strong>Strict Latency Envelope:</strong> Sub-millisecond p99 kernel bypassing with deterministic zero-allocation hotspots.</p>
+              <p>• <strong>Cryptographic Audit:</strong> Continuous Merkle root state signing to guarantee tamper-proof ledger integrity.</p>
+              <p>• <strong>Automated Verification:</strong> Red-green test execution gateways ensuring 100% specification and regression coverage.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Code Blueprint & Scaffolds -->
+        <div class="tab-pane" id="blueprintTab">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 0.9rem; color: var(--cyan); text-transform: uppercase;">Generated Repository Scaffolds on Disk</h4>
+            <span id="scaffoldPathLabel" style="font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim);"></span>
+          </div>
+
+          <div class="code-preview-box" id="blueprintCodeBox">
+# Python Production Blueprint Service Stub
+# Auto-generated from Bangalore Top 500 Architecture Suite
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 0.3rem;">Docker Compose Profile</label>
+              <div class="code-preview-box" id="blueprintDockerBox" style="height: 140px; font-size: 0.75rem;"></div>
+            </div>
+            <div>
+              <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 0.3rem;">Kubernetes Deployment Manifest</label>
+              <div class="code-preview-box" id="blueprintK8sBox" style="height: 140px; font-size: 0.75rem;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Live 10k TPS Benchmark Simulator -->
+        <div class="tab-pane" id="benchmarkTab">
+          <div class="sim-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h4 style="color: var(--primary); font-size: 0.95rem; text-transform: uppercase;">Real-Time Synthetic Load Engine</h4>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Simulating microsecond queue scheduling under high concurrency</p>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="action-btn primary" id="simToggleBtn" onclick="toggleSimulation()">▶️ Start 10k TPS Load</button>
+                <button class="action-btn" onclick="resetSimulation()">🔄 Reset</button>
+              </div>
+            </div>
+
+            <div class="sim-metrics">
+              <div class="sim-card">
+                <div class="sim-val" id="simTpsVal">0</div>
+                <div class="sim-label">Current TPS</div>
+              </div>
+              <div class="sim-card">
+                <div class="sim-val" id="simP99Val" style="color: #38bdf8;">0.00 ms</div>
+                <div class="sim-label">p99 Latency</div>
+              </div>
+              <div class="sim-card">
+                <div class="sim-val" id="simSuccessVal" style="color: #34d399;">100.00%</div>
+                <div class="sim-label">Success Rate</div>
+              </div>
+              <div class="sim-card">
+                <div class="sim-val" id="simTotalEventsVal" style="color: #fbbf24;">0</div>
+                <div class="sim-label">Processed Tx</div>
+              </div>
+            </div>
+
+            <div class="canvas-container">
+              <canvas id="benchmarkCanvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toastMessage">Copied to clipboard!</div>
+
+  <script>
+    const STARTUPS_DATA = __DATA_PLACEHOLDER__;
+
+    let activeStartup = null;
+    let simInterval = null;
+    let simRunning = false;
+    let simTotalTx = 0;
+    const historyData = new Array(60).fill(0);
+
+    // Elements
+    const grid = document.getElementById('startupsGrid');
+    const searchInput = document.getElementById('searchInput');
+    const sectorFilter = document.getElementById('sectorFilter');
+    const stageFilter = document.getElementById('stageFilter');
+    const corridorFilter = document.getElementById('corridorFilter');
+    const resultsCount = document.getElementById('resultsCount');
+
+    // Populate Filters
+    function initFilters() {
+      const sectors = new Set();
+      const stages = new Set();
+      const corridors = new Set();
+
+      STARTUPS_DATA.forEach(s => {
+        sectors.add(s.sector);
+        stages.add(s.stage);
+        corridors.add(s.corridor);
+      });
+
+      Array.from(sectors).sort().forEach(sec => {
+        const opt = document.createElement('option');
+        opt.value = sec;
+        opt.textContent = sec;
+        sectorFilter.appendChild(opt);
+      });
+
+      Array.from(stages).sort().forEach(st => {
+        const opt = document.createElement('option');
+        opt.value = st;
+        opt.textContent = st;
+        stageFilter.appendChild(opt);
+      });
+
+      Array.from(corridors).sort().forEach(cor => {
+        const opt = document.createElement('option');
+        opt.value = cor;
+        opt.textContent = cor;
+        corridorFilter.appendChild(opt);
+      });
+    }
+
+    function renderCards(data) {
+      grid.innerHTML = '';
+      resultsCount.textContent = `Showing ${data.length} of ${STARTUPS_DATA.length} startups`;
+
+      if (data.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--text-dim);">No startups found matching your filters.</div>`;
+        return;
+      }
+
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'startup-card';
+        card.onclick = () => openModal(item);
+
+        const stageClean = item.stage.replace(/[^a-zA-Z0-9]/g, '');
+
+        card.innerHTML = `
+          <div>
+            <div class="card-top">
+              <span class="card-rank">#${item.rank}</span>
+              <span class="card-stage stage-${stageClean}">${item.stage}</span>
+            </div>
+            <div class="card-title">${item.company_name}</div>
+            <div class="card-val">${item.valuation_or_funding}</div>
+            <div class="card-corridor">📍 ${item.corridor}</div>
+            <div class="card-project-pill">
+              <div class="project-pill-label">Flagship Project</div>
+              <div class="project-pill-title">${item.biggest_project.project_name}</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span>${item.sector.split(',')[0]}</span>
+            <span class="view-prompt-tag">Inspect System &rarr;</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterData() {
+      const q = searchInput.value.toLowerCase().trim();
+      const sec = sectorFilter.value;
+      const st = stageFilter.value;
+      const cor = corridorFilter.value;
+
+      const filtered = STARTUPS_DATA.filter(item => {
+        const matchQ = !q || 
+          item.company_name.toLowerCase().includes(q) ||
+          item.sector.toLowerCase().includes(q) ||
+          item.corridor.toLowerCase().includes(q) ||
+          item.biggest_project.project_name.toLowerCase().includes(q) ||
+          item.biggest_project.tech_stack.toLowerCase().includes(q);
+
+        const matchSec = !sec || item.sector === sec;
+        const matchSt = !st || item.stage === st;
+        const matchCor = !cor || item.corridor === cor;
+
+        return matchQ && matchSec && matchSt && matchCor;
+      });
+
+      renderCards(filtered);
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      sectorFilter.value = '';
+      stageFilter.value = '';
+      corridorFilter.value = '';
+      renderCards(STARTUPS_DATA);
+    }
+
+    // Modal Tabs
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+
+      if (tabId === 'benchmarkTab') {
+        drawChart();
+      }
+    }
+
+    // Modal Operations
+    function openModal(item) {
+      activeStartup = item;
+      const p = item.biggest_project;
+
+      document.getElementById('modalTitle').textContent = `#${item.rank} - ${item.company_name}`;
+      document.getElementById('modalSubtitle').textContent = `${item.sector} | ${item.corridor} | ${item.stage} (${item.valuation_or_funding})`;
+      document.getElementById('modalProjectName').textContent = p.project_name;
+      document.getElementById('modalProjectThesis').textContent = p.strategic_thesis;
+      document.getElementById('modalProjectPillar').textContent = p.architecture_pillar;
+      document.getElementById('modalTechStack').textContent = p.tech_stack;
+      document.getElementById('modalImpactMetrics').textContent = p.impact_metrics;
+      document.getElementById('modalPromptText').textContent = item.biggest_prompt;
+      document.getElementById('promptHeaderMeta').textContent = `MASTER PROMPT (${item.biggest_prompt.length.toLocaleString()} CHARS | ~${Math.round(item.biggest_prompt.length / 4).toLocaleString()} TOKENS)`;
+
+      // Scaffold Code preview
+      const slug = item.company_name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+      document.getElementById('scaffoldPathLabel').textContent = `Path: projects/bangalore_top_500/scaffolds/${slug}/`;
+      document.getElementById('blueprintCodeBox').textContent = 
+`# ${item.company_name} — ${p.project_name}
+# Architectural Core Service Stub
+import asyncio
+import time
+from typing import Dict, Any
+
+class ${item.company_name.replace(/[^a-zA-Z0-9]/g, '')}CoreEngine:
+    """Flagship Service: ${p.project_name}"""
+    def __init__(self, node_id: str = "blr-core-01"):
+        self.node_id = node_id
+        self.state_version = 1
+        self.telemetry = {"tps": 0, "p99_ms": 0.42, "status": "ONLINE"}
+
+    async def execute_transaction(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        start = time.perf_counter_ns()
+        tx_id = payload.get("tx_id", "BLR_TX_" + str(time.time_ns()))
+        latency_us = (time.perf_counter_ns() - start) / 1000
+        return {
+            "status": "COMMITTED",
+            "tx_id": tx_id,
+            "latency_us": round(latency_us, 2),
+            "node": self.node_id
+        }
+
+if __name__ == "__main__":
+    engine = ${item.company_name.replace(/[^a-zA-Z0-9]/g, '')}CoreEngine()
+    print(f"Initialized {engine.node_id} for ${item.company_name} - ${p.project_name}")`;
+
+      document.getElementById('blueprintDockerBox').textContent = 
+`version: '3.8'
+services:
+  ${slug}_core:
+    image: blr-500/${slug}:latest
+    environment:
+      - BLR_CORRIDOR=${item.corridor}
+      - TARGET_METRICS=${p.impact_metrics.replace(/"/g, '')}
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G`;
+
+      document.getElementById('blueprintK8sBox').textContent = 
+`apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${slug}-core-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ${slug}-core
+  template:
+    metadata:
+      labels:
+        app: ${slug}-core
+    spec:
+      containers:
+      - name: engine
+        image: blr-500/${slug}:latest`;
+
+      // Reset to first tab
+      switchTab('promptTab', document.querySelector('.tab-btn'));
+      document.getElementById('detailModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('detailModal').classList.remove('active');
+      if (simRunning) {
+        toggleSimulation();
+      }
+    }
+
+    window.onclick = function(e) {
+      const modal = document.getElementById('detailModal');
+      if (e.target === modal) {
+        closeModal();
+      }
+    };
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2200);
+    }
+
+    function copyModalPrompt() {
+      if (!activeStartup) return;
+      navigator.clipboard.writeText(activeStartup.biggest_prompt).then(() => {
+        showToast(`Copied prompt for ${activeStartup.company_name}!`);
+      });
+    }
+
+    function downloadModalPrompt() {
+      if (!activeStartup) return;
+      const blob = new Blob([activeStartup.biggest_prompt], { type: 'text/markdown;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${activeStartup.rank.toString().padStart(3, '0')}_${activeStartup.company_name.replace(/\\s+/g, '_')}_Master_Prompt.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportFilteredJSON() {
+      const q = searchInput.value.toLowerCase().trim();
+      const sec = sectorFilter.value;
+      const st = stageFilter.value;
+      const cor = corridorFilter.value;
+
+      const filtered = STARTUPS_DATA.filter(item => {
+        const matchQ = !q || item.company_name.toLowerCase().includes(q) || item.biggest_project.project_name.toLowerCase().includes(q);
+        const matchSec = !sec || item.sector === sec;
+        const matchSt = !st || item.stage === st;
+        const matchCor = !cor || item.corridor === cor;
+        return matchQ && matchSec && matchSt && matchCor;
+      });
+
+      const blob = new Blob([JSON.stringify(filtered, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Bangalore_Top_Startups_Export.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportFilteredCSV() {
+      const blob = new Blob([`Rank,Company,Sector,Corridor,Stage,Valuation,Project,Tech Stack\\n` + 
+        STARTUPS_DATA.map(s => `"${s.rank}","${s.company_name}","${s.sector}","${s.corridor}","${s.stage}","${s.valuation_or_funding}","${s.biggest_project.project_name}","${s.biggest_project.tech_stack}"`).join('\\n')], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Bangalore_Top_Startups_Export.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Benchmark Simulator Real-Time Canvas
+    function toggleSimulation() {
+      const btn = document.getElementById('simToggleBtn');
+      if (simRunning) {
+        clearInterval(simInterval);
+        simRunning = false;
+        btn.textContent = '▶️ Resume Load';
+        btn.classList.remove('primary');
+      } else {
+        simRunning = true;
+        btn.textContent = '⏸️ Pause Load';
+        btn.classList.add('primary');
+        simInterval = setInterval(() => {
+          const currentTps = Math.floor(9800 + Math.random() * 850);
+          const p99 = (0.28 + Math.random() * 0.18).toFixed(2);
+          simTotalTx += currentTps;
+
+          document.getElementById('simTpsVal').textContent = currentTps.toLocaleString();
+          document.getElementById('simP99Val').textContent = `${p99} ms`;
+          document.getElementById('simTotalEventsVal').textContent = simTotalTx.toLocaleString();
+
+          historyData.push(currentTps);
+          historyData.shift();
+          drawChart();
+        }, 120);
+      }
+    }
+
+    function resetSimulation() {
+      if (simRunning) toggleSimulation();
+      simTotalTx = 0;
+      historyData.fill(0);
+      document.getElementById('simTpsVal').textContent = '0';
+      document.getElementById('simP99Val').textContent = '0.00 ms';
+      document.getElementById('simTotalEventsVal').textContent = '0';
+      drawChart();
+    }
+
+    function drawChart() {
+      const canvas = document.getElementById('benchmarkCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid Lines
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.lineWidth = 1;
+      for (let y = 20; y < h; y += 40) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // Draw Waveform
+      const maxVal = 12000;
+      const step = w / (historyData.length - 1);
+
+      ctx.beginPath();
+      historyData.forEach((val, i) => {
+        const x = i * step;
+        const y = h - (val / maxVal) * (h - 20) - 10;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Gradient Fill Under Wave
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      const grad = ctx.createLinearGradient(0, 0, 0, h);
+      grad.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
+      grad.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+      ctx.fillStyle = grad;
+      ctx.fill();
+    }
+
+    // Event Listeners
+    searchInput.addEventListener('input', filterData);
+    sectorFilter.addEventListener('change', filterData);
+    stageFilter.addEventListener('change', filterData);
+    corridorFilter.addEventListener('change', filterData);
+
+    // Initial load
+    initFilters();
+    renderCards(STARTUPS_DATA);
+  </script>
+</body>
+</html>

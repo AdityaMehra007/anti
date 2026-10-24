@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper_capital-deployment
+  labels:
+    app: hyper_capital
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyper_capital
+  template:
+    metadata:
+      labels:
+        app: hyper_capital
+    spec:
+      containers:
+      - name: hyper_capital-node
+        image: hyper_capital:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper_capital-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hyper_capital
+  ports:
+  - port: 8080
+    targetPort: 8080

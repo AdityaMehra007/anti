@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-002",
+  "rank": 2,
+  "company_name": "Swiggy",
+  "sector": "Quick Commerce, FoodTech & Consumer Internet",
+  "corridor": "Outer Ring Road (Kadubeesanahalli)",
+  "stage": "Decacorn",
+  "valuation": "$12.0B Valuation",
+  "flagship_project": {
+    "name": "Project SwarmPulse: Autonomous Hyperlocal Demand Prediction, Micro-Fulfillment Swarm Engine & 8-Minute Drone-Ground Routing Mesh",
+    "pillar": "Autonomous Hyperlocal Logistics & Micro-Darkstore Swarm Engine",
+    "strategic_thesis": "Instamart and food delivery unit economics hinge on batching efficiency and sub-10 minute delivery. SwarmPulse unifies dark-store automated picking robots, predictive rider dispatch (dispatching before the customer checkout completes), and dynamic surge pricing on a sub-50ms geospatial hexagonal grid.",
+    "tech_stack": "C++ / Rust (H3 Hexagonal Geohash Indexer), Go (Dispatch Daemon), Redpanda (High-Throughput Streaming), Apache Flink (Real-time Stream Processing), CockroachDB (Globally Resilient Metadata), Python PyTorch (On-device/Edge Demand Forecaster)",
+    "kpis": "Sub-8 minute average Instamart delivery in dense clusters; 31% increase in multi-order rider batching; zero dark-store stockouts on high-velocity SKUs."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

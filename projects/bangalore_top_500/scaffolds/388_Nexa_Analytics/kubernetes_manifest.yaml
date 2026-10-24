@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexa_analytics-deployment
+  labels:
+    app: nexa_analytics
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nexa_analytics
+  template:
+    metadata:
+      labels:
+        app: nexa_analytics
+    spec:
+      containers:
+      - name: nexa_analytics-node
+        image: nexa_analytics:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexa_analytics-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nexa_analytics
+  ports:
+  - port: 8080
+    targetPort: 8080

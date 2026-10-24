@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coindcx-deployment
+  labels:
+    app: coindcx
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: coindcx
+  template:
+    metadata:
+      labels:
+        app: coindcx
+    spec:
+      containers:
+      - name: coindcx-node
+        image: coindcx:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coindcx-service
+spec:
+  type: ClusterIP
+  selector:
+    app: coindcx
+  ports:
+  - port: 8080
+    targetPort: 8080

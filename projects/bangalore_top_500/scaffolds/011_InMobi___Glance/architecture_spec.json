@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-011",
+  "rank": 11,
+  "company_name": "InMobi / Glance",
+  "sector": "DeepTech, Generative AI, Robotics & SpaceTech",
+  "corridor": "Bellandur / ORR",
+  "stage": "Decacorn",
+  "valuation": "$2.5B+ Valuation",
+  "flagship_project": {
+    "name": "Project NeuroScreen: Zero-Latency On-Device Lockscreen Content Synthesis, Edge Multimodal Recommendation & Sovereign Privacy Vault",
+    "pillar": "On-Device Edge Generative Media & Low-Latency Multimodal Recommendation",
+    "strategic_thesis": "Glance operates on 300M+ smartphone lockscreens globally. NeuroScreen deploys an on-device quantized multimodal transformer that synthesizes customized news, gaming, and interactive commerce in zero milliseconds without sending user browsing logs or biometric sensor data to cloud servers.",
+    "tech_stack": "C++ / ONNX Runtime (On-Device Neural Engine), Rust (Edge Cache), PyTorch (Distributed Continual Learning), ClickHouse (Global Ad Yield Engine), Apache Flink, WebAssembly / Android NDK",
+    "kpis": "Sub-1ms lockscreen render latency; 45% increase in user dwell time; zero user personal data leaks to third-party ad networks."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

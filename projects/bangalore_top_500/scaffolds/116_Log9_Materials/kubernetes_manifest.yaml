@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log9_materials-deployment
+  labels:
+    app: log9_materials
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: log9_materials
+  template:
+    metadata:
+      labels:
+        app: log9_materials
+    spec:
+      containers:
+      - name: log9_materials-node
+        image: log9_materials:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: log9_materials-service
+spec:
+  type: ClusterIP
+  selector:
+    app: log9_materials
+  ports:
+  - port: 8080
+    targetPort: 8080

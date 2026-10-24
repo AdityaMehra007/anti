@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-039",
+  "rank": 39,
+  "company_name": "Jar (ChangeJar)",
+  "sector": "FinTech, Payments & Digital Banking",
+  "corridor": "Koramangala (4th Block)",
+  "stage": "Soonicorn",
+  "valuation": "$300M Series B",
+  "flagship_project": {
+    "name": "Project TrustVault: Jar (ChangeJar) Enterprise System",
+    "pillar": "Confidential Computing & Automated Credit Intelligence",
+    "strategic_thesis": "Scales Jar (ChangeJar)'s operations across Koramangala (4th Block) by deploying an enterprise-grade confidential computing & automated credit intelligence to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, ZK-SNARKs, RocksDB, AWS Nitro Enclaves",
+    "kpis": "100% confidential credit verification with zero data leakage; sub-500ms credit decisioning"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 5.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

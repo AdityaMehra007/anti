@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pixxel_space-deployment
+  labels:
+    app: pixxel_space
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pixxel_space
+  template:
+    metadata:
+      labels:
+        app: pixxel_space
+    spec:
+      containers:
+      - name: pixxel_space-node
+        image: pixxel_space:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pixxel_space-service
+spec:
+  type: ClusterIP
+  selector:
+    app: pixxel_space
+  ports:
+  - port: 8080
+    targetPort: 8080

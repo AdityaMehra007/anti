@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blusmart__blr_tech_-deployment
+  labels:
+    app: blusmart__blr_tech_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blusmart__blr_tech_
+  template:
+    metadata:
+      labels:
+        app: blusmart__blr_tech_
+    spec:
+      containers:
+      - name: blusmart__blr_tech_-node
+        image: blusmart__blr_tech_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blusmart__blr_tech_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: blusmart__blr_tech_
+  ports:
+  - port: 8080
+    targetPort: 8080

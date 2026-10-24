@@ -1,0 +1,41 @@
+# Open Financial Technologies — Project NeoLedger: Open Financial Technologies Enterprise System
+
+## Executive Overview
+- **Enterprise**: Open Financial Technologies (Rank #48 in Bangalore)
+- **Sector**: FinTech, Payments & Digital Banking
+- **Corridor**: Koramangala
+- **Stage**: Unicorn ($1.0B Valuation)
+- **Engineering Pillar**: Immutable Financial Event Sourcing & Real-Time Balance Mesh
+- **Tech Stack**: `Rust, PostgreSQL with Citus, Apache Pulsar`
+- **Target Scale KPIs**: Processes 50M daily balance updates with zero race conditions; provable balance auditability
+
+---
+
+## Strategic Thesis
+Scales Open Financial Technologies's operations across Koramangala by deploying an enterprise-grade immutable financial event sourcing & real-time balance mesh to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.
+
+---
+
+## Architectural Invariants & Non-Negotiables
+1. **Zero Vibe Coding**: Strict typing, contract verification, and mathematical consistency.
+2. **Linearizable State Synchronization**: Zero data loss across active-active micro-hubs.
+3. **Continuous Chaos Resilience**: Automatic circuit breaking and zero-downtime failover.
+4. **P99 Latency Guarantee**: Sub-5ms to sub-15ms execution envelope under peak loads.
+
+---
+
+## Microservices Topology
+- **`ingestion-gateway`**: High-concurrency edge entrypoint terminating mTLS 1.3.
+- **`core-consensus-engine`**: High-throughput distributed state machine.
+- **`telemetry-sentinel`**: Real-time OpenTelemetry & forensic audit trail.
+
+---
+
+## Deployment & Verification
+```bash
+# Run local microservice simulation
+python service_blueprint.py
+
+# Launch multi-container stack
+docker-compose up -d
+```

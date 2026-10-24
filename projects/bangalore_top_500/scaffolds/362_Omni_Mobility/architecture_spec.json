@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-362",
+  "rank": 362,
+  "company_name": "Omni Mobility",
+  "sector": "PropTech, Real Estate & Smart Living",
+  "corridor": "HSR Layout (Unicorn Valley)",
+  "stage": "Soonicorn",
+  "valuation": "$260M Series D",
+  "flagship_project": {
+    "name": "Project RealEstate-Mesh: Omni Mobility Enterprise System",
+    "pillar": "PropTech Legal Intelligence & Photorealistic 3D Spatial Visualization",
+    "strategic_thesis": "Scales Omni Mobility's operations across HSR Layout (Unicorn Valley) by deploying an enterprise-grade proptech legal intelligence & photorealistic 3d spatial visualization to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Python, Three.js, Go, PostgreSQL with PostGIS",
+    "kpis": "Verifies property ownership deeds in 5 seconds; 4K photorealistic 3D walkthroughs on mobile"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

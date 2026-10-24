@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: omni_fintech-deployment
+  labels:
+    app: omni_fintech
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: omni_fintech
+  template:
+    metadata:
+      labels:
+        app: omni_fintech
+    spec:
+      containers:
+      - name: omni_fintech-node
+        image: omni_fintech:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: omni_fintech-service
+spec:
+  type: ClusterIP
+  selector:
+    app: omni_fintech
+  ports:
+  - port: 8080
+    targetPort: 8080

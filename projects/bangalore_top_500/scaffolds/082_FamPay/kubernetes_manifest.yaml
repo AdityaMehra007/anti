@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fampay-deployment
+  labels:
+    app: fampay
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fampay
+  template:
+    metadata:
+      labels:
+        app: fampay
+    spec:
+      containers:
+      - name: fampay-node
+        image: fampay:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fampay-service
+spec:
+  type: ClusterIP
+  selector:
+    app: fampay
+  ports:
+  - port: 8080
+    targetPort: 8080

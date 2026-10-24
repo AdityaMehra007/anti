@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  pulse_security-core:
+    image: python:3.13-slim
+    container_name: pulse_security-engine
+    restart: always
+    environment:
+      - APP_NAME=Pulse Security
+      - PROJECT_NAME=Project CareerMatch-AI: Pulse Security Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: pulse_security-cache
+    ports:
+      - "6379"

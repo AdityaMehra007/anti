@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-012",
+  "rank": 12,
+  "company_name": "Meesho",
+  "sector": "E-Commerce, Marketplaces & D2C Brands",
+  "corridor": "Outer Ring Road (Kadubeesanahalli)",
+  "stage": "Unicorn",
+  "valuation": "$4.9B Valuation",
+  "flagship_project": {
+    "name": "Project BharatMesh: Multilingual Voice/Visual Social Commerce Engine, 0-Commission P2P Reseller Supply Mesh & Tier-4 Logistics Arbiter",
+    "pillar": "Vernacular Multimodal Discovery & Ultra-Low-Cost P2P Supply Chain Routing",
+    "strategic_thesis": "Meesho thrives on low Average Order Values (AOVs) and unbranded goods from Tier-2/3/4 towns. BharatMesh replaces complex text search with natural voice and camera visual search in 14 Indian languages, while dynamically bundling hyper-local couriers to drive per-shipment delivery cost down by 30%.",
+    "tech_stack": "Python / PyTorch (Speech-to-Intent & Image Embeddings), Milvus / Qdrant (Vector Similarity Database), Go (Order Matching Engine), ScyllaDB, Kafka, Kubernetes on Bare Metal",
+    "kpis": "Supports 50M concurrent vernacular voice queries; reduces RTO (Return to Origin) fraud by 38%; drives shipping costs down to <₹35 per intra-zone parcel."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

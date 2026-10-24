@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wow_skin_science-deployment
+  labels:
+    app: wow_skin_science
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wow_skin_science
+  template:
+    metadata:
+      labels:
+        app: wow_skin_science
+    spec:
+      containers:
+      - name: wow_skin_science-node
+        image: wow_skin_science:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wow_skin_science-service
+spec:
+  type: ClusterIP
+  selector:
+    app: wow_skin_science
+  ports:
+  - port: 8080
+    targetPort: 8080

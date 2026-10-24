@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ather_energy-core:
+    image: python:3.13-slim
+    container_name: ather_energy-engine
+    restart: always
+    environment:
+      - APP_NAME=Ather Energy
+      - PROJECT_NAME=Project GridMatrix: Distributed Vehicle-to-Grid Terawatt Telemetry, Fast-Charge Load Balancer & Battery Swarm Digital Twin
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: ather_energy-cache
+    ports:
+      - "6379"

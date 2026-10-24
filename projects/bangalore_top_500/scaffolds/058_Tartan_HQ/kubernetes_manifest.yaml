@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tartan_hq-deployment
+  labels:
+    app: tartan_hq
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tartan_hq
+  template:
+    metadata:
+      labels:
+        app: tartan_hq
+    spec:
+      containers:
+      - name: tartan_hq-node
+        image: tartan_hq:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tartan_hq-service
+spec:
+  type: ClusterIP
+  selector:
+    app: tartan_hq
+  ports:
+  - port: 8080
+    targetPort: 8080

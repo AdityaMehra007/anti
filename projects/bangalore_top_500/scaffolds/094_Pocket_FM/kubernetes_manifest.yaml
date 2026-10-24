@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pocket_fm-deployment
+  labels:
+    app: pocket_fm
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pocket_fm
+  template:
+    metadata:
+      labels:
+        app: pocket_fm
+    spec:
+      containers:
+      - name: pocket_fm-node
+        image: pocket_fm:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pocket_fm-service
+spec:
+  type: ClusterIP
+  selector:
+    app: pocket_fm
+  ports:
+  - port: 8080
+    targetPort: 8080

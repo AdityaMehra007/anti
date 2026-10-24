@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slice-deployment
+  labels:
+    app: slice
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: slice
+  template:
+    metadata:
+      labels:
+        app: slice
+    spec:
+      containers:
+      - name: slice-node
+        image: slice:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: slice-service
+spec:
+  type: ClusterIP
+  selector:
+    app: slice
+  ports:
+  - port: 8080
+    targetPort: 8080

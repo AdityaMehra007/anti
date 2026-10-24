@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-345",
+  "rank": 345,
+  "company_name": "Apex Solutions",
+  "sector": "Enterprise SaaS, Cloud, Infrastructure & DevTools",
+  "corridor": "Kadubeesanahalli / ORR (Tech Corridor)",
+  "stage": "Soonicorn",
+  "valuation": "$520M Soonicorn",
+  "flagship_project": {
+    "name": "Project DataBridge: Apex Solutions Enterprise System",
+    "pillar": "Columnar Distributed Data Virtualization & Pushdown Query Engine",
+    "strategic_thesis": "Scales Apex Solutions's operations across Kadubeesanahalli / ORR (Tech Corridor) by deploying an enterprise-grade columnar distributed data virtualization & pushdown query engine to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, Apache Arrow, DataFusion, Flight SQL",
+    "kpis": "Executes complex federated queries across polyglot datastores in sub-5ms with zero ETL overhead"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: open_financial_technologies-deployment
+  labels:
+    app: open_financial_technologies
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: open_financial_technologies
+  template:
+    metadata:
+      labels:
+        app: open_financial_technologies
+    spec:
+      containers:
+      - name: open_financial_technologies-node
+        image: open_financial_technologies:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: open_financial_technologies-service
+spec:
+  type: ClusterIP
+  selector:
+    app: open_financial_technologies
+  ports:
+  - port: 8080
+    targetPort: 8080

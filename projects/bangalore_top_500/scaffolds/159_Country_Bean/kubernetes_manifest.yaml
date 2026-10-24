@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: country_bean-deployment
+  labels:
+    app: country_bean
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: country_bean
+  template:
+    metadata:
+      labels:
+        app: country_bean
+    spec:
+      containers:
+      - name: country_bean-node
+        image: country_bean:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: country_bean-service
+spec:
+  type: ClusterIP
+  selector:
+    app: country_bean
+  ports:
+  - port: 8080
+    targetPort: 8080

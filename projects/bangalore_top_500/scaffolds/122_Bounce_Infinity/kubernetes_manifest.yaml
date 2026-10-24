@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bounce_infinity-deployment
+  labels:
+    app: bounce_infinity
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bounce_infinity
+  template:
+    metadata:
+      labels:
+        app: bounce_infinity
+    spec:
+      containers:
+      - name: bounce_infinity-node
+        image: bounce_infinity:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bounce_infinity-service
+spec:
+  type: ClusterIP
+  selector:
+    app: bounce_infinity
+  ports:
+  - port: 8080
+    targetPort: 8080

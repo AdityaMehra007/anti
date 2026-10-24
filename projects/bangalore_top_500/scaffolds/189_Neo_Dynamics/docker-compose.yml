@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  neo_dynamics-core:
+    image: python:3.13-slim
+    container_name: neo_dynamics-engine
+    restart: always
+    environment:
+      - APP_NAME=Neo Dynamics
+      - PROJECT_NAME=Project DataBridge: Neo Dynamics Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: neo_dynamics-cache
+    ports:
+      - "6379"

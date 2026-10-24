@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum_goodness-deployment
+  labels:
+    app: plum_goodness
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: plum_goodness
+  template:
+    metadata:
+      labels:
+        app: plum_goodness
+    spec:
+      containers:
+      - name: plum_goodness-node
+        image: plum_goodness:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plum_goodness-service
+spec:
+  type: ClusterIP
+  selector:
+    app: plum_goodness
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexa_works-deployment
+  labels:
+    app: nexa_works
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nexa_works
+  template:
+    metadata:
+      labels:
+        app: nexa_works
+    spec:
+      containers:
+      - name: nexa_works-node
+        image: nexa_works:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexa_works-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nexa_works
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mudrex-deployment
+  labels:
+    app: mudrex
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mudrex
+  template:
+    metadata:
+      labels:
+        app: mudrex
+    spec:
+      containers:
+      - name: mudrex-node
+        image: mudrex:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mudrex-service
+spec:
+  type: ClusterIP
+  selector:
+    app: mudrex
+  ports:
+  - port: 8080
+    targetPort: 8080

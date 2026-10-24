@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  tartan_hq-core:
+    image: python:3.13-slim
+    container_name: tartan_hq-engine
+    restart: always
+    environment:
+      - APP_NAME=Tartan HQ
+      - PROJECT_NAME=Project AlphaYield: Tartan HQ Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: tartan_hq-cache
+    ports:
+      - "6379"

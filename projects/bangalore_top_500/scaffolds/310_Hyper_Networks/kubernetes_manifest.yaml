@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper_networks-deployment
+  labels:
+    app: hyper_networks
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyper_networks
+  template:
+    metadata:
+      labels:
+        app: hyper_networks
+    spec:
+      containers:
+      - name: hyper_networks-node
+        image: hyper_networks:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper_networks-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hyper_networks
+  ports:
+  - port: 8080
+    targetPort: 8080

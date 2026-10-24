@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: altigreen_propulsion_labs-deployment
+  labels:
+    app: altigreen_propulsion_labs
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: altigreen_propulsion_labs
+  template:
+    metadata:
+      labels:
+        app: altigreen_propulsion_labs
+    spec:
+      containers:
+      - name: altigreen_propulsion_labs-node
+        image: altigreen_propulsion_labs:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: altigreen_propulsion_labs-service
+spec:
+  type: ClusterIP
+  selector:
+    app: altigreen_propulsion_labs
+  ports:
+  - port: 8080
+    targetPort: 8080

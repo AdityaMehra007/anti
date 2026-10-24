@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  id_fresh_food-core:
+    image: python:3.13-slim
+    container_name: id_fresh_food-engine
+    restart: always
+    environment:
+      - APP_NAME=iD Fresh Food
+      - PROJECT_NAME=Project BrandOS: iD Fresh Food Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: id_fresh_food-cache
+    ports:
+      - "6379"

@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  kore_technologies-core:
+    image: python:3.13-slim
+    container_name: kore_technologies-engine
+    restart: always
+    environment:
+      - APP_NAME=Kore Technologies
+      - PROJECT_NAME=Project SwarmDispatch: Kore Technologies Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: kore_technologies-cache
+    ports:
+      - "6379"

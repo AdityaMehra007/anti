@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kazam_ev-deployment
+  labels:
+    app: kazam_ev
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kazam_ev
+  template:
+    metadata:
+      labels:
+        app: kazam_ev
+    spec:
+      containers:
+      - name: kazam_ev-node
+        image: kazam_ev:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kazam_ev-service
+spec:
+  type: ClusterIP
+  selector:
+    app: kazam_ev
+  ports:
+  - port: 8080
+    targetPort: 8080

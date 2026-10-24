@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-040",
+  "rank": 40,
+  "company_name": "Fi Money (Epifi)",
+  "sector": "FinTech, Payments & Digital Banking",
+  "corridor": "Indiranagar",
+  "stage": "Soonicorn",
+  "valuation": "$520M Series C",
+  "flagship_project": {
+    "name": "Project NeoLedger: Fi Money (Epifi) Enterprise System",
+    "pillar": "Immutable Financial Event Sourcing & Real-Time Balance Mesh",
+    "strategic_thesis": "Scales Fi Money (Epifi)'s operations across Indiranagar by deploying an enterprise-grade immutable financial event sourcing & real-time balance mesh to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, PostgreSQL with Citus, Apache Pulsar",
+    "kpis": "Processes 50M daily balance updates with zero race conditions; provable balance auditability"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 5.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

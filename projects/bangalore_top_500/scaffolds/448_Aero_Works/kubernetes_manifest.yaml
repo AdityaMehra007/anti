@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aero_works-deployment
+  labels:
+    app: aero_works
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aero_works
+  template:
+    metadata:
+      labels:
+        app: aero_works
+    spec:
+      containers:
+      - name: aero_works-node
+        image: aero_works:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aero_works-service
+spec:
+  type: ClusterIP
+  selector:
+    app: aero_works
+  ports:
+  - port: 8080
+    targetPort: 8080

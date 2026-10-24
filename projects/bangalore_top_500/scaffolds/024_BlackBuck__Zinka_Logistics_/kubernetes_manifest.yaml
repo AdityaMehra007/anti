@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackbuck__zinka_logistics_-deployment
+  labels:
+    app: blackbuck__zinka_logistics_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blackbuck__zinka_logistics_
+  template:
+    metadata:
+      labels:
+        app: blackbuck__zinka_logistics_
+    spec:
+      containers:
+      - name: blackbuck__zinka_logistics_-node
+        image: blackbuck__zinka_logistics_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blackbuck__zinka_logistics_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: blackbuck__zinka_logistics_
+  ports:
+  - port: 8080
+    targetPort: 8080

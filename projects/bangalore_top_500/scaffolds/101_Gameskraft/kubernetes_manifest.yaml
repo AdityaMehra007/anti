@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameskraft-deployment
+  labels:
+    app: gameskraft
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gameskraft
+  template:
+    metadata:
+      labels:
+        app: gameskraft
+    spec:
+      containers:
+      - name: gameskraft-node
+        image: gameskraft:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gameskraft-service
+spec:
+  type: ClusterIP
+  selector:
+    app: gameskraft
+  ports:
+  - port: 8080
+    targetPort: 8080

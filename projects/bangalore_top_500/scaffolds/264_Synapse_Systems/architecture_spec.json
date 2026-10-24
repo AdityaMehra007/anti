@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-264",
+  "rank": 264,
+  "company_name": "Synapse Systems",
+  "sector": "EdTech, Skill Development & Future of Work",
+  "corridor": "Bellandur / ORR (Cessna / Ecospace)",
+  "stage": "Series D",
+  "valuation": "$65M Series B",
+  "flagship_project": {
+    "name": "Project CareerMatch-AI: Synapse Systems Enterprise System",
+    "pillar": "AI Skill Verification & Algorithmic Candidate Matching",
+    "strategic_thesis": "Scales Synapse Systems's operations across Bellandur / ORR (Cessna / Ecospace) by deploying an enterprise-grade ai skill verification & algorithmic candidate matching to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Python, FastAPI, Qdrant, PostgreSQL, Next.js",
+    "kpis": "Matches graduates to high-leverage roles with 92% interview conversion rate"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

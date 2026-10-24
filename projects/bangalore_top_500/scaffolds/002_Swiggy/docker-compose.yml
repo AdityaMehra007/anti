@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  swiggy-core:
+    image: python:3.13-slim
+    container_name: swiggy-engine
+    restart: always
+    environment:
+      - APP_NAME=Swiggy
+      - PROJECT_NAME=Project SwarmPulse: Autonomous Hyperlocal Demand Prediction, Micro-Fulfillment Swarm Engine & 8-Minute Drone-Ground Routing Mesh
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: swiggy-cache
+    ports:
+      - "6379"

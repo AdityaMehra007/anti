@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexa_logistics-deployment
+  labels:
+    app: nexa_logistics
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nexa_logistics
+  template:
+    metadata:
+      labels:
+        app: nexa_logistics
+    spec:
+      containers:
+      - name: nexa_logistics-node
+        image: nexa_logistics:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexa_logistics-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nexa_logistics
+  ports:
+  - port: 8080
+    targetPort: 8080

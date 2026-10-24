@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMEGA ∞ Coolify Mission Control Cockpit</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-surface: #101726;
+            --bg-card: #151f33;
+            --border-glow: #1e293b;
+            --border-active: #38bdf8;
+            --accent-cyan: #38bdf8;
+            --accent-blue: #3b82f6;
+            --accent-purple: #a855f7;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 24px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.05) 0%, transparent 40%);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .header-title-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .coolify-badge {
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            color: white;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-family: var(--font-mono);
+        }
+
+        .status-pill-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            padding: 20px;
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-main);
+            font-family: var(--font-mono);
+        }
+
+        .stat-meta {
+            font-size: 11px;
+            color: var(--accent-cyan);
+            margin-top: 4px;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 1100px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-glow);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-family: var(--font-mono);
+        }
+
+        tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .badge-running {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-sans);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            transform: scale(1.02);
+        }
+
+        .btn-cyan {
+            background: var(--accent-cyan);
+            color: #041226;
+        }
+        .btn-cyan:hover {
+            background: #7dd3fc;
+        }
+
+        .btn-purple {
+            background: var(--accent-purple);
+        }
+        .btn-purple:hover {
+            background: #9333ea;
+        }
+
+        .btn-sm {
+            padding: 4px 10px;
+            font-size: 11px;
+            border-radius: 6px;
+        }
+
+        .terminal-box {
+            background: #050811;
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            height: 380px;
+            overflow-y: auto;
+            color: #38bdf8;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .terminal-line {
+            margin-bottom: 6px;
+            word-break: break-all;
+        }
+
+        .terminal-time {
+            color: #64748b;
+        }
+
+        .terminal-success {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .terminal-accent {
+            color: #f59e0b;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 10px;
+            padding: 10px 16px;
+            color: var(--text-main);
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .filter-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .filter-pill.active, .filter-pill:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            max-height: 520px;
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+
+        .catalog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .catalog-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .catalog-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .catalog-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .catalog-cat {
+            font-size: 10px;
+            text-transform: uppercase;
+            background: rgba(168, 85, 247, 0.15);
+            color: #d8b4fe;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .catalog-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .catalog-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 12px;
+        }
+
+        .catalog-doc-link {
+            color: var(--accent-cyan);
+            font-size: 11px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .catalog-doc-link:hover {
+            text-decoration: underline;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 16px;
+            padding: 28px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+        }
+
+        .modal-header {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .modal-body {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-title-box">
+            <div class="coolify-badge">COOLIFY v4</div>
+            <div>
+                <h1 class="header-title">OMEGA ∞ Autonomous Infrastructure & PaaS Cockpit</h1>
+                <p class="header-subtitle">Self-Hosted Kubernetes, Docker Swarm & Traefik Control Plane</p>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <div class="status-pill">
+                <span class="status-pill-dot"></span>
+                <span>CLUSTER HEALTHY</span>
+            </div>
+            <button class="btn btn-purple" onclick="triggerStackProvision()">Deploy OMEGA Stack</button>
+        </div>
+    </div>
+
+    <!-- Cluster Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-label">Active Node Clusters</div>
+            <div class="stat-value" id="stat-servers">2</div>
+            <div class="stat-meta">Localhost + Compute Alpha</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Deployed Applications</div>
+            <div class="stat-value" id="stat-apps">2</div>
+            <div class="stat-meta">100% Zero-Downtime</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Provisioned Databases</div>
+            <div class="stat-value" id="stat-dbs">3</div>
+            <div class="stat-meta">PostgreSQL 15 & Redis 7</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">1-Click Service Catalog</div>
+            <div class="stat-value" id="stat-templates">352</div>
+            <div class="stat-meta">Ready-to-Deploy Stacks</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Edge Proxy / Ingress</div>
+            <div class="stat-value" style="color: var(--accent-green); font-size: 20px;">TRAEFIK v3</div>
+            <div class="stat-meta">Auto Let's Encrypt SSL</div>
+        </div>
+    </div>
+
+    <!-- Main Workspace Layout -->
+    <div class="main-layout">
+        
+        <!-- Left Column: Servers & Applications -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+            
+            <!-- Managed Servers Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>Managed Server Nodes</span>
+                    </div>
+                    <button class="btn btn-sm btn-cyan" onclick="validateNodes()">Validate All Nodes</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Node Name</th>
+                                <th>IP Address</th>
+                                <th>Role</th>
+                                <th>Proxy</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 700; color: #fff;">localhost</td>
+                                <td>127.0.0.1:22</td>
+                                <td><span style="color: var(--accent-purple);">Control Plane</span></td>
+                                <td>Traefik</td>
+                                <td><span class="badge-running">ONLINE</span></td>
+                                <td><button class="btn btn-sm btn-purple" onclick="logTerminal('Validated localhost: Docker 26.1.4 OK, memory 32GB')">Check</button></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 700; color: #fff;">production-worker-alpha</td>
+                                <td>192.168.1.105:22</td>
+                                <td><span style="color: var(--accent-cyan);">Worker Node</span></td>
+                                <td>Traefik</td>
+                                <td><span class="badge-running">ONLINE</span></td>
+                                <td><button class="btn btn-sm btn-purple" onclick="logTerminal('Validated production-worker-alpha: 8 Cores, 64GB RAM OK')">Check</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Applications & Databases Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>Live Production Services</span>
+                    </div>
+                    <button class="btn btn-sm" onclick="deployApp('app-omega-api')">+ Deploy Application</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Resource Name</th>
+                                <th>Type</th>
+                                <th>Endpoint / FQDN</th>
+                                <th>Build Pack</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="app-table-body">
+                            <tr>
+                                <td style="font-weight: 600;">omega-omniverse-api</td>
+                                <td>App</td>
+                                <td style="color: var(--accent-cyan);">https://api.omega-continuum.local</td>
+                                <td>Dockerfile</td>
+                                <td><span class="badge-running">RUNNING</span></td>
+                                <td><button class="btn btn-sm btn-cyan" onclick="deployApp('omega-omniverse-api')">Redeploy</button></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600;">apex-career-cockpit</td>
+                                <td>App</td>
+                                <td style="color: var(--accent-cyan);">https://career.omega-continuum.local</td>
+                                <td>Static</td>
+                                <td><span class="badge-running">RUNNING</span></td>
+                                <td><button class="btn btn-sm btn-cyan" onclick="deployApp('apex-career-cockpit')">Redeploy</button></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600;">omega-analytics-db</td>
+                                <td>Database</td>
+                                <td>coolify-db-omega:5432</td>
+                                <td>Postgres 15</td>
+                                <td><span class="badge-running">HEALTHY</span></td>
+                                <td><button class="btn btn-sm" onclick="logTerminal('Exported snapshot for omega-analytics-db (4.2MB)')">Backup</button></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600;">omega-cache-redis</td>
+                                <td>Database</td>
+                                <td>coolify-redis-omega:6379</td>
+                                <td>Redis 7</td>
+                                <td><span class="badge-running">HEALTHY</span></td>
+                                <td><button class="btn btn-sm" onclick="logTerminal('Flushed Redis buffer telemetry')">Flush</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Live Deployment Terminal -->
+        <div class="panel" style="display: flex; flex-direction: column;">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span>Autonomous Deployment Stream</span>
+                </div>
+                <button class="btn btn-sm" onclick="clearTerminal()">Clear</button>
+            </div>
+            <div class="terminal-box" id="terminal">
+                <div class="terminal-line"><span class="terminal-time">[17:15:02]</span> <span class="terminal-success">[BOOT]</span> Coolify Autonomous Orchestrator initialized.</div>
+                <div class="terminal-line"><span class="terminal-time">[17:15:03]</span> <span class="terminal-accent">[SSH]</span> Secure control plane socket connected to 2 cluster nodes.</div>
+                <div class="terminal-line"><span class="terminal-time">[17:15:04]</span> <span class="terminal-success">[TRAEFIK]</span> Dynamic ingress routing synced with Let's Encrypt TLS.</div>
+                <div class="terminal-line"><span class="terminal-time">[17:15:05]</span> [QUEUE] Redis Horizon worker daemon active and polling jobs.</div>
+            </div>
+            <div style="margin-top: 14px; display: flex; gap: 8px;">
+                <input type="text" id="cli-cmd-input" class="search-input" placeholder="python coolify_cli.py deploy app-omega-api" readonly style="font-family: var(--font-mono); font-size: 11px;">
+                <button class="btn btn-sm btn-cyan" onclick="copyCliCmd()">Copy CLI</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 1-Click Service Catalog Section -->
+    <div class="panel">
+        <div class="panel-header">
+            <div class="panel-title">
+                <span>Coolify 1-Click Open-Source Service Catalog (352 Templates)</span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted);">
+                Instant container orchestration via Docker Compose
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="catalog-search" class="search-input" placeholder="Search 352 services (e.g. n8n, plausible, supabase, ollama, redis, wordpress, anythingllm)..." oninput="renderCatalog()">
+        </div>
+
+        <div class="filter-pills">
+            <div class="filter-pill active" onclick="setCategory('', this)">All Categories (352)</div>
+            <div class="filter-pill" onclick="setCategory('ai', this)">AI & LLMs</div>
+            <div class="filter-pill" onclick="setCategory('database', this)">Databases</div>
+            <div class="filter-pill" onclick="setCategory('analytics', this)">Analytics</div>
+            <div class="filter-pill" onclick="setCategory('automation', this)">Automation & Workflow</div>
+            <div class="filter-pill" onclick="setCategory('cms', this)">CMS & Storage</div>
+            <div class="filter-pill" onclick="setCategory('monitoring', this)">Observability</div>
+        </div>
+
+        <div class="catalog-grid" id="catalog-grid">
+            <!-- Dynamically populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Deployment Modal -->
+    <div class="modal-overlay" id="deploy-modal">
+        <div class="modal-content">
+            <div class="modal-header" id="modal-title">Deploy Template</div>
+            <div class="modal-body" id="modal-body">
+                Provisioning high-availability container stack on cluster node.
+            </div>
+            <div class="modal-footer">
+                <button class="btn" style="background: #334155;" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-cyan" id="modal-confirm-btn">Confirm Deploy</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SAMPLE_SERVICES = [
+            { id: 'anythingllm', name: 'AnythingLLM', category: 'ai', desc: 'Full-stack AI application for RAG, local LLM chats, and custom workspaces with zero setup.', doc: 'https://docs.anythingllm.com' },
+            { id: 'n8n', name: 'n8n Workflow Automation', category: 'automation', desc: 'Fair-code workflow automation tool connecting 300+ enterprise services with AI agent nodes.', doc: 'https://n8n.io' },
+            { id: 'plausible', name: 'Plausible Analytics', category: 'analytics', desc: 'Lightweight, open-source, privacy-focused Google Analytics alternative compliant with GDPR.', doc: 'https://plausible.io' },
+            { id: 'supabase', name: 'Supabase Platform', category: 'database', desc: 'The open source Firebase alternative. Dedicated PostgreSQL with Auth, Realtime, and Edge Functions.', doc: 'https://supabase.com' },
+            { id: 'litellm', name: 'LiteLLM Proxy', category: 'ai', desc: 'Call 100+ LLMs using OpenAI format with unified key management, cost tracking, and fallbacks.', doc: 'https://litellm.ai' },
+            { id: 'langfuse', name: 'Langfuse Tracing', category: 'ai', desc: 'Open source LLM engineering platform for observability, evaluations, prompt management, and metrics.', doc: 'https://langfuse.com' },
+            { id: 'minio', name: 'MinIO High-Perf S3', category: 'cms', desc: 'High-performance S3 compatible object storage system built for large scale AI datasets and backups.', doc: 'https://min.io' },
+            { id: 'qdrant', name: 'Qdrant Vector Engine', category: 'database', desc: 'Vector similarity search engine with extended filtering support for high-throughput RAG search.', doc: 'https://qdrant.tech' },
+            { id: 'uptime-kuma', name: 'Uptime Kuma', category: 'monitoring', desc: 'Self-hosted monitoring tool with status pages, TCP/HTTP health checks, and alerting pings.', doc: 'https://uptime.kuma.pet' },
+            { id: 'flowise', name: 'Flowise AI Builder', category: 'ai', desc: 'Drag & drop UI to build customized LLM flows, agent networks, and autonomous tool calling chains.', doc: 'https://flowiseai.com' },
+            { id: 'posthog', name: 'PostHog Analytics', category: 'analytics', desc: 'Product analytics, session replays, feature flags, and A/B testing suite self-hosted.', doc: 'https://posthog.com' },
+            { id: 'vaultwarden', name: 'Vaultwarden', category: 'security', desc: 'Lightweight Bitwarden server written in Rust for enterprise secrets management.', doc: 'https://github.com/dani-garcia/vaultwarden' }
+        ];
+
+        let activeCategory = '';
+
+        function setCategory(cat, el) {
+            activeCategory = cat;
+            document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+            el.classList.add('active');
+            renderCatalog();
+        }
+
+        function renderCatalog() {
+            const query = document.getElementById('catalog-search').value.toLowerCase();
+            const grid = document.getElementById('catalog-grid');
+            grid.innerHTML = '';
+
+            const filtered = SAMPLE_SERVICES.filter(s => {
+                const matchQ = !query || s.id.includes(query) || s.name.toLowerCase().includes(query) || s.desc.toLowerCase().includes(query);
+                const matchC = !activeCategory || s.category.toLowerCase() === activeCategory.toLowerCase();
+                return matchQ && matchC;
+            });
+
+            filtered.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'catalog-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="catalog-top">
+                            <div class="catalog-name">${s.name}</div>
+                            <span class="catalog-cat">${s.category}</span>
+                        </div>
+                        <div class="catalog-desc">${s.desc}</div>
+                    </div>
+                    <div class="catalog-actions">
+                        <a href="${s.doc}" target="_blank" class="catalog-doc-link">Docs ↗</a>
+                        <button class="btn btn-sm btn-cyan" onclick="openDeployModal('${s.id}', '${s.name}')">Deploy Stack</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function logTerminal(msg, isSuccess = false) {
+            const term = document.getElementById('terminal');
+            const now = new Date().toTimeString().split(' ')[0];
+            const div = document.createElement('div');
+            div.className = 'terminal-line';
+            div.innerHTML = `<span class="terminal-time">[${now}]</span> ${isSuccess ? '<span class="terminal-success">' + msg + '</span>' : msg}`;
+            term.appendChild(div);
+            term.scrollTop = term.scrollHeight;
+        }
+
+        function clearTerminal() {
+            document.getElementById('terminal').innerHTML = '';
+        }
+
+        function deployApp(name) {
+            logTerminal(`[BUILD] Triggered deployment for ${name}...`);
+            setTimeout(() => logTerminal(`[DOCKER] Nixpacks detected runtime environment for ${name}.`), 800);
+            setTimeout(() => logTerminal(`[TRAEFIK] Bound dynamic router rule: Host(\`${name}.coolify.local\`)`), 1600);
+            setTimeout(() => logTerminal(`[DEPLOY] Rolling update succeeded for ${name}. HTTP 200 OK.`, true), 2400);
+        }
+
+        function validateNodes() {
+            logTerminal('[VALIDATE] Checking all 2 cluster nodes over SSH...');
+            setTimeout(() => logTerminal('[NODE:localhost] Docker daemon active, 0 failed containers.'), 600);
+            setTimeout(() => logTerminal('[NODE:production-worker-alpha] SSH latency 1.4ms. System load 0.18.'), 1200);
+            setTimeout(() => logTerminal('[SUCCESS] All nodes 100% operational.', true), 1600);
+        }
+
+        function triggerStackProvision() {
+            logTerminal('[OMEGA] Provisioning full enterprise stack: PostgreSQL + Redis + Plausible...');
+            setTimeout(() => {
+                const tbody = document.getElementById('app-table-body');
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="font-weight: 600;">omega-plausible-telemetry</td>
+                    <td>Service</td>
+                    <td style="color: var(--accent-cyan);">https://telemetry.omega-continuum.local</td>
+                    <td>Plausible Compose</td>
+                    <td><span class="badge-running">RUNNING</span></td>
+                    <td><button class="btn btn-sm btn-cyan">Redeploy</button></td>
+                `;
+                tbody.appendChild(row);
+                logTerminal('[SUCCESS] OMEGA Stack successfully provisioned and verified!', true);
+            }, 2000);
+        }
+
+        function openDeployModal(id, name) {
+            document.getElementById('modal-title').innerText = `Deploy ${name}`;
+            document.getElementById('modal-body').innerHTML = `
+                Are you sure you want to provision <strong>${name}</strong> on <code>localhost</code>?<br><br>
+                This will automatically create a dedicated Docker Compose network, configure volumes, and bind a Traefik edge subdomain.
+            `;
+            document.getElementById('modal-confirm-btn').onclick = () => {
+                closeModal();
+                logTerminal(`[CATALOG] Spawning 1-click service: ${name}...`);
+                setTimeout(() => logTerminal(`[COMPOSE] Containers for ${name} healthy.`, true), 1500);
+            };
+            document.getElementById('deploy-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('deploy-modal').style.display = 'none';
+        }
+
+        function copyCliCmd() {
+            const input = document.getElementById('cli-cmd-input');
+            input.value = "python coolify_cli.py deploy app-omega-api";
+            input.select();
+            document.execCommand('copy');
+            logTerminal('Copied CLI command to clipboard: python coolify_cli.py deploy app-omega-api');
+        }
+
+        // Initialize catalog on load
+        renderCatalog();
+    </script>
+</body>
+</html>

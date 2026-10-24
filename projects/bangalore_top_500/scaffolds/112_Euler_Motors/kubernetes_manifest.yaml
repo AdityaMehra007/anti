@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: euler_motors-deployment
+  labels:
+    app: euler_motors
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: euler_motors
+  template:
+    metadata:
+      labels:
+        app: euler_motors
+    spec:
+      containers:
+      - name: euler_motors-node
+        image: euler_motors:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: euler_motors-service
+spec:
+  type: ClusterIP
+  selector:
+    app: euler_motors
+  ports:
+  - port: 8080
+    targetPort: 8080

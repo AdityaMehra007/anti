@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: porter-deployment
+  labels:
+    app: porter
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: porter
+  template:
+    metadata:
+      labels:
+        app: porter
+    spec:
+      containers:
+      - name: porter-node
+        image: porter:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: porter-service
+spec:
+  type: ClusterIP
+  selector:
+    app: porter
+  ports:
+  - port: 8080
+    targetPort: 8080

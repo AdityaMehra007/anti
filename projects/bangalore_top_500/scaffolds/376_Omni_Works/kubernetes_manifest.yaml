@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: omni_works-deployment
+  labels:
+    app: omni_works
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: omni_works
+  template:
+    metadata:
+      labels:
+        app: omni_works
+    spec:
+      containers:
+      - name: omni_works-node
+        image: omni_works:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: omni_works-service
+spec:
+  type: ClusterIP
+  selector:
+    app: omni_works
+  ports:
+  - port: 8080
+    targetPort: 8080

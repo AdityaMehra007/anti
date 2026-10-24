@@ -130,12 +130,48 @@ Hardened, curated skills registry synchronized from [`tech-leads-club/agent-skil
 ### Prose & Editorial Hygiene
 - [`humanizer`](.agents/skills/humanizer/SKILL.md): Rewrite AI-sounding prose so it reads naturally like a human wrote it, eliminating 35 diagnostic AI patterns from Wikipedia's AI Cleanup project while strictly preserving factual claims and voice.
 
+### APEX Career Supremacy OS (Ω-CAREER-UNIVERSE)
+Autonomous end-to-end career intelligence, job discovery, online learning, recruiter network matching, and career velocity suite:
+- [`apex-career-os`](.agents/skills/apex-career-os/SKILL.md): Master orchestrator running the 7-agent closed-loop career conquest engine.
+- [`job-learning-sentinel`](.agents/skills/job-learning-sentinel/SKILL.md): Continuous online scraper and company DNA/interview learning agent.
+- [`recruiter-network-strike`](.agents/skills/recruiter-network-strike/SKILL.md): 9,223 LinkedIn connection matcher and 3-stage outreach cadence generator.
+- [`interview-simulator-pro`](.agents/skills/interview-simulator-pro/SKILL.md): Real-world STAR mock interview simulator and curveball defense coach.
+- [`career-velocity-ladder`](.agents/skills/career-velocity-ladder/SKILL.md): 30-60-90 day onboarding blueprint, compensation benchmarking, and 5-year executive trajectory architect.
+- **Mission Control Cockpit**: [`apex_career_cockpit.html`](apex_career_cockpit.html)
+- **Subagent**: `apex-career-sentinel`
+- **CLI Runner**: `python -m apex_career_os.cli --auto-pilot` / `START_APEX_CAREER_OS.bat`
+
+### Universal Job & Skill Intelligence Ecosystem
+Universal Job Taxonomy, deep Job Description (JD) dissection, ATS semantic matching, Google X-Y-Z resume bullet generation, and automated application staging:
+- **Taxonomy Engine**: [`universal_job_taxonomy_master.py`](universal_job_taxonomy_master.py) (13 Industry Families, 31 Master Role Archetypes, L1–L7 leveling rules, compensation benchmarks, and SQLite export).
+- **JD Intelligence Deep Module**: [`universal_jd_intelligence_engine.py`](universal_jd_intelligence_engine.py) (Semantic skill extraction, synonym clustering, ATS scoring, gap analysis, Google X-Y-Z bullet synthesis, and STAR interview defense).
+- **Master Skill Generator**: [`universal_skill_generator.py`](universal_skill_generator.py) (Maps all 3,837+ installed agent skills to job archetypes with deterministic matrices).
+- **Census & Staged Dockets**: [`data/universal_dissected_jobs_500.json`](data/universal_dissected_jobs_500.json) (500 parsed real jobs with ATS scores) and [`data/universal_application_dockets.json`](data/universal_application_dockets.json) (406 auto-apply dockets staged into `data/approval_queue.csv`).
+- **Interactive Cockpit**: [`universal_job_cockpit.html`](universal_job_cockpit.html) (Live JD dissector, taxonomy grid, 3,837 skill matrix, and 500+ opportunity census).
+- **Executive Mission Control**: [`OMNI_EXECUTIVE_COCKPIT.html`](OMNI_EXECUTIVE_COCKPIT.html) (Unified meta-cockpit linking all 6 dashboards, 14 suites, and 16,553 vacancies).
+- **Master Batch Launcher**: [`START_ALL_OMNI_SYSTEMS.bat`](START_ALL_OMNI_SYSTEMS.bat) (One-click launch of API server and Executive Cockpit).
+- **Cockpit Launcher**: [`START_UNIVERSAL_JOB_COCKPIT.bat`](START_UNIVERSAL_JOB_COCKPIT.bat) / `python universal_jd_intelligence_engine.py --serve-cockpit 8765`
+- **Enterprise Application Dossiers**: 71 submission-ready packages in [`applications_generated/`](applications_generated/) with tailored ATS resumes, cover letters, recruiter InMails, and STAR interview defense.
+
+### Coolify Autonomous Cloud & PaaS Orchestration Ecosystem
+Self-hosted PaaS alternative to Heroku/Vercel/Netlify for multi-server Docker, Traefik edge routing, database provisioning, and 352+ open-source one-click service templates:
+- [`coolify-orchestrator`](.agents/skills/coolify-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for managing Coolify clusters, projects, deployments, and databases.
+- **Deep SDK & Engine**: [`coolify_orchestrator.py`](coolify_orchestrator.py) (Live Sanctum API client & high-fidelity offline simulation engine).
+- **Universal CLI**: [`coolify_cli.py`](coolify_cli.py) (`info`, `servers`, `projects`, `apps`, `dbs`, `services`, `catalog`, `deploy`, `stack`).
+- **Mission Control Cockpit**: [`coolify_control_cockpit.html`](coolify_control_cockpit.html) (Real-time cluster telemetry, 352-template marketplace, deployment terminal emulator, and API playground).
+- **One-Click Launchers**: [`START_COOLIFY_WINDOWS.bat`](START_COOLIFY_WINDOWS.bat) & [`scripts/start_coolify_windows.ps1`](scripts/start_coolify_windows.ps1).
+- **Architecture Teardown Dossier**: [`docs/COOLIFY_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/COOLIFY_SUPREME_ARCHITECTURE_DOSSIER.md).
+
 ### Launch Video & Product Showcase Engine
 - [`brag`](.agents/skills/brag/SKILL.md): Turn the current project website or codebase into a short, polished, shareable launch video using Hyperframes with bundled music, SFX, and custom tone presets.
 - [`brag-slim`](.agents/skills/brag-slim/SKILL.md): Lean, zero-dependency launch video generator running locally on native tools (HTML/Canvas/Puppeteer/ffmpeg) for rapid social showcase clips.
 
 ### System Prompts Intelligence Ecosystem
 - [`system-prompts-intelligence`](.agents/skills/system-prompts-intelligence/SKILL.md): Query and inspect system prompt architectures, extracted tool signatures, and prompt patterns from Google Antigravity, Anthropic Claude Code, OpenAI Codex, Cursor, and Grok.
+- [`prompts-chat`](.agents/skills/prompts-chat/SKILL.md): Query, retrieve, interpolate variables, and improve prompts from the 2,627 curated prompts library (f/prompts.chat).
+- **Prompts Studio Cockpit**: [`prompts_chat_cockpit.html`](prompts_chat_cockpit.html) / `START_PROMPTS_CHAT_COCKPIT.bat`
+- **Prompts Deep Engine & CLI**: [`prompts_chat_engine.py`](prompts_chat_engine.py) / [`prompts_chat_cli.py`](prompts_chat_cli.py)
+- **Local MCP Server**: [`prompts_chat_mcp_server.py`](prompts_chat_mcp_server.py)
 - **Apex Agent Meta-Prompt**: [`research/APEX_AGENT_SYSTEM_PROMPT.md`](research/APEX_AGENT_SYSTEM_PROMPT.md)
 - **Agent Tooling Patterns**: [`research/AGENT_TOOLING_PATTERNS.md`](research/AGENT_TOOLING_PATTERNS.md)
 - **Interactive Explorer**: [`research/system_prompts_explorer.html`](research/system_prompts_explorer.html)

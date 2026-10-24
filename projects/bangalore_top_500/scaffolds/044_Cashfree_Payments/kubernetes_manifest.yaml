@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cashfree_payments-deployment
+  labels:
+    app: cashfree_payments
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cashfree_payments
+  template:
+    metadata:
+      labels:
+        app: cashfree_payments
+    spec:
+      containers:
+      - name: cashfree_payments-node
+        image: cashfree_payments:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cashfree_payments-service
+spec:
+  type: ClusterIP
+  selector:
+    app: cashfree_payments
+  ports:
+  - port: 8080
+    targetPort: 8080

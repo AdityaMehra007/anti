@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper_works-deployment
+  labels:
+    app: hyper_works
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyper_works
+  template:
+    metadata:
+      labels:
+        app: hyper_works
+    spec:
+      containers:
+      - name: hyper_works-node
+        image: hyper_works:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper_works-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hyper_works
+  ports:
+  - port: 8080
+    targetPort: 8080

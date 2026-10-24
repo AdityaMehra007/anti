@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-120",
+  "rank": 120,
+  "company_name": "MoveInSync",
+  "sector": "Electric Vehicles, CleanTech & Deep Mobility",
+  "corridor": "Whitefield",
+  "stage": "Series C",
+  "valuation": "$120M Series C",
+  "flagship_project": {
+    "name": "Project FleetAutonomy: MoveInSync Enterprise System",
+    "pillar": "Intelligent Fleet Scheduling & Component Failure Warning System",
+    "strategic_thesis": "Scales MoveInSync's operations across Whitefield by deploying an enterprise-grade intelligent fleet scheduling & component failure warning system to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, Python, Apache Kafka, Redis, InfluxDB",
+    "kpis": "Reduces fleet maintenance downtime by 50%; improves vehicle daily operating range by 14%"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

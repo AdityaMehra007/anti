@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-152",
+  "rank": 152,
+  "company_name": "Paper Boat (Hector Beverages)",
+  "sector": "E-Commerce, Marketplaces & D2C Brands",
+  "corridor": "Domlur",
+  "stage": "Series D",
+  "valuation": "$175M Valuation",
+  "flagship_project": {
+    "name": "Project PrimeRoute: Paper Boat (Hector Beverages) Enterprise System",
+    "pillar": "Predictive Reverse Logistics & Real-Time Carrier Selection",
+    "strategic_thesis": "Scales Paper Boat (Hector Beverages)'s operations across Domlur by deploying an enterprise-grade predictive reverse logistics & real-time carrier selection to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Go, LightGBM, PostgreSQL, Kafka, Redis",
+    "kpis": "Reduces RTO (Return to Origin) delivery failures by 42%; cuts average shipment costs by ₹18/parcel"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

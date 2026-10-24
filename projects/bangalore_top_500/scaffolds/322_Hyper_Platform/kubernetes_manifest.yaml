@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper_platform-deployment
+  labels:
+    app: hyper_platform
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyper_platform
+  template:
+    metadata:
+      labels:
+        app: hyper_platform
+    spec:
+      containers:
+      - name: hyper_platform-node
+        image: hyper_platform:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper_platform-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hyper_platform
+  ports:
+  - port: 8080
+    targetPort: 8080

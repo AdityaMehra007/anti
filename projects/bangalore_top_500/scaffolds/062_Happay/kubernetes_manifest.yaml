@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: happay-deployment
+  labels:
+    app: happay
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: happay
+  template:
+    metadata:
+      labels:
+        app: happay
+    spec:
+      containers:
+      - name: happay-node
+        image: happay:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: happay-service
+spec:
+  type: ClusterIP
+  selector:
+    app: happay
+  ports:
+  - port: 8080
+    targetPort: 8080

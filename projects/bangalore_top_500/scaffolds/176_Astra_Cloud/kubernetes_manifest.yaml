@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astra_cloud-deployment
+  labels:
+    app: astra_cloud
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: astra_cloud
+  template:
+    metadata:
+      labels:
+        app: astra_cloud
+    spec:
+      containers:
+      - name: astra_cloud-node
+        image: astra_cloud:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: astra_cloud-service
+spec:
+  type: ClusterIP
+  selector:
+    app: astra_cloud
+  ports:
+  - port: 8080
+    targetPort: 8080

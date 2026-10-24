@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liminal_custody-deployment
+  labels:
+    app: liminal_custody
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: liminal_custody
+  template:
+    metadata:
+      labels:
+        app: liminal_custody
+    spec:
+      containers:
+      - name: liminal_custody-node
+        image: liminal_custody:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: liminal_custody-service
+spec:
+  type: ClusterIP
+  selector:
+    app: liminal_custody
+  ports:
+  - port: 8080
+    targetPort: 8080

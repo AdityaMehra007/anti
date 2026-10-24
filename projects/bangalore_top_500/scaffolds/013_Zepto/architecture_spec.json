@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-013",
+  "rank": 13,
+  "company_name": "Zepto",
+  "sector": "Quick Commerce, FoodTech & Consumer Internet",
+  "corridor": "HSR Layout & Koramangala",
+  "stage": "Unicorn",
+  "valuation": "$5.0B Valuation",
+  "flagship_project": {
+    "name": "Project Chronos-10: Predictive Micro-Depot Ingestion, Computer-Vision Darkstore Automated Picking & 300-Second Dispatch Pipeline",
+    "pillar": "Ultra-Fast Micro-Depot Robotics & Automated Pick-Pack-Dispatch Pipeline",
+    "strategic_thesis": "Zepto's unit economics require pick-and-pack times inside dark stores to drop under 90 seconds. Chronos-10 combines computer vision overhead item tracking, automated pick-path optimization on handheld terminals, and live telemetry dispatch that pairs riders before packing completes.",
+    "tech_stack": "Go (Dispatch Core), OpenCV / PyTorch (Dark-store Shelf Vision), Redis Cluster (Inventory Reservation), Redpanda, PostgreSQL with Timescale, Kubernetes Edge on Darkstore Minis",
+    "kpis": "Average pick-and-pack time reduced to 54 seconds; 99.4% on-time delivery rate under 10 minutes; darkstore stock shrinkage reduced by 70%."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  omni_space-core:
+    image: python:3.13-slim
+    container_name: omni_space-engine
+    restart: always
+    environment:
+      - APP_NAME=Omni Space
+      - PROJECT_NAME=Project RealEstate-Mesh: Omni Space Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: omni_space-cache
+    ports:
+      - "6379"

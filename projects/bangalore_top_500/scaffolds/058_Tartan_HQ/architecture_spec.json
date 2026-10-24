@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-058",
+  "rank": 58,
+  "company_name": "Tartan HQ",
+  "sector": "FinTech, Payments & Digital Banking",
+  "corridor": "Koramangala",
+  "stage": "Series A",
+  "valuation": "$35M Series A",
+  "flagship_project": {
+    "name": "Project AlphaYield: Tartan HQ Enterprise System",
+    "pillar": "Quantitative Financial Optimization & Smart Liquidity Routing",
+    "strategic_thesis": "Scales Tartan HQ's operations across Koramangala by deploying an enterprise-grade quantitative financial optimization & smart liquidity routing to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Go, Python, ClickHouse, PostgreSQL, Docker",
+    "kpis": "Optimizes treasury yield by 240 bps; sub-10ms quote aggregation across 20+ liquidity venues"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 5.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

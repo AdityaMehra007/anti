@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexa_cloud-deployment
+  labels:
+    app: nexa_cloud
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nexa_cloud
+  template:
+    metadata:
+      labels:
+        app: nexa_cloud
+    spec:
+      containers:
+      - name: nexa_cloud-node
+        image: nexa_cloud:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexa_cloud-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nexa_cloud
+  ports:
+  - port: 8080
+    targetPort: 8080

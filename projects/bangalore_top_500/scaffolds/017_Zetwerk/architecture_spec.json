@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-017",
+  "rank": 17,
+  "company_name": "Zetwerk",
+  "sector": "B2B Industrial Marketplaces, Manufacturing & Supply Chain",
+  "corridor": "HSR Layout (Sector 6)",
+  "stage": "Unicorn",
+  "valuation": "$2.7B Valuation",
+  "flagship_project": {
+    "name": "Project HyperFab-Global: Autonomous Industrial Manufacturing Operating System, Distributed CNC Telemetry & Real-Time BOM Arbiter",
+    "pillar": "Distributed Industrial Manufacturing Cloud & Real-Time CNC/CMM Quality Telemetry",
+    "strategic_thesis": "Global supply chains are decoupling from China, seeking precision manufacturing capacity across India and SE Asia. HyperFab-Global unifies 10,000+ distributed factory machine tools, providing instant CAD-to-BOM quotation, automated CNC toolpath optimization, and real-time IoT CMM quality compliance for aerospace and defense buyers.",
+    "tech_stack": "Rust / C++ (CAD Geometry & Toolpath Analyzer), Go (Supply Chain Microservices), Apache Kafka, TimescaleDB (Factory Machine IoT Telemetry), PostgreSQL, React 19 / Three.js (3D Interactive CAD Viewer)",
+    "kpis": "Automates 3D CAD quotation from 4 days to 45 seconds; maintains 99.9% dimensional accuracy tolerances across 10,000 supplier factories; manages $2B+ manufacturing pipeline."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

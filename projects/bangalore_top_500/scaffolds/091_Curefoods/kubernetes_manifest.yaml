@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: curefoods-deployment
+  labels:
+    app: curefoods
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: curefoods
+  template:
+    metadata:
+      labels:
+        app: curefoods
+    spec:
+      containers:
+      - name: curefoods-node
+        image: curefoods:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: curefoods-service
+spec:
+  type: ClusterIP
+  selector:
+    app: curefoods
+  ports:
+  - port: 8080
+    targetPort: 8080

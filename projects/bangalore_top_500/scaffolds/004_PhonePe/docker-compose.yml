@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  phonepe-core:
+    image: python:3.13-slim
+    container_name: phonepe-engine
+    restart: always
+    environment:
+      - APP_NAME=PhonePe
+      - PROJECT_NAME=Project OmniLedger-100K: Sub-Microsecond High-Throughput UPI Auto-Reversal & Real-Time Graph Fraud Detection Engine
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: phonepe-cache
+    ports:
+      - "6379"

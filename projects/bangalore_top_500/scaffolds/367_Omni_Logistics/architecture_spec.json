@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-367",
+  "rank": 367,
+  "company_name": "Omni Logistics",
+  "sector": "E-Commerce, Marketplaces & D2C Brands",
+  "corridor": "Electronic City Phase 1 & 2",
+  "stage": "Series C",
+  "valuation": "$140M Series C",
+  "flagship_project": {
+    "name": "Project OmniCatalog: Omni Logistics Enterprise System",
+    "pillar": "Multimodal Semantic Vector Search & Automated Price Elasticity",
+    "strategic_thesis": "Scales Omni Logistics's operations across Electronic City Phase 1 & 2 by deploying an enterprise-grade multimodal semantic vector search & automated price elasticity to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Python, PyTorch, Qdrant Vector DB, Go, ScyllaDB",
+    "kpis": "Sub-15ms vector similarity visual search across 50M SKUs; 28% increase in catalog conversion"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

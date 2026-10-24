@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  slick_app-core:
+    image: python:3.13-slim
+    container_name: slick_app-engine
+    restart: always
+    environment:
+      - APP_NAME=Slick App
+      - PROJECT_NAME=Project HyperSpeed-8: Slick App Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: slick_app-cache
+    ports:
+      - "6379"

@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-273",
+  "rank": 273,
+  "company_name": "Synapse Solutions",
+  "sector": "Enterprise SaaS, Cloud, Infrastructure & DevTools",
+  "corridor": "Indiranagar (100 Feet / 12th Main)",
+  "stage": "Soonicorn",
+  "valuation": "$520M Soonicorn",
+  "flagship_project": {
+    "name": "Project DataBridge: Synapse Solutions Enterprise System",
+    "pillar": "Columnar Distributed Data Virtualization & Pushdown Query Engine",
+    "strategic_thesis": "Scales Synapse Solutions's operations across Indiranagar (100 Feet / 12th Main) by deploying an enterprise-grade columnar distributed data virtualization & pushdown query engine to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, Apache Arrow, DataFusion, Flight SQL",
+    "kpis": "Executes complex federated queries across polyglot datastores in sub-5ms with zero ETL overhead"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

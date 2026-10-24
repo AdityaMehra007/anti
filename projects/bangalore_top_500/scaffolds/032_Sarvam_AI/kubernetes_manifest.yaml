@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sarvam_ai-deployment
+  labels:
+    app: sarvam_ai
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sarvam_ai
+  template:
+    metadata:
+      labels:
+        app: sarvam_ai
+    spec:
+      containers:
+      - name: sarvam_ai-node
+        image: sarvam_ai:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sarvam_ai-service
+spec:
+  type: ClusterIP
+  selector:
+    app: sarvam_ai
+  ports:
+  - port: 8080
+    targetPort: 8080

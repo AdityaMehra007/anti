@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: omni_intelligence-deployment
+  labels:
+    app: omni_intelligence
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: omni_intelligence
+  template:
+    metadata:
+      labels:
+        app: omni_intelligence
+    spec:
+      containers:
+      - name: omni_intelligence-node
+        image: omni_intelligence:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: omni_intelligence-service
+spec:
+  type: ClusterIP
+  selector:
+    app: omni_intelligence
+  ports:
+  - port: 8080
+    targetPort: 8080

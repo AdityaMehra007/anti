@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ola___ola_electric-deployment
+  labels:
+    app: ola___ola_electric
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ola___ola_electric
+  template:
+    metadata:
+      labels:
+        app: ola___ola_electric
+    spec:
+      containers:
+      - name: ola___ola_electric-node
+        image: ola___ola_electric:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ola___ola_electric-service
+spec:
+  type: ClusterIP
+  selector:
+    app: ola___ola_electric
+  ports:
+  - port: 8080
+    targetPort: 8080

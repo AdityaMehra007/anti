@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-015",
+  "rank": 15,
+  "company_name": "Hasura",
+  "sector": "Enterprise SaaS, Cloud, Infrastructure & DevTools",
+  "corridor": "Koramangala",
+  "stage": "Unicorn",
+  "valuation": "$1.0B Valuation",
+  "flagship_project": {
+    "name": "Project DataFabric-Core: Universal Zero-ETL GraphQL/SQL Multi-Cloud Query Engine with Distributed Vector Consensus",
+    "pillar": "Unified Distributed Query Federation & Zero-Latency Access Control",
+    "strategic_thesis": "Enterprises struggle with fragmented polyglot databases, data lakes, and vector embeddings. DataFabric-Core compiles unified GraphQL and SQL queries across Postgres, Snowflake, ClickHouse, and vector stores into single-pass, pushdown optimized queries with enterprise role-based authorization.",
+    "tech_stack": "Haskell / Rust (Core Query Compiler & AST Optimizer), Go (Cloud Control Plane), OpenTelemetry, eBPF, Apache Arrow (In-Memory Columnar Data Transfer)",
+    "kpis": "Sub-3ms execution for complex multi-database federated queries; 95% reduction in custom backend API glue code; zero-copy serialization via Arrow."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dezerv-deployment
+  labels:
+    app: dezerv
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dezerv
+  template:
+    metadata:
+      labels:
+        app: dezerv
+    spec:
+      containers:
+      - name: dezerv-node
+        image: dezerv:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dezerv-service
+spec:
+  type: ClusterIP
+  selector:
+    app: dezerv
+  ports:
+  - port: 8080
+    targetPort: 8080

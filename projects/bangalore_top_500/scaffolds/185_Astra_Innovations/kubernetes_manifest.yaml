@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astra_innovations-deployment
+  labels:
+    app: astra_innovations
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: astra_innovations
+  template:
+    metadata:
+      labels:
+        app: astra_innovations
+    spec:
+      containers:
+      - name: astra_innovations-node
+        image: astra_innovations:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: astra_innovations-service
+spec:
+  type: ClusterIP
+  selector:
+    app: astra_innovations
+  ports:
+  - port: 8080
+    targetPort: 8080

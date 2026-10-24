@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neo_systems-deployment
+  labels:
+    app: neo_systems
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: neo_systems
+  template:
+    metadata:
+      labels:
+        app: neo_systems
+    spec:
+      containers:
+      - name: neo_systems-node
+        image: neo_systems:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neo_systems-service
+spec:
+  type: ClusterIP
+  selector:
+    app: neo_systems
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  aero_innovations-core:
+    image: python:3.13-slim
+    container_name: aero_innovations-engine
+    restart: always
+    environment:
+      - APP_NAME=Aero Innovations
+      - PROJECT_NAME=Project SovereignCore: Aero Innovations Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: aero_innovations-cache
+    ports:
+      - "6379"

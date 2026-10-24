@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kreditbee__krazybee_-deployment
+  labels:
+    app: kreditbee__krazybee_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kreditbee__krazybee_
+  template:
+    metadata:
+      labels:
+        app: kreditbee__krazybee_
+    spec:
+      containers:
+      - name: kreditbee__krazybee_-node
+        image: kreditbee__krazybee_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kreditbee__krazybee_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: kreditbee__krazybee_
+  ports:
+  - port: 8080
+    targetPort: 8080

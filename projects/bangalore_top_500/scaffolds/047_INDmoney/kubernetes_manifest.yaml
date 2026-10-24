@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indmoney-deployment
+  labels:
+    app: indmoney
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: indmoney
+  template:
+    metadata:
+      labels:
+        app: indmoney
+    spec:
+      containers:
+      - name: indmoney-node
+        image: indmoney:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: indmoney-service
+spec:
+  type: ClusterIP
+  selector:
+    app: indmoney
+  ports:
+  - port: 8080
+    targetPort: 8080

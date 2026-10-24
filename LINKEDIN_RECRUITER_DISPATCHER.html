@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LinkedIn Recruiter Strike Station — Aditya Mehra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card: #0e1626;
+      --border: #1e293b;
+      --accent: #0a66c2;
+      --cyan: #00f0ff;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, rgba(10,102,194,0.2), rgba(14,22,38,0.95));
+      border: 1px solid rgba(10,102,194,0.4);
+      border-radius: 14px;
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .title-group h1 { font-size: 24px; font-weight: 800; color: #fff; }
+    .title-group p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+    .stats { display: flex; gap: 16px; }
+    .stat-pill {
+      background: rgba(15,23,42,0.8);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 16px;
+      text-align: center;
+    }
+    .stat-num { font-size: 18px; font-weight: 700; color: var(--cyan); }
+    .stat-lbl { font-size: 10px; text-transform: uppercase; color: var(--text-muted); }
+    
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-box:focus { border-color: var(--accent); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card.sent { opacity: 0.6; border-color: var(--green); }
+    
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .company-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.5px;
+    }
+    .recruiter-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2px;
+    }
+    .role-target {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .status-check {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    
+    .note-box {
+      background: #070c17;
+      border: 1px solid #162238;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 12px;
+      color: #cbd5e1;
+      font-family: 'JetBrains Mono', monospace;
+      position: relative;
+    }
+    .char-badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--green);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .btn {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-copy {
+      background: #1e293b;
+      color: #f1f5f9;
+    }
+    .btn-copy:hover { background: #334155; }
+    .btn-copy.copied { background: var(--green); color: #000; }
+    .btn-open {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-open:hover { background: #004182; }
+    .btn-strike {
+      background: linear-gradient(135deg, #0a66c2, #00f0ff);
+      color: #000;
+      font-weight: 700;
+    }
+    .btn-strike:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="title-group">
+      <h1>⚡ LinkedIn Recruiter Strike Station</h1>
+      <p>Target: <strong>Aditya Mehra</strong> · BBA International Business (DSU '26) · Bengaluru Immediate Joiner</p>
+    </div>
+    <div class="stats">
+      <div class="stat-pill">
+        <div class="stat-num" id="totalCount">20</div>
+        <div class="stat-lbl">Recruiters</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num" id="sentCount">0</div>
+        <div class="stat-lbl">Dispatched</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="filter-bar">
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search recruiter, company, or target role..." oninput="filterRecruiters()">
+  </div>
+
+  <div class="grid" id="recruiterGrid"></div>
+</div>
+
+<script>
+const recruiters = [
+  {
+    company: "Volvo Group India",
+    recruiter_name: "Volvo Talent Acquisition",
+    role: "Graduate Apprentice Trainee (Customs & Trade)",
+    profile_url: "https://www.linkedin.com/search/results/people/?keywords=Volvo%20Group%20Bangalore%20HR%20Recruiter",
+    note: "Hi, I'm an International Business final-year student (DSU Bangalore) applying for Volvo's Customs & Trade Apprentice program. Experienced in ground logistics (Aero India '25) & Incoterms 2020. Local to Bengaluru & immediate joiner. Would love to connect and share my CV!",
+    inmail: "Dear Volvo TA Team,\n\nI have applied for the Graduate Apprentice Trainee – Customs & Trade opening in Bengaluru (NATS Scheme).\n\nAs a graduating BBA International Business candidate from Dayananda Sagar University with coursework in Incoterms 2020, Customs Clearance, and SCM, plus hands-on ground logistics management at Aero India 2025 (100k+ throughput, 0.0% shrinkage under defense protocol), I am ready to join immediately.\n\nI would welcome 10 minutes to share my CV and discuss how I can support your team.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Boeing India (BIETC)",
+    recruiter_name: "Boeing SCM Recruitment",
+    role: "Associate Procurement Agent (Req 141289825)",
+    profile_url: "https://www.linkedin.com/search/results/people/?keywords=Boeing%20India%20BIETC%20Procurement%20Recruiter",
+    note: "Hi, I applied for the Associate Procurement Agent role at Boeing BIETC (Req 141289825). Managed ground ops & vendor intake under defense protocol at Aero India '25 (100k+ visitors, 0% shrinkage). Proficient in Incoterms & Excel. Bengaluru resident, immediate joiner!",
+    inmail: "Hi Boeing Sourcing Team,\n\nI've submitted my application for the Associate Procurement Agent role at BIETC (Req 141289825).\n\nHaving managed ground logistics and vendor replenishment under strict Indian Air Force protocols during Aero India 2025 (100,000+ attendees, 0.0% shrinkage across 300+ batches), I bring verified operational discipline and Incoterms knowledge. Ready to start immediately on 0 days notice.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Target Corporation India",
+    recruiter_name: "Target PIM Ops Hiring Team",
+    role: "Analyst – PIM Ops (Req R0000473632)",
+    profile_url: "https://www.linkedin.com/search/results/people/?keywords=Target%20India%20PIM%20Supply%20Chain%20Recruiter",
+    note: "Hi, I applied for the Analyst - PIM Ops role at Target India (Req R0000473632). Experienced in replenishment velocity & zero-shrinkage inventory control at Aero India '25 (300+ SKU batches). Advanced Excel & Power BI. Available immediately for Manyata Tech Park!",
+    inmail: "Dear Target India Recruitment Team,\n\nI recently applied for the Analyst – PIM Ops opening at Manyata Embassy Business Park (Req R0000473632).\n\nMy background combines BBA International Business training with verified inventory control from Aero India 2025 (0.0% shrinkage across 300+ batches) and 99%+ accuracy in operational data audits. Ready to join immediately on 0 days notice.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Accenture India",
+    recruiter_name: "Samiksha Sharma",
+    role: "Global Business Operations & SCM Analyst",
+    profile_url: "https://www.linkedin.com/in/samiksha-sharma1470",
+    note: "Hi Samiksha, I'm an International Business graduate (DSU Bangalore) applying for Operations & SCM Associate roles at Accenture. Led vendor intake & ground logistics at Aero India '25 (0% shrinkage) with advanced Excel modeling. Bengaluru resident, immediate joiner!",
+    inmail: "Hi Samiksha,\n\nI'm reaching out regarding entry-level Operations and Procurement Associate roles at Accenture Bengaluru.\n\nAs a graduating BBA International Business student from Dayananda Sagar University with verified vendor coordination at Aero India 2025 (100k+ attendees, 0% inventory shrinkage) and 99%+ QA benchmark at Instawork, I am ready to join immediately on 0 days notice.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Deloitte US-India",
+    recruiter_name: "Aditi Tayde",
+    role: "Risk & Business Operations Advisory Analyst",
+    profile_url: "https://www.linkedin.com/in/aditi-tayde",
+    note: "Hi Aditi, I'm a fresh BBA Int'l Business graduate (DSU Bangalore) targeting Operations & Advisory Analyst roles at Deloitte. Experienced in high-stakes protocol (Aero India '25) & 99%+ accuracy data audits. Bengaluru resident, ready to join immediately!",
+    inmail: "Hi Aditi,\n\nI am writing to express interest in entry-level Operations and Advisory Analyst roles at Deloitte US-India in Bengaluru.\n\nWith a background in International Business from Dayananda Sagar University and verified operations leadership from Aero India 2025 (100k+ attendees, 0.0% shrinkage), I bring structured analytical thinking and immediate joining availability.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "EY (Ernst & Young GDS)",
+    recruiter_name: "Deepashree R",
+    role: "Business Analyst - Global Advisory",
+    profile_url: "https://www.linkedin.com/in/deepashree-r-4bb8b11a1",
+    note: "Hi Deepashree, I'm an Int'l Business graduate from DSU Bangalore targeting Business Analyst & Operations roles at EY GDS. Experienced in cross-border SCM, vendor SLAs, and high-footfall logistics (Aero India '25). Locally based, immediate joiner. Would love to connect!",
+    inmail: "Hi Deepashree,\n\nI'm exploring entry-level Business Analyst and Global Advisory openings at EY GDS Bengaluru.\n\nI am graduating with a BBA in International Business from Dayananda Sagar University, bringing proven ground operations execution from Aero India 2025 and rigorous spreadsheet modeling skills. I am available to join on zero days notice.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Amazon Bangalore",
+    recruiter_name: "Sangini Sahay",
+    role: "Operations & ML Data Associate",
+    profile_url: "https://www.linkedin.com/in/sangini-sahay-4779b424b",
+    note: "Hi Sangini, I applied for the ML Data Ops / Operations Associate role at Amazon. Experienced in data QA & visual auditing at Instawork (99%+ accuracy) + zero-shrinkage inventory ops at Aero India '25. Fully equipped for WFH/rotational shifts, immediate joiner!",
+    inmail: "Hi Sangini,\n\nI've applied for the Associate, ML Data Operations role at Amazon (Job ID 3134242).\n\nWith direct experience in AI data operations at Instawork (consistently sustaining a 99%+ quality accuracy score) and full flexibility for 24/7 rotational shifts from my Bengaluru setup, I'm eager to contribute to Amazon's fulfillment operations.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Goldman Sachs",
+    recruiter_name: "Syed Sumbul Shahbaz",
+    role: "Global Markets Operations Analyst",
+    profile_url: "https://www.linkedin.com/in/syed-sumbul-shahbaz-b53210107",
+    note: "Hi Syed, I'm a fresh BBA Int'l Business graduate (DSU Bangalore) targeting Global Operations Analyst roles at Goldman Sachs. Coursework in corporate finance & landed costs + verified 99%+ accuracy in data auditing. Bengaluru resident, immediate joiner!",
+    inmail: "Hi Syed,\n\nI am targeting entry-level Operations Analyst opportunities within Goldman Sachs Bengaluru.\n\nAs a graduating BBA International Business candidate from Dayananda Sagar University, I combine financial operations coursework with a proven 99%+ accuracy benchmark in high-volume transaction audits. Ready to join immediately.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "JP Morgan Chase",
+    recruiter_name: "Shweta Sheregar",
+    role: "Global Operations & Compliance Associate",
+    profile_url: "https://www.linkedin.com/in/shweta-sheregar-985b341a",
+    note: "Hi Shweta, I'm an Int'l Business graduate (DSU Bangalore) targeting Operations & Reference Data Analyst roles at JPMorgan Bengaluru. Strong background in regulatory protocol, data reconciliation & Advanced Excel. Available to join immediately!",
+    inmail: "Hi Shweta,\n\nI am writing to express my interest in entry-level Operations and Reference Data roles at JPMorgan Chase Bengaluru.\n\nMy BBA International Business background emphasizes international commercial law, transaction reconciliation, and audit integrity, supported by a 99%+ data accuracy track record. I am available for immediate onboarding.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "IBM India",
+    recruiter_name: "Sandhya B Sriram",
+    role: "Supply Chain & Operations Consultant",
+    profile_url: "https://www.linkedin.com/in/sandhya-b-sriram-06b02047",
+    note: "Hi Sandhya, I'm a BBA Int'l Business graduate (DSU Bangalore) exploring SCM & Operations Analyst roles at IBM India. Experienced in Incoterms 2020, vendor SLA governance & high-stakes defense expo logistics (Aero India '25). Locally based, immediate joiner!",
+    inmail: "Hi Sandhya,\n\nI am exploring graduate entry opportunities in Supply Chain and Operations Consulting at IBM India.\n\nWith practical logistics execution from Aero India 2025 (100k+ attendees, 0% inventory shrinkage) and strong academic grounding in Incoterms and global trade, I am eager to contribute to IBM's client delivery teams. Immediate joiner.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "KPMG Global Services",
+    recruiter_name: "Kohely Ghosal",
+    role: "Global Risk & Management Trainee",
+    profile_url: "https://www.linkedin.com/in/kohely-ghosal",
+    note: "Hi Kohely, I'm a fresh BBA Int'l Business graduate (DSU Bangalore) targeting Deal Advisory & Operations Analyst roles at KPMG. Strong foundation in commercial contracts, Excel variance modeling & defense protocol ops. Bengaluru resident, immediate joiner!",
+    inmail: "Hi Kohely,\n\nI am eager to explore entry-level Operations and Risk Advisory roles at KPMG Global Services in Bengaluru.\n\nMy BBA International Business degree from Dayananda Sagar University provided rigorous training in commercial contracts and landed cost modeling, complemented by hands-on logistics leadership at Aero India 2025. Available immediately.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "PwC Service Delivery Center",
+    recruiter_name: "Nikhitha Simon",
+    role: "Business Operations Analyst",
+    profile_url: "https://www.linkedin.com/in/nikhitha-s-68748a49",
+    note: "Hi Nikhitha, I'm an Int'l Business graduate from DSU Bangalore targeting Business Operations Analyst roles at PwC SDC. Experienced in multi-vendor coordination, Excel reconciliation & high-security ground execution (Aero India '25). Immediate joiner!",
+    inmail: "Hi Nikhitha,\n\nI am writing to connect regarding entry-level Business Operations openings at PwC SDC Bengaluru.\n\nAs a graduating BBA International Business candidate from Dayananda Sagar University, I offer proven operational reliability from Aero India 2025 and 99%+ accuracy in data auditing. I am ready to join immediately on 0 days notice.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "HSBC EDPI",
+    recruiter_name: "Archana Rao Sarrgur",
+    role: "Global Trade & Receivables Finance Associate",
+    profile_url: "https://www.linkedin.com/in/archana-rakshith",
+    note: "Hi Archana, I'm an Int'l Business graduate (DSU Bangalore) targeting Trade Operations & Receivables roles at HSBC. Coursework in UCP 600 Letters of Credit, Incoterms 2020 & landed costs. Local to Bengaluru & immediate joiner. Would love to connect!",
+    inmail: "Hi Archana,\n\nI am targeting entry-level Trade Operations and Global Receivables Finance positions at HSBC EDPI Bengaluru.\n\nMy academic specialization in International Business at Dayananda Sagar University focused heavily on Letters of Credit, Incoterms 2020, and trade documentation. Combined with hands-on operational discipline, I am ready to contribute immediately.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Swiss Re",
+    recruiter_name: "Simi Sarita Kerketta",
+    role: "Operations & Reinsurance Risk Analyst",
+    profile_url: "https://www.linkedin.com/in/simi-sarita-kerketta",
+    note: "Hi Simi, I'm a fresh BBA Int'l Business graduate (DSU Bangalore) targeting Operations Analyst roles at Swiss Re Bengaluru. Strong foundation in risk mitigation, transaction auditing (99%+ accuracy) & Excel modeling. Ready to join immediately!",
+    inmail: "Hi Simi,\n\nI am exploring Operations Analyst opportunities at Swiss Re Bengaluru.\n\nWith an International Business degree from Dayananda Sagar University and a track record of zero-shrinkage inventory control under strict protocol at Aero India 2025, I bring structured analytical execution and immediate joining availability.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Google India",
+    recruiter_name: "Saumya Mehrotra",
+    role: "Client Operations & Business Support",
+    profile_url: "https://www.linkedin.com/in/saumya-mehrotra-666a26274",
+    note: "Hi Saumya, I'm an Int'l Business graduate from DSU Bangalore targeting Client Operations & Support roles at Google India. Experienced in high-volume workflow management, 99%+ QA accuracy & Advanced Excel. Bengaluru resident, immediate joiner!",
+    inmail: "Hi Saumya,\n\nI am writing to express my strong interest in entry-level Client Operations and Business Support positions at Google India in Bengaluru.\n\nI bring verified experience managing complex high-throughput logistics (Aero India 2025, 100k+ visitors) and maintaining a 99%+ quality accuracy score on data operations. Ready to onboard immediately.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Microsoft India",
+    recruiter_name: "Ashwini Ramdas",
+    role: "Business Operations Analyst",
+    profile_url: "https://www.linkedin.com/in/ashwini-ramdas-41249a66",
+    note: "Hi Ashwini, I'm a BBA Int'l Business graduate (DSU Bangalore) exploring Business Operations roles at Microsoft India. Strong track record in process adherence, Excel modeling & ground ops at Aero India '25. Locally based, immediate joiner. Let's connect!",
+    inmail: "Hi Ashwini,\n\nI am exploring entry-level Business Operations openings at Microsoft India in Bengaluru.\n\nAs a graduating BBA International Business student from Dayananda Sagar University, I offer a blend of process optimization, advanced spreadsheet analytics, and ground operational leadership from Aero India 2025. Immediate joiner.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Walmart Global Tech",
+    recruiter_name: "Ammini Swetha Ravindran",
+    role: "Supply Chain & Retail Operations Analyst",
+    profile_url: "https://www.linkedin.com/in/ammini-swetha-ravindran-3a943a9a",
+    note: "Hi Ammini, I'm an Int'l Business graduate (DSU Bangalore) targeting Supply Chain & Retail Ops roles at Walmart Global Tech. Maintained 0% shrinkage across 300+ batches at Aero India '25. Proficient in Excel & replenishment tracking. Immediate joiner!",
+    inmail: "Hi Ammini,\n\nI am reaching out regarding Supply Chain and Retail Operations Analyst opportunities at Walmart Global Tech India.\n\nMy background combines BBA International Business training with hands-on inventory replenishment from Aero India 2025, where I maintained 0.0% inventory shrinkage across 300+ SKU batches. Available to join immediately.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Honeywell India",
+    recruiter_name: "Jasmin Shaik",
+    role: "Business Operations Associate",
+    profile_url: "https://www.linkedin.com/in/jasmin-shaik-b7642a190",
+    note: "Hi Jasmin, I'm a fresh BBA Int'l Business graduate (DSU Bangalore) targeting Operations & SCM Associate roles at Honeywell India. Experienced in vendor SLA governance, Excel reporting & aerospace expo ops (Aero India '25). Immediate joiner!",
+    inmail: "Hi Jasmin,\n\nI am writing to connect regarding Business Operations and Supply Chain Associate openings at Honeywell India in Bengaluru.\n\nHaving directed ground logistics under defense protocol at Aero India 2025 and specialized in global commercial trade at Dayananda Sagar University, I am prepared to contribute immediately on zero days notice.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "Bosch Ltd India",
+    recruiter_name: "Srinithi Dhishika",
+    role: "Automotive Operations & Logistics Trainee",
+    profile_url: "https://www.linkedin.com/in/srinithi-dhishika-07b2a7241",
+    note: "Hi Srinithi, I'm an Int'l Business graduate (DSU Bangalore) targeting Operations & Logistics Trainee roles at Bosch Ltd. Trained in Incoterms 2020, landed cost modeling & physical inventory intake (Aero India '25). Bengaluru resident, immediate joiner!",
+    inmail: "Hi Srinithi,\n\nI am exploring Operations and Logistics Trainee opportunities at Bosch Ltd in Bengaluru.\n\nWith coursework in International Trade, Incoterms 2020, and logistics, coupled with zero-shrinkage inventory management at Aero India 2025, I am eager to support Bosch's automotive operations. Immediate joiner.\n\nBest regards,\nAditya Mehra | +91 70034 56624"
+  },
+  {
+    company: "PhonePe",
+    recruiter_name: "Anshika Kohli",
+    role: "Merchant Operations & BD Executive",
+    profile_url: "https://www.linkedin.com/in/anshika-kohli",
+    note: "Hi Anshika, I'm an Int'l Business graduate (DSU Bangalore) targeting Operations & Merchant Support roles at PhonePe. Experienced in fast-paced operational coordination & client proposals (+18% conversion). Bengaluru resident, immediate joiner!",
+    inmail: "Hi Anshika,\n\nI am writing to connect regarding entry-level Operations and Business Development roles at PhonePe Bengaluru.\n\nI combine a BBA in International Business from Dayananda Sagar University with proven operational agility from high-intensity ground deployments and an immediate availability to join on 0 days notice.\n\nWarm regards,\nAditya Mehra | +91 70034 56624"
+  }
+];
+
+function renderRecruiters(list) {
+  const grid = document.getElementById('recruiterGrid');
+  grid.innerHTML = '';
+  list.forEach((r, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card' + (r.sent ? ' sent' : '');
+    card.id = 'card-' + idx;
+    
+    card.innerHTML = `
+      <div class="card-head">
+        <div>
+          <span class="company-tag">${r.company}</span>
+          <div class="recruiter-name">${r.recruiter_name}</div>
+          <div class="role-target">${r.role}</div>
+        </div>
+        <label class="status-check">
+          <input type="checkbox" onchange="toggleSent(${idx}, this.checked)" ${r.sent ? 'checked' : ''}>
+          <span>Sent</span>
+        </label>
+      </div>
+
+      <div class="note-box">
+        <span class="char-badge">${r.note.length}/300 Chars (LinkedIn Invite Limit)</span>
+        <div id="note-text-${idx}">${escapeHtml(r.note)}</div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-copy" id="btn-copy-${idx}" onclick="copyNote(${idx})">📋 Copy Note</button>
+        <button class="btn btn-copy" onclick="copyInMail(${idx})">📄 Copy InMail</button>
+        <a class="btn btn-open" href="${r.profile_url}" target="_blank" rel="noopener">🔗 Open Profile</a>
+        <button class="btn btn-strike" onclick="strikeOne(${idx})">⚡ Copy & Open</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  updateStats();
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.innerText = text;
+  return div.innerHTML;
+}
+
+function copyNote(idx) {
+  const text = recruiters[idx].note;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('btn-copy-' + idx);
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = orig;
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+function copyInMail(idx) {
+  const text = recruiters[idx].inmail;
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Full InMail pitch copied to clipboard for ' + recruiters[idx].recruiter_name + '!');
+  });
+}
+
+function strikeOne(idx) {
+  const r = recruiters[idx];
+  navigator.clipboard.writeText(r.note).then(() => {
+    window.open(r.profile_url, '_blank');
+    toggleSent(idx, true);
+    const cb = document.querySelector('#card-' + idx + ' input[type="checkbox"]');
+    if (cb) cb.checked = true;
+  });
+}
+
+function toggleSent(idx, isSent) {
+  recruiters[idx].sent = isSent;
+  const card = document.getElementById('card-' + idx);
+  if (card) {
+    if (isSent) card.classList.add('sent');
+    else card.classList.remove('sent');
+  }
+  updateStats();
+}
+
+function updateStats() {
+  const sent = recruiters.filter(r => r.sent).length;
+  document.getElementById('sentCount').innerText = sent;
+  document.getElementById('totalCount').innerText = recruiters.length;
+}
+
+function filterRecruiters() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = recruiters.filter(r => 
+    r.company.toLowerCase().includes(q) ||
+    r.recruiter_name.toLowerCase().includes(q) ||
+    r.role.toLowerCase().includes(q)
+  );
+  renderRecruiters(filtered);
+}
+
+// Initial render
+renderRecruiters(recruiters);
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aero_space-deployment
+  labels:
+    app: aero_space
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aero_space
+  template:
+    metadata:
+      labels:
+        app: aero_space
+    spec:
+      containers:
+      - name: aero_space-node
+        image: aero_space:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aero_space-service
+spec:
+  type: ClusterIP
+  selector:
+    app: aero_space
+  ports:
+  - port: 8080
+    targetPort: 8080

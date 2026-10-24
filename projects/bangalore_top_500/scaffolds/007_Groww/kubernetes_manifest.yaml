@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: groww-deployment
+  labels:
+    app: groww
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: groww
+  template:
+    metadata:
+      labels:
+        app: groww
+    spec:
+      containers:
+      - name: groww-node
+        image: groww:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: groww-service
+spec:
+  type: ClusterIP
+  selector:
+    app: groww
+  ports:
+  - port: 8080
+    targetPort: 8080

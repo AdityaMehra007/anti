@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apex_energy-deployment
+  labels:
+    app: apex_energy
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apex_energy
+  template:
+    metadata:
+      labels:
+        app: apex_energy
+    spec:
+      containers:
+      - name: apex_energy-node
+        image: apex_energy:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apex_energy-service
+spec:
+  type: ClusterIP
+  selector:
+    app: apex_energy
+  ports:
+  - port: 8080
+    targetPort: 8080

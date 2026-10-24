@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper_health-deployment
+  labels:
+    app: hyper_health
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyper_health
+  template:
+    metadata:
+      labels:
+        app: hyper_health
+    spec:
+      containers:
+      - name: hyper_health-node
+        image: hyper_health:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper_health-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hyper_health
+  ports:
+  - port: 8080
+    targetPort: 8080

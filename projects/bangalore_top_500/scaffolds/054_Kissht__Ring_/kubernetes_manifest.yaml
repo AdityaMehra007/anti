@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kissht__ring_-deployment
+  labels:
+    app: kissht__ring_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kissht__ring_
+  template:
+    metadata:
+      labels:
+        app: kissht__ring_
+    spec:
+      containers:
+      - name: kissht__ring_-node
+        image: kissht__ring_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kissht__ring_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: kissht__ring_
+  ports:
+  - port: 8080
+    targetPort: 8080

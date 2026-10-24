@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veda_health-deployment
+  labels:
+    app: veda_health
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: veda_health
+  template:
+    metadata:
+      labels:
+        app: veda_health
+    spec:
+      containers:
+      - name: veda_health-node
+        image: veda_health:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: veda_health-service
+spec:
+  type: ClusterIP
+  selector:
+    app: veda_health
+  ports:
+  - port: 8080
+    targetPort: 8080

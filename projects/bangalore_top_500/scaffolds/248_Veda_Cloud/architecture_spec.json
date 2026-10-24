@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-248",
+  "rank": 248,
+  "company_name": "Veda Cloud",
+  "sector": "Electric Vehicles, CleanTech & Deep Mobility",
+  "corridor": "Domlur (Embassy Golf Links)",
+  "stage": "Soonicorn",
+  "valuation": "$260M Series D",
+  "flagship_project": {
+    "name": "Project ChargeGrid-OS: Veda Cloud Enterprise System",
+    "pillar": "Smart Charging Infrastructure & Virtual Power Plant Integration",
+    "strategic_thesis": "Scales Veda Cloud's operations across Domlur (Embassy Golf Links) by deploying an enterprise-grade smart charging infrastructure & virtual power plant integration to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Go, Python, MQTT, PostgreSQL, Docker, AWS IoT",
+    "kpis": "Balances grid load across 5,000 charging points; prevents substation overload during peak charge hours"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

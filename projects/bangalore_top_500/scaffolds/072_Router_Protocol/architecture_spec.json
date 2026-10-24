@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-072",
+  "rank": 72,
+  "company_name": "Router Protocol",
+  "sector": "Cybersecurity, Compliance & Web3 Ecosystem",
+  "corridor": "HSR Layout",
+  "stage": "Series A",
+  "valuation": "$35M Valuation",
+  "flagship_project": {
+    "name": "Project Web3-Consensus: Router Protocol Enterprise System",
+    "pillar": "Cryptographic Asset Custody & Non-Custodial Key Management",
+    "strategic_thesis": "Scales Router Protocol's operations across HSR Layout by deploying an enterprise-grade cryptographic asset custody & non-custodial key management to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, Go, Solidity, libp2p, PostgreSQL",
+    "kpis": "Secures $5B+ digital assets with threshold signature schemes and zero single-point-of-failure"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

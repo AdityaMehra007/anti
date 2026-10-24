@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-277",
+  "rank": 277,
+  "company_name": "Synapse Scale",
+  "sector": "DeepTech, Generative AI, Robotics & SpaceTech",
+  "corridor": "Electronic City Phase 1 & 2",
+  "stage": "Series A",
+  "valuation": "$140M Series C",
+  "flagship_project": {
+    "name": "Project NeuroGen-Indic: Synapse Scale Enterprise System",
+    "pillar": "Indic Large Multimodal Foundation Models & Low-Resource Speech AI",
+    "strategic_thesis": "Scales Synapse Scale's operations across Electronic City Phase 1 & 2 by deploying an enterprise-grade indic large multimodal foundation models & low-resource speech ai to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "PyTorch, CUDA/Triton, vLLM, Ray, Hugging Face",
+    "kpis": "State-of-the-art inference across 22 Indian languages; sub-100ms first-token latency on edge hardware"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

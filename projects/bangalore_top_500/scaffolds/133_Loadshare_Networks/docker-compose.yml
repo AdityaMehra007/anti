@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  loadshare_networks-core:
+    image: python:3.13-slim
+    container_name: loadshare_networks-engine
+    restart: always
+    environment:
+      - APP_NAME=Loadshare Networks
+      - PROJECT_NAME=Project Telematics-Pulse: Loadshare Networks Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: loadshare_networks-cache
+    ports:
+      - "6379"

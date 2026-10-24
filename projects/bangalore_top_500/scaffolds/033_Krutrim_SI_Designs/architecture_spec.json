@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-033",
+  "rank": 33,
+  "company_name": "Krutrim SI Designs",
+  "sector": "DeepTech, Generative AI, Robotics & SpaceTech",
+  "corridor": "Koramangala",
+  "stage": "Unicorn",
+  "valuation": "$1.0B Valuation",
+  "flagship_project": {
+    "name": "Project OrbitMesh: Krutrim SI Designs Enterprise System",
+    "pillar": "Astrodynamics Orbital Mechanics & Satellite Fleet Management",
+    "strategic_thesis": "Scales Krutrim SI Designs's operations across Koramangala by deploying an enterprise-grade astrodynamics orbital mechanics & satellite fleet management to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, C++, SQLite, Kafka, WebGL",
+    "kpis": "Automates space debris avoidance maneuvers; real-time orbital tracking of 100+ microsatellites"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

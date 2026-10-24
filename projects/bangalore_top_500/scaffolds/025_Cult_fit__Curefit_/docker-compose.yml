@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  cult_fit__curefit_-core:
+    image: python:3.13-slim
+    container_name: cult_fit__curefit_-engine
+    restart: always
+    environment:
+      - APP_NAME=Cult.fit (Curefit)
+      - PROJECT_NAME=Project BioSovereign: Cult.fit (Curefit) Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: cult_fit__curefit_-cache
+    ports:
+      - "6379"

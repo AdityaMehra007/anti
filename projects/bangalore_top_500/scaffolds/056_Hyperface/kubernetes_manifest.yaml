@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyperface-deployment
+  labels:
+    app: hyperface
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyperface
+  template:
+    metadata:
+      labels:
+        app: hyperface
+    spec:
+      containers:
+      - name: hyperface-node
+        image: hyperface:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyperface-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hyperface
+  ports:
+  - port: 8080
+    targetPort: 8080

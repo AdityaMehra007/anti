@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bluestone-deployment
+  labels:
+    app: bluestone
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bluestone
+  template:
+    metadata:
+      labels:
+        app: bluestone
+    spec:
+      containers:
+      - name: bluestone-node
+        image: bluestone:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bluestone-service
+spec:
+  type: ClusterIP
+  selector:
+    app: bluestone
+  ports:
+  - port: 8080
+    targetPort: 8080

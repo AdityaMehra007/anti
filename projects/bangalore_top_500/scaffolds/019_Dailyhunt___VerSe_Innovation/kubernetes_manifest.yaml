@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dailyhunt___verse_innovation-deployment
+  labels:
+    app: dailyhunt___verse_innovation
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dailyhunt___verse_innovation
+  template:
+    metadata:
+      labels:
+        app: dailyhunt___verse_innovation
+    spec:
+      containers:
+      - name: dailyhunt___verse_innovation-node
+        image: dailyhunt___verse_innovation:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dailyhunt___verse_innovation-service
+spec:
+  type: ClusterIP
+  selector:
+    app: dailyhunt___verse_innovation
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  the_whole_truth_foods-core:
+    image: python:3.13-slim
+    container_name: the_whole_truth_foods-engine
+    restart: always
+    environment:
+      - APP_NAME=The Whole Truth Foods
+      - PROJECT_NAME=Project OmniCatalog: The Whole Truth Foods Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: the_whole_truth_foods-cache
+    ports:
+      - "6379"

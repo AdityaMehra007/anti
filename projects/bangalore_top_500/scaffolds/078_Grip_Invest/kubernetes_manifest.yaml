@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grip_invest-deployment
+  labels:
+    app: grip_invest
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: grip_invest
+  template:
+    metadata:
+      labels:
+        app: grip_invest
+    spec:
+      containers:
+      - name: grip_invest-node
+        image: grip_invest:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grip_invest-service
+spec:
+  type: ClusterIP
+  selector:
+    app: grip_invest
+  ports:
+  - port: 8080
+    targetPort: 8080

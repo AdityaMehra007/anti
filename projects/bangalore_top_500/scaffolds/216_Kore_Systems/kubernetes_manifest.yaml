@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kore_systems-deployment
+  labels:
+    app: kore_systems
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kore_systems
+  template:
+    metadata:
+      labels:
+        app: kore_systems
+    spec:
+      containers:
+      - name: kore_systems-node
+        image: kore_systems:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kore_systems-service
+spec:
+  type: ClusterIP
+  selector:
+    app: kore_systems
+  ports:
+  - port: 8080
+    targetPort: 8080

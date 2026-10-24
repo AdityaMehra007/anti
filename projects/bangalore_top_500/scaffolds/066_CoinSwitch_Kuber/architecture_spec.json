@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-066",
+  "rank": 66,
+  "company_name": "CoinSwitch Kuber",
+  "sector": "FinTech, Payments & Digital Banking",
+  "corridor": "HSR Layout",
+  "stage": "Unicorn",
+  "valuation": "$1.9B Valuation",
+  "flagship_project": {
+    "name": "Project AlphaYield: CoinSwitch Kuber Enterprise System",
+    "pillar": "Quantitative Financial Optimization & Smart Liquidity Routing",
+    "strategic_thesis": "Scales CoinSwitch Kuber's operations across HSR Layout by deploying an enterprise-grade quantitative financial optimization & smart liquidity routing to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Go, Python, ClickHouse, PostgreSQL, Docker",
+    "kpis": "Optimizes treasury yield by 240 bps; sub-10ms quote aggregation across 20+ liquidity venues"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 5.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

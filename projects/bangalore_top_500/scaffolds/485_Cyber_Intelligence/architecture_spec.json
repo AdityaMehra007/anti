@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-485",
+  "rank": 485,
+  "company_name": "Cyber Intelligence",
+  "sector": "FinTech, Payments & Digital Banking",
+  "corridor": "Kadubeesanahalli / ORR (Tech Corridor)",
+  "stage": "Series A",
+  "valuation": "$35M Series A",
+  "flagship_project": {
+    "name": "Project SovereignCore: Cyber Intelligence Enterprise System",
+    "pillar": "Distributed Real-Time Payments & Fraud Detection Mesh",
+    "strategic_thesis": "Scales Cyber Intelligence's operations across Kadubeesanahalli / ORR (Tech Corridor) by deploying an enterprise-grade distributed real-time payments & fraud detection mesh to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, Go, Kafka, ScyllaDB, Redis Cluster",
+    "kpis": "100,000 TPS with sub-3ms latency, 99.999% uptime, zero financial reconciliation drift"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 5.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

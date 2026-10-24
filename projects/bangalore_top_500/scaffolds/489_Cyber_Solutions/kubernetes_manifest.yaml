@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyber_solutions-deployment
+  labels:
+    app: cyber_solutions
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cyber_solutions
+  template:
+    metadata:
+      labels:
+        app: cyber_solutions
+    spec:
+      containers:
+      - name: cyber_solutions-node
+        image: cyber_solutions:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cyber_solutions-service
+spec:
+  type: ClusterIP
+  selector:
+    app: cyber_solutions
+  ports:
+  - port: 8080
+    targetPort: 8080

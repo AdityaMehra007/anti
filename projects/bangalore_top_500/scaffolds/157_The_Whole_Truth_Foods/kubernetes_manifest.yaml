@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: the_whole_truth_foods-deployment
+  labels:
+    app: the_whole_truth_foods
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: the_whole_truth_foods
+  template:
+    metadata:
+      labels:
+        app: the_whole_truth_foods
+    spec:
+      containers:
+      - name: the_whole_truth_foods-node
+        image: the_whole_truth_foods:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: the_whole_truth_foods-service
+spec:
+  type: ClusterIP
+  selector:
+    app: the_whole_truth_foods
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: setu__pine_labs_-deployment
+  labels:
+    app: setu__pine_labs_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: setu__pine_labs_
+  template:
+    metadata:
+      labels:
+        app: setu__pine_labs_
+    spec:
+      containers:
+      - name: setu__pine_labs_-node
+        image: setu__pine_labs_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: setu__pine_labs_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: setu__pine_labs_
+  ports:
+  - port: 8080
+    targetPort: 8080

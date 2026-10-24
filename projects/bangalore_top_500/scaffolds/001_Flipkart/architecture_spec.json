@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-001",
+  "rank": 1,
+  "company_name": "Flipkart",
+  "sector": "E-Commerce, Marketplaces & D2C Brands",
+  "corridor": "Bellandur / ORR (Cessna Business Park)",
+  "stage": "Decacorn",
+  "valuation": "$37.6B Valuation",
+  "flagship_project": {
+    "name": "Project TitanGrid: Sovereign Planetary-Scale Multi-Tenant Autonomous Logistics & Real-Time Fulfillment Mesh",
+    "pillar": "Distributed Event-Driven Fulfillment & Autonomous Micro-Hub Mesh",
+    "strategic_thesis": "Flipkart's ultimate scale bottleneck is multi-warehouse latency and cold-chain/express fulfillment across 19,000 pin codes. TitanGrid orchestrates automated sorting robotics, autonomous dynamic inventory re-routing, and sub-second order-to-dispatch decisioning during peak Big Billion Days (100k TPS).",
+    "tech_stack": "Rust (Core Router), Go (Microservices), Apache Pulsar (Global Event Log), ScyllaDB (Sub-ms State Store), Kubernetes / Cilium eBPF, Ray.io (Distributed RL for Demand/Dynamic Routing)",
+    "kpis": "99.999% availability during 120,000 peak orders/sec; 42% reduction in intra-city middle-mile transit time; $140M annual logistics operational savings."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

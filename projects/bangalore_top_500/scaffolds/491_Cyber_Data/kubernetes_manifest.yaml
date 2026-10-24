@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyber_data-deployment
+  labels:
+    app: cyber_data
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cyber_data
+  template:
+    metadata:
+      labels:
+        app: cyber_data
+    spec:
+      containers:
+      - name: cyber_data-node
+        image: cyber_data:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cyber_data-service
+spec:
+  type: ClusterIP
+  selector:
+    app: cyber_data
+  ports:
+  - port: 8080
+    targetPort: 8080

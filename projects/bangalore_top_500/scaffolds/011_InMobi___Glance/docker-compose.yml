@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  inmobi___glance-core:
+    image: python:3.13-slim
+    container_name: inmobi___glance-engine
+    restart: always
+    environment:
+      - APP_NAME=InMobi / Glance
+      - PROJECT_NAME=Project NeuroScreen: Zero-Latency On-Device Lockscreen Content Synthesis, Edge Multimodal Recommendation & Sovereign Privacy Vault
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: inmobi___glance-cache
+    ports:
+      - "6379"

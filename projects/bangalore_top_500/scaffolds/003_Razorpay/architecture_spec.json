@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-003",
+  "rank": 3,
+  "company_name": "Razorpay",
+  "sector": "FinTech, Payments & Digital Banking",
+  "corridor": "Koramangala (8th Block)",
+  "stage": "Decacorn",
+  "valuation": "$7.5B Valuation",
+  "flagship_project": {
+    "name": "Project HyperMesh: Sovereign Zero-Latency Multi-Rail Autonomous Clearing & Settlement Ledger with Quantum-Safe Signatures",
+    "pillar": "Distributed Transaction Consensus & Dynamic Multi-Bank Route Optimization",
+    "strategic_thesis": "India's UPI and card networks suffer bank-side degradation and downtime. HyperMesh is an autonomous algorithmic payment orchestrator that uses real-time bank health telemetry, self-healing routing fallbacks, and zero-knowledge idempotency to guarantee a 99.98% transaction success rate across 15,000 financial nodes.",
+    "tech_stack": "Rust (Transaction Routing Engine), RocksDB + Raft Consensus (Local Embedded State), ClickHouse (Financial Audit Ledger), Apache Kafka, eBPF (Kernel-level Packet Bypass for Banking Gateways), HSM Post-Quantum Cryptography Modules",
+    "kpis": "Sub-5ms payment gateway processing latency; 99.98% success rate across top 50 Indian banks; $8B daily processed GMV with 0 transaction loss."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 5.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyper_dynamics-deployment
+  labels:
+    app: hyper_dynamics
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyper_dynamics
+  template:
+    metadata:
+      labels:
+        app: hyper_dynamics
+    spec:
+      containers:
+      - name: hyper_dynamics-node
+        image: hyper_dynamics:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hyper_dynamics-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hyper_dynamics
+  ports:
+  - port: 8080
+    targetPort: 8080

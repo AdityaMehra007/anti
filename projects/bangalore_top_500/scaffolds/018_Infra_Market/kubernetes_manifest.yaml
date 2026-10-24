@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infra_market-deployment
+  labels:
+    app: infra_market
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: infra_market
+  template:
+    metadata:
+      labels:
+        app: infra_market
+    spec:
+      containers:
+      - name: infra_market-node
+        image: infra_market:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: infra_market-service
+spec:
+  type: ClusterIP
+  selector:
+    app: infra_market
+  ports:
+  - port: 8080
+    targetPort: 8080

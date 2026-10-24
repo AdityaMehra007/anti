@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pratilipi-deployment
+  labels:
+    app: pratilipi
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pratilipi
+  template:
+    metadata:
+      labels:
+        app: pratilipi
+    spec:
+      containers:
+      - name: pratilipi-node
+        image: pratilipi:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pratilipi-service
+spec:
+  type: ClusterIP
+  selector:
+    app: pratilipi
+  ports:
+  - port: 8080
+    targetPort: 8080

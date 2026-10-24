@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  terra_scale-core:
+    image: python:3.13-slim
+    container_name: terra_scale-engine
+    restart: always
+    environment:
+      - APP_NAME=Terra Scale
+      - PROJECT_NAME=Project NeuroGen-Indic: Terra Scale Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: terra_scale-cache
+    ports:
+      - "6379"

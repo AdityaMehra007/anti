@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postman-deployment
+  labels:
+    app: postman
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: postman
+  template:
+    metadata:
+      labels:
+        app: postman
+    spec:
+      containers:
+      - name: postman-node
+        image: postman:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postman-service
+spec:
+  type: ClusterIP
+  selector:
+    app: postman
+  ports:
+  - port: 8080
+    targetPort: 8080

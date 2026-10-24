@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  hyper_platform-core:
+    image: python:3.13-slim
+    container_name: hyper_platform-engine
+    restart: always
+    environment:
+      - APP_NAME=Hyper Platform
+      - PROJECT_NAME=Project BioSovereign: Hyper Platform Enterprise System
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: hyper_platform-cache
+    ports:
+      - "6379"

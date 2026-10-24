@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aero_fintech-deployment
+  labels:
+    app: aero_fintech
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aero_fintech
+  template:
+    metadata:
+      labels:
+        app: aero_fintech
+    spec:
+      containers:
+      - name: aero_fintech-node
+        image: aero_fintech:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aero_fintech-service
+spec:
+  type: ClusterIP
+  selector:
+    app: aero_fintech
+  ports:
+  - port: 8080
+    targetPort: 8080

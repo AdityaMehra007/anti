@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta_mobility-deployment
+  labels:
+    app: magenta_mobility
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: magenta_mobility
+  template:
+    metadata:
+      labels:
+        app: magenta_mobility
+    spec:
+      containers:
+      - name: magenta_mobility-node
+        image: magenta_mobility:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: magenta_mobility-service
+spec:
+  type: ClusterIP
+  selector:
+    app: magenta_mobility
+  ports:
+  - port: 8080
+    targetPort: 8080

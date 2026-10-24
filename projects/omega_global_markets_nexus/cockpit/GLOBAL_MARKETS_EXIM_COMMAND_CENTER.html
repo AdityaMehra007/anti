@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMEGA ∞ Global Markets, Business Empire & EXIM Command Center</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #080c14;
+      color: #e2e8f0;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(51, 65, 85, 0.4);
+    }
+    .glass-card-glow {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.12);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="min-h-screen custom-scrollbar">
+
+  <!-- TOP APP HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 sticky top-0 z-50 backdrop-blur-md px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+          <i data-lucide="globe-2" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-xl font-bold tracking-tight text-white">OMEGA ∞ GLOBAL MARKETS & EXIM NEXUS</h1>
+            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">v24.0 MNC</span>
+          </div>
+          <p class="text-xs text-slate-400">Autonomous Enterprise Business, Equities Quant, Money Market, Bond Yield Curves & Cross-Border Supply Chain</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div id="api-status-badge" class="flex items-center space-x-2 text-xs font-mono bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">
+          <span id="api-status-dot" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="api-status-label" class="text-slate-300">BACKEND: CHECKING...</span>
+        </div>
+        <button onclick="downloadDossier()" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs flex items-center space-x-2 border border-slate-700 transition">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>EXPORT DOSSIER</span>
+        </button>
+        <button onclick="runNexusMacroCycle()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs flex items-center space-x-2 shadow-lg shadow-indigo-600/30 transition">
+          <i data-lucide="play" class="w-4 h-4"></i>
+          <span>EXECUTE MACRO CYCLE</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="border-b border-slate-800/80 bg-slate-900/50 sticky top-[73px] z-40 backdrop-blur-sm px-6">
+    <div class="max-w-7xl mx-auto flex space-x-6 overflow-x-auto text-sm font-medium py-3 custom-scrollbar">
+      <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn text-indigo-400 border-b-2 border-indigo-500 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+        <span>Macro Pulse</span>
+      </button>
+      <button onclick="switchTab('business')" id="tab-btn-business" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="building-2" class="w-4 h-4"></i>
+        <span>Top Business Models</span>
+      </button>
+      <button onclick="switchTab('stock')" id="tab-btn-stock" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="trending-up" class="w-4 h-4"></i>
+        <span>Stock Market (Quant & LOB)</span>
+      </button>
+      <button onclick="switchTab('money')" id="tab-btn-money" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="coins" class="w-4 h-4"></i>
+        <span>Money Market & Cash Sweep</span>
+      </button>
+      <button onclick="switchTab('bond')" id="tab-btn-bond" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="activity" class="w-4 h-4"></i>
+        <span>Bond Market & Yield Curve</span>
+      </button>
+      <button onclick="switchTab('exim')" id="tab-btn-exim" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="ship" class="w-4 h-4"></i>
+        <span>Global EXIM & Trade Finance</span>
+      </button>
+      <button onclick="switchTab('derivatives')" id="tab-btn-derivatives" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="binary" class="w-4 h-4"></i>
+        <span>Derivatives & Hedging</span>
+      </button>
+      <button onclick="switchTab('logistics')" id="tab-btn-logistics" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="anchor" class="w-4 h-4"></i>
+        <span>Maritime Corridors</span>
+      </button>
+      <button onclick="switchTab('stress')" id="tab-btn-stress" class="tab-btn text-slate-400 hover:text-slate-200 pb-2 flex items-center space-x-2 whitespace-nowrap">
+        <i data-lucide="flame" class="w-4 h-4"></i>
+        <span>Stress-Testing Lab</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN VIEW CONTAINER -->
+  <main class="max-w-7xl mx-auto p-6 space-y-8">
+
+    <!-- TAB 1: MACRO OVERVIEW PULSE -->
+    <section id="view-overview" class="tab-view space-y-6">
+      <!-- KPI Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass-card rounded-2xl p-5 border-l-4 border-l-emerald-500">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Annual FCF Generation</span>
+            <i data-lucide="dollar-sign" class="w-5 h-5 text-emerald-400"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-white mt-2" id="kpi-fcf">$62.19 B</div>
+          <div class="text-xs text-emerald-400 mt-1 flex items-center space-x-1">
+            <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+            <span>+15.2% YoY Compound FCF</span>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border-l-4 border-l-indigo-500">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold tracking-wider text-slate-400 uppercase">10Y Benchmark Yield</span>
+            <i data-lucide="activity" class="w-5 h-5 text-indigo-400"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-white mt-2" id="kpi-yield">4.846%</div>
+          <div class="text-xs text-slate-400 mt-1 flex items-center space-x-1">
+            <span class="text-indigo-400 font-medium">10Y-2Y Spread: +51.4 bps</span> (Normal)
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border-l-4 border-l-cyan-500">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Basel III Liquidity (LCR)</span>
+            <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-white mt-2" id="kpi-lcr">3,087.0%</div>
+          <div class="text-xs text-cyan-400 mt-1 flex items-center space-x-1">
+            <i data-lucide="check-circle" class="w-3 h-3"></i>
+            <span>Compliant (Min. 100%)</span>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border-l-4 border-l-amber-500">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Trade EXIM Settlement</span>
+            <i data-lucide="check-check" class="w-5 h-5 text-amber-400"></i>
+          </div>
+          <div class="text-2xl font-bold font-mono text-white mt-2" id="kpi-exim">$20.15 M</div>
+          <div class="text-xs text-emerald-400 mt-1 flex items-center space-x-1">
+            <i data-lucide="award" class="w-3 h-3"></i>
+            <span>UCP 600 Clean Documented</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Nexus Diagram & Strategic Synthesis -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 glass-card-glow rounded-2xl p-6">
+          <h2 class="text-lg font-bold text-white flex items-center space-x-2">
+            <i data-lucide="network" class="w-5 h-5 text-indigo-400"></i>
+            <span>Integrated Macro Operating Loop</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">Autonomous capital recycling across real business, trade financing, money markets, and capital markets.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="flex items-center space-x-2 text-indigo-400 font-semibold text-sm">
+                <i data-lucide="factory" class="w-4 h-4"></i>
+                <span>1. Real Business Engine</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Monopolistic software, semiconductor foundry, and logistics platforms generate 40%+ ROIC and massive free cash flows.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="flex items-center space-x-2 text-amber-400 font-semibold text-sm">
+                <i data-lucide="container" class="w-4 h-4"></i>
+                <span>2. EXIM Trade Pipeline</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Global shipments financed via UCP 600 Letters of Credit, screened against OFAC sanctions, and hedged with FX forwards.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="flex items-center space-x-2 text-emerald-400 font-semibold text-sm">
+                <i data-lucide="wallet" class="w-4 h-4"></i>
+                <span>3. Money Market Sweep</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Unutilized operating cash balances automatically swept into SOFR overnight repos and prime T-bills earning ~4.8% APY.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="flex items-center space-x-2 text-cyan-400 font-semibold text-sm">
+                <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+                <span>4. Capital Markets Engine</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2">Long-term expansion financed through Nelson-Siegel bond issuances, while surplus equity compounds in multi-factor quant portfolios.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
+              <div>
+                <span class="text-xs font-semibold text-slate-300">Macro Orchestrator State:</span>
+                <span class="text-xs font-mono font-bold text-emerald-400 ml-2" id="orchestrator-state-text">SUPREME_GLOBAL_DOMINANCE</span>
+              </div>
+            </div>
+            <button onclick="runNexusMacroCycle()" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center space-x-1">
+              <span>Re-simulate Cycle</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i data-lucide="pie-chart" class="w-4 h-4 text-cyan-400"></i>
+              <span>Treasury Capital Allocation</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-1">Multi-asset capital distribution</p>
+            <div class="h-56 mt-4 flex items-center justify-center">
+              <canvas id="macroAllocChart"></canvas>
+            </div>
+          </div>
+          <div class="space-y-2 text-xs font-mono border-t border-slate-800 pt-3">
+            <div class="flex justify-between text-slate-400"><span>Equities Quant:</span><span class="text-white">$25.0M (35%)</span></div>
+            <div class="flex justify-between text-slate-400"><span>SOFR Repo Sweeps:</span><span class="text-white">$18.0M (25%)</span></div>
+            <div class="flex justify-between text-slate-400"><span>Sovereign Bonds:</span><span class="text-white">$16.0M (22%)</span></div>
+            <div class="flex justify-between text-slate-400"><span>EXIM Trade Working Cap:</span><span class="text-white">$13.0M (18%)</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-business" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">World's Best Business Archetypes</h2>
+          <p class="text-xs text-slate-400">Structural moats, unit economics, and 5-year capital allocation models</p>
+        </div>
+        <div class="text-xs text-slate-400 font-mono">
+          Benchmark Set: Tier-1 Global Monopolies
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="business-cards-container">
+        <!-- Dynamically injected via JavaScript -->
+      </div>
+
+      <!-- DCF & Capital Allocation Interactive Sandbox -->
+      <div class="glass-card rounded-2xl p-6">
+        <h3 class="text-base font-bold text-white mb-2 flex items-center space-x-2">
+          <i data-lucide="calculator" class="w-5 h-5 text-indigo-400"></i>
+          <span>Interactive DCF & Free Cash Flow Compounder Sandbox</span>
+        </h3>
+        <p class="text-xs text-slate-400 mb-6">Test valuation sensitivity by modulating growth rate, cost of capital (WACC), and terminal rate.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                <span>5-Yr Revenue CAGR:</span>
+                <span id="slider-growth-val" class="text-indigo-400 font-bold">15.0%</span>
+              </div>
+              <input type="range" id="slider-growth" min="5" max="40" step="1" value="15" oninput="updateDCFSandbox()" class="w-full accent-indigo-500">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                <span>Discount Rate (WACC):</span>
+                <span id="slider-wacc-val" class="text-indigo-400 font-bold">9.0%</span>
+              </div>
+              <input type="range" id="slider-wacc" min="6" max="15" step="0.5" value="9" oninput="updateDCFSandbox()" class="w-full accent-indigo-500">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                <span>Terminal Growth Rate:</span>
+                <span id="slider-term-val" class="text-indigo-400 font-bold">3.5%</span>
+              </div>
+              <input type="range" id="slider-term" min="1.5" max="5.0" step="0.5" value="3.5" oninput="updateDCFSandbox()" class="w-full accent-indigo-500">
+            </div>
+          </div>
+
+          <div class="md:col-span-2 rounded-xl bg-slate-900/90 border border-slate-800 p-5 flex flex-col justify-between">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div>
+                <span class="text-xs text-slate-400">Current FCF:</span>
+                <div class="text-lg font-bold font-mono text-white mt-1" id="sandbox-curr-fcf">$62.19 B</div>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400">Year 5 FCF:</span>
+                <div class="text-lg font-bold font-mono text-emerald-400 mt-1" id="sandbox-y5-fcf">$125.09 B</div>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400">Terminal Value:</span>
+                <div class="text-lg font-bold font-mono text-cyan-400 mt-1" id="sandbox-term-val">$2,354.1 B</div>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400">Enterprise Value:</span>
+                <div class="text-lg font-bold font-mono text-indigo-400 mt-1" id="sandbox-ev">$1,896.2 B</div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+              <span>Implied FCF Multiple: <strong class="text-white font-mono" id="sandbox-multiple">30.5x</strong></span>
+              <span class="text-slate-500">Calculation engine: Gordon Growth Model & Discounted Cash Flows</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-stock" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">Stock Market Quant Engine & L2 Limit Order Book</h2>
+          <p class="text-xs text-slate-400">Microsecond limit order book matching, multi-factor alpha models, and portfolio risk optimization</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Order Book Interface -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i data-lucide="book-open" class="w-4 h-4 text-indigo-400"></i>
+              <span>L2 Order Book: OMEGA-EQUITIES</span>
+            </h3>
+            <span class="text-xs font-mono text-emerald-400">MID: $125.00</span>
+          </div>
+
+          <div class="space-y-1 font-mono text-xs">
+            <div class="text-slate-500 flex justify-between pb-1 border-b border-slate-800">
+              <span>ASK PRICE</span><span>QTY</span><span>TOTAL</span>
+            </div>
+            <div class="flex justify-between text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">
+              <span>$125.30</span><span>2,400</span><span>$300,720</span>
+            </div>
+            <div class="flex justify-between text-rose-400 bg-rose-500/5 px-2 py-0.5 rounded">
+              <span>$125.20</span><span>1,850</span><span>$231,620</span>
+            </div>
+            <div class="flex justify-between text-rose-400 px-2 py-0.5">
+              <span>$125.10</span><span>900</span><span>$112,590</span>
+            </div>
+            <div class="py-2 text-center text-xs font-bold text-slate-400 border-y border-slate-800">
+              SPREAD: $0.20 (16.0 bps)
+            </div>
+            <div class="flex justify-between text-emerald-400 px-2 py-0.5">
+              <span>$124.90</span><span>1,200</span><span>$149,880</span>
+            </div>
+            <div class="flex justify-between text-emerald-400 bg-emerald-500/5 px-2 py-0.5 rounded">
+              <span>$124.80</span><span>2,100</span><span>$262,080</span>
+            </div>
+            <div class="flex justify-between text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">
+              <span>$124.70</span><span>3,500</span><span>$436,450</span>
+            </div>
+          </div>
+
+          <!-- Quick Order Form -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <span class="text-xs font-bold text-slate-300">Submit Limit Order</span>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="number" id="order-price" value="125.00" step="0.1" class="bg-slate-950 border border-slate-800 rounded px-3 py-1.5 text-xs text-white">
+              <input type="number" id="order-qty" value="500" step="50" class="bg-slate-950 border border-slate-800 rounded px-3 py-1.5 text-xs text-white">
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="simulateOrder('BUY')" class="w-full py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition">BUY</button>
+              <button onclick="simulateOrder('SELL')" class="w-full py-1.5 rounded bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition">SELL</button>
+            </div>
+            <div id="order-log" class="text-[11px] font-mono text-slate-400 truncate">Ready for orders...</div>
+          </div>
+        </div>
+
+        <!-- Portfolio Optimizer & Risk Controls -->
+        <div class="lg:col-span-2 glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400"></i>
+            <span>Quantitative Portfolio Risk & Value-at-Risk (VaR) Engine</span>
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">Annual Expected Return</span>
+              <div class="text-xl font-bold font-mono text-emerald-400 mt-1">13.80%</div>
+              <span class="text-[11px] text-slate-500">Multi-Factor Alpha Loaded</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">Sharpe Ratio</span>
+              <div class="text-xl font-bold font-mono text-cyan-400 mt-1">0.646</div>
+              <span class="text-[11px] text-slate-500">Benchmark Rf: 4.50%</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">Daily VaR (95% Conf.)</span>
+              <div class="text-xl font-bold font-mono text-rose-400 mt-1">$359,465</div>
+              <span class="text-[11px] text-slate-500">Parametric 1-Day Risk</span>
+            </div>
+          </div>
+
+          <!-- TWAP / VWAP Slicer Simulation -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 mt-4 space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-slate-300">Algorithmic Execution Schedule (VWAP U-Curve)</span>
+              <span class="text-xs font-mono text-indigo-400">Target: 10,000 Shares</span>
+            </div>
+            <div class="grid grid-cols-6 gap-2 text-center font-mono text-xs">
+              <div class="p-2 rounded bg-slate-950 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">9:30-10:30</div>
+                <div class="font-bold text-indigo-400 mt-1">2,000</div>
+                <div class="text-[9px] text-slate-500">20% Open</div>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">10:30-11:30</div>
+                <div class="font-bold text-slate-300 mt-1">1,500</div>
+                <div class="text-[9px] text-slate-500">15%</div>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">11:30-12:30</div>
+                <div class="font-bold text-slate-400 mt-1">1,000</div>
+                <div class="text-[9px] text-slate-500">10% Lunch</div>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">12:30-13:30</div>
+                <div class="font-bold text-slate-400 mt-1">1,000</div>
+                <div class="text-[9px] text-slate-500">10%</div>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">13:30-14:30</div>
+                <div class="font-bold text-slate-300 mt-1">1,500</div>
+                <div class="text-[9px] text-slate-500">15%</div>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">14:30-16:00</div>
+                <div class="font-bold text-indigo-400 mt-1">3,000</div>
+                <div class="text-[9px] text-slate-500">30% Close</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-money" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">Money Market & Corporate Treasury Cash Sweep</h2>
+          <p class="text-xs text-slate-400">SOFR repo/reverse repo desk, prime commercial paper, T-bills, and Basel III LCR compliance</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Cash Sweep Configurator -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="sliders" class="w-4 h-4 text-emerald-400"></i>
+            <span>Treasury Sweep Parameters</span>
+          </h3>
+
+          <div>
+            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+              <span>Total Idle Treasury Cash:</span>
+              <span id="sweep-total-val" class="text-emerald-400 font-bold">$50,000,000</span>
+            </div>
+            <input type="range" id="sweep-total" min="10" max="200" step="5" value="50" oninput="updateSweepSimulator()" class="w-full accent-emerald-500">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+              <span>Overnight Checking Buffer:</span>
+              <span id="sweep-buffer-val" class="text-slate-400 font-bold">$5,000,000</span>
+            </div>
+            <input type="range" id="sweep-buffer" min="1" max="20" step="1" value="5" oninput="updateSweepSimulator()" class="w-full accent-slate-500">
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
+            <span class="text-slate-400 font-semibold">Active Money Market Rates:</span>
+            <div class="flex justify-between font-mono"><span>SOFR Overnight Repo:</span><span class="text-emerald-400">5.30%</span></div>
+            <div class="flex justify-between font-mono"><span>30-Day T-Bills:</span><span class="text-indigo-400">5.20%</span></div>
+            <div class="flex justify-between font-mono"><span>90-Day Prime CP:</span><span class="text-cyan-400">5.45%</span></div>
+            <div class="flex justify-between font-mono"><span>Checking Buffer:</span><span class="text-slate-500">0.50%</span></div>
+          </div>
+        </div>
+
+        <!-- Sweep Results Display -->
+        <div class="lg:col-span-2 glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i>
+              <span>Optimized Yield Allocation & Basel III LCR</span>
+            </h3>
+            <div class="text-xs font-mono font-bold text-emerald-400" id="sweep-blended-yield">BLENDED APY: 4.822%</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">Overnight SOFR Repo (40%)</span>
+              <div class="text-lg font-bold font-mono text-white mt-1" id="sweep-sofr-amt">$18,000,000</div>
+              <span class="text-[11px] text-emerald-400">+ $954,000 / yr</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">30-Day T-Bills (35%)</span>
+              <div class="text-lg font-bold font-mono text-white mt-1" id="sweep-tbill-amt">$15,750,000</div>
+              <span class="text-[11px] text-indigo-400">+ $819,000 / yr</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">90-Day Prime CP (25%)</span>
+              <div class="text-lg font-bold font-mono text-white mt-1" id="sweep-cp-amt">$11,250,000</div>
+              <span class="text-[11px] text-cyan-400">+ $613,125 / yr</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-indigo-950/20 border border-indigo-500/20 flex justify-between items-center">
+            <div>
+              <span class="text-xs font-bold text-white">Estimated Annual Cash Earnings:</span>
+              <div class="text-xl font-bold font-mono text-emerald-400 mt-0.5" id="sweep-total-income">$2,411,125.00</div>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-400">Basel III LCR:</span>
+              <div class="text-base font-bold font-mono text-cyan-400">3,087% (Prudent)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-bond" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">Bond Market & Fixed Income Analytics</h2>
+          <p class="text-xs text-slate-400">Nelson-Siegel Yield Curve, Inversion Radar, Duration/Convexity Sensitivities & Credit Spreads</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Yield Curve Visualizer -->
+        <div class="lg:col-span-2 glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i data-lucide="trending-up" class="w-4 h-4 text-indigo-400"></i>
+              <span>Parametric Sovereign Yield Curve (Nelson-Siegel Model)</span>
+            </h3>
+            <span class="text-xs font-mono text-emerald-400" id="curve-status-badge">NORMAL_EXPANSION</span>
+          </div>
+
+          <div class="h-64 flex items-center justify-center">
+            <canvas id="yieldCurveChart"></canvas>
+          </div>
+
+          <!-- Nelson-Siegel Parameter Tuning -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs">
+            <div>
+              <span class="text-slate-400">β₀ (Level):</span>
+              <input type="number" id="ns-b0" value="0.048" step="0.005" onchange="redrawCurve()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">β₁ (Slope):</span>
+              <input type="number" id="ns-b1" value="-0.012" step="0.005" onchange="redrawCurve()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">β₂ (Curvature):</span>
+              <input type="number" id="ns-b2" value="0.015" step="0.005" onchange="redrawCurve()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">τ (Decay):</span>
+              <input type="number" id="ns-tau" value="2.5" step="0.5" onchange="redrawCurve()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 mt-1 text-white font-mono">
+            </div>
+          </div>
+        </div>
+
+        <!-- Duration & Credit Spread Module -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="scale" class="w-4 h-4 text-cyan-400"></i>
+            <span>Bond Duration & Risk Hedging</span>
+          </h3>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+            <span class="text-slate-300 font-bold block mb-1">10Y Benchmark Corporate Bond</span>
+            <div class="flex justify-between"><span>Par Value:</span><span class="text-white">$1,000.00</span></div>
+            <div class="flex justify-between"><span>Coupon Rate:</span><span class="text-white">5.50%</span></div>
+            <div class="flex justify-between"><span>Modified Duration:</span><span class="text-indigo-400">7.62 Years</span></div>
+            <div class="flex justify-between"><span>DV01 per $1M Face:</span><span class="text-emerald-400">$762.00</span></div>
+            <div class="flex justify-between"><span>Convexity:</span><span class="text-cyan-400">71.8</span></div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
+            <span class="text-slate-300 font-bold block mb-1">Credit Spread & Default Hazard</span>
+            <div class="flex justify-between font-mono"><span>Corporate Spread:</span><span class="text-amber-400">+90.4 bps</span></div>
+            <div class="flex justify-between font-mono"><span>Expected Recovery:</span><span class="text-slate-400">40.0%</span></div>
+            <div class="flex justify-between font-mono"><span>Annual Hazard Rate:</span><span class="text-white">1.507%</span></div>
+            <div class="flex justify-between font-mono"><span>5Y Cumulative PD:</span><span class="text-emerald-400">7.26%</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-exim" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">Global EXIM & Cross-Border Supply Chain Engine</h2>
+          <p class="text-xs text-slate-400">Harmonized System (HS) Customs Duty, UCP 600 Letter of Credit Auditor & Sanctions Radar</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- UCP 600 Letter of Credit Simulator -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="file-check" class="w-4 h-4 text-emerald-400"></i>
+            <span>UCP 600 Autonomous Letter of Credit Auditor</span>
+          </h3>
+
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div>
+              <span class="text-slate-400">LC Credit Amount:</span>
+              <input type="text" id="lc-amount" value="$20,150,000" disabled class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-slate-300 font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">Article 30 Tolerance:</span>
+              <input type="text" value="+/- 5.0%" disabled class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-slate-300 font-mono">
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-xs text-slate-400">Select Test Presentation Document:</label>
+            <select id="lc-doc-preset" onchange="runLCAuditTest()" class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-xs text-white">
+              <option value="compliant">Clean Presentation: $20,150,000 CIF | Clean on Board | Within 21 Days</option>
+              <option value="excess_amount">Discrepant: Invoice $25,000,000 (Exceeds 5% tolerance)</option>
+              <option value="late_shipment">Discrepant: Shipped 2026-12-01 (After Latest Shipment Date)</option>
+              <option value="claused_bol">Discrepant: Claused / Foul Bill of Lading (Water Damaged)</option>
+            </select>
+          </div>
+
+          <div id="lc-audit-box" class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <div class="flex items-center space-x-2 text-xs font-bold text-emerald-400">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              <span id="lc-status-title">CLEAN_COMPLIANT_FOR_PAYMENT</span>
+            </div>
+            <p class="text-[11px] text-slate-300" id="lc-status-desc">All documents strictly conform to ICC UCP 600 Articles 14, 18, 20, and 30. Payment release authorized.</p>
+          </div>
+        </div>
+
+        <!-- Customs Landed Cost Calculator -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="calculator" class="w-4 h-4 text-cyan-400"></i>
+            <span>Indian Customs Landed Cost & Tariff Calculator</span>
+          </h3>
+
+          <div class="space-y-3">
+            <div>
+              <label class="text-xs text-slate-400">HS Code Classification:</label>
+              <select id="hs-select" onchange="recalculateDuties()" class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-xs text-white mt-1">
+                <option value="8471.50.00">8471.50.00 - AI Servers & High-Performance Computing (BCD 0%, IGST 18%)</option>
+                <option value="8542.31.00">8542.31.00 - Advanced Processors & Controller ICs (BCD 0%, IGST 18%)</option>
+                <option value="8703.80.00">8703.80.00 - Electric Passenger Motor Vehicles (BCD 70%, SWS 10%, IGST 28%)</option>
+                <option value="2709.00.00">2709.00.00 - Petroleum Crude Oil (BCD 2.5%, SWS 10%)</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div>
+                <span class="text-slate-400">CIF Value (USD):</span>
+                <input type="number" id="cif-usd" value="1000000" step="50000" oninput="recalculateDuties()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+              </div>
+              <div>
+                <span class="text-slate-400">USD/INR Exchange Rate:</span>
+                <input type="number" id="fx-rate" value="85.0" step="0.5" oninput="recalculateDuties()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+              <div class="flex justify-between text-slate-400"><span>Assessable CIF Value (INR):</span><span class="text-white" id="out-cif-inr">₹8,50,00,000</span></div>
+              <div class="flex justify-between text-slate-400"><span>Basic Customs Duty (BCD):</span><span class="text-white" id="out-bcd-inr">₹0</span></div>
+              <div class="flex justify-between text-slate-400"><span>Social Welfare Surcharge (SWS):</span><span class="text-white" id="out-sws-inr">₹0</span></div>
+              <div class="flex justify-between text-slate-400"><span>Integrated GST (IGST):</span><span class="text-cyan-400" id="out-igst-inr">₹1,53,00,000</span></div>
+              <div class="border-t border-slate-800 pt-2 flex justify-between font-bold text-emerald-400"><span>Total Landed Cost (INR):</span><span id="out-total-landed">₹10,03,00,000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-derivatives" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">Multi-Asset Derivatives & Risk Hedging Desk</h2>
+          <p class="text-xs text-slate-400">Black-Scholes-Merton option pricing, Greeks sensitivities, Implied Volatility solver & SOFR Interest Rate Swaps</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Options & Greeks Calculator -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="binary" class="w-4 h-4 text-indigo-400"></i>
+            <span>European Option Pricer (Black-Scholes-Merton)</span>
+          </h3>
+
+          <div class="grid grid-cols-3 gap-3 text-xs">
+            <div>
+              <span class="text-slate-400">Spot Price ($):</span>
+              <input type="number" id="bs-spot" value="125.0" step="1.0" oninput="calculateOptionGreeks()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">Strike Price ($):</span>
+              <input type="number" id="bs-strike" value="125.0" step="1.0" oninput="calculateOptionGreeks()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">Maturity (Years):</span>
+              <input type="number" id="bs-maturity" value="0.5" step="0.1" oninput="calculateOptionGreeks()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 text-xs">
+            <div>
+              <span class="text-slate-400">Risk-Free Rate (%):</span>
+              <input type="number" id="bs-rate" value="4.5" step="0.25" oninput="calculateOptionGreeks()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">Volatility (%):</span>
+              <input type="number" id="bs-vol" value="25.0" step="1.0" oninput="calculateOptionGreeks()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">Option Side:</span>
+              <select id="bs-type" onchange="calculateOptionGreeks()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white">
+                <option value="CALL">CALL</option>
+                <option value="PUT">PUT</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+            <div class="flex justify-between font-bold text-white">
+              <span>Theoretical Option Price:</span>
+              <span id="bs-out-price" class="text-emerald-400 text-sm">$9.48</span>
+            </div>
+            <div class="border-t border-slate-800 pt-2 grid grid-cols-2 gap-2 text-slate-400">
+              <div class="flex justify-between"><span>Delta (Δ):</span><span id="bs-out-delta" class="text-white">0.589</span></div>
+              <div class="flex justify-between"><span>Gamma (Γ):</span><span id="bs-out-gamma" class="text-white">0.0177</span></div>
+              <div class="flex justify-between"><span>Vega (ν / 1%):</span><span id="bs-out-vega" class="text-white">0.344</span></div>
+              <div class="flex justify-between"><span>Theta (θ / day):</span><span id="bs-out-theta" class="text-white">-0.038</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOFR Interest Rate Swap & Freight Hedging -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="scale" class="w-4 h-4 text-cyan-400"></i>
+            <span>SOFR Interest Rate Swap & Container FFA Hedging</span>
+          </h3>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+            <span class="text-slate-300 font-bold block mb-1">Fixed-for-Floating SOFR Swap ($50M Notional)</span>
+            <div class="flex justify-between"><span>Tenor:</span><span class="text-white">5 Years</span></div>
+            <div class="flex justify-between"><span>Fixed Coupon Paid:</span><span class="text-white">4.25%</span></div>
+            <div class="flex justify-between"><span>Floating Benchmark Received:</span><span class="text-emerald-400">SOFR 5.30%</span></div>
+            <div class="flex justify-between"><span>Par Swap Rate:</span><span class="text-indigo-400">4.382%</span></div>
+            <div class="flex justify-between font-bold text-white pt-1 border-t border-slate-800">
+              <span>Net Payer NPV:</span><span class="text-emerald-400">+$2,118,500</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+            <span class="text-slate-300 font-bold block mb-1">Container Freight Forward Agreement (FFA Hedge)</span>
+            <div class="flex justify-between"><span>Locked Forward Rate:</span><span class="text-white">$2,500 / TEU</span></div>
+            <div class="flex justify-between"><span>Settlement Spot Rate:</span><span class="text-rose-400">$3,200 / TEU</span></div>
+            <div class="flex justify-between"><span>Contracted Volume:</span><span class="text-white">200 TEU</span></div>
+            <div class="flex justify-between font-bold text-emerald-400 pt-1 border-t border-slate-800">
+              <span>FFA Hedging PnL Gain:</span><span>+$140,000.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-logistics" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">Global Maritime Corridors & Chokepoint Logistics</h2>
+          <p class="text-xs text-slate-400">Strategic ocean routing, transit times, bunker fuel consumption, and chokepoint rerouting analysis</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Chokepoint Disruption Simulator -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="anchor" class="w-4 h-4 text-amber-400"></i>
+            <span>Suez Canal / Red Sea Rerouting Simulator</span>
+          </h3>
+
+          <div class="space-y-2">
+            <label class="text-xs text-slate-400">Select Chokepoint Disruption Scenario:</label>
+            <select id="chokepoint-scenario" onchange="simulateChokepointDisruption()" class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-xs text-white">
+              <option value="suez_closed">Suez Canal / Red Sea Blockade -> Reroute via Cape of Good Hope</option>
+              <option value="suez_normal">Normal Operations: Suez Canal Transit (Shanghai to Rotterdam)</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+            <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-slate-500 block">STANDARD ROUTE</span>
+              <span class="text-white font-bold block mt-1">10,500 NM</span>
+              <span class="text-indigo-400 text-[11px]">24.3 Transit Days</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-slate-500 block">REROUTED (CAPE)</span>
+              <span class="text-amber-400 font-bold block mt-1" id="cape-dist">14,000 NM</span>
+              <span class="text-amber-400 text-[11px]" id="cape-days">+8.1 Extra Days</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+            <div class="flex justify-between text-slate-400"><span>Bunker Fuel Cost Change:</span><span class="text-rose-400" id="bunker-diff">+$226,300</span></div>
+            <div class="flex justify-between text-slate-400"><span>Canal Tolls Saved:</span><span class="text-emerald-400" id="toll-saved">-$400,000</span></div>
+            <div class="border-t border-slate-800 pt-2 flex justify-between font-bold text-white">
+              <span>Net Voyage Cost Delta:</span><span class="text-emerald-400" id="net-voyage-delta">-$173,700 (Toll Savings > Bunker)</span>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-1">
+              Market Impact: Container spot rates jump <strong class="text-amber-400">+35%</strong> due to fleet capacity absorption.
+            </div>
+          </div>
+        </div>
+
+        <!-- Demurrage & Detention Liability -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="clock" class="w-4 h-4 text-rose-400"></i>
+            <span>Container Demurrage & Detention (D&D) Risk Calculator</span>
+          </h3>
+
+          <div class="grid grid-cols-3 gap-3 text-xs">
+            <div>
+              <span class="text-slate-400">Container TEU:</span>
+              <input type="number" id="dd-teu" value="150" step="10" oninput="calculateDemurrageUI()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">Port Delay Days:</span>
+              <input type="number" id="dd-delay" value="9" step="1" oninput="calculateDemurrageUI()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+            <div>
+              <span class="text-slate-400">Free Days:</span>
+              <input type="number" id="dd-free" value="5" step="1" oninput="calculateDemurrageUI()" class="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 mt-1 text-white font-mono">
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+            <div class="flex justify-between text-slate-400"><span>Chargeable Overstay Days:</span><span class="text-white" id="dd-out-days">4 Days</span></div>
+            <div class="flex justify-between text-slate-400"><span>Fee per TEU Container:</span><span class="text-white" id="dd-out-per-teu">$600</span></div>
+            <div class="border-t border-slate-800 pt-2 flex justify-between font-bold text-rose-400">
+              <span>Total Demurrage Penalty:</span><span id="dd-out-total" class="text-base">$90,000.00</span>
+            </div>
+            <div class="text-[11px] text-emerald-400 mt-1">Status: Within manageable corporate working capital buffer.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="view-stress" class="tab-view hidden space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h2 class="text-lg font-bold text-white">Macroeconomic Crisis Stress-Testing & Monte Carlo Lab</h2>
+          <p class="text-xs text-slate-400">Simulate enterprise balance sheet resilience against 1970s Stagflation, 2008 GFC, and Supply Shocks</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Stress Configuration -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400"></i>
+            <span>Historical Crisis Selector</span>
+          </h3>
+
+          <div class="space-y-3">
+            <label class="text-xs text-slate-400">Macro Shock Regime:</label>
+            <select id="stress-regime-select" onchange="runStressScenario()" class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-xs text-white">
+              <option value="GFC_2008">2008 Global Financial Crisis (Equities -45%, Credit Spreads +450bps)</option>
+              <option value="STAGFLATION_1970">1970s Great Stagflation (Yields +400bps, Oil +120%, Equities -28%)</option>
+              <option value="SUPPLY_2020">2020 Supply Chain Fracture (Freight 4x, Port Delays +18d)</option>
+            </select>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs font-mono">
+            <span class="text-slate-400 font-semibold block mb-1">Balance Sheet Base ($72.0M Total):</span>
+            <div class="flex justify-between"><span>Equities:</span><span class="text-white">$25.0M</span></div>
+            <div class="flex justify-between"><span>Bonds:</span><span class="text-white">$16.0M</span></div>
+            <div class="flex justify-between"><span>Cash (MM):</span><span class="text-emerald-400">$18.0M</span></div>
+            <div class="flex justify-between"><span>Trade AR:</span><span class="text-cyan-400">$13.0M</span></div>
+          </div>
+        </div>
+
+        <!-- Stress Results -->
+        <div class="lg:col-span-2 glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i data-lucide="activity" class="w-4 h-4 text-amber-400"></i>
+              <span>Stressed Balance Sheet & Solvency Verdict</span>
+            </h3>
+            <span class="text-xs font-mono font-bold text-emerald-400" id="stress-status-badge">SOLVENT_PRUDENT</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">Total Dollar Drawdown</span>
+              <div class="text-lg font-bold font-mono text-rose-400 mt-1" id="stress-dollar-loss">-$16,064,000</div>
+              <span class="text-[11px] text-rose-400" id="stress-pct-loss">-22.31% Balance Sheet</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">Stress-VaR (99% Conf.)</span>
+              <div class="text-lg font-bold font-mono text-amber-400 mt-1" id="stress-var-99">$18,473,600</div>
+              <span class="text-[11px] text-slate-500">1-Month Tail Shock</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs text-slate-400">Remaining Liquid Cash</span>
+              <div class="text-lg font-bold font-mono text-emerald-400 mt-1">$18,000,000</div>
+              <span class="text-[11px] text-emerald-400">Sufficient Cash Buffer</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-indigo-950/20 border border-indigo-500/20 text-xs text-slate-300 space-y-1">
+            <span class="font-bold text-white block">Monte Carlo 2,000 Stochastic Path Quantiles:</span>
+            <div class="grid grid-cols-3 gap-2 font-mono text-center pt-2">
+              <div class="p-2 rounded bg-slate-900 border border-slate-800">
+                <span class="text-slate-500 text-[10px] block">1st Percentile (Worst)</span>
+                <span class="text-rose-400 font-bold">$61,840,000</span>
+              </div>
+              <div class="p-2 rounded bg-slate-900 border border-slate-800">
+                <span class="text-slate-500 text-[10px] block">Median Expected</span>
+                <span class="text-white font-bold">$73,420,000</span>
+              </div>
+              <div class="p-2 rounded bg-slate-900 border border-slate-800">
+                <span class="text-slate-500 text-[10px] block">95th Percentile (Best)</span>
+                <span class="text-emerald-400 font-bold">$84,950,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('text-indigo-400', 'border-b-2', 'border-indigo-500');
+        btn.classList.add('text-slate-400');
+      });
+
+      const target = document.getElementById(`view-${tabId}`);
+      if (target) target.classList.remove('hidden');
+
+      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-400');
+        activeBtn.classList.add('text-indigo-400', 'border-b-2', 'border-indigo-500');
+      }
+    }
+
+    // Business Archetype Catalog
+    const businessArchetypes = [
+      {
+        name: "Hyperscale AI & Computing Cloud",
+        category: "Cognitive AI & Hyperscale Cloud",
+        peers: ["NVIDIA", "Microsoft Azure", "Alphabet Cloud", "AWS"],
+        fcf: 62.19,
+        revenue: 130.0,
+        netMargin: 52.0,
+        roic: 48.5,
+        moatScore: 94.3,
+        pricingPower: 9.7,
+        desc: "Massive compute infrastructure layer monopolizing foundational inference APIs, silicon architecture, and enterprise workflows."
+      },
+      {
+        name: "Advanced Semiconductor Foundry",
+        category: "Critical Semiconductor & Deep Tech Foundry",
+        peers: ["TSMC", "ASML", "Synopsys"],
+        fcf: 27.53,
+        revenue: 85.0,
+        netMargin: 39.5,
+        roic: 29.0,
+        moatScore: 92.8,
+        pricingPower: 9.5,
+        desc: "Sub-2nm extreme ultraviolet lithography and packaging fabricator underpinning every advanced chip on Earth."
+      },
+      {
+        name: "Sovereign Merchant Bank & Float Compounder",
+        category: "Sovereign Merchant Bank & Float Compounder",
+        peers: ["Berkshire Hathaway", "Blackstone", "Brookfield"],
+        fcf: 91.73,
+        revenue: 360.0,
+        netMargin: 26.0,
+        roic: 18.5,
+        moatScore: 85.6,
+        pricingPower: 8.8,
+        desc: "Institutional balance sheet compounding zero-cost insurance float and private credit into infrastructure and arterial monopolies."
+      },
+      {
+        name: "Multi-Modal Freight & Energy Chokehold",
+        category: "Multi-Modal Freight & Resource Logistics",
+        peers: ["Maersk", "Vitol", "Trafigura", "DP World"],
+        fcf: 17.86,
+        revenue: 140.0,
+        netMargin: 14.5,
+        roic: 21.0,
+        moatScore: 85.4,
+        pricingPower: 8.2,
+        desc: "Physical trade arteries controlling container terminals, VLCC supertankers, pipeline junctions, and critical maritime straits."
+      },
+      {
+        name: "Global Ecosystem Consumer Monolith",
+        category: "Global Consumer Platform & Hardware Ecosystem",
+        peers: ["Apple", "Amazon Prime", "LVMH"],
+        fcf: 103.43,
+        revenue: 390.0,
+        netMargin: 25.5,
+        roic: 56.0,
+        moatScore: 90.8,
+        pricingPower: 9.6,
+        desc: "High-affinity consumer touchpoints with vertical silicon, proprietary OS, captive digital payments, and sticky luxury margins."
+      }
+    ];
+
+    function renderBusinessCards() {
+      const container = document.getElementById('business-cards-container');
+      container.innerHTML = businessArchetypes.map((b, idx) => `
+        <div class="glass-card rounded-2xl p-5 space-y-3 border-t-2 border-t-indigo-500">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider">${b.category}</span>
+              <h4 class="text-sm font-bold text-white mt-0.5">${b.name}</h4>
+            </div>
+            <span class="px-2 py-0.5 text-xs font-mono font-bold rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Moat: ${b.moatScore}</span>
+          </div>
+          <p class="text-xs text-slate-400 line-clamp-2">${b.desc}</p>
+          <div class="grid grid-cols-3 gap-2 font-mono text-center text-xs py-2 border-y border-slate-800">
+            <div><span class="text-[10px] text-slate-500 block">REV</span>$${b.revenue}B</div>
+            <div><span class="text-[10px] text-slate-500 block">NET MARGIN</span>${b.netMargin}%</div>
+            <div><span class="text-[10px] text-slate-500 block">ROIC</span>${b.roic}%</div>
+          </div>
+          <div class="flex justify-between items-center text-xs pt-1">
+            <span class="text-slate-400">Annual FCF:</span>
+            <span class="font-mono font-bold text-emerald-400">$${b.fcf}B</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // DCF Sandbox Calculation
+    function updateDCFSandbox() {
+      const growth = parseFloat(document.getElementById('slider-growth').value) / 100.0;
+      const wacc = parseFloat(document.getElementById('slider-wacc').value) / 100.0;
+      const termGrowth = parseFloat(document.getElementById('slider-term').value) / 100.0;
+
+      document.getElementById('slider-growth-val').innerText = `${(growth * 100).toFixed(1)}%`;
+      document.getElementById('slider-wacc-val').innerText = `${(wacc * 100).toFixed(1)}%`;
+      document.getElementById('slider-term-val').innerText = `${(termGrowth * 100).toFixed(1)}%`;
+
+      const currFcf = 62.192;
+      let pvFcf = 0.0;
+      let compoundedFcf = currFcf;
+
+      for (let yr = 1; yr <= 5; yr++) {
+        compoundedFcf *= (1.0 + growth);
+        pvFcf += compoundedFcf / Math.pow(1.0 + wacc, yr);
+      }
+
+      const terminalValue = (compoundedFcf * (1.0 + termGrowth)) / Math.max(0.005, wacc - termGrowth);
+      const pvTerminal = terminalValue / Math.pow(1.0 + wacc, 5);
+      const ev = pvFcf + pvTerminal;
+
+      document.getElementById('sandbox-curr-fcf').innerText = `$${currFcf.toFixed(2)} B`;
+      document.getElementById('sandbox-y5-fcf').innerText = `$${compoundedFcf.toFixed(2)} B`;
+      document.getElementById('sandbox-term-val').innerText = `$${terminalValue.toFixed(1)} B`;
+      document.getElementById('sandbox-ev').innerText = `$${ev.toFixed(1)} B`;
+      document.getElementById('sandbox-multiple').innerText = `${(ev / currFcf).toFixed(1)}x`;
+    }
+
+    // Charts Initializer
+    let macroChart, curveChart;
+    function initCharts() {
+      // 1. Capital Allocation Donut Chart
+      const allocCtx = document.getElementById('macroAllocChart').getContext('2d');
+      macroChart = new Chart(allocCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Equities Quant', 'SOFR Repo', 'Bonds', 'EXIM Trade'],
+          datasets: [{
+            data: [35, 25, 22, 18],
+            backgroundColor: ['#6366f1', '#10b981', '#06b6d4', '#f59e0b'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 10 } } }
+          },
+          cutout: '72%'
+        }
+      });
+
+      // 2. Yield Curve Line Chart
+      const curveCtx = document.getElementById('yieldCurveChart').getContext('2d');
+      curveChart = new Chart(curveCtx, {
+        type: 'line',
+        data: {
+          labels: ['3M', '6M', '1Y', '2Y', '3Y', '5Y', '7Y', '10Y', '20Y', '30Y'],
+          datasets: [{
+            label: 'Benchmark Spot Rate (% APY)',
+            data: [3.728, 3.844, 4.042, 4.333, 4.523, 4.727, 4.809, 4.846, 4.837, 4.825],
+            borderColor: '#6366f1',
+            backgroundColor: 'rgba(99, 102, 241, 0.15)',
+            fill: true,
+            tension: 0.35,
+            pointBackgroundColor: '#818cf8',
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { grid: { color: 'rgba(51, 65, 85, 0.3)' }, ticks: { color: '#94a3b8', font: { family: 'JetBrains Mono' } } },
+            y: { grid: { color: 'rgba(51, 65, 85, 0.3)' }, ticks: { color: '#94a3b8', font: { family: 'JetBrains Mono' } } }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    // Nelson-Siegel Formula
+    function nelsonSiegel(m, b0, b1, b2, tau) {
+      if (m <= 0.001) return b0 + b1;
+      const m_tau = m / tau;
+      const f1 = (1.0 - Math.exp(-m_tau)) / m_tau;
+      const f2 = f1 - Math.exp(-m_tau);
+      return b0 + (b1 * f1) + (b2 * f2);
+    }
+
+    function redrawCurve() {
+      const b0 = parseFloat(document.getElementById('ns-b0').value);
+      const b1 = parseFloat(document.getElementById('ns-b1').value);
+      const b2 = parseFloat(document.getElementById('ns-b2').value);
+      const tau = parseFloat(document.getElementById('ns-tau').value);
+
+      const maturities = [0.25, 0.5, 1.0, 2.0, 3.0, 5.0, 7.0, 10.0, 20.0, 30.0];
+      const rates = maturities.map(m => (nelsonSiegel(m, b0, b1, b2, tau) * 100.0).toFixed(3));
+
+      curveChart.data.datasets[0].data = rates;
+      curveChart.update();
+
+      const r2y = nelsonSiegel(2.0, b0, b1, b2, tau);
+      const r10y = nelsonSiegel(10.0, b0, b1, b2, tau);
+      const spreadBps = ((r10y - r2y) * 10000).toFixed(1);
+      const badge = document.getElementById('curve-status-badge');
+
+      if (spreadBps < 0) {
+        badge.innerText = `RECESSION_WARNING (Spread: ${spreadBps} bps)`;
+        badge.className = "text-xs font-mono text-rose-400";
+      } else {
+        badge.innerText = `NORMAL_EXPANSION (Spread: +${spreadBps} bps)`;
+        badge.className = "text-xs font-mono text-emerald-400";
+      }
+    }
+
+    // Cash Sweep Simulator
+    function updateSweepSimulator() {
+      const totalCashM = parseFloat(document.getElementById('sweep-total').value);
+      const bufferM = parseFloat(document.getElementById('sweep-buffer').value);
+      const totalCash = totalCashM * 1000000;
+      const buffer = bufferM * 1000000;
+
+      document.getElementById('sweep-total-val').innerText = `$${totalCash.toLocaleString()}`;
+      document.getElementById('sweep-buffer-val').innerText = `$${buffer.toLocaleString()}`;
+
+      const surplus = Math.max(0, totalCash - buffer);
+      const sofrAmt = surplus * 0.40;
+      const tbillAmt = surplus * 0.35;
+      const cpAmt = surplus * 0.25;
+
+      document.getElementById('sweep-sofr-amt').innerText = `$${sofrAmt.toLocaleString()}`;
+      document.getElementById('sweep-tbill-amt').innerText = `$${tbillAmt.toLocaleString()}`;
+      document.getElementById('sweep-cp-amt').innerText = `$${cpAmt.toLocaleString()}`;
+
+      const income = (buffer * 0.005) + (sofrAmt * 0.053) + (tbillAmt * 0.052) + (cpAmt * 0.0545);
+      const blendedAPY = (income / totalCash) * 100;
+
+      document.getElementById('sweep-total-income').innerText = `$${income.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('sweep-blended-yield').innerText = `BLENDED APY: ${blendedAPY.toFixed(3)}%`;
+    }
+
+    // LC Presentation Simulator
+    function runLCAuditTest() {
+      const preset = document.getElementById('lc-doc-preset').value;
+      const box = document.getElementById('lc-audit-box');
+      const title = document.getElementById('lc-status-title');
+      const desc = document.getElementById('lc-status-desc');
+
+      if (preset === 'compliant') {
+        box.className = "p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-2";
+        title.className = "flex items-center space-x-2 text-xs font-bold text-emerald-400";
+        title.innerText = "CLEAN_COMPLIANT_FOR_PAYMENT";
+        desc.innerText = "All documents strictly conform to ICC UCP 600 Articles 14, 18, 20, and 30. Payment release authorized.";
+      } else if (preset === 'excess_amount') {
+        box.className = "p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 space-y-2";
+        title.className = "flex items-center space-x-2 text-xs font-bold text-rose-400";
+        title.innerText = "DISCREPANT_REJECTED";
+        desc.innerText = "Discrepancy: UCP 600 Art 30 breach. Commercial Invoice amount ($25,000,000) exceeds maximum permissible 5% credit tolerance.";
+      } else if (preset === 'late_shipment') {
+        box.className = "p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 space-y-2";
+        title.className = "flex items-center space-x-2 text-xs font-bold text-rose-400";
+        title.innerText = "DISCREPANT_REJECTED";
+        desc.innerText = "Discrepancy: UCP 600 Art 14 breach. Shipped on board date (2026-12-01) occurs after Latest Shipment Date (2026-11-15).";
+      } else if (preset === 'claused_bol') {
+        box.className = "p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 space-y-2";
+        title.className = "flex items-center space-x-2 text-xs font-bold text-rose-400";
+        title.innerText = "DISCREPANT_REJECTED";
+        desc.innerText = "Discrepancy: UCP 600 Art 20 breach. Bill of Lading is claused with cargo defect annotations. Clean on Board required.";
+      }
+    }
+
+    // Customs Duty Recalculator
+    function recalculateDuties() {
+      const hs = document.getElementById('hs-select').value;
+      const cifUsd = parseFloat(document.getElementById('cif-usd').value) || 0;
+      const fx = parseFloat(document.getElementById('fx-rate').value) || 85.0;
+
+      let bcdRate = 0.0;
+      let swsRate = 0.10;
+      let igstRate = 0.18;
+
+      if (hs === '8703.80.00') {
+        bcdRate = 0.70;
+        swsRate = 0.10;
+        igstRate = 0.28;
+      } else if (hs === '2709.00.00') {
+        bcdRate = 0.025;
+        swsRate = 0.10;
+        igstRate = 0.00;
+      }
+
+      const cifInr = cifUsd * fx;
+      const bcd = cifInr * bcdRate;
+      const sws = bcd * swsRate;
+      const assessable = cifInr + bcd + sws;
+      const igst = assessable * igstRate;
+      const totalDuties = bcd + sws + igst;
+      const totalLanded = cifInr + totalDuties;
+
+      const fmt = (n) => "₹" + Math.round(n).toLocaleString('en-IN');
+      document.getElementById('out-cif-inr').innerText = fmt(cifInr);
+      document.getElementById('out-bcd-inr').innerText = fmt(bcd);
+      document.getElementById('out-sws-inr').innerText = fmt(sws);
+      document.getElementById('out-igst-inr').innerText = fmt(igst);
+      document.getElementById('out-total-landed').innerText = fmt(totalLanded);
+    }
+
+    // Order Simulator
+    function simulateOrder(side) {
+      const p = document.getElementById('order-price').value;
+      const q = document.getElementById('order-qty').value;
+      const log = document.getElementById('order-log');
+      log.innerText = `Matched fill: ${side} ${q} shs @ $${p} (Execution Slippage: 0.8 bps)`;
+      log.className = "text-[11px] font-mono text-emerald-400 truncate";
+    }
+
+    // Macro Cycle Execution Trigger
+    function runNexusMacroCycle() {
+      const stateText = document.getElementById('orchestrator-state-text');
+      stateText.innerText = "EXECUTING_REALTIME_CYCLE...";
+      stateText.className = "text-xs font-mono font-bold text-amber-400 ml-2 animate-pulse";
+
+      setTimeout(() => {
+        stateText.innerText = "SUPREME_GLOBAL_DOMINANCE";
+        stateText.className = "text-xs font-mono font-bold text-emerald-400 ml-2";
+        alert("Macro Operating Cycle executed successfully across Equities, Money Market, Bond Yield Curves, and EXIM trade finance.");
+      }, 700);
+    }
+
+    // Backend Health & Live Sync Probing
+    let isBackendConnected = false;
+    const API_BASE = (window.location.protocol.startsWith('http') ? window.location.origin : 'http://127.0.0.1:8800');
+
+    async function checkBackendConnectivity() {
+      const badge = document.getElementById('api-status-badge');
+      const dot = document.getElementById('api-status-dot');
+      const label = document.getElementById('api-status-label');
+
+      try {
+        const res = await fetch(`${API_BASE}/health`, { method: 'GET' });
+        if (res.ok) {
+          isBackendConnected = true;
+          dot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-pulse";
+          label.innerText = "API CONNECTED (PORT 8800)";
+          badge.className = "flex items-center space-x-2 text-xs font-mono bg-emerald-950/30 border border-emerald-500/40 px-3 py-1.5 rounded-lg";
+          syncWithBackend();
+        } else {
+          throw new Error();
+        }
+      } catch (e) {
+        isBackendConnected = false;
+        dot.className = "w-2 h-2 rounded-full bg-amber-400";
+        label.innerText = "STANDALONE LOCAL MODE";
+        badge.className = "flex items-center space-x-2 text-xs font-mono bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg";
+      }
+    }
+
+    async function syncWithBackend() {
+      if (!isBackendConnected) return;
+      try {
+        const snapRes = await fetch(`${API_BASE}/api/market/snapshot`);
+        if (snapRes.ok) {
+          const snap = await snapRes.json();
+          console.log("Live Market Snapshot Synced:", snap);
+        }
+      } catch(e) {
+        console.warn("Sync failed", e);
+      }
+    }
+
+    function downloadDossier() {
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const dossierContent = `# OMEGA ∞ INSTITUTIONAL MACRO REPORT\nDate: ${new Date().toLocaleString()}\nStatus: SUPREME_GLOBAL_DOMINANCE\nAnnual FCF: $62.19B\n10Y Sovereign Yield: 4.846%\nBasel III LCR: 3,087%\nUCP 600 Trade Status: CLEAN_COMPLIANT\n`;
+      const blob = new Blob([dossierContent], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `OMEGA_MACRO_DOSSIER_${timestamp}.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Initialization on page load
+    
+    // --- DERIVATIVES (Black-Scholes-Merton & Greeks) ---
+    function normCDF(x) {
+      var a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741, a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+      var sign = x < 0 ? -1 : 1;
+      x = Math.abs(x) / Math.sqrt(2.0);
+      var t = 1.0 / (1.0 + p * x);
+      var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+      return 0.5 * (1.0 + sign * y);
+    }
+
+    function normPDF(x) {
+      return Math.exp(-0.5 * x * x) / Math.sqrt(2 * Math.PI);
+    }
+
+    function calculateOptionGreeks() {
+      const S = parseFloat(document.getElementById('bs-spot').value) || 125.0;
+      const K = parseFloat(document.getElementById('bs-strike').value) || 125.0;
+      const T = Math.max(0.001, parseFloat(document.getElementById('bs-maturity').value) || 0.5);
+      const r = (parseFloat(document.getElementById('bs-rate').value) || 4.5) / 100.0;
+      const sigma = Math.max(0.001, (parseFloat(document.getElementById('bs-vol').value) || 25.0) / 100.0);
+      const type = document.getElementById('bs-type').value;
+
+      const sqrtT = Math.sqrt(T);
+      const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * sqrtT);
+      const d2 = d1 - sigma * sqrtT;
+
+      let price, delta, theta;
+      const gamma = normPDF(d1) / (S * sigma * sqrtT);
+      const vega = S * normPDF(d1) * sqrtT / 100.0;
+
+      if (type === 'CALL') {
+        price = S * normCDF(d1) - K * Math.exp(-r * T) * normCDF(d2);
+        delta = normCDF(d1);
+        theta = (-(S * normPDF(d1) * sigma) / (2 * sqrtT) - r * K * Math.exp(-r * T) * normCDF(d2)) / 365.0;
+      } else {
+        price = K * Math.exp(-r * T) * normCDF(-d2) - S * normCDF(-d1);
+        delta = normCDF(d1) - 1.0;
+        theta = (-(S * normPDF(d1) * sigma) / (2 * sqrtT) + r * K * Math.exp(-r * T) * normCDF(-d2)) / 365.0;
+      }
+
+      document.getElementById('bs-out-price').innerText = '$' + price.toFixed(2);
+      document.getElementById('bs-out-delta').innerText = delta.toFixed(3);
+      document.getElementById('bs-out-gamma').innerText = gamma.toFixed(4);
+      document.getElementById('bs-out-vega').innerText = vega.toFixed(3);
+      document.getElementById('bs-out-theta').innerText = theta.toFixed(3);
+    }
+
+    // --- LOGISTICS (Chokepoint Disruption & Demurrage) ---
+    function simulateChokepointDisruption() {
+      const scenario = document.getElementById('chokepoint-scenario').value;
+      const distEl = document.getElementById('cape-dist');
+      const daysEl = document.getElementById('cape-days');
+      const bunkerEl = document.getElementById('bunker-diff');
+      const tollEl = document.getElementById('toll-saved');
+      const deltaEl = document.getElementById('net-voyage-delta');
+
+      if (scenario === 'suez_closed') {
+        distEl.innerText = '14,000 NM';
+        daysEl.innerText = '+8.1 Extra Days';
+        bunkerEl.innerText = '+$226,300';
+        tollEl.innerText = '-$400,000';
+        deltaEl.innerText = '-$173,700 (Toll Savings > Bunker)';
+      } else {
+        distEl.innerText = '10,500 NM (Suez Canal)';
+        daysEl.innerText = '0 Extra Days (Direct)';
+        bunkerEl.innerText = '$0 (Baseline)';
+        tollEl.innerText = '+$400,000 (Tolls Paid)';
+        deltaEl.innerText = '+$400,000 Baseline Transit';
+      }
+    }
+
+    function calculateDemurrageUI() {
+      const teu = parseFloat(document.getElementById('dd-teu').value) || 0;
+      const delay = parseFloat(document.getElementById('dd-delay').value) || 0;
+      const free = parseFloat(document.getElementById('dd-free').value) || 0;
+      const chargeable = Math.max(0, delay - free);
+      const ratePerDay = 175;
+      const totalFee = chargeable * teu * ratePerDay;
+
+      document.getElementById('dd-out-days').innerText = `${chargeable} Days`;
+      document.getElementById('dd-out-fee').innerText = `$${totalFee.toLocaleString()}`;
+      document.getElementById('dd-out-mitigation').innerText = totalFee > 0 ? 'ACTION: Dispatch autonomous clearing expediter' : 'CLEAN: Within free time allowance';
+    }
+
+    // --- STRESS TESTING & MONTE CARLO ---
+    function runStressScenario() {
+      const regime = document.getElementById('stress-regime-select').value;
+      const dollarLoss = document.getElementById('stress-dollar-loss');
+      const pctLoss = document.getElementById('stress-pct-loss');
+      const var99 = document.getElementById('stress-var-99');
+      const statusBadge = document.getElementById('stress-status-badge');
+
+      if (regime === 'GFC_2008') {
+        dollarLoss.innerText = '-$16,064,000';
+        pctLoss.innerText = '-22.31% Balance Sheet';
+        var99.innerText = '$18,473,600';
+        statusBadge.innerText = 'SOLVENT_PRUDENT';
+        statusBadge.className = 'text-xs font-mono font-bold text-emerald-400';
+      } else if (regime === 'STAGFLATION_1970') {
+        dollarLoss.innerText = '-$12,480,000';
+        pctLoss.innerText = '-17.33% Balance Sheet';
+        var99.innerText = '$14,352,000';
+        statusBadge.innerText = 'SOLVENT_RESILIENT';
+        statusBadge.className = 'text-xs font-mono font-bold text-cyan-400';
+      } else if (regime === 'SUPPLY_2020') {
+        dollarLoss.innerText = '-$6,890,000';
+        pctLoss.innerText = '-9.57% Balance Sheet';
+        var99.innerText = '$7,923,500';
+        statusBadge.innerText = 'LOGISTICS_ABSORBED';
+        statusBadge.className = 'text-xs font-mono font-bold text-amber-400';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBusinessCards();
+      initCharts();
+      updateDCFSandbox();
+      recalculateDuties();
+      checkBackendConnectivity();
+      calculateOptionGreeks();
+      calculateDemurrageUI();
+      simulateChokepointDisruption();
+    });
+  </script>
+</body>
+</html>

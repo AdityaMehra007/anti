@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  bigbasket-core:
+    image: python:3.13-slim
+    container_name: bigbasket-engine
+    restart: always
+    environment:
+      - APP_NAME=BigBasket
+      - PROJECT_NAME=Project FarmToCart-AI: Cold-Chain IoT Computer Vision QA, Automated Micro-Warehouse Robotics & Dynamic Spoilage Minimization
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python service_blueprint.py
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: bigbasket-cache
+    ports:
+      - "6379"

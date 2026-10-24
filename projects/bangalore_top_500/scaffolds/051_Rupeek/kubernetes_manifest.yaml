@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rupeek-deployment
+  labels:
+    app: rupeek
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rupeek
+  template:
+    metadata:
+      labels:
+        app: rupeek
+    spec:
+      containers:
+      - name: rupeek-node
+        image: rupeek:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rupeek-service
+spec:
+  type: ClusterIP
+  selector:
+    app: rupeek
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-008",
+  "rank": 8,
+  "company_name": "Postman",
+  "sector": "Enterprise SaaS, Cloud, Infrastructure & DevTools",
+  "corridor": "Indiranagar / Whitefield",
+  "stage": "Unicorn",
+  "valuation": "$5.6B Valuation",
+  "flagship_project": {
+    "name": "Project API-Mesh-OS: Generative AI-Autonomous API Contract Synthesis, Real-Time Distributed Mocking & Self-Healing Gateway",
+    "pillar": "Autonomous API Engineering Ecosystem & Global Edge Contract Verification",
+    "strategic_thesis": "Postman is the universal interface of modern microservices. API-Mesh-OS converts static API collections into self-synthesizing, self-healing runtime meshes that automatically generate production code, live mocking environments, end-to-end chaos test suites, and dynamic security vulnerability audits directly from developer natural language specs.",
+    "tech_stack": "TypeScript / Node.js, Rust (Edge Proxy & Mocking Runtime), Cloudflare Workers (Global Edge Distribution), Postgres with pgvector (Semantic API Index), WebAssembly (Plugin Sandbox), GraphQL / gRPC / AsyncAPI Spec Compilers",
+    "kpis": "Generates 100% compliant multi-language client SDKs in <2 seconds; detects 99.4% of breaking API contract regressions pre-commit; adoption by 30M+ developers."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

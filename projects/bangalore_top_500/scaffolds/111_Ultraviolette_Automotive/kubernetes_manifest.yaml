@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ultraviolette_automotive-deployment
+  labels:
+    app: ultraviolette_automotive
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ultraviolette_automotive
+  template:
+    metadata:
+      labels:
+        app: ultraviolette_automotive
+    spec:
+      containers:
+      - name: ultraviolette_automotive-node
+        image: ultraviolette_automotive:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ultraviolette_automotive-service
+spec:
+  type: ClusterIP
+  selector:
+    app: ultraviolette_automotive
+  ports:
+  - port: 8080
+    targetPort: 8080

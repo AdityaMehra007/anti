@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexa_ai-deployment
+  labels:
+    app: nexa_ai
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nexa_ai
+  template:
+    metadata:
+      labels:
+        app: nexa_ai
+    spec:
+      containers:
+      - name: nexa_ai-node
+        image: nexa_ai:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexa_ai-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nexa_ai
+  ports:
+  - port: 8080
+    targetPort: 8080

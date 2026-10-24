@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slick_app-deployment
+  labels:
+    app: slick_app
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: slick_app
+  template:
+    metadata:
+      labels:
+        app: slick_app
+    spec:
+      containers:
+      - name: slick_app-node
+        image: slick_app:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: slick_app-service
+spec:
+  type: ClusterIP
+  selector:
+    app: slick_app
+  ports:
+  - port: 8080
+    targetPort: 8080

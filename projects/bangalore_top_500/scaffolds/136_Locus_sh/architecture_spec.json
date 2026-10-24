@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-136",
+  "rank": 136,
+  "company_name": "Locus.sh",
+  "sector": "Enterprise SaaS, Cloud, Infrastructure & DevTools",
+  "corridor": "Koramangala",
+  "stage": "Series C",
+  "valuation": "$300M Series C",
+  "flagship_project": {
+    "name": "Project HyperObservability: Locus.sh Enterprise System",
+    "pillar": "Full-Stack Distributed Cloud Observability & Anomaly Diagnosis",
+    "strategic_thesis": "Scales Locus.sh's operations across Koramangala by deploying an enterprise-grade full-stack distributed cloud observability & anomaly diagnosis to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Go, ClickHouse, OpenTelemetry, eBPF, Kafka",
+    "kpis": "Cuts enterprise monitoring TCO by 75%; pinpoints microservice latency regressions in sub-second time"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

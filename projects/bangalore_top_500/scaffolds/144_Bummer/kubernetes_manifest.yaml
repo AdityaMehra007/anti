@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bummer-deployment
+  labels:
+    app: bummer
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bummer
+  template:
+    metadata:
+      labels:
+        app: bummer
+    spec:
+      containers:
+      - name: bummer-node
+        image: bummer:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bummer-service
+spec:
+  type: ClusterIP
+  selector:
+    app: bummer
+  ports:
+  - port: 8080
+    targetPort: 8080

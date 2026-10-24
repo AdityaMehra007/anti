@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexa_health-deployment
+  labels:
+    app: nexa_health
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nexa_health
+  template:
+    metadata:
+      labels:
+        app: nexa_health
+    spec:
+      containers:
+      - name: nexa_health-node
+        image: nexa_health:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexa_health-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nexa_health
+  ports:
+  - port: 8080
+    targetPort: 8080

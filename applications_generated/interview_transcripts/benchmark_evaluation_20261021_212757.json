@@ -1,0 +1,236 @@
+{
+  "candidate": "Aditya Mehra",
+  "timestamp": "20261021_212757",
+  "average_score": 83.6,
+  "verdict": "STRONG HIRE",
+  "evaluations": [
+    {
+      "track_id": "TRACK-01",
+      "track_title": "High-Concurrency Distributed Systems & Reconciliation",
+      "qid": "Q-101",
+      "question": "Tell me about a time you had to design or operate a high-throughput transaction system where duplicate execution or data drift could cause severe financial loss.",
+      "candidate_response": "In ERP and fintech procurement, ledger drift and duplicate payments cost millions. To solve this, I architected ApexFlow, a high-throughput 3-way reconciliation engine (PO vs GRN vs Invoice). I implemented a cryptographic SHA-256 idempotency ledger with SQLite WAL, a 3-state self-healing circuit breaker, and an async saga rollback DAG. Under stress testing, the engine clocked 56,179 records/second with p99 latency under 0.02 milliseconds and 0% duplicate leakage, verified across 15 automated test suites.",
+      "evaluation": {
+        "total_score": 93.8,
+        "rating": "OFFER EXTENDED (L13/L14 TOP TIER)",
+        "dimensions": {
+          "star_structure": {
+            "score": 18.75,
+            "max": 25,
+            "feedback": [
+              "Situation established",
+              "Missing explicit objective/task",
+              "Action described",
+              "Result quantified"
+            ]
+          },
+          "metrics_density": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Excellent quantification (8 metrics cited)"
+          },
+          "keyword_alignment": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Matched 8/8 target technical concepts (apexflow, reconciliation, idempotency, sha-256, 56,179, latency, circuit breaker, saga)"
+          },
+          "conciseness": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Optimal executive length (73 words)"
+          }
+        }
+      }
+    },
+    {
+      "track_id": "TRACK-01",
+      "track_title": "High-Concurrency Distributed Systems & Reconciliation",
+      "qid": "Q-102",
+      "question": "How do you prevent circular event loop deadlocks and thread-safety race conditions in concurrent Python microservices?",
+      "candidate_response": "When scaling concurrent services, binding asyncio.Lock() at import time attaches it to whatever loop was active at import, causing deadlocks when called from distinct loops. I implemented lazy property initialization so locks bind only inside active running coroutines. Furthermore, for in-memory telemetry registries accessed across worker threads, I upgraded non-reentrant threading.Lock to threading.RLock, allowing re-entrant inspection without self-deadlock.",
+      "evaluation": {
+        "total_score": 66.7,
+        "rating": "LEAN HIRE (ADDITIONAL LOOP)",
+        "dimensions": {
+          "star_structure": {
+            "score": 12.5,
+            "max": 25,
+            "feedback": [
+              "Situation established",
+              "Missing explicit objective/task",
+              "Action described",
+              "Missing quantified business or engineering outcome"
+            ]
+          },
+          "metrics_density": {
+            "score": 5.0,
+            "max": 25,
+            "feedback": "Weak quantification: cite specific percentages, throughput numbers, or rupee amounts"
+          },
+          "keyword_alignment": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Matched 6/6 target technical concepts (lock, asyncio, lazy, rlock, thread, deadlock)"
+          },
+          "conciseness": {
+            "score": 24.2,
+            "max": 25,
+            "feedback": "Too brief (58 words) - elaborate on specific engineering or operational steps"
+          }
+        }
+      }
+    },
+    {
+      "track_id": "TRACK-02",
+      "track_title": "Autonomous Agent Runtime & AI Guardrails",
+      "qid": "Q-201",
+      "question": "Autonomous AI agents frequently get stuck in infinite retry loops and burn thousands of dollars in tokens. How did you solve this?",
+      "candidate_response": "Unconstrained agent loops suffer from cyclic hallucination and runaway token spend. I built the ApexAgentic Task Runtime with three deterministic layers: first, a sliding-window Token & Cost Governor with strict millicent budget caps; second, an Epistemic Failed Solution Memory that computes SHA-256 signatures of failed attempts and intercepts repeated dead-ends before calling the LLM; and third, a cryptographically signed Human-In-The-Loop approval gate for destructive tool invocations. This reduced redundant token spend by >50%.",
+      "evaluation": {
+        "total_score": 85.0,
+        "rating": "STRONG HIRE (L12)",
+        "dimensions": {
+          "star_structure": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": [
+              "Situation established",
+              "Task defined",
+              "Action described",
+              "Result quantified"
+            ]
+          },
+          "metrics_density": {
+            "score": 15.0,
+            "max": 25,
+            "feedback": "Moderate quantification (2 metrics cited; add more hard figures)"
+          },
+          "keyword_alignment": {
+            "score": 20.0,
+            "max": 25,
+            "feedback": "Matched 4/6 target technical concepts (apexagentic, failed solution memory, sha-256, cost)"
+          },
+          "conciseness": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Optimal executive length (73 words)"
+          }
+        }
+      }
+    },
+    {
+      "track_id": "TRACK-03",
+      "track_title": "Quantitative Markets & EXIM Trade Compliance",
+      "qid": "Q-301",
+      "question": "How do you bridge international trade regulations, customs landed costs, and quantitative financial modeling?",
+      "candidate_response": "Through formal International Business training and building the Omega Global Markets Nexus. On the quantitative side, I implemented Nelson-Siegel 4-parameter sovereign yield curve fitting and continuous limit order books. On the trade side, I automated UCP 600 Letter of Credit discrepancy audits and built an ICEGATE customs landed-cost calculator applying Basic Customs Duty (BCD), Social Welfare Surcharge (SWS), and IGST with anti-dumping validation. The system guarantees zero document discrepancy leakage before cargo departure.",
+      "evaluation": {
+        "total_score": 83.8,
+        "rating": "STRONG HIRE (L12)",
+        "dimensions": {
+          "star_structure": {
+            "score": 18.75,
+            "max": 25,
+            "feedback": [
+              "Situation established",
+              "Missing explicit objective/task",
+              "Action described",
+              "Result quantified"
+            ]
+          },
+          "metrics_density": {
+            "score": 15.0,
+            "max": 25,
+            "feedback": "Moderate quantification (2 metrics cited; add more hard figures)"
+          },
+          "keyword_alignment": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Matched 6/7 target technical concepts (omega, ucp 600, nelson-siegel, icegate, customs, letter of credit)"
+          },
+          "conciseness": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Optimal executive length (73 words)"
+          }
+        }
+      }
+    },
+    {
+      "track_id": "TRACK-04",
+      "track_title": "Mission-Critical Frontline Operations & Crowd Governance",
+      "qid": "Q-401",
+      "question": "Describe a crisis situation where you faced extreme crowd pressure, security constraints, and zero margin for error.",
+      "candidate_response": "At Aero India 2025 at Yelahanka Air Force Station, I directed commercial pavilion operations with 100,000+ visitors under strict military security protocols. With thousands of attendees arriving daily, any credential slip or crowd bottleneck would trigger military intervention. I established a 24-hour advance badge triage system, scheduled automated batch replenishment to eliminate stockouts, and managed our team to achieve 100% on-time morning opening daily, zero security breaches, and 0.0% inventory shrinkage across 7 days.",
+      "evaluation": {
+        "total_score": 93.8,
+        "rating": "OFFER EXTENDED (L13/L14 TOP TIER)",
+        "dimensions": {
+          "star_structure": {
+            "score": 18.75,
+            "max": 25,
+            "feedback": [
+              "Situation established",
+              "Missing explicit objective/task",
+              "Action described",
+              "Result quantified"
+            ]
+          },
+          "metrics_density": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Excellent quantification (6 metrics cited)"
+          },
+          "keyword_alignment": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Matched 6/6 target technical concepts (aero india, 100,000, security, shrinkage, opening, badge)"
+          },
+          "conciseness": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Optimal executive length (74 words)"
+          }
+        }
+      }
+    },
+    {
+      "track_id": "TRACK-05",
+      "track_title": "Strategic Procurement, Vendor Governance & B2B Commercials",
+      "qid": "Q-501",
+      "question": "Walk me through how you negotiated with suppliers to drive hard-dollar savings without damaging vendor relationships.",
+      "candidate_response": "Third-party event and staging aggregators routinely mark up fabrication, sound, and lighting quotes by 20-30%. Over 300+ project deployments, I audited our supply chain, bypassed broker middlemen, and established direct relationships with primary fabricators and equipment yards. By offering guaranteed volume multi-deployment commitments and structured milestone payments, I negotiated locked-in rate cards that yielded a recurring 15% net cost reduction with 100% on-time delivery across all operations.",
+      "evaluation": {
+        "total_score": 78.8,
+        "rating": "STRONG HIRE (L12)",
+        "dimensions": {
+          "star_structure": {
+            "score": 18.75,
+            "max": 25,
+            "feedback": [
+              "Situation established",
+              "Missing explicit objective/task",
+              "Action described",
+              "Result quantified"
+            ]
+          },
+          "metrics_density": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Excellent quantification (4 metrics cited)"
+          },
+          "keyword_alignment": {
+            "score": 10.0,
+            "max": 25,
+            "feedback": "Matched 2/6 target technical concepts (15%, rate card)"
+          },
+          "conciseness": {
+            "score": 25.0,
+            "max": 25,
+            "feedback": "Optimal executive length (67 words)"
+          }
+        }
+      }
+    }
+  ]
+}

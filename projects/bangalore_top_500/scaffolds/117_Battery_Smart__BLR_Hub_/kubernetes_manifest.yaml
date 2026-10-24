@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: battery_smart__blr_hub_-deployment
+  labels:
+    app: battery_smart__blr_hub_
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: battery_smart__blr_hub_
+  template:
+    metadata:
+      labels:
+        app: battery_smart__blr_hub_
+    spec:
+      containers:
+      - name: battery_smart__blr_hub_-node
+        image: battery_smart__blr_hub_:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: battery_smart__blr_hub_-service
+spec:
+  type: ClusterIP
+  selector:
+    app: battery_smart__blr_hub_
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boeing India Engineering & Technology Center — Executive Turnkey Engagement Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --surface: #0e131f;
+      --surface-elevated: #151d30;
+      --border: #1f2b47;
+      --primary: #10b981;
+      --cyan: #06b6d4;
+      --accent: #6366f1;
+      --amber: #f59e0b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .deck-header {
+      background: rgba(14, 19, 31, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+    }
+
+    .deck-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .deck-badge {
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .slide-progress {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    /* Slide Deck Layout */
+    .slide-container {
+      flex: 1;
+      max-width: 1200px;
+      margin: 2rem auto;
+      width: 100%;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      min-height: 540px;
+      position: relative;
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .slide-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .slide-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 900px;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .hero-stat-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-stat-val {
+      font-family: var(--mono);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* Controls Bar */
+    .deck-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      padding: 0 0.5rem;
+    }
+
+    .btn {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--border);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+      border-color: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="deck-header">
+    <div class="deck-brand">
+      <span class="deck-badge">CONFIDENTIAL BRIEF</span>
+      <div>
+        <strong style="font-size: 0.95rem;">Boeing India Engineering & Technology Center</strong>
+        <span style="font-size: 0.8rem; color: var(--muted); margin-left: 0.5rem;">Aerospace SEZ, Devanahalli</span>
+      </div>
+    </div>
+    <div class="slide-progress" id="slideIndicator">Slide 1 / 5</div>
+  </header>
+
+  <div class="slide-container">
+    <!-- Slide 1: The Friction & Opportunity -->
+    <div class="slide active" id="slide-1">
+      <div>
+        <div class="slide-tag">EXECUTIVE CONTEXT & FORMULATION</div>
+        <h2 class="slide-title">Eradicating Operational Drag & Capital Leakage at Boeing India Engineering & Technology Center</h2>
+        <p class="slide-desc">
+          Bengaluru technology leadership faces silent efficiency drains in high-scale distributed environments. 
+          Forensic analysis identifies key friction:
+        </p>
+        <blockquote style="margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--surface-elevated); border-left: 4px solid var(--amber); border-radius: 8px; font-size: 1rem; color: #f1f5f9;">
+          "Phantom billing across vendor pods, ghost sprint hours, and uncredited vendor SLA breaches"
+        </blockquote>
+      </div>
+      <div class="hero-stat-grid">
+        <div class="hero-stat-card">
+          <div class="hero-stat-label">Estimated Annual Exposure</div>
+          <div class="hero-stat-val" style="color: var(--amber);">₹28,000,000</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-label">Discretionary Pilot Entry</div>
+          <div class="hero-stat-val">₹480,000</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-label">Procurement Bypass Rail</div>
+          <div class="hero-stat-val" style="font-size: 1.15rem; color: var(--cyan);">Contingency Shared-Savings (25%)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: The Specialized Solution Vector -->
+    <div class="slide" id="slide-2">
+      <div>
+        <div class="slide-tag">STRATEGIC INTERVENTION</div>
+        <h2 class="slide-title">GCC Vendor SLA & SOW Leakage Audit & Recovery</h2>
+        <p class="slide-desc">
+          A bespoke, zero-disruption diagnostic harness deployed directly against Avionics Software, Digital Aviation & Supply Logistics infrastructure. 
+          Rather than speculative re-architecting, the system enforces mathematical invariants to verify performance and eliminate drift.
+        </p>
+        <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div style="background: var(--surface-elevated); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border);">
+            <strong style="color: var(--cyan); display: block; margin-bottom: 0.5rem;">Before Intervention</strong>
+            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">
+              Manual ticket reconciliation, delayed vendor SLA claimbacks, unmonitored token burn, and multi-week approval cycles.
+            </p>
+          </div>
+          <div style="background: var(--surface-elevated); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--primary);">
+            <strong style="color: var(--primary); display: block; margin-bottom: 0.5rem;">After 14-Day Pilot</strong>
+            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6;">
+              Automated deterministic verification, sub-millisecond anomaly detection, verified vendor credits, and guaranteed SLA compliance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: The 14-Day Zero-Risk Execution Blueprint -->
+    <div class="slide" id="slide-3">
+      <div>
+        <div class="slide-tag">EXECUTION ROADMAP</div>
+        <h2 class="slide-title">14-Day Rapid Proof of Concept Schedule</h2>
+        <p class="slide-desc">
+          Zero friction, zero disruption to existing roadmaps. Completely self-contained under departmental discretionary spend.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem;">
+          <div style="background: var(--surface-elevated); padding: 1.25rem; border-radius: 8px;">
+            <span style="font-family: var(--mono); color: var(--cyan); font-weight: 700;">DAYS 1 - 3</span>
+            <h4 style="font-size: 0.95rem; margin: 0.5rem 0;">Baseline Forensic Audit</h4>
+            <p style="font-size: 0.78rem; color: var(--muted);">Inspect log schemas, baseline latency & identify exact leakage origin.</p>
+          </div>
+          <div style="background: var(--surface-elevated); padding: 1.25rem; border-radius: 8px;">
+            <span style="font-family: var(--mono); color: var(--primary); font-weight: 700;">DAYS 4 - 8</span>
+            <h4 style="font-size: 0.95rem; margin: 0.5rem 0;">Harness Deployment</h4>
+            <p style="font-size: 0.78rem; color: var(--muted);">Deploy shadow audit harness running parallel to production traffic.</p>
+          </div>
+          <div style="background: var(--surface-elevated); padding: 1.25rem; border-radius: 8px;">
+            <span style="font-family: var(--mono); color: var(--amber); font-weight: 700;">DAYS 9 - 12</span>
+            <h4 style="font-size: 0.95rem; margin: 0.5rem 0;">Chaos & Load Stress</h4>
+            <p style="font-size: 0.78rem; color: var(--muted);">Simulate edge spikes and verify automated anomaly interception.</p>
+          </div>
+          <div style="background: var(--surface-elevated); padding: 1.25rem; border-radius: 8px;">
+            <span style="font-family: var(--mono); color: var(--accent); font-weight: 700;">DAYS 13 - 14</span>
+            <h4 style="font-size: 0.95rem; margin: 0.5rem 0;">Executive Readout</h4>
+            <p style="font-size: 0.78rem; color: var(--muted);">Present verified savings scorecard & transition to annual SLA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Commercial Terms & Frictionless Onboarding -->
+    <div class="slide" id="slide-4">
+      <div>
+        <div class="slide-tag">COMMERCIAL ARCHITECTURE</div>
+        <h2 class="slide-title">Sub-Threshold Procurement Architecture</h2>
+        <p class="slide-desc">
+          Structured intentionally beneath standard corporate committee limits (&lt; INR 5,00,000) for same-day departmental PO authorization.
+        </p>
+        <div class="hero-stat-grid" style="margin-top: 2rem;">
+          <div class="hero-stat-card">
+            <div class="hero-stat-label">Fixed Pilot Fee</div>
+            <div class="hero-stat-val">₹480,000</div>
+            <div style="font-size: 0.75rem; color: var(--primary); margin-top: 0.35rem;">Discretionary Departmental PO</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-label">Target Annual Retainer</div>
+            <div class="hero-stat-val">₹7,500,000</div>
+            <div style="font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem;">Post-POC Milestone Retainer</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-label">Decision Maker & Pathway</div>
+            <div style="font-size: 0.9rem; font-weight: 700; color: #fff; margin-top: 0.35rem;">Kavita Lahoti (Software QA Developer)</div>
+            <div style="font-size: 0.75rem; color: var(--cyan); margin-top: 0.2rem;">4 1st-degree connection(s)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Statement of Work & Commissioning -->
+    <div class="slide" id="slide-5">
+      <div>
+        <div class="slide-tag">READY FOR EXECUTION</div>
+        <h2 class="slide-title">Statement of Work (SOW) Commission Docket</h2>
+        <p class="slide-desc">
+          A turnkey Statement of Work has already been generated and staged in the project repository.
+        </p>
+        <div style="background: var(--surface-elevated); padding: 1.5rem; border-radius: 10px; margin-top: 1.5rem; border: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <strong style="color: #fff; font-size: 1.05rem;">SOW_Boeing_India_Engineering_Technology_Center.md</strong>
+              <div style="font-size: 0.8rem; color: var(--muted); font-family: var(--mono); margin-top: 0.2rem;">Location: docs/contracts_and_sows/SOW_Boeing_India_Engineering_Technology_Center.md</div>
+            </div>
+            <button class="btn btn-primary" onclick="alert('Docket verified on disk: docs/contracts_and_sows/SOW_Boeing_India_Engineering_Technology_Center.md')">✅ Verified Docket</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deck-controls" style="max-width: 1200px; margin: 0 auto 2.5rem; width: 100%; padding: 0 1.5rem;">
+    <button class="btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+    <div style="display: flex; gap: 0.75rem;">
+      <button class="btn" onclick="window.close()">Exit Deck</button>
+      <button class="btn btn-primary" id="nextBtn" onclick="changeSlide(1)">Next Slide →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 5;
+
+    function changeSlide(direction) {
+      const newSlide = currentSlide + direction;
+      if (newSlide < 1 || newSlide > totalSlides) return;
+
+      document.getElementById(`slide-${currentSlide}`).classList.remove('active');
+      document.getElementById(`slide-${newSlide}`).classList.add('active');
+      currentSlide = newSlide;
+
+      document.getElementById('slideIndicator').textContent = `Slide ${currentSlide} / ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = (currentSlide === 1);
+      document.getElementById('nextBtn').textContent = (currentSlide === totalSlides) ? 'Finish Brief' : 'Next Slide →';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') changeSlide(1);
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+    });
+  </script>
+</body>
+</html>

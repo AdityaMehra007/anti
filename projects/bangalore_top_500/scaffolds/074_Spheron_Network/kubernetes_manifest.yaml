@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spheron_network-deployment
+  labels:
+    app: spheron_network
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spheron_network
+  template:
+    metadata:
+      labels:
+        app: spheron_network
+    spec:
+      containers:
+      - name: spheron_network-node
+        image: spheron_network:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spheron_network-service
+spec:
+  type: ClusterIP
+  selector:
+    app: spheron_network
+  ports:
+  - port: 8080
+    targetPort: 8080

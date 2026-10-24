@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyber_fintech-deployment
+  labels:
+    app: cyber_fintech
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cyber_fintech
+  template:
+    metadata:
+      labels:
+        app: cyber_fintech
+    spec:
+      containers:
+      - name: cyber_fintech-node
+        image: cyber_fintech:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cyber_fintech-service
+spec:
+  type: ClusterIP
+  selector:
+    app: cyber_fintech
+  ports:
+  - port: 8080
+    targetPort: 8080

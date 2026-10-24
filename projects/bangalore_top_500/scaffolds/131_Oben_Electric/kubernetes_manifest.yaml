@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oben_electric-deployment
+  labels:
+    app: oben_electric
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: oben_electric
+  template:
+    metadata:
+      labels:
+        app: oben_electric
+    spec:
+      containers:
+      - name: oben_electric-node
+        image: oben_electric:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: oben_electric-service
+spec:
+  type: ClusterIP
+  selector:
+    app: oben_electric
+  ports:
+  - port: 8080
+    targetPort: 8080

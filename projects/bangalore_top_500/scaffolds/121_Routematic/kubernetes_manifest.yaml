@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: routematic-deployment
+  labels:
+    app: routematic
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: routematic
+  template:
+    metadata:
+      labels:
+        app: routematic
+    spec:
+      containers:
+      - name: routematic-node
+        image: routematic:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: routematic-service
+spec:
+  type: ClusterIP
+  selector:
+    app: routematic
+  ports:
+  - port: 8080
+    targetPort: 8080

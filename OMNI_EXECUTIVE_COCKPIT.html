@@ -116,49 +116,59 @@
 
     <!-- Subsystem Cockpit Switcher Navigation -->
     <nav class="glass border-b border-slate-800 px-6 overflow-x-auto flex space-x-2 text-xs font-semibold py-2">
-        <button onclick="switchCockpit('universal')" id="btn-universal" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 flex items-center gap-2 transition active-tab">
+        <button onclick="switchCockpit('supreme')" id="btn-supreme" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 flex items-center gap-2 transition active-tab">
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Supreme Sovereign Command
+        </button>
+        <button onclick="switchCockpit('blr500')" id="btn-blr500" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            Bangalore Top 500 Startups
+        </button>
+        <button onclick="switchCockpit('deals')" id="btn-deals" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            546-Account Deal Machine
+        </button>
+        <button onclick="switchCockpit('universal')" id="btn-universal" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
             Universal Job & Skill Cockpit
         </button>
         <button onclick="switchCockpit('apex')" id="btn-apex" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
             <span class="w-2 h-2 rounded-full bg-purple-400"></span>
             APEX 7-Agent Career OS
         </button>
-        <button onclick="switchCockpit('universe')" id="btn-universe" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
-            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-            Global Opportunity Universe (16,553 Jobs)
-        </button>
         <button onclick="switchCockpit('fortune500')" id="btn-fortune500" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
-            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
             Fortune 500 Project Factory
         </button>
-        <button onclick="switchCockpit('bangalore')" id="btn-bangalore" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
-            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-            Bangalore 500 Deal Machine
+        <button onclick="switchCockpit('prompts')" id="btn-prompts" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+            prompts.chat Studio (2,627 Prompts)
         </button>
-        <button onclick="switchCockpit('portfolio')" id="btn-portfolio" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
-            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-            Operational Portfolio Showcase
+        <button onclick="switchCockpit('coolify')" id="btn-coolify" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-fuchsia-400"></span>
+            Coolify Cloud PaaS (352 Services)
         </button>
     </nav>
 
     <!-- Embedded High-Performance Cockpit Frame Container -->
     <main class="flex-1 flex flex-col relative w-full h-[calc(100vh-160px)]">
-        <iframe id="cockpit-viewport" src="universal_job_cockpit.html" class="w-full flex-1 border-0 bg-darkbg"></iframe>
+        <iframe id="cockpit-viewport" src="omega_supreme_command_center.html" class="w-full flex-1 border-0 bg-darkbg"></iframe>
     </main>
 
     <!-- Script Logic -->
     <script>
         const COCKPIT_URLS = {
+            supreme: { url: "omega_supreme_command_center.html", title: "OMEGA Supreme Sovereign Command Center" },
+            blr500: { url: "bangalore_top_500_cockpit.html", title: "Bangalore Top 500 Startups & 10k TPS Simulator" },
+            deals: { url: "bangalore_enterprise_deal_cockpit.html", title: "Bangalore Enterprise Commercial Deal Cockpit (546 Accounts)" },
             universal: { url: "universal_job_cockpit.html", title: "Universal Job & Skill Intelligence Cockpit" },
             apex: { url: "apex_career_cockpit.html", title: "APEX Career Supremacy OS" },
-            universe: { url: "master_job_universe_dashboard.html", title: "Global Opportunity Universe (16,553 Jobs)" },
             fortune500: { url: "fortune_500_cockpit.html", title: "Fortune 500 Project Factory" },
-            bangalore: { url: "bangalore_enterprise_deal_cockpit.html", title: "Bangalore Top 500 Enterprise Deals" },
-            portfolio: { url: "portfolio/apex_operations_showcase.html", title: "Operational Portfolio Showcase" }
+            prompts: { url: "prompts_chat_cockpit.html", title: "prompts.chat Studio & Prompt Intelligence (2,627 Prompts)" },
+            coolify: { url: "coolify_control_cockpit.html", title: "Coolify v4 Autonomous Infrastructure & PaaS Cockpit (352 Services)" }
         };
 
-        let currentActiveKey = "universal";
+        let currentActiveKey = "supreme";
 
         function switchCockpit(key) {
             currentActiveKey = key;

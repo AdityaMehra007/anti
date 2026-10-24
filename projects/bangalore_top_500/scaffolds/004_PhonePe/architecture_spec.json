@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-004",
+  "rank": 4,
+  "company_name": "PhonePe",
+  "sector": "FinTech, Payments & Digital Banking",
+  "corridor": "Bellandur / ORR",
+  "stage": "Decacorn",
+  "valuation": "$12.0B Valuation",
+  "flagship_project": {
+    "name": "Project OmniLedger-100K: Sub-Microsecond High-Throughput UPI Auto-Reversal & Real-Time Graph Fraud Detection Engine",
+    "pillar": "Ultra-High Concurrency FinTech Core & Real-Time Graph Fraud Defense",
+    "strategic_thesis": "PhonePe handles over 48% of India's UPI volume (~200M daily transactions). OmniLedger-100K scales transaction throughput to 100,000 TPS with automated sub-second dual-entry reconciliation, instant bank-failure reversals, and real-time graph neural network fraud blocking under 3ms.",
+    "tech_stack": "Rust (Consensus Core), Neo4j / TigerGraph (Real-time Graph Fraud Mesh), Redis Enterprise Clustered (In-memory Balance Store), Cassandra / ScyllaDB, Envoy Service Mesh, Kafka Streams",
+    "kpis": "Zero reconciliation lags; 0.0001% fraud dispute rate on 6.5B monthly transactions; 99.999% uptime during Diwali shopping spikes."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 5.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

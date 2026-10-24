@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: river_mobility-deployment
+  labels:
+    app: river_mobility
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: river_mobility
+  template:
+    metadata:
+      labels:
+        app: river_mobility
+    spec:
+      containers:
+      - name: river_mobility-node
+        image: river_mobility:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: river_mobility-service
+spec:
+  type: ClusterIP
+  selector:
+    app: river_mobility
+  ports:
+  - port: 8080
+    targetPort: 8080

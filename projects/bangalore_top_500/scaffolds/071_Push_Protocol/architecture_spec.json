@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-071",
+  "rank": 71,
+  "company_name": "Push Protocol",
+  "sector": "Cybersecurity, Compliance & Web3 Ecosystem",
+  "corridor": "Indiranagar",
+  "stage": "Series A",
+  "valuation": "$40M Valuation",
+  "flagship_project": {
+    "name": "Project ZeroTrust-Core: Push Protocol Enterprise System",
+    "pillar": "Enterprise Zero-Trust Security & Distributed Access Control",
+    "strategic_thesis": "Scales Push Protocol's operations across Indiranagar by deploying an enterprise-grade enterprise zero-trust security & distributed access control to eliminate systemic latency, optimize margins, and achieve dominant competitive advantage.",
+    "tech_stack": "Rust, eBPF, Envoy Proxy, WireGuard, Redis",
+    "kpis": "Enforces sub-millisecond cryptographic packet inspection and dynamic least-privilege authorization"
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

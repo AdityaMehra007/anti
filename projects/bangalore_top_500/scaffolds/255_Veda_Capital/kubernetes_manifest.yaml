@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veda_capital-deployment
+  labels:
+    app: veda_capital
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: veda_capital
+  template:
+    metadata:
+      labels:
+        app: veda_capital
+    spec:
+      containers:
+      - name: veda_capital-node
+        image: veda_capital:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: veda_capital-service
+spec:
+  type: ClusterIP
+  selector:
+    app: veda_capital
+  ports:
+  - port: 8080
+    targetPort: 8080

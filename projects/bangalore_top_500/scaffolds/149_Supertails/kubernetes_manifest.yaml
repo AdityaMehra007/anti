@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: supertails-deployment
+  labels:
+    app: supertails
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: supertails
+  template:
+    metadata:
+      labels:
+        app: supertails
+    spec:
+      containers:
+      - name: supertails-node
+        image: supertails:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: supertails-service
+spec:
+  type: ClusterIP
+  selector:
+    app: supertails
+  ports:
+  - port: 8080
+    targetPort: 8080

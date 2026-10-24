@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veda_energy-deployment
+  labels:
+    app: veda_energy
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: veda_energy
+  template:
+    metadata:
+      labels:
+        app: veda_energy
+    spec:
+      containers:
+      - name: veda_energy-node
+        image: veda_energy:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: veda_energy-service
+spec:
+  type: ClusterIP
+  selector:
+    app: veda_energy
+  ports:
+  - port: 8080
+    targetPort: 8080

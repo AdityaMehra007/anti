@@ -1,0 +1,22 @@
+{
+  "startup_id": "BLR-STARTUP-030",
+  "rank": 30,
+  "company_name": "Pixxel Space",
+  "sector": "DeepTech, Generative AI, Robotics & SpaceTech",
+  "corridor": "HSR Layout",
+  "stage": "Soonicorn",
+  "valuation": "$150M Series B",
+  "flagship_project": {
+    "name": "Project Aurora-HyperScale: Real-Time Orbital Edge Hyperspectral Imagery Ingestion & Planetary Anomaly Alerting Mesh",
+    "pillar": "Orbital Edge Computing & Hyperspectral Remote Sensing Analytics",
+    "strategic_thesis": "Downlinking raw hyperspectral satellite data across 300+ spectral bands creates massive bandwidth bottlenecks. Aurora-HyperScale deploys radiation-hardened edge AI on satellites to process, compress, and detect methane leaks, crop pestilence, and pipeline breaches in orbit, beaming down actionable alerts within minutes instead of days.",
+    "tech_stack": "C / C++ (Radiation-Tolerant Satellite Flight Software), Rust (Downlink Processing Pipeline), Python / PyTorch (Spectral Signature Classification), Apache Arrow, Zarr (Multidimensional Scientific Imagery Store), AWS Ground Station",
+    "kpis": "90% reduction in satellite downlink bandwidth requirements; detects global methane leaks in under 15 minutes; sub-5-meter spectral resolution for precision agriculture."
+  },
+  "sla_invariants": {
+    "max_p99_latency_ms": 15.0,
+    "availability_sla": "99.999%",
+    "concurrency_target_tps": 50000,
+    "fault_tolerance_model": "Raft / Multi-Active Cross-AZ"
+  }
+}

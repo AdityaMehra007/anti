@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apex_security-deployment
+  labels:
+    app: apex_security
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apex_security
+  template:
+    metadata:
+      labels:
+        app: apex_security
+    spec:
+      containers:
+      - name: apex_security-node
+        image: apex_security:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apex_security-service
+spec:
+  type: ClusterIP
+  selector:
+    app: apex_security
+  ports:
+  - port: 8080
+    targetPort: 8080

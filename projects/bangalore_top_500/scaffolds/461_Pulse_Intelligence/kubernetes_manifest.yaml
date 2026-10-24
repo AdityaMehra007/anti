@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pulse_intelligence-deployment
+  labels:
+    app: pulse_intelligence
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pulse_intelligence
+  template:
+    metadata:
+      labels:
+        app: pulse_intelligence
+    spec:
+      containers:
+      - name: pulse_intelligence-node
+        image: pulse_intelligence:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pulse_intelligence-service
+spec:
+  type: ClusterIP
+  selector:
+    app: pulse_intelligence
+  ports:
+  - port: 8080
+    targetPort: 8080

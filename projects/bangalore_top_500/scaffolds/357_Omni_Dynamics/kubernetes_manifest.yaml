@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: omni_dynamics-deployment
+  labels:
+    app: omni_dynamics
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: omni_dynamics
+  template:
+    metadata:
+      labels:
+        app: omni_dynamics
+    spec:
+      containers:
+      - name: omni_dynamics-node
+        image: omni_dynamics:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: omni_dynamics-service
+spec:
+  type: ClusterIP
+  selector:
+    app: omni_dynamics
+  ports:
+  - port: 8080
+    targetPort: 8080
