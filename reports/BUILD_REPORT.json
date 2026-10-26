@@ -1,6 +1,6 @@
 {
-  "build_id": "BUILD-1791548785",
-  "timestamp": "2026-10-09T12:26:25.971192+00:00",
+  "build_id": "BUILD-1793046138",
+  "timestamp": "2026-10-26T20:22:18.326583+00:00",
   "platform": {
     "os": "win32",
     "python": "3.13.15",
@@ -9,7 +9,7 @@
   "pillars": {
     "syntax": {
       "status": "PASS",
-      "compiled_files": 227,
+      "compiled_files": 300,
       "error_count": 0,
       "errors": []
     },
@@ -87,7 +87,7 @@
         "AIOS Gateway": {
           "host": "127.0.0.1",
           "port": 8090,
-          "online": true
+          "online": false
         },
         "Ollama GPU": {
           "host": "127.0.0.1",
@@ -97,7 +97,7 @@
         "Command UI": {
           "host": "127.0.0.1",
           "port": 3000,
-          "online": true
+          "online": false
         }
       }
     },
@@ -107,41 +107,69 @@
         "AIOS Full Stack Regression (38 Tests)": {
           "passed": true,
           "returncode": 0,
-          "duration_sec": 36.2,
-          "stdout_tail": "6:43] [SCHEDULER] Evaluating Automated Target 300 Queue Dispatch...\n    [OK] Dispatch cycle advanced 0 targets. success\n[2026-10-09 17:56:43] [SCHEDULER] Running Ledger Audit & Provenance Verification...\n    [OK] Provenance and audit ledger verified.\n[2026-10-09 17:56:44] [SCHEDULER] Running Universal Auto-Apply Job Pipeline (Every Minute)...\n    [OK] Auto-apply pipeline processed 0 applications.\n",
-          "stderr_tail": "......................................\n----------------------------------------------------------------------\nRan 38 tests in 35.801s\n\nOK\n"
+          "duration_sec": 51.96,
+          "stdout_tail": "2:48] [SCHEDULER] Evaluating Automated Target 300 Queue Dispatch...\n    [OK] Dispatch cycle advanced 0 targets. success\n[2026-10-27 01:52:48] [SCHEDULER] Running Ledger Audit & Provenance Verification...\n    [OK] Provenance and audit ledger verified.\n[2026-10-27 01:52:48] [SCHEDULER] Running Universal Auto-Apply Job Pipeline (Every Minute)...\n    [OK] Auto-apply pipeline processed 0 applications.\n",
+          "stderr_tail": "................127.0.0.1 - - [27/Oct/2026 01:53:03] \"GET / HTTP/1.1\" 200 -\n......................\n----------------------------------------------------------------------\nRan 38 tests in 51.447s\n\nOK\n"
         },
         "VECTIS Trade Compliance Engine (9 Tests)": {
           "passed": true,
           "returncode": 0,
-          "duration_sec": 1.04,
-          "stdout_tail": "_vectis_end_to_end.py::test_swift_mt700_parsing PASSED       [ 66%]\ncompany/test_vectis_end_to_end.py::test_swift_to_compliance_audit_pipeline PASSED [ 77%]\ncompany/test_vectis_end_to_end.py::test_cbam_emissions_calculation PASSED [ 88%]\ncompany/test_vectis_end_to_end.py::test_outreach_queue_file_exists PASSED [100%]\n\n============================== 9 passed in 0.29s ==============================\n",
+          "duration_sec": 1.89,
+          "stdout_tail": "_vectis_end_to_end.py::test_swift_mt700_parsing PASSED       [ 66%]\ncompany/test_vectis_end_to_end.py::test_swift_to_compliance_audit_pipeline PASSED [ 77%]\ncompany/test_vectis_end_to_end.py::test_cbam_emissions_calculation PASSED [ 88%]\ncompany/test_vectis_end_to_end.py::test_outreach_queue_file_exists PASSED [100%]\n\n============================== 9 passed in 0.58s ==============================\n",
           "stderr_tail": ""
         },
         "Sovereign Continuum & Universal Job (10 Tests)": {
           "passed": true,
           "returncode": 0,
-          "duration_sec": 1.84,
-          "stdout_tail": "ints PASSED [ 70%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_omni_era_job_initialization PASSED [ 80%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_master_prompt_integrity PASSED [ 90%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_execute_omni_job PASSED [100%]\n\n============================= 10 passed in 0.92s ==============================\n",
+          "duration_sec": 2.68,
+          "stdout_tail": "ints PASSED [ 70%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_omni_era_job_initialization PASSED [ 80%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_master_prompt_integrity PASSED [ 90%]\nsovereign_continuum/tests/test_omni_era_universal_job.py::test_execute_omni_job PASSED [100%]\n\n============================= 10 passed in 1.31s ==============================\n",
           "stderr_tail": ""
         },
         "OMEGA OS Core Engine (14 Tests)": {
           "passed": true,
           "returncode": 0,
-          "duration_sec": 4.97,
-          "stdout_tail": "peline PASSED [ 78%]\nomega/tests/test_omega_os.py::TestOmegaAgentSwarm::test_02_ats_agent_bullet_generation PASSED [ 85%]\nomega/tests/test_omega_os.py::TestOmegaAgentSwarm::test_03_outreach_agent_cadence PASSED [ 92%]\nomega/tests/test_omega_os.py::TestOmegaDaemonVerifier::test_01_verify_daemons_and_logs PASSED [100%]\n\n============================= 14 passed in 3.82s ==============================\n",
+          "duration_sec": 14.19,
+          "stdout_tail": "peline PASSED [ 78%]\nomega/tests/test_omega_os.py::TestOmegaAgentSwarm::test_02_ats_agent_bullet_generation PASSED [ 85%]\nomega/tests/test_omega_os.py::TestOmegaAgentSwarm::test_03_outreach_agent_cadence PASSED [ 92%]\nomega/tests/test_omega_os.py::TestOmegaDaemonVerifier::test_01_verify_daemons_and_logs PASSED [100%]\n\n============================= 14 passed in 12.75s =============================\n",
           "stderr_tail": ""
         },
         "OMNIVERSE INFINITY Comprehensive Suite (25 Tests)": {
           "passed": true,
           "returncode": 0,
-          "duration_sec": 1.59,
-          "stdout_tail": "box Queue: 14 messages queued with valid 2048-bit DKIM / SPF pass.\n[2026-10-09 17:57:13] [OMNIVERSE_DAEMON] Cluster Sourcing: Monitored priority corridor anchors: ['Walmart Global Tech India', 'Accenture India Solutions', 'A.P. Moller - Maersk India', 'Google India Private Limited', 'Swiggy (Bundl Technologies)']\n[2026-10-09 17:57:13] [OMNIVERSE_DAEMON] --- Cycle #999 Complete: Status HEALTHY ---\n",
-          "stderr_tail": ".......C:\\Users\\amehr\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n................\n----------------------------------------------------------------------\nRan 25 tests in 1.348s\n\nOK\n"
+          "duration_sec": 2.32,
+          "stdout_tail": "box Queue: 14 messages queued with valid 2048-bit DKIM / SPF pass.\n[2026-10-27 01:53:38] [OMNIVERSE_DAEMON] Cluster Sourcing: Monitored priority corridor anchors: ['Walmart Global Tech India', 'Accenture India Solutions', 'A.P. Moller - Maersk India', 'Google India Private Limited', 'Swiggy (Bundl Technologies)']\n[2026-10-27 01:53:38] [OMNIVERSE_DAEMON] --- Cycle #999 Complete: Status HEALTHY ---\n",
+          "stderr_tail": ".......C:\\Users\\amehr\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n................\n----------------------------------------------------------------------\nRan 25 tests in 1.975s\n\nOK\n"
+        },
+        "Prompts Chat & Skills Intelligence (21 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 5.0,
+          "stdout_tail": "ts/test_prompts_chat_engine.py::test_search_skills_and_get_skill PASSED [ 85%]\ntests/test_prompts_chat_engine.py::test_mcp_skills_tools PASSED          [ 90%]\ntests/test_prompts_chat_engine.py::test_export_enriched_json PASSED      [ 95%]\ntests/test_prompts_chat_engine.py::test_http_api_endpoints PASSED        [100%]\n\n============================= 21 passed in 3.60s ==============================\n",
+          "stderr_tail": ""
+        },
+        "Coolify Autonomous PaaS Orchestrator (16 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 3.9,
+          "stdout_tail": "ts/test_coolify_orchestrator.py::test_mcp_server_tool_handlers PASSED [ 81%]\ntests/test_coolify_orchestrator.py::test_orchestrator_do_everything PASSED [ 87%]\ntests/test_coolify_orchestrator.py::test_cli_do_everything PASSED        [ 93%]\ntests/test_coolify_orchestrator.py::test_mcp_do_everything PASSED        [100%]\n\n============================= 16 passed in 2.49s ==============================\n",
+          "stderr_tail": ""
+        },
+        "Windmill Autonomous Workflow Engine (12 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 2.37,
+          "stdout_tail": "hestrator.py::test_variables_crud_and_secrets PASSED [ 80%]\ntests/test_windmill_orchestrator.py::test_webhook_ingress PASSED         [ 86%]\ntests/test_windmill_orchestrator.py::test_mcp_server_tools PASSED        [ 93%]\ntests/test_windmill_orchestrator.py::test_standalone_python_scripts_direct_execution PASSED [100%]\n\n============================= 15 passed in 0.96s ==============================\n",
+          "stderr_tail": ""
+        },
+        "Blackbird OSINT & Defensive Intelligence (11 Tests)": {
+          "passed": true,
+          "returncode": 0,
+          "duration_sec": 6.19,
+          "stdout_tail": "lackbird/tests/test_core.py::TestEmail::test_verify_email PASSED        [ 72%]\nblackbird/tests/test_core.py::TestUsername::test_verify_username PASSED  [ 81%]\nblackbird/tests/test_export.py::TestExportToPDF::test_export_pdf PASSED  [ 90%]\nblackbird/tests/test_export.py::TestExportToCSV::test_export_csv PASSED  [100%]\n\n============================= 11 passed in 4.66s ==============================\n",
+          "stderr_tail": ""
         }
       }
     }
   },
   "overall_status": "SUCCESS",
-  "total_duration_sec": 48.81
+  "total_duration_sec": 99.36
 }

@@ -22,16 +22,21 @@ from career_engine import CareerVault, OutreachGenerator, ResumeTailorer, Scorin
 
 class TestCareerEngine(unittest.TestCase):
     def setUp(self):
-        # Use an isolated in-memory or temporary SQLite database for each test
-        self.test_db = os.path.join(os.path.dirname(__file__), "test_temp_vault.db")
-        if os.path.exists(self.test_db):
-            os.remove(self.test_db)
+        # Use an isolated temporary SQLite database for each test to prevent Windows file locking
+        import uuid
+        self.test_db = os.path.join(os.path.dirname(__file__), f"test_temp_vault_{uuid.uuid4().hex[:8]}.db")
         self.vault = CareerVault(self.test_db)
 
     def tearDown(self):
-        self.vault.close()
+        try:
+            self.vault.close()
+        except Exception:
+            pass
         if os.path.exists(self.test_db):
-            os.remove(self.test_db)
+            try:
+                os.remove(self.test_db)
+            except Exception:
+                pass
 
     def test_01_schema_initialization(self):
         cursor = self.vault.conn.cursor()

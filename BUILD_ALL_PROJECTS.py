@@ -149,7 +149,31 @@ def build_all():
     ok15, t15, _ = run_project_build("15. Enterprise Dossier Compiler & Approval Queue Dispatcher (8 Tests)", p15_cmd, p15_cwd)
     results.append(("Enterprise Dossier & Approval Queue Engine", ok15, t15, 8))
 
-    # 16. Recompile Flagship Cockpit & Assets Generator
+    # 16. Prompts Chat & Skills Intelligence Engine
+    p16_cmd = [sys.executable, "-m", "pytest", "tests/test_prompts_chat_engine.py", "-v"]
+    p16_cwd = ROOT_DIR
+    ok16, t16, _ = run_project_build("16. Prompts Chat & Skills Intelligence Engine (21 Tests)", p16_cmd, p16_cwd)
+    results.append(("Prompts Chat & Skills Engine", ok16, t16, 21))
+
+    # 17. Coolify Autonomous PaaS Orchestrator
+    p17_cmd = [sys.executable, "-m", "pytest", "tests/test_coolify_orchestrator.py", "-v"]
+    p17_cwd = ROOT_DIR
+    ok17, t17, _ = run_project_build("17. Coolify Autonomous PaaS Orchestrator (16 Tests)", p17_cmd, p17_cwd)
+    results.append(("Coolify Autonomous PaaS Orchestrator", ok17, t17, 16))
+
+    # 18. Windmill Autonomous Workflow & DAG Engine
+    p18_cmd = [sys.executable, "-m", "pytest", "tests/test_windmill_orchestrator.py", "-v"]
+    p18_cwd = ROOT_DIR
+    ok18, t18, _ = run_project_build("18. Windmill Autonomous Workflow Engine (12 Tests)", p18_cmd, p18_cwd)
+    results.append(("Windmill Autonomous Workflow Engine", ok18, t18, 12))
+
+    # 19. Blackbird OSINT & Defensive Intelligence Engine
+    p19_cmd = [sys.executable, "-m", "pytest", "tests/test_blackbird_orchestrator.py", "blackbird/tests/test_core.py", "blackbird/tests/test_export.py", "-v"]
+    p19_cwd = ROOT_DIR
+    ok19, t19, _ = run_project_build("19. Blackbird OSINT & Defensive Intelligence (11 Tests)", p19_cmd, p19_cwd)
+    results.append(("Blackbird OSINT & Footprint Engine", ok19, t19, 11))
+
+    # 20. Recompile Flagship Cockpit & Assets Generator
     print("\n[*] Recompiling Flagship Cockpit HTML & Synchronizing Assets...")
     subprocess.run([sys.executable, "run_command_center.py"], cwd=os.path.join(ROOT_DIR, "AI-Command-Center"), capture_output=True)
     print("  [OK] Cockpit v4.0 and pipeline CSV verified and synchronized.")
