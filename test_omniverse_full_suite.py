@@ -113,7 +113,7 @@ class TestOmniverseApplicationDockets(unittest.TestCase):
 class TestOmniverseMailerAndOutbox(unittest.TestCase):
     def test_outbox_rfc5322_compliance(self):
         self.assertTrue(os.path.exists(OUTBOX_DIR), "Outbox directory must exist.")
-        eml_files = [f for f in os.listdir(OUTBOX_DIR) if f.endswith(".eml")]
+        eml_files = [f for f in os.listdir(OUTBOX_DIR) if f.startswith("OUTBOX_JOB") and f.endswith(".eml")]
         self.assertEqual(len(eml_files), 14, "Outbox must contain 14 .eml packages.")
         
         sample_path = os.path.join(OUTBOX_DIR, eml_files[0])

@@ -159,6 +159,16 @@ TOOLS = [
         "name": "coolify_provision_omega_stack",
         "description": "Deploy the complete OMEGA autonomous enterprise stack (PostgreSQL + Redis + n8n automation).",
         "inputSchema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "coolify_do_everything",
+        "description": "Execute the comprehensive 8-phase autonomous Coolify PaaS orchestration cycle across nodes, databases, services, applications, and template stacks.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "server_uuid": {"type": "string", "default": "srv-localhost-000", "description": "Target server node"}
+            }
+        }
     }
 ]
 
@@ -198,6 +208,8 @@ def handle_tool_call(name: str, args: Dict[str, Any]) -> Any:
         return {"docker_compose_yaml": compose_yml, "generated_env": env_vars}
     elif name == "coolify_provision_omega_stack":
         return orchestrator.provision_full_omega_stack()
+    elif name == "coolify_do_everything":
+        return orchestrator.do_everything(args.get("server_uuid", "srv-localhost-000"))
     else:
         raise ValueError(f"Unknown tool: {name}")
 

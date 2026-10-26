@@ -161,6 +161,39 @@ def cmd_stack(orchestrator: CoolifyOrchestrator, args):
     print("[+] All systems live, healthy, and routed via Traefik edge proxy.\n")
 
 
+def cmd_do_everything(orchestrator: CoolifyOrchestrator, args):
+    print("\n" + "=" * 76)
+    print("  COOLIFY v4 — SUPREME AUTONOMOUS 'DO EVERYTHING' PROTOCOL")
+    print("  Orchestrating Cluster Nodes, Projects, Databases, Services & Ingress")
+    print("=" * 76)
+    target_server = getattr(args, "server", None) or "srv-localhost-000"
+    manifest = orchestrator.do_everything(target_server)
+    print(f"\nExecution Status    : {manifest['status']}")
+    print(f"Execution ID        : {manifest['execution_id']}")
+    print(f"Total Phases Run    : {manifest['total_phases_executed']} / 8")
+    print(f"Total Time          : {manifest['total_elapsed_seconds']}s")
+    print("-" * 76)
+    print("PHASES EXECUTED:")
+    for p in manifest['phases']:
+        print(f"  [+] Phase {p['phase']}: {p['name']:<42} [{p['elapsed_seconds']}s] -> {p['status']}")
+        print(f"      {p['description']}")
+    print("-" * 76)
+    res = manifest['resources']
+    print("PROVISIONED RESOURCE INVENTORY:")
+    print(f"  • Managed Server Nodes     : {res['nodes']}")
+    print(f"  • Autonomous Projects      : {res['projects']}")
+    print(f"  • Standalone Databases     : {res['databases']}")
+    print(f"  • 1-Click Microservices    : {res['services']}")
+    print(f"  • Rolling Applications     : {res['applications']}")
+    print(f"  • Verified Service Catalog : {res['catalog_templates']} templates")
+    print(f"  • Production Compose Stacks: {res['exported_stacks']} stacks exported")
+    print("-" * 76)
+    telem = manifest['cluster_telemetry']
+    print(f"FINAL CLUSTER HEALTH: {telem['status'].upper()} (Version: {telem['version']})")
+    print(f"Nodes: {telem['healthy_servers']}/{telem['total_servers']} Healthy | Apps: {telem['running_applications']}/{telem['total_applications']} Running | DBs: {telem['running_databases']}/{telem['total_databases']} Running")
+    print("=" * 76 + "\n")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Coolify v4 Autonomous Orchestrator & CLI")
     subparsers = parser.add_subparsers(dest="command", help="Available subcommands")
@@ -185,6 +218,9 @@ def main():
     dep_parser.add_argument("--force", action="store_true", help="Force rebuild container without cache")
 
     subparsers.add_parser("stack", help="Deploy standard OMEGA autonomous cloud stack")
+
+    do_all_parser = subparsers.add_parser("do-everything", help="Execute complete 8-phase sovereign Coolify PaaS orchestration cycle")
+    do_all_parser.add_argument("--server", help="Target server UUID (default: srv-localhost-000)")
 
     cmp_parser = subparsers.add_parser("compose", help="Export standalone docker-compose.yml and .env for any template")
     cmp_parser.add_argument("template", help="Template ID (e.g. anythingllm, n8n, supabase, qdrant)")
@@ -222,6 +258,8 @@ def main():
         cmd_deploy(client, args)
     elif args.command == "stack":
         cmd_stack(orchestrator, args)
+    elif args.command == "do-everything":
+        cmd_do_everything(orchestrator, args)
     elif args.command == "compose":
         cmd_compose(exporter, args)
 

@@ -3,8 +3,19 @@ import os
 import sys
 
 # Ensure root and GLOBAL-COMPANY-OS/06_ENGINEERING are in sys.path
+ENG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "GLOBAL-COMPANY-OS", "06_ENGINEERING"))
+SRC_DIR = os.path.join(ENG_DIR, "src")
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "GLOBAL-COMPANY-OS", "06_ENGINEERING")))
+sys.path.insert(0, ENG_DIR)
+sys.path.insert(0, SRC_DIR)
+
+# Fix potential namespace collision if another test imported a different 'src'
+try:
+    import src
+    if hasattr(src, "__path__") and SRC_DIR not in src.__path__:
+        src.__path__.insert(0, SRC_DIR)
+except Exception:
+    pass
 
 from core.aqua_orchestrator import AquaOrchestrator, AquaTask, TaskStatus
 from core.aqua_core import AquaCore

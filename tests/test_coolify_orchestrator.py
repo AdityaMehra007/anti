@@ -214,3 +214,36 @@ def test_mcp_server_tool_handlers():
     assert "docker_compose_yaml" in compose_data
     assert "generated_env" in compose_data
 
+
+def test_orchestrator_do_everything(orchestrator):
+    manifest = orchestrator.do_everything()
+    assert manifest["status"] == "SOVEREIGN PAAS FULL POWERS VERIFIED"
+    assert manifest["total_phases_executed"] == 8
+    assert manifest["resources"]["nodes"] >= 2
+    assert manifest["resources"]["projects"] >= 3
+    assert manifest["resources"]["databases"] >= 4
+    assert manifest["resources"]["services"] >= 4
+    assert manifest["resources"]["applications"] >= 2
+    assert manifest["resources"]["catalog_templates"] >= 350
+    assert os.path.exists("omega/data/coolify_do_everything_manifest.json")
+
+
+def test_cli_do_everything(orchestrator, capsys):
+    class Args:
+        server = "srv-localhost-000"
+    coolify_cli.cmd_do_everything(orchestrator, Args())
+    out = capsys.readouterr().out
+    assert "COOLIFY v4" in out
+    assert "SOVEREIGN PAAS FULL POWERS VERIFIED" in out
+    assert "PHASES EXECUTED" in out
+    assert "FINAL CLUSTER HEALTH" in out
+
+
+def test_mcp_do_everything():
+    from coolify_mcp_server import handle_tool_call, TOOLS
+    assert any(t["name"] == "coolify_do_everything" for t in TOOLS)
+
+    res = handle_tool_call("coolify_do_everything", {"server_uuid": "srv-localhost-000"})
+    assert res["status"] == "SOVEREIGN PAAS FULL POWERS VERIFIED"
+    assert len(res["phases"]) == 8
+

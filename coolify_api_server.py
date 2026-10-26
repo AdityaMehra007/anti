@@ -70,6 +70,12 @@ class CoolifyApiHandler(SimpleHTTPRequestHandler):
             return self._json_response(client.list_databases())
         elif path == "/api/services":
             return self._json_response(client.list_services())
+        elif path == "/api/manifest":
+            manifest_path = os.path.join(os.path.dirname(__file__), "omega", "data", "coolify_do_everything_manifest.json")
+            if os.path.exists(manifest_path):
+                with open(manifest_path, "r", encoding="utf-8") as f:
+                    return self._json_response(json.load(f))
+            return self._json_response({"error": "Manifest not found. Run /api/do-everything first."}, status=404)
         elif path == "/api/catalog":
             q = params.get("search", [""])[0]
             cat = params.get("category", [""])[0]
@@ -103,6 +109,10 @@ class CoolifyApiHandler(SimpleHTTPRequestHandler):
         elif path == "/api/stack":
             res = orchestrator.provision_full_omega_stack()
             return self._json_response(res)
+        elif path == "/api/do-everything":
+            server_uuid = payload.get("server_uuid", "srv-localhost-000")
+            manifest = orchestrator.do_everything(server_uuid)
+            return self._json_response(manifest)
         elif path == "/api/compose":
             tpl_id = payload.get("template", "anythingllm")
             domain = payload.get("domain", "localhost")

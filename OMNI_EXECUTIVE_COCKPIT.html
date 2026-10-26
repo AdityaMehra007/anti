@@ -148,6 +148,14 @@
             <span class="w-2 h-2 rounded-full bg-fuchsia-400"></span>
             Coolify Cloud PaaS (352 Services)
         </button>
+        <button onclick="switchCockpit('windmill')" id="btn-windmill" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            Windmill Workflow Engine (Flows & Hub)
+        </button>
+        <button onclick="switchCockpit('blackbird')" id="btn-blackbird" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-red-400"></span>
+            Blackbird OSINT (692 Sites)
+        </button>
     </nav>
 
     <!-- Embedded High-Performance Cockpit Frame Container -->
@@ -165,7 +173,9 @@
             apex: { url: "apex_career_cockpit.html", title: "APEX Career Supremacy OS" },
             fortune500: { url: "fortune_500_cockpit.html", title: "Fortune 500 Project Factory" },
             prompts: { url: "prompts_chat_cockpit.html", title: "prompts.chat Studio & Prompt Intelligence (2,627 Prompts)" },
-            coolify: { url: "coolify_control_cockpit.html", title: "Coolify v4 Autonomous Infrastructure & PaaS Cockpit (352 Services)" }
+            coolify: { url: "coolify_control_cockpit.html", title: "Coolify v4 Autonomous Infrastructure & PaaS Cockpit (352 Services)" },
+            windmill: { url: "windmill_control_cockpit.html", title: "Windmill Autonomous Workflow Engine & Developer Platform (Flows, Scripts, Apps)" },
+            blackbird: { url: "blackbird_cockpit.html", title: "Blackbird OSINT & Defensive Intelligence Cockpit (692 Sites)" }
         };
 
         let currentActiveKey = "supreme";

@@ -220,6 +220,26 @@ def run_test_suites() -> Dict[str, Any]:
             "name": "OMNIVERSE INFINITY Comprehensive Suite (25 Tests)",
             "cmd": [sys.executable, "-m", "unittest", "test_omniverse_full_suite.py"],
             "cwd": str(ROOT_DIR)
+        },
+        {
+            "name": "Prompts Chat & Skills Intelligence (21 Tests)",
+            "cmd": [sys.executable, "-m", "pytest", "tests/test_prompts_chat_engine.py"],
+            "cwd": str(ROOT_DIR)
+        },
+        {
+            "name": "Coolify Autonomous PaaS Orchestrator (16 Tests)",
+            "cmd": [sys.executable, "-m", "pytest", "tests/test_coolify_orchestrator.py"],
+            "cwd": str(ROOT_DIR)
+        },
+        {
+            "name": "Windmill Autonomous Workflow Engine (12 Tests)",
+            "cmd": [sys.executable, "-m", "pytest", "tests/test_windmill_orchestrator.py"],
+            "cwd": str(ROOT_DIR)
+        },
+        {
+            "name": "Blackbird OSINT & Defensive Intelligence (11 Tests)",
+            "cmd": [sys.executable, "-m", "pytest", "tests/test_blackbird_orchestrator.py", "blackbird/tests/test_core.py", "blackbird/tests/test_export.py"],
+            "cwd": str(ROOT_DIR)
         }
     ]
     results = {}

@@ -162,6 +162,27 @@ Self-hosted PaaS alternative to Heroku/Vercel/Netlify for multi-server Docker, T
 - **One-Click Launchers**: [`START_COOLIFY_WINDOWS.bat`](START_COOLIFY_WINDOWS.bat) & [`scripts/start_coolify_windows.ps1`](scripts/start_coolify_windows.ps1).
 - **Architecture Teardown Dossier**: [`docs/COOLIFY_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/COOLIFY_SUPREME_ARCHITECTURE_DOSSIER.md).
 
+### Windmill Autonomous Workflow Engine & Developer Platform Ecosystem
+Self-hosted, ultra-fast developer platform and DAG orchestration engine (alternative to Temporal, Retool, Airplane, and Airflow) running on a Rust core, PostgreSQL SKIP LOCKED queues, and polyglot sandboxed workers:
+- [`windmill-orchestrator`](.agents/skills/windmill-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for building and running scripts, multi-step DAG flows, human approvals, and low-code apps.
+- **Deep SDK & Orchestrator**: [`windmill_orchestrator.py`](windmill_orchestrator.py) (Dual-mode: live `/api/w/{workspace}/...` REST API client & high-fidelity Rust/Postgres simulation engine).
+- **Universal CLI**: [`windmill_cli.py`](windmill_cli.py) (`info`, `workspaces`, `scripts`, `flows`, `apps`, `resources`, `jobs`, `run-script`, `run-flow`, `approve-job`, `hub`, `hub-import`).
+- **Autonomous Local API Server**: [`windmill_api_server.py`](windmill_api_server.py) (REST bridge on port 8768 for live telemetry, scripts, flows, and executions).
+- **Model Context Protocol (MCP) Server**: [`windmill_mcp_server.py`](windmill_mcp_server.py) (Exposes 16 Windmill agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`windmill_control_cockpit.html`](windmill_control_cockpit.html) (Real-time telemetry, visual DAG viewer, interactive Script Studio, low-code app preview, Hub marketplace, and job execution terminal).
+- **Production Stacks & Launchers**: [`stacks/windmill/docker-compose.yml`](stacks/windmill/docker-compose.yml), [`START_WINDMILL_WINDOWS.bat`](START_WINDMILL_WINDOWS.bat), [`scripts/start_windmill_windows.ps1`](scripts/start_windmill_windows.ps1).
+- **Enterprise Scripts & DAG Flows**: [`windmill/scripts/`](windmill/scripts/) (CBAM Carbon Audit, ERP Ledger Recon, Lead Intelligence Strike, Slack Block Kit Notifier, DB Health Diagnostic) and [`windmill/flows/`](windmill/flows/) (Enterprise Onboarding DAG, CBAM Pipeline, Nightly System Recon).
+- **Architecture Teardown Dossier**: [`docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md).
+
+### Blackbird OSINT & Defensive Intelligence Ecosystem
+Multi-platform username & email reconnaissance, attack surface mapping, digital footprint indexing, and defensive OPSEC threat modeling across 692+ online platforms:
+- [`blackbird-osint`](.agents/skills/blackbird-osint/SKILL.md): Autonomous standard operating procedure for handle reconnaissance, digital footprint auditing, and credential stuffing exposure assessment.
+- **Deep SDK & Master Engine**: [`blackbird_orchestrator.py`](blackbird_orchestrator.py) (Async probes across 692+ WhatsMyName platforms, local & AI behavioral profiling, risk index scoring, and multi-format exporters).
+- **Universal CLI**: [`blackbird_cli.py`](blackbird_cli.py) (`-u <user>`, `-e <email>`, `--audit`, `--permute`, `--category`, `--demo`, `--stats`, `--serve`).
+- **Mission Control Cockpit**: [`blackbird_cockpit.html`](blackbird_cockpit.html) (Real-time dark cyber glass UI, interactive target search, platform census filters, attack surface grid, and one-click PDF/CSV export).
+- **One-Click Launchers**: [`START_BLACKBIRD.bat`](START_BLACKBIRD.bat) & [`START_BLACKBIRD_COCKPIT.bat`](START_BLACKBIRD_COCKPIT.bat).
+- **Audit Reports Vault**: [`blackbird_reports/`](blackbird_reports/) (Automated JSON, CSV, Markdown dossiers, and standalone interactive HTML dossiers).
+
 ### Launch Video & Product Showcase Engine
 - [`brag`](.agents/skills/brag/SKILL.md): Turn the current project website or codebase into a short, polished, shareable launch video using Hyperframes with bundled music, SFX, and custom tone presets.
 - [`brag-slim`](.agents/skills/brag-slim/SKILL.md): Lean, zero-dependency launch video generator running locally on native tools (HTML/Canvas/Puppeteer/ffmpeg) for rapid social showcase clips.
