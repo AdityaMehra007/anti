@@ -166,13 +166,28 @@ Self-hosted PaaS alternative to Heroku/Vercel/Netlify for multi-server Docker, T
 Self-hosted, ultra-fast developer platform and DAG orchestration engine (alternative to Temporal, Retool, Airplane, and Airflow) running on a Rust core, PostgreSQL SKIP LOCKED queues, and polyglot sandboxed workers:
 - [`windmill-orchestrator`](.agents/skills/windmill-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for building and running scripts, multi-step DAG flows, human approvals, and low-code apps.
 - **Deep SDK & Orchestrator**: [`windmill_orchestrator.py`](windmill_orchestrator.py) (Dual-mode: live `/api/w/{workspace}/...` REST API client & high-fidelity Rust/Postgres simulation engine).
-- **Universal CLI**: [`windmill_cli.py`](windmill_cli.py) (`info`, `workspaces`, `scripts`, `flows`, `apps`, `resources`, `jobs`, `run-script`, `run-flow`, `approve-job`, `hub`, `hub-import`).
-- **Autonomous Local API Server**: [`windmill_api_server.py`](windmill_api_server.py) (REST bridge on port 8768 for live telemetry, scripts, flows, and executions).
-- **Model Context Protocol (MCP) Server**: [`windmill_mcp_server.py`](windmill_mcp_server.py) (Exposes 16 Windmill agent tools via stdio JSON-RPC).
-- **Interactive Mission Control Cockpit**: [`windmill_control_cockpit.html`](windmill_control_cockpit.html) (Real-time telemetry, visual DAG viewer, interactive Script Studio, low-code app preview, Hub marketplace, and job execution terminal).
+- **Universal CLI**: [`windmill_cli.py`](windmill_cli.py) (`info`, `workspaces`, `scripts`, `flows`, `apps`, `resources`, `schedules`, `variables`, `jobs`, `run-script`, `run-flow`, `trigger-schedule`, `set-variable`, `approve-job`, `webhook`, `hub`, `hub-import`, `do-everything`).
+- **Autonomous Local API Server**: [`windmill_api_server.py`](windmill_api_server.py) (REST bridge on port 8768 for live telemetry, scripts, flows, schedules, variables, webhooks, and executions).
+- **Model Context Protocol (MCP) Server**: [`windmill_mcp_server.py`](windmill_mcp_server.py) (Exposes 21 Windmill agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`windmill_control_cockpit.html`](windmill_control_cockpit.html) (10 operational tabs: Script Studio, Flow DAG Visualizer, Automated Schedules & Crons, Variables & Secrets Vault, Webhook Ingress, Worker Telemetry, Low-Code Apps, Hub Marketplace, Job History, and MCP Playground).
 - **Production Stacks & Launchers**: [`stacks/windmill/docker-compose.yml`](stacks/windmill/docker-compose.yml), [`START_WINDMILL_WINDOWS.bat`](START_WINDMILL_WINDOWS.bat), [`scripts/start_windmill_windows.ps1`](scripts/start_windmill_windows.ps1).
-- **Enterprise Scripts & DAG Flows**: [`windmill/scripts/`](windmill/scripts/) (CBAM Carbon Audit, ERP Ledger Recon, Lead Intelligence Strike, Slack Block Kit Notifier, DB Health Diagnostic) and [`windmill/flows/`](windmill/flows/) (Enterprise Onboarding DAG, CBAM Pipeline, Nightly System Recon).
+- **Enterprise Scripts & DAG Flows**: [`windmill/scripts/`](windmill/scripts/) (Customer Churn Risk Radar, SEC EDGAR Statement Recon, Daily Cloud DB Snapshot & S3 Vault, CBAM Carbon Audit, ERP Ledger Recon, Lead Intelligence Strike, Slack Block Kit Notifier, DB Health Diagnostic) and [`windmill/flows/`](windmill/flows/) (Autonomous SaaS Billing Recovery DAG, Sovereign SecOps Threat Incident DAG, Enterprise Onboarding DAG, CBAM Pipeline, Nightly System Recon).
+- **Automated Cron Schedules & Variables**: [`windmill/schedules/`](windmill/schedules/) (4 production crons) & [`windmill/variables/`](windmill/variables/) (ChaCha20-Poly1305 encrypted secret store).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/windmill_do_everything_manifest.json`](omega/data/windmill_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
 - **Architecture Teardown Dossier**: [`docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md).
+
+### PowerShell Autonomous Orchestration & Execution Ecosystem
+Cross-platform object automation engine, AST parser, PSScriptAnalyzer security auditor, runspace concurrency, and enterprise infrastructure runbooks (https://github.com/PowerShell/PowerShell):
+- [`powershell-orchestrator`](.agents/skills/powershell-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for PowerShell 7+ Core and Windows PowerShell environments.
+- **Deep SDK & Master Engine**: [`powershell_orchestrator.py`](powershell_orchestrator.py) (Dual-mode: live PowerShell host execution with ConvertTo-Json streaming and high-fidelity simulated .NET 9 Core runtime).
+- **Universal CLI**: [`powershell_cli.py`](powershell_cli.py) (`info`, `exec`, `ast`, `analyze`, `modules`, `gallery`, `runbooks`, `run-runbook`, `runspaces`, `cis-audit`, `benchmark`, `do-everything`).
+- **Autonomous Local API Server**: [`powershell_api_server.py`](powershell_api_server.py) (REST bridge on port 8769 for telemetry, AST parsing, script analyzer, runbooks, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`powershell_mcp_server.py`](powershell_mcp_server.py) (Exposes 12 PowerShell agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`powershell_control_cockpit.html`](powershell_control_cockpit.html) (8 operational tabs: Terminal Studio, AST Parser, PSScriptAnalyzer Security, Runbooks, PSGallery, Runspaces, 12-Phase Lifecycle, and MCP Playground).
+- **One-Click Launchers**: [`START_POWERSHELL_WINDOWS.bat`](START_POWERSHELL_WINDOWS.bat), [`START_POWERSHELL_COCKPIT.bat`](START_POWERSHELL_COCKPIT.bat), [`scripts/start_powershell_windows.ps1`](scripts/start_powershell_windows.ps1).
+- **Enterprise Runbooks**: [`powershell/runbooks/`](powershell/runbooks/) (CIS OS Hardening, Multi-Cloud Infra Recon, Active Directory Threat Hunting, Network Latency Diagnostic, Service Self-Healing Watchdog).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/powershell_do_everything_manifest.json`](omega/data/powershell_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/POWERSHELL_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/POWERSHELL_SUPREME_ARCHITECTURE_DOSSIER.md).
 
 ### Blackbird OSINT & Defensive Intelligence Ecosystem
 Multi-platform username & email reconnaissance, attack surface mapping, digital footprint indexing, and defensive OPSEC threat modeling across 692+ online platforms:
@@ -224,6 +239,17 @@ Master specifications and meta-orchestration for unbounded human capability gene
 - **Master Specification**: [`docs/CIVILIZATION_OMEGA_UNBOUNDED_SPEC.md`](docs/CIVILIZATION_OMEGA_UNBOUNDED_SPEC.md)
 - **Capability Engine Core**: [`sovereign_continuum/capability_engine.py`](sovereign_continuum/capability_engine.py)
 
+
+### OpenBB Open Data Platform (ODP v5.0.0) Financial Intelligence Ecosystem
+Institutional-grade, multi-asset financial data platform providing 888 analytical endpoints across 90 routers, 19 data providers, Model Context Protocol (FastMCP) integration, REST API, CLI, and Desktop:
+- **Core SDK**: `from openbb import obb` (Equities, Fixed Income, Economy, Crypto, Currency, Derivatives, Regulators, ETFs, Index).
+- **FastMCP Server**: [`openbb_mcp_server`](OpenBB/openbb_platform/extensions/mcp_server) exposing 14 dynamic tool discovery and dispatch tools directly to AI agents over stdio and SSE/HTTP (port 8001).
+- **Platform REST API**: [`openbb-platform-api`](OpenBB/openbb_platform/extensions/platform_api) FastAPI backend serving interactive Swagger/OpenAPI documentation on port 6900.
+- **Desktop Application**: [`desktop/`](OpenBB/desktop) Vite/React quantitative workstation bundle.
+- **Supreme Orchestrator & CLI**: [`openbb_orchestrator.py`](openbb_orchestrator.py) (`info`, `serve-api`, `serve-mcp`, `cli`, `repl`, `desktop-dev`, `test`).
+- **Antigravity MCP Registration**: Registered in `C:\Users\amehr\.gemini\settings.json` and `C:\Users\amehr\.gemini\antigravity\mcp\openbb`.
+- **One-Click Windows Launcher**: [`START_OPENBB_SYSTEM.bat`](START_OPENBB_SYSTEM.bat) (Interactive 9-option terminal control center).
+- **Architecture Teardown Dossier**: [`docs/OPENBB_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/OPENBB_SUPREME_ARCHITECTURE_DOSSIER.md).
 
 ### Issue tracker
 

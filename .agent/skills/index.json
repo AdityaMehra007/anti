@@ -3,12 +3,26 @@
     {
       "name": "prompt-lookup",
       "description": "Activates when the user asks about AI prompts, needs prompt templates, wants to search for prompts, or mentions prompts.chat. Use for discovering, retrieving, and improving prompts.",
-      "files": ["SKILL.md"]
+      "files": [
+        "SKILL.md"
+      ]
     },
     {
       "name": "skill-lookup",
       "description": "Activates when the user asks about Agent Skills, wants to find reusable AI capabilities, needs to install skills, or mentions skills for Claude. Use for discovering, retrieving, and installing skills.",
-      "files": ["SKILL.md"]
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "blackbird-osint",
+      "description": "Use when conducting OSINT reconnaissance, handle and username discovery across 600+ platforms, attack surface auditing, digital footprint intelligence, credential stuffing exposure assessment, and defensive OPSEC hardening.",
+      "path": ".agents/skills/blackbird-osint/SKILL.md"
+    },
+    {
+      "name": "powershell-orchestrator",
+      "description": "Autonomous SDK, CLI, and operational standard for PowerShell 7+ Core and Windows PowerShell environments. Enables AST parsing, PSScriptAnalyzer security auditing, pipeline object transformation, runspace concurrency, and enterprise runbooks.",
+      "path": ".agents/skills/powershell-orchestrator/SKILL.md"
     }
   ]
 }
