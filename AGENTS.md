@@ -302,6 +302,16 @@ Universal high-performance in-memory columnar data format, zero-copy buffer slic
 - **Master 12-Phase Sovereign Lifecycle**: [`omega/data/arrow_do_everything_manifest.json`](omega/data/arrow_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
 - **Architecture Teardown Dossier**: [`docs/ARROW_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/ARROW_SUPREME_ARCHITECTURE_DOSSIER.md).
 
+### Computer Science Video Courses & Academic Intelligence Ecosystem
+Comprehensive university-grade Computer Science video lecture catalog, relational FTS5 search index, and degree-grade career roadmaps sourced from [`Developer-Y/cs-video-courses`](https://github.com/Developer-Y/cs-video-courses):
+- **Deep Engine & SQLite FTS5 Database**: [`cs_courses_engine.py`](cs_courses_engine.py) (Indexes 1,434 courses, 957 video playlists, 26 tracks, and 44 institutions into [`data/cs_video_courses.db`](data/cs_video_courses.db) and [`data/cs_video_courses.json`](data/cs_video_courses.json)).
+- **Career Roadmaps Engine**: [`cs_courses_roadmaps.py`](cs_courses_roadmaps.py) (9 four-tier degree-grade career curricula for GenAI, Distributed Systems, Database Storage, Quant Algorithms, Applied ML, Security, Robotics, Computer Vision, and Software Architecture in [`docs/curricula/`](docs/curricula/)).
+- **Universal CLI**: [`cs_courses_cli.py`](cs_courses_cli.py) (`info`, `search`, `tracks`, `track`, `institutions`, `institution`, `roadmaps`, `roadmap`, `export`, `serve`, `do-everything`).
+- **Autonomous Local API Server**: [`cs_courses_api_server.py`](cs_courses_api_server.py) (Lightweight REST bridge on port 8779 serving `/api/info`, `/api/courses`, `/api/tracks`, `/api/institutions`, `/api/roadmaps`, and `/api/curricula`).
+- **Interactive Mission Control Cockpit**: [`cs_video_courses_cockpit.html`](cs_video_courses_cockpit.html) (Glassmorphism UI with real-time course search, multi-filtering by track/university/level, 4-tier interactive degree roadmaps with progress tracking, university hub, and local learning queue).
+- **One-Click Launchers**: [`START_CS_COURSES_COCKPIT.bat`](START_CS_COURSES_COCKPIT.bat).
+- **Architecture Teardown Dossier**: [`docs/CS_VIDEO_COURSES_SUPREME_GUIDE.md`](docs/CS_VIDEO_COURSES_SUPREME_GUIDE.md).
+
 ### Launch Video & Product Showcase Engine
 - [`brag`](.agents/skills/brag/SKILL.md): Turn the current project website or codebase into a short, polished, shareable launch video using Hyperframes with bundled music, SFX, and custom tone presets.
 - [`brag-slim`](.agents/skills/brag-slim/SKILL.md): Lean, zero-dependency launch video generator running locally on native tools (HTML/Canvas/Puppeteer/ffmpeg) for rapid social showcase clips.
