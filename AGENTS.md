@@ -188,6 +188,19 @@ Self-hosted, ultra-fast developer platform and DAG orchestration engine (alterna
 - **Master 12-Phase Sovereign Lifecycle**: [`omega/data/windmill_do_everything_manifest.json`](omega/data/windmill_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
 - **Architecture Teardown Dossier**: [`docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md).
 
+### n8n Autonomous Workflow Automation & AI Agent Ecosystem
+Enterprise fair-code workflow automation, event-driven node DAG execution, and native LangChain AI multi-agent orchestration (https://github.com/n8n-io/n8n):
+- [`n8n-orchestrator`](.agents/skills/n8n-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for n8n workflow graphs, LangChain reasoning, and event triggers.
+- **Deep SDK & Master Engine**: [`n8n_orchestrator.py`](n8n_orchestrator.py) (Dual-mode: live `/api/v1/...` REST API client & high-fidelity simulation engine with 560+ core nodes, SQLite FTS5 index, 14 production workflows, LangChain AI agent reasoning loop, and topological node traversal).
+- **Universal CLI**: [`n8n_cli.py`](n8n_cli.py) (`info`, `nodes`, `search`, `workflows`, `get-workflow`, `run-workflow`, `trigger`, `ai-agent`, `executions`, `get-execution`, `credentials`, `dropzone`, `export`, `do-everything`, `serve`).
+- **Autonomous Local API Server**: [`n8n_api_server.py`](n8n_api_server.py) (REST bridge on port 8771 serving health, telemetry, node search, workflow triggers, webhooks, and the Mission Control Cockpit).
+- **Model Context Protocol (MCP) Server**: [`n8n_mcp_server.py`](n8n_mcp_server.py) (Exposes 15 high-leverage n8n agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`n8n_control_cockpit.html`](n8n_control_cockpit.html) (10 operational views: Live Telemetry, Node Explorer with 560+ nodes, Production DAG Visualizer, Workflow Execution Terminal, Inbound Webhook Dispatcher, LangChain AI Agent Playground, Execution History, AES-256 Credentials Vault, and 12-Phase Lifecycle).
+- **Production Stacks & Launchers**: [`n8n/docker-compose.yml`](n8n/docker-compose.yml), [`START_N8N.bat`](START_N8N.bat), [`START_N8N_WINDOWS.bat`](START_N8N_WINDOWS.bat), [`START_N8N_COCKPIT.bat`](START_N8N_COCKPIT.bat), [`scripts/start_n8n_windows.ps1`](scripts/start_n8n_windows.ps1).
+- **Enterprise Workflows & Nodes Arsenal**: [`n8n/workflows/`](n8n/workflows/) (14 production DAGs: Section 14 Planetary Adversarial Red Team Zap, AI Agent Researcher, B2B Email Drafter Zap, Empire Operational Cycle Zap, Dropzone Ingestion Zap, M2M Financial Settlement Zap, GitHub Issue Triage Zap, Market Intelligence Zap, Outreach Dispatcher, Planetary Banking Audit Zap, Multi-Channel Notifier, System Health Monitor, Webhook Ingestion Bridge, Stripe Production Charge Sentinel) and SQLite FTS5 catalog [`data/n8n_arsenal.db`](data/n8n_arsenal.db).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/n8n_do_everything_manifest.json`](omega/data/n8n_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/N8N_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/N8N_SUPREME_ARCHITECTURE_DOSSIER.md).
+
 ### Apache Airflow Autonomous Workflow Orchestration & Data Pipeline Ecosystem
 The global industry benchmark for programmatic workflow authoring, scheduling, and data engineering governance (https://github.com/apache/airflow):
 - [`airflow-orchestrator`](.agent/skills/airflow-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for Apache Airflow 2.10.x & modern Airflow 3.0 Task SDK architectures.
