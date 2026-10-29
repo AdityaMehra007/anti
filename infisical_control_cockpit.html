@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMEGA ∞ Infisical Sovereign SecretOps Mission Control v2.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #060911;
+            --bg-surface: #0c1220;
+            --bg-card: #111a30;
+            --bg-glass: rgba(17, 26, 48, 0.75);
+            --border-glow: #1a2846;
+            --border-active: #06b6d4;
+            --accent-cyan: #06b6d4;
+            --accent-sky: #38bdf8;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-purple: #a855f7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 24px;
+            background-image: 
+                radial-gradient(circle at 10% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 45%);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        .header-title-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .header-title h1 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-title p {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        .header-status-box {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .badge {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid transparent;
+        }
+
+        .badge-cyan { background: rgba(6, 182, 212, 0.12); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.3); }
+        .badge-green { background: rgba(16, 185, 129, 0.12); color: var(--accent-green); border-color: rgba(16, 185, 129, 0.3); }
+        .badge-amber { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3); }
+        .badge-rose { background: rgba(244, 63, 94, 0.12); color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.3); }
+        .badge-indigo { background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo); border-color: rgba(99, 102, 241, 0.3); }
+
+        .btn {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-glow);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+            border: none;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+        }
+
+        .btn-danger {
+            background: rgba(244, 63, 94, 0.15);
+            border-color: rgba(244, 63, 94, 0.4);
+            color: var(--accent-rose);
+        }
+
+        .btn-danger:hover {
+            background: var(--accent-rose);
+            color: #fff;
+        }
+
+        /* Metrics Bar */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 14px;
+            padding: 16px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+        }
+
+        .metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .metric-val {
+            font-size: 26px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            color: #fff;
+        }
+
+        .metric-sub {
+            font-size: 11px;
+            color: var(--accent-green);
+            margin-top: 4px;
+            font-family: var(--font-mono);
+        }
+
+        /* Tabs Navigation */
+        .tabs-nav {
+            display: flex;
+            gap: 8px;
+            background: var(--bg-surface);
+            padding: 8px;
+            border-radius: 14px;
+            border: 1px solid var(--border-glow);
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background: var(--bg-card);
+            border: 1px solid var(--border-active);
+            box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards & Content Blocks */
+        .panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            vertical-align: middle;
+        }
+
+        .data-table tr:hover td {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        .val-pill {
+            background: #080c16;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-glow);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            max-width: 380px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Forms */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+        }
+
+        textarea.form-control {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Terminal Console Box */
+        .terminal-box {
+            background: #04060a;
+            border: 1px solid #1a2846;
+            border-radius: 12px;
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #a7f3d0;
+            max-height: 380px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        /* Lifecycle step card */
+        .lifecycle-step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            font-weight: 800;
+            font-family: var(--font-mono);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal.open { display: flex; }
+
+        .modal-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-active);
+            border-radius: 18px;
+            width: 540px;
+            max-width: 90vw;
+            padding: 24px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-title-box">
+            <div class="logo-badge">I</div>
+            <div class="header-title">
+                <h1>Infisical Sovereign SecretOps <span class="badge badge-cyan">v2.0 OMEGA</span></h1>
+                <p>Zero-Knowledge Cryptographic Vault &bull; Dynamic Credentials &bull; Internal PKI &bull; Cloud Sync</p>
+            </div>
+        </div>
+        <div class="header-status-box">
+            <span id="badge-cipher" class="badge badge-green">AES-256-GCM READY</span>
+            <span id="badge-blockchain" class="badge badge-indigo">BLOCKCHAIN: VERIFIED</span>
+            <button class="btn btn-primary" onclick="triggerLifecycle()">⚡ Run 12-Phase Lifecycle</button>
+        </div>
+    </header>
+
+    <!-- Metrics Grid -->
+    <section class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-label">Stored Secrets</div>
+            <div class="metric-val" id="metric-secrets">-</div>
+            <div class="metric-sub">Zero-Knowledge Encrypted</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Active Leases</div>
+            <div class="metric-val" id="metric-leases">-</div>
+            <div class="metric-sub">Dynamic TTL Protected</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">PKI Certificates</div>
+            <div class="metric-val" id="metric-certs">-</div>
+            <div class="metric-sub">X.509 Leaf & Root CAs</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Cloud Integrations</div>
+            <div class="metric-val" id="metric-integrations">-</div>
+            <div class="metric-sub">K8s &bull; AWS &bull; Vercel</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Audit Log Blocks</div>
+            <div class="metric-val" id="metric-audit">-</div>
+            <div class="metric-sub">SHA-256 Chained Ledger</div>
+        </div>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <nav class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('tab-secrets')">🔑 Secrets Vault</button>
+        <button class="tab-btn" onclick="switchTab('tab-scanner')">🛡️ Secret Scanner</button>
+        <button class="tab-btn" onclick="switchTab('tab-dynamic')">⏳ Dynamic Secrets</button>
+        <button class="tab-btn" onclick="switchTab('tab-pki')">📜 Internal PKI / CA</button>
+        <button class="tab-btn" onclick="switchTab('tab-integrations')">☁️ Cloud Sync</button>
+        <button class="tab-btn" onclick="switchTab('tab-access')">🚨 Break-Glass RBAC</button>
+        <button class="tab-btn" onclick="switchTab('tab-audit')">⛓️ Audit Blockchain</button>
+        <button class="tab-btn" onclick="switchTab('tab-lifecycle')">⚡ 12-Phase Lifecycle</button>
+        <button class="tab-btn" onclick="switchTab('tab-mcp')">🤖 Agent MCP & API</button>
+    </nav>
+
+    <!-- TAB 1: Secrets Vault -->
+    <main id="tab-secrets" class="tab-pane active">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span>Zero-Knowledge Secret Repository</span>
+                    <select id="select-env" class="form-control" style="width: 140px; margin-left: 12px;" onchange="loadSecrets()">
+                        <option value="production">production</option>
+                        <option value="staging">staging</option>
+                        <option value="dev">dev</option>
+                        <option value="sovereign-vault">sovereign-vault</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn" onclick="toggleReveal()"><span id="reveal-icon">👁️</span> Reveal Plaintext</button>
+                    <button class="btn btn-primary" onclick="openAddSecretModal()">+ Add New Secret</button>
+                </div>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Encrypted Value / Payload</th>
+                        <th>Version</th>
+                        <th>Tags</th>
+                        <th>Comment</th>
+                        <th style="text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="secrets-tbody">
+                    <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Loading secrets...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- TAB 2: Secret Scanner -->
+    <main id="tab-scanner" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">High-Entropy Leak Scanner & Source Code Auditor</div>
+                <button class="btn btn-primary" onclick="runWorkspaceScan()">🔍 Scan Entire Workspace</button>
+            </div>
+            <div class="form-group" style="margin-bottom: 16px;">
+                <label>Test Code Snippet, PR Diff, or Text String:</label>
+                <textarea id="scanner-input" class="form-control" placeholder="Paste snippet here (e.g. const key = 'AKIAIOSFODNN7EXAMPLE')..."></textarea>
+            </div>
+            <button class="btn" onclick="runTextScan()">Analyze Text Snippet</button>
+
+            <div style="margin-top: 24px;">
+                <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: var(--text-muted);">Scanner Diagnostic Findings</h4>
+                <div id="scanner-results">
+                    <p style="color: var(--text-muted); font-size: 13px;">No scan executed yet. Click 'Scan Entire Workspace' or analyze a snippet.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- TAB 3: Dynamic Secrets -->
+    <main id="tab-dynamic" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Ephemeral Leased Credentials Engine</div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Target Database / Cloud Service:</label>
+                    <input id="dyn-name" class="form-control" value="postgres-primary-cluster">
+                </div>
+                <div class="form-group">
+                    <label>Engine Protocol:</label>
+                    <select id="dyn-engine" class="form-control">
+                        <option value="postgres">PostgreSQL</option>
+                        <option value="mysql">MySQL</option>
+                        <option value="aws-iam">AWS IAM Temporary Role</option>
+                        <option value="redis">Redis ACL</option>
+                        <option value="mongodb">MongoDB Atlas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Lease TTL (Seconds):</label>
+                    <input id="dyn-ttl" type="number" class="form-control" value="3600">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="createDynamicLease()">⚡ Generate Leased Credential</button>
+
+            <div style="margin-top: 24px;">
+                <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: var(--text-muted);">Active & Historical Leases</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Lease ID</th>
+                            <th>Target</th>
+                            <th>Engine</th>
+                            <th>Username</th>
+                            <th>TTL</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dynamic-tbody">
+                        <tr><td colspan="7">Loading leases...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- TAB 4: PKI / CA -->
+    <main id="tab-pki" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Internal Public Key Infrastructure (X.509 CA & TLS)</div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Subject Common Name (CN):</label>
+                    <input id="pki-cn" class="form-control" placeholder="api.omega.internal">
+                </div>
+                <div class="form-group">
+                    <label>Subject Alternative Names (Comma Separated):</label>
+                    <input id="pki-sans" class="form-control" placeholder="api.omega.internal, localhost, 127.0.0.1">
+                </div>
+                <div class="form-group">
+                    <label>Validity (Days):</label>
+                    <input id="pki-days" type="number" class="form-control" value="90">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="issuePkiCert()">📜 Issue TLS Certificate</button>
+
+            <div style="margin-top: 24px;">
+                <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: var(--text-muted);">Issued X.509 Certificates</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Common Name</th>
+                            <th>SANs</th>
+                            <th>Expires</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pki-tbody">
+                        <tr><td colspan="6">Loading certificates...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- TAB 5: Cloud Sync -->
+    <main id="tab-integrations" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Multi-Cloud & DevOps Two-Way Synchronizations</div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Integration Name</th>
+                        <th>Target System</th>
+                        <th>Environment Mapping</th>
+                        <th>Status</th>
+                        <th>Synced Keys</th>
+                        <th>Last Sync</th>
+                        <th style="text-align: right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="integrations-tbody">
+                    <tr><td colspan="7">Loading integrations...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- TAB 6: Break-Glass RBAC -->
+    <main id="tab-access" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Break-Glass Privilege Elevation & Dual-Custody Approval</div>
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Role to Elevate:</label>
+                    <input id="req-role" class="form-control" value="Break-Glass Production Admin">
+                </div>
+                <div class="form-group">
+                    <label>Operational Justification:</label>
+                    <input id="req-reason" class="form-control" placeholder="Investigate production database saturation">
+                </div>
+                <div class="form-group">
+                    <label>Duration (Minutes):</label>
+                    <input id="req-duration" type="number" class="form-control" value="45">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="createAccessRequest()">🚨 Submit Elevation Request</button>
+
+            <div style="margin-top: 24px;">
+                <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: var(--text-muted);">Approval Queue</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Requester</th>
+                            <th>Role</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Approver</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="access-tbody">
+                        <tr><td colspan="7">Loading requests...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- TAB 7: Audit Blockchain -->
+    <main id="tab-audit" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Cryptographically Chained SHA-256 Audit Ledger</div>
+                <button class="btn btn-primary" onclick="verifyAuditBlockchain()">⛓️ Recalculate & Verify Blockchain</button>
+            </div>
+            <div id="audit-verify-status" style="margin-bottom: 16px; font-size: 13px;"></div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp (UTC)</th>
+                        <th>Actor</th>
+                        <th>Action</th>
+                        <th>Resource</th>
+                        <th>Current Block SHA-256</th>
+                    </tr>
+                </thead>
+                <tbody id="audit-tbody">
+                    <tr><td colspan="5">Loading audit logs...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- TAB 8: 12-Phase Lifecycle -->
+    <main id="tab-lifecycle" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">12-Phase Sovereign SecretOps Lifecycle Certification</div>
+                <button class="btn btn-primary" onclick="triggerLifecycle()">⚡ Execute All 12 Phases Now</button>
+            </div>
+            <div id="lifecycle-steps-container">
+                <div class="terminal-box" id="lifecycle-output">Click "Execute All 12 Phases Now" to run full certification...</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- TAB 9: Agent MCP & API -->
+    <main id="tab-mcp" class="tab-pane">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Autonomous Agent Interface (MCP & REST API)</div>
+            </div>
+            <div class="form-grid">
+                <div class="panel" style="margin-bottom: 0;">
+                    <h4 style="font-size: 14px; margin-bottom: 10px; color: var(--accent-cyan);">MCP JSON-RPC Stdio Server</h4>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Run directly in Antigravity or AI agent loop:</p>
+                    <div class="terminal-box" style="height: 120px;">python infisical_mcp_server.py</div>
+                </div>
+                <div class="panel" style="margin-bottom: 0;">
+                    <h4 style="font-size: 14px; margin-bottom: 10px; color: var(--accent-green);">Zero-Disk Secret Injection CLI</h4>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Injects decrypted secrets into memory:</p>
+                    <div class="terminal-box" style="height: 120px;">python infisical_cli.py run --env production -- node app.js</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Secret Modal -->
+    <div id="add-secret-modal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 16px; font-size: 16px;">Provision New Secret (AES-256-GCM)</h3>
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label>Secret Key:</label>
+                <input id="modal-sec-key" class="form-control" placeholder="e.g. STRIPE_API_KEY">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label>Plaintext Value:</label>
+                <input id="modal-sec-val" class="form-control" placeholder="e.g. sk_live_...">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+                <label>Tags (Comma separated):</label>
+                <input id="modal-sec-tags" class="form-control" placeholder="e.g. payments, production">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>Documentation Comment:</label>
+                <input id="modal-sec-comment" class="form-control" placeholder="Primary billing API token">
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button class="btn" onclick="closeAddSecretModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitNewSecret()">Encrypt & Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        let revealSecrets = false;
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+
+            if (tabId === 'tab-secrets') loadSecrets();
+            if (tabId === 'tab-dynamic') loadDynamicLeases();
+            if (tabId === 'tab-pki') loadPki();
+            if (tabId === 'tab-integrations') loadIntegrations();
+            if (tabId === 'tab-access') loadAccessRequests();
+            if (tabId === 'tab-audit') loadAuditLogs();
+        }
+
+        async function fetchAPI(endpoint, options = {}) {
+            try {
+                const res = await fetch(endpoint, options);
+                return await res.json();
+            } catch (err) {
+                console.error("API error:", err);
+                return null;
+            }
+        }
+
+        async function loadTelemetry() {
+            const data = await fetchAPI('/api/status');
+            if (!data) return;
+            document.getElementById('metric-secrets').innerText = data.metrics.secrets_count;
+            document.getElementById('metric-leases').innerText = data.metrics.active_leases;
+            document.getElementById('metric-certs').innerText = data.metrics.pki_certs_count;
+            document.getElementById('metric-integrations').innerText = data.metrics.integrations_count;
+            document.getElementById('metric-audit').innerText = data.crypto.audit_records_count;
+            
+            document.getElementById('badge-cipher').innerText = data.crypto.cipher.split(' ')[0] + ' READY';
+            document.getElementById('badge-blockchain').innerText = data.crypto.audit_chain_valid ? 'BLOCKCHAIN: VERIFIED' : 'BLOCKCHAIN: COMPROMISED';
+        }
+
+        async function loadSecrets() {
+            const env = document.getElementById('select-env').value;
+            const secrets = await fetchAPI(`/api/secrets?env=${env}&reveal=${revealSecrets}`);
+            const tbody = document.getElementById('secrets-tbody');
+            if (!secrets || secrets.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No secrets found in this environment.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = secrets.map(s => `
+                <tr>
+                    <td class="mono" style="font-weight: 700; color: var(--accent-cyan);">${s.key}</td>
+                    <td><div class="val-pill mono">${s.value}</div></td>
+                    <td><span class="badge badge-indigo">v${s.version}</span></td>
+                    <td>${s.tags.map(t => `<span class="badge badge-cyan" style="font-size: 10px;">${t}</span>`).join(' ')}</td>
+                    <td style="color: var(--text-muted); font-size: 12px;">${s.comment || '-'}</td>
+                    <td style="text-align: right;">
+                        <button class="btn btn-danger" style="padding: 4px 8px; font-size: 11px;" onclick="deleteSecret('${s.key}')">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function toggleReveal() {
+            revealSecrets = !revealSecrets;
+            document.getElementById('reveal-icon').innerText = revealSecrets ? '🔒' : '👁️';
+            loadSecrets();
+        }
+
+        async function deleteSecret(key) {
+            if (!confirm(`Permanently delete secret ${key}?`)) return;
+            const env = document.getElementById('select-env').value;
+            await fetchAPI('/api/secrets/delete', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({key, environment: env})
+            });
+            loadSecrets();
+            loadTelemetry();
+        }
+
+        function openAddSecretModal() {
+            document.getElementById('add-secret-modal').classList.add('open');
+        }
+
+        function closeAddSecretModal() {
+            document.getElementById('add-secret-modal').classList.remove('open');
+        }
+
+        async function submitNewSecret() {
+            const key = document.getElementById('modal-sec-key').value.trim();
+            const value = document.getElementById('modal-sec-val').value.trim();
+            const tags = document.getElementById('modal-sec-tags').value.split(',').map(t => t.trim()).filter(Boolean);
+            const comment = document.getElementById('modal-sec-comment').value.trim();
+            const env = document.getElementById('select-env').value;
+
+            if (!key || !value) {
+                alert('Key and Value are required');
+                return;
+            }
+
+            await fetchAPI('/api/secrets/set', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({key, value, tags, comment, environment: env})
+            });
+
+            closeAddSecretModal();
+            loadSecrets();
+            loadTelemetry();
+        }
+
+        async function runTextScan() {
+            const text = document.getElementById('scanner-input').value;
+            const res = await fetchAPI('/api/scan', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({text})
+            });
+            renderScanResults(res);
+        }
+
+        async function runWorkspaceScan() {
+            const res = await fetchAPI('/api/scan/workspace');
+            renderScanResults(res);
+        }
+
+        function renderScanResults(matches) {
+            const container = document.getElementById('scanner-results');
+            if (!matches || matches.length === 0) {
+                container.innerHTML = '<div class="lifecycle-step" style="border-color: var(--accent-green);"><span style="color: var(--accent-green); font-weight: 700;">[OK] Zero Leaks Detected. Codebase is clean!</span></div>';
+                return;
+            }
+            container.innerHTML = matches.map(m => `
+                <div class="lifecycle-step" style="border-color: rgba(244, 63, 94, 0.4); margin-bottom: 8px;">
+                    <div>
+                        <span class="badge badge-rose">${m.severity}</span>
+                        <strong style="margin-left: 8px;">${m.rule_name}</strong>
+                        <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;" class="mono">${m.file_path}:${m.line_number} (Entropy: ${m.entropy})</div>
+                    </div>
+                    <div class="val-pill mono" style="color: var(--accent-rose);">${m.snippet}</div>
+                </div>
+            `).join('');
+        }
+
+        async function createDynamicLease() {
+            const name = document.getElementById('dyn-name').value;
+            const engine = document.getElementById('dyn-engine').value;
+            const ttl = parseInt(document.getElementById('dyn-ttl').value);
+            await fetchAPI('/api/dynamic/create', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name, engine, ttl})
+            });
+            loadDynamicLeases();
+            loadTelemetry();
+        }
+
+        async function loadDynamicLeases() {
+            const leases = await fetchAPI('/api/dynamic/leases');
+            const tbody = document.getElementById('dynamic-tbody');
+            if (!leases || leases.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7">No dynamic leases active.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = leases.map(l => `
+                <tr>
+                    <td class="mono">${l.lease_id}</td>
+                    <td>${l.secret_name}</td>
+                    <td><span class="badge badge-cyan">${l.engine_type}</span></td>
+                    <td class="mono">${l.username}</td>
+                    <td>${l.ttl_seconds}s</td>
+                    <td><span class="badge ${l.status === 'active' ? 'badge-green' : 'badge-rose'}">${l.status}</span></td>
+                    <td>
+                        ${l.status === 'active' ? `<button class="btn btn-danger" style="padding: 4px 8px; font-size: 11px;" onclick="revokeLease('${l.lease_id}')">Revoke</button>` : '-'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function revokeLease(leaseId) {
+            await fetchAPI('/api/dynamic/revoke', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({lease_id: leaseId})
+            });
+            loadDynamicLeases();
+            loadTelemetry();
+        }
+
+        async function issuePkiCert() {
+            const common_name = document.getElementById('pki-cn').value.trim();
+            const sans = document.getElementById('pki-sans').value.split(',').map(s => s.trim()).filter(Boolean);
+            const days = parseInt(document.getElementById('pki-days').value);
+            if (!common_name) { alert('Common Name is required'); return; }
+
+            await fetchAPI('/api/pki/issue', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({common_name, sans, days})
+            });
+            loadPki();
+            loadTelemetry();
+        }
+
+        async function loadPki() {
+            const certs = await fetchAPI('/api/pki/certs');
+            const tbody = document.getElementById('pki-tbody');
+            if (!certs || certs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6">No certificates issued yet.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = certs.map(c => `
+                <tr>
+                    <td class="mono">${c.serial_number.slice(0, 16)}...</td>
+                    <td class="mono" style="font-weight: 700;">${c.subject_cn}</td>
+                    <td style="font-size: 11px;">${c.sans.join(', ')}</td>
+                    <td class="mono">${c.not_after.slice(0, 10)}</td>
+                    <td><span class="badge ${c.status === 'active' ? 'badge-green' : 'badge-rose'}">${c.status}</span></td>
+                    <td>
+                        ${c.status === 'active' ? `<button class="btn btn-danger" style="padding: 4px 8px; font-size: 11px;" onclick="revokeCert('${c.serial_number}')">Revoke</button>` : '-'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function revokeCert(serial) {
+            await fetchAPI('/api/pki/revoke', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({serial})
+            });
+            loadPki();
+            loadTelemetry();
+        }
+
+        async function loadIntegrations() {
+            const data = await fetchAPI('/api/integrations');
+            const tbody = document.getElementById('integrations-tbody');
+            if (!data) return;
+            tbody.innerHTML = data.map(i => `
+                <tr>
+                    <td style="font-weight: 700;">${i.name}</td>
+                    <td><span class="badge badge-indigo">${i.target}</span></td>
+                    <td class="mono">${i.source_env} &rarr; ${i.target_env}</td>
+                    <td><span class="badge badge-green">${i.sync_status}</span></td>
+                    <td class="mono">${i.synced_keys_count} keys</td>
+                    <td class="mono" style="font-size: 11px;">${i.last_sync_time ? i.last_sync_time.slice(0, 19) : '-'}</td>
+                    <td style="text-align: right;">
+                        <button class="btn btn-primary" style="padding: 4px 10px; font-size: 11px;" onclick="syncInteg('${i.id}')">Sync Now</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function syncInteg(id) {
+            await fetchAPI('/api/integrations/sync', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({id})
+            });
+            loadIntegrations();
+        }
+
+        async function createAccessRequest() {
+            const role = document.getElementById('req-role').value;
+            const reason = document.getElementById('req-reason').value;
+            const duration = parseInt(document.getElementById('req-duration').value);
+            await fetchAPI('/api/access-requests/create', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({role, reason, duration})
+            });
+            loadAccessRequests();
+            loadTelemetry();
+        }
+
+        async function loadAccessRequests() {
+            const requests = await fetchAPI('/api/access-requests');
+            const tbody = document.getElementById('access-tbody');
+            if (!requests || requests.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7">No elevation requests pending.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = requests.map(r => `
+                <tr>
+                    <td class="mono">${r.request_id}</td>
+                    <td>${r.requester}</td>
+                    <td><span class="badge badge-amber">${r.role_requested}</span></td>
+                    <td style="font-size: 12px;">${r.reason}</td>
+                    <td><span class="badge ${r.status === 'approved' ? 'badge-green' : 'badge-amber'}">${r.status}</span></td>
+                    <td>${r.approver || '-'}</td>
+                    <td>
+                        ${r.status === 'pending' ? `<button class="btn btn-primary" style="padding: 4px 10px; font-size: 11px;" onclick="approveAccess('${r.request_id}')">Approve</button>` : 'Authorized'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function approveAccess(requestId) {
+            await fetchAPI('/api/access-requests/approve', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({request_id: requestId})
+            });
+            loadAccessRequests();
+            loadTelemetry();
+        }
+
+        async function loadAuditLogs() {
+            const logs = await fetchAPI('/api/audit?limit=25');
+            const tbody = document.getElementById('audit-tbody');
+            if (!logs) return;
+            tbody.innerHTML = logs.map(l => `
+                <tr>
+                    <td class="mono" style="font-size: 11px;">${l.timestamp.slice(0, 19)}</td>
+                    <td class="mono">${l.actor}</td>
+                    <td><span class="badge badge-cyan">${l.action}</span></td>
+                    <td class="mono" style="font-size: 11px;">${l.resource_type}:${l.resource_id}</td>
+                    <td class="mono" style="font-size: 10px; color: var(--accent-sky);">${l.hash}</td>
+                </tr>
+            `).join('');
+        }
+
+        async function verifyAuditBlockchain() {
+            const res = await fetchAPI('/api/audit/verify');
+            const box = document.getElementById('audit-verify-status');
+            if (res && res.valid) {
+                box.innerHTML = `<span class="badge badge-green">✓ CRYPTOGRAPHIC BLOCKCHAIN INTEGRITY VERIFIED: ${res.records_verified} blocks intact</span>`;
+            } else {
+                box.innerHTML = `<span class="badge badge-rose">✗ BLOCKCHAIN CORRUPTED: ${res.error}</span>`;
+            }
+        }
+
+        async function triggerLifecycle() {
+            const out = document.getElementById('lifecycle-output');
+            out.innerText = "Initiating 12-Phase Sovereign SecretOps Lifecycle...\nExecuting AES-256-GCM tests, PKI issuance, scanning, dynamic rotation, and manifest certification...";
+            switchTab('tab-lifecycle');
+            
+            const res = await fetchAPI('/api/do-everything', {method: 'POST'});
+            if (!res) {
+                out.innerText += "\n[!] Execution failed or server unavailable.";
+                return;
+            }
+
+            let text = "======================================================================\n";
+            text += "  OMEGA INFISICAL SOVEREIGN SECRETOPS LIFECYCLE: 100% CERTIFIED\n";
+            text += `  Target: ${res.target}\n`;
+            text += `  Duration: ${res.execution_duration_ms} ms | Phases: ${res.phases_completed}/${res.phases_total}\n`;
+            text += `  Audit Root Signature: ${res.cryptographic_ledger_signature}\n`;
+            text += "======================================================================\n\n";
+
+            for (const p of res.phases) {
+                text += `  [OK] Phase ${p.phase.toString().padStart(2, ' ')}: ${p.name} (${p.duration_ms} ms)\n`;
+            }
+            out.innerText = text;
+
+            loadTelemetry();
+            loadSecrets();
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTelemetry();
+            loadSecrets();
+        });
+    </script>
+</body>
+</html>

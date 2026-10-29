@@ -198,6 +198,59 @@ Multi-platform username & email reconnaissance, attack surface mapping, digital 
 - **One-Click Launchers**: [`START_BLACKBIRD.bat`](START_BLACKBIRD.bat) & [`START_BLACKBIRD_COCKPIT.bat`](START_BLACKBIRD_COCKPIT.bat).
 - **Audit Reports Vault**: [`blackbird_reports/`](blackbird_reports/) (Automated JSON, CSV, Markdown dossiers, and standalone interactive HTML dossiers).
 
+### Microsoft PowerToys Autonomous Orchestration Ecosystem
+Windows 11 power user utilities, multi-monitor window management, fast modular launcher, stay-awake daemon, and workstation optimization suite (https://github.com/microsoft/PowerToys):
+- [`powertoys-orchestrator`](.agents/skills/powertoys-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for Microsoft PowerToys.
+- **Deep SDK & Master Engine**: [`powertoys_orchestrator.py`](powertoys_orchestrator.py) (Dual-mode: live Windows host execution and high-fidelity simulated .NET 9.0 WinUI 3 runtime for all 24+ utilities).
+- **Universal CLI**: [`powertoys_cli.py`](powertoys_cli.py) (`info`, `modules`, `toggle`, `fancyzones`, `awake`, `run-launcher`, `keyboard`, `hosts`, `advanced-paste`, `workspaces`, `ocr`, `security-audit`, `benchmark`, `do-everything`).
+- **Autonomous Local API Server**: [`powertoys_api_server.py`](powertoys_api_server.py) (REST bridge on port 8770 serving telemetry, FancyZones layouts, PT Run queries, Awake toggles, Paste transforms, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`powertoys_mcp_server.py`](powertoys_mcp_server.py) (Exposes 16 PowerToys agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`powertoys_control_cockpit.html`](powertoys_control_cockpit.html) (10 operational tabs: Nexus Matrix, FancyZones Studio, PowerToys Run Spotlight, Awake Power Sentinel, Keyboard Manager, Hosts File Vault, Advanced Paste AI, Workspaces, Security & Hardening, 12-Phase Lifecycle, and MCP Playground).
+- **One-Click Launchers**: [`START_POWERTOYS_WINDOWS.bat`](START_POWERTOYS_WINDOWS.bat), [`START_POWERTOYS_COCKPIT.bat`](START_POWERTOYS_COCKPIT.bat), [`scripts/start_powertoys_windows.ps1`](scripts/start_powertoys_windows.ps1).
+- **Enterprise Profiles & Settings Vault**: [`powertoys/`](powertoys/) (`settings.json`, `fancyzones/zones-settings.json`, `awake/awake-settings.json`, `keyboard/default.json`, `hosts/sample_hosts.txt`, `advanced_paste/ai_templates.json`, `workspaces/workspaces-settings.json`).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/powertoys_do_everything_manifest.json`](omega/data/powertoys_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/POWERTOYS_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/POWERTOYS_SUPREME_ARCHITECTURE_DOSSIER.md).
+
+### NSA Ghidra Autonomous Software Reverse Engineering (SRE) Ecosystem
+Multi-architecture binary disassembler, Sleigh language instruction decoder, universal P-Code intermediate representation microcode engine, and high-fidelity pseudo-C decompiler (https://github.com/NationalSecurityAgency/ghidra):
+- [`ghidra-orchestrator`](.agents/skills/ghidra-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for NSA Ghidra and software reverse engineering workflows.
+- **Deep SDK & Master Engine**: [`ghidra_orchestrator.py`](ghidra_orchestrator.py) (Dual-mode: live Ghidra headless analyzer / PyGhidra bridge and pure-Python autonomous SRE simulation engine for PE, ELF, Mach-O, and raw shellcode).
+- **Universal CLI**: [`ghidra_cli.py`](ghidra_cli.py) (`info`, `analyze`, `disasm`, `decompile`, `pcode`, `strings`, `sections`, `functions`, `vulns`, `entropy`, `rop`, `scripts`, `run-script`, `do-everything`).
+- **Autonomous Local API Server**: [`ghidra_api_server.py`](ghidra_api_server.py) (REST bridge on port 8771 serving binary telemetry, disassembly, decompiler, P-code, strings, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`ghidra_mcp_server.py`](ghidra_mcp_server.py) (Exposes 16 Ghidra SRE agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`ghidra_control_cockpit.html`](ghidra_control_cockpit.html) (10 operational tabs: Triaging & Headers, Sleigh Disassembly, Pseudo-C Decompiler, P-Code Microcode, Functions & Call Graph, Strings & IOCs, Memory & Entropy, Vulnerabilities & ROP, SRE Script Vault, and Sovereign Lifecycle & MCP).
+- **One-Click Launchers**: [`START_GHIDRA_WINDOWS.bat`](START_GHIDRA_WINDOWS.bat), [`START_GHIDRA_COCKPIT.bat`](START_GHIDRA_COCKPIT.bat), [`scripts/start_ghidra_windows.ps1`](scripts/start_ghidra_windows.ps1).
+- **Enterprise SRE Scripts**: [`ghidra/scripts/`](ghidra/scripts/) (`find_dangerous_apis.py`, `recover_crypto_constants.py`, `rop_gadget_finder.py`, `entropy_packer_detector.py`, `export_ghidra_c_header.py`).
+- **Deterministic SRE Samples**: [`ghidra/samples/`](ghidra/samples/) (`vulnerable_service.exe`).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/ghidra_do_everything_manifest.json`](omega/data/ghidra_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/GHIDRA_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/GHIDRA_SUPREME_ARCHITECTURE_DOSSIER.md).
+
+### Infisical Autonomous SecretOps & Enterprise Security Ecosystem
+Zero-Knowledge client-side encrypted secret management, dynamic leased credentials, high-throughput entropy secret leak scanning, internal PKI/CA certificate authority, and multi-cloud continuous sync (https://github.com/Infisical/infisical):
+- [`infisical-orchestrator`](.agents/skills/infisical-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for Infisical SecretOps platform.
+- **Deep SDK & Master Engine**: [`infisical_orchestrator.py`](infisical_orchestrator.py) (Dual-mode: live Infisical Server REST API and autonomous sovereign cryptographic engine with real AES-256-GCM, PBKDF2-HMAC-SHA256, RSA 2048/4096-bit, and real X.509 PKI certificates).
+- **Universal CLI**: [`infisical_cli.py`](infisical_cli.py) (`status`, `projects`, `secrets`, `scan`, `dynamic`, `pki`, `integrations`, `access-requests`, `audit`, `run`, `do-everything`).
+- **Autonomous Local API Server**: [`infisical_api_server.py`](infisical_api_server.py) (REST bridge on port 8772 serving telemetry, secrets, scanner, dynamic leases, PKI, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`infisical_mcp_server.py`](infisical_mcp_server.py) (Exposes 18 Infisical SecretOps agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`infisical_control_cockpit.html`](infisical_control_cockpit.html) (10 operational tabs: Secrets Vault, Secret Scanner, Dynamic Secrets, Internal PKI/CA, Cloud Sync, Break-Glass RBAC, Audit Blockchain, 12-Phase Lifecycle, and Agent MCP/API Studio).
+- **One-Click Launchers**: [`START_INFISICAL_WINDOWS.bat`](START_INFISICAL_WINDOWS.bat), [`START_INFISICAL_COCKPIT.bat`](START_INFISICAL_COCKPIT.bat), [`scripts/start_infisical_windows.ps1`](scripts/start_infisical_windows.ps1).
+- **Enterprise SecretOps Vault & Assets**: [`infisical/`](infisical/) (`docker-compose.yml`, `policies/rbac_matrix.json`, `templates/production_secrets.template`, `configs/dynamic_db_rotation.json`, `certs/root_ca_config.cnf`).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/infisical_do_everything_manifest.json`](omega/data/infisical_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/INFISICAL_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/INFISICAL_SUPREME_ARCHITECTURE_DOSSIER.md).
+
+### Free-For-Dev Autonomous Developer Cloud & Zero-Dollar Stack Ecosystem
+Autonomous developer cloud intelligence, multi-provider quota comparison, 1,396+ developer free tiers, and zero-dollar production architecture synthesis (https://github.com/ripienaar/free-for-dev):
+- [`free-for-dev`](.agents/skills/free-for-dev/SKILL.md) & [`free-tools`](.agents/skills/free-tools/SKILL.md): Autonomous standard operating procedures for zero-cost developer infrastructure, multi-vendor quota comparison, and architecture audits.
+- **Deep SDK & Master Engine**: [`free_for_dev_orchestrator.py`](free_for_dev_orchestrator.py) (Parses 1,396+ offerings across 57 categories, SQLite FTS5 search, zero-credit-card filter, and automated stack synthesis).
+- **Universal CLI**: [`free_for_dev_cli.py`](free_for_dev_cli.py) (`info`, `categories`, `search`, `service`, `compare`, `stack`, `audit`, `no-card`, `export`, `do-everything`).
+- **Autonomous Local API Server**: [`free_for_dev_api_server.py`](free_for_dev_api_server.py) (REST bridge on port 8771 serving telemetry, search, comparative matrix, stack blueprints, audit, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`free_for_dev_mcp_server.py`](free_for_dev_mcp_server.py) (Exposes 9 Free-For-Dev agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`free_for_dev_cockpit.html`](free_for_dev_cockpit.html) (8 operational tabs: Catalog Explorer, Zero-Dollar Stack Architect, Provider Battleground, Architecture Feasibility Auditor, No-Credit-Card Sanctuary, Terminal Simulator, 12-Phase Lifecycle, and MCP Playground).
+- **One-Click Launchers**: [`START_FREE_FOR_DEV_WINDOWS.bat`](START_FREE_FOR_DEV_WINDOWS.bat), [`START_FREE_FOR_DEV_COCKPIT.bat`](START_FREE_FOR_DEV_COCKPIT.bat), [`scripts/start_free_for_dev_windows.ps1`](scripts/start_free_for_dev_windows.ps1).
+- **Attested Data Stores & Vaults**: [`data/free_for_dev_catalog.json`](data/free_for_dev_catalog.json), [`data/free_for_dev.sqlite3`](data/free_for_dev.sqlite3), [`data/free_for_dev_stacks.json`](data/free_for_dev_stacks.json), [`data/free_for_dev_export.csv`](data/free_for_dev_export.csv), [`data/free_for_dev_export.md`](data/free_for_dev_export.md).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/free_for_dev_do_everything_manifest.json`](omega/data/free_for_dev_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/FREE_FOR_DEV_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/FREE_FOR_DEV_SUPREME_ARCHITECTURE_DOSSIER.md).
+
 ### Launch Video & Product Showcase Engine
 - [`brag`](.agents/skills/brag/SKILL.md): Turn the current project website or codebase into a short, polished, shareable launch video using Hyperframes with bundled music, SFX, and custom tone presets.
 - [`brag-slim`](.agents/skills/brag-slim/SKILL.md): Lean, zero-dependency launch video generator running locally on native tools (HTML/Canvas/Puppeteer/ffmpeg) for rapid social showcase clips.

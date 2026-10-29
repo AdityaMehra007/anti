@@ -1,0 +1,71 @@
+{
+  "system": "Infisical Sovereign RBAC Matrix",
+  "version": "2.0.0",
+  "roles": {
+    "org_owner": {
+      "name": "Organization Owner",
+      "description": "Full unconstrained administrative privileges across all workspaces, KMS, and billing.",
+      "permissions": [
+        "org:admin",
+        "org:delete",
+        "workspace:create",
+        "workspace:delete",
+        "secrets:read",
+        "secrets:write",
+        "secrets:delete",
+        "secrets:rollback",
+        "dynamic:manage",
+        "pki:manage",
+        "integrations:manage",
+        "audit:read"
+      ]
+    },
+    "project_admin": {
+      "name": "Project Administrator",
+      "description": "Complete control over secrets, folders, environments, and cloud sync within assigned projects.",
+      "permissions": [
+        "workspace:configure",
+        "secrets:read",
+        "secrets:write",
+        "secrets:delete",
+        "secrets:rollback",
+        "dynamic:manage",
+        "integrations:manage",
+        "audit:read"
+      ]
+    },
+    "developer_member": {
+      "name": "Developer Member",
+      "description": "Standard engineering role with read/write access to dev/staging and read-only to production.",
+      "permissions": [
+        "secrets:read:dev",
+        "secrets:write:dev",
+        "secrets:read:staging",
+        "secrets:write:staging",
+        "secrets:read:production"
+      ]
+    },
+    "machine_identity": {
+      "name": "Machine Identity (Universal Auth)",
+      "description": "Programmatic service account for CI/CD runners, Kubernetes operators, and autonomous AI agents.",
+      "permissions": [
+        "secrets:read:scoped",
+        "dynamic:lease",
+        "pki:issue"
+      ]
+    },
+    "break_glass_secops": {
+      "name": "Break-Glass SecOps Incident Commander",
+      "description": "Temporary privilege elevation granting emergency access to production with mandatory dual-custody approval and tamper-evident audit logging.",
+      "permissions": [
+        "secrets:read:all",
+        "secrets:write:all",
+        "dynamic:revoke:all",
+        "pki:revoke:all",
+        "audit:export"
+      ],
+      "requires_approval": true,
+      "max_duration_minutes": 120
+    }
+  }
+}

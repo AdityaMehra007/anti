@@ -12,6 +12,13 @@ Operational Mode: Version OMNI-X / Production Engineering Mode
 
 import os
 import sys
+
+# Ensure UTF-8 output on Windows console
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 import re
 import json
 import sqlite3
@@ -1037,10 +1044,10 @@ class FreeForDevOrchestrator:
         phases.append({
             "phase": 12,
             "name": "Mission Control Cockpit & API Server Operational Attestation",
-            "description": "Verified Mission Control Cockpit asset readiness on default port 8770.",
+            "description": "Verified Mission Control Cockpit asset readiness on default port 8771.",
             "status": "PASSED",
             "elapsed_seconds": round(time.perf_counter() - p12_start, 4),
-            "evidence": {"port": 8770, "cockpit_file": str(cockpit_path)}
+            "evidence": {"port": 8771, "cockpit_file": str(cockpit_path)}
         })
 
         total_elapsed = round(time.perf_counter() - start_time, 4)

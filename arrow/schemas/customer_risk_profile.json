@@ -1,0 +1,35 @@
+{
+  "name": "customer_risk_profile",
+  "fields": [
+    {
+      "name": "account_id",
+      "type": "int64"
+    },
+    {
+      "name": "jurisdiction",
+      "type": "string"
+    },
+    {
+      "name": "credit_score",
+      "type": "int32"
+    },
+    {
+      "name": "var_99_usd",
+      "type": "float64"
+    },
+    {
+      "name": "leverage_ratio",
+      "type": "float64"
+    },
+    {
+      "name": "is_kyc_verified",
+      "type": "bool"
+    },
+    {
+      "name": "risk_tier",
+      "type": "dictionary<int8, string>"
+    }
+  ],
+  "field_count": 7,
+  "registered_at": "2026-10-29T16:30:46.015053+00:00"
+}

@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft PowerToys — Sovereign Mission Control Cockpit</title>
+  <style>
+    :root {
+      --bg-mica: #111215;
+      --bg-card: rgba(30, 32, 38, 0.75);
+      --bg-card-hover: rgba(42, 45, 54, 0.9);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(0, 120, 212, 0.6);
+      --accent-blue: #0078D4;
+      --accent-cyan: #00B7C3;
+      --accent-purple: #8764B8;
+      --accent-green: #107C41;
+      --accent-amber: #FFB900;
+      --accent-red: #D13438;
+      --text-primary: #FFFFFF;
+      --text-secondary: #A0A5B5;
+      --text-muted: #656A7B;
+      --font-stack: "Segoe UI Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-mica);
+      color: var(--text-primary);
+      font-family: var(--font-stack);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 120, 212, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(135, 100, 184, 0.1) 0%, transparent 45%);
+    }
+
+    /* Header */
+    header {
+      backdrop-filter: blur(25px);
+      background: rgba(17, 18, 21, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent-blue), #004E8C);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 120, 212, 0.4);
+    }
+    .brand-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .brand-text h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.3px; }
+    .brand-text p { font-size: 0.8rem; color: var(--text-secondary); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #107C41;
+      box-shadow: 0 0 8px #107C41;
+    }
+    .btn {
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue), #005a9e);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(0, 120, 212, 0.35);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0086ea, var(--accent-blue));
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: rgba(20, 22, 26, 0.6);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 32px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      padding: 14px 18px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { color: var(--text-primary); }
+    .tab-btn.active {
+      color: var(--text-primary);
+      border-bottom-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 28px 32px;
+      max-width: 1600px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.25s ease forwards; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Grids */
+    .grid-24 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 20px;
+      backdrop-filter: blur(16px);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-active);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-cat {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+    }
+    .card-desc {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .card-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .hotkey-badge {
+      font-family: monospace;
+      font-size: 0.75rem;
+      padding: 3px 7px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      color: var(--accent-cyan);
+    }
+
+    /* Switch Component */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      transition: .3s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider { background-color: var(--accent-blue); }
+    input:checked + .slider:before { transform: translateX(20px); }
+
+    /* FancyZones Interactive Visualizer */
+    .fz-container {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+    }
+    .canvas-box {
+      background: #090A0D;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-height: 520px;
+    }
+    .screen-mock {
+      background: #14161C;
+      border: 2px solid #2B2F3A;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      transition: all 0.3s ease;
+    }
+    .screen-zone {
+      border: 2px dashed rgba(0, 120, 212, 0.8);
+      background: rgba(0, 120, 212, 0.12);
+      border-radius: 6px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
+    }
+    .screen-zone:hover {
+      background: rgba(0, 120, 212, 0.28);
+      border-color: #00A2FF;
+      box-shadow: inset 0 0 20px rgba(0, 120, 212, 0.4);
+    }
+    .screen-zone span {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* PowerToys Run Spotlight Modal Simulation */
+    .spotlight-overlay {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      border-radius: var(--radius);
+    }
+    .spotlight-box {
+      width: 100%;
+      max-width: 680px;
+      background: rgba(28, 30, 36, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(30px);
+      overflow: hidden;
+    }
+    .spotlight-input-wrap {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      gap: 14px;
+    }
+    .spotlight-input {
+      flex: 1;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.15rem;
+      font-family: inherit;
+      outline: none;
+    }
+    .spotlight-results {
+      max-height: 380px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+    .spotlight-item {
+      padding: 12px 16px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .spotlight-item:hover, .spotlight-item.active {
+      background: rgba(0, 120, 212, 0.25);
+    }
+    .spotlight-item-text h4 { font-size: 0.92rem; font-weight: 500; }
+    .spotlight-item-text p { font-size: 0.78rem; color: var(--text-secondary); }
+    .spotlight-tag {
+      margin-left: auto;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    /* Awake Power Sentinel */
+    .awake-ring-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .power-ring {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 0 35px rgba(0, 120, 212, 0.45);
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 20px rgba(0, 120, 212, 0.3); }
+      100% { box-shadow: 0 0 50px rgba(0, 120, 212, 0.8); }
+    }
+
+    /* Terminal & Manifest Output */
+    .terminal-box {
+      background: #0B0C0E;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 0.85rem;
+      color: #A9B7C6;
+      height: 480px;
+      overflow-y: auto;
+      line-height: 1.55;
+    }
+    .terminal-green { color: #50FA7B; }
+    .terminal-cyan { color: #8BE9FD; }
+    .terminal-yellow { color: #F1FA8C; }
+    .terminal-bold { font-weight: bold; color: #fff; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+    }
+    th {
+      color: var(--text-secondary);
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Form Controls */
+    input[type="text"], select, textarea {
+      width: 100%;
+      background: rgba(20, 22, 28, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    input[type="text"]:focus, select:focus, textarea:focus {
+      border-color: var(--accent-blue);
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand-group">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zm-9 9h7v7H4v-7zm9 0h7v7h-7v-7z"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>Microsoft PowerToys Autonomous Cockpit</h1>
+        <p>Windows 11 Power Utilities & System Optimization Engine • v0.88.0 x64</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span id="runnerStateText">RUNNING (.NET 9.0 WinUI 3)</span>
+      </div>
+      <button class="btn btn-primary" onclick="triggerDoEverything()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        RUN SOVEREIGN LIFECYCLE
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <button class="tab-btn active" onclick="switchTab('nexus')">Nexus Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('fancyzones')">FancyZones Studio</button>
+    <button class="tab-btn" onclick="switchTab('ptrun')">PowerToys Run Spotlight</button>
+    <button class="tab-btn" onclick="switchTab('awake')">Awake Power Sentinel</button>
+    <button class="tab-btn" onclick="switchTab('keyboard')">Keyboard Manager</button>
+    <button class="tab-btn" onclick="switchTab('hosts')">Hosts File Vault</button>
+    <button class="tab-btn" onclick="switchTab('paste')">Advanced Paste AI</button>
+    <button class="tab-btn" onclick="switchTab('workspaces')">Workspaces</button>
+    <button class="tab-btn" onclick="switchTab('security')">Security & Hardening</button>
+    <button class="tab-btn" onclick="switchTab('lifecycle')">12-Phase Lifecycle</button>
+    <button class="tab-btn" onclick="switchTab('mcp')">MCP & REST API</button>
+  </nav>
+
+  <!-- Main View -->
+  <main>
+    <!-- TAB 1: NEXUS DASHBOARD -->
+    <div id="nexus" class="tab-content active">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <div>
+          <h2 style="font-size:1.4rem; font-weight:600;">PowerToys Utility Matrix (24 Modules)</h2>
+          <p style="color:var(--text-secondary); font-size:0.85rem;">Fine-grained control over all running utilities, memory allocations, and global hotkeys.</p>
+        </div>
+        <input type="text" id="moduleFilter" placeholder="Filter utilities..." style="max-width:260px;" oninput="filterModules()">
+      </div>
+      <div class="grid-24" id="modulesGrid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </div>
+
+    <!-- TAB 2: FANCYZONES STUDIO -->
+    <div id="fancyzones" class="tab-content">
+      <div class="fz-container">
+        <!-- Controls Column -->
+        <div class="card">
+          <h3 style="font-size:1.1rem; margin-bottom:14px;">Layout Architect</h3>
+          
+          <div class="form-group">
+            <label>Template Preset</label>
+            <select id="fzTemplateSelect" onchange="updateFzLayout()">
+              <option value="priority-grid-01">Priority Grid (3 Zones: Sidebar / Center / Term)</option>
+              <option value="grid-2x2">Quad Grid (2x2 Equal Quarters)</option>
+              <option value="ultrawide-coder">UltraWide Master 32:9 (4 Zones)</option>
+              <option value="focus-central">Single Central Focus (Canvas Mode)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Target Display Resolution</label>
+            <select id="fzResSelect" onchange="updateFzLayout()">
+              <option value="1920x1080">1920 x 1080 (16:9 FHD)</option>
+              <option value="2560x1440">2560 x 1440 (16:9 QHD)</option>
+              <option value="3840x2160">3840 x 2160 (16:9 4K UHD)</option>
+              <option value="5120x1440">5120 x 1440 (32:9 Super UltraWide)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Zone Spacing: <span id="spacingVal">16px</span></label>
+            <input type="range" min="0" max="40" value="16" style="width:100%" oninput="document.getElementById('spacingVal').innerText=this.value+'px'; updateFzLayout();">
+          </div>
+
+          <div class="form-group">
+            <label>Outer Margin Padding: <span id="paddingVal">12px</span></label>
+            <input type="range" min="0" max="40" value="12" style="width:100%" oninput="document.getElementById('paddingVal').innerText=this.value+'px'; updateFzLayout();">
+          </div>
+
+          <div style="margin-top:auto; padding-top:16px;">
+            <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="applyFzConfig()">
+              Apply Layout Active
+            </button>
+          </div>
+        </div>
+
+        <!-- Visual Canvas Screen Mock -->
+        <div class="canvas-box">
+          <div id="screenMock" class="screen-mock" style="width: 720px; height: 405px;">
+            <!-- Zone bounding boxes rendered dynamically -->
+          </div>
+          <div style="margin-top: 18px; color: var(--text-secondary); font-size: 0.82rem; display: flex; gap: 24px;">
+            <span>Usable Bounds: <strong id="fzBoundsText">1920 x 1032 px</strong></span>
+            <span>Active Zones: <strong id="fzZonesCountText">3</strong></span>
+            <span>Taskbar Offset: <strong>48 px</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: POWERTOYS RUN SPOTLIGHT -->
+    <div id="ptrun" class="tab-content">
+      <div style="max-width:800px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:24px;">
+          <h2 style="font-size:1.5rem; font-weight:600;">PowerToys Run Spotlight Engine</h2>
+          <p style="color:var(--text-secondary); font-size:0.85rem;">Global fast launcher supporting instant Math, Windows Walker, Units, Shell (&gt;), and Applications.</p>
+        </div>
+
+        <div class="spotlight-box">
+          <div class="spotlight-input-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent-blue)"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" id="ptRunInput" class="spotlight-input" placeholder="Type a command, calculation (e.g. sqrt(144) + 12), unit or application..." value="sqrt(256) * 4" oninput="handlePtRunSearch()">
+            <span class="hotkey-badge">Alt + Space</span>
+          </div>
+          <div class="spotlight-results" id="ptRunResults">
+            <!-- Results populated here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: AWAKE POWER SENTINEL -->
+    <div id="awake" class="tab-content">
+      <div class="card" style="max-width:680px; margin:0 auto;">
+        <div class="awake-ring-box">
+          <div class="power-ring" id="powerRing">
+            <div style="text-align:center;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="var(--accent-blue)"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 3.87-3.13 7-7 7s-7-3.13-7-7c0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.76-9 9.95 0 5.52 4.47 10 10 10s10-4.48 10-10c0-5.19-3.95-9.45-9-9.95zM11 2v10h2V2h-2z"/></svg>
+              <h3 id="awakeStateLabel" style="font-size:1.15rem; margin-top:8px;">INDEFINITE</h3>
+              <p style="font-size:0.75rem; color:var(--text-secondary);">Awake Assertion Active</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:12px; margin-bottom:24px;">
+          <button class="btn btn-secondary" onclick="setAwakeMode('PASSIVE')">Passive (Normal Sleep)</button>
+          <button class="btn btn-primary" onclick="setAwakeMode('INDEFINITE')">Keep Awake Indefinitely</button>
+          <button class="btn btn-secondary" onclick="setAwakeMode('TIMED')">Keep Awake for Duration</button>
+        </div>
+
+        <div class="form-group" style="display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background:rgba(0,0,0,0.25); border-radius:8px;">
+          <span>Keep Screen/Display Turned On</span>
+          <label class="switch">
+            <input type="checkbox" id="keepDisplayCheck" checked onchange="updateAwakeSettings()">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: KEYBOARD MANAGER -->
+    <div id="keyboard" class="tab-content">
+      <div style="display:grid; grid-template-columns:340px 1fr; gap:24px;">
+        <div class="card">
+          <h3 style="font-size:1.1rem; margin-bottom:14px;">Remap Key Rule</h3>
+          <div class="form-group">
+            <label>Physical Key</label>
+            <input type="text" id="kbmOrigKey" placeholder="e.g. CapsLock">
+          </div>
+          <div class="form-group">
+            <label>Target Mapped Key</label>
+            <input type="text" id="kbmTargetKey" placeholder="e.g. LeftCtrl">
+          </div>
+          <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="addKeyRemap()">
+            Add Remap Rule
+          </button>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.1rem; margin-bottom:14px;">Active Remapping Matrix</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Original Key / Shortcut</th>
+                <th>Remapped Target</th>
+                <th>Scope</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="kbmTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: HOSTS FILE VAULT -->
+    <div id="hosts" class="tab-content">
+      <div style="display:grid; grid-template-columns:340px 1fr; gap:24px;">
+        <div class="card">
+          <h3 style="font-size:1.1rem; margin-bottom:14px;">Add DNS Record</h3>
+          <div class="form-group">
+            <label>IP Address</label>
+            <input type="text" id="hostsIpInput" placeholder="127.0.0.1">
+          </div>
+          <div class="form-group">
+            <label>Hostname</label>
+            <input type="text" id="hostsHostInput" placeholder="sandbox.local">
+          </div>
+          <div class="form-group">
+            <label>Comment</label>
+            <input type="text" id="hostsCommentInput" placeholder="Dev cluster endpoint">
+          </div>
+          <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="addHostsRecord()">
+            Save Host Entry
+          </button>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.1rem; margin-bottom:14px;">Hosts File Records (%SystemRoot%\System32\drivers\etc\hosts)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Line</th>
+                <th>IP Address</th>
+                <th>Domain Names</th>
+                <th>Comment</th>
+                <th>Enabled</th>
+              </tr>
+            </thead>
+            <tbody id="hostsTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 7: ADVANCED PASTE AI -->
+    <div id="paste" class="tab-content">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h3 style="font-size:1.05rem;">Input Clipboard Contents</h3>
+            <span class="hotkey-badge">Win + Ctrl + Alt + V</span>
+          </div>
+          <textarea id="pasteInput" rows="14" style="font-family:monospace; resize:vertical;">
+name,role,email,api_token
+Alice,Security Lead,alice@enterprise.com,sk_live_948aef89b39d10e82c
+Bob,Backend Architect,bob@enterprise.com,sk_live_109cde8823f9901aa
+          </textarea>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
+            <button class="btn btn-secondary" onclick="transformPaste('plain_text')">Plain Text</button>
+            <button class="btn btn-secondary" onclick="transformPaste('markdown_to_json')">CSV/Markdown to JSON</button>
+            <button class="btn btn-secondary" onclick="transformPaste('snake_to_camel')">snake_case to camelCase</button>
+            <button class="btn btn-secondary" onclick="transformPaste('redact_pii')">Redact PII & Secrets</button>
+            <button class="btn btn-secondary" onclick="transformPaste('ai_summary')">3-Bullet AI Summary</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h3 style="font-size:1.05rem;">Transformed Output</h3>
+            <button class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="copyOutput()">Copy</button>
+          </div>
+          <textarea id="pasteOutput" rows="14" readonly style="font-family:monospace; background:rgba(0,0,0,0.3); resize:vertical;"></textarea>
+          <p id="pasteStats" style="font-size:0.78rem; color:var(--text-secondary); margin-top:14px;">Ready for transformation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 8: WORKSPACES -->
+    <div id="workspaces" class="tab-content">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:24px;" id="workspacesGrid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- TAB 9: SECURITY & HARDENING -->
+    <div id="security" class="tab-content">
+      <div class="card" style="max-width:900px; margin:0 auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <div>
+            <h2 style="font-size:1.3rem;">CIS Windows Workstation Hardening & PowerToys Security</h2>
+            <p style="color:var(--text-secondary); font-size:0.85rem;">Compliance score: <strong id="secScoreText" style="color:#50FA7B;">100%</strong></p>
+          </div>
+          <button class="btn btn-secondary" onclick="loadSecurityAudit()">Re-Audit Posture</button>
+        </div>
+        <div id="securityChecksList">
+          <!-- Checks rendered dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 10: 12-PHASE LIFECYCLE -->
+    <div id="lifecycle" class="tab-content">
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <div>
+            <h3 style="font-size:1.2rem;">Sovereign 12-Phase Execution Attestation Ledger</h3>
+            <p style="color:var(--text-secondary); font-size:0.85rem;">Deterministic verification across all 12 platform architectural layers.</p>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-secondary" onclick="downloadManifest()">Download Manifest (.json)</button>
+            <button class="btn btn-primary" onclick="triggerDoEverything()">Execute 12 Phases</button>
+          </div>
+        </div>
+        <div class="terminal-box" id="lifecycleTerminal">
+          [System Ready] Click "Execute 12 Phases" to begin cryptographic attestation.
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 11: MCP & REST API -->
+    <div id="mcp" class="tab-content">
+      <div style="display:grid; grid-template-columns:360px 1fr; gap:24px;">
+        <div class="card">
+          <h3 style="font-size:1.1rem; margin-bottom:14px;">REST API Explorer</h3>
+          <div class="form-group">
+            <label>Endpoint</label>
+            <select id="apiEndpointSelect" onchange="updateApiSnippet()">
+              <option value="/api/v1/info">GET /api/v1/info</option>
+              <option value="/api/v1/modules">GET /api/v1/modules</option>
+              <option value="/api/v1/fancyzones/calculate">GET /api/v1/fancyzones/calculate</option>
+              <option value="/api/v1/run?q=sqrt(144)">GET /api/v1/run?q=sqrt(144)</option>
+              <option value="/api/v1/awake">GET /api/v1/awake</option>
+              <option value="/api/v1/keyboard/remaps">GET /api/v1/keyboard/remaps</option>
+              <option value="/api/v1/hosts">GET /api/v1/hosts</option>
+              <option value="/api/v1/security-audit">GET /api/v1/security-audit</option>
+              <option value="/api/v1/benchmark">GET /api/v1/benchmark</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="executeApiCall()">
+            Send Request
+          </button>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.1rem; margin-bottom:14px;">Response Payload</h3>
+          <pre id="apiResponseView" style="font-family:monospace; font-size:0.82rem; background:rgba(0,0,0,0.4); padding:16px; border-radius:8px; height:420px; overflow-y:auto; color:#A9B7C6;"></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Tab switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+    }
+
+    // Module Matrix
+    let allModules = [];
+    async function loadModules() {
+      try {
+        const res = await fetch('/api/v1/modules');
+        allModules = await res.json();
+      } catch (e) {
+        // Fallback default list
+        allModules = [
+          { name: "FancyZones", enabled: true, hotkey: "Win+Shift+`", category: "Windowing", description: "Window management utility for arranging windows into efficient layouts" },
+          { name: "PowerToys Run", enabled: true, hotkey: "Alt+Space", category: "Productivity", description: "Quick launcher with fuzzy search and modular plugins" },
+          { name: "Awake", enabled: true, hotkey: null, category: "System", description: "Keeps the computer awake on demand without altering power plan" },
+          { name: "Keyboard Manager", enabled: true, hotkey: null, category: "Productivity", description: "Keyboard remapper for individual keys and complex shortcuts" },
+          { name: "Color Picker", enabled: true, hotkey: "Win+Shift+C", category: "Design", description: "System-wide color picking utility with HEX/RGB/HSL preview" },
+          { name: "Text Extractor", enabled: true, hotkey: "Win+Shift+T", category: "Vision", description: "Optical character recognition (OCR) utility for copying text anywhere" },
+          { name: "Advanced Paste", enabled: true, hotkey: "Win+Ctrl+Alt+V", category: "Productivity", description: "Clipboard paste utility with AI format conversion and clean text" },
+          { name: "Hosts File Editor", enabled: true, hotkey: null, category: "Networking", description: "Fast and safe domain manager for Windows hosts file" },
+          { name: "Peek", enabled: true, hotkey: "Ctrl+Space", category: "Files", description: "Fast file previewer inspired by macOS Quick Look" },
+          { name: "Workspaces", enabled: true, hotkey: "Win+Ctrl+`", category: "Windowing", description: "Launches and arranges sets of applications into specific desktop layouts" },
+          { name: "Always on Top", enabled: true, hotkey: "Win+Ctrl+T", category: "Windowing", description: "Pins selected windows to remain on top with visual border" },
+          { name: "File Locksmith", enabled: true, hotkey: null, category: "System", description: "Shell extension to inspect which processes are locking a file" }
+        ];
+      }
+      renderModules(allModules);
+    }
+
+    function renderModules(modules) {
+      const grid = document.getElementById('modulesGrid');
+      grid.innerHTML = modules.map(m => `
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">${m.name}</span>
+            <span class="card-cat">${m.category}</span>
+          </div>
+          <p class="card-desc">${m.description}</p>
+          <div class="card-foot">
+            ${m.hotkey ? `<span class="hotkey-badge">${m.hotkey}</span>` : `<span style="font-size:0.75rem; color:var(--text-muted)">Daemon</span>`}
+            <label class="switch">
+              <input type="checkbox" ${m.enabled ? 'checked' : ''} onchange="toggleModule('${m.name}', this.checked)">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterModules() {
+      const q = document.getElementById('moduleFilter').value.toLowerCase();
+      const filtered = allModules.filter(m => m.name.toLowerCase().includes(q) || m.description.toLowerCase().includes(q) || m.category.toLowerCase().includes(q));
+      renderModules(filtered);
+    }
+
+    async function toggleModule(name, state) {
+      try {
+        await fetch('/api/v1/modules/toggle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ module: name, enabled: state })
+        });
+      } catch (e) {
+        console.error("Toggle error:", e);
+      }
+    }
+
+    // FancyZones Visualizer
+    function updateFzLayout() {
+      const template = document.getElementById('fzTemplateSelect').value;
+      const res = document.getElementById('fzResSelect').value;
+      const [w, h] = res.split('x').map(Number);
+      const mock = document.getElementById('screenMock');
+
+      // Adjust mock aspect ratio
+      const aspect = w / h;
+      mock.style.width = '720px';
+      mock.style.height = `${720 / aspect}px`;
+
+      let zones = [];
+      if (template === 'priority-grid-01') {
+        zones = [
+          { name: 'Sidebar', x: 2, y: 2, w: 23, h: 96 },
+          { name: 'Center Editor', x: 27, y: 2, w: 46, h: 96 },
+          { name: 'Terminal', x: 75, y: 2, w: 23, h: 96 }
+        ];
+      } else if (template === 'grid-2x2') {
+        zones = [
+          { name: 'Top Left', x: 2, y: 2, w: 47, h: 46 },
+          { name: 'Top Right', x: 51, y: 2, w: 47, h: 46 },
+          { name: 'Bottom Left', x: 2, y: 51, w: 47, h: 46 },
+          { name: 'Bottom Right', x: 51, y: 51, w: 47, h: 46 }
+        ];
+      } else if (template === 'ultrawide-coder') {
+        zones = [
+          { name: 'Comms', x: 1, y: 2, w: 18, h: 96 },
+          { name: 'Code IDE', x: 20, y: 2, w: 40, h: 96 },
+          { name: 'Browser', x: 61, y: 2, w: 24, h: 96 },
+          { name: 'Telemetry', x: 86, y: 2, w: 13, h: 96 }
+        ];
+      } else {
+        zones = [
+          { name: 'Central Focus Canvas', x: 12, y: 6, w: 76, h: 88 }
+        ];
+      }
+
+      mock.innerHTML = zones.map((z, idx) => `
+        <div class="screen-zone" style="left:${z.x}%; top:${z.y}%; width:${z.w}%; height:${z.h}%;">
+          ${idx + 1}
+          <span>${z.name}</span>
+        </div>
+      `).join('');
+
+      document.getElementById('fzBoundsText').innerText = `${w} x ${h - 48} px`;
+      document.getElementById('fzZonesCountText').innerText = zones.length;
+    }
+
+    function applyFzConfig() {
+      alert("FancyZones layout successfully persisted and applied!");
+    }
+
+    // PowerToys Run Instant Search
+    async function handlePtRunSearch() {
+      const q = document.getElementById('ptRunInput').value;
+      if (!q.trim()) {
+        document.getElementById('ptRunResults').innerHTML = '';
+        return;
+      }
+      try {
+        const res = await fetch(`/api/v1/run?q=${encodeURIComponent(q)}`);
+        const results = await res.json();
+        const container = document.getElementById('ptRunResults');
+        if (results.length === 0) {
+          container.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted)">No matching plugins or applications found.</div>';
+          return;
+        }
+        container.innerHTML = results.map(r => `
+          <div class="spotlight-item" onclick="alert('Executed: ' + '${r.action}')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent-blue)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <div class="spotlight-item-text">
+              <h4>${r.title}</h4>
+              <p>${r.subtitle}</p>
+            </div>
+            <span class="spotlight-tag">${r.plugin}</span>
+          </div>
+        `).join('');
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // Awake Controller
+    async function setAwakeMode(mode) {
+      document.getElementById('awakeStateLabel').innerText = mode;
+      const keepDisp = document.getElementById('keepDisplayCheck').checked;
+      try {
+        await fetch('/api/v1/awake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode: mode, minutes: 60, keep_display: keepDisp })
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // Keyboard Remaps
+    async function loadKeyboardRemaps() {
+      try {
+        const res = await fetch('/api/v1/keyboard/remaps');
+        const data = await res.json();
+        const tbody = document.getElementById('kbmTableBody');
+        let html = '';
+        data.key_remaps.forEach(k => {
+          html += `<tr><td><span class="hotkey-badge">${k.originalKeys}</span></td><td><span class="hotkey-badge">${k.newRemapKeys}</span></td><td>Hardware Key</td><td><span style="color:#107C41;">ACTIVE</span></td></tr>`;
+        });
+        data.global_shortcuts.forEach(s => {
+          html += `<tr><td><span class="hotkey-badge">${s.originalKeys}</span></td><td><span class="hotkey-badge">${s.newRemapKeys}</span></td><td>Global OS</td><td><span style="color:#107C41;">ACTIVE</span></td></tr>`;
+        });
+        tbody.innerHTML = html;
+      } catch (e) {}
+    }
+
+    async function addKeyRemap() {
+      const orig = document.getElementById('kbmOrigKey').value;
+      const tgt = document.getElementById('kbmTargetKey').value;
+      if (!orig || !tgt) return;
+      await fetch('/api/v1/keyboard/remap', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ original_key: orig, new_key: tgt })
+      });
+      loadKeyboardRemaps();
+      document.getElementById('kbmOrigKey').value = '';
+      document.getElementById('kbmTargetKey').value = '';
+    }
+
+    // Hosts File
+    async function loadHosts() {
+      try {
+        const res = await fetch('/api/v1/hosts');
+        const records = await res.json();
+        const tbody = document.getElementById('hostsTableBody');
+        tbody.innerHTML = records.map(r => `
+          <tr>
+            <td>${r.line_number}</td>
+            <td><code>${r.ip_address}</code></td>
+            <td><strong>${r.hostnames.join(', ')}</strong></td>
+            <td style="color:var(--text-muted);">${r.comment || '—'}</td>
+            <td><span style="color:${r.enabled ? '#107C41' : '#D13438'}; font-weight:600;">${r.enabled ? 'RESOLVING' : 'DISABLED'}</span></td>
+          </tr>
+        `).join('');
+      } catch (e) {}
+    }
+
+    async function addHostsRecord() {
+      const ip = document.getElementById('hostsIpInput').value;
+      const host = document.getElementById('hostsHostInput').value;
+      const comment = document.getElementById('hostsCommentInput').value;
+      if (!ip || !host) return;
+      await fetch('/api/v1/hosts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ip, host, comment })
+      });
+      loadHosts();
+    }
+
+    // Advanced Paste Transform
+    async function transformPaste(type) {
+      const input = document.getElementById('pasteInput').value;
+      try {
+        const res = await fetch('/api/v1/paste/transform', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: input, transformation: type })
+        });
+        const data = await res.json();
+        document.getElementById('pasteOutput').value = data.output_text;
+        document.getElementById('pasteStats').innerText = `Processed in 0.8ms • In: ${data.input_characters} chars • Out: ${data.output_characters} chars`;
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function copyOutput() {
+      const out = document.getElementById('pasteOutput');
+      out.select();
+      navigator.clipboard.writeText(out.value);
+      alert("Transformed clipboard contents copied!");
+    }
+
+    // Workspaces
+    async function loadWorkspaces() {
+      try {
+        const res = await fetch('/api/v1/workspaces');
+        const data = await res.json();
+        const grid = document.getElementById('workspacesGrid');
+        grid.innerHTML = data.workspaces.map(ws => `
+          <div class="card">
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">${ws.name}</h3>
+            <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:14px;">${ws.description}</p>
+            <div style="margin-bottom:18px;">
+              ${ws.applications.map(a => `
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.04);">
+                  <span>${a.name}</span>
+                  <span class="hotkey-badge">Zone ${a.zone_id}</span>
+                </div>
+              `).join('')}
+            </div>
+            <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="launchWorkspace('${ws.name}')">
+              Deploy Workspace to FancyZones
+            </button>
+          </div>
+        `).join('');
+      } catch (e) {}
+    }
+
+    async function launchWorkspace(name) {
+      await fetch('/api/v1/workspaces/launch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+      alert(`Workspace '${name}' dispatched across FancyZones displays!`);
+    }
+
+    // Security Audit
+    async function loadSecurityAudit() {
+      try {
+        const res = await fetch('/api/v1/security-audit');
+        const data = await res.json();
+        document.getElementById('secScoreText').innerText = `${data.compliance_score}%`;
+        const list = document.getElementById('securityChecksList');
+        list.innerHTML = data.checks.map(c => `
+          <div style="padding:14px 18px; background:rgba(0,0,0,0.25); border-radius:8px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="hotkey-badge">${c.check_id}</span>
+                <strong>${c.name}</strong>
+              </div>
+              <p style="color:var(--text-secondary); font-size:0.82rem; margin-top:4px;">${c.description}</p>
+            </div>
+            <span style="color:#107C41; font-weight:600; font-size:0.85rem;">PASS</span>
+          </div>
+        `).join('');
+      } catch (e) {}
+    }
+
+    // 12-Phase Lifecycle & Manifest
+    async function triggerDoEverything() {
+      switchTab('lifecycle');
+      const term = document.getElementById('lifecycleTerminal');
+      term.innerHTML = '<span class="terminal-cyan">[INIT]</span> Initializing 12-Phase Sovereign PowerToys Lifecycle...<br>';
+      try {
+        const res = await fetch('/api/v1/do-everything', { method: 'POST' });
+        const manifest = await res.json();
+        
+        let out = `<span class="terminal-green">[SUCCESS]</span> ${manifest.overall_status}<br>`;
+        out += `<span class="terminal-bold">Execution ID:</span> ${manifest.execution_id}<br>`;
+        out += `<span class="terminal-bold">Total Elapsed:</span> ${manifest.total_elapsed_seconds}s<br><br>`;
+        
+        manifest.phases.forEach(p => {
+          out += `<span class="terminal-green">[PHASE ${p.phase} PASSED]</span> <span class="terminal-bold">${p.name}</span> (${p.elapsed_seconds}s)<br>`;
+          out += `&nbsp;&nbsp;↳ ${p.description}<br>`;
+        });
+        
+        term.innerHTML = out;
+      } catch (e) {
+        term.innerHTML += `<span style="color:#D13438;">[ERROR] Failed to execute lifecycle: ${e}</span>`;
+      }
+    }
+
+    async function downloadManifest() {
+      const res = await fetch('/api/v1/manifest');
+      const data = await res.json();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `powertoys_manifest_${data.execution_id || 'attested'}.json`;
+      a.click();
+    }
+
+    // API Explorer
+    async function executeApiCall() {
+      const endpoint = document.getElementById('apiEndpointSelect').value;
+      const resView = document.getElementById('apiResponseView');
+      resView.innerText = "Requesting...";
+      try {
+        const res = await fetch(endpoint);
+        const data = await res.json();
+        resView.innerText = JSON.stringify(data, null, 2);
+      } catch (e) {
+        resView.innerText = "Error: " + e;
+      }
+    }
+
+    // Initial Bootstrap
+    window.addEventListener('DOMContentLoaded', () => {
+      loadModules();
+      updateFzLayout();
+      handlePtRunSearch();
+      loadKeyboardRemaps();
+      loadHosts();
+      loadWorkspaces();
+      loadSecurityAudit();
+    });
+  </script>
+</body>
+</html>

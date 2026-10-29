@@ -1,0 +1,748 @@
+{
+  "workspaces": {
+    "omega": {
+      "id": "ws-omega-001",
+      "name": "OMEGA Autonomous Enterprise",
+      "slug": "omega",
+      "owner_id": "usr-ceo-omega",
+      "company_size": "500-1000",
+      "logo_url": "https://raw.githubusercontent.com/makeplane/plane/preview/public/favicon/favicon-32x32.png",
+      "created_at": "2026-10-29T16:28:50.951260+00:00"
+    },
+    "infra": {
+      "id": "ws-infra-002",
+      "name": "Global Cloud & Edge Infrastructure",
+      "slug": "infra",
+      "owner_id": "usr-ops-lead",
+      "company_size": "10-50",
+      "logo_url": null,
+      "created_at": "2026-10-29T16:28:50.951286+00:00"
+    }
+  },
+  "projects": {
+    "proj-core-01": {
+      "id": "proj-core-01",
+      "name": "OMEGA Kernel & Autonomous OS",
+      "identifier": "CORE",
+      "workspace_slug": "omega",
+      "description": "Core execution loop, state machines, constitutional enforcement, and zero-vibe coding contracts.",
+      "lead_id": "omega-prime",
+      "default_assignee": "omega-executor",
+      "network": 2,
+      "emoji": "\u26a1",
+      "cycle_view": true,
+      "module_view": true,
+      "issue_views_view": true,
+      "page_view": true,
+      "inbox_view": true,
+      "created_at": "2026-10-29T16:28:50.951303+00:00"
+    },
+    "proj-fleet-02": {
+      "id": "proj-fleet-02",
+      "name": "Autonomous Agent Swarms & Tooling",
+      "identifier": "FLEET",
+      "workspace_slug": "omega",
+      "description": "Multi-agent orchestration, subagent dispatchers, and tool registry interfaces.",
+      "lead_id": "omega-prime",
+      "default_assignee": "omega-executor",
+      "network": 2,
+      "emoji": "\ud83d\ude80",
+      "cycle_view": true,
+      "module_view": true,
+      "issue_views_view": true,
+      "page_view": true,
+      "inbox_view": true,
+      "created_at": "2026-10-29T16:28:50.951315+00:00"
+    },
+    "proj-cap-03": {
+      "id": "proj-cap-03",
+      "name": "Sovereign Treasury & Capital Allocator",
+      "identifier": "CAP",
+      "workspace_slug": "omega",
+      "description": "Autonomous financial balancing, enterprise billing ops, and sovereign resource allocation.",
+      "lead_id": "omega-prime",
+      "default_assignee": "omega-executor",
+      "network": 2,
+      "emoji": "\ud83d\udc8e",
+      "cycle_view": true,
+      "module_view": true,
+      "issue_views_view": true,
+      "page_view": true,
+      "inbox_view": true,
+      "created_at": "2026-10-29T16:28:50.951322+00:00"
+    },
+    "proj-intel-04": {
+      "id": "proj-intel-04",
+      "name": "Global Market & Intelligence Radar",
+      "identifier": "INTEL",
+      "workspace_slug": "omega",
+      "description": "OSINT reconnaissance, competitor intelligence, and predictive telemetry.",
+      "lead_id": "omega-prime",
+      "default_assignee": "omega-executor",
+      "network": 2,
+      "emoji": "\ud83d\udef0\ufe0f",
+      "cycle_view": true,
+      "module_view": true,
+      "issue_views_view": true,
+      "page_view": true,
+      "inbox_view": true,
+      "created_at": "2026-10-29T16:28:50.951329+00:00"
+    }
+  },
+  "states": {
+    "proj-core-01": [
+      {
+        "id": "st-proj-core-01-backlog",
+        "name": "Backlog",
+        "color": "#6b7280",
+        "sequence": 1,
+        "group": "backlog",
+        "project_id": "proj-core-01"
+      },
+      {
+        "id": "st-proj-core-01-todo",
+        "name": "Todo",
+        "color": "#3b82f6",
+        "sequence": 2,
+        "group": "unstarted",
+        "project_id": "proj-core-01"
+      },
+      {
+        "id": "st-proj-core-01-in_progress",
+        "name": "In Progress",
+        "color": "#f59e0b",
+        "sequence": 3,
+        "group": "started",
+        "project_id": "proj-core-01"
+      },
+      {
+        "id": "st-proj-core-01-review",
+        "name": "In Verification",
+        "color": "#8b5cf6",
+        "sequence": 4,
+        "group": "started",
+        "project_id": "proj-core-01"
+      },
+      {
+        "id": "st-proj-core-01-done",
+        "name": "Done",
+        "color": "#10b981",
+        "sequence": 5,
+        "group": "completed",
+        "project_id": "proj-core-01"
+      },
+      {
+        "id": "st-proj-core-01-cancelled",
+        "name": "Cancelled",
+        "color": "#ef4444",
+        "sequence": 6,
+        "group": "cancelled",
+        "project_id": "proj-core-01"
+      }
+    ],
+    "proj-fleet-02": [
+      {
+        "id": "st-proj-fleet-02-backlog",
+        "name": "Backlog",
+        "color": "#6b7280",
+        "sequence": 1,
+        "group": "backlog",
+        "project_id": "proj-fleet-02"
+      },
+      {
+        "id": "st-proj-fleet-02-todo",
+        "name": "Todo",
+        "color": "#3b82f6",
+        "sequence": 2,
+        "group": "unstarted",
+        "project_id": "proj-fleet-02"
+      },
+      {
+        "id": "st-proj-fleet-02-in_progress",
+        "name": "In Progress",
+        "color": "#f59e0b",
+        "sequence": 3,
+        "group": "started",
+        "project_id": "proj-fleet-02"
+      },
+      {
+        "id": "st-proj-fleet-02-review",
+        "name": "In Verification",
+        "color": "#8b5cf6",
+        "sequence": 4,
+        "group": "started",
+        "project_id": "proj-fleet-02"
+      },
+      {
+        "id": "st-proj-fleet-02-done",
+        "name": "Done",
+        "color": "#10b981",
+        "sequence": 5,
+        "group": "completed",
+        "project_id": "proj-fleet-02"
+      },
+      {
+        "id": "st-proj-fleet-02-cancelled",
+        "name": "Cancelled",
+        "color": "#ef4444",
+        "sequence": 6,
+        "group": "cancelled",
+        "project_id": "proj-fleet-02"
+      }
+    ],
+    "proj-cap-03": [
+      {
+        "id": "st-proj-cap-03-backlog",
+        "name": "Backlog",
+        "color": "#6b7280",
+        "sequence": 1,
+        "group": "backlog",
+        "project_id": "proj-cap-03"
+      },
+      {
+        "id": "st-proj-cap-03-todo",
+        "name": "Todo",
+        "color": "#3b82f6",
+        "sequence": 2,
+        "group": "unstarted",
+        "project_id": "proj-cap-03"
+      },
+      {
+        "id": "st-proj-cap-03-in_progress",
+        "name": "In Progress",
+        "color": "#f59e0b",
+        "sequence": 3,
+        "group": "started",
+        "project_id": "proj-cap-03"
+      },
+      {
+        "id": "st-proj-cap-03-review",
+        "name": "In Verification",
+        "color": "#8b5cf6",
+        "sequence": 4,
+        "group": "started",
+        "project_id": "proj-cap-03"
+      },
+      {
+        "id": "st-proj-cap-03-done",
+        "name": "Done",
+        "color": "#10b981",
+        "sequence": 5,
+        "group": "completed",
+        "project_id": "proj-cap-03"
+      },
+      {
+        "id": "st-proj-cap-03-cancelled",
+        "name": "Cancelled",
+        "color": "#ef4444",
+        "sequence": 6,
+        "group": "cancelled",
+        "project_id": "proj-cap-03"
+      }
+    ],
+    "proj-intel-04": [
+      {
+        "id": "st-proj-intel-04-backlog",
+        "name": "Backlog",
+        "color": "#6b7280",
+        "sequence": 1,
+        "group": "backlog",
+        "project_id": "proj-intel-04"
+      },
+      {
+        "id": "st-proj-intel-04-todo",
+        "name": "Todo",
+        "color": "#3b82f6",
+        "sequence": 2,
+        "group": "unstarted",
+        "project_id": "proj-intel-04"
+      },
+      {
+        "id": "st-proj-intel-04-in_progress",
+        "name": "In Progress",
+        "color": "#f59e0b",
+        "sequence": 3,
+        "group": "started",
+        "project_id": "proj-intel-04"
+      },
+      {
+        "id": "st-proj-intel-04-review",
+        "name": "In Verification",
+        "color": "#8b5cf6",
+        "sequence": 4,
+        "group": "started",
+        "project_id": "proj-intel-04"
+      },
+      {
+        "id": "st-proj-intel-04-done",
+        "name": "Done",
+        "color": "#10b981",
+        "sequence": 5,
+        "group": "completed",
+        "project_id": "proj-intel-04"
+      },
+      {
+        "id": "st-proj-intel-04-cancelled",
+        "name": "Cancelled",
+        "color": "#ef4444",
+        "sequence": 6,
+        "group": "cancelled",
+        "project_id": "proj-intel-04"
+      }
+    ]
+  },
+  "issues": {
+    "iss-001": {
+      "id": "iss-001",
+      "sequence_id": 1,
+      "name": "Architect Zero-Dependency Plane Orchestrator Engine",
+      "description_html": "<p>Implement dual-mode Plane SDK supporting both live Docker CE instances and offline simulation.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-done",
+      "priority": "urgent",
+      "estimate_point": 5,
+      "assignee_ids": [
+        "omega-prime"
+      ],
+      "label_ids": [
+        "sdk",
+        "architecture"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951547+00:00",
+      "updated_at": "2026-10-29T16:28:50.951552+00:00"
+    },
+    "iss-002": {
+      "id": "iss-002",
+      "sequence_id": 2,
+      "name": "Construct Universal Plane CLI with 12-Phase Sovereign Lifecycle",
+      "description_html": "<p>Provide subcommands for workspaces, projects, issues, cycles, modules, pages, triage, and do-everything attestation.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-done",
+      "priority": "high",
+      "estimate_point": 3,
+      "assignee_ids": [
+        "omega-prime"
+      ],
+      "label_ids": [
+        "cli",
+        "tooling"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951561+00:00",
+      "updated_at": "2026-10-29T16:28:50.951566+00:00"
+    },
+    "iss-003": {
+      "id": "iss-003",
+      "sequence_id": 3,
+      "name": "Deploy Model Context Protocol (MCP) Server for Plane",
+      "description_html": "<p>Expose 16 granular Plane tools to Antigravity and Claude agents via stdio JSON-RPC.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-done",
+      "priority": "high",
+      "estimate_point": 5,
+      "assignee_ids": [
+        "omega-prime"
+      ],
+      "label_ids": [
+        "mcp",
+        "agentic"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951574+00:00",
+      "updated_at": "2026-10-29T16:28:50.951578+00:00"
+    },
+    "iss-004": {
+      "id": "iss-004",
+      "sequence_id": 4,
+      "name": "Build Lightweight REST API Server Bridge (Port 8774)",
+      "description_html": "<p>Serve real-time JSON telemetry, proxy requests, and host interactive Mission Control Cockpit.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-done",
+      "priority": "medium",
+      "estimate_point": 3,
+      "assignee_ids": [
+        "omega-executor"
+      ],
+      "label_ids": [
+        "api",
+        "server"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951585+00:00",
+      "updated_at": "2026-10-29T16:28:50.951590+00:00"
+    },
+    "iss-005": {
+      "id": "iss-005",
+      "sequence_id": 5,
+      "name": "Engineer Interactive Plane Mission Control Glass Cockpit",
+      "description_html": "<p>Responsive dashboard with Kanban, Burndown SVG curves, Epic roadmaps, Triage promotion, and MCP playground.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-in_progress",
+      "priority": "urgent",
+      "estimate_point": 5,
+      "assignee_ids": [
+        "omega-designer",
+        "omega-prime"
+      ],
+      "label_ids": [
+        "cockpit",
+        "frontend"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951597+00:00",
+      "updated_at": "2026-10-29T16:28:50.951601+00:00"
+    },
+    "iss-006": {
+      "id": "iss-006",
+      "sequence_id": 6,
+      "name": "Implement Bi-Directional Webhook Event Ingress Reactor",
+      "description_html": "<p>Process issue.created, issue.updated, and cycle.completed events to trigger subagent execution.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-todo",
+      "priority": "medium",
+      "estimate_point": 3,
+      "assignee_ids": [
+        "omega-executor"
+      ],
+      "label_ids": [
+        "webhooks",
+        "reactor"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951608+00:00",
+      "updated_at": "2026-10-29T16:28:50.951612+00:00"
+    },
+    "iss-007": {
+      "id": "iss-007",
+      "sequence_id": 7,
+      "name": "Author Supreme Plane Architecture Teardown Dossier",
+      "description_html": "<p>Exhaustive technical document detailing Django REST API, Celery pipelines, Next.js/Vite React frontend, and Docker stack.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-in_progress",
+      "priority": "high",
+      "estimate_point": 2,
+      "assignee_ids": [
+        "omega-researcher"
+      ],
+      "label_ids": [
+        "documentation",
+        "dossier"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951619+00:00",
+      "updated_at": "2026-10-29T16:28:50.951623+00:00"
+    },
+    "iss-008": {
+      "id": "iss-008",
+      "sequence_id": 8,
+      "name": "Calibrate Autonomous Velocity & Burndown Predictor",
+      "description_html": "<p>Forecast sprint completion dates, calculate scope-creep velocity, and detect sprint bottlenecks.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-core-01-backlog",
+      "priority": "low",
+      "estimate_point": 5,
+      "assignee_ids": [],
+      "label_ids": [
+        "analytics",
+        "ai"
+      ],
+      "cycle_id": "cyc-omega-sprint-25",
+      "module_id": "mod-plane-mastery",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951630+00:00",
+      "updated_at": "2026-10-29T16:28:50.951635+00:00"
+    },
+    "iss-009": {
+      "id": "iss-009",
+      "sequence_id": 9,
+      "name": "Deploy 100-Node Autonomous Subagent Grid",
+      "description_html": "<p>Scale concurrent worker runspaces with strict memory governance and error escalation.</p>",
+      "project_id": "proj-fleet-02",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-fleet-02-in_progress",
+      "priority": "urgent",
+      "estimate_point": 8,
+      "assignee_ids": [
+        "fleet-admiral"
+      ],
+      "label_ids": [
+        "fleet",
+        "scale"
+      ],
+      "cycle_id": null,
+      "module_id": "mod-autonomous-swarms",
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951642+00:00",
+      "updated_at": "2026-10-29T16:28:50.951646+00:00"
+    },
+    "iss-010": {
+      "id": "iss-010",
+      "sequence_id": 10,
+      "name": "Real-Time Sovereign Capital Allocation Rebalancing",
+      "description_html": "<p>Automated cloud spend tracking, compute cost optimization, and multi-tenant ledger verification.</p>",
+      "project_id": "proj-cap-03",
+      "workspace_slug": "omega",
+      "state_id": "st-proj-cap-03-todo",
+      "priority": "high",
+      "estimate_point": 5,
+      "assignee_ids": [
+        "treasury-guard"
+      ],
+      "label_ids": [
+        "treasury",
+        "billing"
+      ],
+      "cycle_id": null,
+      "module_id": null,
+      "parent_id": null,
+      "sub_issues_count": 0,
+      "start_date": null,
+      "target_date": null,
+      "created_at": "2026-10-29T16:28:50.951653+00:00",
+      "updated_at": "2026-10-29T16:28:50.951657+00:00"
+    }
+  },
+  "cycles": {
+    "cyc-omega-sprint-24": {
+      "id": "cyc-omega-sprint-24",
+      "name": "Sprint 24: Sovereign Cloud & Storage Hardening",
+      "description": "Coolify PaaS, Windmill DAG, and PowerShell runspace unification.",
+      "project_id": "proj-core-01",
+      "start_date": "2026-10-01",
+      "end_date": "2026-10-15",
+      "status": "completed",
+      "total_issues": 12,
+      "completed_issues": 12,
+      "total_points": 34,
+      "completed_points": 34,
+      "burndown_data": [
+        {
+          "day": 1,
+          "ideal": 34,
+          "actual": 34
+        },
+        {
+          "day": 7,
+          "ideal": 17,
+          "actual": 16
+        },
+        {
+          "day": 14,
+          "ideal": 0,
+          "actual": 0
+        }
+      ],
+      "created_at": "2026-10-29T16:28:50.951430+00:00"
+    },
+    "cyc-omega-sprint-25": {
+      "id": "cyc-omega-sprint-25",
+      "name": "Sprint 25: Plane Ecosystem Integration & Mission Control",
+      "description": "Deep SDK, CLI, MCP Server, REST API Server, and Interactive Control Cockpit.",
+      "project_id": "proj-core-01",
+      "start_date": "2026-10-24",
+      "end_date": "2026-11-07",
+      "status": "current",
+      "total_issues": 8,
+      "completed_issues": 5,
+      "total_points": 26,
+      "completed_points": 18,
+      "burndown_data": [
+        {
+          "day": 1,
+          "ideal": 26,
+          "actual": 26
+        },
+        {
+          "day": 3,
+          "ideal": 22,
+          "actual": 21
+        },
+        {
+          "day": 5,
+          "ideal": 17,
+          "actual": 8
+        },
+        {
+          "day": 10,
+          "ideal": 8,
+          "actual": null
+        },
+        {
+          "day": 14,
+          "ideal": 0,
+          "actual": null
+        }
+      ],
+      "created_at": "2026-10-29T16:28:50.951460+00:00"
+    },
+    "cyc-omega-sprint-26": {
+      "id": "cyc-omega-sprint-26",
+      "name": "Sprint 26: Planetary Fleet Expansion & Multi-Model Swarms",
+      "description": "Full-duplex subagent feedback loops, token cost arbitrage, and continuous learning v2.",
+      "project_id": "proj-core-01",
+      "start_date": "2026-11-08",
+      "end_date": "2026-11-22",
+      "status": "upcoming",
+      "total_issues": 6,
+      "completed_issues": 0,
+      "total_points": 21,
+      "completed_points": 0,
+      "burndown_data": [],
+      "created_at": "2026-10-29T16:28:50.951483+00:00"
+    }
+  },
+  "modules": {
+    "mod-plane-mastery": {
+      "id": "mod-plane-mastery",
+      "name": "Sovereign Project Management Engine",
+      "description": "Zero-dependency Plane orchestrator, bidirectional webhook dispatcher, and automated sprint reporting.",
+      "project_id": "proj-core-01",
+      "lead_id": "omega-prime",
+      "status": "in_progress",
+      "start_date": "2026-10-19",
+      "target_date": "2026-11-03",
+      "completion_percentage": 85.0,
+      "total_issues": 10,
+      "completed_issues": 8,
+      "created_at": "2026-10-29T16:28:50.951510+00:00"
+    },
+    "mod-autonomous-swarms": {
+      "id": "mod-autonomous-swarms",
+      "name": "Autonomous Swarm Architecture & Protocol",
+      "description": "Agent role specialization, self-healing code reviews, and deterministic TDD gates.",
+      "project_id": "proj-fleet-02",
+      "lead_id": "fleet-admiral",
+      "status": "planned",
+      "start_date": "2026-10-29",
+      "target_date": "2026-11-28",
+      "completion_percentage": 30.0,
+      "total_issues": 15,
+      "completed_issues": 5,
+      "created_at": "2026-10-29T16:28:50.951532+00:00"
+    }
+  },
+  "pages": {
+    "pg-001": {
+      "id": "pg-001",
+      "title": "OMEGA Autonomous Engineering Standards & Laws",
+      "description_html": "<h2>1. Zero Vibe Coding</h2><p>Never write code without specifications, verified seams, and red-green tests.</p><h2>2. Deep Modules</h2><p>Strive for simple interfaces encapsulating deep capabilities.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "access": 0,
+      "color": "#0ea5e9",
+      "is_locked": false,
+      "summary_ai": "Codifies core engineering directives, testing gateways, and deep module design patterns.",
+      "updated_at": "2026-10-29T16:28:50.951670+00:00"
+    },
+    "pg-002": {
+      "id": "pg-002",
+      "title": "Plane vs Linear vs Jira: Supreme Architecture Analysis",
+      "description_html": "<h2>Architecture Teardown</h2><p>Comparison of data models, database scaling with PostgreSQL, Celery async processing, and self-hosted privacy advantages.</p>",
+      "project_id": "proj-core-01",
+      "workspace_slug": "omega",
+      "access": 0,
+      "color": "#10b981",
+      "is_locked": false,
+      "summary_ai": "Comprehensive benchmark detailing throughput, self-hosting cost, and API extensibility.",
+      "updated_at": "2026-10-29T16:28:50.951678+00:00"
+    }
+  },
+  "views": {
+    "view-active-kanban": {
+      "id": "view-active-kanban",
+      "name": "Sprint 25 Active Kanban",
+      "project_id": "proj-core-01",
+      "view_type": "kanban",
+      "filters": {
+        "cycle_id": "cyc-omega-sprint-25"
+      },
+      "sort_order": "created_at"
+    },
+    "view-urgent-triage": {
+      "id": "view-urgent-triage",
+      "name": "Urgent Priority Radar",
+      "project_id": "proj-core-01",
+      "view_type": "list",
+      "filters": {
+        "priority": [
+          "urgent",
+          "high"
+        ]
+      },
+      "sort_order": "created_at"
+    }
+  },
+  "triage": {
+    "trg-001": {
+      "id": "trg-001",
+      "project_id": "proj-core-01",
+      "title": "Incoming Webhook payload schema drift detected on :8096",
+      "description": "Payload received from external git provider has additional actor metadata. Evaluate promotion to work item.",
+      "source": "webhook",
+      "status": "pending",
+      "suggested_priority": "high",
+      "created_at": "2026-10-29T16:28:50.951698+00:00"
+    },
+    "trg-002": {
+      "id": "trg-002",
+      "project_id": "proj-core-01",
+      "title": "Redis broker latency spike during batch commit sync",
+      "description": "Celery worker queue latency exceeded 250ms during 500-commit backfill. Profile redis connection pool.",
+      "source": "sensor",
+      "status": "pending",
+      "suggested_priority": "medium",
+      "created_at": "2026-10-29T16:28:50.951705+00:00"
+    }
+  },
+  "last_persisted": "2026-10-29T16:28:50.952377+00:00"
+}

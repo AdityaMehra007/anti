@@ -1,0 +1,29 @@
+{
+  "dynamic_engines": [
+    {
+      "name": "postgres-primary-cluster",
+      "type": "postgres",
+      "host": "db.internal.omega.infra",
+      "port": 5432,
+      "database": "omega_core",
+      "username_template": "inf_dyn_{{random_suffix}}",
+      "default_ttl_seconds": 3600,
+      "max_ttl_seconds": 86400,
+      "creation_statement": "CREATE USER {{username}} WITH PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO {{username}};",
+      "revocation_statement": "REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM {{username}}; DROP USER IF EXISTS {{username}};"
+    },
+    {
+      "name": "aws-ephemeral-iam-s3",
+      "type": "aws-iam",
+      "default_ttl_seconds": 1800,
+      "max_ttl_seconds": 43200,
+      "policy_arn": "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+    },
+    {
+      "name": "redis-acl-ephemeral",
+      "type": "redis",
+      "default_ttl_seconds": 7200,
+      "creation_statement": "ACL SETUSER {{username}} on >{{password}} ~* +@read"
+    }
+  ]
+}

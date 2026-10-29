@@ -1,0 +1,88 @@
+version: "3.8"
+
+services:
+  infisical-backend:
+    image: infisical/infisical:latest
+    container_name: infisical-backend
+    restart: always
+    depends_on:
+      infisical-db:
+        condition: service_healthy
+      infisical-redis:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - DB_CONNECTION_URI=postgresql://infisical_admin:${INFISICAL_DB_PASSWORD:-InfisicalDbSecret2026!}@infisical-db:5432/infisical
+      - REDIS_URL=redis://infisical-redis:6379
+      - ENCRYPTION_KEY=${INFISICAL_ENCRYPTION_KEY:-b266d62a939f37ef12e52fae7a03bc5b481628d0979a0cf8da28f804bd862412}
+      - AUTH_SECRET=${INFISICAL_AUTH_SECRET:-e58ad42bf9d29efc2419a5840d5b40cf351628e9182390abdf812049ba861429}
+      - SITE_URL=${INFISICAL_SITE_URL:-http://localhost:8080}
+      - TELEMETRY_ENABLED=false
+      - SMTP_HOST=${SMTP_HOST:-smtp.internal}
+      - SMTP_PORT=${SMTP_PORT:-587}
+    ports:
+      - "4000:4000"
+    networks:
+      - infisical-net
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:4000/api/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  infisical-frontend:
+    image: infisical/frontend:latest
+    container_name: infisical-frontend
+    restart: always
+    depends_on:
+      - infisical-backend
+    environment:
+      - INFISICAL_API_URL=http://infisical-backend:4000
+    ports:
+      - "8080:80"
+    networks:
+      - infisical-net
+
+  infisical-db:
+    image: postgres:15-alpine
+    container_name: infisical-db
+    restart: always
+    environment:
+      - POSTGRES_USER=infisical_admin
+      - POSTGRES_PASSWORD=${INFISICAL_DB_PASSWORD:-InfisicalDbSecret2026!}
+      - POSTGRES_DB=infisical
+    volumes:
+      - infisical-postgres-data:/var/lib/postgresql/data
+    networks:
+      - infisical-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U infisical_admin -d infisical"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  infisical-redis:
+    image: redis:7-alpine
+    container_name: infisical-redis
+    restart: always
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - infisical-redis-data:/data
+    networks:
+      - infisical-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  infisical-postgres-data:
+    name: infisical_postgres_data
+  infisical-redis-data:
+    name: infisical_redis_data
+
+networks:
+  infisical-net:
+    name: infisical_internal_network

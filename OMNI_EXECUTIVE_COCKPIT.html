@@ -160,6 +160,10 @@
             <span class="w-2 h-2 rounded-full bg-blue-500"></span>
             PowerShell Autonomous Ecosystem (github.com/PowerShell/PowerShell)
         </button>
+        <button onclick="switchCockpit('ghidra')" id="btn-ghidra" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            NSA Ghidra SRE (github.com/NationalSecurityAgency/ghidra)
+        </button>
     </nav>
 
     <!-- Embedded High-Performance Cockpit Frame Container -->
@@ -180,7 +184,8 @@
             coolify: { url: "coolify_control_cockpit.html", title: "Coolify v4 Autonomous Infrastructure & PaaS Cockpit (352 Services)" },
             windmill: { url: "windmill_control_cockpit.html", title: "Windmill Autonomous Workflow Engine & Developer Platform v2.0 (Flows, Scripts, Apps, Crons, Secrets & Webhooks)" },
             blackbird: { url: "blackbird_cockpit.html", title: "Blackbird OSINT & Defensive Intelligence Cockpit (692 Sites)" },
-            powershell: { url: "powershell_control_cockpit.html", title: "PowerShell Autonomous Ecosystem & Mission Control (AST, PSScriptAnalyzer, Runbooks, PSGallery, Runspaces)" }
+            powershell: { url: "powershell_control_cockpit.html", title: "PowerShell Autonomous Ecosystem & Mission Control (AST, PSScriptAnalyzer, Runbooks, PSGallery, Runspaces)" },
+            ghidra: { url: "ghidra_control_cockpit.html", title: "NSA Ghidra Autonomous SRE & Reverse Engineering (Disassembly, Decompiler, P-Code, Vulns, ROP)" }
         };
 
         let currentActiveKey = "supreme";

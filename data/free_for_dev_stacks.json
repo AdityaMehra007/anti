@@ -1,0 +1,556 @@
+[
+  {
+    "archetype_id": "jamstack_saas",
+    "name": "Fullstack Modern Jamstack & SaaS",
+    "description": "Production Next.js/React frontend with serverless API, Postgres DB, auth, email, and global CDN.",
+    "target_use_case": "B2B SaaS, Web Applications, Customer Portals",
+    "total_monthly_cost_usd": 0.0,
+    "estimated_commercial_monthly_value_usd": 265.0,
+    "estimated_annual_savings_usd": 3180.0,
+    "all_credit_card_free": true,
+    "services_count": 6,
+    "combined_quotas": {
+      "storage_mb": 0,
+      "storage_readable": "0 MB",
+      "bandwidth_gb": 0,
+      "bandwidth_readable": "0 GB",
+      "monthly_requests": 10000,
+      "requests_readable": "10,000 requests/mo"
+    },
+    "services": [
+      {
+        "role": "frontend_hosting",
+        "service_id": "vercel",
+        "name": "Vercel",
+        "url": "https://vercel.com/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 55.0
+      },
+      {
+        "role": "relational_db",
+        "service_id": "supabase",
+        "name": "Supabase",
+        "url": "https://supabase.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 50.0
+      },
+      {
+        "role": "auth_identity",
+        "service_id": "clerk",
+        "name": "Clerk",
+        "url": "https://clerk.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "transactional_email",
+        "service_id": "resend",
+        "name": "Resend",
+        "url": "https://resend.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 60.0
+      },
+      {
+        "role": "edge_cdn_dns",
+        "service_id": "cloudflare",
+        "name": "Cloudflare",
+        "url": "https://www.cloudflare.com/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 55.0
+      },
+      {
+        "role": "apm_logging",
+        "service_id": "proxysentry",
+        "name": "ProxySentry",
+        "url": "https://proxysentry.io/",
+        "quota_summary": "10k requests/mo",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 10.0
+      }
+    ],
+    "architecture_blueprint": "  +-------------------------------------------------------------+\n  |            OMEGA ZERO-DOLLAR ARCHITECTURE TOPOLOGY          |\n  +-------------------------------------------------------------+\n  [FRONTEND_HOSTING] -> Vercel               (No CC)\n  [RELATIONAL_DB   ] -> Supabase             (No CC)\n  [AUTH_IDENTITY   ] -> Clerk                (No CC)\n  [TRANSACTIONAL_EM] -> Resend               (No CC)\n  [EDGE_CDN_DNS    ] -> Cloudflare           (No CC)\n  [APM_LOGGING     ] -> ProxySentry          (No CC)\n  +-------------------------------------------------------------+\n  Total Cloud Invoice: $0.00 / month | 100% Developer Tier Power"
+  },
+  {
+    "archetype_id": "ai_agent_platform",
+    "name": "Autonomous AI Agentic Workflow Platform",
+    "description": "High-throughput AI agent execution harness with free LLM inference, vector search, Redis cache, and serverless compute.",
+    "target_use_case": "Autonomous Agents, LLM Orchestration, RAG Systems",
+    "total_monthly_cost_usd": 0.0,
+    "estimated_commercial_monthly_value_usd": 270.0,
+    "estimated_annual_savings_usd": 3240.0,
+    "all_credit_card_free": true,
+    "services_count": 6,
+    "combined_quotas": {
+      "storage_mb": 256,
+      "storage_readable": "256 MB",
+      "bandwidth_gb": 0,
+      "bandwidth_readable": "0 GB",
+      "monthly_requests": 14400,
+      "requests_readable": "14,400 requests/mo"
+    },
+    "services": [
+      {
+        "role": "backend_compute",
+        "service_id": "ssr-server-side-rendering-checker",
+        "name": "SSR (Server-side Rendering) Checker",
+        "url": "https://www.crawlably.com/ssr-checker/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 10.0
+      },
+      {
+        "role": "ai_inference",
+        "service_id": "google-ai-studio",
+        "name": "Google AI Studio",
+        "url": "https://aistudio.google.com/",
+        "quota_summary": "14.4k requests/mo",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 45.0
+      },
+      {
+        "role": "relational_db",
+        "service_id": "supabase",
+        "name": "Supabase",
+        "url": "https://supabase.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 50.0
+      },
+      {
+        "role": "kv_cache",
+        "service_id": "upstash",
+        "name": "Upstash",
+        "url": "https://upstash.com/",
+        "quota_summary": "256MB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 70.0
+      },
+      {
+        "role": "object_storage",
+        "service_id": "bitbucket",
+        "name": "Bitbucket",
+        "url": "https://bitbucket.org/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "ci_cd",
+        "service_id": "gitlab-com",
+        "name": "gitlab.com",
+        "url": "https://about.gitlab.com/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 60.0
+      }
+    ],
+    "architecture_blueprint": "  +-------------------------------------------------------------+\n  |            OMEGA ZERO-DOLLAR ARCHITECTURE TOPOLOGY          |\n  +-------------------------------------------------------------+\n  [BACKEND_COMPUTE ] -> SSR (Server-side Ren (No CC)\n  [AI_INFERENCE    ] -> Google AI Studio     (No CC)\n  [RELATIONAL_DB   ] -> Supabase             (No CC)\n  [KV_CACHE        ] -> Upstash              (No CC)\n  [OBJECT_STORAGE  ] -> Bitbucket            (No CC)\n  [CI_CD           ] -> gitlab.com           (No CC)\n  +-------------------------------------------------------------+\n  Total Cloud Invoice: $0.00 / month | 100% Developer Tier Power"
+  },
+  {
+    "archetype_id": "mobile_app_backend",
+    "name": "Cross-Platform Mobile App Cloud",
+    "description": "Scalable backend for React Native, Flutter, and iOS/Android applications with real-time sync, auth, and asset storage.",
+    "target_use_case": "iOS/Android Mobile Apps, Consumer Tech",
+    "total_monthly_cost_usd": 0.0,
+    "estimated_commercial_monthly_value_usd": 225.0,
+    "estimated_annual_savings_usd": 2700.0,
+    "all_credit_card_free": true,
+    "services_count": 6,
+    "combined_quotas": {
+      "storage_mb": 0,
+      "storage_readable": "0 MB",
+      "bandwidth_gb": 0,
+      "bandwidth_readable": "0 GB",
+      "monthly_requests": 10000,
+      "requests_readable": "10,000 requests/mo"
+    },
+    "services": [
+      {
+        "role": "relational_db",
+        "service_id": "supabase",
+        "name": "Supabase",
+        "url": "https://supabase.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 50.0
+      },
+      {
+        "role": "auth_identity",
+        "service_id": "clerk",
+        "name": "Clerk",
+        "url": "https://clerk.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "object_storage",
+        "service_id": "bitbucket",
+        "name": "Bitbucket",
+        "url": "https://bitbucket.org/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "message_queue",
+        "service_id": "pusher-com",
+        "name": "pusher.com",
+        "url": "https://pusher.com/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "apm_logging",
+        "service_id": "proxysentry",
+        "name": "ProxySentry",
+        "url": "https://proxysentry.io/",
+        "quota_summary": "10k requests/mo",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 10.0
+      },
+      {
+        "role": "transactional_email",
+        "service_id": "resend",
+        "name": "Resend",
+        "url": "https://resend.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 60.0
+      }
+    ],
+    "architecture_blueprint": "  +-------------------------------------------------------------+\n  |            OMEGA ZERO-DOLLAR ARCHITECTURE TOPOLOGY          |\n  +-------------------------------------------------------------+\n  [RELATIONAL_DB   ] -> Supabase             (No CC)\n  [AUTH_IDENTITY   ] -> Clerk                (No CC)\n  [OBJECT_STORAGE  ] -> Bitbucket            (No CC)\n  [MESSAGE_QUEUE   ] -> pusher.com           (No CC)\n  [APM_LOGGING     ] -> ProxySentry          (No CC)\n  [TRANSACTIONAL_EM] -> Resend               (No CC)\n  +-------------------------------------------------------------+\n  Total Cloud Invoice: $0.00 / month | 100% Developer Tier Power"
+  },
+  {
+    "archetype_id": "microservices_api",
+    "name": "High-Performance Event-Driven Microservices",
+    "description": "Containerized microservice cluster with distributed queuing, serverless Postgres, and instant failover.",
+    "target_use_case": "High-volume APIs, Event Brokers, FinTech prototypes",
+    "total_monthly_cost_usd": 0.0,
+    "estimated_commercial_monthly_value_usd": 265.0,
+    "estimated_annual_savings_usd": 3180.0,
+    "all_credit_card_free": true,
+    "services_count": 6,
+    "combined_quotas": {
+      "storage_mb": 1024,
+      "storage_readable": "1024 MB",
+      "bandwidth_gb": 0,
+      "bandwidth_readable": "0 GB",
+      "monthly_requests": 10000,
+      "requests_readable": "10,000 requests/mo"
+    },
+    "services": [
+      {
+        "role": "backend_compute",
+        "service_id": "ssr-server-side-rendering-checker",
+        "name": "SSR (Server-side Rendering) Checker",
+        "url": "https://www.crawlably.com/ssr-checker/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 10.0
+      },
+      {
+        "role": "relational_db",
+        "service_id": "neon",
+        "name": "Neon",
+        "url": "https://neon.com",
+        "quota_summary": "0.5GB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 50.0
+      },
+      {
+        "role": "kv_cache",
+        "service_id": "upstash",
+        "name": "Upstash",
+        "url": "https://upstash.com/",
+        "quota_summary": "256MB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 70.0
+      },
+      {
+        "role": "message_queue",
+        "service_id": "upstash",
+        "name": "Upstash",
+        "url": "https://upstash.com/",
+        "quota_summary": "256MB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 70.0
+      },
+      {
+        "role": "edge_cdn_dns",
+        "service_id": "cloudflare",
+        "name": "Cloudflare",
+        "url": "https://www.cloudflare.com/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 55.0
+      },
+      {
+        "role": "apm_logging",
+        "service_id": "proxysentry",
+        "name": "ProxySentry",
+        "url": "https://proxysentry.io/",
+        "quota_summary": "10k requests/mo",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 10.0
+      }
+    ],
+    "architecture_blueprint": "  +-------------------------------------------------------------+\n  |            OMEGA ZERO-DOLLAR ARCHITECTURE TOPOLOGY          |\n  +-------------------------------------------------------------+\n  [BACKEND_COMPUTE ] -> SSR (Server-side Ren (No CC)\n  [RELATIONAL_DB   ] -> Neon                 (No CC)\n  [KV_CACHE        ] -> Upstash              (No CC)\n  [MESSAGE_QUEUE   ] -> Upstash              (No CC)\n  [EDGE_CDN_DNS    ] -> Cloudflare           (No CC)\n  [APM_LOGGING     ] -> ProxySentry          (No CC)\n  +-------------------------------------------------------------+\n  Total Cloud Invoice: $0.00 / month | 100% Developer Tier Power"
+  },
+  {
+    "archetype_id": "ecommerce_store",
+    "name": "Headless E-Commerce & Storefront",
+    "description": "Decoupled commerce architecture with headless CMS, edge CDN, transactional emails, and zero hosting costs.",
+    "target_use_case": "Direct-to-Consumer storefronts, Digital Products",
+    "total_monthly_cost_usd": 0.0,
+    "estimated_commercial_monthly_value_usd": 210.0,
+    "estimated_annual_savings_usd": 2520.0,
+    "all_credit_card_free": true,
+    "services_count": 5,
+    "combined_quotas": {
+      "storage_mb": 31232,
+      "storage_readable": "30.5 GB",
+      "bandwidth_gb": 30,
+      "bandwidth_readable": "30 GB",
+      "monthly_requests": 0,
+      "requests_readable": "0 requests/mo"
+    },
+    "services": [
+      {
+        "role": "frontend_hosting",
+        "service_id": "netlify",
+        "name": "Netlify",
+        "url": "https://www.netlify.com/",
+        "quota_summary": "30GB storage, 30GB bandwidth",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 45.0
+      },
+      {
+        "role": "document_db",
+        "service_id": "mongodb-atlas",
+        "name": "MongoDB Atlas",
+        "url": "https://www.mongodb.com/cloud/atlas",
+        "quota_summary": "512MB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "object_storage",
+        "service_id": "bitbucket",
+        "name": "Bitbucket",
+        "url": "https://bitbucket.org/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "transactional_email",
+        "service_id": "resend",
+        "name": "Resend",
+        "url": "https://resend.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 60.0
+      },
+      {
+        "role": "apm_logging",
+        "service_id": "posthog",
+        "name": "PostHog",
+        "url": "https://posthog.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      }
+    ],
+    "architecture_blueprint": "  +-------------------------------------------------------------+\n  |            OMEGA ZERO-DOLLAR ARCHITECTURE TOPOLOGY          |\n  +-------------------------------------------------------------+\n  [FRONTEND_HOSTING] -> Netlify              (No CC)\n  [DOCUMENT_DB     ] -> MongoDB Atlas        (No CC)\n  [OBJECT_STORAGE  ] -> Bitbucket            (No CC)\n  [TRANSACTIONAL_EM] -> Resend               (No CC)\n  [APM_LOGGING     ] -> PostHog              (No CC)\n  +-------------------------------------------------------------+\n  Total Cloud Invoice: $0.00 / month | 100% Developer Tier Power"
+  },
+  {
+    "archetype_id": "sovereign_no_card",
+    "name": "Sovereign Zero-Credit-Card Fortress",
+    "description": "100% Guaranteed zero credit card required stack. Zero risk of unexpected bills, zero financial exposure.",
+    "target_use_case": "Indie Hackers, Students, Safe Prototyping, Privacy-First Devs",
+    "total_monthly_cost_usd": 0.0,
+    "estimated_commercial_monthly_value_usd": 315.0,
+    "estimated_annual_savings_usd": 3780.0,
+    "all_credit_card_free": true,
+    "services_count": 6,
+    "combined_quotas": {
+      "storage_mb": 31488,
+      "storage_readable": "30.8 GB",
+      "bandwidth_gb": 30,
+      "bandwidth_readable": "30 GB",
+      "monthly_requests": 0,
+      "requests_readable": "0 requests/mo"
+    },
+    "services": [
+      {
+        "role": "frontend_hosting",
+        "service_id": "netlify",
+        "name": "Netlify",
+        "url": "https://www.netlify.com/",
+        "quota_summary": "30GB storage, 30GB bandwidth",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 45.0
+      },
+      {
+        "role": "relational_db",
+        "service_id": "neon",
+        "name": "Neon",
+        "url": "https://neon.com",
+        "quota_summary": "0.5GB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 50.0
+      },
+      {
+        "role": "auth_identity",
+        "service_id": "clerk",
+        "name": "Clerk",
+        "url": "https://clerk.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "kv_cache",
+        "service_id": "upstash",
+        "name": "Upstash",
+        "url": "https://upstash.com/",
+        "quota_summary": "256MB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 70.0
+      },
+      {
+        "role": "transactional_email",
+        "service_id": "resend",
+        "name": "Resend",
+        "url": "https://resend.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 60.0
+      },
+      {
+        "role": "edge_cdn_dns",
+        "service_id": "cloudflare",
+        "name": "Cloudflare",
+        "url": "https://www.cloudflare.com/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 55.0
+      }
+    ],
+    "architecture_blueprint": "  +-------------------------------------------------------------+\n  |            OMEGA ZERO-DOLLAR ARCHITECTURE TOPOLOGY          |\n  +-------------------------------------------------------------+\n  [FRONTEND_HOSTING] -> Netlify              (No CC)\n  [RELATIONAL_DB   ] -> Neon                 (No CC)\n  [AUTH_IDENTITY   ] -> Clerk                (No CC)\n  [KV_CACHE        ] -> Upstash              (No CC)\n  [TRANSACTIONAL_EM] -> Resend               (No CC)\n  [EDGE_CDN_DNS    ] -> Cloudflare           (No CC)\n  +-------------------------------------------------------------+\n  Total Cloud Invoice: $0.00 / month | 100% Developer Tier Power"
+  },
+  {
+    "archetype_id": "analytics_data_pipeline",
+    "name": "Serverless Analytics & Data Pipeline",
+    "description": "Automated data ingestion, SQL analytics warehouse, and telemetry dashboards with $0 monthly spend.",
+    "target_use_case": "BI Dashboards, ETL Pipelines, Product Telemetry",
+    "total_monthly_cost_usd": 0.0,
+    "estimated_commercial_monthly_value_usd": 305.0,
+    "estimated_annual_savings_usd": 3660.0,
+    "all_credit_card_free": true,
+    "services_count": 5,
+    "combined_quotas": {
+      "storage_mb": 768,
+      "storage_readable": "768 MB",
+      "bandwidth_gb": 0,
+      "bandwidth_readable": "0 GB",
+      "monthly_requests": 0,
+      "requests_readable": "0 requests/mo"
+    },
+    "services": [
+      {
+        "role": "relational_db",
+        "service_id": "supabase",
+        "name": "Supabase",
+        "url": "https://supabase.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 50.0
+      },
+      {
+        "role": "backend_compute",
+        "service_id": "koyeb",
+        "name": "Koyeb",
+        "url": "https://www.koyeb.com/",
+        "quota_summary": "512MB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 115.0
+      },
+      {
+        "role": "object_storage",
+        "service_id": "bitbucket",
+        "name": "Bitbucket",
+        "url": "https://bitbucket.org/",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "apm_logging",
+        "service_id": "posthog",
+        "name": "PostHog",
+        "url": "https://posthog.com",
+        "quota_summary": "Generous free community quota",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 35.0
+      },
+      {
+        "role": "kv_cache",
+        "service_id": "upstash",
+        "name": "Upstash",
+        "url": "https://upstash.com/",
+        "quota_summary": "256MB storage",
+        "requires_credit_card": false,
+        "inactivity_sleep": false,
+        "commercial_equivalent_usd": 70.0
+      }
+    ],
+    "architecture_blueprint": "  +-------------------------------------------------------------+\n  |            OMEGA ZERO-DOLLAR ARCHITECTURE TOPOLOGY          |\n  +-------------------------------------------------------------+\n  [RELATIONAL_DB   ] -> Supabase             (No CC)\n  [BACKEND_COMPUTE ] -> Koyeb                (No CC)\n  [OBJECT_STORAGE  ] -> Bitbucket            (No CC)\n  [APM_LOGGING     ] -> PostHog              (No CC)\n  [KV_CACHE        ] -> Upstash              (No CC)\n  +-------------------------------------------------------------+\n  Total Cloud Invoice: $0.00 / month | 100% Developer Tier Power"
+  }
+]

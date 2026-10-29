@@ -1,0 +1,39 @@
+{
+  "name": "financial_trades",
+  "fields": [
+    {
+      "name": "trade_id",
+      "type": "int64"
+    },
+    {
+      "name": "symbol",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "float64"
+    },
+    {
+      "name": "quantity",
+      "type": "int32"
+    },
+    {
+      "name": "timestamp_ns",
+      "type": "int64"
+    },
+    {
+      "name": "side",
+      "type": "dictionary<int8, string>"
+    },
+    {
+      "name": "is_maker",
+      "type": "bool"
+    },
+    {
+      "name": "fee_usd",
+      "type": "float64"
+    }
+  ],
+  "field_count": 8,
+  "registered_at": "2026-10-29T16:30:46.010812+00:00"
+}

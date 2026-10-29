@@ -1,0 +1,39 @@
+{
+  "name": "iot_sensor_telemetry",
+  "fields": [
+    {
+      "name": "device_id",
+      "type": "string"
+    },
+    {
+      "name": "sensor_type",
+      "type": "dictionary<int8, string>"
+    },
+    {
+      "name": "temperature_c",
+      "type": "float32"
+    },
+    {
+      "name": "vibration_hz",
+      "type": "float32"
+    },
+    {
+      "name": "battery_pct",
+      "type": "int8"
+    },
+    {
+      "name": "firmware_version",
+      "type": "string"
+    },
+    {
+      "name": "status_code",
+      "type": "int32"
+    },
+    {
+      "name": "reading_time",
+      "type": "int64"
+    }
+  ],
+  "field_count": 8,
+  "registered_at": "2026-10-29T16:30:46.013017+00:00"
+}
