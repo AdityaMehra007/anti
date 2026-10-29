@@ -1,11 +1,11 @@
 {
-  "execution_id": "PTOY-SOVEREIGN-1CEB1181C8",
+  "execution_id": "PTOY-SOVEREIGN-103AADC728",
   "protocol": "OMEGA_CONSTITUTION_SECTION_101",
   "ecosystem": "Microsoft PowerToys Open Source Autonomous Suite",
   "upstream_repository": "https://github.com/microsoft/PowerToys",
-  "timestamp": "2026-10-29T16:33:50.500034+00:00",
+  "timestamp": "2026-10-29T16:37:04.046784+00:00",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.0562,
+  "total_elapsed_seconds": 0.6924,
   "overall_status": "SOVEREIGN POWERTOYS SUITE OPERATIONAL \u2014 100% ATTESTED",
   "telemetry_summary": {
     "version": "0.88.0",
@@ -20,26 +20,26 @@
     "active_fancyzones_layout": "priority-grid-01",
     "awake_mode": "TIMED",
     "operating_mode": "HIGH_FIDELITY_SIMULATION",
-    "timestamp": "2026-10-29T16:33:50.443860+00:00",
+    "timestamp": "2026-10-29T16:37:03.354385+00:00",
     "live_host_detected": false,
     "active_operating_mode": "HIGH_FIDELITY_SIMULATION"
   },
   "benchmarks": {
     "iterations": 1000,
     "fancyzones_snapping": {
-      "elapsed_sec": 0.0131,
-      "operations_per_sec": 76470.7,
-      "latency_us": 13.08
+      "elapsed_sec": 0.149,
+      "operations_per_sec": 6711.7,
+      "latency_us": 148.99
     },
     "pt_run_fuzzy_search": {
-      "elapsed_sec": 0.0248,
-      "queries_per_sec": 40244.0,
-      "latency_us": 24.85
+      "elapsed_sec": 0.2816,
+      "queries_per_sec": 3551.5,
+      "latency_us": 281.58
     },
     "advanced_paste_pipeline": {
-      "elapsed_sec": 0.0093,
-      "transforms_per_sec": 107550.0,
-      "latency_us": 9.3
+      "elapsed_sec": 0.1093,
+      "transforms_per_sec": 9148.2,
+      "latency_us": 109.31
     },
     "overall_status": "HIGH_PERFORMANCE_OPTIMAL"
   },
@@ -49,7 +49,7 @@
       "name": "PowerToys Runner & Architecture Telemetry Pre-Flight",
       "description": "Verified PowerToys 0.88.0 (.NET 9.0 (WinUI 3 / WASDK 1.6)) with 23/24 utilities active.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.0002,
       "telemetry": {
         "version": "0.88.0",
         "release_channel": "stable",
@@ -63,7 +63,7 @@
         "active_fancyzones_layout": "priority-grid-01",
         "awake_mode": "TIMED",
         "operating_mode": "HIGH_FIDELITY_SIMULATION",
-        "timestamp": "2026-10-29T16:33:50.443860+00:00",
+        "timestamp": "2026-10-29T16:37:03.354385+00:00",
         "live_host_detected": false,
         "active_operating_mode": "HIGH_FIDELITY_SIMULATION"
       }
@@ -73,7 +73,7 @@
       "name": "FancyZones Multi-Monitor Grid & Canvas Layout Certification",
       "description": "Computed pixel-accurate coordinates across 4 display resolutions including 32:9 Super UltraWide (5120x1440).",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.0005,
       "tested_resolutions": [
         "1920x1080",
         "2560x1440",
@@ -124,7 +124,7 @@
       "name": "PowerToys Run Modular Plugin Fuzzy Search Benchmark",
       "description": "Executed multi-plugin queries across 7 domains (Calculator, UnitConverter, System, Programs, Shell, TimeDate).",
       "status": "PASSED",
-      "elapsed_seconds": 0.0003,
+      "elapsed_seconds": 0.0021,
       "queries_executed": 7,
       "sample_matches": {
         "code": 2,
@@ -141,7 +141,7 @@
       "name": "Awake Daemon Power State & Display Keep-Alive Verification",
       "description": "Configured Awake power sentinel to 'INDEFINITE' mode with display assertion active.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0005,
+      "elapsed_seconds": 0.0819,
       "mode": "INDEFINITE",
       "keep_display_on": true
     },
@@ -150,25 +150,25 @@
       "name": "Keyboard Manager Key Remapping & Modifier Matrix Audit",
       "description": "Audited 3 key remaps and 2 global shortcuts without collision.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0004,
+      "elapsed_seconds": 0.0043,
       "keys_remapped": 3,
       "conflicts_detected": 0
     },
     {
       "phase": 6,
       "name": "Hosts File Syntax Validation & DNS Security Audit",
-      "description": "Parsed 8 DNS routing records; zero syntax violations or loopback hijackings detected.",
+      "description": "Parsed 9 DNS routing records; zero syntax violations or loopback hijackings detected.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0074,
-      "total_entries": 8,
-      "active_hosts": 7
+      "elapsed_seconds": 0.0619,
+      "total_entries": 9,
+      "active_hosts": 8
     },
     {
       "phase": 7,
       "name": "Advanced Paste AI Transformation Pipeline Certification",
       "description": "Tested Markdown/CSV tabular parsing to structured JSON and automated PII redaction filters.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0001,
+      "elapsed_seconds": 0.0003,
       "transformations_verified": [
         "markdown_to_json",
         "redact_pii",
@@ -181,7 +181,7 @@
       "name": "Text Extractor OCR & Windows Vision Framework Probe",
       "description": "Executed simulated OCR extraction on 480,000 px\u00b2 screen bounding box with 98.7% confidence.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.0001,
       "confidence": 0.987,
       "extracted_words": 20
     },
@@ -190,7 +190,7 @@
       "name": "Workspaces Multi-Application Layout Orchestration",
       "description": "Dispatched 3 workstation applications (VS Code, Terminal, Browser) into FancyZones target layout.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.0001,
       "workspace_dispatched": "Full-Stack Dev",
       "apps_count": 3
     },
@@ -199,32 +199,32 @@
       "name": "Windows PowerToys Security & Hardening Assessment",
       "description": "Audited security boundaries: score 100.0% (COMPLIANT) across 5 hardening checks.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0001,
+      "elapsed_seconds": 0.0004,
       "compliance_score": 100.0,
       "checks_passed": 5
     },
     {
       "phase": 11,
       "name": "Real-Time Snapping & Launcher Latency Benchmarking",
-      "description": "Achieved 76470.7 snaps/sec and 40244.0 search queries/sec.",
+      "description": "Achieved 6711.7 snaps/sec and 3551.5 search queries/sec.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0473,
+      "elapsed_seconds": 0.5401,
       "benchmarks": {
         "iterations": 1000,
         "fancyzones_snapping": {
-          "elapsed_sec": 0.0131,
-          "operations_per_sec": 76470.7,
-          "latency_us": 13.08
+          "elapsed_sec": 0.149,
+          "operations_per_sec": 6711.7,
+          "latency_us": 148.99
         },
         "pt_run_fuzzy_search": {
-          "elapsed_sec": 0.0248,
-          "queries_per_sec": 40244.0,
-          "latency_us": 24.85
+          "elapsed_sec": 0.2816,
+          "queries_per_sec": 3551.5,
+          "latency_us": 281.58
         },
         "advanced_paste_pipeline": {
-          "elapsed_sec": 0.0093,
-          "transforms_per_sec": 107550.0,
-          "latency_us": 9.3
+          "elapsed_sec": 0.1093,
+          "transforms_per_sec": 9148.2,
+          "latency_us": 109.31
         },
         "overall_status": "HIGH_PERFORMANCE_OPTIMAL"
       }
@@ -232,10 +232,10 @@
     {
       "phase": 12,
       "name": "Sovereign Execution Manifest & Cryptographic Attestation",
-      "description": "Compiled cryptographic execution manifest with ID PTOY-SOVEREIGN-1CEB1181C8 in 0.0562s.",
+      "description": "Compiled cryptographic execution manifest with ID PTOY-SOVEREIGN-103AADC728 in 0.6924s.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
-      "execution_id": "PTOY-SOVEREIGN-1CEB1181C8"
+      "elapsed_seconds": 0.0002,
+      "execution_id": "PTOY-SOVEREIGN-103AADC728"
     }
   ]
 }

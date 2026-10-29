@@ -1,11 +1,11 @@
 {
-  "execution_id": "PWSH-SOVEREIGN-268B76542B",
+  "execution_id": "PWSH-SOVEREIGN-C0C0B2B16E",
   "protocol": "OMEGA_CONSTITUTION_SECTION_101",
   "ecosystem": "PowerShell Open Source Autonomous Suite",
   "upstream_repository": "https://github.com/PowerShell/PowerShell",
-  "timestamp": "2026-10-29T16:33:56.530697+00:00",
+  "timestamp": "2026-10-29T16:36:52.104032+00:00",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.002,
+  "total_elapsed_seconds": 0.032,
   "overall_status": "SOVEREIGN POWERSHELL SUITE OPERATIONAL \u2014 100% ATTESTED",
   "telemetry_summary": {
     "version": "7.5.0",
@@ -28,10 +28,10 @@
   "benchmarks": {
     "iterations": 5,
     "objects_per_run": 1000,
-    "average_latency_ms": 0.03,
-    "min_latency_ms": 0.01,
-    "max_latency_ms": 0.04,
-    "throughput_objects_per_sec": 33333333.33,
+    "average_latency_ms": 0.05,
+    "min_latency_ms": 0.04,
+    "max_latency_ms": 0.05,
+    "throughput_objects_per_sec": 20000000.0,
     "status": "OPTIMAL"
   },
   "phases": [
@@ -109,7 +109,7 @@
       "description": "Verified pipeline serialization streaming with 4 structured JSON objects.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "execution_ms": 0.03,
+      "execution_ms": 0.3,
       "objects_deserialized": 4
     },
     {
@@ -117,7 +117,7 @@
       "name": "CIS Benchmark & Host Operating System Hardening Audit",
       "description": "Executed CIS baseline audit: score 85.71% (COMPLIANT).",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.001,
       "compliance_score": 85.71,
       "checks_passed": 6
     },
@@ -126,7 +126,7 @@
       "name": "Multi-Cloud Infrastructure Recon & Cost Leakage Audit",
       "description": "Identified $378.0/mo in cloud waste; potential annual savings: INR 392364.0.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.002,
       "monthly_waste_usd": 378.0,
       "annualized_savings_inr": 392364.0
     },
@@ -135,7 +135,7 @@
       "name": "Active Directory & Sovereign Identity Threat Model",
       "description": "Audited directory health (score 94.2/100, risk 18.5). Verdict: HARDENED_ENTERPRISE_IDENTITY.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.027,
       "health_score": 94.2,
       "verdict": "HARDENED_ENTERPRISE_IDENTITY"
     },
@@ -144,7 +144,7 @@
       "name": "Synthetic Network Latency & TCP Socket Diagnostic",
       "description": "Executed synthetic probes across 3 edge backbones: health EXCELLENT (jitter 1.2ms).",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.001,
       "network_health": "EXCELLENT"
     },
     {
@@ -152,26 +152,26 @@
       "name": "Autonomous Service Watchdog & Self-Healing Remediations",
       "description": "Audited 4 infrastructure services; status SERVICES_OPERATIONAL.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.001,
       "monitored_services": 4,
       "services_status": "SERVICES_OPERATIONAL"
     },
     {
       "phase": 11,
       "name": "Pipeline Throughput & Latency Performance Benchmarks",
-      "description": "Achieved 33333333.33 objects/sec throughput with 0.03ms average latency.",
+      "description": "Achieved 20000000.0 objects/sec throughput with 0.05ms average latency.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "throughput_objects_per_sec": 33333333.33,
-      "average_latency_ms": 0.03
+      "throughput_objects_per_sec": 20000000.0,
+      "average_latency_ms": 0.05
     },
     {
       "phase": 12,
       "name": "Sovereign Execution Manifest & Ledger Attestation",
-      "description": "Compiled cryptographic execution manifest with ID PWSH-SOVEREIGN-268B76542B in 0.002s.",
+      "description": "Compiled cryptographic execution manifest with ID PWSH-SOVEREIGN-C0C0B2B16E in 0.032s.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "execution_id": "PWSH-SOVEREIGN-268B76542B"
+      "execution_id": "PWSH-SOVEREIGN-C0C0B2B16E"
     }
   ]
 }

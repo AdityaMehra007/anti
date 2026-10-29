@@ -276,6 +276,19 @@ Autonomous developer cloud intelligence, multi-provider quota comparison, 1,396+
 - **Master 12-Phase Sovereign Lifecycle**: [`omega/data/free_for_dev_do_everything_manifest.json`](omega/data/free_for_dev_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
 - **Architecture Teardown Dossier**: [`docs/FREE_FOR_DEV_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/FREE_FOR_DEV_SUPREME_ARCHITECTURE_DOSSIER.md).
 
+### Apache Arrow Autonomous Columnar & Zero-Copy Ecosystem
+Universal high-performance in-memory columnar data format, zero-copy buffer slicing, Acero vectorized relational compute, C Data Interface ABI, Arrow Flight RPC, and compressed Parquet storage (https://github.com/apache/arrow):
+- [`arrow-orchestrator`](.agents/skills/arrow-orchestrator/SKILL.md): Autonomous SDK, CLI, Acero vectorized compute engine, C Data Interface ABI bridge, Flight RPC, and 12-phase sovereign lifecycle standard for Apache Arrow.
+- **Deep SDK & Master Engine**: [`arrow_orchestrator.py`](arrow_orchestrator.py) (Dual-mode: official Apache PyArrow 26.0.0+ C++ core bindings and pure-Python 64-byte aligned binary buffer engine, LSB-first validity bitmaps, StringView German string descriptors, and ctypes C Data Interface ABI).
+- **Universal CLI**: [`arrow_cli.py`](arrow_cli.py) (`info`, `schemas`, `create`, `inspect`, `slice`, `compute`, `ipc`, `feather`, `parquet`, `c-data`, `flight`, `benchmark`, `do-everything`).
+- **Autonomous Local API Server**: [`arrow_api_server.py`](arrow_api_server.py) (REST bridge on port 8775 serving telemetry, schemas, in-memory tables, vectorized queries, C Data Interface, Parquet, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`arrow_mcp_server.py`](arrow_mcp_server.py) (Exposes 12 Apache Arrow agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`arrow_control_cockpit.html`](arrow_control_cockpit.html) (10 operational tabs: Columnar Memory & Validity, Schema Studio, Table Explorer, Acero Vectorized Compute, C Data Interface ABI, Parquet & IPC Vault, Arrow Flight RPC, Micro-Benchmarks, 12-Phase Lifecycle, and MCP Agent Tools).
+- **One-Click Launchers**: [`START_ARROW_WINDOWS.bat`](START_ARROW_WINDOWS.bat), [`START_ARROW_COCKPIT.bat`](START_ARROW_COCKPIT.bat).
+- **Enterprise Schemas & Pipelines**: [`arrow/schemas/`](arrow/schemas/) (`financial_trades.json`, `iot_sensor_telemetry.json`, `customer_risk_profile.json`, `orderbook_l3_nested.json`), [`arrow/queries/`](arrow/queries/) (`vwap_aggregation.json`, `sensor_anomaly_filter.json`), and [`arrow/c_interface/arrow_c_abi.h`](arrow/c_interface/arrow_c_abi.h).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/arrow_do_everything_manifest.json`](omega/data/arrow_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/ARROW_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/ARROW_SUPREME_ARCHITECTURE_DOSSIER.md).
+
 ### Launch Video & Product Showcase Engine
 - [`brag`](.agents/skills/brag/SKILL.md): Turn the current project website or codebase into a short, polished, shareable launch video using Hyperframes with bundled music, SFX, and custom tone presets.
 - [`brag-slim`](.agents/skills/brag-slim/SKILL.md): Lean, zero-dependency launch video generator running locally on native tools (HTML/Canvas/Puppeteer/ffmpeg) for rapid social showcase clips.
