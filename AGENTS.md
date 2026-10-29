@@ -188,6 +188,19 @@ Self-hosted, ultra-fast developer platform and DAG orchestration engine (alterna
 - **Master 12-Phase Sovereign Lifecycle**: [`omega/data/windmill_do_everything_manifest.json`](omega/data/windmill_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
 - **Architecture Teardown Dossier**: [`docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/WINDMILL_SUPREME_ARCHITECTURE_DOSSIER.md).
 
+### Apache Airflow Autonomous Workflow Orchestration & Data Pipeline Ecosystem
+The global industry benchmark for programmatic workflow authoring, scheduling, and data engineering governance (https://github.com/apache/airflow):
+- [`airflow-orchestrator`](.agent/skills/airflow-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for Apache Airflow 2.10.x & modern Airflow 3.0 Task SDK architectures.
+- **Deep SDK & Master Engine**: [`airflow_orchestrator.py`](airflow_orchestrator.py) (Dual-mode: live Airflow REST API v1 client & ultra-high-fidelity offline simulation engine featuring Kahn's topological sort, TaskFlow API, Dynamic Task Mapping `.expand()`, Dataset/Asset data-driven scheduling, Deferrable Operators with Triggerer async event loop, Pools & Concurrency throttles, and XCom message exchange).
+- **Universal CLI**: [`airflow_cli.py`](airflow_cli.py) (`info`, `dags`, `dag`, `dag-runs`, `trigger`, `pause`, `unpause`, `tasks`, `task-instances`, `xcom`, `variables`, `connections`, `pools`, `datasets`, `backfill`, `audit`, `do-everything`).
+- **Autonomous Local API Server**: [`airflow_api_server.py`](airflow_api_server.py) (REST bridge on port 8775 serving health, DAGs, runs, variables, connections, telemetry, and the Mission Control Cockpit).
+- **Model Context Protocol (MCP) Server**: [`airflow_mcp_server.py`](airflow_mcp_server.py) (Exposes 15 high-leverage Airflow agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`airflow_control_cockpit.html`](airflow_control_cockpit.html) (9 operational views: Telemetry & Scheduler Pulse, DAG Catalog, SVG Topological Graph Visualizer, Execution Grid & Gantt Matrix, Task Terminal Log Streamer, XCom Inspector, Fernet Secrets & Connections Vault, Pools & Concurrency Limiter, and MCP Agent Playground).
+- **Production Stacks & Launchers**: [`stacks/airflow/docker-compose.yml`](stacks/airflow/docker-compose.yml), [`stacks/airflow/.env.example`](stacks/airflow/.env.example), [`START_AIRFLOW_WINDOWS.bat`](START_AIRFLOW_WINDOWS.bat), [`START_AIRFLOW_COCKPIT.bat`](START_AIRFLOW_COCKPIT.bat), [`scripts/start_airflow_windows.ps1`](scripts/start_airflow_windows.ps1).
+- **Enterprise DAGs & Plugins**: [`airflow/dags/`](airflow/dags/) (Financial Ledger Reconciliation DAG, Autonomous Security Threat Recon DAG, CBAM Carbon Border ETL DAG with Dynamic Task Mapping, Customer Churn ML Pipeline with Datasets & Deferrable Operators, Daily Cloud DB Snapshot & S3 Vault DAG) and [`airflow/plugins/custom_omega_operators.py`](airflow/plugins/custom_omega_operators.py).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/airflow_do_everything_manifest.json`](omega/data/airflow_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/AIRFLOW_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/AIRFLOW_SUPREME_ARCHITECTURE_DOSSIER.md).
+
 ### PowerShell Autonomous Orchestration & Execution Ecosystem
 Cross-platform object automation engine, AST parser, PSScriptAnalyzer security auditor, runspace concurrency, and enterprise infrastructure runbooks (https://github.com/PowerShell/PowerShell):
 - [`powershell-orchestrator`](.agents/skills/powershell-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for PowerShell 7+ Core and Windows PowerShell environments.
