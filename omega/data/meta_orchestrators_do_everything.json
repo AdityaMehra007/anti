@@ -1,0 +1,86 @@
+{
+  "execution_id": "META-DO-EVERYTHING-1793298349",
+  "timestamp": "2026-10-29T18:25:49Z",
+  "total_orchestrators": 11,
+  "passed_orchestrators": 11,
+  "total_elapsed_seconds": 57.0598,
+  "results": {
+    "n8n": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 3.8244,
+      "manifest": "N8N-DO-EVERYTHING-1793298296",
+      "summary": "SOVEREIGN WORKFLOW PLATFORM FULL POWERS VERIF"
+    },
+    "Windmill": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 0.0232,
+      "manifest": "WINDMILL-DO-EVERYTHING-1793298296",
+      "summary": "SOVEREIGN WORKFLOW ENGINE FULL POWERS VERIFIE"
+    },
+    "Coolify": {
+      "status": "PASSED",
+      "phases": 8,
+      "elapsed": 0.0395,
+      "manifest": "COOLIFY-DO-EVERYTHING-1793298296",
+      "summary": "SOVEREIGN PAAS FULL POWERS VERIFIED"
+    },
+    "Apache Airflow": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 0.0333,
+      "manifest": "N/A",
+      "summary": "VERIFIED"
+    },
+    "Plane CE": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 0.0449,
+      "manifest": "exec-plane-67e43e41929a",
+      "summary": "SOVEREIGN_CERTIFIED"
+    },
+    "PowerShell": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 41.1179,
+      "manifest": "PWSH-SOVEREIGN-46EF4DC01B",
+      "summary": "SOVEREIGN POWERSHELL SUITE OPERATIONAL \u2014 100%"
+    },
+    "PowerToys": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 1.6693,
+      "manifest": "PTOY-SOVEREIGN-DCDB82D7E9",
+      "summary": "SOVEREIGN POWERTOYS SUITE OPERATIONAL \u2014 100% "
+    },
+    "Apache Arrow": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 3.0722,
+      "manifest": "ARROW-SOVEREIGN-A1093CB789",
+      "summary": "SOVEREIGN APACHE ARROW SUITE OPERATIONAL \u2014 10"
+    },
+    "Infisical": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 5.7135,
+      "manifest": "N/A",
+      "summary": "SUCCESS_100_PERCENT"
+    },
+    "Ghidra": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 0.0745,
+      "manifest": "GHIDRA-SOVEREIGN-B2AE36A889",
+      "summary": "SOVEREIGN GHIDRA SRE SUITE OPERATIONAL \u2014 100%"
+    },
+    "Free-For-Dev": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 1.4465,
+      "manifest": "FFD-SOVEREIGN-61463A0EDD",
+      "summary": "SOVEREIGN FREE-FOR-DEV SUITE OPERATIONAL \u2014 10"
+    }
+  }
+}

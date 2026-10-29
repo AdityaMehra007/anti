@@ -23,6 +23,11 @@ Builds, verifies, and audits all projects across the workspace:
 19. Blackbird OSINT & Defensive Intelligence Engine
 20. PowerShell Autonomous Orchestration & AST Security Suite
 21. Microsoft PowerToys Autonomous Suite & WinUI Engine
+22. NSA Ghidra Software Reverse Engineering Autonomous Suite
+23. Infisical Autonomous SecretOps Platform
+24. n8n Autonomous Workflow Automation & AI Agent Ecosystem
+25. Apache Airflow Autonomous Workflow Orchestration
+26. Apache Arrow Autonomous Columnar & Zero-Copy Ecosystem
 =============================================================================
 """
 
@@ -201,7 +206,37 @@ def build_all():
     ok21, t21, _ = run_project_build("21. Microsoft PowerToys Autonomous Suite (23 Tests)", p21_cmd, p21_cwd)
     results.append(("Microsoft PowerToys Autonomous Suite", ok21, t21, 23))
 
-    # 22. Recompile Flagship Cockpit & Assets Generator
+    # 22. NSA Ghidra Software Reverse Engineering Autonomous Suite
+    p22_cmd = [sys.executable, "-m", "pytest", "tests/test_ghidra_orchestrator.py", "-v"]
+    p22_cwd = ROOT_DIR
+    ok22, t22, _ = run_project_build("22. NSA Ghidra SRE Autonomous Suite (10 Tests)", p22_cmd, p22_cwd)
+    results.append(("NSA Ghidra SRE Suite", ok22, t22, 10))
+
+    # 23. Infisical Autonomous SecretOps Platform
+    p23_cmd = [sys.executable, "-m", "pytest", "tests/test_infisical_orchestrator.py", "-v"]
+    p23_cwd = ROOT_DIR
+    ok23, t23, _ = run_project_build("23. Infisical Autonomous SecretOps (8 Tests)", p23_cmd, p23_cwd)
+    results.append(("Infisical SecretOps Platform", ok23, t23, 8))
+
+    # 24. n8n Autonomous Workflow Automation & AI Agent Ecosystem
+    p24_cmd = [sys.executable, "-m", "pytest", "tests/test_n8n_orchestrator.py", "-v"]
+    p24_cwd = ROOT_DIR
+    ok24, t24, _ = run_project_build("24. n8n Autonomous Workflow & AI Agent (11 Tests)", p24_cmd, p24_cwd)
+    results.append(("n8n Workflow & AI Agent Ecosystem", ok24, t24, 11))
+
+    # 25. Apache Airflow Autonomous Workflow Orchestration
+    p25_cmd = [sys.executable, "-m", "pytest", "tests/test_airflow_orchestrator.py", "-v"]
+    p25_cwd = ROOT_DIR
+    ok25, t25, _ = run_project_build("25. Apache Airflow Workflow Orchestrator (11 Tests)", p25_cmd, p25_cwd)
+    results.append(("Apache Airflow Workflow Orchestration", ok25, t25, 11))
+
+    # 26. Apache Arrow Autonomous Columnar & Zero-Copy Ecosystem
+    p26_cmd = [sys.executable, "-m", "pytest", "tests/test_arrow_orchestrator.py", "-v"]
+    p26_cwd = ROOT_DIR
+    ok26, t26, _ = run_project_build("26. Apache Arrow Columnar & Zero-Copy Ecosystem (14 Tests)", p26_cmd, p26_cwd)
+    results.append(("Apache Arrow Columnar Engine", ok26, t26, 14))
+
+    # 27. Recompile Flagship Cockpit & Assets Generator
     print("\n[*] Recompiling Flagship Cockpit HTML & Synchronizing Assets...")
     subprocess.run([sys.executable, "run_command_center.py"], cwd=os.path.join(ROOT_DIR, "AI-Command-Center"), capture_output=True)
     print("  [OK] Cockpit v4.0 and pipeline CSV verified and synchronized.")
