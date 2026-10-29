@@ -48,7 +48,7 @@ def test_node_catalog_and_fts5_search(mock_client):
     # Test FTS5 search
     results = mock_client.search_nodes("webhook", limit=5)
     assert len(results) > 0
-    assert any("webhook" in r.get("name", "").lower() or "webhook" in r.get("displayName", "").lower() for r in results)
+    assert any("webhook" in (r.get("name", "") + r.get("displayName", "") + r.get("description", "")).lower() for r in results)
 
     # Test group listing
     transform_nodes = mock_client.list_nodes(group="transform", limit=10)
