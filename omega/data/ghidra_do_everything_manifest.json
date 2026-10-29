@@ -1,12 +1,12 @@
 {
-  "execution_id": "GHIDRA-SOVEREIGN-A85E6A4FCC",
+  "execution_id": "GHIDRA-SOVEREIGN-B2AE36A889",
   "protocol": "OMEGA_CONSTITUTION_SECTION_101",
   "ecosystem": "NSA Ghidra Software Reverse Engineering Autonomous Suite",
   "upstream_repository": "https://github.com/NationalSecurityAgency/ghidra",
-  "timestamp": "2026-10-29T16:28:46.873448+00:00",
+  "timestamp": "2026-10-29T18:25:48.394107+00:00",
   "target_binary": "vulnerable_service.exe",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.0244,
+  "total_elapsed_seconds": 0.0472,
   "overall_status": "SOVEREIGN GHIDRA SRE SUITE OPERATIONAL \u2014 100% ATTESTED",
   "telemetry_summary": {
     "version": "11.1.2_PUBLIC",
@@ -94,7 +94,7 @@
       "name": "Multi-Format Binary Dissection & Exploit Mitigations Audit",
       "description": "Dissected PE32+ (x86_64), extracted 4 sections, security score: 20/100.",
       "status": "PASSED",
-      "elapsed_seconds": 0.001,
+      "elapsed_seconds": 0.0022,
       "metadata": {
         "file_path": "E:\\anti\\ghidra\\samples\\vulnerable_service.exe",
         "file_name": "vulnerable_service.exe",
@@ -132,7 +132,7 @@
       "name": "Sleigh Multi-Architecture Disassembly & Opcode Decoding",
       "description": "Decoded 25 instructions starting at 0x4000000000003000.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0012,
+      "elapsed_seconds": 0.0027,
       "decoded_sample": [
         {
           "address": "0x4000000000003000",
@@ -181,7 +181,7 @@
       "name": "Intermediate Representation (P-Code) Microcode Translation",
       "description": "Synthesized 20 Ghidra P-Code micro-operations.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0012,
+      "elapsed_seconds": 0.0023,
       "pcode_sample": [
         {
           "address": "0x4000000000003000",
@@ -250,7 +250,7 @@
       "name": "Control Flow Graph (CFG) Reconstruction & Pseudo-C Synthesis",
       "description": "Decompiled function 'main' to structured pseudo-C with recovered variables.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0047,
+      "elapsed_seconds": 0.0068,
       "decompilation": {
         "signature": "int main(int argc, char **argv)",
         "lines_count": 23,
@@ -267,7 +267,7 @@
       "name": "Function Symbol Resolution, Calling Convention & Type Inference",
       "description": "Identified 5 functions and 5 symbols.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0049,
+      "elapsed_seconds": 0.0074,
       "functions": [
         "entry_point",
         "main",
@@ -299,7 +299,7 @@
       "name": "String Intelligence, IOC Extraction & Entropy Anomaly Profiling",
       "description": "Indexed 15 strings; overall entropy: 1.6043/8.0 (CLEAN / UNPACKED NATIVE BINARY).",
       "status": "PASSED",
-      "elapsed_seconds": 0.0023,
+      "elapsed_seconds": 0.0083,
       "overall_entropy": 1.6043,
       "packer_detection": {
         "is_packed": false,
@@ -314,7 +314,7 @@
       "name": "Vulnerability Hunting & Dangerous Memory API Detection",
       "description": "Detected 5 vulnerability findings and 3 ROP gadgets.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0045,
+      "elapsed_seconds": 0.0092,
       "findings_summary": [
         "VULN-MITIG-001: Missing Data Execution Prevention (DEP/NX) (CRITICAL)",
         "VULN-MITIG-002: Missing Address Space Layout Randomization (ASLR) (HIGH)",
@@ -347,7 +347,7 @@
       "name": "Headless Batch Automation & GhidraScript Pipeline Execution",
       "description": "Executed headless SRE script pipeline with exit code 0.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0045,
+      "elapsed_seconds": 0.0078,
       "script_execution": {
         "script": "find_dangerous_apis.py",
         "status": "SUCCESS",
@@ -358,7 +358,7 @@
         "vulnerabilities_flagged": 5,
         "strings_indexed": 15,
         "entropy": 1.6043,
-        "execution_time_seconds": 0.004,
+        "execution_time_seconds": 0.008,
         "output_summary": "Script 'find_dangerous_apis.py' completed SRE analysis on vulnerable_service.exe."
       }
     },

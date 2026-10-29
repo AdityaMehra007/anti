@@ -1070,6 +1070,10 @@ class FreeForDevOrchestrator:
 
         return manifest
 
+    def do_everything(self) -> Dict[str, Any]:
+        """Standard alias for execute_sovereign_lifecycle adhering to OMEGA convention."""
+        return self.execute_sovereign_lifecycle()
+
 
 if __name__ == "__main__":
     print("[*] Initializing OMEGA Free-For-Dev Orchestrator...")

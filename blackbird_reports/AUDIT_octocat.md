@@ -1,5 +1,5 @@
 # BLACKBIRD OSINT & DEFENSIVE THREAT AUDIT: `octocat`
-**Generated:** 2026-10-26T20:02:37.056088 | **Engine:** Blackbird v2.4 Enterprise | **Mode:** SIMULATION / FAST_DEMO
+**Generated:** 2026-10-29T23:48:50.393996 | **Engine:** Blackbird v2.4 Enterprise | **Mode:** SIMULATION / FAST_DEMO
 
 ---
 
@@ -42,7 +42,7 @@
 ## 3. Behavioral & Technical Profile
 - **Inferred Archetype:** `Software Architect / Technologist`
 - **Primary Domain Affinities:** Software Engineering & Open-Source Development, Creator Monetization & Crowdfunding
-- **Tags:** Technical, Open-Source, Developer, Crowdfunding, Creator
+- **Tags:** Creator, Crowdfunding, Open-Source, Developer, Technical
 - **Observed Technical Capabilities:** Git, Cloud Infrastructure, Code Repositories
 
 ### Risk Indicators

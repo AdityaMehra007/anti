@@ -1253,6 +1253,10 @@ class ArrowOrchestrator:
         logger.info(f"Apache Arrow Sovereign 12-Phase Lifecycle Complete. Manifest written to {manifest_path}")
         return manifest
 
+    def do_everything(self) -> Dict[str, Any]:
+        """Alias for run_all_phases adhering to standard OMEGA convention."""
+        return self.run_all_phases()
+
 
 # ==============================================================================
 # Direct Execution Hook

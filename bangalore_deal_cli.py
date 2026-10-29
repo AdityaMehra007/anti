@@ -12,6 +12,9 @@ import sys
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 BASE_DIR = Path("e:/anti")
 CRM_JSON = BASE_DIR / "data/bangalore_enterprise_crm_master_100.json"
 QUEUE_CSV = BASE_DIR / "data/outbound_dispatch_queue.csv"
@@ -136,7 +139,7 @@ def serve_cockpit(port=8888):
         print("\nServer stopped.")
 
 def main():
-    parser = argparse.ArgumentParser(description="Bengaluru Enterprise Deal CLI (OMEGA ∞)")
+    parser = argparse.ArgumentParser(description="Bengaluru Enterprise Deal CLI (OMEGA Infinity)")
     parser.add_argument("--summary", action="store_true", help="Display pipeline summary")
     parser.add_argument("--list", choices=["all", "gcc", "unicorn"], nargs="?", const="all", help="List target accounts")
     parser.add_argument("--run-audit", choices=["sla", "eval", "trade", "runway", "outbound", "finops", "pod"], help="Run diagnostic harness")

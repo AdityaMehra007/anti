@@ -1,0 +1,3875 @@
+[
+  {
+    "role_id": "genai-llm-engineer",
+    "title": "Generative AI & LLM Systems Engineer",
+    "description": "Master transformer architectures, large language model fine-tuning, retrieval systems, GPU distributed training, and deep probabilistic generative models.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Mathematical Foundations & Programming",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Linear Algebra (Strang matrix decomposition)",
+          "Vector Calculus",
+          "High-performance Python"
+        ],
+        "courses": [
+          {
+            "id": "princeton-cs-linear-algebra-princeton-university-921",
+            "line_number": 921,
+            "code": "",
+            "title": "Linear Algebra (Princeton University",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Princeton",
+            "instructor": "Princeton University",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLGqzsq0erqU7w7ZrTZ-pWWk4-AOkiGEGp",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Linear Algebra (Princeton University)](https://www.youtube.com/playlist?list=PLGqzsq0erqU7w7ZrTZ-pWWk4-AOkiGEGp)",
+            "video_urls": [
+              {
+                "label": "Linear Algebra (Princeton University)",
+                "url": "https://www.youtube.com/playlist?list=PLGqzsq0erqU7w7ZrTZ-pWWk4-AOkiGEGp"
+              }
+            ]
+          },
+          {
+            "id": "unsw-cs-a-first-course-in-linear-algebra-n-j-w-925",
+            "line_number": 925,
+            "code": "",
+            "title": "A first course in Linear Algebra - N J Wildberger",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "UNSW",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL44B6B54CBF6A72DF",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [A first course in Linear Algebra - N J Wildberger - UNSW](https://www.youtube.com/playlist?list=PL44B6B54CBF6A72DF)",
+            "video_urls": [
+              {
+                "label": "A first course in Linear Algebra - N J Wildberger - UNSW",
+                "url": "https://www.youtube.com/playlist?list=PL44B6B54CBF6A72DF"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-computational-linear-algebra-fastai-927",
+            "line_number": 927,
+            "code": "",
+            "title": "Computational Linear Algebra - fast.ai",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://github.com/fastai/numerical-linear-algebra",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Computational Linear Algebra - fast.ai](https://www.youtube.com/playlist?list=PLtmWHNX-gukIc92m1K0P6bIOnZb-mg0hY) ([Github](https://github.com/fastai/numerical-linear-algebra))",
+            "video_urls": [
+              {
+                "label": "Computational Linear Algebra - fast.ai",
+                "url": "https://www.youtube.com/playlist?list=PLtmWHNX-gukIc92m1K0P6bIOnZb-mg0hY"
+              }
+            ]
+          },
+          {
+            "id": "stanford-engr108-introduction-to-applied-linear-algebrav-928",
+            "line_number": 928,
+            "code": "ENGR108",
+            "title": "Introduction to Applied Linear Algebra—Vectors, Matrices, and Least Squares",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [ENGR108: Introduction to Applied Linear Algebra—Vectors, Matrices, and Least Squares - Stanford University](https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9)",
+            "video_urls": [
+              {
+                "label": "ENGR108: Introduction to Applied Linear Algebra—Vectors, Matrices, and Least Squares - Stanford University",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Core Machine Learning & Probability",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "Supervised/Unsupervised learning proofs",
+          "Bayesian inference",
+          "Convex optimization"
+        ],
+        "courses": [
+          {
+            "id": "stanford-cs-229-machine-learning-373",
+            "line_number": 373,
+            "code": "CS 229",
+            "title": "Machine Learning",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "Autumn 2018",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://see.stanford.edu/Course/CS229",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 229 - Machine Learning - Stanford University](https://see.stanford.edu/Course/CS229) ([Autumn 2018](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU))",
+            "video_urls": [
+              {
+                "label": "Autumn 2018",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-10-601-introduction-to-machine-learning-ms-355",
+            "line_number": 355,
+            "code": "10-601",
+            "title": "Introduction to Machine Learning (MS) - Tom Mitchell - 2015",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2015",
+            "level": "Introductory (L1)",
+            "primary_url": "http://www.cs.cmu.edu/~ninamf/courses/601sp15/lectures.shtml",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [10-601 - Introduction to Machine Learning (MS) - Tom Mitchell - 2015, CMU](http://www.cs.cmu.edu/~ninamf/courses/601sp15/lectures.shtml) ([YouTube](https://www.youtube.com/playlist?list=PLAJ0alZrN8rD63LD0FkzKFiFgkOmEtltQ))",
+            "video_urls": [
+              {
+                "label": "YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLAJ0alZrN8rD63LD0FkzKFiFgkOmEtltQ"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-10-601-machine-learning-cmu-fall-2017-356",
+            "line_number": 356,
+            "code": "10-601",
+            "title": "Machine Learning | CMU | Fall 2017",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "Fall 2017",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL7k0r4t5c10-g7CWCnHfZOAxLaiNinChk",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [10-601 Machine Learning | CMU | Fall 2017](https://www.youtube.com/playlist?list=PL7k0r4t5c10-g7CWCnHfZOAxLaiNinChk)",
+            "video_urls": [
+              {
+                "label": "10-601 Machine Learning | CMU | Fall 2017",
+                "url": "https://www.youtube.com/playlist?list=PL7k0r4t5c10-g7CWCnHfZOAxLaiNinChk"
+              }
+            ]
+          },
+          {
+            "id": "stanford-cs-statistical-learning-with-python-351",
+            "line_number": 351,
+            "code": "",
+            "title": "Statistical Learning with Python",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Statistical Learning with Python - Stanford Online](https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ)",
+            "video_urls": [
+              {
+                "label": "Statistical Learning with Python - Stanford Online",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Deep Learning, CNNs & Sequence Models",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "Backpropagation engines",
+          "Attention mechanisms",
+          "PyTorch autograd semantics"
+        ],
+        "courses": [
+          {
+            "id": "stanford-cs-cs231n-deep-learning-for-computer-vision-513",
+            "line_number": 513,
+            "code": "",
+            "title": "CS231n Deep Learning for Computer Vision",
+            "category": "Machine Learning",
+            "subcategory": "Deep Learning",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "Spring 2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://cs231n.stanford.edu/schedule.html",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CS231n Deep Learning for Computer Vision - Stanford University](https://cs231n.stanford.edu/schedule.html) ([Spring 2025](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)) ([Winter 2016 Andrej Karpathy](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC))",
+            "video_urls": [
+              {
+                "label": "Spring 2025",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16"
+              },
+              {
+                "label": "Winter 2016 Andrej Karpathy",
+                "url": "https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-applied-deep-learning-2025-tu-wien-541",
+            "line_number": 541,
+            "code": "",
+            "title": "Applied Deep Learning 2025 - TU Wien",
+            "category": "Machine Learning",
+            "subcategory": "Deep Learning",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8H1o874cZbiwnNRJ6hCDJI",
+            "video_count": 6,
+            "has_video": true,
+            "raw_markdown": "- [Applied Deep Learning 2025 - TU Wien](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8H1o874cZbiwnNRJ6hCDJI) ([2024](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8tSQuU3jN71fmmGFFCi7Dc)) ([2023](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE87JO3T_mvedVTlw0sjUzKh)) ([2022](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_QaTwYxoTmmRJHtMXyIAU6)) ([2021](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_wsWK3t6NEeYtwOorGfowm)) ([2020](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8xNYTEyorbaWPN7nvbWyk1))",
+            "video_urls": [
+              {
+                "label": "Applied Deep Learning 2025 - TU Wien",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8H1o874cZbiwnNRJ6hCDJI"
+              },
+              {
+                "label": "2024",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8tSQuU3jN71fmmGFFCi7Dc"
+              },
+              {
+                "label": "2023",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE87JO3T_mvedVTlw0sjUzKh"
+              },
+              {
+                "label": "2022",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_QaTwYxoTmmRJHtMXyIAU6"
+              },
+              {
+                "label": "2021",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_wsWK3t6NEeYtwOorGfowm"
+              },
+              {
+                "label": "2020",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8xNYTEyorbaWPN7nvbWyk1"
+              }
+            ]
+          },
+          {
+            "id": "stanford-cs-224n-natural-language-processing-with-deep-le-621",
+            "line_number": 621,
+            "code": "CS 224N",
+            "title": "Natural Language Processing with Deep Learning",
+            "category": "Machine Learning",
+            "subcategory": "Natural Language Processing",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "Winter 2019",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "http://web.stanford.edu/class/cs224n/",
+            "video_count": 3,
+            "has_video": true,
+            "raw_markdown": "- [CS 224N -Natural Language Processing with Deep Learning - Stanford University](http://web.stanford.edu/class/cs224n/) ([Lectures -  Winter 2019](https://youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)) ([Lectures -  Winter 2021](https://youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ)) ([Lectures - Spring 2024](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D))",
+            "video_urls": [
+              {
+                "label": "Lectures -  Winter 2019",
+                "url": "https://youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z"
+              },
+              {
+                "label": "Lectures -  Winter 2021",
+                "url": "https://youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ"
+              },
+              {
+                "label": "Lectures - Spring 2024",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-11-785-introduction-to-deep-learning-516",
+            "line_number": 516,
+            "code": "11-785",
+            "title": "Introduction to Deep Learning",
+            "category": "Machine Learning",
+            "subcategory": "Deep Learning",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2024",
+            "level": "Introductory (L1)",
+            "primary_url": "https://deeplearning.cs.cmu.edu/S24/index.html",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [11-785: Introduction to Deep Learning - CMU](https://deeplearning.cs.cmu.edu/S24/index.html) ([Lectures - YouTube-2024](https://www.youtube.com/playlist?list=PLp-0K3kfddPxUJzAW0KxNNjGiK_hISFas), [Recitations - YouTube-2024](https://www.youtube.com/playlist?list=PLp-0K3kfddPzNnco9QQAoTx_sVhZgHK-n))",
+            "video_urls": [
+              {
+                "label": "Lectures - YouTube-2024",
+                "url": "https://www.youtube.com/playlist?list=PLp-0K3kfddPxUJzAW0KxNNjGiK_hISFas"
+              },
+              {
+                "label": "Recitations - YouTube-2024",
+                "url": "https://www.youtube.com/playlist?list=PLp-0K3kfddPzNnco9QQAoTx_sVhZgHK-n"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Transformers, Diffusion & LLM Infrastructure",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "Transformer scaling laws",
+          "Diffusion formulation",
+          "Distributed tensor parallelism"
+        ],
+        "courses": [
+          {
+            "id": "stanford-cs25-stanford-transformers-united-2023-642",
+            "line_number": 642,
+            "code": "CS25",
+            "title": "Stanford Transformers United 2023",
+            "category": "Machine Learning",
+            "subcategory": "Natural Language Processing",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "2023",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Stanford CS25 - Transformers United 2023](https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM)",
+            "video_urls": [
+              {
+                "label": "Stanford CS25 - Transformers United 2023",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM"
+              }
+            ]
+          },
+          {
+            "id": "stanford-cs236-stanford-deep-generative-models-i-2023-i-650",
+            "line_number": 650,
+            "code": "CS236",
+            "title": "Stanford Deep Generative Models I 2023 I Stefano Ermon",
+            "category": "Machine Learning",
+            "subcategory": "Generative AI and LLMs",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "2023",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPOWA-omMM6STXaWW4FvJT8",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Stanford CS236: Deep Generative Models I 2023 I Stefano Ermon](https://www.youtube.com/playlist?list=PLoROMvodv4rPOWA-omMM6STXaWW4FvJT8)",
+            "video_urls": [
+              {
+                "label": "Stanford CS236: Deep Generative Models I 2023 I Stefano Ermon",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPOWA-omMM6STXaWW4FvJT8"
+              }
+            ]
+          },
+          {
+            "id": "cornell-cs-6785-deep-generative-models-651",
+            "line_number": 651,
+            "code": "CS 6785",
+            "title": "Deep Generative Models",
+            "category": "Machine Learning",
+            "subcategory": "Generative AI and LLMs",
+            "institution": "Cornell",
+            "instructor": "",
+            "year": "Spring 2023",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL2UML_KCiC0UPzjW9BjO-IW6dqliu9O4B",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 6785 - Deep Generative Models - Cornell Tech, Spring 2023)](https://www.youtube.com/playlist?list=PL2UML_KCiC0UPzjW9BjO-IW6dqliu9O4B)",
+            "video_urls": [
+              {
+                "label": "CS 6785 - Deep Generative Models - Cornell Tech, Spring 2023)",
+                "url": "https://www.youtube.com/playlist?list=PL2UML_KCiC0UPzjW9BjO-IW6dqliu9O4B"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-deep-generative-models-iisc-654",
+            "line_number": 654,
+            "code": "",
+            "title": "Deep Generative Models - IISC",
+            "category": "Machine Learning",
+            "subcategory": "Generative AI and LLMs",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLL1s8qiaGy0LwIajdxKZr_FRL7KZeQK9r",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Deep Generative Models - IISC](https://www.youtube.com/playlist?list=PLL1s8qiaGy0LwIajdxKZr_FRL7KZeQK9r)",
+            "video_urls": [
+              {
+                "label": "Deep Generative Models - IISC",
+                "url": "https://www.youtube.com/playlist?list=PLL1s8qiaGy0LwIajdxKZr_FRL7KZeQK9r"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "systems-distributed-engineer",
+    "title": "Systems & Distributed Infrastructure Architect",
+    "description": "Architect planetary-scale cloud systems, low-latency operating system kernels, distributed consensus protocols (Raft/Paxos), and high-throughput networking.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Systems Programming & C/Rust Fundamentals",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Manual memory management",
+          "Pointers and ABI",
+          "Rust ownership and concurrency"
+        ],
+        "courses": [
+          {
+            "id": "unsw-comp6991-rust-programming-6",
+            "line_number": 6,
+            "code": "COMP6991",
+            "title": "Rust Programming",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "UNSW",
+            "instructor": "",
+            "year": "2022",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLGUxZeQTpJENZFOzGj-xUHOPuwpcCuIot",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- COMP6991 - Rust Programming - UNSW (2022) | [Video Playlist](https://www.youtube.com/playlist?list=PLGUxZeQTpJENZFOzGj-xUHOPuwpcCuIot)",
+            "video_urls": [
+              {
+                "label": "Video Playlist",
+                "url": "https://www.youtube.com/playlist?list=PLGUxZeQTpJENZFOzGj-xUHOPuwpcCuIot"
+              }
+            ]
+          },
+          {
+            "id": "mit-6001-structure-and-interpretation-of-computer-10",
+            "line_number": 10,
+            "code": "6.001",
+            "title": "Structure and Interpretation of Computer Programs",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "2005",
+            "level": "Introductory (L1)",
+            "primary_url": "https://ocw.mit.edu/courses/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video_galleries/video-lectures/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.001 - Structure and Interpretation of Computer Programs, MIT](https://ocw.mit.edu/courses/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video_galleries/video-lectures/)",
+            "video_urls": [
+              {
+                "label": "6.001 - Structure and Interpretation of Computer Programs, MIT",
+                "url": "https://ocw.mit.edu/courses/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video_galleries/video-lectures/"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-linfo-1104-paradigms-of-computer-programming-peter-28",
+            "line_number": 28,
+            "code": "LINFO 1104",
+            "title": "Paradigms of computer programming, Peter Van Roy, Université catholique de Louvain, Belgium - EdX",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLw454N-VXALSIzIe_eL5U8L4S68v2X_ak",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [LINFO 1104 - Paradigms of computer programming, Peter Van Roy, Université catholique de Louvain, Belgium - EdX](https://www.youtube.com/playlist?list=PLw454N-VXALSIzIe_eL5U8L4S68v2X_ak)",
+            "video_urls": [
+              {
+                "label": "LINFO 1104 - Paradigms of computer programming, Peter Van Roy, Université catholique de Louvain, Belgium - EdX",
+                "url": "https://www.youtube.com/playlist?list=PLw454N-VXALSIzIe_eL5U8L4S68v2X_ak"
+              }
+            ]
+          },
+          {
+            "id": "uc-berkeley-cs-61a-structure-and-interpretation-of-computer-15",
+            "line_number": 15,
+            "code": "CS 61A",
+            "title": "Structure and Interpretation of Computer Programs [Python",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "",
+            "level": "Introductory (L1)",
+            "primary_url": "https://cs61a.org/",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [CS 61A - Structure and Interpretation of Computer Programs [Python], UC Berkeley](https://cs61a.org/)",
+            "video_urls": []
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Computer Systems & Architecture",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "x86/ARM assembly",
+          "CPU caching hierarchy",
+          "Virtual memory paging"
+        ],
+        "courses": [
+          {
+            "id": "carnegie-mellon-cmu-15-213-introduction-to-computer-systems-fall-2-158",
+            "line_number": 158,
+            "code": "15-213",
+            "title": "Introduction to Computer Systems, Fall 2015",
+            "category": "Systems Programming",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "Fall 2015",
+            "level": "Introductory (L1)",
+            "primary_url": "https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22&maxResults=150",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [15-213 Introduction to Computer Systems, Fall 2015  - CMU](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22&maxResults=150)",
+            "video_urls": [
+              {
+                "label": "15-213 Introduction to Computer Systems, Fall 2015  - CMU",
+                "url": "https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22&maxResults=150"
+              }
+            ]
+          },
+          {
+            "id": "unsw-comp1521-computer-systems-fundamentals-157",
+            "line_number": 157,
+            "code": "COMP1521",
+            "title": "Computer Systems Fundamentals",
+            "category": "Systems Programming",
+            "subcategory": "General",
+            "institution": "UNSW",
+            "instructor": "",
+            "year": "2025",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://cgi.cse.unsw.edu.au/~cs1521/25T2/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [COMP1521 - Computer Systems Fundamentals (2025) - UNSW (Full Course: Website + Lectures, Labs, Assignments, Exercises, Exams, Video Playlist)](https://cgi.cse.unsw.edu.au/~cs1521/25T2/) | [Watch Lectures](https://www.youtube.com/playlist?list=PLUsPZdCcmwELH7BDprCzDSN40futwJGYb)",
+            "video_urls": [
+              {
+                "label": "COMP1521 - Computer Systems Fundamentals (2025) - UNSW (Full Course: Website + Lectures, Labs, Assignments, Exercises, Exams, Video Playlist)",
+                "url": "https://cgi.cse.unsw.edu.au/~cs1521/25T2/"
+              },
+              {
+                "label": "Watch Lectures",
+                "url": "https://www.youtube.com/playlist?list=PLUsPZdCcmwELH7BDprCzDSN40futwJGYb"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-computer-systems-a-programmers-perspec-159",
+            "line_number": 159,
+            "code": "",
+            "title": "Computer Systems: A programmer's Perspective",
+            "category": "Systems Programming",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLyboo2CCDSWnhzzzzDQ3OBPrRiIjl-aIE",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Computer Systems: A programmer's Perspective](https://www.youtube.com/playlist?list=PLyboo2CCDSWnhzzzzDQ3OBPrRiIjl-aIE)",
+            "video_urls": [
+              {
+                "label": "Computer Systems: A programmer's Perspective",
+                "url": "https://www.youtube.com/playlist?list=PLyboo2CCDSWnhzzzzDQ3OBPrRiIjl-aIE"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-3650-computer-systems-fall-2020-nat-tuck-161",
+            "line_number": 161,
+            "code": "CS 3650",
+            "title": "Computer Systems - Fall 2020 - Nat Tuck - NEU",
+            "category": "Systems Programming",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2020",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://web.archive.org/web/20210423030302/https://ntuck-neu.site/2020-09/cs3650/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 3650 - Computer Systems - Fall 2020 - Nat Tuck - NEU](https://web.archive.org/web/20210423030302/https://ntuck-neu.site/2020-09/cs3650/) ([Lectures - YouTube](https://www.youtube.com/playlist?list=PLtg_A_3rzLAtBuwQp6mA3WveYw9Q7GzIZ))",
+            "video_urls": [
+              {
+                "label": "Lectures - YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLtg_A_3rzLAtBuwQp6mA3WveYw9Q7GzIZ"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Operating Systems Internals & Networking",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "Thread scheduling & synchronization primitives",
+          "TCP/IP implementation",
+          "File systems & VFS"
+        ],
+        "courses": [
+          {
+            "id": "uc-berkeley-cs-162-operating-systems-and-systems-programmin-173",
+            "line_number": 173,
+            "code": "CS 162",
+            "title": "Operating Systems and Systems Programming, Spring 2015 - University of California, Berkeley",
+            "category": "Systems Programming",
+            "subcategory": "Operating Systems",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "Spring 2015",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://archive.org/details/ucberkeley-webcast-PL-XXv-cvA_iBDyz-ba4yDskqMDY6A1w_c?sort=titleSorter",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 162 Operating Systems and Systems Programming, Spring 2015 - University of California, Berkeley](https://archive.org/details/ucberkeley-webcast-PL-XXv-cvA_iBDyz-ba4yDskqMDY6A1w_c?sort=titleSorter) ([Fall 2020 - YouTube](https://www.youtube.com/playlist?list=PLF2K2xZjNEf97A_uBCwEl61sdxWVP7VWC))",
+            "video_urls": [
+              {
+                "label": "Fall 2020 - YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLF2K2xZjNEf97A_uBCwEl61sdxWVP7VWC"
+              }
+            ]
+          },
+          {
+            "id": "university-of-toronto-ece-344-operating-systems-fall-2024-jon-eyol-169",
+            "line_number": 169,
+            "code": "ECE 344",
+            "title": "Operating Systems - Fall 2024 - Jon Eyolfson - University of Toronto",
+            "category": "Systems Programming",
+            "subcategory": "Operating Systems",
+            "institution": "University of Toronto",
+            "instructor": "",
+            "year": "Fall 2024",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLunILarQwxnntWWNJ64E7wC4KhsEwHWxB",
+            "video_count": 4,
+            "has_video": true,
+            "raw_markdown": "- [ECE 344 - Operating Systems - Fall 2024 - Jon Eyolfson - University of Toronto](https://www.youtube.com/playlist?list=PLunILarQwxnntWWNJ64E7wC4KhsEwHWxB) ([Fall 2024 Section 2](https://www.youtube.com/playlist?list=PLunILarQwxnlW3S8i4gSV9I_8qGX8xwtr)) ([Fall 2023](https://www.youtube.com/playlist?list=PLunILarQwxnngd9q965kViUzPqylDQ37M)) ([Fall 2022](https://www.youtube.com/playlist?list=PLunILarQwxnn-uwJeiOeWJctHC3MCORw9))",
+            "video_urls": [
+              {
+                "label": "ECE 344 - Operating Systems - Fall 2024 - Jon Eyolfson - University of Toronto",
+                "url": "https://www.youtube.com/playlist?list=PLunILarQwxnntWWNJ64E7wC4KhsEwHWxB"
+              },
+              {
+                "label": "Fall 2024 Section 2",
+                "url": "https://www.youtube.com/playlist?list=PLunILarQwxnlW3S8i4gSV9I_8qGX8xwtr"
+              },
+              {
+                "label": "Fall 2023",
+                "url": "https://www.youtube.com/playlist?list=PLunILarQwxnngd9q965kViUzPqylDQ37M"
+              },
+              {
+                "label": "Fall 2022",
+                "url": "https://www.youtube.com/playlist?list=PLunILarQwxnn-uwJeiOeWJctHC3MCORw9"
+              }
+            ]
+          },
+          {
+            "id": "university-of-toronto-ece-353-systems-software-winter-2025-jon-eyo-170",
+            "line_number": 170,
+            "code": "ECE 353",
+            "title": "Systems Software - Winter 2025 - Jon Eyolfson - University of Toronto",
+            "category": "Systems Programming",
+            "subcategory": "Operating Systems",
+            "institution": "University of Toronto",
+            "instructor": "",
+            "year": "Winter 2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLunILarQwxnlUsOvAOhMs9yCHnH0Vs9w2",
+            "video_count": 3,
+            "has_video": true,
+            "raw_markdown": "- [ECE 353 - Systems Software - Winter 2025 - Jon Eyolfson - University of Toronto](https://www.youtube.com/playlist?list=PLunILarQwxnlUsOvAOhMs9yCHnH0Vs9w2) ([Winter 2024](https://www.youtube.com/playlist?list=PLunILarQwxnnfpqfSzQVbj4JWPAn1ByiF)) ([Winter 2023](https://www.youtube.com/playlist?list=PLunILarQwxnl0SZ2zsgyVjU9NDD_Rn-re))",
+            "video_urls": [
+              {
+                "label": "ECE 353 - Systems Software - Winter 2025 - Jon Eyolfson - University of Toronto",
+                "url": "https://www.youtube.com/playlist?list=PLunILarQwxnlUsOvAOhMs9yCHnH0Vs9w2"
+              },
+              {
+                "label": "Winter 2024",
+                "url": "https://www.youtube.com/playlist?list=PLunILarQwxnnfpqfSzQVbj4JWPAn1ByiF"
+              },
+              {
+                "label": "Winter 2023",
+                "url": "https://www.youtube.com/playlist?list=PLunILarQwxnl0SZ2zsgyVjU9NDD_Rn-re"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cse-421521-introduction-to-operating-systems-suny-176",
+            "line_number": 176,
+            "code": "CSE 421/521",
+            "title": "Introduction to Operating Systems, SUNY University at Buffalo, NY - Spring 2016",
+            "category": "Systems Programming",
+            "subcategory": "Operating Systems",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Spring 2016",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/",
+            "video_count": 3,
+            "has_video": true,
+            "raw_markdown": "- [CSE 421/521 - Introduction to Operating Systems, SUNY University at Buffalo, NY - Spring 2016](https://www.ops-class.org/courses/buffalo/CSE421_Spring2016/) ([Lectures - YouTube](https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3)) ([Recitations 2016](https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF)) ([Assignment walkthroughs](https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O))",
+            "video_urls": [
+              {
+                "label": "Lectures - YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLE6LEE8y2Jp-kbEcVR2W3vfx0Pdca0BD3"
+              },
+              {
+                "label": "Recitations 2016",
+                "url": "https://www.youtube.com/playlist?list=PLE6LEE8y2Jp_YJn8wu9aJTPOgeWqiaJDF"
+              },
+              {
+                "label": "Assignment walkthroughs",
+                "url": "https://www.youtube.com/playlist?list=PLE6LEE8y2Jp9PC8fyzc2meL4XvrVSyP8O"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Distributed Systems & Planetary Consensus",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "Raft consensus engine",
+          "Linearizability & CAP theorem",
+          "Two-phase commit & fault tolerance"
+        ],
+        "courses": [
+          {
+            "id": "mit-6824-distributed-systems-spring-2015-194",
+            "line_number": 194,
+            "code": "6.824",
+            "title": "Distributed Systems, Spring 2015",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2015",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLkcQbKbegkMqiWf7nF8apfMRL4P4sw8UL",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.824 - Distributed Systems, Spring 2015 - MIT](https://www.youtube.com/playlist?list=PLkcQbKbegkMqiWf7nF8apfMRL4P4sw8UL)",
+            "video_urls": [
+              {
+                "label": "6.824 - Distributed Systems, Spring 2015 - MIT",
+                "url": "https://www.youtube.com/playlist?list=PLkcQbKbegkMqiWf7nF8apfMRL4P4sw8UL"
+              }
+            ]
+          },
+          {
+            "id": "mit-6824-distributed-systems-spring-2020-195",
+            "line_number": 195,
+            "code": "6.824",
+            "title": "Distributed Systems - Spring 2020",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2020",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://pdos.csail.mit.edu/6.824/schedule.html",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.824 Distributed Systems - Spring 2020 - MIT](https://pdos.csail.mit.edu/6.824/schedule.html) ([Youtube](https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB))",
+            "video_urls": [
+              {
+                "label": "Youtube",
+                "url": "https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cse-138-distributed-systems-uc-santa-cruz-spr-206",
+            "line_number": 206,
+            "code": "CSE 138",
+            "title": "Distributed Systems - UC Santa Cruz, Spring 2020",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Spring 2020",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CSE 138 - Distributed Systems - UC Santa Cruz, Spring 2020](https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31) ([2021](https://www.youtube.com/playlist?list=PLNPUF5QyWU8PydLG2cIJrCvnn5I_exhYx))",
+            "video_urls": [
+              {
+                "label": "CSE 138 - Distributed Systems - UC Santa Cruz, Spring 2020",
+                "url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31"
+              },
+              {
+                "label": "2021",
+                "url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8PydLG2cIJrCvnn5I_exhYx"
+              }
+            ]
+          },
+          {
+            "id": "umass-cs-677-distributed-operating-systems-spring-24-192",
+            "line_number": 192,
+            "code": "CS 677",
+            "title": "Distributed Operating Systems, Spring 24 - Umass OS",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "UMass",
+            "instructor": "",
+            "year": "",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 677 - Distributed Operating Systems, Spring 24 - Umass OS](https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH)",
+            "video_urls": [
+              {
+                "label": "CS 677 - Distributed Operating Systems, Spring 24 - Umass OS",
+                "url": "https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "database-storage-architect",
+    "title": "Database Engine & Storage Systems Architect",
+    "description": "Design high-performance relational storage managers, B-Tree and LSM indexing engines, buffer pool managers, vector databases, and distributed query execution.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Algorithms & Data Structures Core",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Hash tables & trees",
+          "Algorithmic complexity",
+          "Memory bounds"
+        ],
+        "courses": [
+          {
+            "id": "uc-berkeley-cs-61b-data-structures-java-73",
+            "line_number": 73,
+            "code": "CS 61B",
+            "title": "Data Structures (Java",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "2022",
+            "level": "Introductory (L1)",
+            "primary_url": "https://fa25.datastructur.es/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 61B - Data Structures (Java) - UC Berkeley](https://fa25.datastructur.es/)([Discussion 2022](https://www.youtube.com/watch?v=gG4--V_PpEk&list=PLjuu7kFWxFtZBm-5GifiVpqdAxeW7Hsax))",
+            "video_urls": [
+              {
+                "label": "Discussion 2022",
+                "url": "https://www.youtube.com/watch?v=gG4--V_PpEk&list=PLjuu7kFWxFtZBm-5GifiVpqdAxeW7Hsax"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-170-algorithms-ucberkeley-74",
+            "line_number": 74,
+            "code": "CS 170",
+            "title": "Algorithms - UCBerkeley",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2019",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://cs170.org/",
+            "video_count": 4,
+            "has_video": true,
+            "raw_markdown": "- [CS 170 Algorithms - UCBerkeley](https://cs170.org/) [Fall 2019, Youtube](https://www.youtube.com/playlist?list=PLIygTcviGPKD4TU_QsvJI0G7QnrIS_7Wn) [Fall 2018, Youtube](https://www.youtube.com/watch?v=fd5P-8IQwMY&list=PLkFD6_40KJIx8lWWbE-Uk069aZ1R-W-VU&index=2&t=0s) [Fall 2018,Bilibili](https://www.bilibili.com/video/av43955743/?p=1) [2013 Bilibili](https://www.bilibili.com/video/av26670685/)",
+            "video_urls": [
+              {
+                "label": "Fall 2019, Youtube",
+                "url": "https://www.youtube.com/playlist?list=PLIygTcviGPKD4TU_QsvJI0G7QnrIS_7Wn"
+              },
+              {
+                "label": "Fall 2018, Youtube",
+                "url": "https://www.youtube.com/watch?v=fd5P-8IQwMY&list=PLkFD6_40KJIx8lWWbE-Uk069aZ1R-W-VU&index=2&t=0s"
+              },
+              {
+                "label": "Fall 2018,Bilibili",
+                "url": "https://www.bilibili.com/video/av43955743/?p=1"
+              },
+              {
+                "label": "2013 Bilibili",
+                "url": "https://www.bilibili.com/video/av26670685/"
+              }
+            ]
+          },
+          {
+            "id": "georgia-tech-cs4510-automata-and-complexity-georgia-tech-101",
+            "line_number": 101,
+            "code": "CS4510",
+            "title": "Automata and Complexity - Georgia Tech",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Georgia Tech",
+            "instructor": "",
+            "year": "2021",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://faculty.cc.gatech.edu/~ladha/toc/",
+            "video_count": 4,
+            "has_video": true,
+            "raw_markdown": "- [CS4510 Automata and Complexity - Georgia Tech](https://faculty.cc.gatech.edu/~ladha/toc/) [Videos - Su 2021](https://www.youtube.com/playlist?list=PLerMEx1Met7sxHpq1seMyS1riK4PEO-S5) [Videos - Su 2023](https://www.youtube.com/playlist?list=PLerMEx1Met7vqIEY6TPcMXMWTJfRzGGh3) [Videos - Su 2024](https://www.youtube.com/playlist?list=PLerMEx1Met7uyrIcvDIOc8x2mv29UWuUy) [Videos - Su 2025](https://www.youtube.com/playlist?list=PLerMEx1Met7uOtmjvLr7v9XbYwjtNoOF2)",
+            "video_urls": [
+              {
+                "label": "Videos - Su 2021",
+                "url": "https://www.youtube.com/playlist?list=PLerMEx1Met7sxHpq1seMyS1riK4PEO-S5"
+              },
+              {
+                "label": "Videos - Su 2023",
+                "url": "https://www.youtube.com/playlist?list=PLerMEx1Met7vqIEY6TPcMXMWTJfRzGGh3"
+              },
+              {
+                "label": "Videos - Su 2024",
+                "url": "https://www.youtube.com/playlist?list=PLerMEx1Met7uyrIcvDIOc8x2mv29UWuUy"
+              },
+              {
+                "label": "Videos - Su 2025",
+                "url": "https://www.youtube.com/playlist?list=PLerMEx1Met7uOtmjvLr7v9XbYwjtNoOF2"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cse-331-introduction-to-algorithm-design-and-ana-60",
+            "line_number": 60,
+            "code": "CSE 331",
+            "title": "Introduction to Algorithm Design and Analysis, SUNY University at Buffalo, NY - Fall 2017",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2017",
+            "level": "Advanced (L3)",
+            "primary_url": "http://www-student.cse.buffalo.edu/~atri/cse331/fall17/index.html",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CSE 331 Introduction to Algorithm Design and Analysis, SUNY University at Buffalo, NY - Fall 2017](http://www-student.cse.buffalo.edu/~atri/cse331/fall17/index.html) ([Lectures](https://www.youtube.com/playlist?list=PLZBCR-EGqNpoiHeO17FlLADJ38Kb3EiPU)) ([Homework Walkthroughs](https://www.youtube.com/playlist?list=PLZBCR-EGqNpoVyQCIUDHiXnL-zdFD_ixk))",
+            "video_urls": [
+              {
+                "label": "Lectures",
+                "url": "https://www.youtube.com/playlist?list=PLZBCR-EGqNpoiHeO17FlLADJ38Kb3EiPU"
+              },
+              {
+                "label": "Homework Walkthroughs",
+                "url": "https://www.youtube.com/playlist?list=PLZBCR-EGqNpoVyQCIUDHiXnL-zdFD_ixk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Relational Theory & Database Systems",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "Relational algebra",
+          "SQL internals & normalization",
+          "Index lookups"
+        ],
+        "courses": [
+          {
+            "id": "penn-state-cmpsc-431w-database-management-systems-fall-2015-227",
+            "line_number": 227,
+            "code": "CMPSC 431W",
+            "title": "Database Management Systems, Fall 2015 - Penn State University",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "Penn State",
+            "instructor": "",
+            "year": "Fall 2015",
+            "level": "Advanced (L3)",
+            "primary_url": "http://www.cse.psu.edu/~wul2/cmpsc431w/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CMPSC 431W Database Management Systems, Fall 2015 - Penn State University](http://www.cse.psu.edu/~wul2/cmpsc431w/) [Lectures - YouTube](https://www.youtube.com/playlist?list=PLstRzn3gXZMdXqAiVJ1NN2CoyXHqma7pQ)",
+            "video_urls": [
+              {
+                "label": "Lectures - YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLstRzn3gXZMdXqAiVJ1NN2CoyXHqma7pQ"
+              }
+            ]
+          },
+          {
+            "id": "university-of-washington-csep-544-database-management-systems-au-2015-232",
+            "line_number": 232,
+            "code": "CSEP 544",
+            "title": ", Database Management Systems, Au 2015 - University of Washington",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "University of Washington",
+            "instructor": "",
+            "year": "2015",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLTPQEx-31JXjQYrUKvAjUTWgCYluHGs_L",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CSEP 544, Database Management Systems, Au 2015 - University of Washington](https://www.youtube.com/playlist?list=PLTPQEx-31JXjQYrUKvAjUTWgCYluHGs_L)",
+            "video_urls": [
+              {
+                "label": "CSEP 544, Database Management Systems, Au 2015 - University of Washington",
+                "url": "https://www.youtube.com/playlist?list=PLTPQEx-31JXjQYrUKvAjUTWgCYluHGs_L"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-database-management-systems-aduni-244",
+            "line_number": 244,
+            "code": "",
+            "title": "Database Management Systems, Aduni",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "http://aduni.org/courses/databases/index.php?view=cw",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [Database Management Systems, Aduni](http://aduni.org/courses/databases/index.php?view=cw)",
+            "video_urls": []
+          },
+          {
+            "id": "carnegie-mellon-cmu-15-445-introduction-to-database-systems-237",
+            "line_number": 237,
+            "code": "15-445",
+            "title": "Introduction to Database Systems",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2017",
+            "level": "Introductory (L1)",
+            "primary_url": "https://15445.courses.cs.cmu.edu/fall2025/",
+            "video_count": 8,
+            "has_video": true,
+            "raw_markdown": "- [15-445 - Introduction to Database Systems, CMU](https://15445.courses.cs.cmu.edu/fall2025/) ([YouTube-2017](https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x)), ([YouTube-2018](https://www.youtube.com/playlist?list=PLSE8ODhjZXja3hgmuwhf89qboV1kOxMx7)),([YouTube-2019](https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi)), ([YouTube-2021](https://www.youtube.com/playlist?list=PLSE8ODhjZXjZaHA6QcxDfJ0SIWBzQFKEG)), ([YouTube-2022](https://www.youtube.com/playlist?list=PLSE8ODhjZXjaKScG3l0nuOiDTTqpfnWFf)),([YouTube-2023](https://youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g&si=R7F_J9zbXsG07PjR)),([YouTube-2024](https://youtube.com/playlist?list=PLSE8ODhjZXjYDBpQnSymaectKjxCy6BYq&si=H-wfgjoLz6ifhZqS)),([YouTube-2025](https://youtube.com/playlist?list=PLSE8ODhjZXjYMAgsGH-GtY5rJYZ6zjsd5&si=KKXgy16Zm20utGyH))",
+            "video_urls": [
+              {
+                "label": "YouTube-2017",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x"
+              },
+              {
+                "label": "YouTube-2018",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXja3hgmuwhf89qboV1kOxMx7"
+              },
+              {
+                "label": "YouTube-2019",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi"
+              },
+              {
+                "label": "YouTube-2021",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjZaHA6QcxDfJ0SIWBzQFKEG"
+              },
+              {
+                "label": "YouTube-2022",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjaKScG3l0nuOiDTTqpfnWFf"
+              },
+              {
+                "label": "YouTube-2023",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g&si=R7F_J9zbXsG07PjR"
+              },
+              {
+                "label": "YouTube-2024",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjYDBpQnSymaectKjxCy6BYq&si=H-wfgjoLz6ifhZqS"
+              },
+              {
+                "label": "YouTube-2025",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjYMAgsGH-GtY5rJYZ6zjsd5&si=KKXgy16Zm20utGyH"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Database Internals & Storage Managers",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "Disk-oriented storage engines",
+          "B+ Trees & Hash indices",
+          "Buffer pool replacement (LRU/Clock)"
+        ],
+        "courses": [
+          {
+            "id": "carnegie-mellon-cmu-15-445-introduction-to-database-systems-237",
+            "line_number": 237,
+            "code": "15-445",
+            "title": "Introduction to Database Systems",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2017",
+            "level": "Introductory (L1)",
+            "primary_url": "https://15445.courses.cs.cmu.edu/fall2025/",
+            "video_count": 8,
+            "has_video": true,
+            "raw_markdown": "- [15-445 - Introduction to Database Systems, CMU](https://15445.courses.cs.cmu.edu/fall2025/) ([YouTube-2017](https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x)), ([YouTube-2018](https://www.youtube.com/playlist?list=PLSE8ODhjZXja3hgmuwhf89qboV1kOxMx7)),([YouTube-2019](https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi)), ([YouTube-2021](https://www.youtube.com/playlist?list=PLSE8ODhjZXjZaHA6QcxDfJ0SIWBzQFKEG)), ([YouTube-2022](https://www.youtube.com/playlist?list=PLSE8ODhjZXjaKScG3l0nuOiDTTqpfnWFf)),([YouTube-2023](https://youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g&si=R7F_J9zbXsG07PjR)),([YouTube-2024](https://youtube.com/playlist?list=PLSE8ODhjZXjYDBpQnSymaectKjxCy6BYq&si=H-wfgjoLz6ifhZqS)),([YouTube-2025](https://youtube.com/playlist?list=PLSE8ODhjZXjYMAgsGH-GtY5rJYZ6zjsd5&si=KKXgy16Zm20utGyH))",
+            "video_urls": [
+              {
+                "label": "YouTube-2017",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x"
+              },
+              {
+                "label": "YouTube-2018",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXja3hgmuwhf89qboV1kOxMx7"
+              },
+              {
+                "label": "YouTube-2019",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi"
+              },
+              {
+                "label": "YouTube-2021",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjZaHA6QcxDfJ0SIWBzQFKEG"
+              },
+              {
+                "label": "YouTube-2022",
+                "url": "https://www.youtube.com/playlist?list=PLSE8ODhjZXjaKScG3l0nuOiDTTqpfnWFf"
+              },
+              {
+                "label": "YouTube-2023",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjbj8BMuIrRcacnQh20hmY9g&si=R7F_J9zbXsG07PjR"
+              },
+              {
+                "label": "YouTube-2024",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjYDBpQnSymaectKjxCy6BYq&si=H-wfgjoLz6ifhZqS"
+              },
+              {
+                "label": "YouTube-2025",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjYMAgsGH-GtY5rJYZ6zjsd5&si=KKXgy16Zm20utGyH"
+              }
+            ]
+          },
+          {
+            "id": "university-of-utah-cs-6530-graduate-level-database-systems-fall-20-241",
+            "line_number": 241,
+            "code": "CS 6530",
+            "title": "Graduate-level Database Systems, Fall 2016, University of Utah",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "University of Utah",
+            "instructor": "",
+            "year": "Fall 2016",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.cs.utah.edu/~lifeifei/cs6530/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 6530 - Graduate-level Database Systems, Fall 2016, University of Utah](https://www.cs.utah.edu/~lifeifei/cs6530/) ([Lectures - YouTube](https://www.youtube.com/playlist?list=PLbuogVdPnkCqwHUcieMrytP453Ep0y6eI))",
+            "video_urls": [
+              {
+                "label": "Lectures - YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLbuogVdPnkCqwHUcieMrytP453Ep0y6eI"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-6830-6814-database-systems-fall-2014-242",
+            "line_number": 242,
+            "code": "6.830",
+            "title": "/6.814 - Database Systems Fall 2014",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2014",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLfciLKR3SgqOxCy1TIXXyfTqKzX2enDjK",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.830/6.814 - Database Systems Fall 2014](https://www.youtube.com/playlist?list=PLfciLKR3SgqOxCy1TIXXyfTqKzX2enDjK)",
+            "video_urls": [
+              {
+                "label": "6.830/6.814 - Database Systems Fall 2014",
+                "url": "https://www.youtube.com/playlist?list=PLfciLKR3SgqOxCy1TIXXyfTqKzX2enDjK"
+              }
+            ]
+          },
+          {
+            "id": "caltech-cs121-introduction-to-relational-database-syst-228",
+            "line_number": 228,
+            "code": "CS121",
+            "title": "Introduction to Relational Database Systems, Fall 2016",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "Caltech",
+            "instructor": "",
+            "year": "Fall 2016",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "http://users.cms.caltech.edu/~donnie/cs121/",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [CS121 - Introduction to Relational Database Systems, Fall 2016 - Caltech](http://users.cms.caltech.edu/~donnie/cs121/)",
+            "video_urls": []
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Advanced OLAP, Vector & Distributed DBMS",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "Vectorized & columnar execution",
+          "Write-Ahead Logging & ARIES recovery",
+          "Multi-version concurrency control (MVCC)"
+        ],
+        "courses": [
+          {
+            "id": "carnegie-mellon-cmu-15-721-advanced-database-systems-238",
+            "line_number": 238,
+            "code": "15-721",
+            "title": "Advanced Database Systems",
+            "category": "Database Systems",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2024",
+            "level": "Introductory (L1)",
+            "primary_url": "http://15721.courses.cs.cmu.edu/spring2024",
+            "video_count": 3,
+            "has_video": true,
+            "raw_markdown": "- [15-721 - Advanced Database Systems, CMU](http://15721.courses.cs.cmu.edu/spring2024) ([YouTube-2024](https://youtube.com/playlist?list=PLSE8ODhjZXjYa_zX-KeMJui7pcN1rIaIJ&si=J9cH2uZ0pFUu8q6f), [YouTube-2023](https://youtube.com/playlist?list=PLSE8ODhjZXjYzlLMbX3cR0sxWnRM7CLFn&si=O78E7wsQlVhgwE_u), [YouTube-2022](https://youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O&si=DsDfVhDp6j0n981J))",
+            "video_urls": [
+              {
+                "label": "YouTube-2024",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjYa_zX-KeMJui7pcN1rIaIJ&si=J9cH2uZ0pFUu8q6f"
+              },
+              {
+                "label": "YouTube-2023",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjYzlLMbX3cR0sxWnRM7CLFn&si=O78E7wsQlVhgwE_u"
+              },
+              {
+                "label": "YouTube-2022",
+                "url": "https://youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O&si=DsDfVhDp6j0n981J"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-10-605-machine-learning-with-large-datasets-fa-394",
+            "line_number": 394,
+            "code": "10-605",
+            "title": "Machine Learning with Large Datasets, Fall 2016",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "Fall 2016",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/channel/UCIE4UdPoCJZMAZrTLuq-CPQ/videos",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [10-605 - Machine Learning with Large Datasets, Fall 2016 - CMU](https://www.youtube.com/channel/UCIE4UdPoCJZMAZrTLuq-CPQ/videos)",
+            "video_urls": [
+              {
+                "label": "10-605 - Machine Learning with Large Datasets, Fall 2016 - CMU",
+                "url": "https://www.youtube.com/channel/UCIE4UdPoCJZMAZrTLuq-CPQ/videos"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cse-138-distributed-systems-uc-santa-cruz-spr-206",
+            "line_number": 206,
+            "code": "CSE 138",
+            "title": "Distributed Systems - UC Santa Cruz, Spring 2020",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Spring 2020",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CSE 138 - Distributed Systems - UC Santa Cruz, Spring 2020](https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31) ([2021](https://www.youtube.com/playlist?list=PLNPUF5QyWU8PydLG2cIJrCvnn5I_exhYx))",
+            "video_urls": [
+              {
+                "label": "CSE 138 - Distributed Systems - UC Santa Cruz, Spring 2020",
+                "url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31"
+              },
+              {
+                "label": "2021",
+                "url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8PydLG2cIJrCvnn5I_exhYx"
+              }
+            ]
+          },
+          {
+            "id": "umass-cs-677-distributed-operating-systems-spring-24-192",
+            "line_number": 192,
+            "code": "CS 677",
+            "title": "Distributed Operating Systems, Spring 24 - Umass OS",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "UMass",
+            "instructor": "",
+            "year": "",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 677 - Distributed Operating Systems, Spring 24 - Umass OS](https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH)",
+            "video_urls": [
+              {
+                "label": "CS 677 - Distributed Operating Systems, Spring 24 - Umass OS",
+                "url": "https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "algorithms-competitive-quant",
+    "title": "Algorithms, Theoretical CS & Quantitative Engineer",
+    "description": "Master algorithmic problem solving, graph theory, randomized algorithms, NP-completeness, and computational mathematics for quant trading and algorithm optimization.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Foundations of Algorithms",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Asymptotic notation",
+          "Sorting & searching bounds",
+          "Basic dynamic programming"
+        ],
+        "courses": [
+          {
+            "id": "mit-6006-introduction-to-algorithms-55",
+            "line_number": 55,
+            "code": "6.006",
+            "title": "Introduction to Algorithms",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "2020",
+            "level": "Introductory (L1)",
+            "primary_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/video_galleries/lecture-videos/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.006 - Introduction to Algorithms, MIT OCW](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/video_galleries/lecture-videos/)",
+            "video_urls": [
+              {
+                "label": "6.006 - Introduction to Algorithms, MIT OCW",
+                "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/video_galleries/lecture-videos/"
+              }
+            ]
+          },
+          {
+            "id": "uc-berkeley-cs-161-computer-security-1190",
+            "line_number": 1190,
+            "code": "CS 161",
+            "title": "Computer Security",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "Fall 2023",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://fa23.cs161.org/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CS 161: Computer Security, UC Berkeley](https://fa23.cs161.org/) ([Videos - Fall 2023](https://www.youtube.com/playlist?list=PLfBkt1-_BHX_VxOWlmstguFxojSN742vz)) ([Videos - Fall 2025](https://www.youtube.com/playlist?list=PLfBkt1-_BHX8kQZhisgrCLAnuAd3-Ek5U)) ([Spring 2025](https://sp25.cs161.org/))",
+            "video_urls": [
+              {
+                "label": "Videos - Fall 2023",
+                "url": "https://www.youtube.com/playlist?list=PLfBkt1-_BHX_VxOWlmstguFxojSN742vz"
+              },
+              {
+                "label": "Videos - Fall 2025",
+                "url": "https://www.youtube.com/playlist?list=PLfBkt1-_BHX8kQZhisgrCLAnuAd3-Ek5U"
+              }
+            ]
+          },
+          {
+            "id": "uc-berkeley-cs-161-uc-berkeley-computer-security-summer-20-1219",
+            "line_number": 1219,
+            "code": "CS 161",
+            "title": "UC Berkeley Computer Security, Summer 2021, by Nicholas Ngai and Peyrin Kao",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "Nicholas Ngai",
+            "year": "Summer 2021",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLIygTcviGPKAPoe_0mUsXYaxZfsFyQyFE",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [UC Berkeley CS 161 Computer Security, Summer 2021, by Nicholas Ngai and Peyrin Kao](https://www.youtube.com/playlist?list=PLIygTcviGPKAPoe_0mUsXYaxZfsFyQyFE)",
+            "video_urls": [
+              {
+                "label": "UC Berkeley CS 161 Computer Security, Summer 2021, by Nicholas Ngai and Peyrin Kao",
+                "url": "https://www.youtube.com/playlist?list=PLIygTcviGPKAPoe_0mUsXYaxZfsFyQyFE"
+              }
+            ]
+          },
+          {
+            "id": "stanford-cs-161-design-and-analysis-of-algorithms-prof-66",
+            "line_number": 66,
+            "code": "CS 161",
+            "title": "Design and Analysis of Algorithms, Prof. Tim Roughgarden",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Stanford",
+            "instructor": "Tim Roughgarden",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=IntroToAlgorithms",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [CS 161 - Design and Analysis of Algorithms, Prof. Tim Roughgarden, Stanford University](http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=IntroToAlgorithms)",
+            "video_urls": []
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Advanced Design & Graph Algorithms",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "Network flows (Ford-Fulkerson)",
+          "Greedy algorithm proofs",
+          "Advanced amortized analysis"
+        ],
+        "courses": [
+          {
+            "id": "mit-6046j-introduction-to-algorithms-fall-2005-67",
+            "line_number": 67,
+            "code": "6.046J",
+            "title": "Introduction to Algorithms - Fall 2005",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Fall 2005",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://ocw.mit.edu/courses/6-046j-introduction-to-algorithms-sma-5503-fall-2005/",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [6.046J - Introduction to Algorithms - Fall 2005, MIT OCW](https://ocw.mit.edu/courses/6-046j-introduction-to-algorithms-sma-5503-fall-2005/)",
+            "video_urls": []
+          },
+          {
+            "id": "princeton-cs-graph-algorithms-robert-sedgewick-51",
+            "line_number": 51,
+            "code": "",
+            "title": "Graph Algorithms - Robert Sedgewick",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Princeton",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/watch?v=0qF7tPSQdCg",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Graph Algorithms - Robert Sedgewick - Princeton University](https://www.youtube.com/watch?v=0qF7tPSQdCg)",
+            "video_urls": [
+              {
+                "label": "Graph Algorithms - Robert Sedgewick - Princeton University",
+                "url": "https://www.youtube.com/watch?v=0qF7tPSQdCg"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-eecs-498-598-advanced-graph-algorithms-graph-53",
+            "line_number": 53,
+            "code": "EECS 498",
+            "title": "/ 598 - Advanced Graph Algorithms: Graph Algorithms via Graph Decomposition, Fall 2025, UMichigan",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://sites.google.com/site/thsaranurak/teaching/GraphDecomp25",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [EECS 498 / 598 - Advanced Graph Algorithms: Graph Algorithms via Graph Decomposition, Fall 2025, UMichigan](https://sites.google.com/site/thsaranurak/teaching/GraphDecomp25)",
+            "video_urls": []
+          },
+          {
+            "id": "other-universities-labs-eecs-498-598-advanced-graph-algorithms-expan-54",
+            "line_number": 54,
+            "code": "EECS 498",
+            "title": "/ 598 - Advanced Graph Algorithms: Expanders and Fast Graph Algorithms, Fall 2021, UMichigan",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2021",
+            "level": "Advanced (L3)",
+            "primary_url": "https://sites.google.com/site/thsaranurak/teaching/Expander",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [EECS 498 / 598 - Advanced Graph Algorithms: Expanders and Fast Graph Algorithms, Fall 2021, UMichigan](https://sites.google.com/site/thsaranurak/teaching/Expander)",
+            "video_urls": []
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Theory of Computation & Discrete Mathematics",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "Turing machines & decidability",
+          "P vs NP & Cook-Levin reduction",
+          "Space & time complexity classes"
+        ],
+        "courses": [
+          {
+            "id": "other-universities-labs-eecs-298-theory-of-computational-neural-networks-530",
+            "line_number": 530,
+            "code": "EECS 298",
+            "title": "Theory of Computational Neural Networks and Machine Learning (Fall 2020) - UC Irvine",
+            "category": "Machine Learning",
+            "subcategory": "Deep Learning",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2020",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://grandcentral.eee.uci.edu/syllabus/download/F-2020/17815",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [EECS 298 Theory of Computational Neural Networks and Machine Learning (Fall 2020) - UC Irvine](https://grandcentral.eee.uci.edu/syllabus/download/F-2020/17815) ([YouTube](https://www.youtube.com/playlist?list=PLIygTcviGPKBAh1HWXPOI3Rw59WdRlJXu))",
+            "video_urls": [
+              {
+                "label": "YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLIygTcviGPKBAh1HWXPOI3Rw59WdRlJXu"
+              }
+            ]
+          },
+          {
+            "id": "mit-mit-18-404j-theory-of-computation-fall-2020-1000",
+            "line_number": 1000,
+            "code": "MIT 18",
+            "title": ".404J Theory of Computation - Fall 2020 - Lecture Slides",
+            "category": "Theoretical CS and Programming Languages",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Fall 2020",
+            "level": "Introductory (L1)",
+            "primary_url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [MIT 18.404J Theory of Computation - Fall 2020 - Lecture Slides](https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes)",
+            "video_urls": [
+              {
+                "label": "MIT 18.404J Theory of Computation - Fall 2020 - Lecture Slides",
+                "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes"
+              }
+            ]
+          },
+          {
+            "id": "mit-mit-18-404j-theory-of-computation-fall-2020-1001",
+            "line_number": 1001,
+            "code": "MIT 18",
+            "title": ".404J Theory of Computation - Fall 2020 - Video Lectures",
+            "category": "Theoretical CS and Programming Languages",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Fall 2020",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [MIT 18.404J Theory of Computation - Fall 2020 - Video Lectures](https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY)",
+            "video_urls": [
+              {
+                "label": "MIT 18.404J Theory of Computation - Fall 2020 - Video Lectures",
+                "url": "https://www.youtube.com/playlist?list=PLUl4u3cNGP60_JNv2MmK3wkOt9syvfQWY"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs581-theory-of-computation-portland-state-u-1017",
+            "line_number": 1017,
+            "code": "CS581",
+            "title": "Theory of Computation - Portland State University",
+            "category": "Theoretical CS and Programming Languages",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Advanced (L3)",
+            "primary_url": "http://web.cecs.pdx.edu/~harry/videos/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS581 Theory of Computation - Portland State University](http://web.cecs.pdx.edu/~harry/videos/) ([Lectures - Youtube](https://www.youtube.com/playlist?list=PLbtzT1TYeoMjNOGEiaRmm_vMIwUAidnQz))",
+            "video_urls": [
+              {
+                "label": "Lectures - Youtube",
+                "url": "https://www.youtube.com/playlist?list=PLbtzT1TYeoMjNOGEiaRmm_vMIwUAidnQz"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Approximation, Randomized & Quantum Algorithms",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "LP relaxation & primal-dual",
+          "Monte Carlo & Las Vegas guarantees",
+          "Quantum circuit complexity"
+        ],
+        "courses": [
+          {
+            "id": "purdue-cs-588-purdue-randomized-algorithms-by-kent-qu-130",
+            "line_number": 130,
+            "code": "CS 588",
+            "title": "Purdue Randomized Algorithms, by Kent Quanrud",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Purdue",
+            "instructor": "Kent Quanrud",
+            "year": "Fall 2022",
+            "level": "Advanced (L3)",
+            "primary_url": "https://ras24.s3.amazonaws.com/ras24.pdf",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [Purdue CS 588 Randomized Algorithms, by Kent Quanrud](https://ras24.s3.amazonaws.com/ras24.pdf) ([Fall 2022](https://www.youtube.com/playlist?list=PL0YFU3y0Z_gbjvT1yDQkwRU9UXahd0BP1)) ([Spring 2024](https://www.youtube.com/playlist?list=PL0YFU3y0Z_gZxc-FeLhbOFS99ZzlWl4He))",
+            "video_urls": [
+              {
+                "label": "Fall 2022",
+                "url": "https://www.youtube.com/playlist?list=PL0YFU3y0Z_gbjvT1yDQkwRU9UXahd0BP1"
+              },
+              {
+                "label": "Spring 2024",
+                "url": "https://www.youtube.com/playlist?list=PL0YFU3y0Z_gZxc-FeLhbOFS99ZzlWl4He"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cse-290a-uc-santa-cruz-randomized-algorithms-spri-135",
+            "line_number": 135,
+            "code": "CSE 290A",
+            "title": "UC Santa Cruz Randomized Algorithms spring 2020, by Seshadhri Comandur",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "Seshadhri Comandur",
+            "year": "spring 2020",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLOQjlWvnI0faRpH2oJcyW4CuM5Clt8a2n",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [UC Santa Cruz CSE 290A Randomized Algorithms spring 2020, by Seshadhri Comandur](https://www.youtube.com/playlist?list=PLOQjlWvnI0faRpH2oJcyW4CuM5Clt8a2n)",
+            "video_urls": [
+              {
+                "label": "UC Santa Cruz CSE 290A Randomized Algorithms spring 2020, by Seshadhri Comandur",
+                "url": "https://www.youtube.com/playlist?list=PLOQjlWvnI0faRpH2oJcyW4CuM5Clt8a2n"
+              }
+            ]
+          },
+          {
+            "id": "mit-65220-6856j18416j-randomized-algorithms-148",
+            "line_number": 148,
+            "code": "6.5220",
+            "title": "/6.856J/18.416J Randomized Algorithms",
+            "category": "Data Structures and Algorithms",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2025",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://courses.csail.mit.edu/6.856/current/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.5220/6.856J/18.416J Randomized Algorithms (Spring 2025)](https://courses.csail.mit.edu/6.856/current/) ([Youtube](https://www.youtube.com/playlist?list=PL278F9gM5aZb8HXAh2yT3QmwyYQZrQUNH))",
+            "video_urls": [
+              {
+                "label": "Youtube",
+                "url": "https://www.youtube.com/playlist?list=PL278F9gM5aZb8HXAh2yT3QmwyYQZrQUNH"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-10-801-advanced-optimization-and-randomized-met-723",
+            "line_number": 723,
+            "code": "10-801",
+            "title": "Advanced Optimization and Randomized Methods",
+            "category": "Machine Learning",
+            "subcategory": "Optimization",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "",
+            "level": "Introductory (L1)",
+            "primary_url": "http://www.cs.cmu.edu/~suvrit/teach/aopt.html",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [10-801 Advanced Optimization and Randomized Methods - CMU](http://www.cs.cmu.edu/~suvrit/teach/aopt.html) ([YouTube](https://www.youtube.com/playlist?list=PLjTcdlvIS6cjdA8WVXNIk56X_SjICxt0d))",
+            "video_urls": [
+              {
+                "label": "YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLjTcdlvIS6cjdA8WVXNIk56X_SjICxt0d"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "applied-ml-data-scientist",
+    "title": "Applied Machine Learning & Data Scientist",
+    "description": "Build production predictive pipelines, statistical hypothesis tests, time-series forecasting, and scalable data mining engines across massive datasets.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Python for Data Science & Linear Algebra",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Numpy/Pandas data vectorization",
+          "Matrix operations",
+          "Exploratory data analysis"
+        ],
+        "courses": [
+          {
+            "id": "uc-berkeley-cs-python-boot-camp-fall-2016-berkeley-in-33",
+            "line_number": 33,
+            "code": "",
+            "title": "Python Boot Camp Fall 2016 - Berkeley Institute for Data Science (BIDS",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "Fall 2016",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLKW2Azk23ZtSeBcvJi0JnL7PapedOvwz9",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Python Boot Camp Fall 2016 - Berkeley Institute for Data Science (BIDS)](https://www.youtube.com/playlist?list=PLKW2Azk23ZtSeBcvJi0JnL7PapedOvwz9)",
+            "video_urls": [
+              {
+                "label": "Python Boot Camp Fall 2016 - Berkeley Institute for Data Science (BIDS)",
+                "url": "https://www.youtube.com/playlist?list=PLKW2Azk23ZtSeBcvJi0JnL7PapedOvwz9"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-computational-linear-algebra-fastai-927",
+            "line_number": 927,
+            "code": "",
+            "title": "Computational Linear Algebra - fast.ai",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://github.com/fastai/numerical-linear-algebra",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Computational Linear Algebra - fast.ai](https://www.youtube.com/playlist?list=PLtmWHNX-gukIc92m1K0P6bIOnZb-mg0hY) ([Github](https://github.com/fastai/numerical-linear-algebra))",
+            "video_urls": [
+              {
+                "label": "Computational Linear Algebra - fast.ai",
+                "url": "https://www.youtube.com/playlist?list=PLtmWHNX-gukIc92m1K0P6bIOnZb-mg0hY"
+              }
+            ]
+          },
+          {
+            "id": "university-of-michigan-rob-101-computational-linear-algebra-universit-1398",
+            "line_number": 1398,
+            "code": "ROB 101",
+            "title": "Computational Linear Algebra - University of Michigan",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "University of Michigan",
+            "instructor": "",
+            "year": "Fall 2021",
+            "level": "Introductory (L1)",
+            "primary_url": "https://github.com/michiganrobotics/rob101/tree/main/Fall%202021",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [ROB 101: Computational Linear Algebra - University of Michigan](https://github.com/michiganrobotics/rob101/tree/main/Fall%202021) ([Youtube - Fall 2021](https://www.youtube.com/playlist?list=PLdPQZLMHRjDJ5d_dE4FeOviv0gRe4UYsB))",
+            "video_urls": [
+              {
+                "label": "Youtube - Fall 2021",
+                "url": "https://www.youtube.com/playlist?list=PLdPQZLMHRjDJ5d_dE4FeOviv0gRe4UYsB"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-cmu-15-388-15-688-practical-data-science-by-448",
+            "line_number": 448,
+            "code": "CMU 15",
+            "title": "388 / 15 688 Practical Data Science, by Zico Kolter",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "Zico Kolter",
+            "year": "Fall 2019",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.datasciencecourse.org/lectures/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CMU 15 388 / 15 688 Practical Data Science, by Zico Kolter](https://www.datasciencecourse.org/lectures/) ([Fall 2019](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22618ea253-ca45-4b14-9f1d-aab501543bd2%22)) ([Spring 2018](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22912b80a3-625d-405d-8905-a8620133666b%22))",
+            "video_urls": [
+              {
+                "label": "Fall 2019",
+                "url": "https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22618ea253-ca45-4b14-9f1d-aab501543bd2%22"
+              },
+              {
+                "label": "Spring 2018",
+                "url": "https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22912b80a3-625d-405d-8905-a8620133666b%22"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Statistical Modeling & Classical ML",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "Vapnik-Chervonenkis (VC) dimension",
+          "Regularization (L1/L2)",
+          "Ensemble methods (Random Forests, XGBoost)"
+        ],
+        "courses": [
+          {
+            "id": "caltech-cs-156-learning-from-data-354",
+            "line_number": 354,
+            "code": "CS 156",
+            "title": "Learning from Data",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Caltech",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://work.caltech.edu/lectures.html",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [CS 156 - Learning from Data, Caltech](https://work.caltech.edu/lectures.html)",
+            "video_urls": []
+          },
+          {
+            "id": "stanford-cs-statistical-learning-with-python-351",
+            "line_number": 351,
+            "code": "",
+            "title": "Statistical Learning with Python",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Statistical Learning with Python - Stanford Online](https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ)",
+            "video_urls": [
+              {
+                "label": "Statistical Learning with Python - Stanford Online",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ"
+              }
+            ]
+          },
+          {
+            "id": "cambridge-cs-cambridge-statistical-learning-in-practi-458",
+            "line_number": 458,
+            "code": "",
+            "title": "Cambridge Statistical Learning in Practice 2021, by Alberto J. Coca",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Cambridge",
+            "instructor": "",
+            "year": "2021",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLn1JSlh3WT_b7sMBktkAgV9-cP052JFhb",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Cambridge Statistical Learning in Practice 2021, by Alberto J. Coca](https://www.youtube.com/playlist?list=PLn1JSlh3WT_b7sMBktkAgV9-cP052JFhb)",
+            "video_urls": [
+              {
+                "label": "Cambridge Statistical Learning in Practice 2021, by Alberto J. Coca",
+                "url": "https://www.youtube.com/playlist?list=PLn1JSlh3WT_b7sMBktkAgV9-cP052JFhb"
+              }
+            ]
+          },
+          {
+            "id": "mit-9520-statistical-learning-theory-and-applicat-757",
+            "line_number": 757,
+            "code": "9.520",
+            "title": "Statistical Learning Theory and Applications, Fall 2015",
+            "category": "Machine Learning",
+            "subcategory": "Misc Machine Learning Topics",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Fall 2015",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLyGKBDfnk-iDj3FBd0Avr_dLbrU8VG73O",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [9.520 - Statistical Learning Theory and Applications, Fall 2015 - MIT](https://www.youtube.com/playlist?list=PLyGKBDfnk-iDj3FBd0Avr_dLbrU8VG73O)",
+            "video_urls": [
+              {
+                "label": "9.520 - Statistical Learning Theory and Applications, Fall 2015 - MIT",
+                "url": "https://www.youtube.com/playlist?list=PLyGKBDfnk-iDj3FBd0Avr_dLbrU8VG73O"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Mining Massive Datasets & Time Series",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "Locality-Sensitive Hashing (LSH)",
+          "PageRank & graph embeddings",
+          "ARIMA & State Space models"
+        ],
+        "courses": [
+          {
+            "id": "caltech-cs-155-machine-learning-data-mining-2023-353",
+            "line_number": 353,
+            "code": "CS 155",
+            "title": "Machine Learning & Data Mining, 2023",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Caltech",
+            "instructor": "",
+            "year": "2023",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "http://www.yisongyue.com/courses/cs155/2020_winter/",
+            "video_count": 6,
+            "has_video": true,
+            "raw_markdown": "- [CS 155 - Machine Learning & Data Mining, 2023 - Caltech](https://www.youtube.com/playlist?list=PLu5yXJ11s4r-nBlojSQC9seeUF1IxX-_z) ([Notes-2020](http://www.yisongyue.com/courses/cs155/2020_winter/)) ([YouTube-2020](https://www.youtube.com/playlist?list=PLuz4CTPOUNi67hPzb9zJXH1cbeN7LKNiD)) ([Notes-2019](http://www.yisongyue.com/courses/cs155/2019_winter/)) ([YouTube-2019](https://www.youtube.com/playlist?list=PLuz4CTPOUNi7r2trKGgwaedY17MADTay4)) ([Notes-2018](http://www.yisongyue.com/courses/cs155/2018_winter/)) ([YouTube-2018](https://www.youtube.com/playlist?list=PLuz4CTPOUNi644ypoxzP1frkPYVHdjDJU)) ([Notes-2017](http://www.yisongyue.com/courses/cs155/2017_winter/)) ([YouTube-2017](https://www.youtube.com/playlist?list=PLuz4CTPOUNi6BfMrltePqMAHdl5W33-bC)) ([Notes-2016](http://www.yisongyue.com/courses/cs155/2016_winter/)) ([YouTube-2016](https://www.youtube.com/playlist?list=PL5HdMttxBY0BVTP9y7qQtzTgmcjQ3P0mb))",
+            "video_urls": [
+              {
+                "label": "CS 155 - Machine Learning & Data Mining, 2023 - Caltech",
+                "url": "https://www.youtube.com/playlist?list=PLu5yXJ11s4r-nBlojSQC9seeUF1IxX-_z"
+              },
+              {
+                "label": "YouTube-2020",
+                "url": "https://www.youtube.com/playlist?list=PLuz4CTPOUNi67hPzb9zJXH1cbeN7LKNiD"
+              },
+              {
+                "label": "YouTube-2019",
+                "url": "https://www.youtube.com/playlist?list=PLuz4CTPOUNi7r2trKGgwaedY17MADTay4"
+              },
+              {
+                "label": "YouTube-2018",
+                "url": "https://www.youtube.com/playlist?list=PLuz4CTPOUNi644ypoxzP1frkPYVHdjDJU"
+              },
+              {
+                "label": "YouTube-2017",
+                "url": "https://www.youtube.com/playlist?list=PLuz4CTPOUNi6BfMrltePqMAHdl5W33-bC"
+              },
+              {
+                "label": "YouTube-2016",
+                "url": "https://www.youtube.com/playlist?list=PL5HdMttxBY0BVTP9y7qQtzTgmcjQ3P0mb"
+              }
+            ]
+          },
+          {
+            "id": "ubc-cpsc-340-machine-learning-and-data-mining-2018-377",
+            "line_number": 377,
+            "code": "CPSC 340",
+            "title": "Machine Learning and Data Mining (2018) - UBC",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "UBC",
+            "instructor": "",
+            "year": "2018",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLWmXHcz_53Q02ZLeAxigki1JZFfCO6M-b",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CPSC 340: Machine Learning and Data Mining (2018) - UBC](https://www.youtube.com/playlist?list=PLWmXHcz_53Q02ZLeAxigki1JZFfCO6M-b)",
+            "video_urls": [
+              {
+                "label": "CPSC 340: Machine Learning and Data Mining (2018) - UBC",
+                "url": "https://www.youtube.com/playlist?list=PLWmXHcz_53Q02ZLeAxigki1JZFfCO6M-b"
+              }
+            ]
+          },
+          {
+            "id": "university-of-washington-csep-546-data-mining-pedro-domingos-sp-2016-478",
+            "line_number": 478,
+            "code": "CSEP 546",
+            "title": ", Data Mining - Pedro Domingos, Sp 2016 - University of Washington",
+            "category": "Machine Learning",
+            "subcategory": "Data Mining",
+            "institution": "University of Washington",
+            "instructor": "",
+            "year": "2016",
+            "level": "Advanced (L3)",
+            "primary_url": "https://courses.cs.washington.edu/courses/csep546/16sp/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CSEP 546, Data Mining - Pedro Domingos, Sp 2016 - University of Washington](https://courses.cs.washington.edu/courses/csep546/16sp/) ([YouTube](https://www.youtube.com/playlist?list=PLTPQEx-31JXgtDaC6-3HxWcp7fq4N8YGr))",
+            "video_urls": [
+              {
+                "label": "YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLTPQEx-31JXgtDaC6-3HxWcp7fq4N8YGr"
+              }
+            ]
+          },
+          {
+            "id": "university-of-utah-cs-51406140-data-mining-spring-2020-university-of-479",
+            "line_number": 479,
+            "code": "CS 5140/6140",
+            "title": "Data Mining, Spring 2020, University of Utah by Prof. Jeff Phillips",
+            "category": "Machine Learning",
+            "subcategory": "Data Mining",
+            "institution": "University of Utah",
+            "instructor": "Jeff Phillips",
+            "year": "Spring 2020",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://users.cs.utah.edu/~jeffp/teaching/cs5140-S20/cs5140.html",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 5140/6140 - Data Mining, Spring 2020, University of Utah by Prof. Jeff Phillips](https://users.cs.utah.edu/~jeffp/teaching/cs5140-S20/cs5140.html) ([Youtube](https://www.youtube.com/playlist?list=PLbuogVdPnkCrEf65zrd3J1UG3LT6TcDlt))",
+            "video_urls": [
+              {
+                "label": "Youtube",
+                "url": "https://www.youtube.com/playlist?list=PLbuogVdPnkCrEf65zrd3J1UG3LT6TcDlt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Enterprise Scale ML & Evaluation",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "Feature store architecture",
+          "A/B testing methodology",
+          "Distributed data pipelines (Spark/Ray)"
+        ],
+        "courses": [
+          {
+            "id": "university-of-toronto-sta-4273h-large-scale-machine-learning-winter-201-386",
+            "line_number": 386,
+            "code": "STA 4273H",
+            "title": "Large Scale Machine Learning, Winter 2015 - University of Toronto",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "University of Toronto",
+            "instructor": "",
+            "year": "Winter 2015",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "http://www.cs.toronto.edu/~rsalakhu/STA4273_2015/lectures.html",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [STA 4273H - Large Scale Machine Learning, Winter 2015 - University of Toronto](http://www.cs.toronto.edu/~rsalakhu/STA4273_2015/lectures.html)",
+            "video_urls": []
+          },
+          {
+            "id": "carnegie-mellon-cmu-10-605-machine-learning-with-large-datasets-fa-394",
+            "line_number": 394,
+            "code": "10-605",
+            "title": "Machine Learning with Large Datasets, Fall 2016",
+            "category": "Machine Learning",
+            "subcategory": "Introduction to Machine Learning",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "Fall 2016",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/channel/UCIE4UdPoCJZMAZrTLuq-CPQ/videos",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [10-605 - Machine Learning with Large Datasets, Fall 2016 - CMU](https://www.youtube.com/channel/UCIE4UdPoCJZMAZrTLuq-CPQ/videos)",
+            "video_urls": [
+              {
+                "label": "10-605 - Machine Learning with Large Datasets, Fall 2016 - CMU",
+                "url": "https://www.youtube.com/channel/UCIE4UdPoCJZMAZrTLuq-CPQ/videos"
+              }
+            ]
+          },
+          {
+            "id": "mit-18409-algorithmic-aspects-of-machine-learning-607",
+            "line_number": 607,
+            "code": "18.409",
+            "title": "Algorithmic Aspects of Machine Learning Spring 2015",
+            "category": "Machine Learning",
+            "subcategory": "Advanced Machine Learning",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2015",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLB3sDpSRdrOvI1hYXNsa6Lety7K8FhPpx",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [18.409 Algorithmic Aspects of Machine Learning Spring 2015 - MIT](https://www.youtube.com/playlist?list=PLB3sDpSRdrOvI1hYXNsa6Lety7K8FhPpx)",
+            "video_urls": [
+              {
+                "label": "18.409 Algorithmic Aspects of Machine Learning Spring 2015 - MIT",
+                "url": "https://www.youtube.com/playlist?list=PLB3sDpSRdrOvI1hYXNsa6Lety7K8FhPpx"
+              }
+            ]
+          },
+          {
+            "id": "stanford-cs-330-deep-multi-task-and-meta-learning-fall-608",
+            "line_number": 608,
+            "code": "CS 330",
+            "title": "Deep Multi-Task and Meta Learning - Fall 2019",
+            "category": "Machine Learning",
+            "subcategory": "Advanced Machine Learning",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "Fall 2019",
+            "level": "Advanced (L3)",
+            "primary_url": "https://cs330.stanford.edu/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 330 - Deep Multi-Task and Meta Learning - Fall 2019 - Stanford University](https://cs330.stanford.edu/) ([Youtube](https://www.youtube.com/playlist?list=PLoROMvodv4rMC6zfYmnD7UG3LVvwaITY5))",
+            "video_urls": [
+              {
+                "label": "Youtube",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMC6zfYmnD7UG3LVvwaITY5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "security-cryptography-engineer",
+    "title": "Information Security & Cryptography Engineer",
+    "description": "Protect systems against adversarial vectors, engineer zero-knowledge proofs, audit protocol cryptographic invariants, and harden operating system seams.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Computer Systems & Assembly Fundamentals",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Stack frame layouts",
+          "Memory buffer safety",
+          "Assembly execution"
+        ],
+        "courses": [
+          {
+            "id": "carnegie-mellon-cmu-15-213-introduction-to-computer-systems-fall-2-158",
+            "line_number": 158,
+            "code": "15-213",
+            "title": "Introduction to Computer Systems, Fall 2015",
+            "category": "Systems Programming",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "Fall 2015",
+            "level": "Introductory (L1)",
+            "primary_url": "https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22&maxResults=150",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [15-213 Introduction to Computer Systems, Fall 2015  - CMU](https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22&maxResults=150)",
+            "video_urls": [
+              {
+                "label": "15-213 Introduction to Computer Systems, Fall 2015  - CMU",
+                "url": "https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22&maxResults=150"
+              }
+            ]
+          },
+          {
+            "id": "edinburgh-autumn-2016-informatics-2c-introduction-to-compute-1132",
+            "line_number": 1132,
+            "code": "AUTUMN 2016",
+            "title": "INFORMATICS 2C - INTRODUCTION TO COMPUTER SYSTEMS () - University of Edinburgh",
+            "category": "Computer Organization and Architecture",
+            "subcategory": "General",
+            "institution": "Edinburgh",
+            "instructor": "",
+            "year": "AUTUMN 2016",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "http://groups.inf.ed.ac.uk/vision/VIDEO/2014/inf2c-cs.htm",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [INFORMATICS 2C - INTRODUCTION TO COMPUTER SYSTEMS (AUTUMN 2016) - University of Edinburgh](http://groups.inf.ed.ac.uk/vision/VIDEO/2014/inf2c-cs.htm)",
+            "video_urls": []
+          },
+          {
+            "id": "stanford-cs-107-programming-paradigms-24",
+            "line_number": 24,
+            "code": "CS 107",
+            "title": "Programming Paradigms",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://see.stanford.edu/Course/CS107",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [CS 107 - Programming Paradigms, Stanford University](https://see.stanford.edu/Course/CS107)",
+            "video_urls": []
+          },
+          {
+            "id": "other-universities-labs-kaist-cs492-c-diffusion-and-flow-models-680",
+            "line_number": 680,
+            "code": "KAIST CS492",
+            "title": "C): Diffusion and Flow Models",
+            "category": "Machine Learning",
+            "subcategory": "Generative AI and LLMs",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLyi5FHzX7hBzC698EjqgxQJG7pNPQyYyc",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [KAIST CS492(C): Diffusion and Flow Models (Fall 2025)](https://www.youtube.com/playlist?list=PLyi5FHzX7hBzC698EjqgxQJG7pNPQyYyc) ([2024](https://www.youtube.com/playlist?list=PLyi5FHzX7hBxtkKUZLRdiq5C01QimCno2))",
+            "video_urls": [
+              {
+                "label": "KAIST CS492(C): Diffusion and Flow Models (Fall 2025)",
+                "url": "https://www.youtube.com/playlist?list=PLyi5FHzX7hBzC698EjqgxQJG7pNPQyYyc"
+              },
+              {
+                "label": "2024",
+                "url": "https://www.youtube.com/playlist?list=PLyi5FHzX7hBxtkKUZLRdiq5C01QimCno2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Network & Application Security",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "TLS/SSL handshake",
+          "Web vulnerability vectors (CSRF, XSS, SSRF)",
+          "Firewalls & VPN architecture"
+        ],
+        "courses": [
+          {
+            "id": "uc-berkeley-cs-161-computer-security-1190",
+            "line_number": 1190,
+            "code": "CS 161",
+            "title": "Computer Security",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "Fall 2023",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://fa23.cs161.org/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CS 161: Computer Security, UC Berkeley](https://fa23.cs161.org/) ([Videos - Fall 2023](https://www.youtube.com/playlist?list=PLfBkt1-_BHX_VxOWlmstguFxojSN742vz)) ([Videos - Fall 2025](https://www.youtube.com/playlist?list=PLfBkt1-_BHX8kQZhisgrCLAnuAd3-Ek5U)) ([Spring 2025](https://sp25.cs161.org/))",
+            "video_urls": [
+              {
+                "label": "Videos - Fall 2023",
+                "url": "https://www.youtube.com/playlist?list=PLfBkt1-_BHX_VxOWlmstguFxojSN742vz"
+              },
+              {
+                "label": "Videos - Fall 2025",
+                "url": "https://www.youtube.com/playlist?list=PLfBkt1-_BHX8kQZhisgrCLAnuAd3-Ek5U"
+              }
+            ]
+          },
+          {
+            "id": "iit-indian-institutes-of-technology-cs773-computer-architecture-for-performance-an-1146",
+            "line_number": 1146,
+            "code": "CS773",
+            "title": "Computer Architecture for Performance and Security",
+            "category": "Computer Organization and Architecture",
+            "subcategory": "General",
+            "institution": "IIT (Indian Institutes of Technology)",
+            "instructor": "",
+            "year": "",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLw6vmiIQrilQ-KhbMAMeh9_eddYjHRjb6",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS773: Computer Architecture for Performance and Security - IIT Bombay](https://www.youtube.com/playlist?list=PLw6vmiIQrilQ-KhbMAMeh9_eddYjHRjb6)",
+            "video_urls": [
+              {
+                "label": "CS773: Computer Architecture for Performance and Security - IIT Bombay",
+                "url": "https://www.youtube.com/playlist?list=PLw6vmiIQrilQ-KhbMAMeh9_eddYjHRjb6"
+              }
+            ]
+          },
+          {
+            "id": "mit-6858-computer-systems-security-1187",
+            "line_number": 1187,
+            "code": "6.858",
+            "title": "Computer Systems Security",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Fall 2014",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-858-computer-systems-security-fall-2014/video_galleries/video-lectures/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.858 Computer Systems Security - MIT OCW Fall 2014](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-858-computer-systems-security-fall-2014/video_galleries/video-lectures/)",
+            "video_urls": [
+              {
+                "label": "6.858 Computer Systems Security - MIT OCW Fall 2014",
+                "url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-858-computer-systems-security-fall-2014/video_galleries/video-lectures/"
+              }
+            ]
+          },
+          {
+            "id": "mit-6566-computer-systems-security-1188",
+            "line_number": 1188,
+            "code": "6.566",
+            "title": "Computer Systems Security",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2026",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://css.csail.mit.edu/6.566/2026/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.566 Computer Systems Security - MIT OCW Spring 2026](https://css.csail.mit.edu/6.566/2026/) ([Videos](https://www.youtube.com/playlist?list=PLA6Ht2dJt3SId7vE9P5mppWdj65_l6hl7))",
+            "video_urls": [
+              {
+                "label": "Videos",
+                "url": "https://www.youtube.com/playlist?list=PLA6Ht2dJt3SId7vE9P5mppWdj65_l6hl7"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Modern Cryptography & Security Protocols",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "Symmetric encryption (AES-GCM)",
+          "Public key cryptography (RSA, ECC, Ed25519)",
+          "Zero-Knowledge proofs basics"
+        ],
+        "courses": [
+          {
+            "id": "mit-6875-cryptography-fall-2021-1191",
+            "line_number": 1191,
+            "code": "6.875",
+            "title": "Cryptography - Fall 2021",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Fall 2021",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://mit6875.github.io/fall2021.html",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.875 - Cryptography - Fall 2021 - MIT](https://mit6875.github.io/fall2021.html) ([Spring 2018](https://www.youtube.com/playlist?list=PL6ogFv-ieghe8MOIcpD6UDtdK-UMHG8oH))",
+            "video_urls": [
+              {
+                "label": "Spring 2018",
+                "url": "https://www.youtube.com/playlist?list=PL6ogFv-ieghe8MOIcpD6UDtdK-UMHG8oH"
+              }
+            ]
+          },
+          {
+            "id": "university-of-washington-csep590a-practical-aspects-of-modern-cryptography-1192",
+            "line_number": 1192,
+            "code": "CSEP590A",
+            "title": "Practical Aspects of Modern Cryptography, Winter 2011 - University of Washington",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "University of Washington",
+            "instructor": "",
+            "year": "Winter 2011",
+            "level": "Advanced (L3)",
+            "primary_url": "https://courses.cs.washington.edu/courses/csep590a/11wi/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CSEP590A - Practical Aspects of Modern Cryptography, Winter 2011 - University of Washington](https://courses.cs.washington.edu/courses/csep590a/11wi/) ([Videos](https://courses.cs.washington.edu/courses/csep590a/11wi/video/))",
+            "video_urls": [
+              {
+                "label": "Videos",
+                "url": "https://courses.cs.washington.edu/courses/csep590a/11wi/video/"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-introduction-to-cryptography-christof-p-1194",
+            "line_number": 1194,
+            "code": "",
+            "title": "Introduction to Cryptography, Christof Paar - Ruhr University Bochum, Germany",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLwJWuZfL_Ga2KJrTf9hOIgAQWkSpn9RNm",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Introduction to Cryptography, Christof Paar - Ruhr University Bochum, Germany](https://www.youtube.com/playlist?list=PLwJWuZfL_Ga2KJrTf9hOIgAQWkSpn9RNm)",
+            "video_urls": [
+              {
+                "label": "Introduction to Cryptography, Christof Paar - Ruhr University Bochum, Germany",
+                "url": "https://www.youtube.com/playlist?list=PLwJWuZfL_Ga2KJrTf9hOIgAQWkSpn9RNm"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-security-and-cryptography-steven-gordon-1204",
+            "line_number": 1204,
+            "code": "",
+            "title": "Security and Cryptography, Steven Gordon - Thammasat University, Thailand",
+            "category": "Security",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLvifRcqOOwF-z2sfMb3w0uQzd7PfaLFlU",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Security and Cryptography, Steven Gordon - Thammasat University, Thailand](https://www.youtube.com/playlist?list=PLvifRcqOOwF-z2sfMb3w0uQzd7PfaLFlU)",
+            "video_urls": [
+              {
+                "label": "Security and Cryptography, Steven Gordon - Thammasat University, Thailand",
+                "url": "https://www.youtube.com/playlist?list=PLvifRcqOOwF-z2sfMb3w0uQzd7PfaLFlU"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Hardware Security & Binary Exploitation",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "Side-channel attacks (Spectre/Meltdown)",
+          "Fuzzing & binary analysis",
+          "Post-quantum cryptographic primitives"
+        ],
+        "courses": [
+          {
+            "id": "other-universities-labs-cs-blockchain-solidity-and-full-stack-web-1534",
+            "line_number": 1534,
+            "code": "",
+            "title": "Blockchain, Solidity, and Full Stack Web3 Development with JavaScript",
+            "category": "Blockchain Development",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://youtu.be/gyMwXuJrbJQ",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Blockchain, Solidity, and Full Stack Web3 Development with JavaScript](https://youtu.be/gyMwXuJrbJQ)",
+            "video_urls": [
+              {
+                "label": "Blockchain, Solidity, and Full Stack Web3 Development with JavaScript",
+                "url": "https://youtu.be/gyMwXuJrbJQ"
+              }
+            ]
+          },
+          {
+            "id": "uc-berkeley-cs-blockchain-fundamentals-decal-2018-ber-1535",
+            "line_number": 1535,
+            "code": "",
+            "title": "Blockchain Fundamentals Decal 2018 - Berkeley DeCal",
+            "category": "Blockchain Development",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "2018",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLSONl1AVlZNU0QTGpbgEQXKHcmgYz-ddT",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Blockchain Fundamentals Decal 2018 - Berkeley DeCal](https://www.youtube.com/playlist?list=PLSONl1AVlZNU0QTGpbgEQXKHcmgYz-ddT)",
+            "video_urls": [
+              {
+                "label": "Blockchain Fundamentals Decal 2018 - Berkeley DeCal",
+                "url": "https://www.youtube.com/playlist?list=PLSONl1AVlZNU0QTGpbgEQXKHcmgYz-ddT"
+              }
+            ]
+          },
+          {
+            "id": "uc-berkeley-cs-blockchain-for-developers-decal-spring-1536",
+            "line_number": 1536,
+            "code": "",
+            "title": "Blockchain for Developers Decal - Spring 2018 - Berkeley DeCal",
+            "category": "Blockchain Development",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "Spring 2018",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLSONl1AVlZNUzp71_H1kb87PvIh8kIZU9",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Blockchain for Developers Decal - Spring 2018 - Berkeley DeCal](https://www.youtube.com/playlist?list=PLSONl1AVlZNUzp71_H1kb87PvIh8kIZU9)",
+            "video_urls": [
+              {
+                "label": "Blockchain for Developers Decal - Spring 2018 - Berkeley DeCal",
+                "url": "https://www.youtube.com/playlist?list=PLSONl1AVlZNUzp71_H1kb87PvIh8kIZU9"
+              }
+            ]
+          },
+          {
+            "id": "mit-cs-cryptocurrency-engineering-and-design-1537",
+            "line_number": 1537,
+            "code": "",
+            "title": "Cryptocurrency Engineering and Design - Spring 2018",
+            "category": "Blockchain Development",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2018",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://ocw.mit.edu/courses/mas-s62-cryptocurrency-engineering-and-design-spring-2018/video_galleries/lecture-videos/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Cryptocurrency Engineering and Design - Spring 2018 - MIT](https://ocw.mit.edu/courses/mas-s62-cryptocurrency-engineering-and-design-spring-2018/video_galleries/lecture-videos/)",
+            "video_urls": [
+              {
+                "label": "Cryptocurrency Engineering and Design - Spring 2018 - MIT",
+                "url": "https://ocw.mit.edu/courses/mas-s62-cryptocurrency-engineering-and-design-spring-2018/video_galleries/lecture-videos/"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "embedded-robotics-autonomy",
+    "title": "Robotics & Autonomous Systems Engineer",
+    "description": "Construct real-time robotic controllers, SLAM (Simultaneous Localization and Mapping), motion planning algorithms, and embedded microkernel firmware.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Computational Mathematics & Programming",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Rigid body transformations (SO3, SE3)",
+          "Calculus for kinematics",
+          "C++ for robotics"
+        ],
+        "courses": [
+          {
+            "id": "university-of-michigan-rob-101-computational-linear-algebra-universit-1398",
+            "line_number": 1398,
+            "code": "ROB 101",
+            "title": "Computational Linear Algebra - University of Michigan",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "University of Michigan",
+            "instructor": "",
+            "year": "Fall 2021",
+            "level": "Introductory (L1)",
+            "primary_url": "https://github.com/michiganrobotics/rob101/tree/main/Fall%202021",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [ROB 101: Computational Linear Algebra - University of Michigan](https://github.com/michiganrobotics/rob101/tree/main/Fall%202021) ([Youtube - Fall 2021](https://www.youtube.com/playlist?list=PLdPQZLMHRjDJ5d_dE4FeOviv0gRe4UYsB))",
+            "video_urls": [
+              {
+                "label": "Youtube - Fall 2021",
+                "url": "https://www.youtube.com/playlist?list=PLdPQZLMHRjDJ5d_dE4FeOviv0gRe4UYsB"
+              }
+            ]
+          },
+          {
+            "id": "university-of-michigan-rob-102-introduction-to-ai-and-programming-uni-1399",
+            "line_number": 1399,
+            "code": "ROB 102",
+            "title": "Introduction to AI and Programming - University of Michigan",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "University of Michigan",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://robotics102.github.io/",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [ROB 102: Introduction to AI and Programming - University of Michigan](https://robotics102.github.io/)",
+            "video_urls": []
+          },
+          {
+            "id": "university-of-michigan-cs-robotics-201-calculus-for-the-modern-en-1400",
+            "line_number": 1400,
+            "code": "",
+            "title": "Robotics 201: Calculus for the Modern Engineer - University of Michigan",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "University of Michigan",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLdPQZLMHRjDJMIi5bGorh40u_iOoDfC22",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Robotics 201: Calculus for the Modern Engineer - University of Michigan](https://www.youtube.com/playlist?list=PLdPQZLMHRjDJMIi5bGorh40u_iOoDfC22)",
+            "video_urls": [
+              {
+                "label": "Robotics 201: Calculus for the Modern Engineer - University of Michigan",
+                "url": "https://www.youtube.com/playlist?list=PLdPQZLMHRjDJMIi5bGorh40u_iOoDfC22"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-vector-calculus-for-engineers-hkust-846",
+            "line_number": 846,
+            "code": "",
+            "title": "Vector Calculus for Engineers - HKUST",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLkZjai-2JcxnYmkg6fpzz4WFumGVl7MOa",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Vector Calculus for Engineers - HKUST](https://www.youtube.com/playlist?list=PLkZjai-2JcxnYmkg6fpzz4WFumGVl7MOa)",
+            "video_urls": [
+              {
+                "label": "Vector Calculus for Engineers - HKUST",
+                "url": "https://www.youtube.com/playlist?list=PLkZjai-2JcxnYmkg6fpzz4WFumGVl7MOa"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Embedded Systems & Microcontrollers",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "Interrupt service routines",
+          "SPI/I2C/CAN bus interfaces",
+          "RTOS task scheduling"
+        ],
+        "courses": [
+          {
+            "id": "university-of-michigan-eecs-373-introduction-to-embedded-system-design-1086",
+            "line_number": 1086,
+            "code": "EECS 373",
+            "title": "Introduction to Embedded System Design - University of Michigan",
+            "category": "Embedded Systems",
+            "subcategory": "General",
+            "institution": "University of Michigan",
+            "instructor": "",
+            "year": "",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.eecs.umich.edu/courses/eecs373/lectures.html",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [EECS 373 - Introduction to Embedded System Design - University of Michigan](https://www.eecs.umich.edu/courses/eecs373/lectures.html) ([Lectures - YouTube-Fall 24](https://www.youtube.com/playlist?list=PLDe8F9fr1j_QULxa7xCozweLKYI4cXun4)) ([Lectures - YouTube-Fall 23](https://www.youtube.com/playlist?list=PLDe8F9fr1j_R2ljCeIq2FOLHaeZ6tBV_o))",
+            "video_urls": [
+              {
+                "label": "Lectures - YouTube-Fall 24",
+                "url": "https://www.youtube.com/playlist?list=PLDe8F9fr1j_QULxa7xCozweLKYI4cXun4"
+              },
+              {
+                "label": "Lectures - YouTube-Fall 23",
+                "url": "https://www.youtube.com/playlist?list=PLDe8F9fr1j_R2ljCeIq2FOLHaeZ6tBV_o"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-ee445l-embedded-systems-design-lab-fall-2015-1076",
+            "line_number": 1076,
+            "code": "EE445L",
+            "title": "Embedded Systems Design Lab, Fall 2015, UTexas",
+            "category": "Embedded Systems",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2015",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLyg2vmIzGxXGBxFu8nvX3KBadSdsNAvbA",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [EE445L Embedded Systems Design Lab, Fall 2015, UTexas](https://www.youtube.com/playlist?list=PLyg2vmIzGxXGBxFu8nvX3KBadSdsNAvbA)",
+            "video_urls": [
+              {
+                "label": "EE445L Embedded Systems Design Lab, Fall 2015, UTexas",
+                "url": "https://www.youtube.com/playlist?list=PLyg2vmIzGxXGBxFu8nvX3KBadSdsNAvbA"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs149-introduction-to-embedded-systems-sprin-1077",
+            "line_number": 1077,
+            "code": "CS149",
+            "title": "Introduction to Embedded Systems - Spring 2011 - UCBerkeley",
+            "category": "Embedded Systems",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Spring 2011",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://youtube.com/playlist?list=PLu0nzW8Es1x0RIvuWdw1Diez2Clk8xAX5",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS149 Introduction to Embedded Systems - Spring 2011 - UCBerkeley](https://youtube.com/playlist?list=PLu0nzW8Es1x0RIvuWdw1Diez2Clk8xAX5)",
+            "video_urls": [
+              {
+                "label": "CS149 Introduction to Embedded Systems - Spring 2011 - UCBerkeley",
+                "url": "https://youtube.com/playlist?list=PLu0nzW8Es1x0RIvuWdw1Diez2Clk8xAX5"
+              }
+            ]
+          },
+          {
+            "id": "university-of-washington-ece-474-cseintroduction-to-embedded-systems-u-1078",
+            "line_number": 1078,
+            "code": "ECE 474",
+            "title": "CSE/Introduction to Embedded Systems - University of Washington",
+            "category": "Embedded Systems",
+            "subcategory": "General",
+            "institution": "University of Washington",
+            "instructor": "",
+            "year": "",
+            "level": "Advanced (L3)",
+            "primary_url": "https://courses.cs.washington.edu/courses/cse474/23sp/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CSE/ECE 474 Introduction to Embedded Systems - University of Washington](https://courses.cs.washington.edu/courses/cse474/23sp/) ([Lectures - YouTube-Spring 21](https://www.youtube.com/playlist?list=PLyB1_dMg8sy8W2EMtSUymI3KpAhXBQOlT))",
+            "video_urls": [
+              {
+                "label": "Lectures - YouTube-Spring 21",
+                "url": "https://www.youtube.com/playlist?list=PLyB1_dMg8sy8W2EMtSUymI3KpAhXBQOlT"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Robotics Mechanics, Perception & Control",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "PID & LQR control",
+          "Forward/Inverse kinematics",
+          "Kalman filters (EKF, UKF)"
+        ],
+        "courses": [
+          {
+            "id": "carnegie-mellon-cmu-cmu-16-745-optimal-control-2024-1413",
+            "line_number": 1413,
+            "code": "CMU 16",
+            "title": "745 Optimal Control 2024",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2024",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6Jv4f7E7RnzW4rijTUTPI4u",
+            "video_count": 4,
+            "has_video": true,
+            "raw_markdown": "- [CMU 16-745 Optimal Control 2024 - CMU](https://www.youtube.com/playlist?list=PLZnJoM76RM6Jv4f7E7RnzW4rijTUTPI4u) ([Lecture notebooks](https://github.com/Optimal-Control-16-745/lecture-notebooks)) ([YouTube-2023](https://www.youtube.com/playlist?list=PLZnJoM76RM6KugDT9sw5zhAmqKnGeoLRa)) ([YouTube-2022](https://www.youtube.com/playlist?list=PLZnJoM76RM6Iaf59ICcU9-DzztGZvK_52))",
+            "video_urls": [
+              {
+                "label": "CMU 16-745 Optimal Control 2024 - CMU",
+                "url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6Jv4f7E7RnzW4rijTUTPI4u"
+              },
+              {
+                "label": "Lecture notebooks",
+                "url": "https://github.com/Optimal-Control-16-745/lecture-notebooks"
+              },
+              {
+                "label": "YouTube-2023",
+                "url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6KugDT9sw5zhAmqKnGeoLRa"
+              },
+              {
+                "label": "YouTube-2022",
+                "url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6Iaf59ICcU9-DzztGZvK_52"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-cmu-16-745-optimal-control-recitations-2024-1414",
+            "line_number": 1414,
+            "code": "CMU 16",
+            "title": "745 Optimal Control Recitations 2024",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2024",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLR-CEg9er7kFfMQU9c3P8J77H3yKb4pTK",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CMU 16-745 Optimal Control Recitations 2024 - CMU](https://www.youtube.com/playlist?list=PLR-CEg9er7kFfMQU9c3P8J77H3yKb4pTK) ([YouTube-2023](https://www.youtube.com/playlist?list=PLR-CEg9er7kH11A7Sg1rATCf5Noa7wauu))",
+            "video_urls": [
+              {
+                "label": "CMU 16-745 Optimal Control Recitations 2024 - CMU",
+                "url": "https://www.youtube.com/playlist?list=PLR-CEg9er7kFfMQU9c3P8J77H3yKb4pTK"
+              },
+              {
+                "label": "YouTube-2023",
+                "url": "https://www.youtube.com/playlist?list=PLR-CEg9er7kH11A7Sg1rATCf5Noa7wauu"
+              }
+            ]
+          },
+          {
+            "id": "tum-munich-cs-lecture-visual-navigation-for-flying-ro-1419",
+            "line_number": 1419,
+            "code": "",
+            "title": "Lecture: Visual Navigation for Flying Robots",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "TUM (Munich)",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://vision.in.tum.de/teaching/ss2012/visnav2012",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [Lecture: Visual Navigation for Flying Robots](https://vision.in.tum.de/teaching/ss2012/visnav2012) ([YouTube](https://www.youtube.com/playlist?list=PLTBdjV_4f-EKeki5ps2WHqJqyQvxls4ha))",
+            "video_urls": [
+              {
+                "label": "Lecture: Visual Navigation for Flying Robots",
+                "url": "https://vision.in.tum.de/teaching/ss2012/visnav2012"
+              },
+              {
+                "label": "YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLTBdjV_4f-EKeki5ps2WHqJqyQvxls4ha"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-me424-sustech-modern-control-and-estimation-1490",
+            "line_number": 1490,
+            "code": "ME424",
+            "title": "SUSTech Modern Control and Estimation ( Kalman Filter Theory ) fall 2021, by Wei Zhang",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "Wei Zhang",
+            "year": "fall 2021",
+            "level": "Advanced (L3)",
+            "primary_url": "https://wzhanglab.site/teaching/moderncontrolestimation/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [SUSTech ME424 Modern Control and Estimation ( Kalman Filter Theory ) fall 2021, by Wei Zhang](https://wzhanglab.site/teaching/moderncontrolestimation/)[Youtube 1](https://youtube.com/playlist?list=PLYkCanigA7S4N4FAXu4ABmwuC7yHDL6_v)[Youtube 2](https://youtube.com/playlist?list=PLYkCanigA7S4AWI0INZJ5e0WrxFlp4oWH)",
+            "video_urls": [
+              {
+                "label": "Youtube 1",
+                "url": "https://youtube.com/playlist?list=PLYkCanigA7S4N4FAXu4ABmwuC7yHDL6_v"
+              },
+              {
+                "label": "Youtube 2",
+                "url": "https://youtube.com/playlist?list=PLYkCanigA7S4AWI0INZJ5e0WrxFlp4oWH"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: SLAM, Autonomous Navigation & Trajectory Planning",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "Graph-based SLAM",
+          "Particle filters & point clouds",
+          "Motion planning (RRT*, A*, trajectory optimization)"
+        ],
+        "courses": [
+          {
+            "id": "carnegie-mellon-cmu-cmu-16-745-optimal-control-2024-1413",
+            "line_number": 1413,
+            "code": "CMU 16",
+            "title": "745 Optimal Control 2024",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2024",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6Jv4f7E7RnzW4rijTUTPI4u",
+            "video_count": 4,
+            "has_video": true,
+            "raw_markdown": "- [CMU 16-745 Optimal Control 2024 - CMU](https://www.youtube.com/playlist?list=PLZnJoM76RM6Jv4f7E7RnzW4rijTUTPI4u) ([Lecture notebooks](https://github.com/Optimal-Control-16-745/lecture-notebooks)) ([YouTube-2023](https://www.youtube.com/playlist?list=PLZnJoM76RM6KugDT9sw5zhAmqKnGeoLRa)) ([YouTube-2022](https://www.youtube.com/playlist?list=PLZnJoM76RM6Iaf59ICcU9-DzztGZvK_52))",
+            "video_urls": [
+              {
+                "label": "CMU 16-745 Optimal Control 2024 - CMU",
+                "url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6Jv4f7E7RnzW4rijTUTPI4u"
+              },
+              {
+                "label": "Lecture notebooks",
+                "url": "https://github.com/Optimal-Control-16-745/lecture-notebooks"
+              },
+              {
+                "label": "YouTube-2023",
+                "url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6KugDT9sw5zhAmqKnGeoLRa"
+              },
+              {
+                "label": "YouTube-2022",
+                "url": "https://www.youtube.com/playlist?list=PLZnJoM76RM6Iaf59ICcU9-DzztGZvK_52"
+              }
+            ]
+          },
+          {
+            "id": "carnegie-mellon-cmu-cmu-16-745-optimal-control-recitations-2024-1414",
+            "line_number": 1414,
+            "code": "CMU 16",
+            "title": "745 Optimal Control Recitations 2024",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "Carnegie Mellon (CMU)",
+            "instructor": "",
+            "year": "2024",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLR-CEg9er7kFfMQU9c3P8J77H3yKb4pTK",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CMU 16-745 Optimal Control Recitations 2024 - CMU](https://www.youtube.com/playlist?list=PLR-CEg9er7kFfMQU9c3P8J77H3yKb4pTK) ([YouTube-2023](https://www.youtube.com/playlist?list=PLR-CEg9er7kH11A7Sg1rATCf5Noa7wauu))",
+            "video_urls": [
+              {
+                "label": "CMU 16-745 Optimal Control Recitations 2024 - CMU",
+                "url": "https://www.youtube.com/playlist?list=PLR-CEg9er7kFfMQU9c3P8J77H3yKb4pTK"
+              },
+              {
+                "label": "YouTube-2023",
+                "url": "https://www.youtube.com/playlist?list=PLR-CEg9er7kH11A7Sg1rATCf5Noa7wauu"
+              }
+            ]
+          },
+          {
+            "id": "tum-munich-cs-lecture-visual-navigation-for-flying-ro-1419",
+            "line_number": 1419,
+            "code": "",
+            "title": "Lecture: Visual Navigation for Flying Robots",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "TUM (Munich)",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://vision.in.tum.de/teaching/ss2012/visnav2012",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [Lecture: Visual Navigation for Flying Robots](https://vision.in.tum.de/teaching/ss2012/visnav2012) ([YouTube](https://www.youtube.com/playlist?list=PLTBdjV_4f-EKeki5ps2WHqJqyQvxls4ha))",
+            "video_urls": [
+              {
+                "label": "Lecture: Visual Navigation for Flying Robots",
+                "url": "https://vision.in.tum.de/teaching/ss2012/visnav2012"
+              },
+              {
+                "label": "YouTube",
+                "url": "https://www.youtube.com/playlist?list=PLTBdjV_4f-EKeki5ps2WHqJqyQvxls4ha"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-me424-sustech-modern-control-and-estimation-1490",
+            "line_number": 1490,
+            "code": "ME424",
+            "title": "SUSTech Modern Control and Estimation ( Kalman Filter Theory ) fall 2021, by Wei Zhang",
+            "category": "Robotics and Control",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "Wei Zhang",
+            "year": "fall 2021",
+            "level": "Advanced (L3)",
+            "primary_url": "https://wzhanglab.site/teaching/moderncontrolestimation/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [SUSTech ME424 Modern Control and Estimation ( Kalman Filter Theory ) fall 2021, by Wei Zhang](https://wzhanglab.site/teaching/moderncontrolestimation/)[Youtube 1](https://youtube.com/playlist?list=PLYkCanigA7S4N4FAXu4ABmwuC7yHDL6_v)[Youtube 2](https://youtube.com/playlist?list=PLYkCanigA7S4AWI0INZJ5e0WrxFlp4oWH)",
+            "video_urls": [
+              {
+                "label": "Youtube 1",
+                "url": "https://youtube.com/playlist?list=PLYkCanigA7S4N4FAXu4ABmwuC7yHDL6_v"
+              },
+              {
+                "label": "Youtube 2",
+                "url": "https://youtube.com/playlist?list=PLYkCanigA7S4AWI0INZJ5e0WrxFlp4oWH"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "computer-vision-multimodal",
+    "title": "Computer Vision & Multimodal Perception Engineer",
+    "description": "Develop 3D neural reconstruction systems, multi-view geometry, generative diffusion vision, and real-time visual-inertial odometry.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Linear Algebra & Signal Processing",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Eigenvalues & SVD",
+          "2D Convolution operations",
+          "Fourier transforms"
+        ],
+        "courses": [
+          {
+            "id": "princeton-cs-linear-algebra-princeton-university-921",
+            "line_number": 921,
+            "code": "",
+            "title": "Linear Algebra (Princeton University",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Princeton",
+            "instructor": "Princeton University",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLGqzsq0erqU7w7ZrTZ-pWWk4-AOkiGEGp",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Linear Algebra (Princeton University)](https://www.youtube.com/playlist?list=PLGqzsq0erqU7w7ZrTZ-pWWk4-AOkiGEGp)",
+            "video_urls": [
+              {
+                "label": "Linear Algebra (Princeton University)",
+                "url": "https://www.youtube.com/playlist?list=PLGqzsq0erqU7w7ZrTZ-pWWk4-AOkiGEGp"
+              }
+            ]
+          },
+          {
+            "id": "unsw-cs-a-first-course-in-linear-algebra-n-j-w-925",
+            "line_number": 925,
+            "code": "",
+            "title": "A first course in Linear Algebra - N J Wildberger",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "UNSW",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL44B6B54CBF6A72DF",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [A first course in Linear Algebra - N J Wildberger - UNSW](https://www.youtube.com/playlist?list=PL44B6B54CBF6A72DF)",
+            "video_urls": [
+              {
+                "label": "A first course in Linear Algebra - N J Wildberger - UNSW",
+                "url": "https://www.youtube.com/playlist?list=PL44B6B54CBF6A72DF"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-computational-linear-algebra-fastai-927",
+            "line_number": 927,
+            "code": "",
+            "title": "Computational Linear Algebra - fast.ai",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://github.com/fastai/numerical-linear-algebra",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Computational Linear Algebra - fast.ai](https://www.youtube.com/playlist?list=PLtmWHNX-gukIc92m1K0P6bIOnZb-mg0hY) ([Github](https://github.com/fastai/numerical-linear-algebra))",
+            "video_urls": [
+              {
+                "label": "Computational Linear Algebra - fast.ai",
+                "url": "https://www.youtube.com/playlist?list=PLtmWHNX-gukIc92m1K0P6bIOnZb-mg0hY"
+              }
+            ]
+          },
+          {
+            "id": "stanford-engr108-introduction-to-applied-linear-algebrav-928",
+            "line_number": 928,
+            "code": "ENGR108",
+            "title": "Introduction to Applied Linear Algebra—Vectors, Matrices, and Least Squares",
+            "category": "Math for Computer Scientist",
+            "subcategory": "General",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [ENGR108: Introduction to Applied Linear Algebra—Vectors, Matrices, and Least Squares - Stanford University](https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9)",
+            "video_urls": [
+              {
+                "label": "ENGR108: Introduction to Applied Linear Algebra—Vectors, Matrices, and Least Squares - Stanford University",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Classical Computer Vision & 3D Geometry",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "Epipolar geometry & essential matrix",
+          "Feature detectors (SIFT, ORB)",
+          "Camera calibration models"
+        ],
+        "courses": [
+          {
+            "id": "stanford-cs-cs231n-deep-learning-for-computer-vision-513",
+            "line_number": 513,
+            "code": "",
+            "title": "CS231n Deep Learning for Computer Vision",
+            "category": "Machine Learning",
+            "subcategory": "Deep Learning",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "Spring 2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://cs231n.stanford.edu/schedule.html",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CS231n Deep Learning for Computer Vision - Stanford University](https://cs231n.stanford.edu/schedule.html) ([Spring 2025](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)) ([Winter 2016 Andrej Karpathy](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC))",
+            "video_urls": [
+              {
+                "label": "Spring 2025",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16"
+              },
+              {
+                "label": "Winter 2016 Andrej Karpathy",
+                "url": "https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-lecture-computer-vision-university-of-706",
+            "line_number": 706,
+            "code": "",
+            "title": "Lecture: Computer Vision, University of Tübingen - Andreas Geiger",
+            "category": "Machine Learning",
+            "subcategory": "Computer Vision",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/lectures/computer-vision/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [Lecture: Computer Vision, University of Tübingen - Andreas Geiger](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/lectures/computer-vision/) ([YouTube](https://www.youtube.com/playlist?list=PL05umP7R6ij35L2MHGzis8AEHz7mg381_))",
+            "video_urls": [
+              {
+                "label": "Lecture: Computer Vision, University of Tübingen - Andreas Geiger",
+                "url": "https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/lectures/computer-vision/"
+              },
+              {
+                "label": "YouTube",
+                "url": "https://www.youtube.com/playlist?list=PL05umP7R6ij35L2MHGzis8AEHz7mg381_"
+              }
+            ]
+          },
+          {
+            "id": "purdue-ee637-digital-image-processing-i-purdue-univ-1258",
+            "line_number": 1258,
+            "code": "EE637",
+            "title": "Digital Image Processing I - Purdue University",
+            "category": "Image Processing and Computer Vision",
+            "subcategory": "General",
+            "institution": "Purdue",
+            "instructor": "",
+            "year": "2011",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://engineering.purdue.edu/~bouman/ece637/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [EE637 - Digital Image Processing I - Purdue University](https://engineering.purdue.edu/~bouman/ece637/) ([Videos - Sp 2011](https://www.youtube.com/user/ModelBasedImaging),[Videos - Sp 2007](https://engineering.purdue.edu/~bouman/ece637/lectures/lectures07/))",
+            "video_urls": [
+              {
+                "label": "Videos - Sp 2011",
+                "url": "https://www.youtube.com/user/ModelBasedImaging"
+              },
+              {
+                "label": "Videos - Sp 2007",
+                "url": "https://engineering.purdue.edu/~bouman/ece637/lectures/lectures07/"
+              }
+            ]
+          },
+          {
+            "id": "purdue-ee641-digital-image-processing-ii-purdue-uni-1259",
+            "line_number": 1259,
+            "code": "EE641",
+            "title": "Digital Image Processing II - Purdue University",
+            "category": "Image Processing and Computer Vision",
+            "subcategory": "General",
+            "institution": "Purdue",
+            "instructor": "",
+            "year": "2013",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://engineering.purdue.edu/~bouman/ece641/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [EE641 - Digital Image Processing II - Purdue University](https://engineering.purdue.edu/~bouman/ece641/) ([Videos - Fa 2013](https://www.youtube.com/playlist?list=PL3ZrjaBngMS2KagbAut9eTGZV4oL8Y-PF),[Videos - Fa 2020](https://www.youtube.com/playlist?list=PL3ZrjaBngMS0mTSoMsy7P6rTFSgsmsMw3))",
+            "video_urls": [
+              {
+                "label": "Videos - Fa 2013",
+                "url": "https://www.youtube.com/playlist?list=PL3ZrjaBngMS2KagbAut9eTGZV4oL8Y-PF"
+              },
+              {
+                "label": "Videos - Fa 2020",
+                "url": "https://www.youtube.com/playlist?list=PL3ZrjaBngMS0mTSoMsy7P6rTFSgsmsMw3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Deep Visual Recognition & CNNs",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "Residual networks (ResNets)",
+          "Object detection (YOLO, Faster-RCNN)",
+          "Semantic & instance segmentation"
+        ],
+        "courses": [
+          {
+            "id": "stanford-cs-cs231n-deep-learning-for-computer-vision-513",
+            "line_number": 513,
+            "code": "",
+            "title": "CS231n Deep Learning for Computer Vision",
+            "category": "Machine Learning",
+            "subcategory": "Deep Learning",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "Spring 2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://cs231n.stanford.edu/schedule.html",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CS231n Deep Learning for Computer Vision - Stanford University](https://cs231n.stanford.edu/schedule.html) ([Spring 2025](https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16)) ([Winter 2016 Andrej Karpathy](https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC))",
+            "video_urls": [
+              {
+                "label": "Spring 2025",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16"
+              },
+              {
+                "label": "Winter 2016 Andrej Karpathy",
+                "url": "https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC"
+              }
+            ]
+          },
+          {
+            "id": "stanford-cs-cs-231n-convolutional-neural-networks-689",
+            "line_number": 689,
+            "code": "",
+            "title": "CS 231n - Convolutional Neural Networks for Visual Recognition",
+            "category": "Machine Learning",
+            "subcategory": "Computer Vision",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 231n - Convolutional Neural Networks for Visual Recognition, Stanford University](https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv)",
+            "video_urls": [
+              {
+                "label": "CS 231n - Convolutional Neural Networks for Visual Recognition, Stanford University",
+                "url": "https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-applied-deep-learning-2025-tu-wien-541",
+            "line_number": 541,
+            "code": "",
+            "title": "Applied Deep Learning 2025 - TU Wien",
+            "category": "Machine Learning",
+            "subcategory": "Deep Learning",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "2025",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8H1o874cZbiwnNRJ6hCDJI",
+            "video_count": 6,
+            "has_video": true,
+            "raw_markdown": "- [Applied Deep Learning 2025 - TU Wien](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8H1o874cZbiwnNRJ6hCDJI) ([2024](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8tSQuU3jN71fmmGFFCi7Dc)) ([2023](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE87JO3T_mvedVTlw0sjUzKh)) ([2022](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_QaTwYxoTmmRJHtMXyIAU6)) ([2021](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_wsWK3t6NEeYtwOorGfowm)) ([2020](https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8xNYTEyorbaWPN7nvbWyk1))",
+            "video_urls": [
+              {
+                "label": "Applied Deep Learning 2025 - TU Wien",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8H1o874cZbiwnNRJ6hCDJI"
+              },
+              {
+                "label": "2024",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8tSQuU3jN71fmmGFFCi7Dc"
+              },
+              {
+                "label": "2023",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE87JO3T_mvedVTlw0sjUzKh"
+              },
+              {
+                "label": "2022",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_QaTwYxoTmmRJHtMXyIAU6"
+              },
+              {
+                "label": "2021",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE_wsWK3t6NEeYtwOorGfowm"
+              },
+              {
+                "label": "2020",
+                "url": "https://www.youtube.com/playlist?list=PLNsFwZQ_pkE8xNYTEyorbaWPN7nvbWyk1"
+              }
+            ]
+          },
+          {
+            "id": "stanford-cs-224n-natural-language-processing-with-deep-le-621",
+            "line_number": 621,
+            "code": "CS 224N",
+            "title": "Natural Language Processing with Deep Learning",
+            "category": "Machine Learning",
+            "subcategory": "Natural Language Processing",
+            "institution": "Stanford",
+            "instructor": "",
+            "year": "Winter 2019",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "http://web.stanford.edu/class/cs224n/",
+            "video_count": 3,
+            "has_video": true,
+            "raw_markdown": "- [CS 224N -Natural Language Processing with Deep Learning - Stanford University](http://web.stanford.edu/class/cs224n/) ([Lectures -  Winter 2019](https://youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z)) ([Lectures -  Winter 2021](https://youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ)) ([Lectures - Spring 2024](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D))",
+            "video_urls": [
+              {
+                "label": "Lectures -  Winter 2019",
+                "url": "https://youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z"
+              },
+              {
+                "label": "Lectures -  Winter 2021",
+                "url": "https://youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ"
+              },
+              {
+                "label": "Lectures - Spring 2024",
+                "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Neural Radiance Fields, 3D Vision & Diffusion",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "NeRF & 3D Gaussian Splatting",
+          "Latent diffusion models",
+          "Vision-Language models (CLIP, multimodal transformers)"
+        ],
+        "courses": [
+          {
+            "id": "mit-6837-computer-graphics-spring-2017-1229",
+            "line_number": 1229,
+            "code": "6.837",
+            "title": "Computer Graphics - Spring 2017",
+            "category": "Computer Graphics",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2017",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLkHIj5SCfn3_PCotoqTetMpJc_jkpkgLt",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.837 - Computer Graphics - Spring 2017 - MIT](https://www.youtube.com/playlist?list=PLkHIj5SCfn3_PCotoqTetMpJc_jkpkgLt)",
+            "video_urls": [
+              {
+                "label": "6.837 - Computer Graphics - Spring 2017 - MIT",
+                "url": "https://www.youtube.com/playlist?list=PLkHIj5SCfn3_PCotoqTetMpJc_jkpkgLt"
+              }
+            ]
+          },
+          {
+            "id": "mit-6838-shape-analysis-spring-2017-1230",
+            "line_number": 1230,
+            "code": "6.838",
+            "title": "Shape Analysis - Spring 2017",
+            "category": "Computer Graphics",
+            "subcategory": "General",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2017",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLkHIj5SCfn3-FeWqD3xeOZWP2kQYY654o",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.838 - Shape Analysis - Spring 2017- MIT](https://www.youtube.com/playlist?list=PLkHIj5SCfn3-FeWqD3xeOZWP2kQYY654o)",
+            "video_urls": [
+              {
+                "label": "6.838 - Shape Analysis - Spring 2017- MIT",
+                "url": "https://www.youtube.com/playlist?list=PLkHIj5SCfn3-FeWqD3xeOZWP2kQYY654o"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-computer-graphics-2012-wolfgang-huerst-1233",
+            "line_number": 1233,
+            "code": "",
+            "title": "Computer Graphics 2012, Wolfgang Huerst, Utrecht University",
+            "category": "Computer Graphics",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "2012",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLDFA8FCF0017504DE",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Computer Graphics 2012, Wolfgang Huerst, Utrecht University](https://www.youtube.com/playlist?list=PLDFA8FCF0017504DE)",
+            "video_urls": [
+              {
+                "label": "Computer Graphics 2012, Wolfgang Huerst, Utrecht University",
+                "url": "https://www.youtube.com/playlist?list=PLDFA8FCF0017504DE"
+              }
+            ]
+          },
+          {
+            "id": "university-of-utah-cs-56306630-visualization-fall-2016-university-of-1234",
+            "line_number": 1234,
+            "code": "CS 5630/6630",
+            "title": "Visualization, Fall 2016, University of Utah",
+            "category": "Computer Graphics",
+            "subcategory": "General",
+            "institution": "University of Utah",
+            "instructor": "",
+            "year": "Fall 2016",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "http://dataviscourse.net/2016/index.html",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 5630/6630 - Visualization, Fall 2016, University of Utah](http://dataviscourse.net/2016/index.html) ([Lectures - Youtube](https://www.youtube.com/playlist?list=PLbuogVdPnkCpQY3miQpTJtnHgCLze2lr0))",
+            "video_urls": [
+              {
+                "label": "Lectures - Youtube",
+                "url": "https://www.youtube.com/playlist?list=PLbuogVdPnkCpQY3miQpTJtnHgCLze2lr0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 16
+  },
+  {
+    "role_id": "software-architect-fullstack",
+    "title": "Principal Software Architect & Full-Stack Engineer",
+    "description": "Design modular, resilient enterprise software architectures, API contracts, high-load web systems, compiler optimizations, and scalable data layers.",
+    "total_tiers": 4,
+    "tiers": [
+      {
+        "tier_name": "Tier 1: Programming Fundamentals & Clean Code",
+        "level": "Introductory (L1)",
+        "required_competencies": [
+          "Polymorphism & data abstraction",
+          "Testing & debugging harnesses",
+          "Data structuring"
+        ],
+        "courses": [
+          {
+            "id": "harvard-cs-50-introduction-to-computer-science-12",
+            "line_number": 12,
+            "code": "CS 50",
+            "title": "Introduction to Computer Science",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "Harvard",
+            "instructor": "",
+            "year": "2017",
+            "level": "Introductory (L1)",
+            "primary_url": "https://online-learning.harvard.edu/course/cs50-introduction-computer-science",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [CS 50 - Introduction to Computer Science, Harvard University](https://online-learning.harvard.edu/course/cs50-introduction-computer-science) ([cs50.tv](http://cs50.tv/2017/fall/))",
+            "video_urls": []
+          },
+          {
+            "id": "uc-berkeley-cs-61a-structure-and-interpretation-of-computer-15",
+            "line_number": 15,
+            "code": "CS 61A",
+            "title": "Structure and Interpretation of Computer Programs [Python",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "UC Berkeley",
+            "instructor": "",
+            "year": "",
+            "level": "Introductory (L1)",
+            "primary_url": "https://cs61a.org/",
+            "video_count": 0,
+            "has_video": false,
+            "raw_markdown": "- [CS 61A - Structure and Interpretation of Computer Programs [Python], UC Berkeley](https://cs61a.org/)",
+            "video_urls": []
+          },
+          {
+            "id": "unsw-comp1511-programming-fundamentals-7",
+            "line_number": 7,
+            "code": "COMP1511",
+            "title": "Programming Fundamentals",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "UNSW",
+            "instructor": "",
+            "year": "",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://cgi.cse.unsw.edu.au/~cs1511/25T2/",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [COMP1511 - Programming Fundamentals - UNSW (Complete Course: Lectures, Labs, Assignments, Exercises, Exams)](https://cgi.cse.unsw.edu.au/~cs1511/25T2/) | [Video Playlist](https://www.youtube.com/playlist?list=PLlRElrOhPo9u_i-JpZUvGJCGI3j2CMWZs)",
+            "video_urls": [
+              {
+                "label": "COMP1511 - Programming Fundamentals - UNSW (Complete Course: Lectures, Labs, Assignments, Exercises, Exams)",
+                "url": "https://cgi.cse.unsw.edu.au/~cs1511/25T2/"
+              },
+              {
+                "label": "Video Playlist",
+                "url": "https://www.youtube.com/playlist?list=PLlRElrOhPo9u_i-JpZUvGJCGI3j2CMWZs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 2: Object-Oriented Design & Architecture",
+        "level": "Core Intermediate (L2)",
+        "required_competencies": [
+          "SOLID principles & GoF design patterns",
+          "Domain-Driven Design (DDD) seams",
+          "Concurrent memory models"
+        ],
+        "courses": [
+          {
+            "id": "uiuc-uiuc-ece-408-cs-408-applied-parallel-programming-fa-292",
+            "line_number": 292,
+            "code": "UIUC ECE 408",
+            "title": "/ CS 408 Applied Parallel Programming fall 2022, by Wen-mei Hwu, Sanjay Patel",
+            "category": "Software Engineering",
+            "subcategory": "Concurrency",
+            "institution": "UIUC",
+            "instructor": "",
+            "year": "fall 2022",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL6RdenZrxrw-UKfRL5smPfFFpeqwN3Dsz",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [UIUC ECE 408 / CS 408 Applied Parallel Programming fall 2022, by Wen-mei Hwu, Sanjay Patel](https://www.youtube.com/playlist?list=PL6RdenZrxrw-UKfRL5smPfFFpeqwN3Dsz) ([Spring 2018](https://www.youtube.com/playlist?list=PLRRuQYjFhpmvu5ODQoY2l7D0ADgWEcYAX))",
+            "video_urls": [
+              {
+                "label": "UIUC ECE 408 / CS 408 Applied Parallel Programming fall 2022, by Wen-mei Hwu, Sanjay Patel",
+                "url": "https://www.youtube.com/playlist?list=PL6RdenZrxrw-UKfRL5smPfFFpeqwN3Dsz"
+              },
+              {
+                "label": "Spring 2018",
+                "url": "https://www.youtube.com/playlist?list=PLRRuQYjFhpmvu5ODQoY2l7D0ADgWEcYAX"
+              }
+            ]
+          },
+          {
+            "id": "cornell-ece-4960-cornell-computational-and-software-engin-43",
+            "line_number": 43,
+            "code": "ECE 4960",
+            "title": "Cornell Computational and Software Engineering spring 2017, by Edwin Kan",
+            "category": "Introduction to Computer Science",
+            "subcategory": "General",
+            "institution": "Cornell",
+            "instructor": "Edwin Kan",
+            "year": "spring 2017",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLcVqWUh-bHiFN2CY1KMTw0-L39iDXlemi",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Cornell ECE 4960 Computational and Software Engineering spring 2017, by Edwin Kan](https://www.youtube.com/playlist?list=PLcVqWUh-bHiFN2CY1KMTw0-L39iDXlemi)",
+            "video_urls": [
+              {
+                "label": "Cornell ECE 4960 Computational and Software Engineering spring 2017, by Edwin Kan",
+                "url": "https://www.youtube.com/playlist?list=PLcVqWUh-bHiFN2CY1KMTw0-L39iDXlemi"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-oose-object-oriented-software-engineer-257",
+            "line_number": 257,
+            "code": "",
+            "title": "OOSE - Object-Oriented Software Engineering, Dr. Tim Lethbridge",
+            "category": "Software Engineering",
+            "subcategory": "Object Oriented Design",
+            "institution": "Other Universities & Labs",
+            "instructor": "Tim Lethbridge",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL6iDJCG2nkhfNlig8NY5ePPfGvtQX6yLa",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [OOSE - Object-Oriented Software Engineering, Dr. Tim Lethbridge](https://www.youtube.com/playlist?list=PL6iDJCG2nkhfNlig8NY5ePPfGvtQX6yLa)",
+            "video_urls": [
+              {
+                "label": "OOSE - Object-Oriented Software Engineering, Dr. Tim Lethbridge",
+                "url": "https://www.youtube.com/playlist?list=PL6iDJCG2nkhfNlig8NY5ePPfGvtQX6yLa"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cs-object-oriented-systems-analysis-and-des-258",
+            "line_number": 258,
+            "code": "",
+            "title": "Object Oriented Systems Analysis and Design (Systems Analysis and Design in a Changing World",
+            "category": "Software Engineering",
+            "subcategory": "Object Oriented Design",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PL6XklZATqYx9dj72MKG6wLYjljeB2odra",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Object Oriented Systems Analysis and Design (Systems Analysis and Design in a Changing World)](https://www.youtube.com/playlist?list=PL6XklZATqYx9dj72MKG6wLYjljeB2odra)",
+            "video_urls": [
+              {
+                "label": "Object Oriented Systems Analysis and Design (Systems Analysis and Design in a Changing World)",
+                "url": "https://www.youtube.com/playlist?list=PL6XklZATqYx9dj72MKG6wLYjljeB2odra"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 3: Web Systems, Databases & Compilers",
+        "level": "Advanced (L3)",
+        "required_competencies": [
+          "REST/GraphQL API protocols",
+          "Lexing, parsing & AST compilation",
+          "Indexing & query execution"
+        ],
+        "courses": [
+          {
+            "id": "harvard-cs-75-building-dynamic-websites-981",
+            "line_number": 981,
+            "code": "CS 75",
+            "title": "Building Dynamic Websites",
+            "category": "Web Programming and Internet Technologies",
+            "subcategory": "General",
+            "institution": "Harvard",
+            "instructor": "",
+            "year": "",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLERAEIq9URVfhQWz2mnZgFDvzRs6Zeaui",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 75 Building Dynamic Websites - Harvard University](https://www.youtube.com/playlist?list=PLERAEIq9URVfhQWz2mnZgFDvzRs6Zeaui)",
+            "video_urls": [
+              {
+                "label": "CS 75 Building Dynamic Websites - Harvard University",
+                "url": "https://www.youtube.com/playlist?list=PLERAEIq9URVfhQWz2mnZgFDvzRs6Zeaui"
+              }
+            ]
+          },
+          {
+            "id": "other-universities-labs-cse-199-how-the-internet-works-fall-2016-univ-984",
+            "line_number": 984,
+            "code": "CSE 199",
+            "title": "How the Internet Works, Fall 2016 - University of Buffalo",
+            "category": "Web Programming and Internet Technologies",
+            "subcategory": "General",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Fall 2016",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLk97mPCd8nvbxGGfkYkBXrSEvpTc1xTF8",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CSE 199 - How the Internet Works, Fall 2016 - University of Buffalo](https://www.youtube.com/playlist?list=PLk97mPCd8nvbxGGfkYkBXrSEvpTc1xTF8)",
+            "video_urls": [
+              {
+                "label": "CSE 199 - How the Internet Works, Fall 2016 - University of Buffalo",
+                "url": "https://www.youtube.com/playlist?list=PLk97mPCd8nvbxGGfkYkBXrSEvpTc1xTF8"
+              }
+            ]
+          },
+          {
+            "id": "ut-austin-cs-open-sourced-elective-database-and-rail-985",
+            "line_number": 985,
+            "code": "",
+            "title": "Open Sourced Elective: Database and Rails - Intro to Ruby on Rails, University of Texas",
+            "category": "Web Programming and Internet Technologies",
+            "subcategory": "General",
+            "institution": "UT Austin",
+            "instructor": "",
+            "year": "",
+            "level": "Introductory (L1)",
+            "primary_url": "https://www.schneems.com/ut-rails",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [Open Sourced Elective: Database and Rails - Intro to Ruby on Rails, University of Texas](https://www.schneems.com/ut-rails) ([Lectures - Youtube](https://www.youtube.com/playlist?list=PL7A85FD7803A8CB1F))",
+            "video_urls": [
+              {
+                "label": "Lectures - Youtube",
+                "url": "https://www.youtube.com/playlist?list=PL7A85FD7803A8CB1F"
+              }
+            ]
+          },
+          {
+            "id": "university-of-washington-cse154-web-programming-spring-2020-universit-986",
+            "line_number": 986,
+            "code": "CSE154",
+            "title": "Web Programming, Spring 2020 - University of Washington",
+            "category": "Web Programming and Internet Technologies",
+            "subcategory": "General",
+            "institution": "University of Washington",
+            "instructor": "",
+            "year": "Spring 2020",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://courses.cs.washington.edu/courses/cse154/20sp/",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CSE154 - Web Programming, Spring 2020 - University of Washington](https://courses.cs.washington.edu/courses/cse154/20sp/) ([Videos](https://www.youtube.com/playlist?list=PLrE1feouzSWqcgK0Lvt3r_8AwN6UndaOD))",
+            "video_urls": [
+              {
+                "label": "Videos",
+                "url": "https://www.youtube.com/playlist?list=PLrE1feouzSWqcgK0Lvt3r_8AwN6UndaOD"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tier_name": "Tier 4: Distributed Cloud Systems & High Availability",
+        "level": "Graduate / Mastery (L4)",
+        "required_competencies": [
+          "Microservices vs Modular Monolith",
+          "Event sourcing & CQRS",
+          "Zero-downtime rolling deploys"
+        ],
+        "courses": [
+          {
+            "id": "other-universities-labs-cse-138-distributed-systems-uc-santa-cruz-spr-206",
+            "line_number": 206,
+            "code": "CSE 138",
+            "title": "Distributed Systems - UC Santa Cruz, Spring 2020",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "Other Universities & Labs",
+            "instructor": "",
+            "year": "Spring 2020",
+            "level": "Core Intermediate (L2)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31",
+            "video_count": 2,
+            "has_video": true,
+            "raw_markdown": "- [CSE 138 - Distributed Systems - UC Santa Cruz, Spring 2020](https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31) ([2021](https://www.youtube.com/playlist?list=PLNPUF5QyWU8PydLG2cIJrCvnn5I_exhYx))",
+            "video_urls": [
+              {
+                "label": "CSE 138 - Distributed Systems - UC Santa Cruz, Spring 2020",
+                "url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8O0Wd8QDh9KaM1ggsxspJ31"
+              },
+              {
+                "label": "2021",
+                "url": "https://www.youtube.com/playlist?list=PLNPUF5QyWU8PydLG2cIJrCvnn5I_exhYx"
+              }
+            ]
+          },
+          {
+            "id": "umass-cs-677-distributed-operating-systems-spring-24-192",
+            "line_number": 192,
+            "code": "CS 677",
+            "title": "Distributed Operating Systems, Spring 24 - Umass OS",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "UMass",
+            "instructor": "",
+            "year": "",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 677 - Distributed Operating Systems, Spring 24 - Umass OS](https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH)",
+            "video_urls": [
+              {
+                "label": "CS 677 - Distributed Operating Systems, Spring 24 - Umass OS",
+                "url": "https://www.youtube.com/playlist?list=PLacuG5pysFbBpWHfKUU9Dfdk8RmQ7B9EH"
+              }
+            ]
+          },
+          {
+            "id": "university-of-waterloo-cs-436-distributed-computer-systems-u-waterlo-193",
+            "line_number": 193,
+            "code": "CS 436",
+            "title": "Distributed Computer Systems - U Waterloo",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "University of Waterloo",
+            "instructor": "",
+            "year": "",
+            "level": "Advanced (L3)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLawkBQ15NDEkDJ5IyLIJUTZ1rRM9YQq6N",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [CS 436 - Distributed Computer Systems - U Waterloo](https://www.youtube.com/playlist?list=PLawkBQ15NDEkDJ5IyLIJUTZ1rRM9YQq6N)",
+            "video_urls": [
+              {
+                "label": "CS 436 - Distributed Computer Systems - U Waterloo",
+                "url": "https://www.youtube.com/playlist?list=PLawkBQ15NDEkDJ5IyLIJUTZ1rRM9YQq6N"
+              }
+            ]
+          },
+          {
+            "id": "mit-6824-distributed-systems-spring-2015-194",
+            "line_number": 194,
+            "code": "6.824",
+            "title": "Distributed Systems, Spring 2015",
+            "category": "Systems Programming",
+            "subcategory": "Distributed Systems",
+            "institution": "MIT",
+            "instructor": "",
+            "year": "Spring 2015",
+            "level": "Graduate / Mastery (L4)",
+            "primary_url": "https://www.youtube.com/playlist?list=PLkcQbKbegkMqiWf7nF8apfMRL4P4sw8UL",
+            "video_count": 1,
+            "has_video": true,
+            "raw_markdown": "- [6.824 - Distributed Systems, Spring 2015 - MIT](https://www.youtube.com/playlist?list=PLkcQbKbegkMqiWf7nF8apfMRL4P4sw8UL)",
+            "video_urls": [
+              {
+                "label": "6.824 - Distributed Systems, Spring 2015 - MIT",
+                "url": "https://www.youtube.com/playlist?list=PLkcQbKbegkMqiWf7nF8apfMRL4P4sw8UL"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "course_count": 15
+  }
+]

@@ -58,7 +58,7 @@
             <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span class="text-slate-400">Suites:</span>
-                <span class="text-white font-bold">15 / 15 GREEN</span>
+                <span class="text-white font-bold">19 / 19 GREEN</span>
             </div>
             <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                 <span class="text-slate-400">Tests:</span>
@@ -168,6 +168,30 @@
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
             NSA Ghidra SRE (github.com/NationalSecurityAgency/ghidra)
         </button>
+        <button onclick="switchCockpit('airflow')" id="btn-airflow" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+            Apache Airflow (github.com/apache/airflow)
+        </button>
+        <button onclick="switchCockpit('plane')" id="btn-plane" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+            Plane Project Platform (github.com/makeplane/plane)
+        </button>
+        <button onclick="switchCockpit('n8n')" id="btn-n8n" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+            n8n Automation & AI Agents (github.com/n8n-io/n8n)
+        </button>
+        <button onclick="switchCockpit('infisical')" id="btn-infisical" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            Infisical SecretOps (github.com/Infisical/infisical)
+        </button>
+        <button onclick="switchCockpit('free_for_dev')" id="btn-free_for_dev" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Free-For-Dev Cloud (1,396+ Tiers)
+        </button>
+        <button onclick="switchCockpit('arrow')" id="btn-arrow" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            Apache Arrow (github.com/apache/arrow)
+        </button>
     </nav>
 
     <!-- Embedded High-Performance Cockpit Frame Container -->
@@ -190,7 +214,13 @@
             blackbird: { url: "blackbird_cockpit.html", title: "Blackbird OSINT & Defensive Intelligence Cockpit (692 Sites)" },
             powershell: { url: "powershell_control_cockpit.html", title: "PowerShell Autonomous Ecosystem & Mission Control (AST, PSScriptAnalyzer, Runbooks, PSGallery, Runspaces)" },
             powertoys: { url: "powertoys_control_cockpit.html", title: "Microsoft PowerToys Autonomous Suite & Mission Control (FancyZones, PT Run, Awake, KBM, AI Paste)" },
-            ghidra: { url: "ghidra_control_cockpit.html", title: "NSA Ghidra Autonomous SRE & Reverse Engineering (Disassembly, Decompiler, P-Code, Vulns, ROP)" }
+            ghidra: { url: "ghidra_control_cockpit.html", title: "NSA Ghidra Autonomous SRE & Reverse Engineering (Disassembly, Decompiler, P-Code, Vulns, ROP)" },
+            airflow: { url: "airflow_control_cockpit.html", title: "Apache Airflow Autonomous Orchestration & Data Pipeline Flight Deck (DAGs, TaskFlow, Dynamic Mapping, Datasets)" },
+            plane: { url: "plane_control_cockpit.html", title: "Plane CE Autonomous Project & Issue Orchestrator (Kanban, Cycles, Burndown, Modules, Pages, Triage)" },
+            n8n: { url: "n8n_control_cockpit.html", title: "n8n Autonomous Workflow Automation & AI Agent Orchestrator (560+ Nodes, LangChain Multi-Agents)" },
+            infisical: { url: "infisical_control_cockpit.html", title: "Infisical Autonomous SecretOps Platform (Zero-Knowledge Vault, Dynamic Leases, PKI/CA)" },
+            free_for_dev: { url: "free_for_dev_control_cockpit.html", title: "Free-For-Dev Developer Cloud & Zero-Dollar Stack Cockpit (1,396+ Services)" },
+            arrow: { url: "arrow_control_cockpit.html", title: "Apache Arrow In-Memory Columnar & Flight IPC Analytics Cockpit" }
         };
 
         let currentActiveKey = "supreme";

@@ -936,6 +936,9 @@ class AirflowOrchestrator:
     def run_lifecycle(self) -> Dict[str, Any]:
         return self.client.mock_engine.execute_do_everything_lifecycle()
 
+    def do_everything(self) -> Dict[str, Any]:
+        return self.run_lifecycle()
+
 
 if __name__ == "__main__":
     orchestrator = AirflowOrchestrator()

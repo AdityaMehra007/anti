@@ -1,12 +1,12 @@
 {
-  "execution_id": "WINDMILL-DO-EVERYTHING-1793291790",
+  "execution_id": "WINDMILL-DO-EVERYTHING-1793298301",
   "protocol": "WINDMILL_SUPREME_AUTONOMOUS_WORKFLOW_V2",
   "founder": "Aditya Mehra (Adi)",
   "holding_entity": "OMEGA SOVEREIGN HOLDINGS",
-  "timestamp": "2026-10-29T16:36:30Z",
+  "timestamp": "2026-10-29T18:25:01Z",
   "status": "SOVEREIGN WORKFLOW ENGINE FULL POWERS VERIFIED",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.0,
+  "total_elapsed_seconds": 0.004,
   "platform_telemetry": {
     "status": "ok",
     "version": "1.425.0",
@@ -21,8 +21,8 @@
     "resources_count": 3,
     "schedules_count": 4,
     "variables_count": 4,
-    "total_jobs_executed": 16,
-    "completed_jobs": 15,
+    "total_jobs_executed": 14,
+    "completed_jobs": 13,
     "suspended_jobs": 1,
     "average_execution_latency_ms": 14.8,
     "uptime_seconds": 1209600,
@@ -34,7 +34,7 @@
       "name": "Rust Engine & Worker Pool Pre-Flight Telemetry",
       "description": "Verified 16 active workers (Rust native + Docker sandboxes) on Rust core v1.82.0-nightly.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.003,
       "telemetry": {
         "status": "ok",
         "version": "1.425.0",
@@ -49,8 +49,8 @@
         "resources_count": 3,
         "schedules_count": 4,
         "variables_count": 3,
-        "total_jobs_executed": 5,
-        "completed_jobs": 4,
+        "total_jobs_executed": 3,
+        "completed_jobs": 2,
         "suspended_jobs": 1,
         "average_execution_latency_ms": 14.8,
         "uptime_seconds": 1209600,
@@ -93,11 +93,11 @@
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "executed_jobs": [
-        "job-wmill-995523ef",
-        "job-wmill-92c7f5c9",
-        "job-wmill-1cbafb4f",
-        "job-wmill-2a651133",
-        "job-wmill-7c6b062f"
+        "job-wmill-ae8a68dc",
+        "job-wmill-43749a68",
+        "job-wmill-6bc07af8",
+        "job-wmill-a9f5728c",
+        "job-wmill-5cbe4e36"
       ]
     },
     {
@@ -121,10 +121,10 @@
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "pipelines_dispatched": [
-        "job-dag-e092e529",
-        "job-dag-36547fca",
-        "job-dag-e4eabce7",
-        "job-dag-d705f6dc"
+        "job-dag-80c1c86d",
+        "job-dag-ccbcc9b5",
+        "job-dag-de8de9f4",
+        "job-dag-3b94a9f2"
       ]
     },
     {
@@ -133,7 +133,7 @@
       "description": "Successfully suspended flow at credit threshold gate and resumed via programmatic executive sign-off.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "suspended_job_id": "job-dag-70f0e624",
+      "suspended_job_id": "job-dag-c64c5d2b",
       "final_status": "COMPLETED"
     },
     {
@@ -155,7 +155,7 @@
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "schedules_count": 4,
-      "triggered_job_id": "job-wmill-c0eb4dd5"
+      "triggered_job_id": "job-wmill-0db1eee5"
     },
     {
       "phase": 10,
@@ -191,6 +191,6 @@
     "variables": 3,
     "resources": 3,
     "apps": 1,
-    "total_jobs": 16
+    "total_jobs": 14
   }
 }
