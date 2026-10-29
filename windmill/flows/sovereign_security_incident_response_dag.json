@@ -1,0 +1,85 @@
+{
+  "summary": "Sovereign Automated Security Incident Response & Threat Containment Pipeline",
+  "description": "Triggered on SIEM/IDS threat detection; evaluates threat level, executes firewall block, revokes active API tokens, and opens forensic investigation docket.",
+  "value": {
+    "modules": [
+      {
+        "id": "step_threat_assessment",
+        "summary": "Audit IP reputation, attack vector, and threat severity",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(source_ip: str, threat_type: str, severity: str):\n    is_critical = severity in ('CRITICAL', 'HIGH')\n    return {'source_ip': source_ip, 'threat_type': threat_type, 'severity': severity, 'quarantine_required': is_critical}",
+          "language": "python3",
+          "input_transforms": {
+            "source_ip": {"type": "javascript", "expr": "flow_input.source_ip"},
+            "threat_type": {"type": "javascript", "expr": "flow_input.threat_type"},
+            "severity": {"type": "javascript", "expr": "flow_input.severity"}
+          }
+        }
+      },
+      {
+        "id": "step_containment_branch",
+        "summary": "Execute automated firewall rule and session invalidation",
+        "value": {
+          "type": "branchone",
+          "branches": [
+            {
+              "summary": "Critical Threat Quarantine",
+              "expr": "results.step_threat_assessment.quarantine_required === true",
+              "modules": [
+                {
+                  "id": "step_firewall_ban",
+                  "summary": "Add IP to edge WAF banlist",
+                  "value": {
+                    "type": "rawscript",
+                    "content": "def main(ip: str):\n    return {'waf_rule': 'DROP', 'ip': ip, 'ttl_hours': 72}",
+                    "language": "python3"
+                  }
+                },
+                {
+                  "id": "step_revoke_compromised_credentials",
+                  "summary": "Invalidate JWT tokens and force re-authentication",
+                  "value": {
+                    "type": "rawscript",
+                    "content": "def main():\n    return {'redis_sessions_flushed': 1, 'api_tokens_revoked': True}",
+                    "language": "python3"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_incident_dossier",
+        "summary": "Compile forensic audit trail and dispatch Slack emergency channel notification",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(source_ip: str, threat_type: str):\n    return {'incident_dossier_id': f'INC-SEC-{source_ip.replace(\".\", \"_\")}', 'audit_status': 'CONTAINED_AND_VAULTED'}",
+          "language": "python3"
+        }
+      }
+    ]
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "source_ip": {
+        "type": "string",
+        "description": "Suspicious origin IP address",
+        "default": "198.51.100.42"
+      },
+      "threat_type": {
+        "type": "string",
+        "description": "Classification of attack",
+        "default": "CREDENTIAL_STUFFING_BRUTE_FORCE"
+      },
+      "severity": {
+        "type": "string",
+        "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"],
+        "default": "CRITICAL"
+      }
+    },
+    "required": ["source_ip", "threat_type"]
+  }
+}

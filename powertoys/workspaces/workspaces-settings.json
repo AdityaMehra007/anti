@@ -1,0 +1,67 @@
+{
+  "active_workspace": "Full-Stack Dev",
+  "workspaces": [
+    {
+      "name": "Full-Stack Dev",
+      "description": "Standard engineering environment with VS Code, Windows Terminal, and Browser.",
+      "layout_id": "priority-grid-01",
+      "applications": [
+        {
+          "name": "Visual Studio Code",
+          "executable": "Code.exe",
+          "zone_id": 2,
+          "arguments": ".",
+          "monitor": 1,
+          "minimized": false
+        },
+        {
+          "name": "Windows Terminal",
+          "executable": "wt.exe",
+          "zone_id": 3,
+          "arguments": "pwsh.exe",
+          "monitor": 1,
+          "minimized": false
+        },
+        {
+          "name": "Google Chrome",
+          "executable": "chrome.exe",
+          "zone_id": 1,
+          "arguments": "http://localhost:8770",
+          "monitor": 1,
+          "minimized": false
+        }
+      ]
+    },
+    {
+      "name": "SecOps Threat Recon",
+      "description": "Sovereign offensive/defensive monitoring workspace.",
+      "layout_id": "ultrawide-coder",
+      "applications": [
+        {
+          "name": "Wireshark / Network Probe",
+          "executable": "wireshark.exe",
+          "zone_id": 1,
+          "arguments": "",
+          "monitor": 1,
+          "minimized": false
+        },
+        {
+          "name": "Terminal Security Stream",
+          "executable": "wt.exe",
+          "zone_id": 2,
+          "arguments": "-p 'SecOps'",
+          "monitor": 1,
+          "minimized": false
+        },
+        {
+          "name": "Threat Cockpit",
+          "executable": "msedge.exe",
+          "zone_id": 3,
+          "arguments": "http://localhost:8770/cockpit",
+          "monitor": 1,
+          "minimized": false
+        }
+      ]
+    }
+  ]
+}

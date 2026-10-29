@@ -1,0 +1,13 @@
+{
+  "path": "u/admin/hourly_carbon_audit_schedule",
+  "schedule": "0 * * * *",
+  "timezone": "UTC",
+  "script_path": "u/admin/cbam_carbon_audit",
+  "is_flow": false,
+  "args": {
+    "docket_id": "CRON-HOURLY-CBAM",
+    "net_mass_kg": 15000.0
+  },
+  "summary": "Hourly EU CBAM Export Emissions & Tariff Sweep",
+  "enabled": true
+}

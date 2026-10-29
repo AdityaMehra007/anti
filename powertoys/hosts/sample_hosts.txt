@@ -1,0 +1,11 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+# PowerToys Hosts File Editor Sovereign Configuration
+#
+# localhost name resolution is handled within DNS itself.
+127.0.0.1       localhost
+::1             localhost
+127.0.0.1       local.api.internal
+127.0.0.1       sandbox.omega.local
+192.168.1.100   cluster.vault.internal # Active cluster storage
+# 10.0.0.50     staging.legacy.corp # Disabled legacy proxy
+127.0.0.1       cockpit.powertoys.local

@@ -1,0 +1,30 @@
+{
+  "system_instruction": "You are PowerToys Advanced Paste AI transformation agent. Convert or format the user clipboard contents cleanly according to the requested transformation.",
+  "templates": [
+    {
+      "id": "json_to_typescript",
+      "name": "JSON to TypeScript Interface",
+      "prompt": "Convert the following JSON payload into strict TypeScript type interfaces with descriptive naming:"
+    },
+    {
+      "id": "markdown_table",
+      "name": "Raw Data to Markdown Table",
+      "prompt": "Parse the following unstructured or CSV text into a clean GitHub Flavored Markdown table:"
+    },
+    {
+      "id": "redact_pii",
+      "name": "Redact Sensitive PII & Secrets",
+      "prompt": "Redact all emails, phone numbers, IP addresses, JWT tokens, and private API keys from this text:"
+    },
+    {
+      "id": "summarize_bullets",
+      "name": "Executive 3-Bullet Summary",
+      "prompt": "Distill the following text into 3 concise, high-impact executive bullet points:"
+    },
+    {
+      "id": "clean_code",
+      "name": "Clean Code & Strip Noise",
+      "prompt": "Remove debug logging, unnecessary print statements, and trailing whitespace from the code:"
+    }
+  ]
+}

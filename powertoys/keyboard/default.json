@@ -1,0 +1,33 @@
+{
+  "remapKeys": {
+    "inProcess": [
+      {
+        "originalKeys": "CapsLock",
+        "newRemapKeys": "LeftCtrl"
+      },
+      {
+        "originalKeys": "ScrollLock",
+        "newRemapKeys": "Mute"
+      }
+    ]
+  },
+  "remapShortcuts": {
+    "global": [
+      {
+        "originalKeys": "Alt(Left);Q",
+        "newRemapKeys": "Alt(Left);F4"
+      },
+      {
+        "originalKeys": "Ctrl(Left);Alt(Left);T",
+        "newRemapKeys": "Win(Left);R"
+      }
+    ],
+    "appSpecific": [
+      {
+        "targetApp": "Code.exe",
+        "originalKeys": "Ctrl(Left);Shift(Left);D",
+        "newRemapKeys": "F5"
+      }
+    ]
+  }
+}

@@ -20,6 +20,10 @@ n8n/local_files/
 .idea/
 .DS_Store
 Thumbs.db
+~*
+~*.tmp
+~$*
+*.tmp
 
 # Database Wal & Temp
 *.db-journal
@@ -41,6 +45,7 @@ external/plane/plane.env
 ai-engineering-from-scratch/
 airflow_upstream/
 arc-task-gen/
+blackbird/
 claude-plugins-community/
 colibri/
 coolify/
@@ -55,6 +60,7 @@ MoneyPrinterV2/
 n8n-core/
 New-Grad-2027/
 New-Grad-Positions/
+OpenBB/
 openclaude/
 openclaw/
 opencode/

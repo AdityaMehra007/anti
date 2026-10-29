@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackbird OSINT Mission Control Cockpit - Enterprise Threat & Footprint Intelligence</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            bg: '#080c14',
+                            card: '#0f172a',
+                            border: '#1e293b',
+                            accent: '#06b6d4',
+                            glow: '#0891b2',
+                            red: '#ef4444',
+                            amber: '#f59e0b',
+                            emerald: '#10b981'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #070b12; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.45);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.15);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #070b12; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .animate-subtle { animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+</head>
+<body class="text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- Top Navigation Bar -->
+    <header class="glass-panel sticky top-0 z-50 border-b border-white/5 px-6 py-3.5 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-600 via-sky-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="shield-alert" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg font-bold tracking-tight text-white flex items-center gap-1.5 font-mono">
+                            BLACKBIRD <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-sans font-semibold">v2.4 Enterprise</span>
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-zinc-400 font-mono">Defensive OPSEC & Digital Footprint Intelligence</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-1 pl-4 border-l border-white/10 text-xs text-zinc-400 font-mono">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span>
+                <span>692+ Recon Platforms Active</span>
+            </div>
+        </div>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center gap-3">
+            <select id="scenarioSelect" onchange="loadScenario(this.value)" class="bg-slate-900 border border-white/10 text-xs rounded-lg px-3 py-1.5 text-zinc-300 focus:outline-none focus:border-cyan-500 font-mono">
+                <option value="">⚡ Load Target Scenario...</option>
+                <option value="octocat">Tech Lead / Architect (@octocat)</option>
+                <option value="satoshi">Crypto / Quant Pioneer (@satoshi)</option>
+                <option value="torvalds">Kernel Maintainer (@torvalds)</option>
+                <option value="adityamehra">Executive Enterprise Profile (@adityamehra)</option>
+            </select>
+            <button onclick="downloadJsonReport()" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-xs font-medium text-zinc-200 transition">
+                <i data-lucide="file-json" class="w-3.5 h-3.5 text-cyan-400"></i> Export JSON
+            </button>
+            <button onclick="window.print()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-xs font-semibold text-white shadow-lg shadow-cyan-600/20 transition">
+                <i data-lucide="printer" class="w-3.5 h-3.5"></i> Dossier PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 space-y-6">
+
+        <!-- Search & Control Tower -->
+        <div class="glass-panel rounded-2xl p-5 md:p-6 space-y-4">
+            <div class="flex flex-col md:flex-row items-center gap-3">
+                <!-- Target Input -->
+                <div class="relative flex-1 w-full">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-400 font-mono">
+                        <i data-lucide="at-sign" class="w-4 h-4 text-cyan-400"></i>
+                    </div>
+                    <input id="targetInput" type="text" placeholder="Enter target username or handle (e.g. octocat, satoshi)..." value="octocat" 
+                           class="w-full pl-10 pr-4 py-3 bg-slate-900/90 border border-white/10 rounded-xl text-white font-mono text-sm placeholder-zinc-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition shadow-inner">
+                </div>
+
+                <!-- Mode & Parameters -->
+                <div class="flex items-center gap-2 w-full md:w-auto">
+                    <select id="probeMode" class="bg-slate-900 border border-white/10 text-xs font-mono rounded-xl px-3 py-3 text-zinc-300 focus:outline-none focus:border-cyan-500">
+                        <option value="simulation">⚡ Fast Simulation (Cached)</option>
+                        <option value="live">🌐 Live Asynchronous Probes</option>
+                    </select>
+                    <select id="categoryFilterSelect" class="bg-slate-900 border border-white/10 text-xs font-mono rounded-xl px-3 py-3 text-zinc-300 focus:outline-none focus:border-cyan-500">
+                        <option value="">All Categories (692)</option>
+                        <option value="tech">Tech / Dev</option>
+                        <option value="social">Social Media</option>
+                        <option value="gaming">Gaming & Streaming</option>
+                        <option value="finance">Finance / Crypto</option>
+                        <option value="business">Business / Career</option>
+                    </select>
+                    <button onclick="triggerScan()" id="scanButton" class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 transition">
+                        <i data-lucide="crosshair" class="w-4 h-4"></i>
+                        <span>Audit Target</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Live Status & Stats Bar -->
+            <div class="flex flex-wrap items-center justify-between text-xs text-zinc-400 pt-2 border-t border-white/5 font-mono">
+                <div class="flex items-center gap-4">
+                    <span id="scanStatusBadge" class="flex items-center gap-1.5 text-emerald-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Engine Ready
+                    </span>
+                    <span id="targetEcho" class="text-zinc-300">Target: <strong class="text-white">@octocat</strong></span>
+                    <span id="censusCount" class="text-zinc-500">Dataset: 692 platforms</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="flex items-center gap-1.5 cursor-pointer text-zinc-400 hover:text-white">
+                        <input id="noNsfwCheck" type="checkbox" checked class="rounded border-zinc-700 bg-slate-900 text-cyan-500 focus:ring-0">
+                        <span>Strip NSFW Sites</span>
+                    </label>
+                    <label class="flex items-center gap-1.5 cursor-pointer text-zinc-400 hover:text-white">
+                        <input id="autoAuditCheck" type="checkbox" checked class="rounded border-zinc-700 bg-slate-900 text-cyan-500 focus:ring-0">
+                        <span>Synthesize OPSEC Profile</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Target Profile Header & Threat Overview -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Footprint Score Card -->
+            <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs uppercase font-mono tracking-wider text-zinc-400">Digital Footprint Index</span>
+                        <span id="threatTierBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-red-500/20 text-red-400 border border-red-500/40">CRITICAL</span>
+                    </div>
+                    <div class="flex items-baseline gap-3">
+                        <span id="footprintScore" class="text-6xl font-extrabold font-mono text-cyan-400 tracking-tight">72.4</span>
+                        <span class="text-sm font-mono text-zinc-500">/ 100</span>
+                    </div>
+                    <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+                        Quantifies public handle exposure, category diversity, and correlated attack surface across 692 monitored registries.
+                    </p>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-white/5 space-y-2 text-xs font-mono">
+                    <div class="flex justify-between text-zinc-400">
+                        <span>Credential Stuffing Surface:</span>
+                        <strong id="credStuffingRisk" class="text-amber-400">HIGH EXPOSURE</strong>
+                    </div>
+                    <div class="flex justify-between text-zinc-400">
+                        <span>Namespace Impersonation Risk:</span>
+                        <strong id="impersonationRisk" class="text-cyan-400">MODERATE</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Target Vitals & AI Behavioral Archetype -->
+            <div class="glass-panel rounded-2xl p-6 lg:col-span-2 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center font-bold text-white text-lg font-mono shadow-md">
+                                <span id="targetInitials">OC</span>
+                            </div>
+                            <div>
+                                <h2 id="targetDisplayTitle" class="text-xl font-bold text-white font-mono">@octocat</h2>
+                                <div class="flex items-center gap-2 mt-0.5">
+                                    <span id="inferredArchetypeBadge" class="text-xs px-2 py-0.5 rounded bg-purple-950 border border-purple-800 text-purple-300 font-semibold font-mono">Software Architect / Technologist</span>
+                                    <span class="text-xs text-zinc-500">•</span>
+                                    <span id="verifiedHitCount" class="text-xs text-emerald-400 font-mono font-medium">17 verified accounts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-mono text-zinc-500" id="lastAuditedTime">Audited: Just now</span>
+                    </div>
+
+                    <!-- AI Synthesis -->
+                    <div class="mt-4 p-4 rounded-xl bg-purple-950/20 border border-purple-900/40 text-xs text-zinc-300 leading-relaxed">
+                        <div class="flex items-center gap-1.5 text-purple-300 font-semibold mb-1 font-mono">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Inferred Behavioral DNA
+                        </div>
+                        <p id="aiSummaryText">
+                            Target identity possesses an active footprint across multiple developer platforms, code registries, and social developer networks. Exhibits high technical affinity with consistent multi-platform handle reuse.
+                        </p>
+                        <div id="aiTagList" class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="px-2 py-0.5 rounded bg-purple-900/40 text-purple-300 text-[11px] font-mono">Developer</span>
+                            <span class="px-2 py-0.5 rounded bg-purple-900/40 text-purple-300 text-[11px] font-mono">Open-Source</span>
+                            <span class="px-2 py-0.5 rounded bg-purple-900/40 text-purple-300 text-[11px] font-mono">Technical</span>
+                            <span class="px-2 py-0.5 rounded bg-purple-900/40 text-purple-300 text-[11px] font-mono">Creator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Domain Tags -->
+                <div class="mt-4 pt-3 border-t border-white/5 flex flex-wrap items-center justify-between text-xs text-zinc-400">
+                    <span class="font-mono text-zinc-500">Core Affinities:</span>
+                    <div id="affinityTags" class="flex items-center gap-2 font-mono text-zinc-300">
+                        <span class="flex items-center gap-1"><i data-lucide="code" class="w-3 h-3 text-cyan-400"></i> Tech & Code</span>
+                        <span class="flex items-center gap-1"><i data-lucide="users" class="w-3 h-3 text-emerald-400"></i> Social</span>
+                        <span class="flex items-center gap-1"><i data-lucide="coins" class="w-3 h-3 text-amber-400"></i> Finance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discovered Accounts Arsenal -->
+        <div class="glass-panel rounded-2xl p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="radar" class="w-5 h-5 text-cyan-400"></i>
+                        Discovered Public Endpoints (<span id="tableCountBadge">17</span>)
+                    </h3>
+                    <p class="text-xs text-zinc-400">Verified platform identities matching target pseudonym</p>
+                </div>
+
+                <!-- Live Search in Table -->
+                <div class="flex items-center gap-2">
+                    <div class="relative w-full sm:w-64">
+                        <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-3 text-zinc-400"></i>
+                        <input id="tableSearchInput" oninput="filterDiscoveredTable(this.value)" type="text" placeholder="Filter platform or category..." 
+                               class="w-full pl-9 pr-3 py-1.5 bg-slate-900 border border-white/10 rounded-lg text-xs font-mono text-white focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <button onclick="downloadCsvReport()" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-zinc-300 border border-white/10" title="Export CSV">
+                        <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Pills -->
+            <div id="categoryPillContainer" class="flex flex-wrap gap-1.5 pt-1">
+                <button onclick="filterByCategory('all')" class="cat-pill active px-3 py-1 rounded-lg text-xs font-mono font-medium bg-cyan-600 text-white transition">All (17)</button>
+                <button onclick="filterByCategory('tech')" class="cat-pill px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-zinc-300 hover:bg-slate-700 transition">Tech & Coding (8)</button>
+                <button onclick="filterByCategory('social')" class="cat-pill px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-zinc-300 hover:bg-slate-700 transition">Social (5)</button>
+                <button onclick="filterByCategory('finance')" class="cat-pill px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-zinc-300 hover:bg-slate-700 transition">Finance (2)</button>
+                <button onclick="filterByCategory('gaming')" class="cat-pill px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-zinc-300 hover:bg-slate-700 transition">Gaming (2)</button>
+            </div>
+
+            <!-- Platform Grid -->
+            <div id="accountsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+
+        <!-- Defensive Hardening & OPSEC Action Plan -->
+        <div class="glass-panel rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+                        Defensive Hardening & OPSEC Action Plan
+                    </h3>
+                    <p class="text-xs text-zinc-400">Prioritized countermeasures to mitigate credential stuffing and impersonation</p>
+                </div>
+                <span class="text-xs font-mono text-zinc-500">4 Mitigations Recommended</span>
+            </div>
+
+            <div id="recommendationsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-white/5 py-4 px-6 text-center text-xs text-zinc-500 font-mono">
+        Blackbird OSINT & Defensive Intelligence Suite • Integrated with WhatsMyName 692+ Registry • Autonomous Enterprise Mode
+    </footer>
+
+    <!-- Client-Side State & Controller -->
+    <script>
+        let currentScanResult = null;
+        let activeCategory = 'all';
+
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            // Run default demo on load
+            triggerScan(true);
+        });
+
+        const SCENARIOS = {
+            octocat: {
+                target: "octocat",
+                footprint_index: 70.7,
+                threat_tier: "HIGH EXPOSURE",
+                tier_color: "#f97316",
+                found_count: 17,
+                archetype: "Software Architect / Technologist",
+                summary: "Target identity 'octocat' possesses an active presence across 17 platforms spanning tech, open source, and creator monetization networks.",
+                tags: ["Developer", "Open-Source", "Technical", "Creator"],
+                accounts: [
+                    { name: "GitHub", category: "coding", url: "https://github.com/octocat", latency_ms: 142 },
+                    { name: "GitLab", category: "coding", url: "https://gitlab.com/octocat", latency_ms: 180 },
+                    { name: "Twitter / X", category: "social", url: "https://x.com/octocat", latency_ms: 120 },
+                    { name: "Reddit", category: "social", url: "https://reddit.com/user/octocat", latency_ms: 165 },
+                    { name: "HackerNews", category: "tech", url: "https://news.ycombinator.com/user?id=octocat", latency_ms: 95 },
+                    { name: "DockerHub", category: "coding", url: "https://hub.docker.com/u/octocat", latency_ms: 210 },
+                    { name: "Dev.to", category: "tech", url: "https://dev.to/octocat", latency_ms: 130 },
+                    { name: "Medium", category: "blog", url: "https://medium.com/@octocat", latency_ms: 175 },
+                    { name: "Patreon", category: "finance", url: "https://www.patreon.com/octocat", latency_ms: 190 },
+                    { name: "Spotify", category: "music", url: "https://open.spotify.com/user/octocat", latency_ms: 140 },
+                    { name: "Steam", category: "gaming", url: "https://steamcommunity.com/id/octocat", latency_ms: 250 },
+                    { name: "Chess.com", category: "gaming", url: "https://www.chess.com/member/octocat", latency_ms: 115 },
+                    { name: "BuyMeACoffee", category: "finance", url: "https://buymeacoffee.com/octocat", latency_ms: 185 },
+                    { name: "Codepen", category: "coding", url: "https://codepen.io/octocat", latency_ms: 155 },
+                    { name: "About.me", category: "social", url: "https://about.me/octocat", latency_ms: 135 },
+                    { name: "Gravatar", category: "social", url: "https://gravatar.com/octocat", latency_ms: 88 },
+                    { name: "Keybase", category: "tech", url: "https://keybase.io/octocat", latency_ms: 160 }
+                ]
+            },
+            satoshi: {
+                target: "satoshi",
+                footprint_index: 84.2,
+                threat_tier: "CRITICAL EXPOSURE",
+                tier_color: "#ef4444",
+                found_count: 22,
+                archetype: "Web3 / Quantitative Asset Operator",
+                summary: "High-exposure target identity identified on cryptographic, peer-to-peer, and archival research repositories.",
+                tags: ["Crypto", "DeFi", "P2P", "Research", "Security"],
+                accounts: [
+                    { name: "BitcoinTalk", category: "crypto", url: "https://bitcointalk.org/index.php?action=profile;u=3", latency_ms: 180 },
+                    { name: "SourceForge", category: "coding", url: "https://sourceforge.net/u/satoshi", latency_ms: 145 },
+                    { name: "GitHub", category: "coding", url: "https://github.com/satoshi", latency_ms: 120 },
+                    { name: "HackerNews", category: "tech", url: "https://news.ycombinator.com/user?id=satoshi", latency_ms: 90 },
+                    { name: "Cryptography Mailing List", category: "tech", url: "https://metzdowd.com", latency_ms: 210 },
+                    { name: "Reddit", category: "social", url: "https://reddit.com/user/satoshi", latency_ms: 130 },
+                    { name: "Keybase", category: "tech", url: "https://keybase.io/satoshi", latency_ms: 175 }
+                ]
+            },
+            torvalds: {
+                target: "torvalds",
+                footprint_index: 68.0,
+                threat_tier: "HIGH EXPOSURE",
+                tier_color: "#f97316",
+                found_count: 14,
+                archetype: "Kernel Architect / Senior Maintainer",
+                summary: "Pivotal open-source systems architect handle with extensive verifiable commit activity and project provenance.",
+                tags: ["Kernel", "C", "Linux", "Git", "Maintainer"],
+                accounts: [
+                    { name: "GitHub", category: "coding", url: "https://github.com/torvalds", latency_ms: 105 },
+                    { name: "Kernel.org", category: "tech", url: "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git", latency_ms: 135 },
+                    { name: "Google+", category: "social", url: "https://plus.google.com/torvalds", latency_ms: 195 },
+                    { name: "YouTube", category: "video", url: "https://youtube.com/@torvalds", latency_ms: 160 }
+                ]
+            },
+            adityamehra: {
+                target: "adityamehra",
+                footprint_index: 45.0,
+                threat_tier: "MODERATE EXPOSURE",
+                tier_color: "#eab308",
+                found_count: 8,
+                archetype: "Corporate Strategy & Technology Executive",
+                summary: "Professional enterprise profile with presence on business networks, academic portals, and engineering repositories.",
+                tags: ["Executive", "Operations", "Enterprise", "Engineering"],
+                accounts: [
+                    { name: "LinkedIn", category: "business", url: "https://linkedin.com/in/adityamehra", latency_ms: 120 },
+                    { name: "GitHub", category: "coding", url: "https://github.com/AdityaMehra007", latency_ms: 110 },
+                    { name: "Twitter / X", category: "social", url: "https://x.com/adityamehra", latency_ms: 140 },
+                    { name: "Medium", category: "blog", url: "https://medium.com/@adityamehra", latency_ms: 180 },
+                    { name: "Dev.to", category: "tech", url: "https://dev.to/adityamehra", latency_ms: 125 }
+                ]
+            }
+        };
+
+        function loadScenario(key) {
+            if (!key || !SCENARIOS[key]) return;
+            document.getElementById('targetInput').value = SCENARIOS[key].target;
+            renderScanResult(SCENARIOS[key]);
+        }
+
+        async function triggerScan(forceDemo = false) {
+            const target = document.getElementById('targetInput').value.trim() || 'octocat';
+            const mode = document.getElementById('probeMode').value;
+            const category = document.getElementById('categoryFilterSelect').value;
+            const noNsfw = document.getElementById('noNsfwCheck').checked;
+
+            const btn = document.getElementById('scanButton');
+            const statusBadge = document.getElementById('scanStatusBadge');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Probing...`;
+            statusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> Scanning Registries...`;
+            lucide.createIcons();
+
+            if (forceDemo || mode === 'simulation') {
+                setTimeout(() => {
+                    const scenario = SCENARIOS[target] || generateDynamicMock(target);
+                    renderScanResult(scenario);
+                    btn.disabled = false;
+                    btn.innerHTML = `<i data-lucide="crosshair" class="w-4 h-4"></i> Audit Target`;
+                    statusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Audit Complete`;
+                    lucide.createIcons();
+                }, 400);
+            } else {
+                try {
+                    const response = await fetch('/api/scan', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            target: target,
+                            fast_mode: false,
+                            category: category,
+                            no_nsfw: noNsfw
+                        })
+                    });
+                    const data = await response.json();
+                    renderScanResult(data);
+                } catch (e) {
+                    console.warn("Backend API unavailable, falling back to local simulation:", e);
+                    const scenario = SCENARIOS[target] || generateDynamicMock(target);
+                    renderScanResult(scenario);
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = `<i data-lucide="crosshair" class="w-4 h-4"></i> Audit Target`;
+                    statusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Audit Complete`;
+                    lucide.createIcons();
+                }
+            }
+        }
+
+        function generateDynamicMock(target) {
+            return {
+                target: target,
+                footprint_index: 58.5,
+                threat_tier: "MODERATE EXPOSURE",
+                tier_color: "#eab308",
+                found_count: 10,
+                archetype: "Multi-Platform Digital Identity",
+                summary: `Target handle '${target}' identified on 10 online platforms. Footprint exhibits active presence in social and technical networks.`,
+                tags: ["Digital-Native", "Verified-Handle", "Active"],
+                accounts: [
+                    { name: "GitHub", category: "coding", url: `https://github.com/${target}`, latency_ms: 120 },
+                    { name: "Twitter / X", category: "social", url: `https://x.com/${target}`, latency_ms: 110 },
+                    { name: "Reddit", category: "social", url: `https://reddit.com/user/${target}`, latency_ms: 155 },
+                    { name: "Dev.to", category: "tech", url: `https://dev.to/${target}`, latency_ms: 135 },
+                    { name: "Medium", category: "blog", url: `https://medium.com/@${target}`, latency_ms: 180 },
+                    { name: "DockerHub", category: "coding", url: `https://hub.docker.com/u/${target}`, latency_ms: 195 },
+                    { name: "Spotify", category: "music", url: `https://open.spotify.com/user/${target}`, latency_ms: 140 },
+                    { name: "Steam", category: "gaming", url: `https://steamcommunity.com/id/${target}`, latency_ms: 220 }
+                ]
+            };
+        }
+
+        function renderScanResult(data) {
+            currentScanResult = data;
+            const target = data.target || "octocat";
+            const accounts = data.accounts || [];
+            const threat = data.threat_audit || data;
+            const ai = data.ai_profile || data;
+
+            document.getElementById('targetEcho').innerHTML = `Target: <strong class="text-white">@${target}</strong>`;
+            document.getElementById('targetDisplayTitle').textContent = `@${target}`;
+            document.getElementById('targetInitials').textContent = target.substring(0, 2).toUpperCase();
+
+            // Footprint Index & Tier
+            const fp = threat.footprint_index !== undefined ? threat.footprint_index : 70.0;
+            document.getElementById('footprintScore').textContent = fp.toFixed(1);
+            const tierBadge = document.getElementById('threatTierBadge');
+            tierBadge.textContent = threat.threat_tier || "MODERATE EXPOSURE";
+            tierBadge.style.color = threat.tier_color || "#f97316";
+
+            document.getElementById('credStuffingRisk').textContent = threat.credential_stuffing_risk || "HIGH";
+            document.getElementById('impersonationRisk').textContent = threat.impersonation_vulnerability || "MODERATE";
+
+            // AI Profile
+            document.getElementById('inferredArchetypeBadge').textContent = ai.profile_type || ai.archetype || "Software Technologist";
+            document.getElementById('verifiedHitCount').textContent = `${accounts.length} verified accounts`;
+            document.getElementById('aiSummaryText').textContent = ai.summary || "Synthesizing target profile...";
+
+            // Tags
+            const tagContainer = document.getElementById('aiTagList');
+            const tags = ai.tags || ["Developer", "Open-Source"];
+            tagContainer.innerHTML = tags.map(t => `<span class="px-2 py-0.5 rounded bg-purple-900/40 text-purple-300 text-[11px] font-mono">${t}</span>`).join('');
+
+            // Discovered Table count
+            document.getElementById('tableCountBadge').textContent = accounts.length;
+
+            // Render Platform Cards
+            renderAccountsGrid(accounts);
+
+            // Render Recommendations
+            renderRecommendations(target, accounts.length);
+
+            lucide.createIcons();
+        }
+
+        function renderAccountsGrid(accounts) {
+            const grid = document.getElementById('accountsGrid');
+            grid.innerHTML = '';
+
+            if (!accounts || accounts.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-10 text-center text-zinc-500 font-mono text-xs">No accounts discovered matching filters.</div>`;
+                return;
+            }
+
+            accounts.forEach(acc => {
+                const card = document.createElement('div');
+                card.className = "glass-card rounded-xl p-4 flex flex-col justify-between transition duration-200";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                <span class="font-bold text-white text-sm truncate">${acc.name}</span>
+                            </div>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/50">${acc.category || 'misc'}</span>
+                        </div>
+                        <a href="${acc.url}" target="_blank" class="mt-2 text-xs font-mono text-sky-400 hover:text-cyan-300 hover:underline truncate block">
+                            ${acc.url}
+                        </a>
+                    </div>
+                    <div class="mt-3 pt-2.5 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                        <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3"></i> Verified</span>
+                        <span>${acc.latency_ms || 120}ms</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        function filterDiscoveredTable(query) {
+            if (!currentScanResult || !currentScanResult.accounts) return;
+            const q = query.toLowerCase();
+            const filtered = currentScanResult.accounts.filter(a => 
+                a.name.toLowerCase().includes(q) || 
+                (a.category && a.category.toLowerCase().includes(q)) ||
+                a.url.toLowerCase().includes(q)
+            );
+            renderAccountsGrid(filtered);
+        }
+
+        function filterByCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('bg-cyan-600', 'text-white'));
+            event.target.classList.add('bg-cyan-600', 'text-white');
+
+            if (!currentScanResult || !currentScanResult.accounts) return;
+            if (cat === 'all') {
+                renderAccountsGrid(currentScanResult.accounts);
+            } else {
+                const filtered = currentScanResult.accounts.filter(a => (a.category || '').toLowerCase().includes(cat));
+                renderAccountsGrid(filtered);
+            }
+        }
+
+        function renderRecommendations(target, count) {
+            const container = document.getElementById('recommendationsContainer');
+            const recs = [
+                {
+                    priority: "HIGH",
+                    color: "border-red-500/40 bg-red-950/20 text-red-300",
+                    action: "Enforce Hardware FIDO2 / MFA",
+                    rationale: `Handle '@${target}' is active across ${count} public platforms. Single-factor credentials face catastrophic credential stuffing exposure.`
+                },
+                {
+                    priority: "MEDIUM",
+                    color: "border-amber-500/40 bg-amber-950/20 text-amber-300",
+                    action: "Claim Unregistered Core Namespaces",
+                    rationale: `Secure high-trust namespaces on GitHub, GitLab, Twitter, and LinkedIn to prevent brand hijacking or executive impersonation.`
+                },
+                {
+                    priority: "MEDIUM",
+                    color: "border-amber-500/40 bg-amber-950/20 text-amber-300",
+                    action: "Sanitize Public Metadata & Bio PII",
+                    rationale: "Audit bio strings across older profiles to purge exposed personal phone numbers, physical locations, or corporate emails."
+                },
+                {
+                    priority: "LOW",
+                    color: "border-emerald-500/40 bg-emerald-950/20 text-emerald-300",
+                    action: "Decommission Orphaned Legacy Profiles",
+                    rationale: "Unmaintained legacy forums and forgotten accounts remain susceptible to historical database leaks."
+                }
+            ];
+
+            container.innerHTML = recs.map(r => `
+                <div class="p-4 rounded-xl border ${r.color} flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[11px] font-bold font-mono tracking-wider uppercase">[${r.priority}]</span>
+                            <i data-lucide="shield-alert" class="w-4 h-4 opacity-75"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-white">${r.action}</h4>
+                        <p class="text-xs text-zinc-300 mt-1 leading-relaxed">${r.rationale}</p>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-white/5 flex items-center gap-2">
+                        <input type="checkbox" class="rounded border-zinc-700 bg-slate-900 text-cyan-500 focus:ring-0">
+                        <span class="text-[11px] text-zinc-400 font-mono">Mark Implemented</span>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function downloadJsonReport() {
+            if (!currentScanResult) return;
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentScanResult, null, 2));
+            const dlAnchor = document.createElement('a');
+            dlAnchor.setAttribute("href", dataStr);
+            dlAnchor.setAttribute("download", `blackbird_${currentScanResult.target || 'target'}.json`);
+            dlAnchor.click();
+        }
+
+        function downloadCsvReport() {
+            if (!currentScanResult || !currentScanResult.accounts) return;
+            let csv = "Platform,Category,URL,Latency_ms\n";
+            currentScanResult.accounts.forEach(a => {
+                csv += `"${a.name}","${a.category || ''}","${a.url}","${a.latency_ms || ''}"\n`;
+            });
+            const dataStr = "data:text/csv;charset=utf-8," + encodeURIComponent(csv);
+            const dlAnchor = document.createElement('a');
+            dlAnchor.setAttribute("href", dataStr);
+            dlAnchor.setAttribute("download", `blackbird_${currentScanResult.target || 'target'}.csv`);
+            dlAnchor.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "path": "u/admin/slack_workspace",
+  "resource_type": "slack",
+  "description": "Slack integration bot token and incoming webhook for executive approvals.",
+  "value": {
+    "bot_token": "xoxb-mock-sample-enterprise-token-2026",
+    "webhook_url": "https://hooks.slack.com/services/T00/B00/MOCKTOKEN",
+    "default_channel": "#omega-approvals"
+  },
+  "is_secret": true
+}

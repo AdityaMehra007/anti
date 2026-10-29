@@ -1,0 +1,63 @@
+{
+  "active_layout": "priority-grid-01",
+  "layouts": [
+    {
+      "id": "priority-grid-01",
+      "name": "Priority Grid (3 Zones)",
+      "type": "grid",
+      "columns": 3,
+      "rows": 1,
+      "zone_count": 3,
+      "spacing": 16,
+      "padding": 12,
+      "zones": [
+        { "id": 1, "x": 0.0, "y": 0.0, "width": 0.25, "height": 1.0, "name": "Sidebar Primary" },
+        { "id": 2, "x": 0.25, "y": 0.0, "width": 0.50, "height": 1.0, "name": "Center Focus" },
+        { "id": 3, "x": 0.75, "y": 0.0, "width": 0.25, "height": 1.0, "name": "Terminal Auxiliary" }
+      ]
+    },
+    {
+      "id": "grid-2x2",
+      "name": "Quad Grid (2x2)",
+      "type": "grid",
+      "columns": 2,
+      "rows": 2,
+      "zone_count": 4,
+      "spacing": 12,
+      "padding": 10,
+      "zones": [
+        { "id": 1, "x": 0.0, "y": 0.0, "width": 0.5, "height": 0.5, "name": "Top Left" },
+        { "id": 2, "x": 0.5, "y": 0.0, "width": 0.5, "height": 0.5, "name": "Top Right" },
+        { "id": 3, "x": 0.0, "y": 0.5, "width": 0.5, "height": 0.5, "name": "Bottom Left" },
+        { "id": 4, "x": 0.5, "y": 0.5, "width": 0.5, "height": 0.5, "name": "Bottom Right" }
+      ]
+    },
+    {
+      "id": "ultrawide-coder",
+      "name": "UltraWide Master 32:9",
+      "type": "grid",
+      "columns": 4,
+      "rows": 1,
+      "zone_count": 4,
+      "spacing": 14,
+      "padding": 8,
+      "zones": [
+        { "id": 1, "x": 0.0, "y": 0.0, "width": 0.20, "height": 1.0, "name": "Slack & Comms" },
+        { "id": 2, "x": 0.20, "y": 0.0, "width": 0.40, "height": 1.0, "name": "Editor Primary" },
+        { "id": 3, "x": 0.60, "y": 0.0, "width": 0.25, "height": 1.0, "name": "Browser Preview" },
+        { "id": 4, "x": 0.85, "y": 0.0, "width": 0.15, "height": 1.0, "name": "Diagnostics & Logs" }
+      ]
+    },
+    {
+      "id": "focus-central",
+      "name": "Single Central Focus",
+      "type": "canvas",
+      "zone_count": 1,
+      "spacing": 0,
+      "padding": 0,
+      "zones": [
+        { "id": 1, "x": 0.15, "y": 0.05, "width": 0.70, "height": 0.90, "name": "Distraction Free" }
+      ]
+    }
+  ]
+}

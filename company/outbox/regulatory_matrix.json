@@ -1,0 +1,51 @@
+{
+  "matrix_version": "1.0.0-OMEGA-MODE-B",
+  "generated_at": "2026-10-27T02:22:00Z",
+  "governing_standard": "ICC UCP 600 / ISBP 745 / EU CBAM Regulation 2023/956 / DGFT FTP 2023",
+  "actor": "OMEGA_INFINITY_KERNEL [MODE_B_RESEARCH]",
+  "regulatory_frameworks": {
+    "icc_ucp_600": {
+      "standard": "Uniform Customs and Practice for Documentary Credits (2007 Revision)",
+      "total_fatal_rules_indexed": 39,
+      "core_fatal_checkpoints": [
+        {"rule_id": "UCP-01", "article": "Article 14(a)", "name": "Strict Compliance Standard", "condition": "Documents appearing on their face to be inconsistent with terms and conditions of credit.", "penalty": "Discrepancy notice & document rejection"},
+        {"rule_id": "UCP-02", "article": "Article 14(b)", "name": "5 Banking Day Examination Period", "condition": "Examination must conclude within 5 banking days following day of presentation.", "penalty": "Preclusion rule Article 16(f)"},
+        {"rule_id": "UCP-03", "article": "Article 14(d)", "name": "Data Consistency Across Documents", "condition": "Data in a document, when read in context with credit, documents, and UCP, need not be identical to, but must not conflict with, data in that document, any other stipulated document, or the credit.", "penalty": "Fatal conflict discrepancy"},
+        {"rule_id": "UCP-04", "article": "Article 14(e)", "name": "Goods Description in Commercial Invoice", "condition": "Description of goods in commercial invoice must correspond strictly with that in credit; other documents may describe goods in general terms.", "penalty": "Fatal invoice description mismatch"},
+        {"rule_id": "UCP-05", "article": "Article 18(a)(iii)", "name": "Invoice Currency Concordance", "condition": "Invoice must be made out in the currency of credit.", "penalty": "Immediate non-negotiable rejection"},
+        {"rule_id": "UCP-06", "article": "Article 19-25", "name": "Transport Document Cleanliness & Shipped on Board", "condition": "Bill of Lading or transport doc must indicate goods have been loaded on board or shipped, without clauses declaring defective condition (clean transport document).", "penalty": "Claused / dirty transport rejection"},
+        {"rule_id": "UCP-07", "article": "Article 28(a)", "name": "Insurance Document Underwriting Date", "condition": "Insurance document date must be no later than date of shipment, or indicate coverage effective from date no later than shipment.", "penalty": "Uninsured transit fatal discrepancy"},
+        {"rule_id": "UCP-08", "article": "Article 31(b)", "name": "Prohibition of Partial Shipments", "condition": "Partial shipments not permitted unless explicitly allowed in credit field 43P.", "penalty": "Partial drawing fatal rejection"}
+      ]
+    },
+    "eu_cbam": {
+      "regulation": "Regulation (EU) 2023/956 of the European Parliament and of the Council",
+      "target_sectors": ["Iron and steel", "Aluminium", "Fertilizers", "Cement", "Electricity", "Hydrogen"],
+      "steel_cn_codes_indexed": ["7208", "7209", "7210", "7213", "7214", "7216", "7304", "7306", "7307", "7326"],
+      "reporting_obligation": "Quarterly CBAM declaration of direct and indirect embedded emissions (tCO2e / tonne of product)",
+      "carbon_default_values_rule": "Default emissions applied if verified installation-specific MRV report is absent; incurs maximum punitive default levy (€80–€100/tCO2e)"
+    },
+    "dgft_ftp_2023": {
+      "policy": "Indian Foreign Trade Policy (FTP 2023) - Ministry of Commerce and Industry",
+      "schemes_integrated": [
+        {"scheme": "Advance Authorization", "provision": "Duty-free raw material import for physical export production", "reconciliation_timeline": "18 months export obligation fulfillment"},
+        {"scheme": "RoDTEP", "provision": "Remission of Duties and Taxes on Exported Products rebate credits via ICEGATE ledger", "reconciliation_timeline": "Quarterly scrip ledger audit"},
+        {"scheme": "e-BRC Realization", "provision": "Electronic Bank Realisation Certificate reconciliation through DGFT-RBI EDPMS interface", "reconciliation_timeline": "9 months from export date under FEMA guidelines"}
+      ]
+    },
+    "dpiit_startup_india": {
+      "entity_evaluation": "VECTIS TRADE TECHNOLOGIES PRIVATE LIMITED",
+      "section_80_iac": {
+        "status": "ELIGIBLE",
+        "benefit": "100% deduction of profits and gains derived from eligible business for 3 consecutive assessment years out of 10 years",
+        "statutory_turnover_ceiling": "INR 100 Crore",
+        "inter_ministerial_board_status": "Ready for submission upon Certificate of Incorporation"
+      },
+      "section_56_2_viib": {
+        "angel_tax_exemption": "Form 2 self-declaration compliant",
+        "status": "EXEMPT"
+      }
+    }
+  },
+  "verification_checksum": "sha256:7f3a9b1c5e4d2089b21a88390cfa1019d123e440b8a1c6e938f29210984da091"
+}

@@ -1,0 +1,144 @@
+{
+  "name": "Microsoft PowerToys Autonomous Suite",
+  "version": "0.88.0",
+  "release_channel": "stable",
+  "telemetry": false,
+  "download_updates_automatically": false,
+  "startup": true,
+  "theme": "dark",
+  "system_tray_icon": true,
+  "elevated_status": false,
+  "run_at_startup": true,
+  "modules": {
+    "FancyZones": {
+      "enabled": true,
+      "hotkey": "Win+Shift+`",
+      "override_snap": true,
+      "move_windows_across_monitors": true,
+      "zone_highlight_color": "#0078D4",
+      "zone_border_color": "#FFFFFF",
+      "zone_opacity": 60,
+      "active_layout_id": "priority-grid-01"
+    },
+    "PowerToys Run": {
+      "enabled": true,
+      "hotkey": "Alt+Space",
+      "plugins_count": 8,
+      "max_results": 6,
+      "clear_input_on_launch": true,
+      "theme": "Dark"
+    },
+    "Awake": {
+      "enabled": true,
+      "mode": "INDEFINITE",
+      "keep_display_on": true,
+      "custom_time_minutes": 60,
+      "expiration_timestamp": null
+    },
+    "Keyboard Manager": {
+      "enabled": true,
+      "remap_keys_count": 2,
+      "remap_shortcuts_count": 2
+    },
+    "Color Picker": {
+      "enabled": true,
+      "hotkey": "Win+Shift+C",
+      "default_format": "HEX",
+      "show_color_name": true
+    },
+    "Text Extractor": {
+      "enabled": true,
+      "hotkey": "Win+Shift+T",
+      "ocr_language": "en-US"
+    },
+    "Image Resizer": {
+      "enabled": true,
+      "jpeg_quality": 90,
+      "default_preset": "Medium"
+    },
+    "Mouse Utilities": {
+      "enabled": true,
+      "find_my_mouse": true,
+      "mouse_highlighter": true,
+      "mouse_jump": true,
+      "mouse_pointer_crosshairs": false
+    },
+    "Hosts File Editor": {
+      "enabled": true,
+      "launch_administrator": false,
+      "backup_hosts": true,
+      "show_loopback_entries": true
+    },
+    "File Locksmith": {
+      "enabled": true,
+      "context_menu": true
+    },
+    "Peek": {
+      "enabled": true,
+      "hotkey": "Ctrl+Space",
+      "close_after_losing_focus": true
+    },
+    "Advanced Paste": {
+      "enabled": true,
+      "hotkey": "Win+Ctrl+Alt+V",
+      "ai_enabled": true,
+      "paste_as_markdown": true
+    },
+    "Always on Top": {
+      "enabled": true,
+      "hotkey": "Win+Ctrl+T",
+      "frame_color": "#0078D4",
+      "frame_thickness": 3,
+      "sound_notification": false
+    },
+    "Registry Preview": {
+      "enabled": true,
+      "context_menu": true
+    },
+    "Crop and Lock": {
+      "enabled": true,
+      "hotkey_thumbnail": "Win+Ctrl+Shift+T",
+      "hotkey_reparent": "Win+Ctrl+Shift+R"
+    },
+    "Environment Variables": {
+      "enabled": true,
+      "launch_administrator": false
+    },
+    "Quick Accent": {
+      "enabled": true,
+      "activation_key": "Space"
+    },
+    "Cmd NotFound": {
+      "enabled": true,
+      "powershell_integration": true
+    },
+    "Workspaces": {
+      "enabled": true,
+      "hotkey": "Win+Ctrl+`",
+      "active_workspace": "Full-Stack Dev"
+    },
+    "Screen Ruler": {
+      "enabled": true,
+      "hotkey": "Win+Shift+M"
+    },
+    "Shortcut Guide": {
+      "enabled": true,
+      "hotkey": "Win+Shift+/"
+    },
+    "File Explorer Add-ons": {
+      "enabled": true,
+      "svg_preview": true,
+      "markdown_preview": true,
+      "pdf_preview": true,
+      "gcode_preview": true
+    },
+    "Mouse Without Borders": {
+      "enabled": false,
+      "machine_matrix": []
+    },
+    "Measure Tool": {
+      "enabled": true,
+      "draw_crosshairs": true
+    }
+  }
+}

@@ -313,3 +313,16 @@
 | `BLR-LIVE-1021-01` | **Trane Technologies** | Superviseur - Ingénierie | **Live** | [Apply via Indeed](https://careers.tranetechnologies.com/global/fr/job/JR-16893) | Talent Acquisition Team |
 | `BLR-LIVE-1021-01` | **Annet Technologies** | Business Development Associate (BDA) | **Live** | [Apply via Indeed](http://in.indeed.com/job/business-development-associate-bda-0311105db1e36860) | Talent Acquisition Team |
 | `BLR-LIVE-1021-01` | **Marriott International** | Training Executive | **Live** | [Apply via Indeed](https://careers.marriott.com/training-executive/job/PDX_MI_C171EA2E-FF24-4294-A868-E9C80A35E11B_22341542?utm_medium=jobboard&utm_source=indeed) | Talent Acquisition Team |
+| `BLR-LIVE-1026-01` | **HawkStack Technologies** | Business Development Associate | **Live** | [Apply via Indeed](http://in.indeed.com/job/business-development-associate-99e968732a536713) | Talent Acquisition Team |
+| `BLR-LIVE-1026-02` | **Datakrew Pvt. Ltd** | Associate Business Development Manager | **Live** | [Apply via Indeed](https://jobs.smartrecruiters.com/DataKrewPvtLtd/744000157808378-associate-business-development-manager) | Talent Acquisition Team |
+| `BLR-LIVE-1026-03` | **JobKreators** | Business Development Associate | **Live** | [Apply via Indeed](http://in.indeed.com/job/business-development-associate-cc56aca55018904c) | Talent Acquisition Team |
+| `BLR-LIVE-1026-04` | **Myntra** | Lead Associate - Business Development | **Live** | [Apply via Indeed](https://jobs.myntra.com/jobs/3787207691) | Talent Acquisition Team |
+| `BLR-LIVE-1026-05` | **Liquide** | Business Development Associate | **Live** | [Apply via LinkedIn](https://www.linkedin.com/jobs/view/4482921870) | Talent Acquisition Team |
+| `BLR-LIVE-1026-06` | **Scale Global** | Business Development Associate - Brand Acquisition | **Live** | [Apply via LinkedIn](https://www.linkedin.com/jobs/view/4481419208) | Talent Acquisition Team |
+| `BLR-LIVE-1026-07` | **Aaura AdWorks** | Business Development Associate | **Live** | [Apply via LinkedIn](https://www.linkedin.com/jobs/view/4482920707) | Talent Acquisition Team |
+| `BLR-LIVE-1026-08` | **UrbanPiper** | Associate - Product Support Specialist | **Live** | [Apply via Indeed](https://urbanpiper.keka.com/careers/jobdetails/93675) | Talent Acquisition Team |
+| `BLR-LIVE-1026-09` | **Reward360 Global Services Private Limited** | Associate InfoSec Engineer | **Live** | [Apply via Indeed](https://reward360.keka.com/careers/jobdetails/167873?source=indeed%20job%20posts) | Talent Acquisition Team |
+| `BLR-LIVE-1026-10` | **PwC Acceleration Center India** | Managed Services - TDR POD-AI Security Engineer-Associate-Consult | **Live** | [Apply via LinkedIn](https://www.linkedin.com/jobs/view/4481014004) | Talent Acquisition Team |
+| `BLR-LIVE-1026-11` | **Officeworks GCC India** | Associate Engineer - AI Platforms & FinOps - Cost Optimization [T500-30407] | **Live** | [Apply via LinkedIn](https://www.linkedin.com/jobs/view/4483538817) | Talent Acquisition Team |
+ via LinkedIn](https://www.linkedin.com/jobs/view/4481014004) | Talent Acquisition Team |
+| `BLR-LIVE-1026-12` | **Officeworks GCC India** | Associate Engineer - AI Platforms & FinOps - Cost Optimization [T500-30407] | **Live** | [Apply via LinkedIn](https://www.linkedin.com/jobs/view/4483538817) | Talent Acquisition Team |

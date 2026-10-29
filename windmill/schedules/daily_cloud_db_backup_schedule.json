@@ -1,0 +1,14 @@
+{
+  "path": "u/admin/daily_cloud_db_backup_schedule",
+  "schedule": "30 2 * * *",
+  "timezone": "UTC",
+  "script_path": "u/admin/daily_cloud_snapshot_and_s3_vault",
+  "is_flow": false,
+  "args": {
+    "cluster_id": "pg-omega-primary-blr",
+    "database_name": "windmill_db",
+    "retention_days": 90
+  },
+  "summary": "Nightly 02:30 UTC Database Volume Snapshot & S3 Vault Archival",
+  "enabled": true
+}

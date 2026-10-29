@@ -47,7 +47,7 @@ md.append('| **Cisco** | `4446332173` | Data Analyst | **3** | Shimna M (Talent 
 md.append('| **HSBC** | `4452434953` | Business Analyst | **17** | Archana Rao Sarrgur (Leadership Hiring Mgr), Ekta Agarwal (Portfolio Analytics) |')
 md.append('| **Swiggy** | `SWIGGY_OPS_001` | Operations & Expansion Associate | **8** | Prerna Khedkar (Senior Exec HR), ANANYA G (Lead) |')
 md.append('| **Zepto** | `ZEPTO_OPS_002` | City Operations Lead (Dark Store SCM) | **2** | Yashaswini L (Talent Acquisition Specialist) |')
-md.append('| **Hilton** | `4450278984` | Events Executive \| Conrad Bengaluru | **1** | Nupur Niswan Pal (Assistant Manager Finance) |')
+md.append(r'| **Hilton** | `4450278984` | Events Executive \| Conrad Bengaluru | **1** | Nupur Niswan Pal (Assistant Manager Finance) |')
 md.append('| **Thomson Reuters** | `4446747144` | Events Coordinator | **1** | Heera Hari (Trainee Correspondent) |')
 md.append('')
 md.append('---')

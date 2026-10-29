@@ -1,0 +1,13 @@
+{
+  "path": "u/admin/nightly_reconciliation_schedule",
+  "schedule": "0 0 * * *",
+  "timezone": "Asia/Kolkata",
+  "script_path": "u/admin/nightly_system_reconciliation_flow",
+  "is_flow": true,
+  "args": {
+    "force_run": true,
+    "batch_reference": "CRON-NIGHTLY-RECON"
+  },
+  "summary": "Midnight Automated Ledger Reconciliation & Sovereign Briefing",
+  "enabled": true
+}

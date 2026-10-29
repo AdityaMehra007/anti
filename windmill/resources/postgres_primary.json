@@ -1,0 +1,13 @@
+{
+  "path": "u/admin/postgres_primary",
+  "resource_type": "postgresql",
+  "description": "Primary PostgreSQL 16 cluster for Windmill state and ERP analytical reporting.",
+  "value": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "windmill",
+    "dbname": "windmill_db",
+    "sslmode": "prefer"
+  },
+  "is_secret": false
+}

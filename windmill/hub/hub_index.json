@@ -1,0 +1,160 @@
+[
+  {
+    "id": "hub/scripts/slack_post_message",
+    "name": "Slack: Post Rich Message / Alert",
+    "summary": "Post formatted blocks, markdown, or error notifications to any Slack channel via Bot Token or Incoming Webhook.",
+    "category": "Communication",
+    "language": "python",
+    "author": "windmill-team",
+    "stars": 420,
+    "downloads": 18450,
+    "version": "1.4.2",
+    "schema": {
+      "channel": {"type": "string", "default": "#general"},
+      "message": {"type": "string", "description": "Markdown text to post"},
+      "blocks": {"type": "array", "description": "Optional Slack block kit JSON"}
+    }
+  },
+  {
+    "id": "hub/scripts/postgres_query_executor",
+    "name": "PostgreSQL: Parameterized Query Runner",
+    "summary": "Execute read or write SQL statements with connection pooling and JSON serializable output.",
+    "category": "Database",
+    "language": "python",
+    "author": "windmill-team",
+    "stars": 389,
+    "downloads": 24100,
+    "version": "2.1.0",
+    "schema": {
+      "query": {"type": "string", "description": "SQL query with $1, $2 placeholders"},
+      "params": {"type": "array", "description": "Query parameters list"}
+    }
+  },
+  {
+    "id": "hub/scripts/aws_s3_file_transfer",
+    "name": "AWS S3: Presigned URL & Object Sync",
+    "summary": "Upload, download, or generate presigned URLs for secure distributed file sharing.",
+    "category": "Cloud & Infra",
+    "language": "python",
+    "author": "aws-community",
+    "stars": 312,
+    "downloads": 14200,
+    "version": "1.3.0",
+    "schema": {
+      "bucket": {"type": "string"},
+      "key": {"type": "string"},
+      "operation": {"type": "string", "enum": ["get", "put", "presigned_url"]}
+    }
+  },
+  {
+    "id": "hub/scripts/github_repo_dispatch",
+    "name": "GitHub: Trigger Workflow Dispatch",
+    "summary": "Trigger remote GitHub Actions CI/CD workflows and wait for run completion status.",
+    "category": "DevOps",
+    "language": "typescript",
+    "author": "octocat-dev",
+    "stars": 275,
+    "downloads": 9800,
+    "version": "1.1.5",
+    "schema": {
+      "owner": {"type": "string"},
+      "repo": {"type": "string"},
+      "workflow_id": {"type": "string"},
+      "ref": {"type": "string", "default": "main"}
+    }
+  },
+  {
+    "id": "hub/scripts/openai_chat_structured_json",
+    "name": "OpenAI: Structured JSON Entity Extractor",
+    "summary": "Extract deterministic, Pydantic-validated JSON objects from unstructured text or documents.",
+    "category": "AI & GenAI",
+    "language": "python",
+    "author": "ai-ops",
+    "stars": 540,
+    "downloads": 31500,
+    "version": "3.0.0",
+    "schema": {
+      "prompt": {"type": "string"},
+      "schema_json": {"type": "object"},
+      "model": {"type": "string", "default": "gpt-4o"}
+    }
+  },
+  {
+    "id": "hub/scripts/stripe_invoice_reconciler",
+    "name": "Stripe: Automated Payment & Dispute Sync",
+    "summary": "Fetch real-time Stripe customer charges, refunds, and reconcile against internal accounting ledgers.",
+    "category": "Finance & Billing",
+    "language": "python",
+    "author": "fintech-guild",
+    "stars": 240,
+    "downloads": 8700,
+    "version": "1.2.1",
+    "schema": {
+      "start_timestamp": {"type": "integer"},
+      "customer_id": {"type": "string", "default": ""}
+    }
+  },
+  {
+    "id": "hub/flows/enterprise_approval_flow",
+    "name": "Flow: Multi-Tier Executive Approval DAG",
+    "summary": "Suspend execution and generate email/Slack approval requests with 48h timeout and escalations.",
+    "category": "Workflows & DAGs",
+    "language": "flow",
+    "author": "windmill-team",
+    "stars": 490,
+    "downloads": 17800,
+    "version": "2.0.0",
+    "schema": {
+      "docket_id": {"type": "string"},
+      "amount_usd": {"type": "number"},
+      "approver_emails": {"type": "array"}
+    }
+  },
+  {
+    "id": "hub/scripts/docker_container_prune",
+    "name": "Docker: Automated Swarm Node Maintenance",
+    "summary": "Clean stopped containers, dangling images, build caches, and collect node telemetry.",
+    "category": "Cloud & Infra",
+    "language": "bash",
+    "author": "sysops-pro",
+    "stars": 195,
+    "downloads": 6500,
+    "version": "1.0.8",
+    "schema": {
+      "prune_volumes": {"type": "boolean", "default": false},
+      "max_age_days": {"type": "integer", "default": 7}
+    }
+  },
+  {
+    "id": "hub/scripts/hubspot_contact_upsert",
+    "name": "HubSpot: Lead Enrichment & Contact Upsert",
+    "summary": "Sync B2B leads from webhooks directly into HubSpot CRM with custom deal properties.",
+    "category": "Sales & CRM",
+    "language": "python",
+    "author": "revops-ninja",
+    "stars": 210,
+    "downloads": 11300,
+    "version": "1.5.0",
+    "schema": {
+      "email": {"type": "string"},
+      "first_name": {"type": "string"},
+      "last_name": {"type": "string"},
+      "company": {"type": "string"}
+    }
+  },
+  {
+    "id": "hub/flows/daily_data_warehouse_etl",
+    "name": "Flow: Distributed Data Warehouse Sync DAG",
+    "summary": "Extract records from operational DBs, transform schema, run DuckDB aggregations, and push to BigQuery/ClickHouse.",
+    "category": "Data & ETL",
+    "language": "flow",
+    "author": "data-architects",
+    "stars": 445,
+    "downloads": 16200,
+    "version": "2.2.0",
+    "schema": {
+      "date_partition": {"type": "string"},
+      "batch_size": {"type": "integer", "default": 10000}
+    }
+  }
+]

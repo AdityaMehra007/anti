@@ -1,0 +1,27 @@
+{
+  "mode": "INDEFINITE",
+  "keep_display_on": true,
+  "custom_time_minutes": 120,
+  "time_remaining_seconds": 7200,
+  "tray_notification": true,
+  "profiles": [
+    {
+      "name": "Standard Focus",
+      "mode": "TIMED",
+      "duration_minutes": 60,
+      "keep_display_on": true
+    },
+    {
+      "name": "Sovereign Overnight Compute",
+      "mode": "INDEFINITE",
+      "duration_minutes": 0,
+      "keep_display_on": false
+    },
+    {
+      "name": "Passive Watchdog",
+      "mode": "PASSIVE",
+      "duration_minutes": 0,
+      "keep_display_on": false
+    }
+  ]
+}

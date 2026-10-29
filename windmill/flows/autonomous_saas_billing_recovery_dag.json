@@ -1,0 +1,112 @@
+{
+  "summary": "Autonomous SaaS Dunning & Revenue Recovery Pipeline",
+  "description": "Triggered on Stripe/Payment Gateway failed charge event; evaluates grace period, issues smart retries, updates credit state, and suspends high-value enterprise accounts.",
+  "value": {
+    "modules": [
+      {
+        "id": "step_parse_payment_failure",
+        "summary": "Extract customer profile, past due days, and payment decline code",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(customer_id: str, invoice_id: str, amount_usd: float, decline_code: str):\n    return {'customer_id': customer_id, 'invoice_id': invoice_id, 'amount_usd': amount_usd, 'retry_eligible': decline_code in ('insufficient_funds', 'try_again_later')}",
+          "language": "python3",
+          "input_transforms": {
+            "customer_id": {"type": "javascript", "expr": "flow_input.customer_id"},
+            "invoice_id": {"type": "javascript", "expr": "flow_input.invoice_id"},
+            "amount_usd": {"type": "javascript", "expr": "flow_input.amount_usd"},
+            "decline_code": {"type": "javascript", "expr": "flow_input.decline_code"}
+          }
+        }
+      },
+      {
+        "id": "step_evaluate_churn_impact",
+        "summary": "Run churn risk radar on delinquent customer account",
+        "value": {
+          "type": "script",
+          "path": "u/admin/customer_churn_risk_radar",
+          "input_transforms": {
+            "account_id": {"type": "javascript", "expr": "results.step_parse_payment_failure.customer_id"},
+            "annual_contract_value_inr": {"type": "javascript", "expr": "flow_input.amount_usd * 86.5 * 12.0"}
+          }
+        }
+      },
+      {
+        "id": "step_dunning_action_branch",
+        "summary": "Dispatch automated notification or escalate high-value enterprise accounts",
+        "value": {
+          "type": "branchone",
+          "branches": [
+            {
+              "summary": "High Value Enterprise Customer (> $5,000 USD)",
+              "expr": "flow_input.amount_usd >= 5000.0",
+              "modules": [
+                {
+                  "id": "step_notify_csm_team",
+                  "summary": "Notify Customer Success Manager and hold auto-suspension",
+                  "value": {
+                    "type": "script",
+                    "path": "u/admin/slack_approval_notifier",
+                    "input_transforms": {
+                      "workflow_id": {"type": "javascript", "expr": "flow_input.invoice_id"},
+                      "amount_inr": {"type": "javascript", "expr": "flow_input.amount_usd * 86.5"}
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "summary": "Standard Tier Customer Auto-Retry",
+              "expr": "flow_input.amount_usd < 5000.0",
+              "modules": [
+                {
+                  "id": "step_schedule_smart_retry",
+                  "summary": "Schedule next retry in 48 hours with dynamic routing",
+                  "value": {
+                    "type": "rawscript",
+                    "content": "def main(invoice_id: str):\n    return {'retry_scheduled': True, 'retry_window_hours': 48, 'invoice_id': invoice_id}",
+                    "language": "python3"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_sync_recovery_ledger",
+        "summary": "Record debt balance and telemetry to ERP General Ledger",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(invoice_id: str, amount_usd: float):\n    return {'ledger_status': 'UNCOLLECTED_RECEIVABLE', 'invoice_id': invoice_id, 'reserve_ratio_pct': 5.0}",
+          "language": "python3"
+        }
+      }
+    ]
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "customer_id": {
+        "type": "string",
+        "description": "Unique CRM / billing account ID",
+        "default": "CUST-SAAS-1082"
+      },
+      "invoice_id": {
+        "type": "string",
+        "description": "Delinquent invoice identifier",
+        "default": "INV-2026-904"
+      },
+      "amount_usd": {
+        "type": "number",
+        "description": "Invoice total in USD",
+        "default": 7500.0
+      },
+      "decline_code": {
+        "type": "string",
+        "description": "Gateway decline reason code",
+        "default": "insufficient_funds"
+      }
+    },
+    "required": ["customer_id", "invoice_id", "amount_usd"]
+  }
+}

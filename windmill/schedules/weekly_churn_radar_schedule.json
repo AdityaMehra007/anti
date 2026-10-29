@@ -1,0 +1,13 @@
+{
+  "path": "u/admin/weekly_churn_radar_schedule",
+  "schedule": "0 8 * * 1",
+  "timezone": "Asia/Kolkata",
+  "script_path": "u/admin/customer_churn_risk_radar",
+  "is_flow": false,
+  "args": {
+    "account_id": "ACC-WEEKLY-SWEEP",
+    "annual_contract_value_inr": 4800000.0
+  },
+  "summary": "Weekly Monday 8 AM Customer Churn Risk & Retention Sweep",
+  "enabled": true
+}

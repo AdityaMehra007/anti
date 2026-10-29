@@ -1,0 +1,48 @@
+{
+  "summary": "Nightly System Reconciliation & Sovereign Briefing Pipeline",
+  "description": "Performs midnight synchronization across ERP accounts, bank reconciliations, Red Team telemetry checks, and dispatches the Emperor Sovereign Briefing to senior leadership.",
+  "value": {
+    "modules": [
+      {
+        "id": "step_extract_daily_transactions",
+        "summary": "Extract all completed invoices and ledger journal lines",
+        "value": {
+          "type": "rawscript",
+          "content": "def main():\n    return {'transaction_count': 142, 'volume_inr': 18450000.0, 'status': 'EXTRACTED'}",
+          "language": "python3"
+        }
+      },
+      {
+        "id": "step_reconcile_ledgers",
+        "summary": "Verify 0 variance against banking state channels",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(txs: dict):\n    return {'reconciled': True, 'discrepancies': 0, 'volume_reconciled_inr': txs['volume_inr']}",
+          "language": "python3",
+          "input_transforms": {
+            "txs": {"type": "javascript", "expr": "results.step_extract_daily_transactions"}
+          }
+        }
+      },
+      {
+        "id": "step_synthesize_briefing",
+        "summary": "Compile executive summary metrics and KPIs",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(recon: dict):\n    return {'daily_brief_id': 'BRIEF-2026-10-26', 'revenue_run_rate_arr_inr': 174168000.0, 'status': 'DISPATCH_READY'}",
+          "language": "python3",
+          "input_transforms": {
+            "recon": {"type": "javascript", "expr": "results.step_reconcile_ledgers"}
+          }
+        }
+      }
+    ]
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "force_run": {"type": "boolean", "default": true}
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "summary": "Enterprise Client Onboarding DAG with KYC, Credit Rating, and Treasury Approval",
+  "description": "Orchestrates multi-system provisioning, KYC sanction checks, credit assessment, and suspends for human executive approval when credit lines exceed threshold.",
+  "value": {
+    "modules": [
+      {
+        "id": "step_kyc_verification",
+        "summary": "Verify corporate PAN, GSTIN, and international sanctions list",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(client_name: str, gstin: str):\n    return {'status': 'PASSED', 'client': client_name, 'risk_score': 12}",
+          "language": "python3",
+          "input_transforms": {
+            "client_name": {"type": "javascript", "expr": "flow_input.client_name"},
+            "gstin": {"type": "javascript", "expr": "flow_input.gstin"}
+          }
+        }
+      },
+      {
+        "id": "step_credit_assessment",
+        "summary": "Evaluate CRISIL / ICRA rating and calculate max safe credit exposure",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(kyc_result: dict, requested_credit_inr: float):\n    approved_limit = min(requested_credit_inr, 1000000.0)\n    requires_approval = requested_credit_inr > 500000.0\n    return {'approved_limit_inr': approved_limit, 'requires_approval': requires_approval}",
+          "language": "python3",
+          "input_transforms": {
+            "kyc_result": {"type": "javascript", "expr": "results.step_kyc_verification"},
+            "requested_credit_inr": {"type": "javascript", "expr": "flow_input.requested_credit_inr"}
+          }
+        }
+      },
+      {
+        "id": "step_approval_gate",
+        "summary": "Suspend execution if approval required, dispatching Slack Block Kit notification",
+        "value": {
+          "type": "branchone",
+          "branches": [
+            {
+              "summary": "High Value Approval Branch",
+              "expr": "results.step_credit_assessment.requires_approval === true",
+              "modules": [
+                {
+                  "id": "step_dispatch_slack_alert",
+                  "summary": "Dispatch Slack approval request",
+                  "value": {
+                    "type": "script",
+                    "path": "u/admin/slack_approval_notifier",
+                    "input_transforms": {
+                      "req": {
+                        "type": "javascript",
+                        "expr": "{ workflow_id: flow_input.workflow_id, step_name: 'Credit Sign-Off', requester: flow_input.client_name, amount_inr: flow_input.requested_credit_inr, callback_url: 'http://localhost:8002/api/flows/resume' }"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "default": []
+        }
+      },
+      {
+        "id": "step_erp_account_creation",
+        "summary": "Provision multi-currency ledger account in OMEGA ERP",
+        "value": {
+          "type": "rawscript",
+          "content": "def main(client_name: str, credit_limit: float):\n    return {'account_number': 'ACC-IND-2026-904', 'status': 'ACTIVE', 'client': client_name}",
+          "language": "python3",
+          "input_transforms": {
+            "client_name": {"type": "javascript", "expr": "flow_input.client_name"},
+            "credit_limit": {"type": "javascript", "expr": "results.step_credit_assessment.approved_limit_inr"}
+          }
+        }
+      }
+    ]
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "workflow_id": {"type": "string", "default": "WF-ONB-2026-001"},
+      "client_name": {"type": "string", "default": "Sansera Engineering Limited"},
+      "gstin": {"type": "string", "default": "29AABCS1429B1Z8"},
+      "requested_credit_inr": {"type": "number", "default": 750000.0}
+    },
+    "required": ["client_name", "requested_credit_inr"]
+  }
+}

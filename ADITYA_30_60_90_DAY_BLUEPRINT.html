@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Mehra | 30-60-90 Day Executive Operational Onboarding Blueprint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page { size: A4 portrait; margin: 12mm 14mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #060913;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 30px;
+      line-height: 1.5;
+    }
+    @media print {
+      body { background: #fff; color: #0f172a; padding: 0; }
+      .no-print { display: none !important; }
+      .sheet { border: none !important; box-shadow: none !important; }
+      .phase-card { background: #f8fafc !important; color: #0f172a !important; border: 1px solid #cbd5e1 !important; }
+      .phase-title { color: #0f172a !important; }
+      .phase-desc { color: #334155 !important; }
+      .kpi-box { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; color: #0f172a !important; }
+    }
+    .sheet {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #0a0f1e;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 36px 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #00f2fe;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .subhead {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .contact-info {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .phases-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .phase-card {
+      background: #0f1629;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 22px 26px;
+      position: relative;
+    }
+    .phase-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .phase-badge.p1 { background: rgba(0, 242, 254, 0.15); color: #00f2fe; }
+    .phase-badge.p2 { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .phase-badge.p3 { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+
+    .phase-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .phase-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .deliv-item {
+      padding-left: 14px;
+      position: relative;
+      color: #94a3b8;
+    }
+    .deliv-item::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #00f2fe;
+    }
+
+    .kpi-strip {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #1e293b;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #10b981;
+    }
+
+    .print-bar {
+      max-width: 900px;
+      margin: 0 auto 16px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .btn {
+      background: #00f2fe;
+      color: #050811;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar no-print">
+    <button class="btn" onclick="window.print()">🖨️ Print Blueprint to PDF</button>
+  </div>
+
+  <div class="sheet">
+    <div class="header-row">
+      <div>
+        <div class="eyebrow">EXECUTIVE ONBOARDING ROADMAP • 90-DAY DELIVERABLE MATRIX</div>
+        <h1>Aditya Mehra: 30-60-90 Day Operational Plan</h1>
+        <div class="subhead">Framework for Immediate Net Positive Operational ROI • Corporate Operations & EXIM</div>
+      </div>
+      <div class="contact-info">
+        <div>Aditya Mehra</div>
+        <div>+91 7003456624</div>
+        <div>adityamehra799@gmail.com</div>
+        <div>Dayananda Sagar University '26</div>
+      </div>
+    </div>
+
+    <div class="phases-list">
+      <!-- Days 1-30 -->
+      <div class="phase-card">
+        <span class="phase-badge p1">DAYS 01 – 30 • THE INGESTION & AUDIT PHASE</span>
+        <div class="phase-title">Objective: Master Internal Workflows, Map Bottlenecks & Achieve Flawless Baseline Execution</div>
+        <div class="phase-desc">
+          Absorb institutional knowledge without disrupting active delivery pipelines. Shadow senior operations leads, audit vendor SLAs, and document every upstream and downstream data dependency.
+        </div>
+        <div class="deliverables-grid">
+          <div class="deliv-item">Map 100% of vendor matrices, freight forwarder contacts, and internal ERP login flows.</div>
+          <div class="deliv-item">Audit historical reconciliation reports to identify recurring variance causes.</div>
+          <div class="deliv-item">Execute daily administrative and scheduling tasks with zero-defect accuracy.</div>
+          <div class="deliv-item">Conduct 15-minute alignment syncs with sibling finance and supply chain pods.</div>
+        </div>
+        <div class="kpi-strip">
+          <span>Target Metric: 0 Delinquent Tasks</span>
+          <span>SLA Adherence: 100%</span>
+          <span>Zero Escaped Errors</span>
+        </div>
+      </div>
+
+      <!-- Days 31-60 -->
+      <div class="phase-card">
+        <span class="phase-badge p2">DAYS 31 – 60 • THE PROCESS AUTOMATION PHASE</span>
+        <div class="phase-title">Objective: Eliminate Managerial Drag & Automate Repetitive Tracking Spreadsheets</div>
+        <div class="phase-desc">
+          Identify the single most time-consuming manual data entry or reconciliation task in the team. Deploy lightweight Python/SQLite or advanced Excel PowerQuery models to compress reporting latency by 40%+.
+        </div>
+        <div class="deliverables-grid">
+          <div class="deliv-item">Deliver the weekly operational status deck 24 hours prior to executive deadline.</div>
+          <div class="deliv-item">Standardize automated validation checks for vendor invoicing and container manifests.</div>
+          <div class="deliv-item">Draft formal Standard Operating Procedures (SOPs) for newly optimized flows.</div>
+          <div class="deliv-item">Take ownership of mid-tier supplier escalations and resolution tracking.</div>
+        </div>
+        <div class="kpi-strip">
+          <span>Reporting Latency: -40%</span>
+          <span>Managerial Bandwidth Freed: 5 hrs/wk</span>
+          <span>Documented SOPs: 3 Shipped</span>
+        </div>
+      </div>
+
+      <!-- Days 61-90 -->
+      <div class="phase-card">
+        <span class="phase-badge p3">DAYS 61 – 90 • THE INDISPENSABLE SCALE PHASE</span>
+        <div class="phase-title">Objective: Drive Measurable Gross Margin Improvements & Cross-Functional Scale</div>
+        <div class="phase-desc">
+          Operate with complete self-sufficiency. Present a 90-day executive performance review to directors, highlighting audit compliance, capital protected from demurrage/variance, and playbook readiness.
+        </div>
+        <div class="deliverables-grid">
+          <div class="deliv-item">Execute full audit of Free Trade Agreement (CEPA) duty savings across active imports.</div>
+          <div class="deliv-item">Present comprehensive Q1 operational review to Director of Operations.</div>
+          <div class="deliv-item">Train incoming interns or junior contractors on standardized team checklists.</div>
+          <div class="deliv-item">Formally establish 6-month growth objectives and KPI milestone agreements.</div>
+        </div>
+        <div class="kpi-strip">
+          <span>Net Positive Operational Contribution: Verified</span>
+          <span>Audit Compliance: 99.8%</span>
+          <span>Promotion Fast-Track Locked</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

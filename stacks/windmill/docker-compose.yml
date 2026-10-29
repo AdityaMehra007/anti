@@ -1,0 +1,93 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: windmill_db
+    restart: unless-stopped
+    shm_size: 256mb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme_sovereign_windmill_2026}
+      POSTGRES_DB: ${DB_NAME:-windmill}
+      POSTGRES_USER: ${DB_USER:-windmill}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-windmill} -d ${DB_NAME:-windmill}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - windmill_net
+
+  windmill_server:
+    image: ghcr.io/windmill-labs/windmill:main
+    container_name: windmill_server
+    restart: unless-stopped
+    ports:
+      - "${WINDMILL_PORT:-8000}:8000"
+    environment:
+      - DATABASE_URL=postgres://${DB_USER:-windmill}:${DB_PASSWORD:-changeme_sovereign_windmill_2026}@db:5432/${DB_NAME:-windmill}?sslmode=disable
+      - MODE=server
+      - BASE_URL=${BASE_URL:-http://localhost:8000}
+      - METRICS_ADDR=true
+      - RUST_LOG=info,windmill=info
+      - SEED_PATH=/seed
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - windmill_net
+
+  windmill_worker_native:
+    image: ghcr.io/windmill-labs/windmill:main
+    container_name: windmill_worker_native
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgres://${DB_USER:-windmill}:${DB_PASSWORD:-changeme_sovereign_windmill_2026}@db:5432/${DB_NAME:-windmill}?sslmode=disable
+      - MODE=worker
+      - WORKER_GROUP=native
+      - NUM_WORKERS=8
+      - RUST_LOG=info,windmill=info
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - windmill_net
+
+  windmill_worker:
+    image: ghcr.io/windmill-labs/windmill:main
+    container_name: windmill_worker_sandbox
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DATABASE_URL=postgres://${DB_USER:-windmill}:${DB_PASSWORD:-changeme_sovereign_windmill_2026}@db:5432/${DB_NAME:-windmill}?sslmode=disable
+      - MODE=worker
+      - WORKER_GROUP=default
+      - NUM_WORKERS=8
+      - KEEP_CONTAINERS=false
+      - RUST_LOG=info,windmill=info
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - windmill_net
+
+  lsp:
+    image: ghcr.io/windmill-labs/windmill-lsp:latest
+    container_name: windmill_lsp
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - RUST_LOG=info
+    networks:
+      - windmill_net
+
+networks:
+  windmill_net:
+    driver: bridge
+
+volumes:
+  db_data:

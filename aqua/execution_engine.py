@@ -202,9 +202,16 @@ class AquaExecutionEngine:
                 installation=inst,
                 items=items
             )
-            cbam_xml_path = os.path.join(self.workspace_root, "GLOBAL-COMPANY-OS", "09_SALES", "audits", "CBAM_DECLARATION_SAMPLE.xml")
-            with open(cbam_xml_path, "w", encoding="utf-8") as f:
-                f.write(xml_data)
+            cbam_xml_path = os.path.normpath(os.path.join(self.workspace_root, "GLOBAL-COMPANY-OS", "09_SALES", "audits", "CBAM_DECLARATION_SAMPLE.xml"))
+            os.makedirs(os.path.dirname(cbam_xml_path), exist_ok=True)
+            try:
+                with open(cbam_xml_path, "w", encoding="utf-8") as f:
+                    f.write(xml_data)
+            except OSError:
+                tmp_xml = cbam_xml_path + ".tmp"
+                with open(tmp_xml, "w", encoding="utf-8") as f:
+                    f.write(xml_data)
+                os.replace(tmp_xml, cbam_xml_path)
 
             verified = self.orchestrator.verify_and_complete_task(
                 "TSK-004",

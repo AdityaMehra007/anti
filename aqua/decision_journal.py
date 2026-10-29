@@ -51,9 +51,17 @@ class DecisionJournal:
         records = []
         with open(self.storage_path, "r", encoding="utf-8") as f:
             for line in f:
-                line = line.strip()
+                line = line.strip("\x00 \r\n\t")
                 if line:
-                    records.append(json.loads(line))
+                    try:
+                        records.append(json.loads(line))
+                    except Exception:
+                        idx = line.find("{")
+                        if idx != -1:
+                            try:
+                                records.append(json.loads(line[idx:]))
+                            except Exception:
+                                continue
         return records
 
     def update_outcome(

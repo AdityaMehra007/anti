@@ -1,0 +1,97 @@
+{
+  "summary": "Executive Operations & Workflow Mission Control",
+  "description": "Interactive low-code app for triggering enterprise workflows, auditing CBAM liabilities, and inspecting worker queues.",
+  "path": "u/admin/executive_operations_dashboard",
+  "app": {
+    "version": 2,
+    "grid": {
+      "columns": 12,
+      "rows": 24
+    },
+    "components": [
+      {
+        "id": "comp_title",
+        "type": "text",
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 2,
+        "props": {
+          "text": "# OMEGA Autonomous Workflow Control Plane\nReal-time telemetry, worker pools, and instant execution triggers.",
+          "variant": "heading"
+        }
+      },
+      {
+        "id": "comp_kpi_workers",
+        "type": "stat",
+        "x": 0,
+        "y": 2,
+        "w": 4,
+        "h": 3,
+        "props": {
+          "label": "Active Workers",
+          "value": 16,
+          "subtext": "Rust Native & Docker Sandboxes"
+        }
+      },
+      {
+        "id": "comp_kpi_jobs",
+        "type": "stat",
+        "x": 4,
+        "y": 2,
+        "w": 4,
+        "h": 3,
+        "props": {
+          "label": "Jobs Completed Today",
+          "value": 1284,
+          "subtext": "99.98% Success Rate"
+        }
+      },
+      {
+        "id": "comp_kpi_latency",
+        "type": "stat",
+        "x": 8,
+        "y": 2,
+        "w": 4,
+        "h": 3,
+        "props": {
+          "label": "Avg Execution Latency",
+          "value": "1.42ms",
+          "subtext": "Rust Sub-Millisecond Dispatch"
+        }
+      },
+      {
+        "id": "comp_action_cbam_button",
+        "type": "button",
+        "x": 0,
+        "y": 5,
+        "w": 6,
+        "h": 2,
+        "props": {
+          "label": "Run CBAM Carbon Audit",
+          "variant": "primary",
+          "action": {
+            "type": "run_script",
+            "path": "u/admin/cbam_carbon_audit"
+          }
+        }
+      },
+      {
+        "id": "comp_action_recon_button",
+        "type": "button",
+        "x": 6,
+        "y": 5,
+        "w": 6,
+        "h": 2,
+        "props": {
+          "label": "Run ERP Ledger Reconciliation",
+          "variant": "secondary",
+          "action": {
+            "type": "run_script",
+            "path": "u/admin/erp_invoice_recon"
+          }
+        }
+      }
+    ]
+  }
+}

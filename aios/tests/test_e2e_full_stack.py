@@ -14,11 +14,14 @@ Tests all layers across Stages 0 through 7:
 import sys
 import json
 import time
+import socket
+import threading
 import shutil
 import unittest
 import urllib.request
 import urllib.error
 from pathlib import Path
+from http.server import SimpleHTTPRequestHandler
 
 AIOS_ROOT = Path("E:/anti/aios")
 if str(AIOS_ROOT) not in sys.path:
@@ -38,6 +41,48 @@ DASHBOARD_URL = "http://127.0.0.1:3000"
 
 
 class TestE2EFullStack(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # 1. Start gateway on 8090 if not running
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(0.5)
+        cls.started_gateway = False
+        try:
+            if s.connect_ex(("127.0.0.1", 8090)) != 0:
+                cls.gateway_server = gateway.ThreadedHTTPServer(("127.0.0.1", 8090), gateway.GatewayRequestHandler)
+                cls.gateway_thread = threading.Thread(target=cls.gateway_server.serve_forever, daemon=True)
+                cls.gateway_thread.start()
+                cls.started_gateway = True
+                time.sleep(0.2)
+        except Exception:
+            pass
+        finally:
+            s.close()
+
+        # 2. Start dashboard UI on 3000 if not running
+        s2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s2.settimeout(0.5)
+        cls.started_ui = False
+        try:
+            if s2.connect_ex(("127.0.0.1", 3000)) != 0:
+                ui_dir = str(AIOS_ROOT / "dashboards")
+                class DashboardHandler(SimpleHTTPRequestHandler):
+                    def __init__(self, *args, **kwargs):
+                        super().__init__(*args, directory=ui_dir, **kwargs)
+                cls.ui_server = gateway.ThreadedHTTPServer(("127.0.0.1", 3000), DashboardHandler)
+                cls.ui_thread = threading.Thread(target=cls.ui_server.serve_forever, daemon=True)
+                cls.ui_thread.start()
+                cls.started_ui = True
+                time.sleep(0.2)
+        except Exception:
+            pass
+        finally:
+            s2.close()
+
+    @classmethod
+    def tearDownClass(cls):
+        # Allow daemon servers to persist for subsequent test suites in process
+        pass
     def test_01_core_system_telemetry(self):
         """Verifies health check and telemetry reporting."""
         with urllib.request.urlopen(f"{GATEWAY_URL}/health", timeout=5) as res:

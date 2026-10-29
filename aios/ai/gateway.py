@@ -92,6 +92,7 @@ def anonymize_text(text: str) -> str:
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     daemon_threads = True
+    allow_reuse_address = True
 
 class GatewayRequestHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):

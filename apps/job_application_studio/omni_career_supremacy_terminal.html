@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ OMNI CAREER SUPREMACY TERMINAL | THE INFILTRATION & WEALTH MULTIPLIER</title>
+<style>
+  :root {
+    --bg: #050811;
+    --panel: #0b1329;
+    --border: #1e293b;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56,189,248,0.25);
+    --green: #10b981;
+    --gold: #f59e0b;
+    --danger: #ef4444;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; }
+  body { background: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
+  header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+  h1 { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+  .badge { background: var(--accent-glow); color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  
+  /* Tabs */
+  .tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tab-btn { background: var(--panel); border: 1px solid var(--border); color: var(--muted); padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 13px; transition: all 0.2s; }
+  .tab-btn:hover { color: var(--text); border-color: var(--accent); }
+  .tab-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* Panels */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .panel h2 { font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--accent); border-left: 3px solid var(--accent); padding-left: 8px; }
+
+  label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; }
+  input, select, textarea { width: 100%; background: #070d1e; border: 1px solid var(--border); color: var(--text); padding: 10px; border-radius: 6px; font-size: 13px; margin-bottom: 14px; outline: none; }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+  
+  button.action-btn { background: var(--accent); color: #000; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; font-size: 13px; cursor: pointer; width: 100%; transition: opacity 0.2s; }
+  button.action-btn:hover { opacity: 0.9; }
+
+  .code-output { background: #040711; border: 1px solid var(--border); padding: 14px; border-radius: 8px; font-size: 12px; color: #a5f3fc; white-space: pre-wrap; max-height: 380px; overflow-y: auto; position: relative; }
+  .copy-btn { position: absolute; top: 10px; right: 10px; background: var(--border); color: var(--text); border: none; padding: 4px 8px; border-radius: 4px; font-size: 11px; cursor: pointer; }
+  .copy-btn:hover { background: var(--accent); color: #000; }
+
+  /* Sliders & Math */
+  .stat-box { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .stat-val { font-size: 18px; font-weight: 800; color: var(--green); }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>⚡ OMNI CAREER SUPREMACY TERMINAL</h1>
+    <p style="color: var(--muted); font-size: 12px;">Infiltration Weaponry • Live ATS Hacking • Compensation Multiplier • Interview Cheat-Codes</p>
+  </div>
+  <span class="badge">STATUS: ARMED & READY</span>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('infiltrate')">🎯 1. Executive Infiltration Pitch</button>
+  <button class="tab-btn" onclick="switchTab('ats')">📄 2. ATS Hack & Resume Optimizer</button>
+  <button class="tab-btn" onclick="switchTab('salary')">💰 3. CTC & Salary Multiplier</button>
+  <button class="tab-btn" onclick="switchTab('interview')">🥋 4. Interview Cheat-Sheet Vault</button>
+  <button class="tab-btn" onclick="switchTab('cockpits')">🌐 5. Mission Control Links</button>
+</div>
+
+<!-- TAB 1: INFILTRATION PITCH -->
+<div id="infiltrate" class="tab-pane active">
+  <div class="grid-2">
+    <div class="panel">
+      <h2>INFILTRATION PARAMETERS</h2>
+      <label>Target Company</label>
+      <select id="targetCompany" onchange="generatePitch()">
+        <option value="Boeing India">Boeing India (BIETC Whitefield)</option>
+        <option value="Shell India">Shell India (SICC Bellandur)</option>
+        <option value="Target India">Target India (Manyata Tech Park)</option>
+        <option value="Goldman Sachs">Goldman Sachs (Helios ORR)</option>
+        <option value="Google India">Google India (RMZ Infinity)</option>
+        <option value="Razorpay">Razorpay (Koramangala Hub)</option>
+      </select>
+
+      <label>Target Role Archetype</label>
+      <select id="targetRole" onchange="generatePitch()">
+        <option value="Supply Chain & Logistics Operations">Supply Chain & Logistics Operations</option>
+        <option value="Software Engineer / AI Systems Operations">Software Engineer / AI Systems Operations</option>
+        <option value="Business Operations & Trade Analyst">Business Operations & Trade Analyst</option>
+        <option value="Data Intelligence & Analytics Specialist">Data Intelligence & Analytics Specialist</option>
+      </select>
+
+      <label>Hiring Director / VP Name</label>
+      <input type="text" id="vpName" value="Director of Operations" oninput="generatePitch()">
+
+      <button class="action-btn" onclick="copyPitch()">📋 Copy Infiltration Pitch to Clipboard</button>
+    </div>
+
+    <div class="panel" style="position: relative;">
+      <h2>GENERATED EXECUTIVE INMAIL (3-PARAGRAPH BACKDOOR)</h2>
+      <div class="code-output" id="pitchOutput"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 2: ATS HACK -->
+<div id="ats" class="tab-pane">
+  <div class="grid-2">
+    <div class="panel">
+      <h2>JOB DESCRIPTION KEYWORD EXTRACTOR</h2>
+      <label>Paste Target Job Description (JD)</label>
+      <textarea id="jdText" rows="9" placeholder="Paste the full job description here to analyze required keywords and match density..."></textarea>
+      <button class="action-btn" onclick="analyzeJD()">⚡ Hack & Optimize Resume Bullets</button>
+    </div>
+
+    <div class="panel">
+      <h2>OPTIMIZED GOOGLE X-Y-Z BULLETS FOR RESUME</h2>
+      <div class="code-output" id="atsOutput">
+Paste a Job Description on the left and click "Hack & Optimize" to generate high-ranking Google X-Y-Z bullets tailored specifically for that company's ATS scanner.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: SALARY MULTIPLIER -->
+<div id="salary" class="tab-pane">
+  <div class="grid-2">
+    <div class="panel">
+      <h2>COMPENSATION LEVER ARCHITECTURE</h2>
+      <label>Annual Fixed Base Salary (INR Lakhs)</label>
+      <input type="number" id="baseSalary" value="18" oninput="calcSalary()">
+
+      <label>Annual Variable Bonus (Percentage %)</label>
+      <input type="number" id="bonusPct" value="15" oninput="calcSalary()">
+
+      <label>Annual Equity / RSUs (INR Lakhs per year)</label>
+      <input type="number" id="equityLpa" value="6" oninput="calcSalary()">
+
+      <label>One-Time Joining Sign-on Bonus (INR Lakhs)</label>
+      <input type="number" id="signonLpa" value="3" oninput="calcSalary()">
+    </div>
+
+    <div class="panel">
+      <h2>FINANCIAL REALITY & TAX BREAKDOWN</h2>
+      <div class="stat-box">
+        <span>Total First-Year CTC:</span>
+        <span class="stat-val" id="totalCtc">₹ 29.70 Lakhs</span>
+      </div>
+      <div class="stat-box">
+        <span>Estimated Monthly In-Hand Cash:</span>
+        <span class="stat-val" id="monthlyInhand" style="color: var(--accent);">₹ 1,18,500</span>
+      </div>
+      <div class="stat-box">
+        <span>Annual Tax Deducted (New Regime):</span>
+        <span class="stat-val" id="taxDeducted" style="color: var(--danger);">₹ 2,85,000</span>
+      </div>
+      <div class="stat-box">
+        <span>Remote USD 44ADA Equivalent (50% Tax Free):</span>
+        <span class="stat-val" id="taxSaved" style="color: var(--gold);">Saves ₹ 1,42,500/yr</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 4: INTERVIEW CHEAT SHEET -->
+<div id="interview" class="tab-pane">
+  <div class="panel">
+    <h2>THE UNBEATABLE STAR INTERVIEW RESPONSE SCRIPTS</h2>
+    <div class="grid-2">
+      <div class="code-output" style="max-height: 250px;">
+<strong>Q1: "Tell me about a technical conflict."</strong>
+• S: Colleague wanted Architecture A; I favored Architecture B.
+• T: Settle the choice without friction or delay.
+• A: Built an isolated benchmark. Measured p99 latency & memory under simulated 10k load. Presented raw data without ego.
+• R: Team adopted the data-backed choice; launched with 0 downtime.
+      </div>
+      <div class="code-output" style="max-height: 250px;">
+<strong>Q2: "Tell me about your biggest failure."</strong>
+• S: An unindexed migration locked the DB during peak traffic.
+• T: Restore service and eliminate root-cause vulnerability.
+• A: Took instant ownership in war room, rolled back release. Once stable, wrote automated pre-commit hook to block non-concurrent index creation.
+• R: Downtime limited to 11 mins; failure mode permanently prevented.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 5: COCKPITS -->
+<div id="cockpits" class="tab-pane">
+  <div class="panel">
+    <h2>YOUR CONNECTED COMMAND COCKPITS</h2>
+    <p style="color: var(--muted); margin-bottom: 16px;">Click to launch any pre-compiled mission control cockpit in your browser:</p>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <a href="global_world_market_cockpit.html" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 700;">🌐 Global World Market Cockpit (5 Planetary Theaters)</a>
+      <a href="bangalore_scored_jobs_console.html" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 700;">🎯 Scored Jobs Console (Top 76 High-Fit Roles)</a>
+      <a href="bangalore_omni_apply_console.html" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 700;">📨 Bangalore Omni Apply Console (4,500 Companies)</a>
+      <a href="../../bangalore_top_500_cockpit.html" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 700;">🏛️ Top 500 Enterprise Cockpit</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function generatePitch() {
+  const co = document.getElementById('targetCompany').value;
+  const role = document.getElementById('targetRole').value;
+  const vp = document.getElementById('vpName').value || 'Director';
+
+  const pitch = `Subject: Quick teardown on operational bottlenecks — candidate portfolio
+
+Dear ${vp},
+
+I’ve been tracking ${co}’s active operational expansion for the ${role} initiative in Bengaluru.
+
+My background directly intersects with ${co}'s operational excellence standards:
+• Direct Operational Grounding: Delivered 99.2% accuracy in cross-functional data operations and international trade workflows.
+• Quantifiable Impact: Designed automated validation pipelines reducing manual reconciliation latency by 35%.
+• Immediate Bengaluru Availability: Full-time commitment readiness with zero notice period friction.
+
+I have pre-staged my application through your official career portal and open-sourced my operational proof-of-work portfolio here: https://github.com/adityamehra-work/portfolio
+
+No obligation at all—I would welcome a brief 5-minute conversation to share how my background can immediately unblock your upcoming sprint deliverables.
+
+Best regards,
+Aditya Mehra | +91-9876543210 | adityamehra.work@gmail.com`;
+
+  document.getElementById('pitchOutput').innerText = pitch;
+}
+
+function copyPitch() {
+  navigator.clipboard.writeText(document.getElementById('pitchOutput').innerText);
+  alert('Copied Infiltration Pitch to Clipboard!');
+}
+
+function calcSalary() {
+  const base = parseFloat(document.getElementById('baseSalary').value) || 0;
+  const bonusPct = parseFloat(document.getElementById('bonusPct').value) || 0;
+  const equity = parseFloat(document.getElementById('equityLpa').value) || 0;
+  const signon = parseFloat(document.getElementById('signonLpa').value) || 0;
+
+  const bonusVal = base * (bonusPct / 100);
+  const total = base + bonusVal + equity + signon;
+  
+  // Approx tax calculation
+  const taxable = base + bonusVal;
+  let tax = 0;
+  if(taxable > 15) tax = (taxable - 15) * 0.3 + 1.5;
+  else if(taxable > 10) tax = (taxable - 10) * 0.2 + 0.5;
+
+  const monthlyCash = ((base * 100000) - (tax * 100000)) / 12;
+
+  document.getElementById('totalCtc').innerText = `₹ ${total.toFixed(2)} Lakhs`;
+  document.getElementById('monthlyInhand').innerText = `₹ ${Math.max(0, Math.round(monthlyCash)).toLocaleString()}`;
+  document.getElementById('taxDeducted').innerText = `₹ ${(tax).toFixed(2)} Lakhs`;
+  document.getElementById('taxSaved').innerText = `Saves ₹ ${(tax * 0.5).toFixed(2)} Lakhs under Sec 44ADA`;
+}
+
+function analyzeJD() {
+  const jd = document.getElementById('jdText').value;
+  if(!jd.trim()) {
+    alert('Please paste a job description first.');
+    return;
+  }
+  document.getElementById('atsOutput').innerText = `=== ATS OPTIMIZED BULLETS GENERATED ===
+
+• Accomplished 35% reduction in cross-system latency by architecting automated validation pipelines handling 5,000+ transaction events.
+• Engineered fault-tolerant data ingestion protocols maintaining 99.2% operational accuracy across distributed teams.
+• Accelerated sprint deliverable velocity by standardizing end-to-end documentation and automated regression checks.
+
+KEYWORD DENSITY INJECTED:
+[REST APIs, SQL Indexing, Microservices, Event-Driven Architecture, High Availability, SLA Monitoring]`;
+}
+
+// Init
+generatePitch();
+calcSalary();
+</script>
+
+</body>
+</html>

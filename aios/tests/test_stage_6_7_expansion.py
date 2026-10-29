@@ -1,6 +1,9 @@
 import unittest
 import sys
 import json
+import time
+import socket
+import threading
 import urllib.request
 import urllib.error
 from pathlib import Path
@@ -12,6 +15,7 @@ sys.path.insert(0, str(AIOS_ROOT / "ai"))
 sys.path.insert(0, str(AIOS_ROOT / "projects"))
 sys.path.insert(0, str(AIOS_ROOT / "databases"))
 
+import gateway
 from projects.idea_validator import IdeaValidator
 from ai.cloud_adapters import GeminiAdapter, ClaudeAdapter, OpenAIAdapter, SmartRouter
 from ai.model_evaluator import ModelEvaluator
@@ -23,10 +27,31 @@ GATEWAY_BASE_URL = "http://127.0.0.1:8090"
 class TestStage6And7Expansion(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        # Ensure gateway is running if offline
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(0.5)
+        cls.started_server = False
+        try:
+            if s.connect_ex(("127.0.0.1", 8090)) != 0:
+                cls.server = gateway.ThreadedHTTPServer(("127.0.0.1", 8090), gateway.GatewayRequestHandler)
+                cls.server_thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
+                cls.server_thread.start()
+                cls.started_server = True
+                time.sleep(0.2)
+        except Exception:
+            pass
+        finally:
+            s.close()
+
         # Ensure database tables exist
         cls.validator = IdeaValidator(gateway_url=GATEWAY_BASE_URL)
         cls.evaluator = ModelEvaluator(gateway_url=GATEWAY_BASE_URL)
         cls.router = SmartRouter()
+
+    @classmethod
+    def tearDownClass(cls):
+        # Allow daemon servers to persist for subsequent test suites in process
+        pass
 
     def test_01_idea_validator_structure_and_scoring(self):
         idea = self.validator.validate_idea(

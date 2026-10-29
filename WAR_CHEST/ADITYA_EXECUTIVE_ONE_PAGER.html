@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Mehra | Executive One-Pager (Operations & Global Trade)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #0f172a;
+      background: #f8fafc;
+      padding: 20px;
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .no-print { display: none !important; }
+    }
+    .sheet {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 28px 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    @media print {
+      .sheet { border: none; box-shadow: none; padding: 0; max-width: 100%; border-radius: 0; }
+    }
+    /* Header */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .name-block h1 {
+      font-size: 26px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .name-block .tagline {
+      font-size: 13px;
+      font-weight: 700;
+      color: #2563eb;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .contact-block {
+      text-align: right;
+      font-size: 11px;
+      color: #475569;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.5;
+    }
+    .contact-block a { color: #2563eb; text-decoration: none; }
+
+    /* Summary */
+    .exec-summary {
+      background: #f1f5f9;
+      border-left: 3px solid #2563eb;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      font-size: 12px;
+      color: #334155;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    /* Section Styling */
+    .sec-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 4 Proof of Work Cards Grid */
+    .pow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .pow-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      background: #fff;
+    }
+    .pow-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .pow-title {
+      font-size: 12px;
+      font-weight: 750;
+      color: #0f172a;
+    }
+    .pow-metric {
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .pow-org {
+      font-size: 11px;
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .pow-desc {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    /* Skills & Core Competencies 3 Column Grid */
+    .skills-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .skill-col {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    .skill-col-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .skill-col ul {
+      list-style: none;
+      font-size: 11px;
+      color: #334155;
+    }
+    .skill-col li {
+      margin-bottom: 3px;
+      padding-left: 10px;
+      position: relative;
+    }
+    .skill-col li::before {
+      content: '▪';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-size: 10px;
+    }
+
+    /* Bottom Value Strip */
+    .value-strip {
+      background: #0f172a;
+      color: #fff;
+      border-radius: 6px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+    .value-strip strong { color: #38bdf8; }
+
+    /* Print Button */
+    .print-btn-bar {
+      max-width: 820px;
+      margin: 0 auto 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .btn {
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover { background: #1e293b; }
+  </style>
+</head>
+<body>
+
+  <div class="print-btn-bar no-print">
+    <button class="btn" onclick="window.print()">🖨️ Print to A4 PDF</button>
+  </div>
+
+  <div class="sheet">
+    <!-- Header -->
+    <div class="top-bar">
+      <div class="name-block">
+        <h1>ADITYA MEHRA</h1>
+        <div class="tagline">Operations Specialist • Global EXIM Logistics • Autonomous AI Systems</div>
+      </div>
+      <div class="contact-block">
+        <div>Bengaluru, India</div>
+        <div>+91 7003456624</div>
+        <div><a href="mailto:adityamehra799@gmail.com">adityamehra799@gmail.com</a></div>
+        <div><a href="https://github.com/AdityaMehra007/anti">github.com/AdityaMehra007</a></div>
+        <div style="color: #059669; font-weight: 700;">Immediate Joining Available</div>
+      </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="exec-summary">
+      <strong>EXECUTIVE PROFILE:</strong> Final-year <strong>BBA International Business</strong> graduate from <strong>Dayananda Sagar University (DSU '26)</strong>. Combines ground-level operational discipline (high-footfall retail logistics at Aero India with 0.0% cash/UPI variance, commercial vendor procurement at Pencil Mark, robotics data quality QA at Instawork) with technical capability in Python, SQLite, and autonomous AI agent workflows. Seeking high-velocity entry-level Operations Trainee, Global EXIM Logistics, or BizOps Associate roles in Bengaluru.
+    </div>
+
+    <!-- Proof of Work Grid -->
+    <div class="sec-title">
+      <span>Verifiable Operational Proof of Work</span>
+      <span style="font-size: 10px; color: #64748b; font-weight: 600;">Documented Field Outcomes</span>
+    </div>
+
+    <div class="pow-grid">
+      <!-- 1 -->
+      <div class="pow-box">
+        <div class="pow-head">
+          <div class="pow-title">Autonomous Operations & Recruiter Engine</div>
+          <span class="pow-metric">16/16 Unit Tests Green</span>
+        </div>
+        <div class="pow-org">Google Antigravity • Python • SQLite • Agentic Workflows</div>
+        <div class="pow-desc">
+          Architected relational database prototype indexing 5,000+ employers, 7,500 HR leads, and automated InMail pitch synthesis with automated regression testing.
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="pow-box">
+        <div class="pow-head">
+          <div class="pow-title">AI & Robotics Data Quality Assurance</div>
+          <span class="pow-metric">99.2% Accuracy SLA</span>
+        </div>
+        <div class="pow-org">Instawork Services India Pvt. Ltd. • Bengaluru (2025)</div>
+        <div class="pow-desc">
+          Executed precision validation audits across thousands of high-density AI robotics data records, identifying 14 critical edge-case data deviations before model ingestion.
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="pow-box">
+        <div class="pow-head">
+          <div class="pow-title">Aero India & Major Event Logistics</div>
+          <span class="pow-metric">0.0% Financial Variance</span>
+        </div>
+        <div class="pow-org">Aero India (Yelahanka) • Salt in My Cocoa (2025)</div>
+        <div class="pow-desc">
+          Coordinated field retail booth operations under peak footfall; resolved mid-event payment machine outages via manual double-entry ledgers with zero dropped sales.
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="pow-box">
+        <div class="pow-head">
+          <div class="pow-title">Commercial Operations & Vendor Procurement</div>
+          <span class="pow-metric">100% On-Time BOM</span>
+        </div>
+        <div class="pow-org">Pencil Mark Interior Solutions LLP • Bengaluru (2025)</div>
+        <div class="pow-desc">
+          Converted client specifications into vendor delivery schedules and Excel procurement matrices, resolving on-site material requisition variances.
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Competencies Matrix -->
+    <div class="sec-title">
+      <span>Core Operational Capabilities</span>
+    </div>
+
+    <div class="skills-row">
+      <div class="skill-col">
+        <div class="skill-col-title">Global EXIM & Trade</div>
+        <ul>
+          <li>Incoterms 2020 Risk Transfer</li>
+          <li>Ocean Bill of Lading & BoE</li>
+          <li>Customs Clearance Workflows</li>
+          <li>Demurrage & Detention Hedging</li>
+          <li>CEPA / ECTA FTA Compliance</li>
+        </ul>
+      </div>
+
+      <div class="skill-col">
+        <div class="skill-col-title">Corporate Operations</div>
+        <ul>
+          <li>Vendor Matrix & SLA Audits</li>
+          <li>Double-Entry Reconciliation</li>
+          <li>High-Stress Crisis Triage</li>
+          <li>Process Mapping & SOP Creation</li>
+          <li>Commercial Brief Formulation</li>
+        </ul>
+      </div>
+
+      <div class="skill-col">
+        <div class="skill-col-title">Modern Tech & Tooling</div>
+        <ul>
+          <li>Python 3 Scripting & Automation</li>
+          <li>SQLite Relational Database</li>
+          <li>Google Antigravity & Agentic Ops</li>
+          <li>MS Excel (Pivots, VLOOKUP)</li>
+          <li>Git / GitHub Workflow & CLI</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education & Value Strip -->
+    <div class="sec-title">
+      <span>Education & Certifications</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 12px; color: #334155;">
+      <div><strong>Dayananda Sagar University (DSU), Bengaluru</strong> — BBA (International Business)</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-weight: 600;">2023 – 2026 (Final Year)</div>
+    </div>
+    <div style="font-size: 11px; color: #64748b; margin-bottom: 16px;">
+      Certifications: Google Digital Marketing Fundamentals • NPTEL Service Marketing • Languages: English (Fluent), Hindi (Native)
+    </div>
+
+    <div class="value-strip">
+      <div><strong>DAY-1 PROMISE:</strong> Zero notice period • Self-directed backlog clearance • Auditable accuracy</div>
+      <div style="font-family: 'JetBrains Mono', monospace;">+91 7003456624 | Bengaluru</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADITYA MEHRA | THE PORTABLE CAREER WAR CHEST (Master Arsenal)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #03050c;
+      --bg-surface: #070b16;
+      --bg-card: #0d1324;
+      --bg-card-hover: #151e36;
+      --border: #1a2540;
+      --cyan: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.25);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.25);
+      --emerald: #10b981;
+      --purple: #8b5cf6;
+      --rose: #f43f5e;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 5, 12, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { font-size: 19px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .brand span { color: var(--gold); }
+    .status-badge {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: var(--gold);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 30px 40px 0; }
+    
+    .hero {
+      background: linear-gradient(135deg, rgba(20, 28, 48, 0.95), rgba(8, 12, 24, 0.95));
+      border: 1px solid var(--gold-glow);
+      border-radius: 18px;
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+    .hero p { color: var(--text-muted); font-size: 15px; max-width: 820px; }
+
+    .sec-head {
+      margin: 36px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .sec-head h2 { font-size: 22px; font-weight: 800; color: #fff; }
+
+    .arsenal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .weapon-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .weapon-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 242, 254, 0.15);
+    }
+
+    .weapon-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .weapon-title { font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .weapon-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px; }
+
+    .weapon-actions {
+      display: flex;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-act {
+      flex: 1;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-pri { background: var(--cyan); color: #03050c; }
+    .btn-pri:hover { box-shadow: 0 0 12px var(--cyan-glow); }
+    .btn-sec { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+    .btn-sec:hover { border-color: var(--cyan); color: #fff; }
+
+    .download-strip {
+      background: var(--bg-card);
+      border: 1px solid var(--gold-glow);
+      border-radius: 12px;
+      padding: 22px 28px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .download-strip h3 { font-size: 17px; font-weight: 700; color: #fff; }
+    .download-strip p { font-size: 13px; color: var(--text-muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 30px;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      font-family: var(--font-mono);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">
+      ADITYA MEHRA <span>/ THE PORTABLE WAR CHEST</span>
+    </div>
+    <div class="status-badge">All 5 Weapons Armed & Verified</div>
+  </nav>
+
+  <main class="container">
+
+    <div class="hero">
+      <div>
+        <h1>The Carry-Anywhere Career Arsenal</h1>
+        <p>
+          Every weapon engineered to dominate corporate interviews, boardrooms, recruiter screening calls, and salary negotiations. 
+          Carry this folder on a flash drive, your phone, or an iPad—100% offline-ready.
+        </p>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 13px; color: var(--gold); border: 1px solid var(--gold-glow); padding: 12px 18px; border-radius: 8px;">
+        <div>PORTABLE PACKAGE: <strong>ADITYA_PORTABLE_WAR_CHEST.zip</strong></div>
+        <div style="color: var(--emerald); font-size: 11px; margin-top: 4px;">✔ 100% Standalone & Offline Ready</div>
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <div>
+        <h2>Your 5 Lethal Career Weapons</h2>
+        <p>Direct launch links to each specialized asset</p>
+      </div>
+    </div>
+
+    <div class="arsenal-grid">
+      <!-- Weapon 1 -->
+      <div class="weapon-card">
+        <div>
+          <div class="weapon-tag">Weapon 01 • Executive Presentation</div>
+          <div class="weapon-title">The Executive One-Pager (A4)</div>
+          <p class="weapon-desc">
+            High-density, visual capability brief designed to be slid across the table to a VP or emailed as an executive summary. Summarizes all 4 proof-of-work pillars on a single page.
+          </p>
+        </div>
+        <div class="weapon-actions">
+          <a href="ADITYA_EXECUTIVE_ONE_PAGER.html" target="_blank" class="btn-act btn-pri">Open One-Pager ↗</a>
+          <a href="ADITYA_EXECUTIVE_ONE_PAGER.html" onclick="window.print()" class="btn-act btn-sec">Print A4 🖨️</a>
+        </div>
+      </div>
+
+      <!-- Weapon 2 -->
+      <div class="weapon-card">
+        <div>
+          <div class="weapon-tag">Weapon 02 • Onboarding Blueprint</div>
+          <div class="weapon-title">30-60-90 Day Operational Plan</div>
+          <p class="weapon-desc">
+            The ultimate hiring manager closer. A structured 3-phase roadmap showing how you will audit workflows, automate reporting latency by 40%, and achieve net positive ROI in 90 days.
+          </p>
+        </div>
+        <div class="weapon-actions">
+          <a href="ADITYA_30_60_90_DAY_BLUEPRINT.html" target="_blank" class="btn-act btn-pri">Open 90-Day Plan ↗</a>
+          <a href="ADITYA_30_60_90_DAY_BLUEPRINT.html" onclick="window.print()" class="btn-act btn-sec">Print Blueprint 🖨️</a>
+        </div>
+      </div>
+
+      <!-- Weapon 3 -->
+      <div class="weapon-card">
+        <div>
+          <div class="weapon-tag">Weapon 03 • Smartphone Battle Shield</div>
+          <div class="weapon-title">Pocket Battle Shield (Mobile)</div>
+          <p class="weapon-desc">
+            Mobile-optimized offline web app for your smartphone. Review the 60s elevator pitch, 5 curveball shields, counter-questions, and salary scripts 10 minutes before walking into an interview.
+          </p>
+        </div>
+        <div class="weapon-actions">
+          <a href="ADITYA_POCKET_BATTLE_SHIELD_MOBILE.html" target="_blank" class="btn-act btn-pri">Launch Mobile Shield 📱</a>
+        </div>
+      </div>
+
+      <!-- Weapon 4 -->
+      <div class="weapon-card">
+        <div>
+          <div class="weapon-tag">Weapon 04 • The Master ATS Resume</div>
+          <div class="weapon-title">A4 Printable ATS Resume</div>
+          <p class="weapon-desc">
+            Standard single-column, 95%+ ATS scoring resume formatted with clean typography, verified metrics (Aero India, Instawork, Pencil Mark), and zero-margin parsing errors.
+          </p>
+        </div>
+        <div class="weapon-actions">
+          <a href="resumes/Aditya_Mehra_Resume_Printable.html" target="_blank" class="btn-act btn-pri">Open ATS Resume ↗</a>
+          <a href="resumes/Aditya_Mehra_Resume_Printable.html" onclick="window.print()" class="btn-act btn-sec">Print Resume 🖨️</a>
+        </div>
+      </div>
+
+      <!-- Weapon 5 -->
+      <div class="weapon-card">
+        <div>
+          <div class="weapon-tag">Weapon 05 • Full Digital Portfolio</div>
+          <div class="weapon-title">Executive Digital Portfolio</div>
+          <p class="weapon-desc">
+            Interactive dark-glass public portfolio showcase with live project walkthroughs, verifiable credentials, and 1-click recruiter InMail pitch generation.
+          </p>
+        </div>
+        <div class="weapon-actions">
+          <a href="ADITYA_MEHRA_EXECUTIVE_PORTFOLIO.html" target="_blank" class="btn-act btn-pri">Open Portfolio 🌐</a>
+        </div>
+      </div>
+
+      <!-- Weapon 6 -->
+      <div class="weapon-card">
+        <div>
+          <div class="weapon-tag">Weapon 06 • Objection Annihilator</div>
+          <div class="weapon-title">STAR Interview Defense Matrix</div>
+          <p class="weapon-desc">
+            20+ pre-rehearsed STAR scripts answering non-tech BBA doubts, high-pressure logistics breakdowns, Red Sea supply chain reroutings, and compensation justifications.
+          </p>
+        </div>
+        <div class="weapon-actions">
+          <a href="STAR_INTERVIEW_DEFENSE_MATRIX.html" target="_blank" class="btn-act btn-pri">Open Defense Matrix 🛡️</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ZIP Download Strip -->
+    <div class="download-strip">
+      <div>
+        <h3>📦 The Complete Offline ZIP War Chest Bundle</h3>
+        <p>Contains all HTML files, resumes, blueprints, and offline scripts in a single portable archive.</p>
+      </div>
+      <div>
+        <a href="WAR_CHEST/ADITYA_PORTABLE_WAR_CHEST.zip" download class="btn-act btn-pri" style="padding: 12px 24px; font-size: 14px;">Download ZIP Package (Flash Drive / Phone) 💾</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    ADITYA MEHRA • BBA INTERNATIONAL BUSINESS '26 • DAYANANDA SAGAR UNIVERSITY, BENGALURU
+    <br>POWERED BY OMEGA ∞ SUPREME PORTABLE CAREER ARSENAL
+  </footer>
+
+</body>
+</html>
