@@ -1,0 +1,25 @@
+{
+  "name": "orderbook_l3_nested",
+  "description": "Level-3 Market By Order (MBO) orderbook schema with nested bid/ask price level structs and list arrays",
+  "fields": [
+    { "name": "timestamp_epoch_ns", "type": "int64", "nullable": false },
+    { "name": "exchange", "type": "dictionary<int8, string>", "nullable": false },
+    { "name": "market_pair", "type": "dictionary<int16, string>", "nullable": false },
+    { "name": "sequence_id", "type": "int64", "nullable": false },
+    {
+      "name": "bids",
+      "type": "list<item: struct<price: float64, size: float64, order_count: int32, orders: list<item: int64>>>",
+      "nullable": false
+    },
+    {
+      "name": "asks",
+      "type": "list<item: struct<price: float64, size: float64, order_count: int32, orders: list<item: int64>>>",
+      "nullable": false
+    },
+    { "name": "mid_price", "type": "float64", "nullable": false },
+    { "name": "micro_price", "type": "float64", "nullable": false },
+    { "name": "spread_bps", "type": "float32", "nullable": false }
+  ],
+  "alignment": 64,
+  "memory_layout": "Nested Columnar (List of Structs with 32-bit Offsets)"
+}

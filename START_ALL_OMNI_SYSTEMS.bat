@@ -20,6 +20,15 @@ start "Blackbird OSINT API Server" cmd /k "python blackbird_orchestrator.py --se
 echo [*] Starting Windmill Autonomous Workflow & Developer Platform Server on http://127.0.0.1:8768...
 start "Windmill API Server" cmd /k "python windmill_api_server.py --port 8768"
 
+echo [*] Starting PowerShell Autonomous Ecosystem Server on http://127.0.0.1:8769...
+start "PowerShell API Server" cmd /k "python powershell_api_server.py --port 8769"
+
+echo [*] Starting Microsoft PowerToys Autonomous Suite Server on http://127.0.0.1:8770...
+start "PowerToys API Server" cmd /k "python powertoys_api_server.py --port 8770"
+
+echo [*] Starting NSA Ghidra Autonomous SRE Suite Server on http://127.0.0.1:8771...
+start "Ghidra API Server" cmd /k "python ghidra_api_server.py --port 8771"
+
 timeout /t 2 /nobreak >nul
 
 echo [*] Launching Master Executive Mission Control in browser...
@@ -33,7 +42,10 @@ echo   3. prompts.chat Studio API:  http://127.0.0.1:8877
 echo   4. Coolify PaaS & Cockpit:   http://127.0.0.1:8767
 echo   5. Blackbird OSINT Cockpit:  http://127.0.0.1:8777
 echo   6. Windmill Workflow Engine: http://127.0.0.1:8768
-echo   7. 7-Agent APEX Cockpit:     file:///e:/anti/apex_career_cockpit.html
-echo   8. Global Opportunity Map:   file:///e:/anti/master_job_universe_dashboard.html
+echo   7. PowerShell Ecosystem API: http://127.0.0.1:8769
+echo   8. PowerToys Suite API:      http://127.0.0.1:8770
+echo   9. NSA Ghidra SRE API:       http://127.0.0.1:8771
+echo   10. 7-Agent APEX Cockpit:    file:///e:/anti/apex_career_cockpit.html
+echo   11. Global Opportunity Map:  file:///e:/anti/master_job_universe_dashboard.html
 echo ==============================================================================
 pause

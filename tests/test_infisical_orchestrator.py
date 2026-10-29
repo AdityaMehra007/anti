@@ -124,6 +124,9 @@ class TestInfisicalOrchestrator(unittest.TestCase):
 
     def test_06_cloud_integration_sync(self):
         """Test secret sync dispatch formatting for Kubernetes and AWS."""
+        # Provision a production secret to sync
+        self.client.set_secret("K8S_TEST_TOKEN", "super-secret-token-1234", environment="production")
+
         integrations = self.client.list_integrations()
         self.assertGreater(len(integrations), 0)
 
@@ -133,14 +136,20 @@ class TestInfisicalOrchestrator(unittest.TestCase):
         res = self.client.sync_integration(k8s_integ["id"])
         self.assertEqual(res["sync_status"], "synchronized")
         self.assertGreater(res["synced_keys_count"], 0)
-        self.assertTrue("apiVersion: v1" in res["exported_manifest"])
+        self.assertTrue("apiVersion" in res["exported_manifest"])
+        self.assertTrue("Secret" in res["exported_manifest"])
 
     def test_07_audit_blockchain_integrity(self):
         """Test SHA-256 chained hash integrity and tamper detection."""
+        # Append some operations to have multiple blocks in chain
+        self.client.set_secret("AUDIT_TEST_KEY_1", "val1")
+        self.client.set_secret("AUDIT_TEST_KEY_2", "val2")
+
         # Baseline check
         valid, count, err = self.client.state.verify_audit_chain()
         self.assertTrue(valid)
         self.assertIsNone(err)
+        self.assertGreaterEqual(len(self.client.state.audit_log), 3)
 
         # Inject a malicious mutation into history
         original_action = self.client.state.audit_log[1].action

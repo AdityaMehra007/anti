@@ -1,0 +1,33 @@
+{
+  "query_id": "QUERY-ACERO-VWAP-001",
+  "name": "Volume-Weighted Average Price (VWAP) Calculation",
+  "target_table": "trades",
+  "pipeline": [
+    {
+      "stage": "filter",
+      "predicate": "quantity > 0 AND price > 0.0"
+    },
+    {
+      "stage": "project",
+      "expressions": {
+        "notional_value": "price * quantity",
+        "symbol": "symbol",
+        "quantity": "quantity"
+      }
+    },
+    {
+      "stage": "aggregate",
+      "group_by": ["symbol"],
+      "aggregates": [
+        { "func": "sum", "column": "notional_value", "alias": "total_notional" },
+        { "func": "sum", "column": "quantity", "alias": "total_quantity" }
+      ]
+    },
+    {
+      "stage": "compute_vwap",
+      "formula": "total_notional / total_quantity"
+    }
+  ],
+  "engine": "Acero Streaming Relational Engine",
+  "simd_optimized": true
+}

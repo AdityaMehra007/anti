@@ -1,0 +1,24 @@
+{
+  "query_id": "QUERY-ACERO-SENSOR-ANOMALY-002",
+  "name": "Industrial IoT Vibration & Thermal Anomaly Detection",
+  "target_table": "iot_telemetry",
+  "pipeline": [
+    {
+      "stage": "filter",
+      "predicate": "vibration_hz > 50.0 OR temperature_c > 45.0 OR status_code != 200"
+    },
+    {
+      "stage": "sort",
+      "order_by": [
+        { "column": "vibration_hz", "direction": "descending" },
+        { "column": "temperature_c", "direction": "descending" }
+      ]
+    },
+    {
+      "stage": "project",
+      "columns": ["device_id", "sensor_type", "vibration_hz", "temperature_c", "battery_pct", "status_code", "reading_time"]
+    }
+  ],
+  "engine": "Acero Streaming Relational Engine",
+  "simd_optimized": true
+}

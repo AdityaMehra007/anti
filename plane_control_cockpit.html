@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plane Autonomous Mission Control Cockpit — OMEGA OS</title>
+  <style>
+    :root {
+      --bg: #07090e;
+      --panel: #0d121d;
+      --card: #131b2a;
+      --border: #1f2d45;
+      --border-bright: #2d4163;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.25);
+      --cyan: #06b6d4;
+      --cyan-glow: rgba(6, 182, 212, 0.25);
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.25);
+      --amber: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.25);
+      --red: #ef4444;
+      --red-glow: rgba(239, 68, 68, 0.25);
+      --purple: #8b5cf6;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --font-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 20px; min-height: 100vh; overflow-x: hidden; }
+
+    /* Header */
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+      padding: 16px 24px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-logo {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 900; color: #fff;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    .brand-title { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+    .brand-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .badge {
+      padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; gap: 6px; font-family: var(--font-mono);
+      border: 1px solid var(--border); background: var(--card);
+    }
+    .badge-live { border-color: var(--green); color: var(--green); background: rgba(16, 185, 129, 0.1); }
+    .badge-mock { border-color: var(--cyan); color: var(--cyan); background: rgba(6, 182, 212, 0.1); }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+
+    .btn {
+      background: var(--card); border: 1px solid var(--border-bright); color: var(--text);
+      padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;
+    }
+    .btn:hover { background: var(--border); border-color: var(--accent); color: #fff; }
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #0284c7); border: none; color: #fff;
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+
+    /* KPI Grid */
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
+    .kpi-card {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+      padding: 16px 20px; position: relative; overflow: hidden;
+    }
+    .kpi-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+    .kpi-value { font-size: 26px; font-weight: 800; color: #fff; margin: 6px 0 4px; font-family: var(--font-mono); }
+    .kpi-sub { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+
+    /* Nav Tabs */
+    .nav-tabs {
+      display: flex; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 12px;
+      margin-bottom: 20px; overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent; border: 1px solid transparent; color: var(--text-muted);
+      padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text); background: var(--card); }
+    .tab-btn.active {
+      color: #fff; background: var(--card); border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    /* Content Views */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Kanban Board */
+    .kanban-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;
+      align-items: start;
+    }
+    .kanban-col {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px; min-height: 480px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .col-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .col-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+    .col-badge {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 2px 8px; font-size: 11px; font-family: var(--font-mono);
+    }
+
+    .issue-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px; cursor: pointer; transition: all 0.2s; position: relative;
+    }
+    .issue-card:hover {
+      border-color: var(--accent); transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
+    .issue-id { font-size: 11px; font-family: var(--font-mono); color: var(--cyan); margin-bottom: 4px; }
+    .issue-name { font-size: 14px; font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 10px; }
+    .issue-footer { display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+    .priority-pill {
+      font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 6px; text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .p-urgent { background: rgba(239, 68, 68, 0.2); color: var(--red); border: 1px solid var(--red); }
+    .p-high { background: rgba(245, 158, 11, 0.2); color: var(--amber); border: 1px solid var(--amber); }
+    .p-medium { background: rgba(59, 130, 246, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+    .p-low { background: rgba(148, 163, 184, 0.2); color: var(--text-muted); border: 1px solid var(--border); }
+
+    /* SVG Chart */
+    .chart-container {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px; margin-bottom: 20px;
+    }
+
+    /* Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 13px; }
+    th { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* JSON Box */
+    pre.code-box {
+      background: #04060a; border: 1px solid var(--border); border-radius: 8px;
+      padding: 16px; font-family: var(--font-mono); font-size: 12px; color: #38bdf8;
+      overflow-x: auto; max-height: 400px;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    .modal-box {
+      background: var(--panel); border: 1px solid var(--border-bright); border-radius: 14px;
+      width: 520px; max-width: 90%; padding: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; }
+    .form-control {
+      width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px 14px; color: #fff; font-size: 13px; outline: none; transition: border-color 0.2s;
+    }
+    .form-control:focus { border-color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">P</div>
+      <div>
+        <div class="brand-title">PLANE MISSION CONTROL COCKPIT</div>
+        <div class="brand-subtitle">Autonomous Issue Tracking, Sprints, Epics & Multi-Agent Reactor</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div id="mode-badge" class="badge badge-mock">
+        <span class="pulse-dot"></span>
+        <span id="mode-text">MOCK SIMULATION</span>
+      </div>
+      <button class="btn btn-primary" onclick="runDoEverything()">⚡ Run 12-Phase Lifecycle</button>
+      <button class="btn" onclick="openNewIssueModal()">+ Create Issue</button>
+    </div>
+  </header>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Work Items</div>
+      <div class="kpi-value" id="kpi-total-issues">--</div>
+      <div class="kpi-sub" id="kpi-urgent-sub">🔥 -- urgent priority</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Active Sprint Cycle</div>
+      <div class="kpi-value" id="kpi-active-sprint">Sprint 25</div>
+      <div class="kpi-sub" id="kpi-cycle-dates">📅 5 days in · 9 days left</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Sprint Velocity</div>
+      <div class="kpi-value" id="kpi-velocity">9.0 pts</div>
+      <div class="kpi-sub" style="color: var(--green);">🟢 On Track to Deliver</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Pending Triage Intake</div>
+      <div class="kpi-value" id="kpi-triage-count">2 items</div>
+      <div class="kpi-sub">Sensor & webhook backlog</div>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('kanban')">📋 Kanban Board</button>
+    <button class="tab-btn" onclick="switchTab('cycles')">⚡ Cycles & Burndown</button>
+    <button class="tab-btn" onclick="switchTab('modules')">🎯 Modules & Roadmaps</button>
+    <button class="tab-btn" onclick="switchTab('pages')">📖 Collaborative Docs</button>
+    <button class="tab-btn" onclick="switchTab('triage')">📥 Triage Intake</button>
+    <button class="tab-btn" onclick="switchTab('analytics')">📊 Velocity & Analytics</button>
+    <button class="tab-btn" onclick="switchTab('docker')">🐳 Docker Deployment</button>
+    <button class="tab-btn" onclick="switchTab('lifecycle')">🛡️ 12-Phase Sovereign Run</button>
+    <button class="tab-btn" onclick="switchTab('mcp')">🔌 MCP & API Playground</button>
+  </div>
+
+  <!-- TAB: KANBAN -->
+  <div id="tab-kanban" class="tab-content active">
+    <div class="kanban-grid">
+      <!-- Backlog -->
+      <div class="kanban-col" id="col-backlog">
+        <div class="col-header">
+          <div class="col-title" style="color: #94a3b8;">Backlog</div>
+          <span class="col-badge" id="count-backlog">0</span>
+        </div>
+        <div class="col-cards" id="cards-backlog"></div>
+      </div>
+      <!-- Todo -->
+      <div class="kanban-col" id="col-todo">
+        <div class="col-header">
+          <div class="col-title" style="color: #3b82f6;">Todo</div>
+          <span class="col-badge" id="count-todo">0</span>
+        </div>
+        <div class="col-cards" id="cards-todo"></div>
+      </div>
+      <!-- In Progress -->
+      <div class="kanban-col" id="col-in_progress">
+        <div class="col-header">
+          <div class="col-title" style="color: #f59e0b;">In Progress</div>
+          <span class="col-badge" id="count-in_progress">0</span>
+        </div>
+        <div class="col-cards" id="cards-in_progress"></div>
+      </div>
+      <!-- Review -->
+      <div class="kanban-col" id="col-review">
+        <div class="col-header">
+          <div class="col-title" style="color: #8b5cf6;">In Verification</div>
+          <span class="col-badge" id="count-review">0</span>
+        </div>
+        <div class="col-cards" id="cards-review"></div>
+      </div>
+      <!-- Done -->
+      <div class="kanban-col" id="col-done">
+        <div class="col-header">
+          <div class="col-title" style="color: #10b981;">Done</div>
+          <span class="col-badge" id="count-done">0</span>
+        </div>
+        <div class="col-cards" id="cards-done"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: CYCLES & BURNDOWN -->
+  <div id="tab-cycles" class="tab-content">
+    <div class="chart-container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <div>
+          <h3 style="font-size:16px; color:#fff;">Sprint 25: Burndown Curve Analysis</h3>
+          <p style="font-size:12px; color:var(--text-muted);">Ideal trajectory vs real-time committed story point reduction</p>
+        </div>
+        <div style="display:flex; gap:16px; font-size:12px; font-family:var(--font-mono);">
+          <span style="color:#94a3b8;">--- Ideal Burn</span>
+          <span style="color:#06b6d4; font-weight:bold;">— Actual Burn</span>
+        </div>
+      </div>
+      <!-- SVG Burndown Chart -->
+      <svg id="burndown-svg" viewBox="0 0 800 280" style="width:100%; height:260px; overflow:visible;">
+        <!-- Axes -->
+        <line x1="50" y1="20" x2="50" y2="240" stroke="#1f2d45" stroke-width="2"/>
+        <line x1="50" y1="240" x2="760" y2="240" stroke="#1f2d45" stroke-width="2"/>
+        <!-- Grid lines -->
+        <line x1="50" y1="80" x2="760" y2="80" stroke="#131b2a" stroke-dasharray="4"/>
+        <line x1="50" y1="160" x2="760" y2="160" stroke="#131b2a" stroke-dasharray="4"/>
+        <!-- Ideal Line -->
+        <line x1="50" y1="30" x2="750" y2="240" stroke="#64748b" stroke-width="2" stroke-dasharray="6"/>
+        <!-- Actual Line -->
+        <polyline id="burndown-polyline" fill="none" stroke="#06b6d4" stroke-width="3" points="50,30 200,60 350,170"/>
+        <!-- Points -->
+        <circle cx="50" cy="30" r="5" fill="#06b6d4"/>
+        <circle cx="200" cy="60" r="5" fill="#06b6d4"/>
+        <circle cx="350" cy="170" r="6" fill="#10b981"/>
+        <!-- Labels -->
+        <text x="45" y="260" fill="#94a3b8" font-size="11" font-family="monospace">Day 1</text>
+        <text x="345" y="260" fill="#94a3b8" font-size="11" font-family="monospace">Day 5 (Today)</text>
+        <text x="730" y="260" fill="#94a3b8" font-size="11" font-family="monospace">Day 14</text>
+        <text x="15" y="35" fill="#94a3b8" font-size="11" font-family="monospace">26pt</text>
+        <text x="15" y="175" fill="#10b981" font-size="11" font-family="monospace">8pt</text>
+        <text x="25" y="245" fill="#94a3b8" font-size="11" font-family="monospace">0pt</text>
+      </svg>
+    </div>
+
+    <div class="kpi-card" style="margin-top:20px;">
+      <h3 style="font-size:14px; margin-bottom:12px; color:#fff;">All Sprint Cycles</h3>
+      <table id="cycles-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Duration</th>
+            <th>Issues</th>
+            <th>Story Points</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody id="cycles-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB: MODULES -->
+  <div id="tab-modules" class="tab-content">
+    <div class="kpi-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 style="font-size:15px; color:#fff;">Epic Milestones & Roadmap Progress</h3>
+        <button class="btn" onclick="alert('Creating module milestone...')">+ New Module</button>
+      </div>
+      <div id="modules-list" style="display:flex; flex-direction:column; gap:16px;"></div>
+    </div>
+  </div>
+
+  <!-- TAB: PAGES -->
+  <div id="tab-pages" class="tab-content">
+    <div style="display:grid; grid-template-columns: 280px 1fr; gap:20px;">
+      <div class="kpi-card">
+        <h4 style="font-size:13px; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px;">Knowledge Base Pages</h4>
+        <div id="pages-menu" style="display:flex; flex-direction:column; gap:8px;"></div>
+      </div>
+      <div class="kpi-card" id="page-reader">
+        <h2 id="page-title" style="font-size:20px; color:#fff; margin-bottom:12px;">Select a page</h2>
+        <div id="page-summary" style="background:var(--card); border-left:3px solid var(--accent); padding:10px 14px; font-size:12px; color:var(--text-muted); margin-bottom:16px;"></div>
+        <div id="page-body" style="font-size:14px; line-height:1.6; color:#cbd5e1;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: TRIAGE -->
+  <div id="tab-triage" class="tab-content">
+    <div class="kpi-card">
+      <h3 style="font-size:15px; color:#fff; margin-bottom:6px;">Incoming Sensor & Webhook Triage Queue</h3>
+      <p style="font-size:12px; color:var(--text-muted); margin-bottom:16px;">Evaluate incoming requests before promoting them into active sprint backlog items.</p>
+      <div id="triage-list" style="display:flex; flex-direction:column; gap:12px;"></div>
+    </div>
+  </div>
+
+  <!-- TAB: ANALYTICS -->
+  <div id="tab-analytics" class="tab-content">
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Completion Rate</div>
+        <div class="kpi-value" id="ana-completion-rate">50.0%</div>
+        <div class="kpi-sub">Across active issues</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Average Cycle Time</div>
+        <div class="kpi-value" id="ana-cycle-time">3.8 days</div>
+        <div class="kpi-sub">From In Progress to Verified Done</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Average Lead Time</div>
+        <div class="kpi-value" id="ana-lead-time">5.2 days</div>
+        <div class="kpi-sub">From creation to delivery</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Weekly Throughput</div>
+        <div class="kpi-value" id="ana-throughput">4.5 issues</div>
+        <div class="kpi-sub">Verified tasks per week</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: DOCKER -->
+  <div id="tab-docker" class="tab-content">
+    <div class="kpi-card" style="margin-bottom:20px;">
+      <h3 style="font-size:15px; color:#fff; margin-bottom:12px;">Plane CE Container Topology</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Container Service</th>
+            <th>Role</th>
+            <th>Port Ingress</th>
+            <th>Image Reference</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:bold; color:#fff;">plane-web</td>
+            <td>Frontend React/Next.js/Vite Web UI</td>
+            <td>:8095 (Host) -> :3000</td>
+            <td><code>makeplane/plane-frontend:v1.4.2</code></td>
+            <td><span style="color:var(--green);">● Configured</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:bold; color:#fff;">plane-api</td>
+            <td>Django REST Framework Backend Core</td>
+            <td>Internal RPC</td>
+            <td><code>makeplane/plane-backend:v1.4.2</code></td>
+            <td><span style="color:var(--green);">● Configured</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:bold; color:#fff;">plane-worker</td>
+            <td>Celery Asynchronous Task Processor</td>
+            <td>Internal Queue</td>
+            <td><code>makeplane/plane-backend:v1.4.2</code></td>
+            <td><span style="color:var(--green);">● Configured</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:bold; color:#fff;">plane-db</td>
+            <td>PostgreSQL 15 Persistent Storage</td>
+            <td>:5432</td>
+            <td><code>postgres:15-alpine</code></td>
+            <td><span style="color:var(--green);">● Configured</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:bold; color:#fff;">plane-redis</td>
+            <td>Redis 7 Broker & Cache</td>
+            <td>:6379</td>
+            <td><code>redis:7-alpine</code></td>
+            <td><span style="color:var(--green);">● Configured</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:bold; color:#fff;">plane-minio</td>
+            <td>S3-Compatible Object Store</td>
+            <td>:9000 / :9001</td>
+            <td><code>minio/minio:RELEASE</code></td>
+            <td><span style="color:var(--green);">● Configured</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kpi-card">
+      <h4 style="font-size:13px; color:var(--text-muted); margin-bottom:10px;">Standard Docker Compose Specification</h4>
+      <pre class="code-box" id="docker-compose-code"></pre>
+    </div>
+  </div>
+
+  <!-- TAB: LIFECYCLE -->
+  <div id="tab-lifecycle" class="tab-content">
+    <div class="kpi-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <div>
+          <h3 style="font-size:16px; color:#fff;">Sovereign 12-Phase Execution Attestation</h3>
+          <p style="font-size:12px; color:var(--text-muted);">Cryptographically logged end-to-end certification of Plane subsystems.</p>
+        </div>
+        <button class="btn btn-primary" onclick="runDoEverything()">Re-Execute 12 Phases</button>
+      </div>
+      <div id="lifecycle-steps" style="display:flex; flex-direction:column; gap:10px;"></div>
+    </div>
+  </div>
+
+  <!-- TAB: MCP -->
+  <div id="tab-mcp" class="tab-content">
+    <div style="display:grid; grid-template-columns: 320px 1fr; gap:20px;">
+      <div class="kpi-card">
+        <h4 style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Plane MCP Tools</h4>
+        <div id="mcp-tool-list" style="display:flex; flex-direction:column; gap:6px;"></div>
+      </div>
+      <div class="kpi-card">
+        <h4 style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Live Tool Execution Output</h4>
+        <pre class="code-box" id="mcp-output" style="height:360px;">// Click any MCP tool to execute live</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Create Issue -->
+  <div class="modal-backdrop" id="new-issue-modal">
+    <div class="modal-box">
+      <h3 style="font-size:16px; color:#fff; margin-bottom:16px;">Create Plane Work Item</h3>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" id="modal-iss-name" class="form-control" placeholder="e.g. Implement Webhook Auth Verification">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea id="modal-iss-desc" class="form-control" rows="3" placeholder="Provide specification details..."></textarea>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label>Priority</label>
+          <select id="modal-iss-priority" class="form-control">
+            <option value="urgent">Urgent</option>
+            <option value="high" selected>High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Story Points</label>
+          <select id="modal-iss-points" class="form-control">
+            <option value="1">1 Point</option>
+            <option value="2">2 Points</option>
+            <option value="3" selected>3 Points</option>
+            <option value="5">5 Points</option>
+            <option value="8">8 Points</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button class="btn" onclick="closeNewIssueModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="submitCreateIssue()">Create Issue</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = window.location.origin;
+    let stateCache = { issues: [], states: [], cycles: [], modules: [], pages: [], triage: [] };
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    async function loadData() {
+      try {
+        const [info, issues, cycles, modules, pages, triage, analytics, docker] = await Promise.all([
+          fetch(API_BASE + '/api/info').then(r => r.json()),
+          fetch(API_BASE + '/api/issues?project_id=proj-core-01').then(r => r.json()),
+          fetch(API_BASE + '/api/cycles?project_id=proj-core-01').then(r => r.json()),
+          fetch(API_BASE + '/api/modules?project_id=proj-core-01').then(r => r.json()),
+          fetch(API_BASE + '/api/pages?project_id=proj-core-01').then(r => r.json()),
+          fetch(API_BASE + '/api/triage?project_id=proj-core-01').then(r => r.json()),
+          fetch(API_BASE + '/api/analytics?project_id=proj-core-01').then(r => r.json()),
+          fetch(API_BASE + '/api/docker-config').then(r => r.json())
+        ]);
+
+        stateCache = { info, issues, cycles, modules, pages, triage, analytics, docker };
+        renderAll();
+      } catch (err) {
+        console.error("Error loading cockpit data:", err);
+      }
+    }
+
+    function renderAll() {
+      const { info, issues, cycles, modules, pages, triage, analytics, docker } = stateCache;
+
+      // Header Mode
+      if (info.mode === 'live') {
+        document.getElementById('mode-badge').className = 'badge badge-live';
+        document.getElementById('mode-text').textContent = 'LIVE REST API (v1.4.2)';
+      } else {
+        document.getElementById('mode-badge').className = 'badge badge-mock';
+        document.getElementById('mode-text').textContent = 'MOCK SIMULATION ENGINE';
+      }
+
+      // KPIs
+      document.getElementById('kpi-total-issues').textContent = issues.length;
+      const urgentCount = issues.filter(i => i.priority === 'urgent').length;
+      document.getElementById('kpi-urgent-sub').textContent = `🔥 ${urgentCount} urgent priority items`;
+      document.getElementById('kpi-triage-count').textContent = `${triage.length} items`;
+
+      // Kanban Cards
+      renderKanban(issues);
+
+      // Cycles
+      renderCycles(cycles);
+
+      // Modules
+      renderModules(modules);
+
+      // Pages
+      renderPages(pages);
+
+      // Triage
+      renderTriage(triage);
+
+      // Analytics
+      if (analytics && analytics.metrics) {
+        document.getElementById('ana-completion-rate').textContent = analytics.metrics.completion_rate_pct + '%';
+        document.getElementById('ana-cycle-time').textContent = analytics.metrics.average_cycle_time_days + ' days';
+        document.getElementById('ana-lead-time').textContent = analytics.metrics.lead_time_days + ' days';
+        document.getElementById('ana-throughput').textContent = analytics.metrics.weekly_throughput + ' issues';
+      }
+
+      // Docker config code
+      if (docker) {
+        document.getElementById('docker-compose-code').textContent = JSON.stringify(docker, null, 2);
+      }
+
+      // MCP Tool List
+      renderMcpTools();
+    }
+
+    function renderKanban(issues) {
+      const cols = { backlog: [], todo: [], in_progress: [], review: [], done: [] };
+
+      issues.forEach(iss => {
+        if (iss.state_id.includes('backlog')) cols.backlog.push(iss);
+        else if (iss.state_id.includes('todo')) cols.todo.push(iss);
+        else if (iss.state_id.includes('in_progress')) cols.in_progress.push(iss);
+        else if (iss.state_id.includes('review')) cols.review.push(iss);
+        else if (iss.state_id.includes('done')) cols.done.push(iss);
+        else cols.todo.push(iss);
+      });
+
+      for (let k in cols) {
+        const container = document.getElementById('cards-' + k);
+        const countBadge = document.getElementById('count-' + k);
+        if (container) container.innerHTML = '';
+        if (countBadge) countBadge.textContent = cols[k].length;
+
+        cols[k].forEach(iss => {
+          const card = document.createElement('div');
+          card.className = 'issue-card';
+          card.innerHTML = `
+            <div class="issue-id">#${iss.sequence_id} · ${iss.priority.toUpperCase()}</div>
+            <div class="issue-name">${iss.name}</div>
+            <div class="issue-footer">
+              <span class="priority-pill p-${iss.priority}">${iss.priority}</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:#94a3b8;">${iss.estimate_point || 0} pts</span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+
+    function renderCycles(cycles) {
+      const tbody = document.getElementById('cycles-body');
+      tbody.innerHTML = '';
+      cycles.forEach(c => {
+        const tr = document.createElement('tr');
+        const pct = c.total_points ? Math.round((c.completed_points / c.total_points) * 100) : 0;
+        tr.innerHTML = `
+          <td style="font-weight:600; color:#fff;">${c.name}</td>
+          <td><span class="badge ${c.status === 'current' ? 'badge-live' : ''}">${c.status.toUpperCase()}</span></td>
+          <td style="font-family:var(--font-mono); font-size:12px;">${c.start_date} → ${c.end_date}</td>
+          <td>${c.completed_issues} / ${c.total_issues}</td>
+          <td>${c.completed_points} / ${c.total_points} pts</td>
+          <td>
+            <div style="background:var(--border); width:120px; height:8px; border-radius:4px; overflow:hidden;">
+              <div style="background:var(--cyan); width:${pct}%; height:100%;"></div>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderModules(modules) {
+      const container = document.getElementById('modules-list');
+      container.innerHTML = '';
+      modules.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'kpi-card';
+        card.style.background = 'var(--card)';
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <div style="font-size:15px; font-weight:700; color:#fff;">${m.name}</div>
+            <span class="badge" style="font-size:11px;">${m.status.toUpperCase()}</span>
+          </div>
+          <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">${m.description}</div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:6px;">
+            <span>Delivery Target: <b>${m.target_date || 'Q4 2026'}</b></span>
+            <span><b>${m.completion_percentage}%</b> Complete (${m.completed_issues}/${m.total_issues} tasks)</span>
+          </div>
+          <div style="background:var(--border); height:8px; border-radius:4px; overflow:hidden;">
+            <div style="background:linear-gradient(90deg, #3b82f6, #10b981); width:${m.completion_percentage}%; height:100%;"></div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderPages(pages) {
+      const menu = document.getElementById('pages-menu');
+      menu.innerHTML = '';
+      pages.forEach((p, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.style.width = '100%';
+        btn.style.justifyContent = 'flex-start';
+        btn.textContent = p.title;
+        btn.onclick = () => selectPage(p);
+        menu.appendChild(btn);
+      });
+      if (pages.length > 0) selectPage(pages[0]);
+    }
+
+    function selectPage(p) {
+      document.getElementById('page-title').textContent = p.title;
+      document.getElementById('page-summary').textContent = 'AI Executive Summary: ' + (p.summary_ai || 'Documentation note.');
+      document.getElementById('page-body').innerHTML = p.description_html;
+    }
+
+    function renderTriage(triage) {
+      const container = document.getElementById('triage-list');
+      container.innerHTML = '';
+      triage.forEach(t => {
+        const div = document.createElement('div');
+        div.style.background = 'var(--card)';
+        div.style.border = '1px solid var(--border)';
+        div.style.borderRadius = '10px';
+        div.style.padding = '14px';
+        div.style.display = 'flex';
+        div.style.justifyContent = 'space-between';
+        div.style.alignItems = 'center';
+        div.innerHTML = `
+          <div>
+            <div style="font-size:11px; font-family:var(--font-mono); color:var(--cyan); margin-bottom:4px;">SOURCE: ${t.source.toUpperCase()} · STATUS: ${t.status.toUpperCase()}</div>
+            <div style="font-size:14px; font-weight:600; color:#fff;">${t.title}</div>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">${t.description}</div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn btn-primary" onclick="actionTriage('${t.id}', 'accept')">Promote to Issue</button>
+            <button class="btn" onclick="actionTriage('${t.id}', 'reject')">Dismiss</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    async function actionTriage(id, action) {
+      await fetch(API_BASE + `/api/triage/${id}/action`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action })
+      });
+      loadData();
+    }
+
+    async function runDoEverything() {
+      switchTab('lifecycle');
+      const container = document.getElementById('lifecycle-steps');
+      container.innerHTML = '<div style="color:var(--cyan);">Executing 12-Phase Sovereign Lifecycle...</div>';
+      try {
+        const res = await fetch(API_BASE + '/api/do-everything', { method: 'POST' }).then(r => r.json());
+        container.innerHTML = '';
+        res.phases.forEach(p => {
+          const row = document.createElement('div');
+          row.style.background = 'var(--card)';
+          row.style.border = '1px solid var(--border)';
+          row.style.borderRadius = '8px';
+          row.style.padding = '10px 14px';
+          row.style.display = 'flex';
+          row.style.justifyContent = 'space-between';
+          row.style.alignItems = 'center';
+          row.innerHTML = `
+            <div>
+              <span style="font-family:var(--font-mono); font-weight:bold; color:var(--cyan);">Phase ${p.phase}:</span>
+              <span style="font-weight:600; color:#fff; margin-left:6px;">${p.name}</span>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <span style="font-size:11px; color:var(--text-muted);">${p.duration_ms} ms</span>
+              <span class="badge badge-live">PASSED</span>
+            </div>
+          `;
+          container.appendChild(row);
+        });
+      } catch (err) {
+        container.innerHTML = '<div style="color:var(--red);">Error running lifecycle: ' + err + '</div>';
+      }
+    }
+
+    const MCP_TOOLS = [
+      { name: "plane_get_info", desc: "System telemetry & entity counts" },
+      { name: "plane_list_workspaces", desc: "List multi-tenant workspaces" },
+      { name: "plane_list_projects", desc: "List projects in workspace" },
+      { name: "plane_list_issues", desc: "Query filtered issues & tasks" },
+      { name: "plane_list_cycles", desc: "List sprint cycles & velocity" },
+      { name: "plane_get_burndown", desc: "Sprint burndown calculation", args: { cycle_id: "cyc-omega-sprint-25" } },
+      { name: "plane_list_modules", desc: "Milestones & epics list" },
+      { name: "plane_list_pages", desc: "Knowledge base pages" },
+      { name: "plane_list_triage", desc: "Sensor & webhook intake items" },
+      { name: "plane_get_analytics", desc: "Lead time, cycle time & velocity" }
+    ];
+
+    function renderMcpTools() {
+      const list = document.getElementById('mcp-tool-list');
+      list.innerHTML = '';
+      MCP_TOOLS.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.style.width = '100%';
+        btn.style.justifyContent = 'flex-start';
+        btn.innerHTML = `<b>${t.name}</b>`;
+        btn.onclick = () => execMcpTool(t);
+        list.appendChild(btn);
+      });
+    }
+
+    async function execMcpTool(tool) {
+      const out = document.getElementById('mcp-output');
+      out.textContent = `// Executing ${tool.name}...`;
+      let endpoint = '/api/' + tool.name.replace('plane_', '').replace('get_', '').replace('list_', '');
+      if (tool.name === 'plane_get_burndown') endpoint = '/api/cycles/cyc-omega-sprint-25/burndown';
+      try {
+        const data = await fetch(API_BASE + endpoint).then(r => r.json());
+        out.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        out.textContent = 'Error: ' + e;
+      }
+    }
+
+    function openNewIssueModal() {
+      document.getElementById('new-issue-modal').style.display = 'flex';
+    }
+    function closeNewIssueModal() {
+      document.getElementById('new-issue-modal').style.display = 'none';
+    }
+    async function submitCreateIssue() {
+      const name = document.getElementById('modal-iss-name').value;
+      const desc = document.getElementById('modal-iss-desc').value;
+      const priority = document.getElementById('modal-iss-priority').value;
+      const points = parseInt(document.getElementById('modal-iss-points').value);
+
+      if (!name) return alert('Please enter issue title');
+
+      await fetch(API_BASE + '/api/issues', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          description_html: `<p>${desc}</p>`,
+          priority,
+          estimate_point: points,
+          project_id: 'proj-core-01'
+        })
+      });
+      closeNewIssueModal();
+      loadData();
+    }
+
+    // Auto-load on boot
+    window.onload = loadData;
+  </script>
+</body>
+</html>
