@@ -162,6 +162,18 @@ Self-hosted PaaS alternative to Heroku/Vercel/Netlify for multi-server Docker, T
 - **One-Click Launchers**: [`START_COOLIFY_WINDOWS.bat`](START_COOLIFY_WINDOWS.bat) & [`scripts/start_coolify_windows.ps1`](scripts/start_coolify_windows.ps1).
 - **Architecture Teardown Dossier**: [`docs/COOLIFY_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/COOLIFY_SUPREME_ARCHITECTURE_DOSSIER.md).
 
+### Plane Autonomous Project & Issue Orchestration Ecosystem
+Modern open-source software development platform, issue tracker, Kanban board, sprint cycles with burndown velocity curves, epic modules, collaborative knowledge documentation, and triage intake engine (https://github.com/makeplane/plane):
+- [`plane-orchestrator`](.agents/skills/plane-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for Plane CE & Cloud environments.
+- **Deep SDK & Master Engine**: [`plane_orchestrator.py`](plane_orchestrator.py) (Dual-mode: live Plane CE REST API client and ultra-high-fidelity offline relational simulation engine).
+- **Universal CLI**: [`plane_cli.py`](plane_cli.py) (`info`, `workspaces`, `projects`, `create-project`, `issues`, `create-issue`, `update-issue`, `cycles`, `create-cycle`, `burndown`, `modules`, `create-module`, `pages`, `create-page`, `triage`, `triage-action`, `analytics`, `docker-config`, `do-everything`).
+- **Autonomous Local API Server**: [`plane_api_server.py`](plane_api_server.py) (REST bridge on port 8774 serving workspaces, projects, issues, cycles, burndown metrics, pages, triage, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`plane_mcp_server.py`](plane_mcp_server.py) (Exposes 16 Plane agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`plane_control_cockpit.html`](plane_control_cockpit.html) (9 operational tabs: Kanban Board, Cycles & Burndown SVG, Modules & Roadmaps, Collaborative Docs, Triage Intake, Velocity Analytics, Docker Topology, 12-Phase Lifecycle, and MCP Playground).
+- **One-Click Launchers**: [`START_PLANE_WINDOWS.bat`](START_PLANE_WINDOWS.bat), [`START_PLANE_COCKPIT.bat`](START_PLANE_COCKPIT.bat), [`START_PLANE.bat`](START_PLANE.bat).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/plane_do_everything_manifest.json`](omega/data/plane_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/PLANE_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/PLANE_SUPREME_ARCHITECTURE_DOSSIER.md).
+
 ### Windmill Autonomous Workflow Engine & Developer Platform Ecosystem
 Self-hosted, ultra-fast developer platform and DAG orchestration engine (alternative to Temporal, Retool, Airplane, and Airflow) running on a Rust core, PostgreSQL SKIP LOCKED queues, and polyglot sandboxed workers:
 - [`windmill-orchestrator`](.agents/skills/windmill-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for building and running scripts, multi-step DAG flows, human approvals, and low-code apps.

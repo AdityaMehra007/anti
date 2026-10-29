@@ -7,6 +7,22 @@ Builds, verifies, and audits all projects across the workspace:
 3. APEX Analytics Microservice API (projects/apex_analytics_api)
 4. Terra Kinetics Physical AI & Swarm Control SDK (terra_kinetics)
 5. Sovereign Continuum Macro Capital Allocation & Banking Engine (sovereign_continuum)
+6. TinyAGI Multi-Agent TypeScript Core (tinyagi)
+7. TradingAgents Multi-Agent Research Engine (projects/TradingAgents)
+8. AQUA Autonomous Operations, CRM & War Room Engine
+9. BYOX Core Engine Systems (SQLite, Redis, Regex, Scaffolding, Shell, SQLFluff)
+10. Operations Telemetry, Invoicing & Unified Portal
+11. P2P 3-Way Match & Vendor Reconciliation Engine
+12. Global Trade & UCP 600 Customs Compliance Engine
+13. APEX Career Supremacy OS
+14. Universal Job Taxonomy & JD Intelligence Engine
+15. Enterprise Dossier Compiler & Approval Queue Dispatcher
+16. Prompts Chat & Skills Intelligence Engine
+17. Coolify Autonomous PaaS Orchestrator
+18. Windmill Autonomous Workflow & DAG Engine
+19. Blackbird OSINT & Defensive Intelligence Engine
+20. PowerShell Autonomous Orchestration & AST Security Suite
+21. Microsoft PowerToys Autonomous Suite & WinUI Engine
 =============================================================================
 """
 
@@ -173,7 +189,19 @@ def build_all():
     ok19, t19, _ = run_project_build("19. Blackbird OSINT & Defensive Intelligence (11 Tests)", p19_cmd, p19_cwd)
     results.append(("Blackbird OSINT & Footprint Engine", ok19, t19, 11))
 
-    # 20. Recompile Flagship Cockpit & Assets Generator
+    # 20. PowerShell Autonomous Orchestration & AST Security Suite
+    p20_cmd = [sys.executable, "-m", "pytest", "tests/test_powershell_orchestrator.py", "-v"]
+    p20_cwd = ROOT_DIR
+    ok20, t20, _ = run_project_build("20. PowerShell Autonomous Orchestration Suite (18 Tests)", p20_cmd, p20_cwd)
+    results.append(("PowerShell Autonomous Orchestration Suite", ok20, t20, 18))
+
+    # 21. Microsoft PowerToys Autonomous Suite & WinUI Engine
+    p21_cmd = [sys.executable, "-m", "pytest", "tests/test_powertoys_orchestrator.py", "-v"]
+    p21_cwd = ROOT_DIR
+    ok21, t21, _ = run_project_build("21. Microsoft PowerToys Autonomous Suite (23 Tests)", p21_cmd, p21_cwd)
+    results.append(("Microsoft PowerToys Autonomous Suite", ok21, t21, 23))
+
+    # 22. Recompile Flagship Cockpit & Assets Generator
     print("\n[*] Recompiling Flagship Cockpit HTML & Synchronizing Assets...")
     subprocess.run([sys.executable, "run_command_center.py"], cwd=os.path.join(ROOT_DIR, "AI-Command-Center"), capture_output=True)
     print("  [OK] Cockpit v4.0 and pipeline CSV verified and synchronized.")
