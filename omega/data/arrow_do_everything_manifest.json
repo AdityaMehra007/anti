@@ -1,11 +1,11 @@
 {
-  "execution_id": "ARROW-SOVEREIGN-16D85FFE1B",
+  "execution_id": "ARROW-SOVEREIGN-6DC07D40D9",
   "protocol": "OMEGA_CONSTITUTION_SECTION_101",
   "ecosystem": "Apache Arrow Autonomous Columnar & Zero-Copy Ecosystem",
   "upstream_repository": "https://github.com/apache/arrow",
-  "timestamp": "2026-11-01T21:23:33.603264+00:00",
+  "timestamp": "2026-11-01T21:27:00.301090+00:00",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.1741,
+  "total_elapsed_seconds": 0.1965,
   "overall_status": "SOVEREIGN APACHE ARROW SUITE OPERATIONAL \u2014 100% ATTESTED",
   "runtime_telemetry": {
     "system": "Apache Arrow Autonomous Columnar & Zero-Copy Engine",
@@ -29,38 +29,38 @@
     "total_cached_tables": 1,
     "total_registered_schemas": 3,
     "flight_endpoints": 2,
-    "timestamp": "2026-11-01T21:23:33.603232+00:00"
+    "timestamp": "2026-11-01T21:27:00.301038+00:00"
   },
   "benchmarks": {
     "num_benchmark_rows": 50000,
     "zero_copy_slicing": {
       "total_operations": 10000,
-      "elapsed_sec": 0.0332,
-      "ops_per_second": 300947,
-      "latency_per_slice_ns": 3322.84
+      "elapsed_sec": 0.0569,
+      "ops_per_second": 175647,
+      "latency_per_slice_ns": 5693.23
     },
     "simd_vectorized_sum": {
-      "elapsed_sec": 0.00015,
-      "rows_per_second": 333778372,
+      "elapsed_sec": 0.000213,
+      "rows_per_second": 234192038,
       "result_sum": 1874962500.0
     },
     "simd_vectorized_filter": {
-      "elapsed_sec": 0.000593,
-      "rows_per_second": 84302816,
+      "elapsed_sec": 0.000596,
+      "rows_per_second": 83948959,
       "matched_rows": 24999
     },
     "arrow_ipc_serialization": {
       "output_bytes": 800384,
       "output_size_mb": 0.76,
-      "elapsed_sec": 0.001,
-      "throughput_mb_per_sec": 732.75,
-      "throughput_gb_per_sec": 0.72
+      "elapsed_sec": 0.0011,
+      "throughput_mb_per_sec": 689.09,
+      "throughput_gb_per_sec": 0.67
     },
     "parquet_columnar_write": {
       "compressed_bytes": 612365,
       "compression_codec": "snappy",
-      "elapsed_sec": 0.0813,
-      "throughput_mb_per_sec": 7.18
+      "elapsed_sec": 0.0306,
+      "throughput_mb_per_sec": 19.1
     }
   },
   "phases": [
@@ -69,7 +69,7 @@
       "name": "Columnar In-Memory Layout & 64-Byte SIMD Alignment Verification",
       "description": "Verified 64-byte continuous buffer memory alignment and LSB-first validity bitmap calculation.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.0001,
       "telemetry": {
         "alignment_bytes": 64,
         "buffer_size": 256,
@@ -121,7 +121,7 @@
           }
         ],
         "field_count": 8,
-        "registered_at": "2026-11-01T21:23:33.427588+00:00"
+        "registered_at": "2026-11-01T21:27:00.095450+00:00"
       }
     },
     {
@@ -129,7 +129,7 @@
       "name": "Zero-Copy Slicing & Memoryview Safety Validation",
       "description": "Demonstrated O(1) instantaneous slicing without byte buffer copies.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0166,
+      "elapsed_seconds": 0.0334,
       "telemetry": {
         "engine": "PyArrow C++ Acero Core",
         "original_num_rows": 2000,
@@ -137,10 +137,10 @@
         "slice_offset": 50,
         "slice_length": 200,
         "zero_copy_verified": true,
-        "buffer_address": "0x206ba144000",
-        "sliced_buffer_address": "0x206ba144000",
-        "slice_duration_ns": 26200,
-        "slice_duration_microseconds": 26.2
+        "buffer_address": "0x18690580000",
+        "sliced_buffer_address": "0x18690580000",
+        "slice_duration_ns": 58700,
+        "slice_duration_microseconds": 58.7
       }
     },
     {
@@ -148,7 +148,7 @@
       "name": "Arrow C Data Interface ABI Conformance",
       "description": "Exported and imported memory buffer via ctypes ArrowSchema & ArrowArray ABI structs.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0001,
+      "elapsed_seconds": 0.0003,
       "telemetry": {
         "status": "C_DATA_INTERFACE_ABI_VERIFIED",
         "abi_standard": "Arrow C Data Interface v1.0",
@@ -157,8 +157,8 @@
         "exported_length": 8,
         "exported_null_count": 1,
         "exported_n_buffers": 2,
-        "export_duration_ns": 43800,
-        "import_duration_ns": 37500,
+        "export_duration_ns": 35200,
+        "import_duration_ns": 55000,
         "zero_copy_preserved": true,
         "sample_values": [
           101,
@@ -177,12 +177,12 @@
       "name": "Acero & Vectorized Compute Engine",
       "description": "Executed SIMD-accelerated relational filtering and statistical reduction kernels.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0014,
+      "elapsed_seconds": 0.004,
       "telemetry": {
         "engine": "Acero Vectorized Compute Kernel",
         "table_name": "trades",
         "filter_expression": "price > 150.0",
-        "elapsed_ms": 1.151,
+        "elapsed_ms": 3.34,
         "statistics": {
           "row_count_before": 2000,
           "row_count_after": 1734,
@@ -277,15 +277,15 @@
       "name": "Arrow IPC Streaming Serialization & Parsing",
       "description": "Serialized RecordBatch stream protocol with 4-byte continuation tokens and EOS terminator.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0009,
+      "elapsed_seconds": 0.0025,
       "telemetry": {
         "format": "Arrow IPC Stream (RecordBatch Streaming)",
         "file_path": "E:\\anti\\arrow\\datasets\\trades_stream.arrows",
         "size_bytes": 101512,
         "size_human": "99.13 KB",
         "num_rows": 2000,
-        "elapsed_ms": 0.827,
-        "throughput_mb_s": 117.06,
+        "elapsed_ms": 2.261,
+        "throughput_mb_s": 42.81,
         "schema_fields": [
           "trade_id",
           "symbol",
@@ -303,7 +303,7 @@
       "name": "Arrow IPC Random-Access File Format & Feather Integration",
       "description": "Wrote Feather V2 file with metadata footer, dictionary batch offsets, and ZSTD compression.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0022,
+      "elapsed_seconds": 0.0176,
       "telemetry": {
         "format": "Arrow Feather V2 (Random Access File)",
         "file_path": "E:\\anti\\arrow\\datasets\\trades.arrow",
@@ -311,7 +311,7 @@
         "size_bytes": 28026,
         "size_human": "27.37 KB",
         "num_rows": 2000,
-        "elapsed_ms": 2.154
+        "elapsed_ms": 17.547
       }
     },
     {
@@ -319,7 +319,7 @@
       "name": "Apache Parquet Columnar Storage & Compression Interop",
       "description": "Constructed Snappy-compressed Parquet file with column chunks, pages, and metadata statistics.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0155,
+      "elapsed_seconds": 0.0208,
       "telemetry": {
         "format": "Apache Parquet Columnar Storage",
         "file_path": "E:\\anti\\arrow\\datasets\\trades_snappy.parquet",
@@ -330,7 +330,7 @@
         "row_groups": 1,
         "columns": 8,
         "total_rows": 2000,
-        "elapsed_ms": 4.46
+        "elapsed_ms": 10.377
       }
     },
     {
@@ -347,7 +347,7 @@
             "/datasets/trades": {
               "descriptor": "cmd:SELECT_FINANCIAL_TRADES",
               "schema_name": "financial_trades",
-              "ticket": "TICKET-TRADES-4593BDDF",
+              "ticket": "TICKET-TRADES-8356AF8D",
               "description": "High-frequency crypto & equity tick-level executions",
               "estimated_rows": 100000,
               "compression": "lz4_raw"
@@ -355,7 +355,7 @@
             "/datasets/iot_telemetry": {
               "descriptor": "cmd:SELECT_IOT_TELEMETRY",
               "schema_name": "iot_sensor_telemetry",
-              "ticket": "TICKET-IOT-2CEB860D",
+              "ticket": "TICKET-IOT-87D15251",
               "description": "Edge industrial IoT vibration, thermals, and battery metrics",
               "estimated_rows": 50000,
               "compression": "zstd"
@@ -367,14 +367,14 @@
         "ticket_stream": {
           "flight_status": "FLIGHT_STREAM_ACTIVE",
           "endpoint": "/datasets/trades",
-          "ticket": "TICKET-TRADES-4593BDDF",
+          "ticket": "TICKET-TRADES-8356AF8D",
           "schema_name": "financial_trades",
           "compression": "lz4_raw",
           "stream_format": "Arrow IPC RecordBatch chunks",
           "stream_chunk_size_bytes": 65536,
           "total_records_streamed": 100000,
           "zero_copy_wire_transfer": true,
-          "latency_ms": 0.001
+          "latency_ms": 0.002
         }
       }
     },
@@ -383,7 +383,7 @@
       "name": "Multi-Engine Zero-Copy Interop",
       "description": "Verified zero-copy conversion and buffer sharing with NumPy and Pandas.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0047,
+      "elapsed_seconds": 0.0063,
       "telemetry": {
         "numpy_interop": {
           "shape": [
@@ -415,37 +415,37 @@
       "name": "High-Performance SIMD & Vectorized Throughput Micro-Benchmarking",
       "description": "Executed microsecond latency and multi-gigabyte throughput benchmarks.",
       "status": "PASSED",
-      "elapsed_seconds": 0.1324,
+      "elapsed_seconds": 0.111,
       "telemetry": {
         "num_benchmark_rows": 50000,
         "zero_copy_slicing": {
           "total_operations": 10000,
-          "elapsed_sec": 0.0332,
-          "ops_per_second": 300947,
-          "latency_per_slice_ns": 3322.84
+          "elapsed_sec": 0.0569,
+          "ops_per_second": 175647,
+          "latency_per_slice_ns": 5693.23
         },
         "simd_vectorized_sum": {
-          "elapsed_sec": 0.00015,
-          "rows_per_second": 333778372,
+          "elapsed_sec": 0.000213,
+          "rows_per_second": 234192038,
           "result_sum": 1874962500.0
         },
         "simd_vectorized_filter": {
-          "elapsed_sec": 0.000593,
-          "rows_per_second": 84302816,
+          "elapsed_sec": 0.000596,
+          "rows_per_second": 83948959,
           "matched_rows": 24999
         },
         "arrow_ipc_serialization": {
           "output_bytes": 800384,
           "output_size_mb": 0.76,
-          "elapsed_sec": 0.001,
-          "throughput_mb_per_sec": 732.75,
-          "throughput_gb_per_sec": 0.72
+          "elapsed_sec": 0.0011,
+          "throughput_mb_per_sec": 689.09,
+          "throughput_gb_per_sec": 0.67
         },
         "parquet_columnar_write": {
           "compressed_bytes": 612365,
           "compression_codec": "snappy",
-          "elapsed_sec": 0.0813,
-          "throughput_mb_per_sec": 7.18
+          "elapsed_sec": 0.0306,
+          "throughput_mb_per_sec": 19.1
         }
       }
     },
@@ -454,7 +454,7 @@
       "name": "Autonomous Mission Control Cockpit, Local REST API Server & MCP Attestation",
       "description": "Validated interactive cockpit, REST API endpoints on port 8775, and MCP tool handlers.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.0001,
       "telemetry": {
         "system": "Apache Arrow Autonomous Columnar & Zero-Copy Engine",
         "upstream_repository": "https://github.com/apache/arrow",
@@ -477,7 +477,7 @@
         "total_cached_tables": 1,
         "total_registered_schemas": 3,
         "flight_endpoints": 2,
-        "timestamp": "2026-11-01T21:23:33.603232+00:00"
+        "timestamp": "2026-11-01T21:27:00.301038+00:00"
       }
     }
   ]

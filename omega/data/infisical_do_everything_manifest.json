@@ -2,8 +2,8 @@
   "title": "OMEGA Infisical Sovereign SecretOps Lifecycle Certification",
   "target": "https://github.com/Infisical/infisical",
   "version": "2.0.0-omega",
-  "timestamp": "2026-11-01T21:23:38.079313+00:00",
-  "execution_duration_ms": 1056.94,
+  "timestamp": "2026-11-01T21:26:42.195027+00:00",
+  "execution_duration_ms": 960.19,
   "overall_status": "SUCCESS_100_PERCENT",
   "phases_completed": 12,
   "phases_total": 12,
@@ -12,21 +12,21 @@
       "phase": 1,
       "name": "Cryptographic Engine & Telemetry Pre-Flight",
       "status": "COMPLETED",
-      "duration_ms": 4.97,
+      "duration_ms": 0.18,
       "details": {
         "cipher": "AES-256-GCM (96-bit nonce, 128-bit MAC tag)",
         "kdf": "PBKDF2-HMAC-SHA256 (100,000 rounds)",
         "mode": "Autonomous Sovereign (Cryptographic Vault)",
-        "active_projects": 14
+        "active_projects": 2
       }
     },
     {
       "phase": 2,
       "name": "Multi-Tenant Organization & Project Provisioning",
       "status": "COMPLETED",
-      "duration_ms": 36.13,
+      "duration_ms": 5.5,
       "details": {
-        "project_id": "proj-alpha-fleet-0e6a9d",
+        "project_id": "proj-alpha-fleet-1dcf10",
         "slug": "alpha-fleet",
         "environments": [
           "dev",
@@ -40,7 +40,7 @@
       "phase": 3,
       "name": "Zero-Knowledge Secret Vault Population & Envelope Encryption",
       "status": "COMPLETED",
-      "duration_ms": 92.26,
+      "duration_ms": 20.42,
       "details": {
         "secrets_provisioned": 2,
         "sample_key": "GROQ_API_TOKEN",
@@ -51,7 +51,7 @@
       "phase": 4,
       "name": "Point-in-Time Secret Versioning, Tagging & Rollback",
       "status": "COMPLETED",
-      "duration_ms": 73.18,
+      "duration_ms": 21.72,
       "details": {
         "key": "GROQ_API_TOKEN",
         "restored_version": 1,
@@ -62,7 +62,7 @@
       "phase": 5,
       "name": "High-Entropy Secret Scanner & Leak Detection",
       "status": "COMPLETED",
-      "duration_ms": 7.32,
+      "duration_ms": 1.81,
       "details": {
         "findings_count": 3,
         "signatures_matched": [
@@ -81,20 +81,20 @@
       "phase": 6,
       "name": "Dynamic Secret Engine & Leased Credential Rotation",
       "status": "COMPLETED",
-      "duration_ms": 94.28,
+      "duration_ms": 34.02,
       "details": {
-        "active_lease": "inf_dyn_postgres_4eaa9866",
+        "active_lease": "inf_dyn_postgres_178ecda7",
         "ttl_seconds": 1800,
-        "revoked_lease_id": "lease-989d4eee89f7"
+        "revoked_lease_id": "lease-af3fb379ad96"
       }
     },
     {
       "phase": 7,
       "name": "Internal PKI Certificate Authority & X.509 TLS Issuance",
       "status": "COMPLETED",
-      "duration_ms": 386.96,
+      "duration_ms": 380.03,
       "details": {
-        "serial_number": "696E0BC72787F528CD3A4F6E288DD711F46EBD5E",
+        "serial_number": "6546985B4D6D523807EC74C93BA0F761FFD4CA3",
         "common_name": "api.omega.internal",
         "sans": [
           "api.omega.internal",
@@ -108,21 +108,21 @@
       "phase": 8,
       "name": "Multi-Cloud Integration Sync Dispatch (K8s, AWS, Vercel)",
       "status": "COMPLETED",
-      "duration_ms": 96.1,
+      "duration_ms": 46.36,
       "details": {
         "integrations_synced": 3,
         "targets": [
           {
             "target": "kubernetes",
-            "synced_keys": 34
+            "synced_keys": 10
           },
           {
             "target": "aws-secrets-manager",
-            "synced_keys": 34
+            "synced_keys": 10
           },
           {
             "target": "vercel",
-            "synced_keys": 34
+            "synced_keys": 10
           }
         ]
       }
@@ -131,9 +131,9 @@
       "phase": 9,
       "name": "Granular RBAC Policy Enforcement & Break-Glass Workflow",
       "status": "COMPLETED",
-      "duration_ms": 81.72,
+      "duration_ms": 35.17,
       "details": {
-        "request_id": "req-83b1a0b2bd",
+        "request_id": "req-76fb76c438",
         "role": "Break-Glass Production Admin",
         "status": "approved",
         "approver": "secops-lead"
@@ -143,7 +143,7 @@
       "phase": 10,
       "name": "Process Environment Injection Runtime (infisical run)",
       "status": "COMPLETED",
-      "duration_ms": 181.54,
+      "duration_ms": 414.42,
       "details": {
         "exit_code": 0,
         "stdout_sample": "DATABASE_URL present: True",
@@ -154,13 +154,13 @@
       "phase": 11,
       "name": "Tamper-Evident Cryptographic Audit Ledger Verification",
       "status": "COMPLETED",
-      "duration_ms": 2.13,
+      "duration_ms": 0.21,
       "details": {
         "audit_chain_valid": true,
-        "records_verified": 201,
-        "latest_block_hash": "17358cfe55c10b6c..."
+        "records_verified": 16,
+        "latest_block_hash": "cb577bd4c63d8a2a..."
       }
     }
   ],
-  "cryptographic_ledger_signature": "17358cfe55c10b6cbd6a79e536df7b5fbd8a694d2ed557c543f2a3b29b093191"
+  "cryptographic_ledger_signature": "cb577bd4c63d8a2a9b59964771769b0333a89b9c2501e9ffe57ddc3e074a6eeb"
 }
