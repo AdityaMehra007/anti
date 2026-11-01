@@ -243,7 +243,31 @@ def build_all():
     ok27, t27, _ = run_project_build("27. Hummingbot Algorithmic Trading Ecosystem (15 Tests)", p27_cmd, p27_cwd)
     results.append(("Hummingbot Algorithmic Trading Engine", ok27, t27, 15))
 
-    # 28. Recompile Flagship Cockpit & Assets Generator
+    # 28. Free-For-Dev Autonomous Developer Cloud & Zero-Dollar Stack
+    p28_cmd = [sys.executable, "-m", "pytest", "tests/test_free_for_dev_orchestrator.py", "-v"]
+    p28_cwd = ROOT_DIR
+    ok28, t28, _ = run_project_build("28. Free-For-Dev Developer Cloud & Zero-Dollar Stack (5 Tests)", p28_cmd, p28_cwd)
+    results.append(("Free-For-Dev Developer Cloud", ok28, t28, 5))
+
+    # 29. Computer Science Video Courses & Academic Intelligence
+    p29_cmd = [sys.executable, "-m", "pytest", "tests/test_cs_courses_engine.py", "-v"]
+    p29_cwd = ROOT_DIR
+    ok29, t29, _ = run_project_build("29. Computer Science Video Courses Engine (8 Tests)", p29_cmd, p29_cwd)
+    results.append(("CS Video Courses & Academic Engine", ok29, t29, 8))
+
+    # 30. Hiring Without Whiteboards Engineering & Career Ecosystem
+    p30_cmd = [sys.executable, "-m", "pytest", "tests/test_hiring_without_whiteboards.py", "-v"]
+    p30_cwd = ROOT_DIR
+    ok30, t30, _ = run_project_build("30. Hiring Without Whiteboards Ecosystem (4 Tests)", p30_cmd, p30_cwd)
+    results.append(("Hiring Without Whiteboards Engine", ok30, t30, 4))
+
+    # 31. GitHub Awesome Universe, Frontier AI & Manifesto Linter Ecosystem
+    p31_cmd = [sys.executable, "-m", "pytest", "tests/test_awesome_orchestrator.py", "-v"]
+    p31_cwd = ROOT_DIR
+    ok31, t31, _ = run_project_build("31. GitHub Awesome Universe & Manifesto Linter (10 Tests)", p31_cmd, p31_cwd)
+    results.append(("GitHub Awesome Universe & Linter", ok31, t31, 10))
+
+    # 32. Recompile Flagship Cockpit & Assets Generator
     print("\n[*] Recompiling Flagship Cockpit HTML & Synchronizing Assets...")
     subprocess.run([sys.executable, "run_command_center.py"], cwd=os.path.join(ROOT_DIR, "AI-Command-Center"), capture_output=True)
     print("  [OK] Cockpit v4.0 and pipeline CSV verified and synchronized.")
