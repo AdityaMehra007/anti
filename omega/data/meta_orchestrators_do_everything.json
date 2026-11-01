@@ -1,86 +1,93 @@
 {
-  "execution_id": "META-DO-EVERYTHING-1793567557",
-  "timestamp": "2026-11-01T21:12:37Z",
-  "total_orchestrators": 11,
-  "passed_orchestrators": 11,
-  "total_elapsed_seconds": 84.0024,
+  "execution_id": "META-DO-EVERYTHING-1793568220",
+  "timestamp": "2026-11-01T21:23:40Z",
+  "total_orchestrators": 12,
+  "passed_orchestrators": 12,
+  "total_elapsed_seconds": 42.5104,
   "results": {
     "n8n": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 4.487,
-      "manifest": "N8N-DO-EVERYTHING-1793567477",
+      "elapsed": 3.7883,
+      "manifest": "N8N-DO-EVERYTHING-1793568181",
       "summary": "SOVEREIGN WORKFLOW PLATFORM FULL POWERS VERIF"
     },
     "Windmill": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 0.2577,
-      "manifest": "WINDMILL-DO-EVERYTHING-1793567477",
+      "elapsed": 0.0126,
+      "manifest": "WINDMILL-DO-EVERYTHING-1793568181",
       "summary": "SOVEREIGN WORKFLOW ENGINE FULL POWERS VERIFIE"
     },
     "Coolify": {
       "status": "PASSED",
       "phases": 8,
-      "elapsed": 0.2601,
-      "manifest": "COOLIFY-DO-EVERYTHING-1793567478",
+      "elapsed": 0.0335,
+      "manifest": "COOLIFY-DO-EVERYTHING-1793568182",
       "summary": "SOVEREIGN PAAS FULL POWERS VERIFIED"
     },
     "Apache Airflow": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 0.1039,
+      "elapsed": 0.063,
       "manifest": "N/A",
       "summary": "VERIFIED"
     },
     "Plane CE": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 0.1344,
-      "manifest": "exec-plane-0286739208b8",
+      "elapsed": 0.053,
+      "manifest": "exec-plane-ed8caf58ef31",
       "summary": "SOVEREIGN_CERTIFIED"
     },
     "PowerShell": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 43.9173,
-      "manifest": "PWSH-SOVEREIGN-F6F7A6A692",
+      "elapsed": 28.6752,
+      "manifest": "PWSH-SOVEREIGN-A60268D0FE",
       "summary": "SOVEREIGN POWERSHELL SUITE OPERATIONAL \u2014 100%"
     },
     "PowerToys": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 0.7627,
-      "manifest": "PTOY-SOVEREIGN-7541782151",
+      "elapsed": 0.5657,
+      "manifest": "PTOY-SOVEREIGN-4587FA55C2",
       "summary": "SOVEREIGN POWERTOYS SUITE OPERATIONAL \u2014 100% "
     },
     "Apache Arrow": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 26.671,
-      "manifest": "ARROW-SOVEREIGN-69911CF9A1",
+      "elapsed": 2.246,
+      "manifest": "ARROW-SOVEREIGN-16D85FFE1B",
       "summary": "SOVEREIGN APACHE ARROW SUITE OPERATIONAL \u2014 10"
     },
     "Infisical": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 5.6871,
+      "elapsed": 4.4742,
       "manifest": "N/A",
       "summary": "SUCCESS_100_PERCENT"
     },
     "Ghidra": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 0.2393,
-      "manifest": "GHIDRA-SOVEREIGN-AE9F7FD0CD",
+      "elapsed": 0.0437,
+      "manifest": "GHIDRA-SOVEREIGN-E731713663",
       "summary": "SOVEREIGN GHIDRA SRE SUITE OPERATIONAL \u2014 100%"
     },
     "Free-For-Dev": {
       "status": "PASSED",
       "phases": 12,
-      "elapsed": 1.4817,
-      "manifest": "FFD-SOVEREIGN-62C6EE4549",
+      "elapsed": 2.5162,
+      "manifest": "FFD-SOVEREIGN-AF28CB0F4F",
       "summary": "SOVEREIGN FREE-FOR-DEV SUITE OPERATIONAL \u2014 10"
+    },
+    "Hummingbot": {
+      "status": "PASSED",
+      "phases": 12,
+      "elapsed": 0.0387,
+      "manifest": "HUMMINGBOT-SOVEREIGN-D8C7D765E9",
+      "summary": "SOVEREIGN HUMMINGBOT SUITE OPERATIONAL \u2014 100%"
     }
   }
 }

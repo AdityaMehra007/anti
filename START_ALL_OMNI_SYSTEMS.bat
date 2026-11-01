@@ -53,6 +53,12 @@ start "CS Courses API Server" cmd /k "python cs_courses_api_server.py 8779"
 echo [*] Starting Hiring Without Whiteboards Autonomous Cockpit on http://127.0.0.1:8780...
 start "Hiring Without Whiteboards API Server" cmd /k "python hiring_without_whiteboards_engine.py --serve 8780"
 
+echo [*] Starting Hummingbot Algorithmic Trading & Liquidity Cockpit on http://127.0.0.1:8781...
+start "Hummingbot API Server" cmd /k "python hummingbot_api_server.py --port 8781"
+
+echo [*] Starting Awesome Universe Autonomous Knowledge Graph on http://127.0.0.1:8782...
+start "Awesome Universe API Server" cmd /k "python awesome_api_server.py 8782"
+
 timeout /t 2 /nobreak >nul
 
 echo [*] Launching Master Executive Mission Control in browser...
@@ -77,7 +83,9 @@ echo   14. Blackbird OSINT Cockpit:  http://127.0.0.1:8777
 echo   15. n8n Automation Engine:    http://127.0.0.1:8778
 echo   16. CS Video Courses Cockpit: http://127.0.0.1:8779
 echo   17. Hiring Without Whiteboard:http://127.0.0.1:8780
-echo   18. 7-Agent APEX Cockpit:     file:///e:/anti/apex_career_cockpit.html
-echo   19. Global Opportunity Map:   file:///e:/anti/master_job_universe_dashboard.html
+echo   18. Hummingbot Trading API:   http://127.0.0.1:8781
+echo   19. Awesome Universe API:     http://127.0.0.1:8782
+echo   20. 7-Agent APEX Cockpit:     file:///e:/anti/apex_career_cockpit.html
+echo   21. Global Opportunity Map:   file:///e:/anti/master_job_universe_dashboard.html
 echo ==============================================================================
 pause

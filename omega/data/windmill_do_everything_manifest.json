@@ -1,12 +1,12 @@
 {
-  "execution_id": "WINDMILL-DO-EVERYTHING-1793567477",
+  "execution_id": "WINDMILL-DO-EVERYTHING-1793568181",
   "protocol": "WINDMILL_SUPREME_AUTONOMOUS_WORKFLOW_V2",
   "founder": "Aditya Mehra (Adi)",
   "holding_entity": "OMEGA SOVEREIGN HOLDINGS",
-  "timestamp": "2026-11-01T21:11:17Z",
+  "timestamp": "2026-11-01T21:23:01Z",
   "status": "SOVEREIGN WORKFLOW ENGINE FULL POWERS VERIFIED",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.032,
+  "total_elapsed_seconds": 0.005,
   "platform_telemetry": {
     "status": "ok",
     "version": "1.425.0",
@@ -34,7 +34,7 @@
       "name": "Rust Engine & Worker Pool Pre-Flight Telemetry",
       "description": "Verified 16 active workers (Rust native + Docker sandboxes) on Rust core v1.82.0-nightly.",
       "status": "PASSED",
-      "elapsed_seconds": 0.031,
+      "elapsed_seconds": 0.005,
       "telemetry": {
         "status": "ok",
         "version": "1.425.0",
@@ -93,11 +93,11 @@
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "executed_jobs": [
-        "job-wmill-136b1700",
-        "job-wmill-dc8abaf6",
-        "job-wmill-06239533",
-        "job-wmill-30369281",
-        "job-wmill-50e9a57e"
+        "job-wmill-5d850793",
+        "job-wmill-a9bd60e9",
+        "job-wmill-a424ac23",
+        "job-wmill-d1b961ca",
+        "job-wmill-e385b07a"
       ]
     },
     {
@@ -121,10 +121,10 @@
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "pipelines_dispatched": [
-        "job-dag-41f901da",
-        "job-dag-30c8cc6e",
-        "job-dag-ab375447",
-        "job-dag-92f06f3f"
+        "job-dag-c1297874",
+        "job-dag-be1e653e",
+        "job-dag-5f865b0a",
+        "job-dag-bc05a7ab"
       ]
     },
     {
@@ -133,7 +133,7 @@
       "description": "Successfully suspended flow at credit threshold gate and resumed via programmatic executive sign-off.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "suspended_job_id": "job-dag-dfc46433",
+      "suspended_job_id": "job-dag-c7a6e117",
       "final_status": "COMPLETED"
     },
     {
@@ -155,7 +155,7 @@
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "schedules_count": 4,
-      "triggered_job_id": "job-wmill-a6a714cd"
+      "triggered_job_id": "job-wmill-688eb52f"
     },
     {
       "phase": 10,

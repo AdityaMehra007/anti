@@ -125,7 +125,7 @@ def main() -> int:
 
     # serve
     p_serve = subparsers.add_parser("serve", help="Start Hummingbot Local REST API bridge & Cockpit Server")
-    p_serve.add_argument("--port", type=int, default=8780, help="Port to bind (default 8780)")
+    p_serve.add_argument("--port", type=int, default=8781, help="Port to bind (default 8781)")
 
     args = parser.parse_args()
     if not args.command:

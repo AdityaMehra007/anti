@@ -310,6 +310,18 @@ Universal high-performance in-memory columnar data format, zero-copy buffer slic
 - **Master 12-Phase Sovereign Lifecycle**: [`omega/data/arrow_do_everything_manifest.json`](omega/data/arrow_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
 - **Architecture Teardown Dossier**: [`docs/ARROW_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/ARROW_SUPREME_ARCHITECTURE_DOSSIER.md).
 
+### Hummingbot Autonomous Algorithmic Trading & Liquidity Ecosystem
+Premier open-source high-frequency trading (HFT), market making, DEX/CEX arbitrage, and liquidity orchestration framework across 100+ decentralized and centralized exchanges ([`https://github.com/hummingbot/hummingbot`](https://github.com/hummingbot/hummingbot)):
+- [`hummingbot-orchestrator`](.agents/skills/hummingbot-orchestrator/SKILL.md): Autonomous SDK, CLI, quantitative market making engine (PMM, Avellaneda-Stoikov, XEMM), CEX-DEX AMM arbitrage scanner, V2 smart executors, risk circuit breakers, and 12-phase sovereign lifecycle standard.
+- **Deep SDK & Master Engine**: [`hummingbot_orchestrator.py`](hummingbot_orchestrator.py) (Dual-mode: live Hummingbot Client & Gateway bridge and high-fidelity offline simulation engine with L2/L3 order books, micro-price order queue weighting, Avellaneda-Stoikov reservation pricing, XEMM hedging hurdles, and constant product $x \cdot y = k$ AMM curves).
+- **Universal CLI**: [`hummingbot_cli.py`](hummingbot_cli.py) (`info`, `connectors`, `orderbook`, `pmm`, `avellaneda`, `xemm`, `arbitrage`, `executors`, `backtest`, `risk`, `kill-switch`, `reset-risk`, `do-everything`, `serve`).
+- **Autonomous Local API Server**: [`hummingbot_api_server.py`](hummingbot_api_server.py) (REST bridge on port 8781 serving telemetry, 108 connectors, live order books, strategy evaluation, V2 smart executors, risk VaR, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`hummingbot_mcp_server.py`](hummingbot_mcp_server.py) (Exposes 18 Hummingbot agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`hummingbot_control_cockpit.html`](hummingbot_control_cockpit.html) (10 operational tabs: L2 Order Book Depth, Strategy Studio, V2 Smart Executors, 100+ Connectors Grid, AMM Arbitrage, DEX Gateway Web3, Risk & 99% VaR, Historical Backtesting, 12-Phase Lifecycle, and MCP Agent Playground).
+- **One-Click Launchers**: [`START_HUMMINGBOT_WINDOWS.bat`](START_HUMMINGBOT_WINDOWS.bat), [`START_HUMMINGBOT_COCKPIT.bat`](START_HUMMINGBOT_COCKPIT.bat).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/hummingbot_do_everything_manifest.json`](omega/data/hummingbot_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/HUMMINGBOT_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/HUMMINGBOT_SUPREME_ARCHITECTURE_DOSSIER.md).
+
 ### Computer Science Video Courses & Academic Intelligence Ecosystem
 Comprehensive university-grade Computer Science video lecture catalog, relational FTS5 search index, and degree-grade career roadmaps sourced from [`Developer-Y/cs-video-courses`](https://github.com/Developer-Y/cs-video-courses):
 - **Deep Engine & SQLite FTS5 Database**: [`cs_courses_engine.py`](cs_courses_engine.py) (Indexes 1,434 courses, 957 video playlists, 26 tracks, and 44 institutions into [`data/cs_video_courses.db`](data/cs_video_courses.db) and [`data/cs_video_courses.json`](data/cs_video_courses.json)).
@@ -326,6 +338,18 @@ Comprehensive directory, SQLite FTS5 search index, and interview intelligence fo
 - **Cockpit Generator**: [`scripts/generate_hww_cockpit.py`](scripts/generate_hww_cockpit.py).
 - **Interactive Mission Control Cockpit**: [`hiring_without_whiteboards_cockpit.html`](hiring_without_whiteboards_cockpit.html) (Real-time search, process taxonomy breakdown, tailored outreach pitches, and quick filters).
 - **One-Click Launcher**: [`START_HIRING_WITHOUT_WHITEBOARDS_COCKPIT.bat`](START_HIRING_WITHOUT_WHITEBOARDS_COCKPIT.bat) (Serves API & Cockpit on port 8780).
+
+### GitHub Awesome Universe, Frontier AI & Manifesto Linter Ecosystem
+The global benchmark for community-curated knowledge lists across 29 domains, AST/regex Awesome Manifesto linter, and Frontier AI & Agentic radar ([`https://github.com/topics/awesome`](https://github.com/topics/awesome) & [`https://github.com/sindresorhus/awesome`](https://github.com/sindresorhus/awesome)):
+- [`awesome-orchestrator`](.agents/skills/awesome-orchestrator/SKILL.md): Autonomous SDK, CLI, Awesome Manifesto linter engine, cross-category graph topology, Frontier AI & Agentic integration, and 12-phase sovereign lifecycle standard.
+- **Deep SDK & Master Engine**: [`awesome_orchestrator.py`](awesome_orchestrator.py) (Indexes 470 curated lists across 29 categories, builds SQLite FTS5 index, validates against the 10 Awesome Manifesto rules, and generates cross-category dependency graphs).
+- **Universal CLI**: [`awesome_cli.py`](awesome_cli.py) (`info`, `categories`, `category`, `search`, `lists`, `list`, `lint`, `frontier`, `graph`, `export`, `do-everything`, `serve`).
+- **Autonomous Local API Server**: [`awesome_api_server.py`](awesome_api_server.py) (REST bridge on port 8782 serving `/api/info`, `/api/categories`, `/api/lists`, `/api/search`, `/api/lint`, `/api/frontier`, `/api/graph`, `/api/lifecycle`, and the cockpit).
+- **Model Context Protocol (MCP) Server**: [`awesome_mcp_server.py`](awesome_mcp_server.py) (Exposes 12 Awesome Universe agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`awesome_control_cockpit.html`](awesome_control_cockpit.html) (7 operational views: Live KPI Strip, 29 Categories Explorer, Frontier AI & Agentic Radar, Manifesto Linter Studio, Terminal Simulator, 12-Phase Lifecycle Attestation, and MCP/REST API Studio).
+- **One-Click Launchers**: [`START_AWESOME_WINDOWS.bat`](START_AWESOME_WINDOWS.bat), [`START_AWESOME_COCKPIT.bat`](START_AWESOME_COCKPIT.bat), [`scripts/start_awesome_windows.ps1`](scripts/start_awesome_windows.ps1).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/awesome_do_everything_manifest.json`](omega/data/awesome_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/AWESOME_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/AWESOME_SUPREME_ARCHITECTURE_DOSSIER.md).
 
 ### MONEYVERSE ∞ Master Intelligence
 - **Master Prompt Dossier**: [`docs/MONEYVERSE_INFINITY_MASTER_PROMPT.md`](docs/MONEYVERSE_INFINITY_MASTER_PROMPT.md) (Integrated intelligence and execution system for wealth creation, AI-native business building, market research, automated pipelines, and long-term financial optimization).

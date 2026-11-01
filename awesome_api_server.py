@@ -19,6 +19,7 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import json
 import urllib.parse
+from typing import Any, Dict, List, Optional
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from awesome_orchestrator import engine, AwesomeManifestoLinter, MANIFEST_JSON_PATH

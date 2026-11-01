@@ -58,11 +58,11 @@
             <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span class="text-slate-400">Suites:</span>
-                <span class="text-white font-bold">20 / 20 GREEN</span>
+                <span class="text-white font-bold">21 / 21 GREEN</span>
             </div>
             <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                 <span class="text-slate-400">Tests:</span>
-                <span class="text-emerald-400 font-bold">199 Passing (100%)</span>
+                <span class="text-emerald-400 font-bold">214 Passing (100%)</span>
             </div>
             <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                 <span class="text-slate-400">Skills:</span>
@@ -196,6 +196,10 @@
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
             Hiring Without Whiteboards (761 Employers)
         </button>
+        <button onclick="switchCockpit('hummingbot')" id="btn-hummingbot" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            Hummingbot Trading (github.com/hummingbot/hummingbot)
+        </button>
     </nav>
 
     <!-- Embedded High-Performance Cockpit Frame Container -->
@@ -225,7 +229,8 @@
             infisical: { url: "infisical_control_cockpit.html", title: "Infisical Autonomous SecretOps Platform (Zero-Knowledge Vault, Dynamic Leases, PKI/CA)" },
             free_for_dev: { url: "free_for_dev_control_cockpit.html", title: "Free-For-Dev Developer Cloud & Zero-Dollar Stack Cockpit (1,396+ Services)" },
             arrow: { url: "arrow_control_cockpit.html", title: "Apache Arrow In-Memory Columnar & Flight IPC Analytics Cockpit" },
-            whiteboards: { url: "hiring_without_whiteboards_cockpit.html", title: "Hiring Without Whiteboards — 761 Employers" }
+            whiteboards: { url: "hiring_without_whiteboards_cockpit.html", title: "Hiring Without Whiteboards — 761 Employers" },
+            hummingbot: { url: "hummingbot_control_cockpit.html", title: "Hummingbot Sovereign Algorithmic Trading & Liquidity Cockpit" }
         };
 
         let currentActiveKey = "supreme";
