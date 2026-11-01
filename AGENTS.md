@@ -153,6 +153,14 @@ Universal Job Taxonomy, deep Job Description (JD) dissection, ATS semantic match
 - **Cockpit Launcher**: [`START_UNIVERSAL_JOB_COCKPIT.bat`](START_UNIVERSAL_JOB_COCKPIT.bat) / `python universal_jd_intelligence_engine.py --serve-cockpit 8765`
 - **Enterprise Application Dossiers**: 71 submission-ready packages in [`applications_generated/`](applications_generated/) with tailored ATS resumes, cover letters, recruiter InMails, and STAR interview defense.
 
+### Hiring Without Whiteboards Autonomous Ecosystem
+Canonical practical engineering hiring registry and intelligence engine analyzing 761+ tech companies that evaluate talent through day-to-day software craft rather than whiteboard puzzles or CS trivia (https://github.com/poteto/hiring-without-whiteboards):
+- **Deep SDK & Engine**: [`hiring_without_whiteboards_engine.py`](hiring_without_whiteboards_engine.py) (Parser, classifier, FTS5 search index, REST API server, and SQLite generator).
+- **Interactive Cockpit**: [`hiring_without_whiteboards_cockpit.html`](hiring_without_whiteboards_cockpit.html) (Live 761-employer mission control, multi-region filtering, assessment-type toggles, and tailored hiring manager pitch generation).
+- **Master Strategy Dossier**: [`docs/HIRING_WITHOUT_WHITEBOARDS_MASTER_STRATEGY.md`](docs/HIRING_WITHOUT_WHITEBOARDS_MASTER_STRATEGY.md) (Take-home gold standard checklist, pairing protocols, paid trial guidelines, and cold outreach templates).
+- **Structured Datasets**: [`data/hiring_without_whiteboards.json`](data/hiring_without_whiteboards.json), [`data/hiring_without_whiteboards.csv`](data/hiring_without_whiteboards.csv), [`data/hiring_without_whiteboards.sqlite`](data/hiring_without_whiteboards.sqlite).
+- **One-Click Launcher**: [`START_HIRING_WITHOUT_WHITEBOARDS_COCKPIT.bat`](START_HIRING_WITHOUT_WHITEBOARDS_COCKPIT.bat) / `python hiring_without_whiteboards_engine.py --serve 8780`.
+
 ### Coolify Autonomous Cloud & PaaS Orchestration Ecosystem
 Self-hosted PaaS alternative to Heroku/Vercel/Netlify for multi-server Docker, Traefik edge routing, database provisioning, and 352+ open-source one-click service templates:
 - [`coolify-orchestrator`](.agents/skills/coolify-orchestrator/SKILL.md): Autonomous SDK, CLI, and operational standard for managing Coolify clusters, projects, deployments, and databases.
@@ -311,6 +319,16 @@ Comprehensive university-grade Computer Science video lecture catalog, relationa
 - **Interactive Mission Control Cockpit**: [`cs_video_courses_cockpit.html`](cs_video_courses_cockpit.html) (Glassmorphism UI with real-time course search, multi-filtering by track/university/level, 4-tier interactive degree roadmaps with progress tracking, university hub, and local learning queue).
 - **One-Click Launchers**: [`START_CS_COURSES_COCKPIT.bat`](START_CS_COURSES_COCKPIT.bat).
 - **Architecture Teardown Dossier**: [`docs/CS_VIDEO_COURSES_SUPREME_GUIDE.md`](docs/CS_VIDEO_COURSES_SUPREME_GUIDE.md).
+
+### Hiring Without Whiteboards Engineering & Career Ecosystem
+Comprehensive directory, SQLite FTS5 search index, and interview intelligence for 761+ companies assessing practical software engineering capability over LeetCode/whiteboard hazing, sourced from canonical [`poteto/hiring-without-whiteboards`](https://github.com/poteto/hiring-without-whiteboards):
+- **Deep Engine & SQLite FTS5 Database**: [`hiring_without_whiteboards_engine.py`](hiring_without_whiteboards_engine.py) (Indexes 761 companies into [`data/hiring_without_whiteboards.json`](data/hiring_without_whiteboards.json), [`data/hiring_without_whiteboards.csv`](data/hiring_without_whiteboards.csv), and [`data/hiring_without_whiteboards.sqlite`](data/hiring_without_whiteboards.sqlite)).
+- **Cockpit Generator**: [`scripts/generate_hww_cockpit.py`](scripts/generate_hww_cockpit.py).
+- **Interactive Mission Control Cockpit**: [`hiring_without_whiteboards_cockpit.html`](hiring_without_whiteboards_cockpit.html) (Real-time search, process taxonomy breakdown, tailored outreach pitches, and quick filters).
+- **One-Click Launcher**: [`START_HIRING_WITHOUT_WHITEBOARDS_COCKPIT.bat`](START_HIRING_WITHOUT_WHITEBOARDS_COCKPIT.bat) (Serves API & Cockpit on port 8780).
+
+### MONEYVERSE ∞ Master Intelligence
+- **Master Prompt Dossier**: [`docs/MONEYVERSE_INFINITY_MASTER_PROMPT.md`](docs/MONEYVERSE_INFINITY_MASTER_PROMPT.md) (Integrated intelligence and execution system for wealth creation, AI-native business building, market research, automated pipelines, and long-term financial optimization).
 
 ### Launch Video & Product Showcase Engine
 - [`brag`](.agents/skills/brag/SKILL.md): Turn the current project website or codebase into a short, polished, shareable launch video using Hyperframes with bundled music, SFX, and custom tone presets.

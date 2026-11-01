@@ -29,12 +29,13 @@ ORCHESTRATORS = [
     ("Infisical", "infisical_orchestrator", "InfisicalOrchestrator"),
     ("Ghidra", "ghidra_orchestrator", "GhidraOrchestrator"),
     ("Free-For-Dev", "free_for_dev_orchestrator", "FreeForDevOrchestrator"),
+    ("Hummingbot", "hummingbot_orchestrator", "HummingbotOrchestrator"),
 ]
 
 def main():
     print("=" * 80)
     print("  OMEGA SOVEREIGN META-ORCHESTRATOR :: FULL ECOSYSTEM 'DO EVERYTHING'")
-    print("  Executing 12-Phase Sovereign Lifecycle Across All 11 Core Platforms")
+    print("  Executing 12-Phase Sovereign Lifecycle Across All 12 Core Platforms")
     print("=" * 80)
     print()
 

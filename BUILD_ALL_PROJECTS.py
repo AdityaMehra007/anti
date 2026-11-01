@@ -28,6 +28,7 @@ Builds, verifies, and audits all projects across the workspace:
 24. n8n Autonomous Workflow Automation & AI Agent Ecosystem
 25. Apache Airflow Autonomous Workflow Orchestration
 26. Apache Arrow Autonomous Columnar & Zero-Copy Ecosystem
+27. Hummingbot Autonomous Algorithmic Trading & Liquidity Ecosystem
 =============================================================================
 """
 
@@ -236,7 +237,13 @@ def build_all():
     ok26, t26, _ = run_project_build("26. Apache Arrow Columnar & Zero-Copy Ecosystem (14 Tests)", p26_cmd, p26_cwd)
     results.append(("Apache Arrow Columnar Engine", ok26, t26, 14))
 
-    # 27. Recompile Flagship Cockpit & Assets Generator
+    # 27. Hummingbot Autonomous Algorithmic Trading & Liquidity Ecosystem
+    p27_cmd = [sys.executable, "-m", "pytest", "tests/test_hummingbot_orchestrator.py", "-v"]
+    p27_cwd = ROOT_DIR
+    ok27, t27, _ = run_project_build("27. Hummingbot Algorithmic Trading Ecosystem (15 Tests)", p27_cmd, p27_cwd)
+    results.append(("Hummingbot Algorithmic Trading Engine", ok27, t27, 15))
+
+    # 28. Recompile Flagship Cockpit & Assets Generator
     print("\n[*] Recompiling Flagship Cockpit HTML & Synchronizing Assets...")
     subprocess.run([sys.executable, "run_command_center.py"], cwd=os.path.join(ROOT_DIR, "AI-Command-Center"), capture_output=True)
     print("  [OK] Cockpit v4.0 and pipeline CSV verified and synchronized.")

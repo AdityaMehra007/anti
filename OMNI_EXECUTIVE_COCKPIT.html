@@ -58,7 +58,7 @@
             <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span class="text-slate-400">Suites:</span>
-                <span class="text-white font-bold">19 / 19 GREEN</span>
+                <span class="text-white font-bold">20 / 20 GREEN</span>
             </div>
             <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
                 <span class="text-slate-400">Tests:</span>
@@ -192,6 +192,10 @@
             <span class="w-2 h-2 rounded-full bg-red-500"></span>
             Apache Arrow (github.com/apache/arrow)
         </button>
+        <button onclick="switchCockpit('whiteboards')" id="btn-whiteboards" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Hiring Without Whiteboards (761 Employers)
+        </button>
     </nav>
 
     <!-- Embedded High-Performance Cockpit Frame Container -->
@@ -220,7 +224,8 @@
             n8n: { url: "n8n_control_cockpit.html", title: "n8n Autonomous Workflow Automation & AI Agent Orchestrator (560+ Nodes, LangChain Multi-Agents)" },
             infisical: { url: "infisical_control_cockpit.html", title: "Infisical Autonomous SecretOps Platform (Zero-Knowledge Vault, Dynamic Leases, PKI/CA)" },
             free_for_dev: { url: "free_for_dev_control_cockpit.html", title: "Free-For-Dev Developer Cloud & Zero-Dollar Stack Cockpit (1,396+ Services)" },
-            arrow: { url: "arrow_control_cockpit.html", title: "Apache Arrow In-Memory Columnar & Flight IPC Analytics Cockpit" }
+            arrow: { url: "arrow_control_cockpit.html", title: "Apache Arrow In-Memory Columnar & Flight IPC Analytics Cockpit" },
+            whiteboards: { url: "hiring_without_whiteboards_cockpit.html", title: "Hiring Without Whiteboards — 761 Employers" }
         };
 
         let currentActiveKey = "supreme";

@@ -50,6 +50,9 @@ start "n8n API Server" cmd /k "python n8n_api_server.py --port 8778"
 echo [*] Starting CS Video Courses Academic Intelligence on http://127.0.0.1:8779...
 start "CS Courses API Server" cmd /k "python cs_courses_api_server.py 8779"
 
+echo [*] Starting Hiring Without Whiteboards Autonomous Cockpit on http://127.0.0.1:8780...
+start "Hiring Without Whiteboards API Server" cmd /k "python hiring_without_whiteboards_engine.py --serve 8780"
+
 timeout /t 2 /nobreak >nul
 
 echo [*] Launching Master Executive Mission Control in browser...
@@ -73,7 +76,8 @@ echo   13. Apache Arrow Engine API:  http://127.0.0.1:8776
 echo   14. Blackbird OSINT Cockpit:  http://127.0.0.1:8777
 echo   15. n8n Automation Engine:    http://127.0.0.1:8778
 echo   16. CS Video Courses Cockpit: http://127.0.0.1:8779
-echo   17. 7-Agent APEX Cockpit:     file:///e:/anti/apex_career_cockpit.html
-echo   18. Global Opportunity Map:   file:///e:/anti/master_job_universe_dashboard.html
+echo   17. Hiring Without Whiteboard:http://127.0.0.1:8780
+echo   18. 7-Agent APEX Cockpit:     file:///e:/anti/apex_career_cockpit.html
+echo   19. Global Opportunity Map:   file:///e:/anti/master_job_universe_dashboard.html
 echo ==============================================================================
 pause
