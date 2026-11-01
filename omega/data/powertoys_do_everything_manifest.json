@@ -1,11 +1,11 @@
 {
-  "execution_id": "PTOY-SOVEREIGN-C9E865A589",
+  "execution_id": "PTOY-SOVEREIGN-2AB99357B7",
   "protocol": "OMEGA_CONSTITUTION_SECTION_101",
   "ecosystem": "Microsoft PowerToys Open Source Autonomous Suite",
   "upstream_repository": "https://github.com/microsoft/PowerToys",
-  "timestamp": "2026-11-01T21:26:30.526458+00:00",
+  "timestamp": "2026-11-01T21:29:03.262714+00:00",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.0789,
+  "total_elapsed_seconds": 0.1141,
   "overall_status": "SOVEREIGN POWERTOYS SUITE OPERATIONAL \u2014 100% ATTESTED",
   "telemetry_summary": {
     "version": "0.88.0",
@@ -20,26 +20,26 @@
     "active_fancyzones_layout": "priority-grid-01",
     "awake_mode": "TIMED",
     "operating_mode": "HIGH_FIDELITY_SIMULATION",
-    "timestamp": "2026-11-01T21:26:30.447517+00:00",
+    "timestamp": "2026-11-01T21:29:03.148634+00:00",
     "live_host_detected": false,
     "active_operating_mode": "HIGH_FIDELITY_SIMULATION"
   },
   "benchmarks": {
     "iterations": 1000,
     "fancyzones_snapping": {
-      "elapsed_sec": 0.0126,
-      "operations_per_sec": 79473.6,
-      "latency_us": 12.58
+      "elapsed_sec": 0.0151,
+      "operations_per_sec": 66218.6,
+      "latency_us": 15.1
     },
     "pt_run_fuzzy_search": {
-      "elapsed_sec": 0.037,
-      "queries_per_sec": 27002.6,
-      "latency_us": 37.03
+      "elapsed_sec": 0.0647,
+      "queries_per_sec": 15451.1,
+      "latency_us": 64.72
     },
     "advanced_paste_pipeline": {
-      "elapsed_sec": 0.016,
-      "transforms_per_sec": 62441.5,
-      "latency_us": 16.02
+      "elapsed_sec": 0.023,
+      "transforms_per_sec": 43529.0,
+      "latency_us": 22.97
     },
     "overall_status": "HIGH_PERFORMANCE_OPTIMAL"
   },
@@ -63,7 +63,7 @@
         "active_fancyzones_layout": "priority-grid-01",
         "awake_mode": "TIMED",
         "operating_mode": "HIGH_FIDELITY_SIMULATION",
-        "timestamp": "2026-11-01T21:26:30.447517+00:00",
+        "timestamp": "2026-11-01T21:29:03.148634+00:00",
         "live_host_detected": false,
         "active_operating_mode": "HIGH_FIDELITY_SIMULATION"
       }
@@ -141,7 +141,7 @@
       "name": "Awake Daemon Power State & Display Keep-Alive Verification",
       "description": "Configured Awake power sentinel to 'INDEFINITE' mode with display assertion active.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0005,
+      "elapsed_seconds": 0.0006,
       "mode": "INDEFINITE",
       "keep_display_on": true
     },
@@ -157,11 +157,11 @@
     {
       "phase": 6,
       "name": "Hosts File Syntax Validation & DNS Security Audit",
-      "description": "Parsed 12 DNS routing records; zero syntax violations or loopback hijackings detected.",
+      "description": "Parsed 13 DNS routing records; zero syntax violations or loopback hijackings detected.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0114,
-      "total_entries": 12,
-      "active_hosts": 11
+      "elapsed_seconds": 0.0091,
+      "total_entries": 13,
+      "active_hosts": 12
     },
     {
       "phase": 7,
@@ -206,25 +206,25 @@
     {
       "phase": 11,
       "name": "Real-Time Snapping & Launcher Latency Benchmarking",
-      "description": "Achieved 79473.6 snaps/sec and 27002.6 search queries/sec.",
+      "description": "Achieved 66218.6 snaps/sec and 15451.1 search queries/sec.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0657,
+      "elapsed_seconds": 0.1031,
       "benchmarks": {
         "iterations": 1000,
         "fancyzones_snapping": {
-          "elapsed_sec": 0.0126,
-          "operations_per_sec": 79473.6,
-          "latency_us": 12.58
+          "elapsed_sec": 0.0151,
+          "operations_per_sec": 66218.6,
+          "latency_us": 15.1
         },
         "pt_run_fuzzy_search": {
-          "elapsed_sec": 0.037,
-          "queries_per_sec": 27002.6,
-          "latency_us": 37.03
+          "elapsed_sec": 0.0647,
+          "queries_per_sec": 15451.1,
+          "latency_us": 64.72
         },
         "advanced_paste_pipeline": {
-          "elapsed_sec": 0.016,
-          "transforms_per_sec": 62441.5,
-          "latency_us": 16.02
+          "elapsed_sec": 0.023,
+          "transforms_per_sec": 43529.0,
+          "latency_us": 22.97
         },
         "overall_status": "HIGH_PERFORMANCE_OPTIMAL"
       }
@@ -232,10 +232,10 @@
     {
       "phase": 12,
       "name": "Sovereign Execution Manifest & Cryptographic Attestation",
-      "description": "Compiled cryptographic execution manifest with ID PTOY-SOVEREIGN-C9E865A589 in 0.0789s.",
+      "description": "Compiled cryptographic execution manifest with ID PTOY-SOVEREIGN-2AB99357B7 in 0.1141s.",
       "status": "PASSED",
       "elapsed_seconds": 0.0001,
-      "execution_id": "PTOY-SOVEREIGN-C9E865A589"
+      "execution_id": "PTOY-SOVEREIGN-2AB99357B7"
     }
   ]
 }

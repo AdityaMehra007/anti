@@ -2,8 +2,8 @@
   "title": "OMEGA Infisical Sovereign SecretOps Lifecycle Certification",
   "target": "https://github.com/Infisical/infisical",
   "version": "2.0.0-omega",
-  "timestamp": "2026-11-01T21:26:42.195027+00:00",
-  "execution_duration_ms": 960.19,
+  "timestamp": "2026-11-01T21:29:12.214643+00:00",
+  "execution_duration_ms": 565.35,
   "overall_status": "SUCCESS_100_PERCENT",
   "phases_completed": 12,
   "phases_total": 12,
@@ -12,7 +12,7 @@
       "phase": 1,
       "name": "Cryptographic Engine & Telemetry Pre-Flight",
       "status": "COMPLETED",
-      "duration_ms": 0.18,
+      "duration_ms": 0.09,
       "details": {
         "cipher": "AES-256-GCM (96-bit nonce, 128-bit MAC tag)",
         "kdf": "PBKDF2-HMAC-SHA256 (100,000 rounds)",
@@ -24,9 +24,9 @@
       "phase": 2,
       "name": "Multi-Tenant Organization & Project Provisioning",
       "status": "COMPLETED",
-      "duration_ms": 5.5,
+      "duration_ms": 2.27,
       "details": {
-        "project_id": "proj-alpha-fleet-1dcf10",
+        "project_id": "proj-alpha-fleet-ec9d99",
         "slug": "alpha-fleet",
         "environments": [
           "dev",
@@ -40,7 +40,7 @@
       "phase": 3,
       "name": "Zero-Knowledge Secret Vault Population & Envelope Encryption",
       "status": "COMPLETED",
-      "duration_ms": 20.42,
+      "duration_ms": 8.13,
       "details": {
         "secrets_provisioned": 2,
         "sample_key": "GROQ_API_TOKEN",
@@ -51,7 +51,7 @@
       "phase": 4,
       "name": "Point-in-Time Secret Versioning, Tagging & Rollback",
       "status": "COMPLETED",
-      "duration_ms": 21.72,
+      "duration_ms": 7.8,
       "details": {
         "key": "GROQ_API_TOKEN",
         "restored_version": 1,
@@ -62,7 +62,7 @@
       "phase": 5,
       "name": "High-Entropy Secret Scanner & Leak Detection",
       "status": "COMPLETED",
-      "duration_ms": 1.81,
+      "duration_ms": 0.57,
       "details": {
         "findings_count": 3,
         "signatures_matched": [
@@ -81,20 +81,20 @@
       "phase": 6,
       "name": "Dynamic Secret Engine & Leased Credential Rotation",
       "status": "COMPLETED",
-      "duration_ms": 34.02,
+      "duration_ms": 11.89,
       "details": {
-        "active_lease": "inf_dyn_postgres_178ecda7",
+        "active_lease": "inf_dyn_postgres_0ab74e3b",
         "ttl_seconds": 1800,
-        "revoked_lease_id": "lease-af3fb379ad96"
+        "revoked_lease_id": "lease-0577f14aeaa1"
       }
     },
     {
       "phase": 7,
       "name": "Internal PKI Certificate Authority & X.509 TLS Issuance",
       "status": "COMPLETED",
-      "duration_ms": 380.03,
+      "duration_ms": 383.37,
       "details": {
-        "serial_number": "6546985B4D6D523807EC74C93BA0F761FFD4CA3",
+        "serial_number": "1E19B4DB909B070FF332861535D8616536778690",
         "common_name": "api.omega.internal",
         "sans": [
           "api.omega.internal",
@@ -108,7 +108,7 @@
       "phase": 8,
       "name": "Multi-Cloud Integration Sync Dispatch (K8s, AWS, Vercel)",
       "status": "COMPLETED",
-      "duration_ms": 46.36,
+      "duration_ms": 12.09,
       "details": {
         "integrations_synced": 3,
         "targets": [
@@ -131,9 +131,9 @@
       "phase": 9,
       "name": "Granular RBAC Policy Enforcement & Break-Glass Workflow",
       "status": "COMPLETED",
-      "duration_ms": 35.17,
+      "duration_ms": 7.52,
       "details": {
-        "request_id": "req-76fb76c438",
+        "request_id": "req-15bf87f58b",
         "role": "Break-Glass Production Admin",
         "status": "approved",
         "approver": "secops-lead"
@@ -143,7 +143,7 @@
       "phase": 10,
       "name": "Process Environment Injection Runtime (infisical run)",
       "status": "COMPLETED",
-      "duration_ms": 414.42,
+      "duration_ms": 131.29,
       "details": {
         "exit_code": 0,
         "stdout_sample": "DATABASE_URL present: True",
@@ -158,9 +158,9 @@
       "details": {
         "audit_chain_valid": true,
         "records_verified": 16,
-        "latest_block_hash": "cb577bd4c63d8a2a..."
+        "latest_block_hash": "51f841deccf6555b..."
       }
     }
   ],
-  "cryptographic_ledger_signature": "cb577bd4c63d8a2a9b59964771769b0333a89b9c2501e9ffe57ddc3e074a6eeb"
+  "cryptographic_ledger_signature": "51f841deccf6555be725987c50b1a1ef398f3e242ff674cada5caf27e86df542"
 }
