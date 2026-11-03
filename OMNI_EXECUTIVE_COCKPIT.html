@@ -120,6 +120,10 @@
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
             Supreme Sovereign Command
         </button>
+        <button onclick="switchCockpit('bengaluru_startup')" id="btn-bengaluru_startup" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            Bengaluru Startup Intelligence & Career Radar (75 Jobs)
+        </button>
         <button onclick="switchCockpit('blr500')" id="btn-blr500" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
             <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
             Bangalore Top 500 Startups
@@ -200,6 +204,22 @@
             <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
             Hummingbot Trading (github.com/hummingbot/hummingbot)
         </button>
+        <button onclick="switchCockpit('hyprland')" id="btn-hyprland" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+            Hyprland Compositor (github.com/hyprwm/Hyprland)
+        </button>
+        <button onclick="switchCockpit('awesome')" id="btn-awesome" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+            Awesome Universe (github.com/sindresorhus/awesome)
+        </button>
+        <button onclick="switchCockpit('marketplace')" id="btn-marketplace" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+            GitHub Marketplace (github.com/marketplace - 373 Tools)
+        </button>
+        <button onclick="switchCockpit('mcp')" id="btn-mcp" class="px-3.5 py-2 rounded-lg border border-transparent hover:border-slate-700 text-slate-400 hover:text-white flex items-center gap-2 transition">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            MCP Master Hub (24 Servers, 260 Tools)
+        </button>
     </nav>
 
     <!-- Embedded High-Performance Cockpit Frame Container -->
@@ -211,6 +231,7 @@
     <script>
         const COCKPIT_URLS = {
             supreme: { url: "omega_supreme_command_center.html", title: "OMEGA Supreme Sovereign Command Center" },
+            bengaluru_startup: { url: "bengaluru_startup_intelligence_cockpit.html", title: "Bengaluru Startup Intelligence, Funding & Career Radar (75 Jobs, 16 Rounds, 234 Deltas)" },
             blr500: { url: "bangalore_top_500_cockpit.html", title: "Bangalore Top 500 Startups & 10k TPS Simulator" },
             deals: { url: "bangalore_enterprise_deal_cockpit.html", title: "Bangalore Enterprise Commercial Deal Cockpit (546 Accounts)" },
             universal: { url: "universal_job_cockpit.html", title: "Universal Job & Skill Intelligence Cockpit" },
@@ -230,7 +251,11 @@
             free_for_dev: { url: "free_for_dev_control_cockpit.html", title: "Free-For-Dev Developer Cloud & Zero-Dollar Stack Cockpit (1,396+ Services)" },
             arrow: { url: "arrow_control_cockpit.html", title: "Apache Arrow In-Memory Columnar & Flight IPC Analytics Cockpit" },
             whiteboards: { url: "hiring_without_whiteboards_cockpit.html", title: "Hiring Without Whiteboards — 761 Employers" },
-            hummingbot: { url: "hummingbot_control_cockpit.html", title: "Hummingbot Sovereign Algorithmic Trading & Liquidity Cockpit" }
+            hummingbot: { url: "hummingbot_control_cockpit.html", title: "Hummingbot Sovereign Algorithmic Trading & Liquidity Cockpit" },
+            hyprland: { url: "hyprland_control_cockpit.html", title: "Hyprland Autonomous Compositor & Dynamic Tiling Window Manager" },
+            awesome: { url: "awesome_control_cockpit.html", title: "Awesome Universe Autonomous Knowledge Graph & Curated Intelligence" },
+            marketplace: { url: "github_marketplace_cockpit.html", title: "GitHub Marketplace Autonomous Ecosystem & Supply Chain Security Auditor (373 Actions & Apps)" },
+            mcp: { url: "mcp_master_cockpit.html", title: "Model Context Protocol (MCP) Master Mission Control (24 Servers, 260 Tools, Composite Multiplexer)" }
         };
 
         let currentActiveKey = "supreme";

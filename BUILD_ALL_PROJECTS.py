@@ -29,6 +29,14 @@ Builds, verifies, and audits all projects across the workspace:
 25. Apache Airflow Autonomous Workflow Orchestration
 26. Apache Arrow Autonomous Columnar & Zero-Copy Ecosystem
 27. Hummingbot Autonomous Algorithmic Trading & Liquidity Ecosystem
+28. Free-For-Dev Autonomous Developer Cloud & Zero-Dollar Stack
+29. Computer Science Video Courses & Academic Intelligence
+30. Hiring Without Whiteboards Engineering & Career Ecosystem
+31. GitHub Awesome Universe, Frontier AI & Manifesto Linter Ecosystem
+32. Hyprland Autonomous Compositor & IPC Ecosystem
+33. GitHub Marketplace Ecosystem & Security Auditor
+34. Model Context Protocol (MCP) Sovereign Hub Fleet
+35. Bengaluru Startup Intelligence Engine
 =============================================================================
 """
 
@@ -267,7 +275,31 @@ def build_all():
     ok31, t31, _ = run_project_build("31. GitHub Awesome Universe & Manifesto Linter (10 Tests)", p31_cmd, p31_cwd)
     results.append(("GitHub Awesome Universe & Linter", ok31, t31, 10))
 
-    # 32. Recompile Flagship Cockpit & Assets Generator
+    # 32. Hyprland Autonomous Compositor & IPC Ecosystem
+    p32_cmd = [sys.executable, "-m", "pytest", "tests/test_hyprland_orchestrator.py", "-v"]
+    p32_cwd = ROOT_DIR
+    ok32, t32, _ = run_project_build("32. Hyprland Compositor & IPC Ecosystem (11 Tests)", p32_cmd, p32_cwd)
+    results.append(("Hyprland Compositor & IPC Ecosystem", ok32, t32, 11))
+
+    # 33. GitHub Marketplace Ecosystem & Security Auditor
+    p33_cmd = [sys.executable, "-m", "pytest", "tests/test_github_marketplace_orchestrator.py", "-v"]
+    p33_cwd = ROOT_DIR
+    ok33, t33, _ = run_project_build("33. GitHub Marketplace Ecosystem & Security Auditor (12 Tests)", p33_cmd, p33_cwd)
+    results.append(("GitHub Marketplace Ecosystem", ok33, t33, 12))
+
+    # 34. Model Context Protocol (MCP) Sovereign Hub Fleet
+    p34_cmd = [sys.executable, "-m", "pytest", "tests/test_mcp_hub.py", "-v"]
+    p34_cwd = ROOT_DIR
+    ok34, t34, _ = run_project_build("34. Model Context Protocol Sovereign Hub Fleet (7 Tests)", p34_cmd, p34_cwd)
+    results.append(("MCP Sovereign Hub Fleet", ok34, t34, 7))
+
+    # 35. Bengaluru Startup Intelligence Engine
+    p35_cmd = [sys.executable, "-m", "pytest", "test_bengaluru_startup_intel.py", "-v"]
+    p35_cwd = ROOT_DIR
+    ok35, t35, _ = run_project_build("35. Bengaluru Startup Intelligence Engine (7 Tests)", p35_cmd, p35_cwd)
+    results.append(("Bengaluru Startup Intelligence Engine", ok35, t35, 7))
+
+    # 36. Recompile Flagship Cockpit & Assets Generator
     print("\n[*] Recompiling Flagship Cockpit HTML & Synchronizing Assets...")
     subprocess.run([sys.executable, "run_command_center.py"], cwd=os.path.join(ROOT_DIR, "AI-Command-Center"), capture_output=True)
     print("  [OK] Cockpit v4.0 and pipeline CSV verified and synchronized.")

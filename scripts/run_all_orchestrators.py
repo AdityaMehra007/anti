@@ -30,12 +30,15 @@ ORCHESTRATORS = [
     ("Ghidra", "ghidra_orchestrator", "GhidraOrchestrator"),
     ("Free-For-Dev", "free_for_dev_orchestrator", "FreeForDevOrchestrator"),
     ("Hummingbot", "hummingbot_orchestrator", "HummingbotOrchestrator"),
+    ("Awesome Universe", "awesome_orchestrator", "AwesomeUniverseEngine"),
+    ("Hyprland", "hyprland_orchestrator", "HyprlandOrchestrator"),
+    ("GitHub Marketplace", "github_marketplace_orchestrator", "GitHubMarketplaceOrchestrator"),
 ]
 
 def main():
     print("=" * 80)
     print("  OMEGA SOVEREIGN META-ORCHESTRATOR :: FULL ECOSYSTEM 'DO EVERYTHING'")
-    print("  Executing 12-Phase Sovereign Lifecycle Across All 12 Core Platforms")
+    print("  Executing 12-Phase Sovereign Lifecycle Across All 15 Core Platforms")
     print("=" * 80)
     print()
 

@@ -2,16 +2,72 @@
   "$schema": "https://json.schemastore.org/mcp-config.json",
   "mcpServers": {
     "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "e:\\anti"]
+      "command": "npx.cmd",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "e:\\anti", "E:\\OMNI_OS"]
     },
     "memory": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": ["-y", "@modelcontextprotocol/server-memory"]
     },
     "github": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": ["-y", "@modelcontextprotocol/server-github"]
+    },
+    "plane": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\plane_mcp_server.py"]
+    },
+    "windmill": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\windmill_mcp_server.py"]
+    },
+    "coolify": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\coolify_mcp_server.py"]
+    },
+    "powershell": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\powershell_mcp_server.py"]
+    },
+    "powertoys": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\powertoys_mcp_server.py"]
+    },
+    "n8n": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\n8n_mcp_server.py"]
+    },
+    "airflow": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\airflow_mcp_server.py"]
+    },
+    "infisical": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\infisical_mcp_server.py"]
+    },
+    "hummingbot": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\hummingbot_mcp_server.py"]
+    },
+    "ghidra": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\ghidra_mcp_server.py"]
+    },
+    "arrow": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\arrow_mcp_server.py"]
+    },
+    "awesome": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\awesome_mcp_server.py"]
+    },
+    "free-for-dev": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\free_for_dev_mcp_server.py"]
+    },
+    "prompts-chat": {
+      "command": "python.exe",
+      "args": ["e:\\anti\\prompts_chat_mcp_server.py"]
     }
   }
 }

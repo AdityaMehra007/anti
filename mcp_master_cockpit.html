@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMEGA ∞ MCP Master Mission Control v3.0 | 24 Servers & 260 Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #070a13;
+            --bg-surface: #0e1526;
+            --bg-card: #131c33;
+            --bg-card-hover: #192544;
+            --border-glow: #1e2c4f;
+            --border-active: #06b6d4;
+            --accent-cyan: #06b6d4;
+            --accent-sky: #38bdf8;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-purple: #a855f7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 24px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 28px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 18px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .header-title-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .title-text h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #fff, var(--accent-sky));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            margin-top: 2px;
+        }
+
+        .header-badges {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: var(--font-mono);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-live {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.4; transform: scale(0.9); }
+        }
+
+        .badge-info {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-indigo);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+
+        /* KPI STATS ROW */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 18px 22px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--border-active);
+            transform: translateY(-2px);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+        }
+
+        .stat-servers::before { background: var(--accent-cyan); }
+        .stat-tools::before { background: var(--accent-indigo); }
+        .stat-compliance::before { background: var(--accent-green); }
+        .stat-hub::before { background: var(--accent-purple); }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .stat-val {
+            font-size: 32px;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            margin: 6px 0 2px 0;
+            color: #fff;
+        }
+
+        .stat-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* TABS NAVIGATION */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-glow);
+            padding-bottom: 12px;
+        }
+
+        .nav-tab {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid transparent;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        .nav-tab.active {
+            background: var(--bg-surface);
+            color: var(--accent-cyan);
+            border-color: var(--border-glow);
+            border-bottom-color: var(--accent-cyan);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.15);
+        }
+
+        /* TAB CONTENT PANELS */
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* SEARCH & FILTER CONTROLS */
+        .controls-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            position: relative;
+            min-width: 280px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 12px 18px 12px 42px;
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .filter-select {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 12px 18px;
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* SERVER CARDS GRID */
+        .servers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 18px;
+        }
+
+        .server-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+
+        .server-card:hover {
+            border-color: var(--border-active);
+            background: var(--bg-card);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .server-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .server-name {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .server-cat-tag {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--accent-sky);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            text-transform: uppercase;
+        }
+
+        .server-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .server-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 12px;
+            font-family: var(--font-mono);
+        }
+
+        .tools-count-pill {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        .inspect-btn {
+            background: transparent;
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .inspect-btn:hover {
+            background: var(--accent-cyan);
+            color: #000;
+            border-color: var(--accent-cyan);
+        }
+
+        /* TOOL MATRIX TABLE & CARDS */
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tool-row {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: all 0.2s ease;
+        }
+
+        .tool-row:hover {
+            border-color: var(--accent-indigo);
+            background: var(--bg-card);
+        }
+
+        .tool-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .tool-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--accent-cyan);
+        }
+
+        .tool-server-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .tool-desc-short {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .tool-schema-drawer {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border-glow);
+            display: none;
+        }
+
+        .tool-schema-drawer.open {
+            display: block;
+        }
+
+        .code-block {
+            background: #04060a;
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            padding: 14px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #38bdf8;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .copy-code-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .copy-code-btn:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        /* EXPORT TAB */
+        .export-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .export-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .export-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .export-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .export-path {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--accent-sky);
+            margin-bottom: 14px;
+        }
+
+        /* PROTOCOL ARCHITECTURE */
+        .arch-diagram {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .step-sequence {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 18px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--accent-indigo);
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* AUDITOR BENCHMARK TAB */
+        .bench-summary {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MASTER HEADER -->
+    <header class="header">
+        <div class="header-title-box">
+            <div class="logo-badge">⚡</div>
+            <div class="title-text">
+                <h1>OMEGA ∞ MCP MASTER MISSION CONTROL v3.0</h1>
+                <p>Universal Model Context Protocol Fleet & 260 Tool Registry Engine</p>
+            </div>
+        </div>
+        <div class="header-badges">
+            <div class="badge badge-live">
+                <div class="pulse-dot"></div>
+                24 SERVERS ONLINE
+            </div>
+            <div class="badge badge-info">
+                260 VERIFIED TOOLS
+            </div>
+            <div class="badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.4);">
+                STDIO / HTTP / SSE
+            </div>
+        </div>
+    </header>
+
+    <!-- KEY STATS ROW -->
+    <div class="stats-grid">
+        <div class="stat-card stat-servers">
+            <div class="stat-label">Total MCP Servers</div>
+            <div class="stat-val" id="stat-total-servers">24</div>
+            <div class="stat-desc">6 Reference + 1 GitHub + 1 Cloud + 15 Sovereign + 1 Proxy</div>
+        </div>
+        <div class="stat-card stat-tools">
+            <div class="stat-label">Registered Tools</div>
+            <div class="stat-val" id="stat-total-tools">260</div>
+            <div class="stat-desc">JSON-RPC 2.0 executable functions with strict schemas</div>
+        </div>
+        <div class="stat-card stat-compliance">
+            <div class="stat-label">Protocol Standard</div>
+            <div class="stat-val">2024-11-05</div>
+            <div class="stat-desc">Full Anthropic / ModelContextProtocol Specification</div>
+        </div>
+        <div class="stat-card stat-hub">
+            <div class="stat-label">Composite Multiplexer</div>
+            <div class="stat-val">READY</div>
+            <div class="stat-desc">Unified single-endpoint stdio proxy (mcp_cli.py composite)</div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION TABS -->
+    <div class="nav-tabs">
+        <button class="nav-tab active" onclick="switchTab('fleet')">🖥️ Server Fleet (24)</button>
+        <button class="nav-tab" onclick="switchTab('matrix')">🛠️ Tool Matrix (260)</button>
+        <button class="nav-tab" onclick="switchTab('arch')">📐 Protocol Architecture</button>
+        <button class="nav-tab" onclick="switchTab('export')">📦 Client Setup & Export</button>
+        <button class="nav-tab" onclick="switchTab('bench')">⏱️ Test Bench & Auditor</button>
+    </div>
+
+    <!-- TAB 1: SERVER FLEET -->
+    <div id="tab-fleet" class="tab-panel active">
+        <div class="controls-row">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="fleet-search" class="search-input" placeholder="Search servers by name, author, or capability..." oninput="filterFleet()">
+            </div>
+            <select id="fleet-cat-filter" class="filter-select" onchange="filterFleet()">
+                <option value="ALL">All Categories (24)</option>
+                <option value="Reference Protocol">Reference Protocol (6)</option>
+                <option value="Official GitHub">Official GitHub (1)</option>
+                <option value="Workspace Sovereign">Workspace Sovereign (15)</option>
+                <option value="Cloud & DB">Cloud & DB (1)</option>
+                <option value="Browser Automation">Browser Automation (1)</option>
+            </select>
+        </div>
+
+        <div class="servers-grid" id="fleet-grid">
+            <!-- Dynamically populated -->
+        </div>
+    </div>
+
+    <!-- TAB 2: TOOL MATRIX -->
+    <div id="tab-matrix" class="tab-panel">
+        <div class="controls-row">
+            <div class="search-box">
+                <span class="search-icon">⚡</span>
+                <input type="text" id="tool-search" class="search-input" placeholder="Search 260 tools by keyword, parameter, or purpose..." oninput="filterTools()">
+            </div>
+            <select id="tool-server-filter" class="filter-select" onchange="filterTools()">
+                <option value="ALL">All Servers (24)</option>
+                <!-- Dynamically populated -->
+            </select>
+        </div>
+
+        <div style="font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 14px;" id="tool-count-display">
+            Showing 260 tools across 24 servers
+        </div>
+
+        <div class="tools-list" id="tools-container">
+            <!-- Dynamically populated -->
+        </div>
+    </div>
+
+    <!-- TAB 3: PROTOCOL ARCHITECTURE -->
+    <div id="tab-arch" class="tab-panel">
+        <div class="arch-diagram">
+            <h2 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px;">Model Context Protocol (MCP) Execution Lifecycle</h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+                MCP standardizes communication between host LLM applications (clients) and external data/tool providers (servers) via standardized JSON-RPC 2.0 messages over standard I/O (stdio) or Server-Sent Events (SSE).
+            </p>
+
+            <div class="step-sequence">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h3>Client Handshake & Capability Negotiation</h3>
+                        <p>The host client boots the child process and sends an <code>initialize</code> request with protocol version, capabilities, and client metadata.</p>
+                        <div class="code-block" style="margin-top: 10px;">
+{ "jsonrpc": "2.0", "id": 1, "method": "initialize", "params": { "protocolVersion": "2024-11-05", "capabilities": {}, "clientInfo": { "name": "claude-code", "version": "1.0.0" } } }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h3>Server Capability Affirmation</h3>
+                        <p>The server replies with supported protocol versions, feature capabilities (tools, resources, prompts, logging), and server identification.</p>
+                        <div class="code-block" style="margin-top: 10px;">
+{ "jsonrpc": "2.0", "id": 1, "result": { "protocolVersion": "2024-11-05", "capabilities": { "tools": {} }, "serverInfo": { "name": "plane-mcp-server", "version": "1.0.0" } } }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h3>Dynamic Tool Discovery</h3>
+                        <p>The client calls <code>tools/list</code> to fetch all registered executable tools along with their JSON Schema parameters.</p>
+                        <div class="code-block" style="margin-top: 10px;">
+{ "jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {} }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h3>Tool Execution Dispatch</h3>
+                        <p>When the model decides to invoke a tool, the client dispatches <code>tools/call</code> with validated structured arguments.</p>
+                        <div class="code-block" style="margin-top: 10px;">
+{ "jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": { "name": "plane_create_issue", "arguments": { "project_id": "OMEGA-CORE", "name": "Deploy Windmill DAG", "priority": "high" } } }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h3>Structured Context Ingestion</h3>
+                        <p>The server completes execution and returns text or embedded resources back into the model's active context window.</p>
+                        <div class="code-block" style="margin-top: 10px;">
+{ "jsonrpc": "2.0", "id": 3, "result": { "content": [{ "type": "text", "text": "{\"status\": \"success\", \"issue_id\": \"ISS-9821\"}" }] } }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 4: CLIENT SETUP & EXPORT -->
+    <div id="tab-export" class="tab-panel">
+        <div class="export-cards-grid">
+            
+            <!-- CLAUDE DESKTOP -->
+            <div class="export-card">
+                <div class="export-header">
+                    <div class="export-title">🟣 Claude Desktop</div>
+                    <button class="inspect-btn" onclick="copyConfig('claude')">Copy Config</button>
+                </div>
+                <div class="export-path">%APPDATA%\Claude\claude_desktop_config.json</div>
+                <div class="code-block" id="cfg-claude" style="max-height: 280px;">Loading configuration...</div>
+            </div>
+
+            <!-- CURSOR IDE -->
+            <div class="export-card">
+                <div class="export-header">
+                    <div class="export-title">⚡ Cursor IDE</div>
+                    <button class="inspect-btn" onclick="copyConfig('cursor')">Copy Config</button>
+                </div>
+                <div class="export-path">.cursor\mcp.json</div>
+                <div class="code-block" id="cfg-cursor" style="max-height: 280px;">Loading configuration...</div>
+            </div>
+
+            <!-- VS CODE COPILOT -->
+            <div class="export-card">
+                <div class="export-header">
+                    <div class="export-title">🔷 VS Code / Copilot</div>
+                    <button class="inspect-btn" onclick="copyConfig('vscode')">Copy Config</button>
+                </div>
+                <div class="export-path">.vscode\mcp.json</div>
+                <div class="code-block" id="cfg-vscode" style="max-height: 280px;">Loading configuration...</div>
+            </div>
+
+            <!-- GOOSE CLI -->
+            <div class="export-card">
+                <div class="export-header">
+                    <div class="export-title">🪿 Goose Agent</div>
+                    <button class="inspect-btn" onclick="copyConfig('goose')">Copy Config</button>
+                </div>
+                <div class="export-path">~/.config/goose/profiles.yaml</div>
+                <div class="code-block" id="cfg-goose" style="max-height: 280px;">Loading configuration...</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TAB 5: AUDITOR & TEST BENCH -->
+    <div id="tab-bench" class="tab-panel">
+        <div class="bench-summary">
+            <h2 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px;">Automated Server Health & Protocol Test Bench</h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+                You can audit all 24 MCP servers locally via CLI to verify process startup, handshake latency, and tool schema validity.
+            </p>
+
+            <div style="background: #04060a; padding: 18px; border-radius: 12px; border: 1px solid var(--border-glow); font-family: var(--font-mono); font-size: 13px; color: var(--accent-green); line-height: 1.8;">
+                # 1. Run complete automated audit across all 24 servers:<br>
+                <span style="color: #fff;">python mcp_cli.py test</span><br><br>
+                # 2. Test a specific sovereign server (e.g. Plane, Windmill, PowerShell):<br>
+                <span style="color: #fff;">python mcp_cli.py test plane</span><br>
+                <span style="color: #fff;">python mcp_cli.py test windmill</span><br><br>
+                # 3. Launch single composite multiplexer (proxying all 260 tools over stdio):<br>
+                <span style="color: #fff;">python mcp_cli.py composite</span><br><br>
+                # 4. Start visual cockpit server:<br>
+                <span style="color: #fff;">python mcp_cli.py serve --port 8790</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const CATALOG = [{"server": "filesystem", "category": "Reference Protocol", "author": "Model Context Protocol", "description": "Secure file and directory access within permitted workspace boundaries.", "type": "stdio", "command": "npx.cmd", "args": ["-y", "@modelcontextprotocol/server-filesystem", "e:\\anti", "E:\\OMNI_OS"], "tools_count": 5, "tools": [{"name": "read_file", "description": "Read file contents from allowed paths", "inputSchema": {"type": "object", "properties": {"path": {"type": "string"}}, "required": ["path"]}}, {"name": "write_file", "description": "Write or overwrite file at path", "inputSchema": {"type": "object", "properties": {"path": {"type": "string"}, "content": {"type": "string"}}, "required": ["path", "content"]}}, {"name": "list_directory", "description": "List files in directory", "inputSchema": {"type": "object", "properties": {"path": {"type": "string"}}, "required": ["path"]}}, {"name": "directory_tree", "description": "Get recursive directory tree", "inputSchema": {"type": "object", "properties": {"path": {"type": "string"}}, "required": ["path"]}}, {"name": "search_files", "description": "Search file paths matching glob/pattern", "inputSchema": {"type": "object", "properties": {"path": {"type": "string"}, "pattern": {"type": "string"}}, "required": ["path", "pattern"]}}]}, {"server": "memory", "category": "Reference Protocol", "author": "Model Context Protocol", "description": "Persistent knowledge-graph and entity memory engine across agent sessions.", "type": "stdio", "command": "npx.cmd", "args": ["-y", "@modelcontextprotocol/server-memory"], "tools_count": 5, "tools": [{"name": "create_entities", "description": "Create entities in knowledge graph", "inputSchema": {"type": "object", "properties": {"entities": {"type": "array"}}, "required": ["entities"]}}, {"name": "create_relations", "description": "Create directed relations between entities", "inputSchema": {"type": "object", "properties": {"relations": {"type": "array"}}, "required": ["relations"]}}, {"name": "read_graph", "description": "Read entire persistent knowledge graph", "inputSchema": {"type": "object", "properties": {}}}, {"name": "search_nodes", "description": "Search graph nodes by query substring", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}}, {"name": "open_nodes", "description": "Open specific entities by names", "inputSchema": {"type": "object", "properties": {"names": {"type": "array"}}, "required": ["names"]}}]}, {"server": "fetch", "category": "Reference Protocol", "author": "Model Context Protocol", "description": "HTTP resource fetcher and web content parser for LLM grounding.", "type": "stdio", "command": "npx.cmd", "args": ["-y", "@modelcontextprotocol/server-fetch"], "tools_count": 1, "tools": [{"name": "fetch", "description": "Fetch HTTP/HTTPS URL and convert to markdown/text for LLM grounding", "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}}, "required": ["url"]}}]}, {"server": "github", "category": "Official GitHub", "author": "GitHub / Anthropic", "description": "Native GitHub operations for repositories, pull requests, issues, and commits.", "type": "stdio", "command": "npx.cmd", "args": ["-y", "@modelcontextprotocol/server-github"], "tools_count": 9, "tools": [{"name": "search_repositories", "description": "Search GitHub repositories by query and syntax", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}}, {"name": "get_file_contents", "description": "Fetch content of file from GitHub repository", "inputSchema": {"type": "object", "properties": {"owner": {"type": "string"}, "repo": {"type": "string"}, "path": {"type": "string"}}, "required": ["owner", "repo", "path"]}}, {"name": "create_or_update_file", "description": "Commit file changes to repository branch", "inputSchema": {"type": "object", "properties": {"owner": {"type": "string"}, "repo": {"type": "string"}, "path": {"type": "string"}, "content": {"type": "string"}}, "required": ["owner", "repo", "path", "content"]}}, {"name": "create_issue", "description": "Create a new issue in repository", "inputSchema": {"type": "object", "properties": {"owner": {"type": "string"}, "repo": {"type": "string"}, "title": {"type": "string"}}, "required": ["owner", "repo", "title"]}}, {"name": "list_issues", "description": "List repository issues with state filtering", "inputSchema": {"type": "object", "properties": {"owner": {"type": "string"}, "repo": {"type": "string"}}, "required": ["owner", "repo"]}}, {"name": "create_pull_request", "description": "Open new pull request from branch", "inputSchema": {"type": "object", "properties": {"owner": {"type": "string"}, "repo": {"type": "string"}, "title": {"type": "string"}, "head": {"type": "string"}, "base": {"type": "string"}}, "required": ["owner", "repo", "title", "head", "base"]}}, {"name": "list_pull_requests", "description": "List pull requests in repository", "inputSchema": {"type": "object", "properties": {"owner": {"type": "string"}, "repo": {"type": "string"}}, "required": ["owner", "repo"]}}, {"name": "merge_pull_request", "description": "Merge approved pull request", "inputSchema": {"type": "object", "properties": {"owner": {"type": "string"}, "repo": {"type": "string"}, "pull_number": {"type": "number"}}, "required": ["owner", "repo", "pull_number"]}}, {"name": "search_code", "description": "Search code across repositories", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}}]}, {"server": "git", "category": "Reference Protocol", "author": "Model Context Protocol", "description": "Direct Git VCS inspection, diff generation, log analysis, and worktree tracking.", "type": "stdio", "command": "npx.cmd", "args": ["-y", "@modelcontextprotocol/server-git", "--repository", "e:\\anti"], "tools_count": 4, "tools": [{"name": "git_status", "description": "Show git working tree status and untracked files", "inputSchema": {"type": "object", "properties": {}}}, {"name": "git_diff", "description": "Show unstaged or staged git diff", "inputSchema": {"type": "object", "properties": {"cached": {"type": "boolean"}}}}, {"name": "git_log", "description": "Show commit logs with author and timestamps", "inputSchema": {"type": "object", "properties": {"max_count": {"type": "number"}}}}, {"name": "git_branch", "description": "List local and remote branches", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "sqlite", "category": "Reference Protocol", "author": "Model Context Protocol", "description": "Local SQLite database querying, schema inspection, and analytics execution.", "type": "stdio", "command": "npx.cmd", "args": ["-y", "@modelcontextprotocol/server-sqlite", "--db-path", "e:\\anti\\data\\bengaluru_startup_intel.sqlite"], "tools_count": 4, "tools": [{"name": "read_query", "description": "Execute SELECT query on SQLite database", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}}, {"name": "write_query", "description": "Execute INSERT/UPDATE/DELETE query with transaction safety", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}}, {"name": "describe_table", "description": "Get schema, columns, and foreign keys of table", "inputSchema": {"type": "object", "properties": {"table_name": {"type": "string"}}, "required": ["table_name"]}}, {"name": "list_tables", "description": "List all tables in SQLite database", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "chrome-devtools", "category": "Browser Automation", "author": "Chrome DevTools Team", "description": "Puppeteer and Chrome DevTools Protocol automation, DOM extraction, and screenshots.", "type": "stdio", "command": "npx.cmd", "args": ["-y", "chrome-devtools-mcp@latest"], "tools_count": 4, "tools": [{"name": "navigate_to", "description": "Navigate Chrome browser to target URL", "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}}, "required": ["url"]}}, {"name": "take_screenshot", "description": "Capture viewport screenshot of current active page", "inputSchema": {"type": "object", "properties": {}}}, {"name": "evaluate_script", "description": "Evaluate arbitrary JavaScript in web context", "inputSchema": {"type": "object", "properties": {"script": {"type": "string"}}, "required": ["script"]}}, {"name": "click_element", "description": "Click element by DOM CSS selector", "inputSchema": {"type": "object", "properties": {"selector": {"type": "string"}}, "required": ["selector"]}}]}, {"server": "supabase", "category": "Cloud & DB", "author": "Supabase", "description": "Remote Postgres DB operations, RLS security policies, and vector embeddings.", "type": "http", "command": null, "args": [], "tools_count": 5, "tools": [{"name": "supabase_execute_sql", "description": "Execute parameterized SQL against remote Supabase Postgres", "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}}, {"name": "supabase_list_tables", "description": "List schema tables, types, and relations", "inputSchema": {"type": "object", "properties": {}}}, {"name": "supabase_describe_table", "description": "Inspect column types and constraints", "inputSchema": {"type": "object", "properties": {"table": {"type": "string"}}, "required": ["table"]}}, {"name": "supabase_vector_search", "description": "Query pgvector embedding similarity search", "inputSchema": {"type": "object", "properties": {"prompt": {"type": "string"}}, "required": ["prompt"]}}, {"name": "supabase_rls_policy_audit", "description": "Audit row-level security policies across all tables", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "omniroute", "category": "Proxy & Gateway", "author": "OMNI Engine", "description": "Smart token routing, model fallbacks, and local cost-optimization gateway.", "type": "stdio", "command": "node.exe", "args": ["E:\\anti gravity\\npm-global\\node_modules\\omniroute\\bin\\omniroute.mjs", "--mcp"], "tools_count": 2, "tools": [{"name": "omniroute_route_prompt", "description": "Route prompt to optimal model tier based on latency, cost, and complexity", "inputSchema": {"type": "object", "properties": {"prompt": {"type": "string"}}, "required": ["prompt"]}}, {"name": "omniroute_cost_summary", "description": "Retrieve token savings and routing stats across providers", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "plane", "category": "Workspace Sovereign", "author": "OMEGA Project Ops", "description": "Issue tracking, sprint cycles, burndown velocity, modules, and collaborative pages.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\plane_mcp_server.py"], "tools_count": 18, "tools": [{"name": "plane_get_info", "description": "Get real-time Plane system telemetry, version, connection mode (live vs mock), and entity counts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "plane_list_workspaces", "description": "List all accessible workspaces with slug, owner, and company size.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "plane_list_projects", "description": "List projects in the specified or default workspace.", "inputSchema": {"type": "object", "properties": {"workspace_slug": {"type": "string", "description": "Optional workspace slug (defaults to configured workspace, e.g. omega)"}}}}, {"name": "plane_create_project", "description": "Create a new project within a workspace with identifier and description.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "Project title"}, "identifier": {"type": "string", "description": "Uppercase identifier code (e.g. CORE, SEC, FLEET)"}, "description": {"type": "string", "description": "Project scope description"}, "emoji": {"type": "string", "description": "Icon emoji (default: \u26a1)"}, "workspace_slug": {"type": "string", "description": "Workspace slug"}}, "required": ["name", "identifier"]}}, {"name": "plane_list_issues", "description": "List and filter issues/work items by project ID, cycle ID, or state group.", "inputSchema": {"type": "object", "properties": {"project_id": {"type": "string", "description": "Filter by project ID"}, "cycle_id": {"type": "string", "description": "Filter by sprint cycle ID"}, "state_group": {"type": "string", "description": "Filter by group (backlog, unstarted, started, completed, cancelled)"}}}}, {"name": "plane_create_issue", "description": "Create a new work item / issue with priority, story point estimate, and cycle attachment.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "Issue title"}, "project_id": {"type": "string", "description": "Target project ID"}, "description_html": {"type": "string", "description": "Rich HTML / Markdown description"}, "priority": {"type": "string", "enum": ["urgent", "high", "medium", "low", "none"], "description": "Priority tier"}, "estimate_point": {"type": "integer", "description": "Fibonacci story point estimate"}, "cycle_id": {"type": "string", "description": "Sprint cycle ID to attach"}, "module_id": {"type": "string", "description": "Epic module ID to attach"}}, "required": ["name", "project_id"]}}, {"name": "plane_update_issue", "description": "Update properties of an existing issue (state, priority, assignees).", "inputSchema": {"type": "object", "properties": {"issue_id": {"type": "string", "description": "ID of issue to update"}, "updates": {"type": "object", "description": "Dictionary of fields to update"}}, "required": ["issue_id", "updates"]}}, {"name": "plane_list_cycles", "description": "List sprint cycles for a project with start/end dates, total points, and progress.", "inputSchema": {"type": "object", "properties": {"project_id": {"type": "string", "description": "Target project ID"}}}}, {"name": "plane_create_cycle", "description": "Create a new sprint cycle with date bounds.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "Cycle name (e.g. Sprint 26)"}, "project_id": {"type": "string", "description": "Project ID"}, "start_date": {"type": "string", "description": "Start date (YYYY-MM-DD)"}, "end_date": {"type": "string", "description": "End date (YYYY-MM-DD)"}, "description": {"type": "string", "description": "Cycle objective"}}, "required": ["name", "project_id", "start_date", "end_date"]}}, {"name": "plane_get_burndown", "description": "Calculate burndown chart points, weekly velocity, and on-track status for a cycle.", "inputSchema": {"type": "object", "properties": {"cycle_id": {"type": "string", "description": "Sprint cycle ID"}}, "required": ["cycle_id"]}}, {"name": "plane_list_modules", "description": "List epic milestone modules and their completion percentages.", "inputSchema": {"type": "object", "properties": {"project_id": {"type": "string", "description": "Target project ID"}}}}, {"name": "plane_create_module", "description": "Create a high-level epic module milestone.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "Module title"}, "project_id": {"type": "string", "description": "Project ID"}, "description": {"type": "string", "description": "Module scope description"}, "lead_id": {"type": "string", "description": "Lead assignee ID"}, "target_date": {"type": "string", "description": "Target delivery date (YYYY-MM-DD)"}}, "required": ["name", "project_id"]}}, {"name": "plane_list_pages", "description": "List collaborative knowledge base documentation pages in a project.", "inputSchema": {"type": "object", "properties": {"project_id": {"type": "string", "description": "Target project ID"}}}}, {"name": "plane_create_page", "description": "Create a collaborative knowledge base documentation page.", "inputSchema": {"type": "object", "properties": {"title": {"type": "string", "description": "Page title"}, "description_html": {"type": "string", "description": "Rich HTML or Markdown text"}, "project_id": {"type": "string", "description": "Project ID"}, "summary_ai": {"type": "string", "description": "AI summary of documentation"}}, "required": ["title", "description_html", "project_id"]}}, {"name": "plane_list_triage", "description": "List incoming triage requests waiting for promotion or rejection.", "inputSchema": {"type": "object", "properties": {"project_id": {"type": "string", "description": "Target project ID"}}}}, {"name": "plane_triage_action", "description": "Accept (promote to active issue) or reject a triage request.", "inputSchema": {"type": "object", "properties": {"triage_id": {"type": "string", "description": "Triage item ID"}, "action": {"type": "string", "enum": ["accept", "reject"], "description": "Action"}}, "required": ["triage_id", "action"]}}, {"name": "plane_get_analytics", "description": "Calculate project velocity, lead time, cycle time, and workload distribution.", "inputSchema": {"type": "object", "properties": {"project_id": {"type": "string", "description": "Project ID"}}}}, {"name": "plane_do_everything", "description": "Execute the comprehensive 12-Phase Sovereign Plane Lifecycle and generate cryptographic attestation.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "windmill", "category": "Workspace Sovereign", "author": "OMEGA Workflow Engine", "description": "Polyglot DAG workflow orchestration, job triggers, approvals, and cron schedules.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\windmill_mcp_server.py"], "tools_count": 21, "tools": [{"name": "windmill_get_system_info", "description": "Get real-time telemetry, worker nodes count, active concurrency, and overall health of the Windmill cluster.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_list_workspaces", "description": "List all multi-tenant workspaces, subscription tiers, and owner accounts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_list_scripts", "description": "List all runnable scripts (Python, TypeScript, SQL, Bash) registered in the workspace.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_get_script", "description": "Inspect metadata, parameter schema, summary, and language for a specific script.", "inputSchema": {"type": "object", "properties": {"script_path": {"type": "string", "description": "Script path (e.g. 'u/admin/cbam_carbon_audit')"}}, "required": ["script_path"]}}, {"name": "windmill_run_script", "description": "Execute a Python, TypeScript, SQL, or Bash script with JSON arguments in a sandboxed worker.", "inputSchema": {"type": "object", "properties": {"script_path": {"type": "string", "description": "Script path (e.g. 'u/admin/cbam_carbon_audit')"}, "args": {"type": "object", "default": {}, "description": "Arguments dictionary matching script schema"}}, "required": ["script_path"]}}, {"name": "windmill_list_flows", "description": "List all composed DAG workflows with their step counts and descriptions.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_get_flow", "description": "Inspect workflow DAG definition, topological steps, branch conditions, and input transforms.", "inputSchema": {"type": "object", "properties": {"flow_path": {"type": "string", "description": "Flow path (e.g. 'u/admin/enterprise_client_onboarding_dag')"}}, "required": ["flow_path"]}}, {"name": "windmill_execute_flow", "description": "Trigger execution of a multi-step DAG flow with inputs.", "inputSchema": {"type": "object", "properties": {"flow_path": {"type": "string", "description": "Flow path (e.g. 'u/admin/enterprise_client_onboarding_dag')"}, "args": {"type": "object", "default": {}, "description": "Input arguments for the workflow"}}, "required": ["flow_path"]}}, {"name": "windmill_list_jobs", "description": "List recent job executions, filter by status (COMPLETED, SUSPENDED, ERROR), with duration telemetry.", "inputSchema": {"type": "object", "properties": {"limit": {"type": "integer", "default": 20, "description": "Max number of jobs"}, "status": {"type": "string", "description": "Filter by status: COMPLETED, SUSPENDED, ERROR"}}}}, {"name": "windmill_get_job_status", "description": "Retrieve status, runtime duration, output result, and execution logs for a specific job.", "inputSchema": {"type": "object", "properties": {"job_id": {"type": "string", "description": "The Windmill Job ID"}}, "required": ["job_id"]}}, {"name": "windmill_approve_job", "description": "Resume or reject a suspended workflow job awaiting executive human sign-off.", "inputSchema": {"type": "object", "properties": {"job_id": {"type": "string", "description": "The suspended Job ID"}, "approved": {"type": "boolean", "default": true, "description": "True to approve and resume, False to reject"}, "notes": {"type": "string", "default": "", "description": "Audit notes for executive sign-off"}}, "required": ["job_id"]}}, {"name": "windmill_list_resources", "description": "List typed resources (PostgreSQL, Slack, OpenAI, AWS S3) configured in the workspace.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_create_resource", "description": "Create a new typed resource with credentials or configuration.", "inputSchema": {"type": "object", "properties": {"path": {"type": "string", "description": "Resource path (e.g. 'u/admin/db_custom')"}, "resource_type": {"type": "string", "description": "Type: postgresql, slack, openai, s3, etc."}, "value": {"type": "object", "description": "Resource payload credentials dictionary"}, "description": {"type": "string", "default": "", "description": "Optional summary"}}, "required": ["path", "resource_type", "value"]}}, {"name": "windmill_list_apps", "description": "List low-code applications built with Windmill App Builder.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_search_hub", "description": "Search the Windmill Hub catalog of 40+ curated community scripts, integrations, and flows.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "default": "", "description": "Search query keyword"}, "category": {"type": "string", "default": "", "description": "Category filter"}}}}, {"name": "windmill_import_hub_flow", "description": "Import an open-source template or integration directly from the Windmill Hub into local workspace.", "inputSchema": {"type": "object", "properties": {"hub_id": {"type": "string", "description": "Hub item ID (e.g. 'hub/scripts/slack_post_message')"}}, "required": ["hub_id"]}}, {"name": "windmill_list_schedules", "description": "List all registered automated cron schedules and trigger configurations.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_trigger_schedule", "description": "Trigger an automated cron schedule run immediately on demand.", "inputSchema": {"type": "object", "properties": {"path": {"type": "string", "description": "Schedule path (e.g. 'u/admin/hourly_carbon_audit_schedule')"}}, "required": ["path"]}}, {"name": "windmill_list_variables", "description": "List workspace configuration variables and encrypted secrets.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "windmill_set_variable", "description": "Set or update a workspace variable or secret.", "inputSchema": {"type": "object", "properties": {"path": {"type": "string", "description": "Variable path"}, "value": {"description": "Variable value"}, "is_secret": {"type": "boolean", "default": false, "description": "Whether to encrypt as secret"}, "description": {"type": "string", "default": "", "description": "Description"}}, "required": ["path", "value"]}}, {"name": "windmill_do_everything", "description": "Execute complete 12-phase sovereign Windmill workflow and developer platform cycle.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "coolify", "category": "Workspace Sovereign", "author": "OMEGA Cloud PaaS", "description": "Self-hosted PaaS multi-server Docker, Traefik edge routing, and one-click app stacks.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\coolify_mcp_server.py"], "tools_count": 14, "tools": [{"name": "coolify_get_cluster_status", "description": "Get real-time telemetry and health for the Coolify cluster, nodes, apps, and databases.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "coolify_list_servers", "description": "List all managed server nodes, their IP addresses, reachability, and proxy configurations.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "coolify_validate_server", "description": "Validate SSH connectivity, Docker daemon status, OS, CPU, and RAM on a specific server node.", "inputSchema": {"type": "object", "properties": {"server_uuid": {"type": "string", "description": "The UUID of the server to validate"}}, "required": ["server_uuid"]}}, {"name": "coolify_cleanup_docker", "description": "Trigger Docker cleanup to prune dangling containers, unused images, networks, and build cache.", "inputSchema": {"type": "object", "properties": {"server_uuid": {"type": "string", "description": "Server UUID"}}, "required": ["server_uuid"]}}, {"name": "coolify_list_applications", "description": "List all registered applications with their Git repositories, build packs, and public FQDNs.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "coolify_create_application", "description": "Register a new application from a Git repository or Docker image in Coolify.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "Application display name"}, "git_repository": {"type": "string", "description": "Git repository URL"}, "git_branch": {"type": "string", "default": "main", "description": "Git branch to track"}, "build_pack": {"type": "string", "default": "nixpacks", "description": "Build pack (nixpacks, dockerfile, dockerimage)"}, "fqdn": {"type": "string", "description": "Public domain URL (e.g. https://app.example.com)"}, "ports_exposes": {"type": "string", "default": "80", "description": "Container exposed port"}}, "required": ["name"]}}, {"name": "coolify_deploy_resource", "description": "Trigger automated zero-downtime rolling deployment for an application, service, or database.", "inputSchema": {"type": "object", "properties": {"resource_uuid": {"type": "string", "description": "UUID of the application or service"}, "force_rebuild": {"type": "boolean", "default": false, "description": "Whether to invalidate cache and force rebuild"}}, "required": ["resource_uuid"]}}, {"name": "coolify_get_deployment_status", "description": "Check deployment queue status and stream execution logs for a specific deployment.", "inputSchema": {"type": "object", "properties": {"deployment_uuid": {"type": "string", "description": "Deployment UUID"}}, "required": ["deployment_uuid"]}}, {"name": "coolify_list_databases", "description": "List all provisioned standalone databases (PostgreSQL, MySQL, Redis, MongoDB).", "inputSchema": {"type": "object", "properties": {}}}, {"name": "coolify_create_database", "description": "Provision a dedicated standalone database container.", "inputSchema": {"type": "object", "properties": {"db_type": {"type": "string", "enum": ["postgresql", "redis", "mysql", "mongodb", "clickhouse"], "description": "Database type"}, "name": {"type": "string", "description": "Database service name"}, "server_uuid": {"type": "string", "default": "srv-localhost-000", "description": "Target server node"}}, "required": ["db_type", "name"]}}, {"name": "coolify_search_templates", "description": "Search the 352+ open-source one-click service templates catalog (e.g. n8n, Supabase, AnythingLLM, Plausible).", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Keyword search (e.g. 'llm', 'analytics', 'database')"}, "category": {"type": "string", "description": "Category filter (e.g. 'ai', 'database', 'cms')"}}}}, {"name": "coolify_export_compose", "description": "Extract, decode, and generate standalone docker-compose.yml and .env files for any of the 352 services.", "inputSchema": {"type": "object", "properties": {"template_id": {"type": "string", "description": "Template ID (e.g. 'anythingllm', 'n8n', 'supabase')"}, "domain": {"type": "string", "default": "localhost", "description": "Target domain for FQDN routing"}}, "required": ["template_id"]}}, {"name": "coolify_provision_omega_stack", "description": "Deploy the complete OMEGA autonomous enterprise stack (PostgreSQL + Redis + n8n automation).", "inputSchema": {"type": "object", "properties": {}}}, {"name": "coolify_do_everything", "description": "Execute the comprehensive 8-phase autonomous Coolify PaaS orchestration cycle across nodes, databases, services, applications, and template stacks.", "inputSchema": {"type": "object", "properties": {"server_uuid": {"type": "string", "default": "srv-localhost-000", "description": "Target server node"}}}}]}, {"server": "powershell", "category": "Workspace Sovereign", "author": "OMEGA OS Automation", "description": "PowerShell 7+ execution, AST analyzer, CIS benchmarks, and runbook pipelines.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\powershell_mcp_server.py"], "tools_count": 12, "tools": [{"name": "powershell_get_telemetry", "description": "Get real-time telemetry, runtime edition (Core vs Desktop), CLR version, active runspaces, and execution policies.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powershell_execute_command", "description": "Execute a PowerShell command or pipeline script and receive structured deserialized JSON objects.", "inputSchema": {"type": "object", "properties": {"command": {"type": "string", "description": "PowerShell command or script string"}, "as_json": {"type": "boolean", "description": "Wrap with ConvertTo-Json for typed object serialization", "default": true}}, "required": ["command"]}}, {"name": "powershell_analyze_ast", "description": "Parse PowerShell script using System.Management.Automation AST parser to inspect functions, parameters, tokens, and detect syntax errors.", "inputSchema": {"type": "object", "properties": {"script_content": {"type": "string", "description": "PowerShell script code"}}, "required": ["script_content"]}}, {"name": "powershell_script_analyzer", "description": "Run PSScriptAnalyzer rules on script code to detect credential leakage, code injection, and architectural code smells.", "inputSchema": {"type": "object", "properties": {"script_content": {"type": "string", "description": "PowerShell script code"}}, "required": ["script_content"]}}, {"name": "powershell_list_modules", "description": "List installed PowerShell modules, versions, authors, and export counts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powershell_find_gallery_module", "description": "Search PSGallery repository for modules, scripts, and extensions.", "inputSchema": {"type": "object", "properties": {"keyword": {"type": "string", "description": "Search term"}, "category": {"type": "string", "description": "Package category filter"}}}}, {"name": "powershell_list_runbooks", "description": "List enterprise runbooks (CIS Hardening, Cloud Recon, AD Audit, Network Latency, Service Watchdog).", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powershell_run_runbook", "description": "Execute a registered enterprise runbook by ID.", "inputSchema": {"type": "object", "properties": {"runbook_id": {"type": "string", "description": "ID of runbook (cis_hardening, cloud_recon, ad_audit, network_diag, self_healing)"}, "params": {"type": "object", "description": "Optional parameters to pass to runbook"}}, "required": ["runbook_id"]}}, {"name": "powershell_cis_benchmark_audit", "description": "Execute the CIS Benchmark Operating System Hardening runbook to audit endpoint security compliance.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powershell_cloud_infra_recon", "description": "Execute Multi-Cloud Infrastructure Recon runbook to identify orphaned disks, idle compute, and cost leakage.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powershell_benchmark", "description": "Benchmark PowerShell object pipeline streaming and serialization throughput.", "inputSchema": {"type": "object", "properties": {"iterations": {"type": "integer", "description": "Number of iterations", "default": 5}}}}, {"name": "powershell_do_everything", "description": "Execute the Complete 12-Phase Sovereign PowerShell Lifecycle and generate signed execution manifest.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "powertoys", "category": "Workspace Sovereign", "author": "OMEGA OS Automation", "description": "Windows desktop automation, FancyZones, OCR, Keyboard Manager, and Awake telemetry.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\powertoys_mcp_server.py"], "tools_count": 16, "tools": [{"name": "powertoys_get_status", "description": "Get real-time PowerToys runner telemetry, version, architecture, active FancyZones layout, and Awake power mode.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powertoys_list_modules", "description": "Enumerate all 24 PowerToys utility modules with their enabled statuses, categories, hotkeys, and CPU/memory stats.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powertoys_toggle_module", "description": "Enable or disable a specific PowerToys utility module (e.g. FancyZones, PowerToys Run, Awake, Peek, Text Extractor).", "inputSchema": {"type": "object", "properties": {"module": {"type": "string", "description": "Module name"}, "enabled": {"type": "boolean", "description": "Target enabled state (optional, defaults to toggle)"}}, "required": ["module"]}}, {"name": "powertoys_calculate_fancyzones", "description": "Calculate pixel bounding boxes for FancyZones multi-monitor window snapping for standard, 4K, or 32:9 Super UltraWide screens.", "inputSchema": {"type": "object", "properties": {"layout_id": {"type": "string", "description": "Layout ID (priority-grid-01, grid-2x2, ultrawide-coder, focus-central)", "default": "priority-grid-01"}, "resolution": {"type": "string", "description": "Screen resolution formatted as WxH (e.g. 1920x1080, 3840x2160, 5120x1440)", "default": "1920x1080"}}}}, {"name": "powertoys_query_pt_run", "description": "Execute a search query through PowerToys Run multi-plugin engine (Calculator, Unit Converter, Programs, Windows, Shell).", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Query string (e.g. 'calc', 'sqrt(144) + 10', '100 km in miles', '> ipconfig')"}}, "required": ["query"]}}, {"name": "powertoys_set_awake", "description": "Configure Awake stay-awake policy, keep-display-on assertion, and custom countdown timer.", "inputSchema": {"type": "object", "properties": {"mode": {"type": "string", "enum": ["PASSIVE", "INDEFINITE", "TIMED"], "default": "INDEFINITE"}, "duration_minutes": {"type": "integer", "description": "Duration in minutes (for TIMED mode)", "default": 60}, "keep_display_on": {"type": "boolean", "default": true}}, "required": ["mode"]}}, {"name": "powertoys_get_keyboard_remaps", "description": "Retrieve all active Keyboard Manager physical key and shortcut remap rules with collision detection.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powertoys_add_key_remap", "description": "Remap a physical key to another target key (e.g., CapsLock -> LeftCtrl).", "inputSchema": {"type": "object", "properties": {"original_key": {"type": "string", "description": "Physical key name (e.g. CapsLock, ScrollLock)"}, "new_key": {"type": "string", "description": "Target key to remap to (e.g. LeftCtrl, Mute)"}}, "required": ["original_key", "new_key"]}}, {"name": "powertoys_list_hosts", "description": "Read and parse the Windows hosts DNS routing table into structured JSON records.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powertoys_add_hosts_entry", "description": "Safely add or update a hostname resolution record in the Windows hosts file.", "inputSchema": {"type": "object", "properties": {"ip": {"type": "string", "description": "IPv4 or IPv6 address (e.g. 127.0.0.1)"}, "host": {"type": "string", "description": "Target hostname (e.g. app.local)"}, "comment": {"type": "string", "description": "Descriptive comment", "default": ""}}, "required": ["ip", "host"]}}, {"name": "powertoys_transform_paste", "description": "Transform clipboard text via Advanced Paste pipelines (plain_text, markdown_to_json, json_prettify, snake_to_camel, redact_pii, ai_summary).", "inputSchema": {"type": "object", "properties": {"text": {"type": "string", "description": "Raw input string to transform"}, "transformation": {"type": "string", "enum": ["plain_text", "markdown_to_json", "json_prettify", "json_minify", "snake_to_camel", "camel_to_snake", "redact_pii", "ai_summary"], "default": "plain_text"}, "prompt": {"type": "string", "description": "Custom AI prompt instructions if using ai mode"}}, "required": ["text"]}}, {"name": "powertoys_extract_ocr", "description": "Simulate Text Extractor Optical Character Recognition (OCR) over screen bounding coordinates.", "inputSchema": {"type": "object", "properties": {"bbox": {"type": "array", "items": {"type": "integer"}, "description": "[x, y, width, height] screen rectangle", "default": [100, 100, 600, 400]}}}}, {"name": "powertoys_launch_workspace", "description": "Launch a pre-configured multi-application workspace profile into its assigned FancyZones layout.", "inputSchema": {"type": "object", "properties": {"workspace_name": {"type": "string", "description": "Workspace name", "default": "Full-Stack Dev"}}}}, {"name": "powertoys_security_audit", "description": "Audit PowerToys security boundaries, privacy telemetry opt-out, and hosts file integrity against CIS standards.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "powertoys_benchmark", "description": "Benchmark microsecond execution latency and throughput for FancyZones snapping, PT Run search, and clipboard transforms.", "inputSchema": {"type": "object", "properties": {"iterations": {"type": "integer", "description": "Number of iterations", "default": 1000}}}}, {"name": "powertoys_do_everything", "description": "Execute the comprehensive 12-Phase Sovereign PowerToys Lifecycle and output an attested cryptographic manifest.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "n8n", "category": "Workspace Sovereign", "author": "OMEGA Workflow Engine", "description": "Autonomous workflow automation, webhook triggers, node orchestration, and audit.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\n8n_mcp_server.py"], "tools_count": 15, "tools": [{"name": "n8n_get_system_info", "description": "Get real-time telemetry, active worker count, concurrency limits, and indexed node/workflow totals for the n8n platform.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "n8n_search_nodes", "description": "FTS5 fast full-text search across 560+ core and community n8n nodes.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Keyword to search (e.g. 'webhook', 'slack', 'postgres', 'langchain')"}, "limit": {"type": "integer", "description": "Max results to return (default: 10)"}}, "required": ["query"]}}, {"name": "n8n_list_nodes_by_group", "description": "List nodes filtered by functional group (transform, trigger, output, input, utility).", "inputSchema": {"type": "object", "properties": {"group": {"type": "string", "description": "Group name (e.g. 'transform', 'trigger')"}, "limit": {"type": "integer", "description": "Max nodes to return (default: 30)"}}}}, {"name": "n8n_get_node_details", "description": "Retrieve comprehensive parameter schema and source file location for an n8n node type.", "inputSchema": {"type": "object", "properties": {"node_type": {"type": "string", "description": "Technical name of the node (e.g. 'webhook', 'httpRequest', 'agent')"}}, "required": ["node_type"]}}, {"name": "n8n_list_workflows", "description": "List all active OMEGA production workflows and their node counts.", "inputSchema": {"type": "object", "properties": {"active_only": {"type": "boolean", "description": "Filter by active status"}}}}, {"name": "n8n_get_workflow", "description": "Retrieve the full JSON definition, node DAG graph, and connections for a workflow.", "inputSchema": {"type": "object", "properties": {"workflow_id_or_name": {"type": "string", "description": "Workflow identifier or human-readable name"}}, "required": ["workflow_id_or_name"]}}, {"name": "n8n_execute_workflow", "description": "Trigger an autonomous execution of an n8n workflow DAG with custom input payload.", "inputSchema": {"type": "object", "properties": {"workflow_id_or_name": {"type": "string", "description": "Workflow identifier or name"}, "input_data": {"type": "object", "description": "Input JSON dictionary passed to initial node"}}, "required": ["workflow_id_or_name"]}}, {"name": "n8n_trigger_webhook", "description": "Dispatch an inbound webhook payload to a registered n8n webhook route.", "inputSchema": {"type": "object", "properties": {"path": {"type": "string", "description": "Webhook endpoint path (e.g. 'outreach-dispatch')"}, "payload": {"type": "object", "description": "Webhook JSON payload"}, "test_mode": {"type": "boolean", "description": "Whether to trigger test webhook route"}}, "required": ["path", "payload"]}}, {"name": "n8n_run_ai_agent", "description": "Invoke the n8n LangChain Autonomous Agent node with multi-step reasoning, tool execution, and memory.", "inputSchema": {"type": "object", "properties": {"prompt": {"type": "string", "description": "Research or execution query for the agent"}, "context": {"type": "object", "description": "Session memory or metadata context"}}, "required": ["prompt"]}}, {"name": "n8n_list_executions", "description": "Query execution history, status, executed nodes count, and latency.", "inputSchema": {"type": "object", "properties": {"status": {"type": "string", "description": "Filter by status: SUCCESS, ERROR, RUNNING"}, "limit": {"type": "integer", "description": "Max executions to return (default: 20)"}}}}, {"name": "n8n_get_execution", "description": "Retrieve full execution run data including per-node outputs and error traces.", "inputSchema": {"type": "object", "properties": {"execution_id": {"type": "string", "description": "Execution UUID (e.g. 'exec-1234')"}}, "required": ["execution_id"]}}, {"name": "n8n_list_credentials", "description": "Inspect registered encrypted credential accounts without leaking secrets.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "n8n_scan_dropzone", "description": "Check the local dropzone folder, ingest pending files, and trigger automated processing pipeline.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "n8n_export_workflows", "description": "Export all workflow definitions to disaster recovery backup directory.", "inputSchema": {"type": "object", "properties": {"dest_dir": {"type": "string", "description": "Optional custom export folder"}}}}, {"name": "n8n_do_everything_lifecycle", "description": "Execute the end-to-end 12-Phase Sovereign Lifecycle verification and export evidence ledger.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "airflow", "category": "Workspace Sovereign", "author": "OMEGA Workflow Engine", "description": "Data pipelines, DAG runs, task instances, XCom variables, and pool management.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\airflow_mcp_server.py"], "tools_count": 15, "tools": [{"name": "airflow_get_health", "description": "Check Apache Airflow system health, scheduler heartbeat, and metadb status.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "airflow_list_dags", "description": "List all registered Directed Acyclic Graphs (DAGs) with schedules, tags, and active status.", "inputSchema": {"type": "object", "properties": {"active_only": {"type": "boolean", "description": "Filter for active (unpaused) DAGs only"}}, "additionalProperties": false}}, {"name": "airflow_get_dag_details", "description": "Retrieve comprehensive metadata for a specific DAG including tasks, operators, and topological order.", "inputSchema": {"type": "object", "properties": {"dag_id": {"type": "string", "description": "The unique identifier of the DAG"}}, "required": ["dag_id"], "additionalProperties": false}}, {"name": "airflow_trigger_dag", "description": "Trigger a new execution run of a DAG with an optional configuration payload.", "inputSchema": {"type": "object", "properties": {"dag_id": {"type": "string", "description": "The unique identifier of the DAG"}, "conf": {"type": "object", "description": "JSON configuration payload passed to the DAG Run"}}, "required": ["dag_id"], "additionalProperties": false}}, {"name": "airflow_toggle_dag_pause", "description": "Pause or unpause an Airflow DAG to control automated scheduling.", "inputSchema": {"type": "object", "properties": {"dag_id": {"type": "string", "description": "The DAG identifier"}, "is_paused": {"type": "boolean", "description": "True to pause, False to unpause (activate)"}}, "required": ["dag_id", "is_paused"], "additionalProperties": false}}, {"name": "airflow_list_dag_runs", "description": "List historical and active DAG runs with execution dates, states, and durations.", "inputSchema": {"type": "object", "properties": {"dag_id": {"type": "string", "description": "The DAG identifier"}}, "required": ["dag_id"], "additionalProperties": false}}, {"name": "airflow_list_task_instances", "description": "List task instances and execution states for a specific DAG run.", "inputSchema": {"type": "object", "properties": {"dag_id": {"type": "string", "description": "The DAG identifier"}, "run_id": {"type": "string", "description": "Optional specific run_id (defaults to latest)"}}, "required": ["dag_id"], "additionalProperties": false}}, {"name": "airflow_get_task_log", "description": "Retrieve execution logs for an individual task instance attempt.", "inputSchema": {"type": "object", "properties": {"dag_id": {"type": "string", "description": "The DAG identifier"}, "run_id": {"type": "string", "description": "The DAG Run identifier"}, "task_id": {"type": "string", "description": "The Task identifier"}}, "required": ["dag_id", "run_id", "task_id"], "additionalProperties": false}}, {"name": "airflow_get_xcom", "description": "Pull XCom metadata values pushed by a task instance for inter-task coordination.", "inputSchema": {"type": "object", "properties": {"dag_id": {"type": "string", "description": "The DAG identifier"}, "task_id": {"type": "string", "description": "The Task identifier"}, "key": {"type": "string", "description": "Optional XCom key filter"}}, "required": ["dag_id", "task_id"], "additionalProperties": false}}, {"name": "airflow_list_variables", "description": "List global Airflow configuration variables.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "airflow_set_variable", "description": "Set or update an Airflow configuration variable.", "inputSchema": {"type": "object", "properties": {"key": {"type": "string", "description": "Variable key"}, "val": {"type": "string", "description": "Variable value"}, "description": {"type": "string", "description": "Description of the variable"}}, "required": ["key", "val"], "additionalProperties": false}}, {"name": "airflow_list_connections", "description": "List configured external service connections (databases, cloud storage, webhooks).", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "airflow_list_pools", "description": "List concurrency pools, total slots, and current slot saturation.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "airflow_emit_dataset_event", "description": "Emit an update event to an Airflow Dataset / Asset URI to trigger data-driven consumer pipelines.", "inputSchema": {"type": "object", "properties": {"uri": {"type": "string", "description": "The Dataset URI (e.g. s3://warehouse/sales/raw.parquet)"}, "source": {"type": "string", "description": "Origin task or agent producing the update"}}, "required": ["uri"], "additionalProperties": false}}, {"name": "airflow_audit_dags", "description": "Run static security, reliability, and concurrency audits on all registered DAGs.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}]}, {"server": "infisical", "category": "Workspace Sovereign", "author": "OMEGA SecOps", "description": "Zero-Knowledge SecretOps, secret leak scanning, dynamic leases, and PKI certs.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\infisical_mcp_server.py"], "tools_count": 18, "tools": [{"name": "infisical_get_telemetry", "description": "Get real-time Infisical cluster health, cryptographic algorithms, secret counts, active dynamic leases, and audit blockchain integrity.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "infisical_list_projects", "description": "List all registered Infisical projects and environments.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "infisical_list_secrets", "description": "List secrets in a specific project and environment (values masked unless reveal is true).", "inputSchema": {"type": "object", "properties": {"project_id": {"type": "string", "description": "Project ID"}, "environment": {"type": "string", "description": "Target environment (dev, staging, production)"}, "path": {"type": "string", "default": "/", "description": "Secret folder path"}, "reveal": {"type": "boolean", "default": false, "description": "Whether to decrypt and return plaintext values"}}}}, {"name": "infisical_get_secret", "description": "Retrieve and decrypt a specific secret using AES-256-GCM.", "inputSchema": {"type": "object", "required": ["key"], "properties": {"key": {"type": "string", "description": "Secret key name"}, "project_id": {"type": "string", "description": "Project ID"}, "environment": {"type": "string", "description": "Target environment"}, "path": {"type": "string", "default": "/", "description": "Secret folder path"}}}}, {"name": "infisical_set_secret", "description": "Encrypt and store a secret using Zero-Knowledge AES-256-GCM with automatic point-in-time versioning.", "inputSchema": {"type": "object", "required": ["key", "value"], "properties": {"key": {"type": "string", "description": "Secret key name"}, "value": {"type": "string", "description": "Plaintext secret value"}, "project_id": {"type": "string", "description": "Project ID"}, "environment": {"type": "string", "default": "production", "description": "Environment"}, "path": {"type": "string", "default": "/", "description": "Folder path"}, "comment": {"type": "string", "default": "", "description": "Documentation note"}, "tags": {"type": "array", "items": {"type": "string"}, "description": "Labels/tags"}}}}, {"name": "infisical_rollback_secret", "description": "Roll back an existing secret to any historical version.", "inputSchema": {"type": "object", "required": ["key", "version"], "properties": {"key": {"type": "string", "description": "Secret key name"}, "version": {"type": "integer", "description": "Target version number to restore"}, "project_id": {"type": "string", "description": "Project ID"}, "environment": {"type": "string", "default": "production"}}}}, {"name": "infisical_scan_workspace", "description": "Scan codebase files for leaked credentials, private keys, and high-entropy tokens.", "inputSchema": {"type": "object", "properties": {"path": {"type": "string", "default": ".", "description": "Directory path to scan"}}}}, {"name": "infisical_scan_snippet", "description": "Scan a code snippet, config file, or PR diff for secret leaks.", "inputSchema": {"type": "object", "required": ["text"], "properties": {"text": {"type": "string", "description": "Text content to scan"}, "label": {"type": "string", "default": "<agent_input>", "description": "File label or source"}}}}, {"name": "infisical_create_dynamic_lease", "description": "Generate on-demand ephemeral credentials with automatic TTL expiration (PostgreSQL, MySQL, AWS IAM, Redis, MongoDB).", "inputSchema": {"type": "object", "required": ["secret_name"], "properties": {"secret_name": {"type": "string", "description": "Name of dynamic secret config"}, "engine_type": {"type": "string", "enum": ["postgres", "mysql", "aws-iam", "redis", "mongodb"], "default": "postgres"}, "ttl_seconds": {"type": "integer", "default": 3600, "description": "TTL in seconds"}}}}, {"name": "infisical_revoke_dynamic_lease", "description": "Immediately revoke an active dynamic credential lease.", "inputSchema": {"type": "object", "required": ["lease_id"], "properties": {"lease_id": {"type": "string", "description": "Lease ID to revoke"}}}}, {"name": "infisical_list_dynamic_leases", "description": "List all active, expired, and revoked dynamic credential leases.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "infisical_issue_certificate", "description": "Issue an internal X.509 TLS certificate signed by the Sovereign Certificate Authority.", "inputSchema": {"type": "object", "required": ["common_name"], "properties": {"common_name": {"type": "string", "description": "Subject Common Name (e.g. service.internal)"}, "sans": {"type": "array", "items": {"type": "string"}, "description": "Subject Alternative Names"}, "validity_days": {"type": "integer", "default": 90, "description": "Validity period in days"}}}}, {"name": "infisical_revoke_certificate", "description": "Revoke an X.509 certificate and register it on the Certificate Revocation List (CRL).", "inputSchema": {"type": "object", "required": ["serial_number"], "properties": {"serial_number": {"type": "string", "description": "Certificate serial number"}, "reason": {"type": "string", "default": "KeyCompromise", "description": "Revocation reason"}}}}, {"name": "infisical_sync_cloud_integration", "description": "Trigger two-way secret synchronization to Kubernetes, AWS Secrets Manager, GitHub Actions, or Vercel.", "inputSchema": {"type": "object", "required": ["integration_id"], "properties": {"integration_id": {"type": "string", "description": "Integration ID (e.g. int-k8s-prod-01)"}}}}, {"name": "infisical_create_access_request", "description": "Submit a break-glass temporary privilege elevation request.", "inputSchema": {"type": "object", "required": ["role", "reason"], "properties": {"role": {"type": "string", "description": "Requested elevated role"}, "reason": {"type": "string", "description": "Operational justification"}, "duration_minutes": {"type": "integer", "default": 60, "description": "Duration in minutes"}, "environment": {"type": "string", "default": "production"}}}}, {"name": "infisical_approve_access_request", "description": "Approve a break-glass access request.", "inputSchema": {"type": "object", "required": ["request_id"], "properties": {"request_id": {"type": "string", "description": "Request ID"}, "approver": {"type": "string", "default": "secops-director", "description": "Approver identity"}}}}, {"name": "infisical_verify_audit_chain", "description": "Verify the mathematical integrity of the SHA-256 tamper-evident audit blockchain.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "infisical_run_sovereign_lifecycle", "description": "Execute the full 12-Phase Sovereign SecretOps Lifecycle and return certified manifest.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "hummingbot", "category": "Workspace Sovereign", "author": "OMEGA FinTech", "description": "High-frequency market making, arbitrage strategies, orderbook telemetry, and risk.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\hummingbot_mcp_server.py"], "tools_count": 18, "tools": [{"name": "hummingbot_get_telemetry", "description": "Get Hummingbot runtime architecture, active bots, portfolio USD valuation, and risk state.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "hummingbot_list_connectors", "description": "List 100+ CEX and DEX connectors across spot, perps, and EVM/Solana AMMs with fee tiers and status.", "inputSchema": {"type": "object", "properties": {"type": {"type": "string", "enum": ["ALL", "CEX_SPOT", "CEX_PERP", "DEX_AMM", "DEX_CLOB"], "description": "Filter by connector type"}, "limit": {"type": "integer", "description": "Maximum number of connectors to return (default 25)"}}, "additionalProperties": false}}, {"name": "hummingbot_get_order_book", "description": "Inspect real-time L2 order book depth, bids/asks ladder, mid-price, and micro-price with order queue weighting.", "inputSchema": {"type": "object", "properties": {"trading_pair": {"type": "string", "description": "Trading pair, e.g. BTC-USDT, ETH-USDT, SOL-USDT"}, "levels": {"type": "integer", "description": "Number of depth levels (default 10)"}}, "required": ["trading_pair"], "additionalProperties": false}}, {"name": "hummingbot_calculate_pure_market_making", "description": "Calculate dual-sided limit orders with dynamic inventory skewing and spread adjustments for Pure Market Making (PMM).", "inputSchema": {"type": "object", "properties": {"trading_pair": {"type": "string", "description": "Trading pair, e.g. BTC-USDT"}, "bid_spread_bps": {"type": "number", "description": "Bid spread in basis points (default 20.0)"}, "ask_spread_bps": {"type": "number", "description": "Ask spread in basis points (default 20.0)"}, "order_amount_usd": {"type": "number", "description": "Order amount in USD (default 5000.0)"}, "inventory_skew_enabled": {"type": "boolean", "description": "Enable dynamic inventory skewing (default true)"}}, "required": ["trading_pair"], "additionalProperties": false}}, {"name": "hummingbot_calculate_avellaneda_stoikov", "description": "Run Avellaneda & Stoikov (2008) quantitative market making model to calculate reservation price and optimal asymptotic spreads.", "inputSchema": {"type": "object", "properties": {"trading_pair": {"type": "string", "description": "Trading pair, e.g. BTC-USDT"}, "gamma": {"type": "number", "description": "Risk aversion parameter (default 0.1)"}, "sigma": {"type": "number", "description": "Daily volatility parameter (default 0.035)"}, "time_horizon": {"type": "number", "description": "Normalized trading horizon T - t (default 1.0)"}, "kappa": {"type": "number", "description": "Order book liquidity / arrival intensity (default 1.5)"}}, "required": ["trading_pair"], "additionalProperties": false}}, {"name": "hummingbot_calculate_cross_exchange_market_making", "description": "Calculate maker order prices and taker hedge requirements with guaranteed minimum net profitability hurdles for XEMM.", "inputSchema": {"type": "object", "properties": {"maker_exchange": {"type": "string", "description": "Maker exchange connector (e.g. uniswap_v3_arbitrum)"}, "taker_exchange": {"type": "string", "description": "Taker hedge exchange connector (e.g. binance)"}, "trading_pair": {"type": "string", "description": "Trading pair, e.g. BTC-USDT"}, "min_profitability_bps": {"type": "number", "description": "Minimum net profit hurdle in bps (default 25.0)"}, "order_amount_usd": {"type": "number", "description": "Order amount in USD (default 5000.0)"}}, "required": ["maker_exchange", "taker_exchange", "trading_pair"], "additionalProperties": false}}, {"name": "hummingbot_scan_amm_arbitrage", "description": "Scan Constant-Product x*y=k & concentrated liquidity DEX AMM vs CEX order book arbitrage with gas thresholding.", "inputSchema": {"type": "object", "properties": {"dex_connector": {"type": "string", "description": "DEX connector (e.g. uniswap_v3_arbitrum)"}, "cex_connector": {"type": "string", "description": "CEX connector (e.g. binance)"}, "trading_pair": {"type": "string", "description": "Trading pair (default ETH-USDT)"}, "gas_cost_usd": {"type": "number", "description": "Estimated gas cost in USD (default 1.20)"}}, "additionalProperties": false}}, {"name": "hummingbot_list_executors", "description": "List all active Hummingbot V2 smart executors (PositionExecutor, GridExecutor, TWAPExecutor).", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "hummingbot_create_position_executor", "description": "Create a V2 PositionExecutor with a triple-barrier risk setup (Take Profit, Stop Loss, Time Limit, Trailing Stop).", "inputSchema": {"type": "object", "properties": {"trading_pair": {"type": "string", "description": "Trading pair (e.g. BTC-USDT)"}, "connector": {"type": "string", "description": "Exchange connector (e.g. binance)"}, "side": {"type": "string", "enum": ["BUY", "SELL"], "description": "Position direction"}, "amount": {"type": "number", "description": "Order quantity in base asset units"}, "take_profit_pct": {"type": "number", "description": "Take profit percentage (e.g. 0.015 for 1.5%)"}, "stop_loss_pct": {"type": "number", "description": "Stop loss percentage (e.g. 0.008 for 0.8%)"}}, "required": ["trading_pair", "connector", "side", "amount"], "additionalProperties": false}}, {"name": "hummingbot_create_grid_executor", "description": "Create a V2 GridExecutor maintaining multiple grid rungs with automated rebalancing upon execution.", "inputSchema": {"type": "object", "properties": {"trading_pair": {"type": "string", "description": "Trading pair (e.g. SOL-USDT)"}, "connector": {"type": "string", "description": "Exchange connector (e.g. binance)"}, "grid_levels": {"type": "integer", "description": "Number of grid levels (default 5)"}, "grid_spread_pct": {"type": "number", "description": "Spread per rung (e.g. 0.006 for 0.6%)"}, "order_amount": {"type": "number", "description": "Amount per grid rung in base units"}}, "required": ["trading_pair", "connector"], "additionalProperties": false}}, {"name": "hummingbot_create_twap_executor", "description": "Create a V2 TWAPExecutor that slices large orders into equal tranches executed at regular intervals.", "inputSchema": {"type": "object", "properties": {"trading_pair": {"type": "string", "description": "Trading pair (e.g. ETH-USDT)"}, "connector": {"type": "string", "description": "Exchange connector (e.g. binance)"}, "side": {"type": "string", "enum": ["BUY", "SELL"], "description": "Order side"}, "total_amount": {"type": "number", "description": "Total order amount"}, "total_duration_sec": {"type": "number", "description": "Total execution horizon in seconds"}, "num_slices": {"type": "integer", "description": "Number of order slices"}}, "required": ["trading_pair", "connector", "side", "total_amount"], "additionalProperties": false}}, {"name": "hummingbot_run_backtest", "description": "Run historical HFT backtest: returns Sharpe ratio, Sortino ratio, max drawdown, win rate, and equity curve.", "inputSchema": {"type": "object", "properties": {"strategy": {"type": "string", "enum": ["pure_market_making", "avellaneda_stoikov", "grid_trading"]}, "trading_pair": {"type": "string", "description": "Trading pair (default BTC-USDT)"}, "days": {"type": "integer", "description": "Duration in days (default 14)"}, "capital": {"type": "number", "description": "Starting capital in USD (default 50000.0)"}, "spread_bps": {"type": "number", "description": "Market making spread in bps (default 20.0)"}}, "additionalProperties": false}}, {"name": "hummingbot_audit_risk_limits", "description": "Audit portfolio 99% Parametric Value-at-Risk (VaR), drawdown levels, and circuit breaker status.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "hummingbot_trigger_kill_switch", "description": "Trigger Emergency 1-Click Panic Kill-Switch to halt all active strategies and cancel open orders immediately.", "inputSchema": {"type": "object", "properties": {"reason": {"type": "string", "description": "Reason for triggering kill-switch"}}, "additionalProperties": false}}, {"name": "hummingbot_reset_risk_breaker", "description": "Reset circuit breaker back to OPERATIONAL status after emergency investigation.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "hummingbot_gateway_get_chains", "description": "Get Hummingbot Gateway Web3 multi-chain DEX status (Ethereum, Arbitrum, Optimism, Base, Polygon, Solana).", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "hummingbot_simulate_order_fill", "description": "Simulate market/limit order execution against live order book depth with slippage and fill accounting.", "inputSchema": {"type": "object", "properties": {"trading_pair": {"type": "string", "description": "Trading pair (e.g. BTC-USDT)"}, "side": {"type": "string", "enum": ["BUY", "SELL"], "description": "Order side"}, "amount": {"type": "number", "description": "Order quantity in base units"}, "order_type": {"type": "string", "enum": ["MARKET", "LIMIT"], "default": "MARKET"}, "limit_price": {"type": "number", "description": "Optional limit price"}}, "required": ["trading_pair", "side", "amount"], "additionalProperties": false}}, {"name": "hummingbot_do_everything", "description": "Execute the comprehensive 12-phase sovereign lifecycle and output atomic verification manifest.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}]}, {"server": "ghidra", "category": "Workspace Sovereign", "author": "OMEGA SecOps", "description": "Binary analysis, decompilation, xref graphs, function signatures, and memory map.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\ghidra_mcp_server.py"], "tools_count": 16, "tools": [{"name": "ghidra_get_info", "description": "Get Ghidra engine details, supported Sleigh architectures (x86, x64, ARM, MIPS, RISC-V), and P-Code opcodes.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "ghidra_analyze_binary", "description": "Perform full automated software reverse engineering on a binary executable (PE/ELF/Mach-O/Raw).", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Absolute or relative path to the binary executable"}}, "required": ["binary_path"]}}, {"name": "ghidra_disassemble", "description": "Disassemble binary instructions starting at an entry point or address, with Ghidra P-Code micro-operations.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}, "address": {"type": "string", "description": "Hex address to start disassembly (optional)"}, "count": {"type": "integer", "description": "Number of instructions to disassemble", "default": 20}}, "required": ["binary_path"]}}, {"name": "ghidra_decompile_function", "description": "Decompile a function into structured pseudo-C with recovered variables, types, and control flow.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}, "function_name": {"type": "string", "description": "Function name (e.g. main) or hex address", "default": "main"}}, "required": ["binary_path"]}}, {"name": "ghidra_get_pcode", "description": "Extract Ghidra's intermediate representation (P-Code) microcode translation sequence.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}, "count": {"type": "integer", "description": "Number of P-Code operations", "default": 25}}, "required": ["binary_path"]}}, {"name": "ghidra_list_functions", "description": "List identified functions with calling conventions, parameters, return types, and cyclomatic complexity.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["binary_path"]}}, {"name": "ghidra_get_xrefs", "description": "Extract cross-references and function call graph topology (callers and callees).", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["binary_path"]}}, {"name": "ghidra_extract_strings", "description": "Extract ASCII and UTF-16LE strings and classify them (URLs, IPs, FilePaths, RegistryKeys, Crypto).", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}, "min_length": {"type": "integer", "description": "Minimum string length", "default": 4}, "category": {"type": "string", "description": "Filter by category (URL, IP_Address, FilePath, RegistryKey, CryptoConstant, API_Name)"}}, "required": ["binary_path"]}}, {"name": "ghidra_inspect_sections", "description": "Inspect memory sections, virtual offsets, raw sizes, permissions, and Shannon entropy.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["binary_path"]}}, {"name": "ghidra_audit_vulnerabilities", "description": "Audit binary for dangerous libc/Win32 APIs, missing DEP/ASLR mitigations, buffer overflows, and ROP gadgets.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["binary_path"]}}, {"name": "ghidra_calculate_entropy", "description": "Calculate binary Shannon entropy and perform packer/crypter detection (UPX, Themida, VMProtect).", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["binary_path"]}}, {"name": "ghidra_find_rop_gadgets", "description": "Scan executable sections for Return-Oriented Programming (ROP) gadgets.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["binary_path"]}}, {"name": "ghidra_detect_crypto", "description": "Search binary for cryptographic constants (AES Rijndael S-Box, SHA-256, MD5, RC4).", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["binary_path"]}}, {"name": "ghidra_list_scripts", "description": "List available Ghidra SRE analysis scripts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "ghidra_run_headless_script", "description": "Execute a custom Ghidra headless or Python analysis script on a binary.", "inputSchema": {"type": "object", "properties": {"script_path": {"type": "string", "description": "Path to analysis script"}, "binary_path": {"type": "string", "description": "Path to binary"}}, "required": ["script_path", "binary_path"]}}, {"name": "ghidra_do_everything", "description": "Execute the comprehensive 12-Phase Sovereign SRE Lifecycle and generate signed attestation manifest.", "inputSchema": {"type": "object", "properties": {"binary_path": {"type": "string", "description": "Optional path to target binary"}}}}]}, {"server": "arrow", "category": "Workspace Sovereign", "author": "OMEGA Data Engine", "description": "Zero-copy columnar memory buffers, Acero compute, Arrow IPC, and Parquet storage.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\arrow_mcp_server.py"], "tools_count": 12, "tools": [{"name": "arrow_get_telemetry", "description": "Get Apache Arrow runtime telemetry, SIMD acceleration, memory alignment, and feature matrix.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "arrow_list_schemas", "description": "List registered columnar schemas (financial trades, IoT telemetry, orderbooks, risk portfolios).", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "Optional schema name to inspect in detail"}}, "additionalProperties": false}}, {"name": "arrow_create_dataset", "description": "Generate high-throughput columnar Arrow dataset in memory (trades or iot_telemetry).", "inputSchema": {"type": "object", "properties": {"dataset": {"type": "string", "enum": ["trades", "iot_telemetry"], "default": "trades"}, "rows": {"type": "integer", "default": 25000}}, "required": ["dataset"], "additionalProperties": false}}, {"name": "arrow_zero_copy_slice", "description": "Demonstrate O(1) zero-copy buffer slicing with raw memory address attestation.", "inputSchema": {"type": "object", "properties": {"offset": {"type": "integer", "default": 100}, "length": {"type": "integer", "default": 500}}, "additionalProperties": false}}, {"name": "arrow_vectorized_compute", "description": "Execute vectorized Acero relational query (filter, statistics, hash group-by aggregation).", "inputSchema": {"type": "object", "properties": {"table": {"type": "string", "default": "trades"}, "col": {"type": "string", "default": "price"}, "op": {"type": "string", "enum": [">", ">=", "<", "<=", "=="], "default": ">"}, "val": {"type": "number", "default": 200.0}, "group": {"type": "string", "default": "symbol"}}, "additionalProperties": false}}, {"name": "arrow_c_data_interface", "description": "Verify Arrow C Data Interface ABI export and re-import via ctypes ArrowSchema & ArrowArray.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "arrow_export_ipc", "description": "Serialize Arrow table to encapsulated IPC stream format (.arrows) with continuation headers.", "inputSchema": {"type": "object", "properties": {"table": {"type": "string", "default": "trades"}, "filename": {"type": "string"}}, "additionalProperties": false}}, {"name": "arrow_export_parquet", "description": "Convert Arrow table to compressed Apache Parquet columnar storage format.", "inputSchema": {"type": "object", "properties": {"table": {"type": "string", "default": "trades"}, "compression": {"type": "string", "enum": ["snappy", "zstd", "gzip", "none"], "default": "snappy"}, "filename": {"type": "string"}}, "additionalProperties": false}}, {"name": "arrow_flight_catalog", "description": "Inspect registered Arrow Flight RPC endpoints, tickets, and dataset descriptors.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}, {"name": "arrow_flight_do_get", "description": "Simulate Arrow Flight DoGet stream retrieval using opaque ticket token.", "inputSchema": {"type": "object", "properties": {"ticket": {"type": "string", "description": "Ticket string or endpoint path"}}, "required": ["ticket"], "additionalProperties": false}}, {"name": "arrow_run_benchmarks", "description": "Execute microsecond throughput benchmark suite (slicing, SIMD sum/filter, IPC, Parquet).", "inputSchema": {"type": "object", "properties": {"rows": {"type": "integer", "default": 50000}}, "additionalProperties": false}}, {"name": "arrow_do_everything", "description": "Execute complete 12-Phase Sovereign Lifecycle verification and generate attested manifest.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}}]}, {"server": "awesome", "category": "Workspace Sovereign", "author": "OMEGA Knowledge Ops", "description": "Global software curator across 50,000+ categorized open-source tools and repos.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\awesome_mcp_server.py"], "tools_count": 12, "tools": [{"name": "awesome_get_info", "description": "Get real-time telemetry and overview statistics for the GitHub Awesome Universe.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "awesome_list_categories", "description": "List all 29 knowledge domain categories with slugs and list counts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "awesome_get_category", "description": "Get all curated lists within a specific knowledge category.", "inputSchema": {"type": "object", "properties": {"slug": {"type": "string", "description": "Category slug (e.g. 'programming-languages', 'security', 'frontier-ai-agents')"}}, "required": ["slug"]}}, {"name": "awesome_search_lists", "description": "Full-text search across 470+ curated lists using SQLite FTS5 index.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Keyword query (e.g. 'agent', 'python', 'docker', 'database', 'mcp')"}, "category": {"type": "string", "description": "Optional category slug filter"}, "limit": {"type": "integer", "description": "Maximum number of results to return (default: 20)", "default": 20}}, "required": ["query"]}}, {"name": "awesome_get_list_details", "description": "Retrieve comprehensive dossier and metadata for a specific Awesome list.", "inputSchema": {"type": "object", "properties": {"id": {"type": "string", "description": "List ID, repo slug, or exact name"}}, "required": ["id"]}}, {"name": "awesome_lint_manifesto", "description": "Validate markdown text or pull request submission against official Awesome Manifesto rules.", "inputSchema": {"type": "object", "properties": {"markdown": {"type": "string", "description": "Markdown content to inspect"}, "repo_name": {"type": "string", "description": "Repository slug name (e.g. 'awesome-robotics')", "default": "awesome-submission"}}, "required": ["markdown"]}}, {"name": "awesome_get_top_tier_lists", "description": "Get S-Tier flagships and high-authority community lists ranked by star impact.", "inputSchema": {"type": "object", "properties": {"tier": {"type": "string", "enum": ["S", "A", "B"], "default": "S", "description": "Tier ranking to filter (S = Flagship titan, A = High authority, B = Standard)"}, "limit": {"type": "integer", "default": 25, "description": "Max results"}}}}, {"name": "awesome_get_frontier_ai_lists", "description": "List curated repositories covering Autonomous Agents, MCP Servers, LLMs, and System Prompts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "awesome_get_cross_graph", "description": "Retrieve network topology graph of categories, hubs, and inter-list connections.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "awesome_generate_scaffold", "description": "Generate a 100% Awesome-Manifesto-compliant starter README.md template for a new topic.", "inputSchema": {"type": "object", "properties": {"topic_name": {"type": "string", "description": "Topic name (e.g. 'Quantum Computing', 'Synthetic Biology', 'Sovereign Agents')"}, "succinct_description": {"type": "string", "description": "Objective description of the subject matter (must start uppercase and end with period)"}}, "required": ["topic_name", "succinct_description"]}}, {"name": "awesome_export_catalog", "description": "Trigger export of full catalog to JSON, SQLite, CSV, and Markdown.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "awesome_run_sovereign_lifecycle", "description": "Execute or retrieve the complete 12-Phase Sovereign Lifecycle verification manifest.", "inputSchema": {"type": "object", "properties": {"force_rerun": {"type": "boolean", "default": false, "description": "Whether to re-execute all 12 phases or return existing manifest"}}}}]}, {"server": "free-for-dev", "category": "Workspace Sovereign", "author": "OMEGA Cloud Ops", "description": "Free cloud tier search engine across compute, storage, APIs, and hosting.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\free_for_dev_mcp_server.py"], "tools_count": 9, "tools": [{"name": "free_for_dev_get_telemetry", "description": "Returns full catalog telemetry for ripienaar/free-for-dev (total services, categories, no-credit-card %, commercial valuation).", "inputSchema": {"type": "object", "properties": {}}}, {"name": "free_for_dev_list_categories", "description": "Lists all 57 developer capability categories with service counts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "free_for_dev_search_services", "description": "Searches 1,396+ developer free-tier services by query, category, credit card requirement, tier rating, and architectural role.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Search keyword or service name (e.g. 'postgres', 'docker', 'email')"}, "category": {"type": "string", "description": "Category slug or name filter"}, "no_card_only": {"type": "boolean", "description": "If true, strictly filters services requiring NO credit card"}, "tier": {"type": "string", "enum": ["S", "A", "B", "C"], "description": "Filter by tier rating"}, "role": {"type": "string", "description": "Architectural role filter (e.g. 'relational_db', 'frontend_hosting', 'auth_identity')"}, "limit": {"type": "integer", "description": "Maximum results to return (default 25)"}}}}, {"name": "free_for_dev_get_service_detail", "description": "Retrieves comprehensive quota, website URL, category, credit card requirement, and tier details for a single service.", "inputSchema": {"type": "object", "properties": {"service_id": {"type": "string", "description": "Unique ID or name of the service (e.g. 'supabase', 'neon', 'cloudflare-pages')"}}, "required": ["service_id"]}}, {"name": "free_for_dev_synthesize_zero_dollar_stack", "description": "Synthesizes an optimal production architecture stack that costs exactly $0.00/month by combining developer free tiers.", "inputSchema": {"type": "object", "properties": {"archetype": {"type": "string", "enum": ["jamstack_saas", "ai_agent_platform", "mobile_app_backend", "microservices_api", "ecommerce_store", "sovereign_no_card", "analytics_data_pipeline"], "description": "Target architecture archetype"}}}}, {"name": "free_for_dev_compare_services", "description": "Executes side-by-side differential comparison of 2 to 5 developer providers with direct metrics and recommendation.", "inputSchema": {"type": "object", "properties": {"provider_ids": {"type": "array", "items": {"type": "string"}, "description": "List of provider IDs or names to compare (e.g. ['supabase', 'neon', 'turso'])"}}, "required": ["provider_ids"]}}, {"name": "free_for_dev_audit_architecture", "description": "Audits a list of software requirements or dependencies against free developer tiers, computing coverage and annual savings.", "inputSchema": {"type": "object", "properties": {"requirements": {"type": "array", "items": {"type": "string"}, "description": "List of components or requirements (e.g. ['Postgres', 'Next.js', 'Redis', 'User Auth', 'Sentry'])"}}, "required": ["requirements"]}}, {"name": "free_for_dev_list_no_card_services", "description": "Lists top friction-free developer services verified to require zero credit card credentials.", "inputSchema": {"type": "object", "properties": {"limit": {"type": "integer", "description": "Max items to return (default 25)"}}}}, {"name": "free_for_dev_run_sovereign_lifecycle", "description": "Executes the 12-phase sovereign lifecycle protocol for Free-For-Dev and produces the verified OMEGA JSON manifest.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "prompts-chat", "category": "Workspace Sovereign", "author": "OMEGA Prompt Ops", "description": "Curated LLM system prompts, agent archetypes, and role synthesis repository.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\prompts_chat_mcp_server.py"], "tools_count": 9, "tools": [{"name": "search_prompts", "description": "Search 2,627+ battle-tested persona and system prompts from prompts.chat by keyword, category, or developer flag.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Search keyword or phrase (e.g. 'linux terminal', 'python', 'interviewer')"}, "category": {"type": "string", "description": "Optional category filter (e.g. 'Software & Coding', 'Business & Strategy', 'Writing & Editorial')"}, "for_devs": {"type": "boolean", "description": "Filter strictly for developer-oriented prompts"}, "limit": {"type": "integer", "description": "Max number of results to return (default: 10, max: 50)"}}, "required": ["query"]}}, {"name": "get_prompt", "description": "Get the complete prompt text, variable schema, and archetype metadata for a specific act or slug.", "inputSchema": {"type": "object", "properties": {"act_or_slug": {"type": "string", "description": "The exact Act name (e.g. 'Linux Terminal') or slug (e.g. 'linux-terminal')"}}, "required": ["act_or_slug"]}}, {"name": "fill_prompt", "description": "Interpolate parameterized variables into a prompt template.", "inputSchema": {"type": "object", "properties": {"act_or_slug": {"type": "string", "description": "The Act name or slug"}, "variables": {"type": "object", "description": "Key-value dictionary of variable substitutions", "additionalProperties": {"type": "string"}}}, "required": ["act_or_slug", "variables"]}}, {"name": "improve_prompt", "description": "Analyze an existing prompt and augment it with role grounding, strict negative constraints, and structured output formatting.", "inputSchema": {"type": "object", "properties": {"prompt": {"type": "string", "description": "The prompt text to improve"}}, "required": ["prompt"]}}, {"name": "analyze_prompt_quality", "description": "Audit a prompt's completeness, constraint density, and formatting rules, returning a 0-100 score and recommendations.", "inputSchema": {"type": "object", "properties": {"prompt": {"type": "string", "description": "The prompt text to analyze"}}, "required": ["prompt"]}}, {"name": "random_prompt", "description": "Fetch a random high-quality prompt from the library, optionally filtered by category or developer flag.", "inputSchema": {"type": "object", "properties": {"category": {"type": "string", "description": "Optional category filter"}, "for_devs": {"type": "boolean", "description": "Filter for developer prompts"}}}}, {"name": "get_prompts_chat_stats", "description": "Get census and distribution statistics for the 2,627 prompt library.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "search_skills", "description": "Search across the 3,841+ installed agent skills in the repository by name or capability description.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Search keyword (e.g. 'tdd', 'career', 'database', 'docker')"}, "limit": {"type": "integer", "description": "Maximum results to return (default: 10)"}}, "required": ["query"]}}, {"name": "get_skill", "description": "Retrieve full instruction set, SKILL.md, and file manifest for an installed agent skill.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "The exact skill name or directory slug"}}, "required": ["name"]}}]}, {"server": "hyprland", "category": "Workspace Sovereign", "author": "OMEGA OS Automation", "description": "Wayland window manager controls, monitors, animations, dynamic workspaces, and bling.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\hyprland_mcp_server.py"], "tools_count": 16, "tools": [{"name": "hyprland_get_info", "description": "Get real-time Hyprland compositor telemetry, version, Aquamarine backend version, active signature, and window counts.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_list_monitors", "description": "List all active display outputs, resolutions, refresh rates, scaling factors, and VRR states.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_list_workspaces", "description": "List all active workspaces with monitor binding, window count, and fullscreen status.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_list_clients", "description": "List all managed client windows with address, class, title, PID, geometry, and tiled/floating status.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_get_active_window", "description": "Get detailed attributes of the currently focused client window.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_dispatch_command", "description": "Dispatch any Hyprland compositor action (e.g. 'workspace 3', 'killactive', 'togglefloating', 'exec kitty').", "inputSchema": {"type": "object", "properties": {"action": {"type": "string", "description": "Dispatcher name (e.g. workspace, killactive, togglefloating, exec)"}, "argument": {"type": "string", "description": "Optional argument for the dispatcher"}}, "required": ["action"]}}, {"name": "hyprland_switch_workspace", "description": "Switch active desktop focus to specified workspace ID or name.", "inputSchema": {"type": "object", "properties": {"workspace_id": {"type": "string", "description": "Workspace ID (e.g. '2' or 'special:scratchpad')"}}, "required": ["workspace_id"]}}, {"name": "hyprland_move_to_workspace", "description": "Move the currently focused window to a target workspace.", "inputSchema": {"type": "object", "properties": {"workspace_id": {"type": "string", "description": "Target workspace ID"}}, "required": ["workspace_id"]}}, {"name": "hyprland_kill_active", "description": "Terminate the currently focused client window.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_toggle_floating", "description": "Toggle floating state of the currently focused client window.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_set_decoration", "description": "Configure visual bling properties (rounding, dual-kawase blur size/passes, drop shadow, and active/inactive gradient border).", "inputSchema": {"type": "object", "properties": {"rounding": {"type": "integer", "description": "Corner radius in pixels"}, "blur_size": {"type": "integer", "description": "Kawase blur radius"}, "blur_passes": {"type": "integer", "description": "Blur downsampling iterations"}, "active_border": {"type": "string", "description": "Gradient string (e.g. 'rgba(33ccffee) rgba(00ff99ee) 45deg')"}, "drop_shadow": {"type": "boolean", "description": "Enable drop shadows"}}}}, {"name": "hyprland_set_animation", "description": "Configure or register a window/workspace animation rule and cubic-bezier curve.", "inputSchema": {"type": "object", "properties": {"name": {"type": "string", "description": "Animation target (e.g. windows, workspaces, fade, border)"}, "enabled": {"type": "boolean", "description": "Enable/disable animation"}, "speed": {"type": "integer", "description": "Speed factor"}, "curve": {"type": "string", "description": "B\u00e9zier curve name (e.g. myBezier, smoothOut, default)"}, "style": {"type": "string", "description": "Optional animation style (e.g. 'popin 80%', 'slide')"}}, "required": ["name"]}}, {"name": "hyprland_add_window_rule", "description": "Add a dynamic windowrulev2 placement or behavior rule.", "inputSchema": {"type": "object", "properties": {"rule_type": {"type": "string", "description": "Rule action (e.g. 'float', 'opacity 0.9', 'workspace 3')"}, "pattern": {"type": "string", "description": "Window match regex (e.g. 'class:^(kitty)$')"}}, "required": ["rule_type", "pattern"]}}, {"name": "hyprland_generate_config", "description": "Synthesize a complete modular Hyprland configuration set (hyprland.conf, decoration.conf, animations.conf, monitors.conf, windowrules.conf, keybinds.conf).", "inputSchema": {"type": "object", "properties": {}}}, {"name": "hyprland_stream_events", "description": "Fetch real-time socket2 event buffer since a given sequence ID.", "inputSchema": {"type": "object", "properties": {"since_id": {"type": "integer", "description": "Starting event sequence ID (default: 0)"}}}}, {"name": "hyprland_do_everything", "description": "Execute the Complete 12-Phase Sovereign Hyprland Lifecycle certification and emit cryptographic manifest.", "inputSchema": {"type": "object", "properties": {}}}]}, {"server": "github-marketplace", "category": "Official GitHub", "author": "OMEGA GitHub Ops", "description": "GitHub Actions & Apps marketplace explorer, workflow synthesis, and security auditor.", "type": "stdio", "command": "python.exe", "args": ["e:\\anti\\github_marketplace_mcp_server.py"], "tools_count": 10, "tools": [{"name": "marketplace_get_info", "description": "Get real-time telemetry and overview statistics for the GitHub Marketplace ecosystem.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "marketplace_list_categories", "description": "List all 19 official GitHub Marketplace domain categories with counts and descriptions.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "marketplace_search", "description": "Search across 370+ GitHub Actions and GitHub Apps using sub-millisecond SQLite FTS5 search.", "inputSchema": {"type": "object", "properties": {"query": {"type": "string", "description": "Keywords to search (e.g. 'docker', 'python', 'security', 'slack')"}, "category": {"type": "string", "description": "Optional category filter slug (e.g. 'continuous-integration', 'security', 'deployment')"}, "type": {"type": "string", "enum": ["action", "app"], "description": "Filter by 'action' or 'app'"}, "verified_only": {"type": "boolean", "description": "Restrict results to GitHub Verified Creators"}, "limit": {"type": "integer", "description": "Max results to return (default 20)"}}, "required": ["query"]}}, {"name": "marketplace_get_item_details", "description": "Get complete verified metadata, runner matrix, permissions, and recommended SHA pins for an Action or App.", "inputSchema": {"type": "object", "properties": {"slug": {"type": "string", "description": "Item id, slug, or repo name (e.g. 'actions-checkout', 'docker-build-push-action', 'app-dependabot')"}}, "required": ["slug"]}}, {"name": "marketplace_get_top_actions", "description": "List the most widely installed and starred GitHub Actions across the ecosystem.", "inputSchema": {"type": "object", "properties": {"limit": {"type": "integer", "description": "Number of top actions to return (default 20)"}}}}, {"name": "marketplace_get_top_apps", "description": "List top GitHub Apps for continuous integration, code review, project management, and security.", "inputSchema": {"type": "object", "properties": {"limit": {"type": "integer", "description": "Number of top apps to return (default 20)"}}}}, {"name": "marketplace_generate_workflow", "description": "Synthesize a high-assurance, production-ready GitHub Actions YAML workflow adhering to least privilege and SHA pinning.", "inputSchema": {"type": "object", "properties": {"stack": {"type": "string", "enum": ["python", "node", "docker", "universal"], "description": "Target software stack"}, "pin_sha": {"type": "boolean", "description": "Pin all action versions to immutable commit SHAs"}, "security_scan": {"type": "boolean", "description": "Include Trivy / CodeQL security scanning jobs"}, "cache": {"type": "boolean", "description": "Enable dependency caching (pip, npm)"}}, "required": ["stack"]}}, {"name": "marketplace_audit_workflow", "description": "Audit a GitHub Actions YAML workflow for security vulnerabilities: mutable tags, missing permissions, injection risks, timeouts.", "inputSchema": {"type": "object", "properties": {"yaml_content": {"type": "string", "description": "Full text of the .github/workflows/*.yml file to audit"}}, "required": ["yaml_content"]}}, {"name": "marketplace_get_cross_graph", "description": "Retrieve the action-to-app interoperability topology and recommended pipeline synergy links.", "inputSchema": {"type": "object", "properties": {}}}, {"name": "marketplace_run_sovereign_lifecycle", "description": "Execute the 12-phase sovereign attestation lifecycle across all GitHub Marketplace data layers.", "inputSchema": {"type": "object", "properties": {}}}]}];
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            
+            const btn = Array.from(document.querySelectorAll('.nav-tab')).find(b => b.getAttribute('onclick').includes(tabId));
+            if (btn) btn.classList.add('active');
+            
+            const panel = document.getElementById('tab-' + tabId);
+            if (panel) panel.classList.add('active');
+        }
+
+        function renderFleet(servers) {
+            const grid = document.getElementById('fleet-grid');
+            grid.innerHTML = '';
+
+            servers.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'server-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="server-card-top">
+                            <div class="server-name">${s.server}</div>
+                            <span class="server-cat-tag">${s.category}</span>
+                        </div>
+                        <div class="server-desc">${s.description || 'Sovereign MCP server capability in OMEGA ecosystem.'}</div>
+                    </div>
+                    <div>
+                        <div class="server-meta-row">
+                            <span class="tools-count-pill">${s.tools_count} Tools</span>
+                            <span style="color: var(--text-muted);">${s.type.toUpperCase()}</span>
+                            <button class="inspect-btn" onclick="selectServerTools('${s.server}')">Inspect Tools ➔</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterFleet() {
+            const q = document.getElementById('fleet-search').value.toLowerCase();
+            const cat = document.getElementById('fleet-cat-filter').value;
+
+            const filtered = CATALOG.filter(s => {
+                const matchQ = s.server.toLowerCase().includes(q) || 
+                               (s.description && s.description.toLowerCase().includes(q)) ||
+                               (s.author && s.author.toLowerCase().includes(q));
+                const matchCat = cat === 'ALL' || s.category === cat;
+                return matchQ && matchCat;
+            });
+
+            renderFleet(filtered);
+        }
+
+        function renderTools(toolsList) {
+            const container = document.getElementById('tools-container');
+            container.innerHTML = '';
+
+            document.getElementById('tool-count-display').textContent = `Showing ${toolsList.length} tools across registered servers`;
+
+            toolsList.forEach((t, idx) => {
+                const row = document.createElement('div');
+                row.className = 'tool-row';
+                const drawerId = `drawer-${idx}`;
+
+                const schemaPretty = JSON.stringify(t.inputSchema || {}, null, 2);
+
+                row.innerHTML = `
+                    <div class="tool-header-row" onclick="toggleDrawer('${drawerId}')">
+                        <div>
+                            <div class="tool-title">
+                                <span>${t.name}</span>
+                                <span class="tool-server-badge">${t.server}</span>
+                            </div>
+                            <div class="tool-desc-short">${t.description || 'No description provided.'}</div>
+                        </div>
+                        <button class="inspect-btn">Schema ▾</button>
+                    </div>
+                    <div class="tool-schema-drawer" id="${drawerId}">
+                        <div class="code-block">
+                            <button class="copy-code-btn" onclick="copyText('${t.name}', event)">Copy Tool Name</button>
+                            <pre>${schemaPretty}</pre>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function filterTools() {
+            const q = document.getElementById('tool-search').value.toLowerCase();
+            const server = document.getElementById('tool-server-filter').value;
+
+            let allTools = [];
+            CATALOG.forEach(s => {
+                if (server === 'ALL' || s.server === server) {
+                    (s.tools || []).forEach(t => {
+                        allTools.push({ ...t, server: s.server, category: s.category });
+                    });
+                }
+            });
+
+            const filtered = allTools.filter(t => {
+                return t.name.toLowerCase().includes(q) || 
+                       (t.description && t.description.toLowerCase().includes(q));
+            });
+
+            renderTools(filtered);
+        }
+
+        function selectServerTools(serverName) {
+            switchTab('matrix');
+            document.getElementById('tool-server-filter').value = serverName;
+            document.getElementById('tool-search').value = '';
+            filterTools();
+        }
+
+        function toggleDrawer(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.toggle('open');
+        }
+
+        function copyText(txt, evt) {
+            if (evt) evt.stopPropagation();
+            navigator.clipboard.writeText(txt).then(() => {
+                alert('Copied: ' + txt);
+            });
+        }
+
+        function copyConfig(client) {
+            const el = document.getElementById('cfg-' + client);
+            if (el) {
+                navigator.clipboard.writeText(el.innerText).then(() => {
+                    alert('Configuration for ' + client.toUpperCase() + ' copied to clipboard!');
+                });
+            }
+        }
+
+        function initExports() {
+            const mcpServers = {};
+            CATALOG.forEach(s => {
+                if (s.type === 'http') {
+                    mcpServers[s.server] = { "type": "http", "url": "https://mcp.supabase.com/mcp" };
+                } else {
+                    mcpServers[s.server] = {
+                        "command": s.command || (s.server.includes('mcp_server') ? "python.exe" : "npx.cmd"),
+                        "args": s.args || []
+                    };
+                }
+            });
+
+            document.getElementById('cfg-claude').innerText = JSON.stringify({ "mcpServers": mcpServers }, null, 2);
+            document.getElementById('cfg-cursor').innerText = JSON.stringify({ "mcpServers": mcpServers }, null, 2);
+            document.getElementById('cfg-vscode').innerText = JSON.stringify({ "mcp": { "servers": mcpServers } }, null, 2);
+            
+            const gooseExts = { "extensions": {} };
+            Object.keys(mcpServers).forEach(k => {
+                gooseExts.extensions[k] = {
+                    "type": "stdio",
+                    "cmd": mcpServers[k].command,
+                    "args": mcpServers[k].args
+                };
+            });
+            document.getElementById('cfg-goose').innerText = JSON.stringify(gooseExts, null, 2);
+        }
+
+        // Populate Server Select Filter
+        function populateServerDropdown() {
+            const select = document.getElementById('tool-server-filter');
+            CATALOG.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s.server;
+                opt.textContent = `${s.server} (${s.tools_count} tools)`;
+                select.appendChild(opt);
+            });
+        }
+
+        // Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            renderFleet(CATALOG);
+            populateServerDropdown();
+            filterTools();
+            initExports();
+        });
+    </script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 {
-  "execution_id": "PWSH-SOVEREIGN-F46A249FBF",
+  "execution_id": "PWSH-SOVEREIGN-A940C9FF6F",
   "protocol": "OMEGA_CONSTITUTION_SECTION_101",
   "ecosystem": "PowerShell Open Source Autonomous Suite",
   "upstream_repository": "https://github.com/PowerShell/PowerShell",
-  "timestamp": "2026-11-01T21:28:57.131218+00:00",
+  "timestamp": "2026-11-03T06:48:07.179801+00:00",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.002,
+  "total_elapsed_seconds": 0.003,
   "overall_status": "SOVEREIGN POWERSHELL SUITE OPERATIONAL \u2014 100% ATTESTED",
   "telemetry_summary": {
     "version": "7.5.0",
@@ -28,10 +28,10 @@
   "benchmarks": {
     "iterations": 5,
     "objects_per_run": 1000,
-    "average_latency_ms": 0.02,
-    "min_latency_ms": 0.01,
-    "max_latency_ms": 0.02,
-    "throughput_objects_per_sec": 50000000.0,
+    "average_latency_ms": 0.06,
+    "min_latency_ms": 0.04,
+    "max_latency_ms": 0.08,
+    "throughput_objects_per_sec": 16666666.67,
     "status": "OPTIMAL"
   },
   "phases": [
@@ -109,7 +109,7 @@
       "description": "Verified pipeline serialization streaming with 4 structured JSON objects.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "execution_ms": 0.03,
+      "execution_ms": 0.06,
       "objects_deserialized": 4
     },
     {
@@ -159,19 +159,19 @@
     {
       "phase": 11,
       "name": "Pipeline Throughput & Latency Performance Benchmarks",
-      "description": "Achieved 50000000.0 objects/sec throughput with 0.02ms average latency.",
+      "description": "Achieved 16666666.67 objects/sec throughput with 0.06ms average latency.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "throughput_objects_per_sec": 50000000.0,
-      "average_latency_ms": 0.02
+      "throughput_objects_per_sec": 16666666.67,
+      "average_latency_ms": 0.06
     },
     {
       "phase": 12,
       "name": "Sovereign Execution Manifest & Ledger Attestation",
-      "description": "Compiled cryptographic execution manifest with ID PWSH-SOVEREIGN-F46A249FBF in 0.002s.",
+      "description": "Compiled cryptographic execution manifest with ID PWSH-SOVEREIGN-A940C9FF6F in 0.003s.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
-      "execution_id": "PWSH-SOVEREIGN-F46A249FBF"
+      "execution_id": "PWSH-SOVEREIGN-A940C9FF6F"
     }
   ]
 }

@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengaluru Startup Intelligence Cockpit | BBA Career Radar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0d14;
+            --bg-secondary: #101622;
+            --bg-card: rgba(18, 24, 38, 0.75);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(79, 140, 255, 0.35);
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(79, 172, 254, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-glass);
+            background: rgba(16, 22, 34, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #0a0d14;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .brand-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-title p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .candidate-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-live-pulse {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* KPI Banner */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 1.25rem;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-highlight);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            opacity: 0.8;
+        }
+
+        .kpi-card.green::before { background: var(--accent-green); }
+        .kpi-card.purple::before { background: var(--accent-purple); }
+        .kpi-card.orange::before { background: var(--accent-orange); }
+
+        .kpi-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .kpi-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .kpi-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-glass);
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-cyan);
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+        }
+
+        /* Filter Controls */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            background: var(--bg-secondary);
+            padding: 0.85rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        select, input {
+            background: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            outline: none;
+        }
+
+        select:focus, input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        /* Job Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .job-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .job-card:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .company-meta h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .company-meta p {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        .fit-pill {
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .fit-high {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .fit-mid {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .fit-low {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .card-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.8rem;
+        }
+
+        .detail-item span {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.7rem;
+            margin-bottom: 0.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .detail-item strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        .card-duties {
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-cyan);
+        }
+
+        .card-thesis {
+            font-size: 0.8rem;
+            color: #93c5fd;
+            font-style: italic;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .job-id-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .btn-apply {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #0a0d14;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-apply:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        /* Table Design */
+        .table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(16, 22, 34, 0.9);
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-glass);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-glass);
+            color: #e2e8f0;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .badge-new { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .badge-updated { background: rgba(79, 172, 254, 0.2); color: #60a5fa; }
+        .badge-stale { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .badge-warning { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+        /* Dossier Viewer */
+        .dossier-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 1.5rem;
+            min-height: 600px;
+        }
+
+        .dossier-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-right: 1px solid var(--border-glass);
+            padding-right: 1rem;
+        }
+
+        .dossier-item {
+            padding: 0.8rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dossier-item:hover, .dossier-item.active {
+            background: rgba(0, 242, 254, 0.08);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .dossier-item h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+        }
+
+        .dossier-item p {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+        }
+
+        .dossier-content {
+            padding-left: 1rem;
+            overflow-y: auto;
+            max-height: 700px;
+        }
+
+        .dossier-content pre {
+            background: #090d16;
+            padding: 1.25rem;
+            border-radius: 10px;
+            color: #cbd5e1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            border: 1px solid var(--border-glass);
+        }
+
+        /* Master Prompt Box */
+        .prompt-box {
+            background: #090d16;
+            border: 1px solid var(--border-highlight);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .btn-copy {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .btn-copy:hover {
+            background: var(--accent-cyan);
+            color: #0a0d14;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-glass);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 3rem;
+            background: var(--bg-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-container">
+            <div class="brand-logo">Ω</div>
+            <div class="brand-title">
+                <h1>Bengaluru Startup Intelligence Cockpit</h1>
+                <p>
+                    Autonomous Ecosystem Radar & Pipeline 
+                    <span class="candidate-badge">Target: Adi (BBA Intl Business Fresher — BizOps Track)</span>
+                </p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <div class="btn-live-pulse">
+                <div class="pulse-dot"></div>
+                LIVE DATABASE
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- KPI Grid -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <span class="kpi-label">Verified Tracked Jobs</span>
+                <span class="kpi-value" id="stat-jobs">14</span>
+                <span class="kpi-sub">Across 20+ Active Scaleups</span>
+            </div>
+            <div class="kpi-card green">
+                <span class="kpi-label">Top Fit Matches (95%+)</span>
+                <span class="kpi-value" id="stat-high-fit">5</span>
+                <span class="kpi-sub">100% Non-Sales Purity</span>
+            </div>
+            <div class="kpi-card purple">
+                <span class="kpi-label">Capital Flow Monitored</span>
+                <span class="kpi-value">₹3,025 Cr</span>
+                <span class="kpi-sub">Equity Rounds & RDI Funds</span>
+            </div>
+            <div class="kpi-card orange">
+                <span class="kpi-label">M&A & Policy Signals</span>
+                <span class="kpi-value" id="stat-news">4</span>
+                <span class="kpi-sub">Defense Tech & GCC CSR</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Active Audit Deltas</span>
+                <span class="kpi-value" id="stat-deltas">12</span>
+                <span class="kpi-sub">Chronological Ledger</span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('jobs')">🎯 High-Priority Jobs (7)</button>
+            <button class="tab-btn" onclick="switchTab('founders-office')">⚡ Founder's Office & BizOps Radar</button>
+            <button class="tab-btn" onclick="switchTab('funding')">💰 Funding & Deals Ledger (6)</button>
+            <button class="tab-btn" onclick="switchTab('news')">🌐 Ecosystem & Policy Watch (4)</button>
+            <button class="tab-btn" onclick="switchTab('changelog')">📋 Audit Deltas & Change Log (12)</button>
+            <button class="tab-btn" onclick="switchTab('dossiers')">📄 Generated Application Dossiers (5)</button>
+            <button class="tab-btn" onclick="switchTab('prompt')">⚙️ Master Intelligence Prompt</button>
+        </div>
+
+        <!-- TAB 1: JOBS -->
+        <div id="tab-jobs">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <span class="filter-label">Fit Score:</span>
+                    <select id="filter-fit" onchange="renderJobs()">
+                        <option value="0">All Scores</option>
+                        <option value="95" selected>95%+ Priority Tier</option>
+                        <option value="90">90%+ High Upside</option>
+                        <option value="80">80%+ Minimum</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Work Mode:</span>
+                    <select id="filter-mode" onchange="renderJobs()">
+                        <option value="all">All Modes</option>
+                        <option value="in-office">In-Office (Bengaluru)</option>
+                        <option value="remote">Remote Only</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Role Category:</span>
+                    <select id="filter-category" onchange="renderJobs()">
+                        <option value="all">All Categories</option>
+                        <option value="founder">Founder's Office</option>
+                        <option value="operations">Business Operations / Sourcing</option>
+                        <option value="customer success">Customer Success (SaaS)</option>
+                        <option value="growth">Growth & Marketing</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="cards-grid" id="jobs-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+
+        <!-- TAB 2: FOUNDER'S OFFICE -->
+        <div id="tab-founders-office" style="display: none;">
+            <div class="filter-bar">
+                <span class="filter-label">Exclusive Founder's Office & Chief of Staff Track for Adi (BBA International Business)</span>
+            </div>
+            <div class="cards-grid" id="fo-grid">
+                <!-- Dynamically populated with FO roles -->
+            </div>
+        </div>
+
+        <!-- TAB 3: FUNDING -->
+        <div id="tab-funding" style="display: none;">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Deal ID</th>
+                            <th>Entity / Startup</th>
+                            <th>Amount</th>
+                            <th>Round Type</th>
+                            <th>Lead Investor / Sponsor</th>
+                            <th>Capital Allocation Focus</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody id="funding-table-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 4: NEWS -->
+        <div id="tab-news" style="display: none;">
+            <div class="cards-grid" id="news-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- TAB 5: CHANGELOG -->
+        <div id="tab-changelog" style="display: none;">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Delta ID</th>
+                            <th>Status</th>
+                            <th>Record Target</th>
+                            <th>Audit Finding & Verification Note</th>
+                        </tr>
+                    </thead>
+                    <tbody id="changelog-table-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 6: DOSSIERS -->
+        <div id="tab-dossiers" style="display: none;">
+            <div class="dossier-layout">
+                <div class="dossier-list" id="dossier-menu">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="dossier-content">
+                    <pre id="dossier-viewer-pre">Select a dossier on the left to preview the full tailored application package (ATS Resume, Cover Letter, Recruiter InMail Cadence, and STAR Interview Defense).</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 7: MASTER PROMPT -->
+        <div id="tab-prompt" style="display: none;">
+            <div class="prompt-box">
+                <button class="btn-copy" onclick="copyPrompt()">Copy Prompt</button>
+<span id="prompt-content">Produce a daily, source-linked Bengaluru startup intelligence briefing focused on useful career and business opportunities. Scan newly reported startup launches, funding rounds, investor activity, acquisitions/closures, product launches, policy/accelerator news, and live job postings. Prioritize roles suitable for a BBA International Business fresher seeking non-sales work: business operations, founder's office, strategy/research, project/program coordination, marketing operations, content/community, partnerships operations, recruiting coordination, customer success/support, and AI-enabled business operations. 
+
+For each job, include startup, role, location/work mode, posted date, experience requirements, duties/skills, salary or CTC only when explicitly published, funding/investor signal if verified, official application link, and a fit score with reasons. 
+
+For each funding event, include amount/currency, round, announced date, lead/co-investors, what the money is intended to fund, why investors publicly say they invested, and source. 
+
+Maintain a chronological change log with NEW, UPDATED, CLOSED, STALE, or UNVERIFIED labels. Deduplicate companies and roles. Separate confirmed facts from inference; never invent salaries, vacancies, funding amounts, founders, mission statements, investor names, or application links. Prefer official career pages, Startup India/Karnataka sources, company announcements, investor announcements, Y Combinator, Wellfound, LinkedIn listings, and reputable business press. Recheck role links and clearly label stale listings. 
+
+End with the 5 highest-ROI actions for today plus source URLs. Include export-ready rows with stable IDs for the master workbook. If the prior workbook or previous run data is not available, provide a daily delta and export-ready rows; do not claim a persistent external database or workbook was updated. State that the scan is not a complete census of every startup and distinguish registered companies from verified active businesses.</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        Bengaluru Startup Intelligence Cockpit (BSIE-X) • Powered by OMEGA Autonomous Coding Engine • Port 8792
+    </footer>
+
+    <script>
+        // Seed Dataset fallback for standalone browser opening
+        const EMBEDDED_DATA = {
+            "jobs": [
+                {
+                    "id": "JOB-078",
+                    "startup_name": "Zethic Technologies",
+                    "role_title": "Founder's Office Intern (Strategy & New Initiatives)",
+                    "category": "Founder's Office",
+                    "fit_score": 97,
+                    "work_mode": "In-Office (Bengaluru)",
+                    "stipend_published": "₹1.2L - ₹1.8L (Verify Pay Period)",
+                    "apply_url": "https://wellfound.com/jobs/4791202-founder-s-office-intern-strategy-new-initiatives",
+                    "experience_req": "No experience required (Fresher friendly)",
+                    "eligibility": "BBA, B.Com, MBA, Economics recent grads",
+                    "posted_date": "October 2026",
+                    "status": "Active",
+                    "duties": "Research target markets, analyse business data using Excel/Sheets, prepare executive dashboards and decks, follow up on strategic initiatives across departments.",
+                    "why_it_fits": "Direct BBA match; pure strategy and operations without outbound quota pressure; direct leadership visibility."
+                },
+                {
+                    "id": "JOB-073",
+                    "startup_name": "Y-Not Design & Manufacturing",
+                    "role_title": "Emerging Talent Program (Graduate Trainee)",
+                    "category": "Global Sourcing & Operations",
+                    "fit_score": 98,
+                    "work_mode": "In-Office (Bengaluru)",
+                    "stipend_published": "Paid (Disclosed in selection)",
+                    "apply_url": "https://y-not.com/careers/emerging-talent-program",
+                    "experience_req": "No previous work experience required",
+                    "eligibility": "Recent grads & final year students (Business & Commerce preferred)",
+                    "posted_date": "August - October 2026",
+                    "status": "Active",
+                    "duties": "Rotational 6-month program across global sourcing, supply chain, international logistics, compliance QA, Excel reporting, and leadership capstone project.",
+                    "why_it_fits": "Gold standard for BBA International Business; direct cross-border trade, procurement and supply chain experience."
+                },
+                {
+                    "id": "JOB-072",
+                    "startup_name": "Samaaro",
+                    "role_title": "Customer Success Intern",
+                    "category": "Customer Success",
+                    "fit_score": 96,
+                    "work_mode": "Remote (Bengaluru Hiring)",
+                    "stipend_published": "₹10,000 / month",
+                    "apply_url": "https://wellfound.com/jobs/4762756-customer-success-intern",
+                    "experience_req": "No experience required",
+                    "eligibility": "Current students and fresh graduates from any stream",
+                    "posted_date": "October 2026",
+                    "status": "Active",
+                    "duties": "Test event communication flows, manage attendee and customer exports, generate post-event analytics, configure SaaS platform settings, assist CSM retention workflows.",
+                    "why_it_fits": "Zero-cold-call customer operations in high-growth event SaaS; builds client relationship and CRM data hygiene mastery."
+                },
+                {
+                    "id": "JOB-071",
+                    "startup_name": "Vantrix Ventures",
+                    "role_title": "Founder's Office Intern",
+                    "category": "Founder's Office",
+                    "fit_score": 91,
+                    "work_mode": "Remote",
+                    "stipend_published": "₹60,000 - ₹1.2L (Stated; verify cash basis)",
+                    "apply_url": "https://wellfound.com/jobs/4760727-founder-s-office-intern-vantrix-ventures-bengaluru-full-time-paid-internship",
+                    "experience_req": "No experience required",
+                    "eligibility": "Analytical graduates with strong English & AI tool literacy",
+                    "posted_date": "October 2026",
+                    "status": "Active",
+                    "duties": "Collaborate directly with founder on strategy, market research, AI workflow automation, and cross-functional operations.",
+                    "why_it_fits": "Direct founder exposure, heavy AI enablement. Caution: Verify exact pay period and contract terms before joining."
+                },
+                {
+                    "id": "JOB-074",
+                    "startup_name": "Vats Mobility",
+                    "role_title": "Digital Growth Intern",
+                    "category": "Growth & Marketing Operations",
+                    "fit_score": 82,
+                    "work_mode": "Remote",
+                    "stipend_published": "Performance-based rewards",
+                    "apply_url": "https://wellfound.com/jobs/4844623-digital-growth-intern",
+                    "experience_req": "Entry level (Proof of skills)",
+                    "eligibility": "Open to creative business freshers",
+                    "posted_date": "October 2026",
+                    "status": "Active",
+                    "duties": "Manage social and professional LinkedIn presence, conduct competitor and demographic analysis, monitor digital campaign analytics.",
+                    "why_it_fits": "Good remote marketing operations portfolio builder; caveat is commission/performance reward structure."
+                },
+                {
+                    "id": "JOB-063",
+                    "startup_name": "WaterScience",
+                    "role_title": "Founder's Office Intern (Operations & Execution)",
+                    "category": "Founder's Office",
+                    "fit_score": 98,
+                    "work_mode": "In-Office (JP Nagar, Bengaluru)",
+                    "stipend_published": "₹15,000 - ₹25,000 / month",
+                    "apply_url": "https://in.linkedin.com/jobs/view/founder-s-office-intern-operations-execution-at-waterscience-4474261907",
+                    "experience_req": "Fresher / 0-1 year",
+                    "eligibility": "BBA / B.Com / Generalist grads",
+                    "posted_date": "October 2026",
+                    "status": "Active",
+                    "duties": "Work directly with CEO/Founders on retail supply chain expansion, D2C warehouse fulfillment operations, and business performance metrics.",
+                    "why_it_fits": "Exceptional real-world D2C supply chain and executive execution experience with a category-leading brand."
+                },
+                {
+                    "id": "JOB-042",
+                    "startup_name": "Instawork",
+                    "role_title": "Operations Management Intern",
+                    "category": "Business Operations",
+                    "fit_score": 97,
+                    "work_mode": "In-Office (Bengaluru Hub)",
+                    "stipend_published": "₹25,000 - ₹35,000 / month",
+                    "apply_url": "https://in.linkedin.com/jobs/view/operations-management-intern-at-instawork-4411454993",
+                    "experience_req": "0-1 year / Fresher",
+                    "eligibility": "Business / Operations graduates",
+                    "posted_date": "October 2026",
+                    "status": "Active",
+                    "duties": "Manage labor marketplace operations, optimize shift fill rates, audit partner service quality, and conduct workflow tracking in SQL/Excel.",
+                    "why_it_fits": "Tier-1 Silicon Valley backed scaleup operations pedigree; analytical and high-tempo business operations."
+                }
+            ],
+            "funding": [
+                {
+                    "id": "FUND-017",
+                    "entity_name": "C-CAMP (Centre for Cellular and Molecular Platforms)",
+                    "amount": "₹500 Crore (~$60M USD)",
+                    "round_type": "Central Govt RDI Fund",
+                    "lead_investor": "Government of India",
+                    "intended_use": "Deep-tech life sciences across healthcare, agriculture, and bio-manufacturing; consortium exceeding ₹1,000 Cr with private co-investors.",
+                    "source_url": "https://timesofindia.indiatimes.com/science/c-camp-to-get-rs-500-crore-under-centres-rdi-fund"
+                },
+                {
+                    "id": "FUND-013",
+                    "entity_name": "Even Healthcare",
+                    "amount": "$50,000,000 USD (₹415 Cr)",
+                    "round_type": "Series B",
+                    "lead_investor": "Khosla Ventures",
+                    "intended_use": "Scaling hospital network, outpatient clinics, preventive care subscriptions, and expanding across Indian metros.",
+                    "source_url": "https://entrackr.com/2026/10/even-healthcare-series-b-50m"
+                },
+                {
+                    "id": "FUND-014",
+                    "entity_name": "Hunar.AI",
+                    "amount": "₹40 Crore (~$4.8M USD)",
+                    "round_type": "Series A",
+                    "lead_investor": "Peak XV Partners (Surge)",
+                    "intended_use": "Advancing proprietary vernacular voice AI agents for enterprise recruiting and high-volume workforce scheduling.",
+                    "source_url": "https://inc42.com/buzz/hunar-ai-series-a-funding"
+                },
+                {
+                    "id": "FUND-015",
+                    "entity_name": "OXG Space",
+                    "amount": "₹17 Crore (~$2M USD)",
+                    "round_type": "Seed",
+                    "lead_investor": "Speciale Invest & Inflexor",
+                    "intended_use": "Low-earth orbit satellite ground communication payloads and automated tracking transceivers.",
+                    "source_url": "https://yourstory.com/2026/10/oxg-space-seed-round-speciale"
+                },
+                {
+                    "id": "FUND-016",
+                    "entity_name": "Formial Labs",
+                    "amount": "₹2.88 Crore (~$350K USD)",
+                    "round_type": "Pre-Seed",
+                    "lead_investor": "Titan Capital",
+                    "intended_use": "AI formulation algorithms, precision skincare testing, and early D2C distribution channels.",
+                    "source_url": "https://entrackr.com/2026/10/formial-labs-pre-seed"
+                },
+                {
+                    "id": "FUND-012",
+                    "entity_name": "Fundamentum Partnership",
+                    "amount": "$227,000,000 USD (₹1,900 Cr)",
+                    "round_type": "Fund III Close",
+                    "lead_investor": "Nandan Nilekani & Sanjeev Aggarwal",
+                    "intended_use": "Growth-stage investments ($10M - $25M tickets) into Indian tech scaleups in SaaS, logistics, and fintech.",
+                    "source_url": "https://economictimes.indiatimes.com/tech/startups/fundamentum-fund-iii"
+                }
+            ],
+            "news": [
+                {
+                    "id": "NEWS-041",
+                    "title": "Zen Technologies Approves ₹135.15 Cr Acquisition of Cogknit Semantics",
+                    "category": "Mergers & Acquisitions",
+                    "date": "21 October 2026",
+                    "summary": "Zen Technologies acquired 51.98% majority stake in Bengaluru-based Cogknit Semantics for battlefield management tactical AI.",
+                    "source_url": "https://financialexpress.com/business/defence-zen-technologies-cogknit-majority-stake"
+                },
+                {
+                    "id": "NEWS-039",
+                    "title": "Bangalore Climate Data Week Launches Urban Heat & Decarbonization Tools",
+                    "category": "Ecosystem & Policy",
+                    "date": "21 October 2026",
+                    "summary": "5-day conclave brought together 200+ climate-tech startups. WRI India launched 'Data Lab Connect' and CSTEP unveiled 'BHRIGU-National' explorer.",
+                    "source_url": "https://expresscomputer.in/news/bangalore-climate-data-week-recap"
+                },
+                {
+                    "id": "NEWS-040",
+                    "title": "C-CAMP Selects 11 Bio-Startups for Climate Solutions Innovation Cohort",
+                    "category": "Accelerator Cohort",
+                    "date": "1 October 2026",
+                    "summary": "11 biology-led startups received up to ₹50 Lakh each in non-dilutive grant funding and commercialization mentoring.",
+                    "source_url": "https://timesofindia.indiatimes.com/city/bengaluru/c-camp-selects-11-startups-for-climate-solutions"
+                },
+                {
+                    "id": "NEWS-035",
+                    "title": "Karnataka Government Proposes Mandatory GCC CSR Reinvestment Framework",
+                    "category": "State Policy",
+                    "date": "14 October 2026",
+                    "summary": "State IT & BT department drafted policy linking Global Capability Center expansion in Bengaluru with local tech skill development.",
+                    "source_url": "https://deccanherald.com/business/karnataka-gcc-csr-policy-draft"
+                }
+            ],
+            "changelog": [
+                {"delta_id": "DELTA-20261022-015", "status": "NEW", "record": "JOB-078: Zethic Technologies", "finding": "Direct BBA fresher eligibility; founder's office strategy & operations"},
+                {"delta_id": "DELTA-20261022-003", "status": "NEW TO TRACKER", "record": "JOB-073: Y-Not", "finding": "Official 6-month paid graduate program in global sourcing & supply chain"},
+                {"delta_id": "DELTA-20261022-002", "status": "NEW", "record": "JOB-072: Samaaro", "finding": "Remote customer success; no experience required; ₹10k/mo stipend"},
+                {"delta_id": "DELTA-20261022-001", "status": "NEW", "record": "JOB-071: Vantrix Ventures", "finding": "Remote founder's office; verify cash compensation structure"},
+                {"delta_id": "DELTA-20261022-004", "status": "NEW", "record": "JOB-074: Vats Mobility", "finding": "Remote digital growth; performance-based reward structure"},
+                {"delta_id": "DELTA-20261022-005", "status": "NEW", "record": "JOB-075: Finifi", "finding": "₹20k/month + incentive; flagged for sales-heavy outreach duties"},
+                {"delta_id": "DELTA-20261022-006", "status": "LOW FIT", "record": "JOB-076: TrueFoundry", "finding": "Requires CS degree + MBA; excluded from priority list"},
+                {"delta_id": "DELTA-20261022-007", "status": "STALE", "record": "JOB-077: Vizmo", "finding": "Direct listing application form expired/unavailable"},
+                {"delta_id": "DELTA-20261022-008", "status": "UPDATED", "record": "JOB-021: Procureyard", "finding": "Listing reposted; conflicting experience criteria persists"},
+                {"delta_id": "DELTA-20261022-011", "status": "NEW TO TRACKER", "record": "FUND-017: C-CAMP", "finding": "₹500 Crore central government RDI funding allocation"},
+                {"delta_id": "DELTA-20261022-012", "status": "NEW TO TRACKER", "record": "NEWS-039: Climate Data Week", "finding": "WRI Data Lab Connect and CSTEP heat resilience initiative launched"},
+                {"delta_id": "DELTA-20261022-013", "status": "NEW TO TRACKER", "record": "NEWS-040: C-CAMP Cohort", "finding": "11 biology startups chosen for ₹50L climate grant support"}
+            ],
+            "dossiers": [
+                {
+                    "id": "d1",
+                    "title": "Zethic Technologies — Founder's Office Intern (JOB-078)",
+                    "summary": "Fit 97/100 | Strategy, Market Benchmarking, Executive Decks",
+                    "file": "JOB-078_Zethic_Technologies_Founders_Office.md"
+                },
+                {
+                    "id": "d2",
+                    "title": "Y-Not Design & Mfg — Emerging Talent Program (JOB-073)",
+                    "summary": "Fit 98/100 | 6-Month Rotational Global Sourcing & Supply Chain",
+                    "file": "JOB-073_Y_Not_Emerging_Talent_Program.md"
+                },
+                {
+                    "id": "d3",
+                    "title": "Samaaro — Customer Success Intern (JOB-072)",
+                    "summary": "Fit 96/100 | SaaS Client Onboarding, Attendee Data, Event Retros",
+                    "file": "JOB-072_Samaaro_Customer_Success_Intern.md"
+                },
+                {
+                    "id": "d4",
+                    "title": "Vantrix Ventures — Founder's Office Intern (JOB-071)",
+                    "summary": "Fit 91/100 | AI Tools, Strategy Support, Remote Multiplier",
+                    "file": "JOB-071_Vantrix_Ventures_Founders_Office.md"
+                },
+                {
+                    "id": "d5",
+                    "title": "Vats Mobility — Digital Growth Intern (JOB-074)",
+                    "summary": "Fit 82/100 | EV Growth Marketing, LinkedIn Content, Campaign Analytics",
+                    "file": "JOB-074_Vats_Mobility_Digital_Growth.md"
+                }
+            ]
+        };
+
+        let currentJobs = EMBEDDED_DATA.jobs;
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const tabIds = ['jobs', 'founders-office', 'funding', 'news', 'changelog', 'dossiers', 'prompt'];
+            tabIds.forEach(id => {
+                const el = document.getElementById(`tab-${id}`);
+                if (el) el.style.display = (id === tabId) ? 'block' : 'none';
+            });
+
+            if (tabId === 'founders-office') {
+                renderFoundersOffice();
+            } else if (tabId === 'funding') {
+                renderFunding();
+            } else if (tabId === 'news') {
+                renderNews();
+            } else if (tabId === 'changelog') {
+                renderChangelog();
+            } else if (tabId === 'dossiers') {
+                renderDossiers();
+            }
+        }
+
+        function getFitClass(score) {
+            if (score >= 95) return 'fit-high';
+            if (score >= 85) return 'fit-mid';
+            return 'fit-low';
+        }
+
+        function createJobCard(j) {
+            return `
+                <div class="job-card">
+                    <div class="card-header">
+                        <div class="company-meta">
+                            <h3>${j.startup_name}</h3>
+                            <p>${j.role_title}</p>
+                        </div>
+                        <div class="fit-pill ${getFitClass(j.fit_score)}">
+                            ★ ${j.fit_score}/100
+                        </div>
+                    </div>
+                    <div class="card-details-grid">
+                        <div class="detail-item">
+                            <span>Work Mode</span>
+                            <strong>${j.work_mode}</strong>
+                        </div>
+                        <div class="detail-item">
+                            <span>Compensation</span>
+                            <strong>${j.stipend_published}</strong>
+                        </div>
+                        <div class="detail-item">
+                            <span>Experience</span>
+                            <strong>${j.experience_req}</strong>
+                        </div>
+                        <div class="detail-item">
+                            <span>Eligibility</span>
+                            <strong>${j.eligibility || 'BBA / Fresh Grad'}</strong>
+                        </div>
+                    </div>
+                    <div class="card-duties">
+                        <strong>Mandate:</strong> ${j.duties}
+                    </div>
+                    <div class="card-thesis">
+                        💡 <strong>Why it fits:</strong> ${j.why_it_fits}
+                    </div>
+                    <div class="card-footer">
+                        <span class="job-id-tag">${j.id}</span>
+                        <a href="${j.apply_url}" target="_blank" class="btn-apply">
+                            Direct Apply ↗
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderJobs() {
+            const fitThreshold = parseInt(document.getElementById('filter-fit').value) || 0;
+            const modeFilter = document.getElementById('filter-mode').value;
+            const categoryFilter = document.getElementById('filter-category').value;
+
+            const filtered = EMBEDDED_DATA.jobs.filter(j => {
+                if (j.fit_score < fitThreshold) return false;
+                if (modeFilter !== 'all') {
+                    if (modeFilter === 'remote' && !j.work_mode.toLowerCase().includes('remote')) return false;
+                    if (modeFilter === 'in-office' && !j.work_mode.toLowerCase().includes('in-office')) return false;
+                }
+                if (categoryFilter !== 'all') {
+                    if (!j.category.toLowerCase().includes(categoryFilter)) return false;
+                }
+                return true;
+            });
+
+            document.getElementById('jobs-grid').innerHTML = filtered.map(createJobCard).join('');
+        }
+
+        function renderFoundersOffice() {
+            const foJobs = EMBEDDED_DATA.jobs.filter(j => 
+                j.category.toLowerCase().includes('founder') || 
+                j.role_title.toLowerCase().includes('founder') ||
+                j.role_title.toLowerCase().includes('talent program')
+            );
+            document.getElementById('fo-grid').innerHTML = foJobs.map(createJobCard).join('');
+        }
+
+        function renderFunding() {
+            const tbody = document.getElementById('funding-table-body');
+            tbody.innerHTML = EMBEDDED_DATA.funding.map(f => `
+                <tr>
+                    <td><span class="badge badge-new">${f.id}</span></td>
+                    <td><strong>${f.entity_name}</strong></td>
+                    <td style="color: var(--accent-cyan); font-weight:700;">${f.amount}</td>
+                    <td><span class="badge badge-updated">${f.round_type}</span></td>
+                    <td>${f.lead_investor}</td>
+                    <td>${f.intended_use}</td>
+                    <td><a href="${f.source_url}" target="_blank" style="color:var(--accent-blue); text-decoration:none;">Source ↗</a></td>
+                </tr>
+            `).join('');
+        }
+
+        function renderNews() {
+            document.getElementById('news-grid').innerHTML = EMBEDDED_DATA.news.map(n => `
+                <div class="job-card">
+                    <div class="card-header">
+                        <div class="company-meta">
+                            <span class="badge badge-updated" style="margin-bottom:0.4rem;">${n.category}</span>
+                            <h3>${n.title}</h3>
+                        </div>
+                    </div>
+                    <div class="card-duties">
+                        ${n.summary}
+                    </div>
+                    <div class="card-footer">
+                        <span class="job-id-tag">${n.id} • ${n.date}</span>
+                        <a href="${n.source_url}" target="_blank" class="btn-apply" style="padding:0.4rem 0.8rem; font-size:0.75rem;">Source ↗</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderChangelog() {
+            const tbody = document.getElementById('changelog-table-body');
+            tbody.innerHTML = EMBEDDED_DATA.changelog.map(d => {
+                let badgeClass = 'badge-new';
+                if (d.status === 'UPDATED') badgeClass = 'badge-updated';
+                if (d.status.includes('STALE')) badgeClass = 'badge-stale';
+                if (d.status.includes('LOW')) badgeClass = 'badge-warning';
+
+                return `
+                    <tr>
+                        <td><code>${d.delta_id}</code></td>
+                        <td><span class="badge ${badgeClass}">${d.status}</span></td>
+                        <td><strong>${d.record}</strong></td>
+                        <td style="color:var(--text-secondary);">${d.finding}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderDossiers() {
+            const menu = document.getElementById('dossier-menu');
+            menu.innerHTML = EMBEDDED_DATA.dossiers.map((d, index) => `
+                <div class="dossier-item ${index === 0 ? 'active' : ''}" onclick="selectDossier('${d.file}', this)">
+                    <h4>${d.title}</h4>
+                    <p>${d.summary}</p>
+                </div>
+            `).join('');
+
+            // load first
+            selectDossier(EMBEDDED_DATA.dossiers[0].file, menu.children[0]);
+        }
+
+        const DOSSIER_CACHE = {
+            "JOB-078_Zethic_Technologies_Founders_Office.md": `TARGET: Zethic Technologies — Founder's Office Intern (Strategy & New Initiatives)\nJOB-ID: JOB-078 | FIT SCORE: 97/100 | WORK MODE: In-Office (Bengaluru)\n\nCANDIDATE ALIGNMENT THESIS:\n- Direct BBA International Business match; zero cold-calling quota.\n- Responsibilities: Market research, Excel KPI dashboards, strategic initiative follow-through.\n\nGOOGLE X-Y-Z BULLETS:\n• Accomplished comprehensive market sizing and competitor intelligence across 15+ emerging tech sectors by building an automated tracking model in Excel, reducing manual research time by 65%.\n• Coordinated multi-stakeholder operational schedules for a 500+ attendee regional summit, managing 12 vendor relationships and ensuring 100% on-time milestone delivery.\n\nMULTI-STAGE OUTREACH CADENCE:\nDay 1 Strike: Direct InMail to Founder emphasizing market analysis and spreadsheet data modeling.\nDay 3 Value-Add: 3-step operational tracking sheet for cross-functional sprint dependencies.\nDay 7 Close: Polite, low-friction persistence reaffirming immediate readiness.`,
+            "JOB-073_Y_Not_Emerging_Talent_Program.md": `TARGET: Y-Not Design & Manufacturing — Emerging Talent Program (Graduate Trainee)\nJOB-ID: JOB-073 | FIT SCORE: 98/100 | WORK MODE: In-Office (Whitefield, Bengaluru)\n\nCANDIDATE ALIGNMENT THESIS:\n- 100% synergy with BBA International Business coursework in global sourcing, logistics, and vendor RFP evaluations.\n- 6-month rotational program covering procurement analytics, Incoterms compliance, and leadership capstone.\n\nGOOGLE X-Y-Z BULLETS:\n• Developed multi-currency procurement model simulating maritime shipping vs. air freight trade-offs across 10 global port pairs, identifying 18% freight savings.\n• Evaluated 14 international raw material suppliers using a weighted multi-criteria decision matrix.\n\nINTERVIEW DEFENSE:\nQ: How do you evaluate sourcing locally in India vs. East Asia?\nDefense: Total Cost of Ownership (TCO) including landed freight, tariffs, 35-day ocean lead-time holding capital, and defect return logistics.`,
+            "JOB-072_Samaaro_Customer_Success_Intern.md": `TARGET: Samaaro — Customer Success Intern (SaaS Client Operations)\nJOB-ID: JOB-072 | FIT SCORE: 96/100 | WORK MODE: Remote (Bengaluru Hiring Hub)\n\nCANDIDATE ALIGNMENT THESIS:\n- 100% non-sales customer success; managing attendee data exports, virtual portal setup, and post-event analytics.\n- Direct match for candidate's collegiate event coordination background.\n\nGOOGLE X-Y-Z BULLETS:\n• Configured and administered virtual registration and attendee communication channels for an annual summit of 500+ participants with 99.2% on-time check-in.\n• Audited 1,200+ raw attendee records using Excel lookup functions, eliminating duplicates prior to badge printing.`,
+            "JOB-071_Vantrix_Ventures_Founders_Office.md": `TARGET: Vantrix Ventures — Founder's Office Intern (AI Strategy & Operations)\nJOB-ID: JOB-071 | FIT SCORE: 91/100 | WORK MODE: Remote\n\nCANDIDATE ALIGNMENT THESIS:\n- High founder exposure and AI workflow automation.\n- Note: Conduct due diligence to confirm fixed cash stipend and Saturday working hour commitments before formal acceptance.`,
+            "JOB-074_Vats_Mobility_Digital_Growth.md": `TARGET: Vats Mobility — Digital Growth Intern (EV Brand & Growth)\nJOB-ID: JOB-074 | FIT SCORE: 82/100 | WORK MODE: Remote\n\nCANDIDATE ALIGNMENT THESIS:\n- Digital growth, LinkedIn content operations, and campaign metrics in electric mobility.\n- Compensation note: Performance-based incentives; recommended for practical portfolio building.`
+        };
+
+        function selectDossier(filename, elem) {
+            document.querySelectorAll('.dossier-item').forEach(el => el.classList.remove('active'));
+            if (elem) elem.classList.add('active');
+
+            const content = DOSSIER_CACHE[filename] || `Loading dossier ${filename}...`;
+            document.getElementById('dossier-viewer-pre').textContent = content;
+        }
+
+        function copyPrompt() {
+            const text = document.getElementById('prompt-content').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Master Research Prompt copied to clipboard!");
+            });
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderJobs();
+
+            // Try to fetch live API data if available
+            fetch('/api/stats')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.metrics) {
+                        document.getElementById('stat-jobs').innerText = data.metrics.total_jobs;
+                        document.getElementById('stat-high-fit').innerText = data.metrics.high_fit_jobs;
+                        document.getElementById('stat-news').innerText = data.metrics.total_ecosystem_events;
+                        document.getElementById('stat-deltas').innerText = data.metrics.active_deltas;
+                    }
+                })
+                .catch(() => {
+                    console.log("Operating in standalone offline mode with embedded dataset.");
+                });
+        });
+    </script>
+</body>
+</html>

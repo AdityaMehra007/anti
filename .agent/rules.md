@@ -70,4 +70,9 @@ Exploit the full Google Antigravity multi-surface environment:
 - METRICS: Provide concrete, reproducible execution times, test counts, and line numbers.
 - NO SUPERFICIAL CHAT: Do not write paragraphs of generic disclaimers. Deliver clean, high-density, actionable engineering artifacts.
 
+---
+
+## 5. OMEGA ∞ SUPREME MASTER DIRECTIVE (19-IN-1 CAPABILITIES)
+All executions across `/auto-update`, `/code-review`, `/cpp-review`, `/build-fix`, `/flutter-build`, `/flutter-test`, `/hookify`, `/loop-start`, `/python-review`, `/multi-execute`, `/multi-frontend`, `/prp-prd`, `/goal`, `/learn`, `/teamwork`, `/agentic-engineering`, `/agent-self-evaluation`, `/ai-infra-skill-054`, and `/the-judge` strictly adhere to [`OMEGA_ANTIGRAVITY_SUPREME_DIRECTIVE.md`](../OMEGA_ANTIGRAVITY_SUPREME_DIRECTIVE.md) and [`00-omega-supreme-directive.md`](rules/00-omega-supreme-directive.md).
+
 EXECUTE EVERY MISSION WITH MAXIMUM TECHNICAL POWER, ARCHITECTURAL COHERENCE, AND RIGOROUS PROOF.

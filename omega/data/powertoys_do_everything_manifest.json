@@ -1,11 +1,11 @@
 {
-  "execution_id": "PTOY-SOVEREIGN-2AB99357B7",
+  "execution_id": "PTOY-SOVEREIGN-F5555DE816",
   "protocol": "OMEGA_CONSTITUTION_SECTION_101",
   "ecosystem": "Microsoft PowerToys Open Source Autonomous Suite",
   "upstream_repository": "https://github.com/microsoft/PowerToys",
-  "timestamp": "2026-11-01T21:29:03.262714+00:00",
+  "timestamp": "2026-11-03T06:48:12.728307+00:00",
   "total_phases_executed": 12,
-  "total_elapsed_seconds": 0.1141,
+  "total_elapsed_seconds": 0.0602,
   "overall_status": "SOVEREIGN POWERTOYS SUITE OPERATIONAL \u2014 100% ATTESTED",
   "telemetry_summary": {
     "version": "0.88.0",
@@ -20,26 +20,26 @@
     "active_fancyzones_layout": "priority-grid-01",
     "awake_mode": "TIMED",
     "operating_mode": "HIGH_FIDELITY_SIMULATION",
-    "timestamp": "2026-11-01T21:29:03.148634+00:00",
+    "timestamp": "2026-11-03T06:48:12.668080+00:00",
     "live_host_detected": false,
     "active_operating_mode": "HIGH_FIDELITY_SIMULATION"
   },
   "benchmarks": {
     "iterations": 1000,
     "fancyzones_snapping": {
-      "elapsed_sec": 0.0151,
-      "operations_per_sec": 66218.6,
-      "latency_us": 15.1
+      "elapsed_sec": 0.0141,
+      "operations_per_sec": 71006.6,
+      "latency_us": 14.08
     },
     "pt_run_fuzzy_search": {
-      "elapsed_sec": 0.0647,
-      "queries_per_sec": 15451.1,
-      "latency_us": 64.72
+      "elapsed_sec": 0.0262,
+      "queries_per_sec": 38236.1,
+      "latency_us": 26.15
     },
     "advanced_paste_pipeline": {
-      "elapsed_sec": 0.023,
-      "transforms_per_sec": 43529.0,
-      "latency_us": 22.97
+      "elapsed_sec": 0.0096,
+      "transforms_per_sec": 103640.9,
+      "latency_us": 9.65
     },
     "overall_status": "HIGH_PERFORMANCE_OPTIMAL"
   },
@@ -63,7 +63,7 @@
         "active_fancyzones_layout": "priority-grid-01",
         "awake_mode": "TIMED",
         "operating_mode": "HIGH_FIDELITY_SIMULATION",
-        "timestamp": "2026-11-01T21:29:03.148634+00:00",
+        "timestamp": "2026-11-03T06:48:12.668080+00:00",
         "live_host_detected": false,
         "active_operating_mode": "HIGH_FIDELITY_SIMULATION"
       }
@@ -124,7 +124,7 @@
       "name": "PowerToys Run Modular Plugin Fuzzy Search Benchmark",
       "description": "Executed multi-plugin queries across 7 domains (Calculator, UnitConverter, System, Programs, Shell, TimeDate).",
       "status": "PASSED",
-      "elapsed_seconds": 0.0003,
+      "elapsed_seconds": 0.0002,
       "queries_executed": 7,
       "sample_matches": {
         "code": 2,
@@ -141,7 +141,7 @@
       "name": "Awake Daemon Power State & Display Keep-Alive Verification",
       "description": "Configured Awake power sentinel to 'INDEFINITE' mode with display assertion active.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0006,
+      "elapsed_seconds": 0.0004,
       "mode": "INDEFINITE",
       "keep_display_on": true
     },
@@ -150,18 +150,18 @@
       "name": "Keyboard Manager Key Remapping & Modifier Matrix Audit",
       "description": "Audited 3 key remaps and 2 global shortcuts without collision.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0006,
+      "elapsed_seconds": 0.0005,
       "keys_remapped": 3,
       "conflicts_detected": 0
     },
     {
       "phase": 6,
       "name": "Hosts File Syntax Validation & DNS Security Audit",
-      "description": "Parsed 13 DNS routing records; zero syntax violations or loopback hijackings detected.",
+      "description": "Parsed 17 DNS routing records; zero syntax violations or loopback hijackings detected.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0091,
-      "total_entries": 13,
-      "active_hosts": 12
+      "elapsed_seconds": 0.0087,
+      "total_entries": 17,
+      "active_hosts": 16
     },
     {
       "phase": 7,
@@ -206,25 +206,25 @@
     {
       "phase": 11,
       "name": "Real-Time Snapping & Launcher Latency Benchmarking",
-      "description": "Achieved 66218.6 snaps/sec and 15451.1 search queries/sec.",
+      "description": "Achieved 71006.6 snaps/sec and 38236.1 search queries/sec.",
       "status": "PASSED",
-      "elapsed_seconds": 0.1031,
+      "elapsed_seconds": 0.0499,
       "benchmarks": {
         "iterations": 1000,
         "fancyzones_snapping": {
-          "elapsed_sec": 0.0151,
-          "operations_per_sec": 66218.6,
-          "latency_us": 15.1
+          "elapsed_sec": 0.0141,
+          "operations_per_sec": 71006.6,
+          "latency_us": 14.08
         },
         "pt_run_fuzzy_search": {
-          "elapsed_sec": 0.0647,
-          "queries_per_sec": 15451.1,
-          "latency_us": 64.72
+          "elapsed_sec": 0.0262,
+          "queries_per_sec": 38236.1,
+          "latency_us": 26.15
         },
         "advanced_paste_pipeline": {
-          "elapsed_sec": 0.023,
-          "transforms_per_sec": 43529.0,
-          "latency_us": 22.97
+          "elapsed_sec": 0.0096,
+          "transforms_per_sec": 103640.9,
+          "latency_us": 9.65
         },
         "overall_status": "HIGH_PERFORMANCE_OPTIMAL"
       }
@@ -232,10 +232,10 @@
     {
       "phase": 12,
       "name": "Sovereign Execution Manifest & Cryptographic Attestation",
-      "description": "Compiled cryptographic execution manifest with ID PTOY-SOVEREIGN-2AB99357B7 in 0.1141s.",
+      "description": "Compiled cryptographic execution manifest with ID PTOY-SOVEREIGN-F5555DE816 in 0.0602s.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0001,
-      "execution_id": "PTOY-SOVEREIGN-2AB99357B7"
+      "elapsed_seconds": 0.0,
+      "execution_id": "PTOY-SOVEREIGN-F5555DE816"
     }
   ]
 }

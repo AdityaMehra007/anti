@@ -1,0 +1,567 @@
+"""
+Seed data builder for Bengaluru Startup Intelligence System.
+Extracts and normalizes all structured records from the ChatGPT share thread.
+"""
+import json
+import os
+
+SEED_DATA = {
+    "startups": [
+        {
+            "id": "ST-001",
+            "name": "Zethic Technologies",
+            "sector": "Software Development & Digital Solutions",
+            "stage": "Bootstrapped / Profitable Scaleup",
+            "blr_location": "HSR Layout, Bengaluru",
+            "website": "https://zethic.com",
+            "founder": "Verified Management Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-002",
+            "name": "Y-Not Design & Manufacturing",
+            "sector": "Global Sourcing, Supply Chain & Hardware",
+            "stage": "Growth Stage Corporate",
+            "blr_location": "Whitefield, Bengaluru",
+            "website": "https://y-not.com",
+            "founder": "Global Leadership Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-003",
+            "name": "Samaaro",
+            "sector": "Event Marketing & Virtual Experience SaaS",
+            "stage": "Seed (Backed by Alpha Wave / Angels)",
+            "blr_location": "Koramangala, Bengaluru",
+            "website": "https://samaaro.com",
+            "founder": "Purnank Prakash",
+            "verified_active": True
+        },
+        {
+            "id": "ST-004",
+            "name": "Vantrix Ventures",
+            "sector": "Recruiting Technology & AI Automation",
+            "stage": "Early Stage",
+            "blr_location": "Indiranagar, Bengaluru",
+            "website": "https://vantrixventures.com",
+            "founder": "Founder Led",
+            "verified_active": True
+        },
+        {
+            "id": "ST-005",
+            "name": "Vats Mobility",
+            "sector": "EV Mobility & Smart Logistics Tech",
+            "stage": "Pre-Seed / Seed",
+            "blr_location": "Bellandur, Bengaluru",
+            "website": "https://vatsmobility.com",
+            "founder": "Founding Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-006",
+            "name": "WaterScience",
+            "sector": "Consumer CleanTech & Water Purification",
+            "stage": "Series A / Profitable D2C",
+            "blr_location": "JP Nagar, Bengaluru",
+            "website": "https://waterscience.in",
+            "founder": "Mohammad Iqbal",
+            "verified_active": True
+        },
+        {
+            "id": "ST-007",
+            "name": "BiteSpeed",
+            "sector": "E-Commerce Conversational AI & SaaS",
+            "stage": "Seed ($1.9M backed by Surge / Peak XV)",
+            "blr_location": "HSR Layout, Bengaluru",
+            "website": "https://bitespeed.co",
+            "founder": "Vinayak Aggarwal",
+            "verified_active": True
+        },
+        {
+            "id": "ST-008",
+            "name": "Instawork",
+            "sector": "Flexible Labor Marketplace & Platform",
+            "stage": "Series D ($100M+ backed by Benchmark)",
+            "blr_location": "Bengaluru GCC Hub",
+            "website": "https://instawork.com",
+            "founder": "Sumir Meghani",
+            "verified_active": True
+        },
+        {
+            "id": "ST-009",
+            "name": "Joveo",
+            "sector": "Programmatic Job Advertising & Recruitment AI",
+            "stage": "Series B (Global Scaleup)",
+            "blr_location": "RMZ Ecospace, Bengaluru",
+            "website": "https://joveo.com",
+            "founder": "Kshitij Jain",
+            "verified_active": True
+        },
+        {
+            "id": "ST-010",
+            "name": "Pixis",
+            "sector": "Codeless AI Marketing Automation",
+            "stage": "Series C1 ($85M backed by Touring Capital)",
+            "blr_location": "Domlur, Bengaluru",
+            "website": "https://pixis.ai",
+            "founder": "Shubham A. Mishra",
+            "verified_active": True
+        },
+        {
+            "id": "ST-011",
+            "name": "Even Healthcare",
+            "sector": "HealthTech & Managed Care Provider",
+            "stage": "Series B ($50M round, October 2026)",
+            "blr_location": "Koramangala, Bengaluru",
+            "website": "https://even.in",
+            "founder": "Mayank Banerjee, Matilde Giglio, Alessandro Ialongo",
+            "verified_active": True
+        },
+        {
+            "id": "ST-012",
+            "name": "Hunar.AI",
+            "sector": "Conversational AI Workforce Platform",
+            "stage": "Series A (₹40 Cr round, October 2026)",
+            "blr_location": "Bengaluru",
+            "website": "https://hunar.ai",
+            "founder": "Founding Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-013",
+            "name": "OXG Space",
+            "sector": "Satellite Connectivity & SpaceTech",
+            "stage": "Seed (₹17 Cr round, October 2026)",
+            "blr_location": "Bengaluru",
+            "website": "https://oxgspace.com",
+            "founder": "Founding Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-014",
+            "name": "Formial Labs",
+            "sector": "Personalized Biotech & Skincare",
+            "stage": "Pre-Seed (₹2.88 Cr, October 2026)",
+            "blr_location": "Bengaluru",
+            "website": "https://formiallabs.com",
+            "founder": "Founding Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-015",
+            "name": "Cogknit Semantics",
+            "sector": "Defense Tech & Battlefield AI",
+            "stage": "Acquired (51.98% by Zen Technologies for ₹135.15 Cr)",
+            "blr_location": "Bengaluru",
+            "website": "https://cogknit.com",
+            "founder": "Founding Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-016",
+            "name": "Finifi",
+            "sector": "Enterprise Operations AI",
+            "stage": "Early Stage",
+            "blr_location": "Bengaluru",
+            "website": "https://finifi.io",
+            "founder": "Founding Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-017",
+            "name": "Procureyard Technology",
+            "sector": "AI-Powered B2B Procurement Platform",
+            "stage": "Early Stage",
+            "blr_location": "Bengaluru",
+            "website": "https://procureyard.com",
+            "founder": "Founding Team",
+            "verified_active": True
+        },
+        {
+            "id": "ST-018",
+            "name": "TrueFoundry",
+            "sector": "MLOps & Enterprise AI Infrastructure",
+            "stage": "Seed ($2.3M backed by Eniac)",
+            "blr_location": "Bengaluru / SF",
+            "website": "https://truefoundry.com",
+            "founder": "Nikunj Bajaj, Abhishek Choudhary",
+            "verified_active": True
+        },
+        {
+            "id": "ST-019",
+            "name": "Airtribe",
+            "sector": "EdTech & Executive Learning Cohorts",
+            "stage": "Seed ($1M backed by Elevation)",
+            "blr_location": "Koramangala, Bengaluru",
+            "website": "https://airtribe.live",
+            "founder": "Dhaval Trivedi",
+            "verified_active": True
+        },
+        {
+            "id": "ST-020",
+            "name": "Amoga",
+            "sector": "Low-Code Enterprise Work OS",
+            "stage": "Seed Stage",
+            "blr_location": "HSR Layout, Bengaluru",
+            "website": "https://amoga.io",
+            "founder": "Founding Team",
+            "verified_active": True
+        }
+    ],
+
+    "jobs": [
+        {
+            "id": "JOB-078",
+            "startup_name": "Zethic Technologies",
+            "role_title": "Founder's Office Intern (Strategy & New Initiatives)",
+            "category": "Founder's Office",
+            "fit_score": 97,
+            "work_mode": "In-Office (Bengaluru)",
+            "stipend_published": "₹1.2L - ₹1.8L (Verify Pay Period)",
+            "apply_url": "https://wellfound.com/jobs/4791202-founder-s-office-intern-strategy-new-initiatives",
+            "experience_req": "No experience required (Fresher friendly)",
+            "eligibility": "BBA, B.Com, MBA, Economics, Engineering recent grads",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Research target markets, analyse business data using Excel/Sheets, prepare executive dashboards and decks, follow up on strategic initiatives across departments.",
+            "why_it_fits": "Direct BBA match; pure strategy and operations without outbound quota pressure; direct leadership visibility."
+        },
+        {
+            "id": "JOB-073",
+            "startup_name": "Y-Not Design & Manufacturing",
+            "role_title": "Emerging Talent Program (Graduate Trainee)",
+            "category": "Global Sourcing & Operations",
+            "fit_score": 98,
+            "work_mode": "In-Office (Bengaluru)",
+            "stipend_published": "Paid (Disclosed in selection)",
+            "apply_url": "https://y-not.com/careers/emerging-talent-program",
+            "experience_req": "No previous work experience required",
+            "eligibility": "Recent grads & final year students (Business & Commerce preferred)",
+            "posted_date": "August - October 2026",
+            "status": "Active",
+            "duties": "Rotational 6-month program across global sourcing, supply chain, international logistics, compliance QA, Excel reporting, and leadership capstone project.",
+            "why_it_fits": "Gold standard for BBA International Business; direct cross-border trade, procurement and supply chain experience."
+        },
+        {
+            "id": "JOB-072",
+            "startup_name": "Samaaro",
+            "role_title": "Customer Success Intern",
+            "category": "Customer Success & SaaS Ops",
+            "fit_score": 96,
+            "work_mode": "Remote (Bengaluru Hiring)",
+            "stipend_published": "₹10,000 / month",
+            "apply_url": "https://wellfound.com/jobs/4762756-customer-success-intern",
+            "experience_req": "No experience required",
+            "eligibility": "Current students and fresh graduates from any stream",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Test event communication flows, manage attendee and customer exports, generate post-event analytics, configure SaaS platform settings, assist CSM retention workflows.",
+            "why_it_fits": "Zero-cold-call customer operations in high-growth event SaaS; builds client relationship and CRM data hygiene mastery."
+        },
+        {
+            "id": "JOB-071",
+            "startup_name": "Vantrix Ventures",
+            "role_title": "Founder's Office Intern",
+            "category": "Founder's Office",
+            "fit_score": 91,
+            "work_mode": "Remote",
+            "stipend_published": "₹60,000 - ₹1.2L (Stated; verify cash basis)",
+            "apply_url": "https://wellfound.com/jobs/4760727-founder-s-office-intern-vantrix-ventures-bengaluru-full-time-paid-internship",
+            "experience_req": "No experience required",
+            "eligibility": "Analytical graduates with strong English & AI tool literacy",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Collaborate directly with founder on strategy, market research, AI workflow automation, and cross-functional operations.",
+            "why_it_fits": "Direct founder exposure, heavy AI enablement. Caution: Verify exact pay period and contract terms before joining."
+        },
+        {
+            "id": "JOB-074",
+            "startup_name": "Vats Mobility",
+            "role_title": "Digital Growth Intern",
+            "category": "Growth & Marketing Operations",
+            "fit_score": 82,
+            "work_mode": "Remote",
+            "stipend_published": "Performance-based rewards",
+            "apply_url": "https://wellfound.com/jobs/4844623-digital-growth-intern",
+            "experience_req": "Entry level (Proof of skills)",
+            "eligibility": "Open to creative business freshers",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Manage social and professional LinkedIn presence, conduct competitor and demographic analysis, monitor digital campaign analytics.",
+            "why_it_fits": "Good remote marketing operations portfolio builder; caveat is commission/performance reward structure."
+        },
+        {
+            "id": "JOB-063",
+            "startup_name": "WaterScience",
+            "role_title": "Founder's Office Intern (Operations & Execution)",
+            "category": "Founder's Office",
+            "fit_score": 98,
+            "work_mode": "In-Office (JP Nagar, Bengaluru)",
+            "stipend_published": "₹15,000 - ₹25,000 / month",
+            "apply_url": "https://in.linkedin.com/jobs/view/founder-s-office-intern-operations-execution-at-waterscience-4474261907",
+            "experience_req": "Fresher / 0-1 year",
+            "eligibility": "BBA / B.Com / Generalist grads",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Work directly with CEO/Founders on retail supply chain expansion, D2C warehouse fulfillment operations, and business performance metrics.",
+            "why_it_fits": "Exceptional real-world D2C supply chain and executive execution experience with a category-leading brand."
+        },
+        {
+            "id": "JOB-042",
+            "startup_name": "Instawork",
+            "role_title": "Operations Management Intern",
+            "category": "Business Operations",
+            "fit_score": 97,
+            "work_mode": "In-Office (Bengaluru Hub)",
+            "stipend_published": "₹25,000 - ₹35,000 / month",
+            "apply_url": "https://in.linkedin.com/jobs/view/operations-management-intern-at-instawork-4411454993",
+            "experience_req": "0-1 year / Fresher",
+            "eligibility": "Business / Operations graduates",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Manage labor marketplace operations, optimize shift fill rates, audit partner service quality, and conduct workflow tracking in SQL/Excel.",
+            "why_it_fits": "Tier-1 Silicon Valley backed scaleup operations pedigree; analytical and high-tempo business operations."
+        },
+        {
+            "id": "JOB-056",
+            "startup_name": "BiteSpeed",
+            "role_title": "Customer Success Intern",
+            "category": "Customer Success & SaaS Ops",
+            "fit_score": 95,
+            "work_mode": "In-Office (HSR Layout, Bengaluru)",
+            "stipend_published": "₹20,000 / month",
+            "apply_url": "https://in.linkedin.com/jobs/view/customer-success-intern-at-bitespeed-4476805420",
+            "experience_req": "Fresher",
+            "eligibility": "BBA / B.Com / Any graduate with strong communication",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Onboard Shopify & D2C merchants onto conversational WhatsApp marketing platform; monitor churn signals; run customer product demos.",
+            "why_it_fits": "YC / Peak XV backed product; high conversion into full-time Customer Success Associate."
+        },
+        {
+            "id": "JOB-067",
+            "startup_name": "Airtribe",
+            "role_title": "Program Manager Internship",
+            "category": "Program & Community Ops",
+            "fit_score": 94,
+            "work_mode": "In-Office (Koramangala, Bengaluru)",
+            "stipend_published": "₹20,000 - ₹25,000 / month",
+            "apply_url": "https://in.linkedin.com/jobs/view/program-manager-internship-in-bangalore-at-airtribe-4466428284",
+            "experience_req": "Fresher",
+            "eligibility": "BBA / BMS graduates with strong event/community coordination",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Coordinate live executive cohorts, manage guest speakers, drive learner engagement metrics, and run operational feedback loops.",
+            "why_it_fits": "Capitalizes directly on event coordination skills; high community leadership exposure."
+        },
+        {
+            "id": "JOB-065",
+            "startup_name": "Amoga",
+            "role_title": "Founder's Office Intern",
+            "category": "Founder's Office",
+            "fit_score": 93,
+            "work_mode": "In-Office (Bengaluru)",
+            "stipend_published": "₹15,000 - ₹20,000 / month",
+            "apply_url": "https://in.linkedin.com/jobs/view/founder%E2%80%99s-office-intern-at-amoga-4475609226",
+            "experience_req": "0-1 year",
+            "eligibility": "BBA / Generalist",
+            "posted_date": "October 2026",
+            "status": "Active",
+            "duties": "Assist founders on product positioning, client discovery workshops, investor update prep, and operational sprint reviews.",
+            "why_it_fits": "Enterprise software generalist role with high strategic apprenticeship value."
+        },
+        {
+            "id": "JOB-075",
+            "startup_name": "Finifi",
+            "role_title": "Founder's Office Generalist Intern",
+            "category": "Founder's Office / Sales Ops",
+            "fit_score": 74,
+            "work_mode": "In-Office (Bengaluru)",
+            "stipend_published": "₹20,000 / month + incentive",
+            "apply_url": "https://wellfound.com/jobs/4809508-founder-s-office-generalist-intern",
+            "experience_req": "Fresher",
+            "eligibility": "Graduates with hunger to learn",
+            "posted_date": "October 2026",
+            "status": "Active (Conditional)",
+            "duties": "Market research, presentation decks, alongside sales prospecting, lead qualification, and outbound calls.",
+            "why_it_fits": "Good pay, but downgraded due to significant cold outbound/sales duties conflicting with preference."
+        },
+        {
+            "id": "JOB-021",
+            "startup_name": "Procureyard Technology",
+            "role_title": "Founders Office Internship",
+            "category": "Founder's Office",
+            "fit_score": 72,
+            "work_mode": "In-Office (Bengaluru)",
+            "stipend_published": "₹20,000 - ₹30,000 / month",
+            "apply_url": "https://wellfound.com/jobs/4356068-founders-office-internship",
+            "experience_req": "Conflicting (Header says 0 yrs; body says prior exp mandatory)",
+            "eligibility": "BBA / Commerce grads",
+            "posted_date": "October 2026",
+            "status": "Updated (Clarification needed)",
+            "duties": "Procurement analytics, investor deck assistance, banking coordination, supplier vetting.",
+            "why_it_fits": "High stipend but flagged due to conflicting experience criteria in listing."
+        },
+        {
+            "id": "JOB-076",
+            "startup_name": "TrueFoundry",
+            "role_title": "Intern, Founders Office and Alliances",
+            "category": "Strategic Alliances",
+            "fit_score": 60,
+            "work_mode": "Hybrid (Bengaluru)",
+            "stipend_published": "Not disclosed",
+            "apply_url": "https://wellfound.com/jobs/4762905-intern-founders-office-and-alliances",
+            "experience_req": "Technical / MBA preferred",
+            "eligibility": "Computer Science grad + MBA",
+            "posted_date": "October 2026",
+            "status": "Low Fit",
+            "duties": "Cloud partner alliances, analyst relations, technical collateral, co-sell ops.",
+            "why_it_fits": "Low fit: Stated requirements specify CS degree + MBA."
+        },
+        {
+            "id": "JOB-077",
+            "startup_name": "Vizmo",
+            "role_title": "Customer Success Intern",
+            "category": "Customer Success",
+            "fit_score": 50,
+            "work_mode": "In-Office (Bengaluru)",
+            "stipend_published": "₹10,000 - ₹15,000 (Unverified)",
+            "apply_url": "https://vizmo.app/careers",
+            "experience_req": "Fresher",
+            "eligibility": "All graduates",
+            "posted_date": "September 2026",
+            "status": "Stale",
+            "duties": "Visitor management SaaS client onboarding and customer support.",
+            "why_it_fits": "Stale: Direct job application page returned unavailable response during recent scan."
+        }
+    ],
+
+    "funding": [
+        {
+            "id": "FUND-017",
+            "entity_name": "C-CAMP (Centre for Cellular and Molecular Platforms)",
+            "amount": "₹500 Crore (~$60M USD)",
+            "round_type": "Central Govt RDI Fund Commitment",
+            "announced_date": "16 October 2026",
+            "lead_investor": "Government of India (Focused Research Organisation)",
+            "intended_use": "Support deep-tech life sciences across healthcare, agriculture, and bio-manufacturing; consortium to exceed ₹1,000 Cr with private co-investors.",
+            "public_rationale": "Overcoming capital scarcity for biotech deep science, providing patient non-dilutive capital to cross Technology Readiness Level 4+.",
+            "source_url": "https://timesofindia.indiatimes.com/science/c-camp-to-get-rs-500-crore-under-centres-rdi-fund"
+        },
+        {
+            "id": "FUND-013",
+            "entity_name": "Even Healthcare",
+            "amount": "$50,000,000 USD (₹415 Cr)",
+            "round_type": "Series B",
+            "announced_date": "19 October 2026",
+            "lead_investor": "Khosla Ventures",
+            "intended_use": "Scaling hospital network, outpatient clinics, preventive care subscriptions, and expanding commercial presence across Indian metros.",
+            "public_rationale": "High-margin managed care model replacing fragmented health insurance with proactive doctor-first care.",
+            "source_url": "https://entrackr.com/2026/10/even-healthcare-series-b-50m"
+        },
+        {
+            "id": "FUND-014",
+            "entity_name": "Hunar.AI",
+            "amount": "₹40 Crore (~$4.8M USD)",
+            "round_type": "Series A",
+            "announced_date": "19 October 2026",
+            "lead_investor": "Peak XV Partners (Surge)",
+            "intended_use": "Advancing proprietary vernacular voice AI agents for enterprise recruiting, screening, and high-volume workforce scheduling.",
+            "public_rationale": "Solving candidate drop-off and manual screening friction for 10M+ blue/grey-collar job seekers in India.",
+            "source_url": "https://inc42.com/buzz/hunar-ai-series-a-funding"
+        },
+        {
+            "id": "FUND-015",
+            "entity_name": "OXG Space",
+            "amount": "₹17 Crore (~$2M USD)",
+            "round_type": "Seed",
+            "announced_date": "14 October 2026",
+            "lead_investor": "Speciale Invest & Inflexor",
+            "intended_use": "Developing low-earth orbit satellite ground communication payloads and automated tracking transceivers.",
+            "public_rationale": "Capitalizing on India's liberalized space policy and commercial satellite ground station network demand.",
+            "source_url": "https://yourstory.com/2026/10/oxg-space-seed-round-speciale"
+        },
+        {
+            "id": "FUND-016",
+            "entity_name": "Formial Labs",
+            "amount": "₹2.88 Crore (~$350K USD)",
+            "round_type": "Pre-Seed",
+            "announced_date": "15 October 2026",
+            "lead_investor": "Titan Capital & Angel Consortium",
+            "intended_use": "AI formulation algorithms, precision skincare testing, and early D2C distribution channels.",
+            "public_rationale": "Rapid expansion of personalized clean beauty market in Tier-1 Indian metros.",
+            "source_url": "https://entrackr.com/2026/10/formial-labs-pre-seed"
+        },
+        {
+            "id": "FUND-012",
+            "entity_name": "Fundamentum Partnership",
+            "amount": "$227,000,000 USD (₹1,900 Cr)",
+            "round_type": "Fund III Close",
+            "announced_date": "12 October 2026",
+            "lead_investor": "Nandan Nilekani & Sanjeev Aggarwal",
+            "intended_use": "Growth-stage investments ($10M - $25M tickets) into Indian tech scaleups in SaaS, logistics, fintech, and digital consumer.",
+            "public_rationale": "Backing sustainable, unit-economic positive tech scaleups emerging from Bengaluru and India.",
+            "source_url": "https://economictimes.indiatimes.com/tech/startups/fundamentum-fund-iii"
+        }
+    ],
+
+    "news": [
+        {
+            "id": "NEWS-041",
+            "title": "Zen Technologies Approves ₹135.15 Cr Acquisition of Cogknit Semantics",
+            "category": "Mergers & Acquisitions",
+            "date": "21 October 2026",
+            "summary": "Defense technology leader Zen Technologies greenlit acquisition of 51.98% majority stake in Bengaluru-based Cogknit Semantics. Cogknit develops real-time tactical battlefield management systems that connect defense hardware with tactical AI.",
+            "source_url": "https://financialexpress.com/business/defence-zen-technologies-cogknit-majority-stake"
+        },
+        {
+            "id": "NEWS-039",
+            "title": "Bangalore Climate Data Week Concludes with Launch of Urban Heat & Decarbonization Tools",
+            "category": "Ecosystem & Policy",
+            "date": "21 October 2026",
+            "summary": "5-day conclave brought together 200+ climate-tech startups, investors, and civic bodies. WRI India launched 'Data Lab Connect' and CSTEP unveiled 'BHRIGU-National + Heat Insights Explorer' for climate adaptation planning.",
+            "source_url": "https://expresscomputer.in/news/bangalore-climate-data-week-recap"
+        },
+        {
+            "id": "NEWS-040",
+            "title": "C-CAMP Selects 11 Bio-Startups for Climate Solutions Innovation Cohort",
+            "category": "Accelerator Cohort",
+            "date": "1 October 2026",
+            "summary": "C-CAMP and Ashraya Hastha Trust announced 11 biology-led startups receiving up to ₹50 Lakh each in non-dilutive grant funding, lab access, and commercialization mentoring.",
+            "source_url": "https://timesofindia.indiatimes.com/city/bengaluru/c-camp-selects-11-startups-for-climate-solutions"
+        },
+        {
+            "id": "NEWS-035",
+            "title": "Karnataka Government Proposes Mandatory GCC CSR Reinvestment Framework",
+            "category": "State Policy",
+            "date": "14 October 2026",
+            "summary": "State IT & BT department drafted policy incentives linking Global Capability Center expansion in Bengaluru with local tech skill development and corporate CSR allocations.",
+            "source_url": "https://deccanherald.com/business/karnataka-gcc-csr-policy-draft"
+        }
+    ],
+
+    "changelog": [
+        {"delta_id": "DELTA-20261022-001", "status": "NEW", "record": "JOB-071: Vantrix Ventures", "finding": "Remote founder's office; no experience required; verify pay basis"},
+        {"delta_id": "DELTA-20261022-002", "status": "NEW", "record": "JOB-072: Samaaro", "finding": "Remote customer success; no experience required; ₹10k/mo stipend"},
+        {"delta_id": "DELTA-20261022-003", "status": "NEW TO TRACKER", "record": "JOB-073: Y-Not", "finding": "Official 6-month paid graduate program in global sourcing & supply chain"},
+        {"delta_id": "DELTA-20261022-004", "status": "NEW", "record": "JOB-074: Vats Mobility", "finding": "Remote digital growth; performance-based reward structure"},
+        {"delta_id": "DELTA-20261022-005", "status": "NEW", "record": "JOB-075: Finifi", "finding": "₹20k/month + incentive; flagged for sales-heavy outreach duties"},
+        {"delta_id": "DELTA-20261022-006", "status": "LOW FIT", "record": "JOB-076: TrueFoundry", "finding": "Requires CS degree + MBA; excluded from priority list"},
+        {"delta_id": "DELTA-20261022-007", "status": "STALE", "record": "JOB-077: Vizmo", "finding": "Direct listing application form expired/unavailable"},
+        {"delta_id": "DELTA-20261022-008", "status": "UPDATED", "record": "JOB-021: Procureyard", "finding": "Listing reposted; conflicting experience criteria persists"},
+        {"delta_id": "DELTA-20261022-011", "status": "NEW TO TRACKER", "record": "FUND-017: C-CAMP", "finding": "₹500 Crore central government RDI funding allocation"},
+        {"delta_id": "DELTA-20261022-012", "status": "NEW TO TRACKER", "record": "NEWS-039: Climate Data Week", "finding": "WRI Data Lab Connect and CSTEP heat resilience initiative launched"},
+        {"delta_id": "DELTA-20261022-013", "status": "NEW TO TRACKER", "record": "NEWS-040: C-CAMP Cohort", "finding": "11 biology startups chosen for ₹50L climate grant support"},
+        {"delta_id": "DELTA-20261022-015", "status": "NEW", "record": "JOB-078: Zethic Technologies", "finding": "Direct BBA fresher eligibility; founder's office strategy & operations"}
+    ]
+}
+
+def export_seed():
+    os.makedirs(r"e:\anti\data", exist_ok=True)
+    target = r"e:\anti\data\bengaluru_startup_intel.json"
+    with open(target, "w", encoding="utf-8") as f:
+        json.dump(SEED_DATA, f, indent=2)
+    print(f"Seed written successfully to {target}")
+
+if __name__ == "__main__":
+    export_seed()

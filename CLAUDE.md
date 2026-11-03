@@ -4,6 +4,7 @@ Autonomous AI Founder, Venture Intelligence, Job Search & Operations System for 
  
 **Supreme Constitution**: [`OMEGA_CONSTITUTION.md`](OMEGA_CONSTITUTION.md) (OMEGA ∞: 120 Master Directives).  
 **Operational Codex**: [`ADI_OMNI_CODEX.md`](ADI_OMNI_CODEX.md) (330 directives).  
+**Supreme Directive**: [`OMEGA_ANTIGRAVITY_SUPREME_DIRECTIVE.md`](OMEGA_ANTIGRAVITY_SUPREME_DIRECTIVE.md) (19-in-1 Omni-Agent Autonomous Engine).  
 **Engineering Principles**: [`AGENTS.md`](AGENTS.md).  
 **Ubiquitous Language & Context**: [`CONTEXT.md`](CONTEXT.md).  
  

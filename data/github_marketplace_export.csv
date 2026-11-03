@@ -1,0 +1,374 @@
+ID,Name,Repo,Type,Category,Author,Verified,Stars,Rating,Installs,Version,SecurityScore,SLSALevel
+actions-checkout,Checkout,actions/checkout,action,continuous-integration,GitHub,YES,6400,4.9,45000000,v4,98,3
+actions-setup-node,Setup Node.js environment,actions/setup-node,action,continuous-integration,GitHub,YES,3800,4.8,32000000,v4,96,3
+actions-setup-python,Setup Python environment,actions/setup-python,action,continuous-integration,GitHub,YES,3200,4.8,28000000,v5,97,3
+actions-setup-go,Setup Go environment,actions/setup-go,action,continuous-integration,GitHub,YES,1900,4.8,18000000,v5,97,3
+actions-cache,Cache,actions/cache,action,continuous-integration,GitHub,YES,4900,4.9,40000000,v4,98,3
+actions-upload-artifact,Upload a Build Artifact,actions/upload-artifact,action,utilities,GitHub,YES,3400,4.8,35000000,v4,96,3
+actions-download-artifact,Download a Build Artifact,actions/download-artifact,action,utilities,GitHub,YES,1600,4.7,22000000,v4,96,3
+actions-github-script,GitHub Script,actions/github-script,action,utilities,GitHub,YES,4200,4.9,25000000,v7,91,3
+docker-build-push-action,Build and push Docker images,docker/build-push-action,action,deployment,Docker,YES,6100,4.9,29000000,v5,97,3
+docker-login-action,Docker Login,docker/login-action,action,deployment,Docker,YES,1800,4.8,24000000,v3,97,3
+docker-setup-buildx-action,Docker Setup Buildx,docker/setup-buildx-action,action,deployment,Docker,YES,2400,4.8,22000000,v3,96,3
+aws-actions-configure-credentials,Configure AWS Credentials,aws-actions/configure-aws-credentials,action,deployment,AWS,YES,4100,4.8,26000000,v4,96,3
+google-github-actions-auth,Google Auth,google-github-actions/auth,action,deployment,Google Cloud,YES,2300,4.8,15000000,v2,97,3
+azure-login,Azure Login,azure/login,action,deployment,Microsoft Azure,YES,1600,4.7,14000000,v2,95,3
+cloudflare-wrangler-action,Deploy to Cloudflare Workers with Wrangler,cloudflare/wrangler-action,action,deployment,Cloudflare,YES,1200,4.7,8500000,v3,94,2
+vercel-action,Vercel Action,amondnet/vercel-action,action,deployment,Amond,NO,2100,4.7,9500000,v25,90,1
+github-codeql-action,CodeQL Analysis,github/codeql-action,action,security,GitHub,YES,5400,4.9,38000000,v3,99,3
+aquasecurity-trivy-action,Trivy Vulnerability Scanner,aquasecurity/trivy-action,action,security,Aqua Security,YES,3100,4.8,19000000,0.28.0,96,3
+step-security-harden-runner,Harden-Runner: GitHub Actions Security,step-security/harden-runner,action,security,StepSecurity,YES,1500,4.9,12000000,v2,98,3
+ossf-scorecard-action,OpenSSF Scorecard Monitor,ossf/scorecard-action,action,security,OpenSSF,YES,2400,4.9,14000000,v2.4.0,98,3
+gitleaks-action,Gitleaks Secret Scanner,gitleaks/gitleaks-action,action,security,Gitleaks,YES,3600,4.8,16000000,v2,97,2
+codecov-action,Codecov,codecov/codecov-action,action,testing,Codecov,YES,4100,4.8,27000000,v4,95,3
+playwright-action,Run Playwright Tests,microsoft/playwright-github-action,action,testing,Microsoft,YES,1800,4.8,11000000,v1,95,2
+cypress-action,Cypress GitHub Action,cypress-io/github-action,action,testing,Cypress.io,YES,2900,4.7,15000000,v6,93,2
+sonarcloud-action,SonarCloud Scan,sonarsource/sonarcloud-github-action,action,code-quality,SonarSource,YES,1700,4.7,18000000,v2.2.0,96,2
+golangci-lint-action,golangci-lint,golangci/golangci-lint-action,action,code-quality,golangci,YES,2900,4.8,14000000,v6,96,2
+softprops-action-gh-release,GitHub Release Action,softprops/action-gh-release,action,publishing,softprops,NO,4900,4.9,26000000,v2,92,2
+goreleaser-action,GoReleaser Action,goreleaser/goreleaser-action,action,publishing,GoReleaser,YES,2400,4.9,11000000,v5,97,3
+pypa-gh-action-pypi-publish,pypi-publish,pypa/gh-action-pypi-publish,action,publishing,PyPA,YES,2200,4.9,16000000,release/v1,98,3
+app-dependabot,Dependabot,dependabot,app,dependency-management,GitHub,YES,12000,4.9,65000000,native,99,3
+app-renovate,Mend Renovate,renovatebot/renovate,app,dependency-management,Mend.io,YES,18000,4.9,35000000,v37,98,3
+app-snyk,Snyk Security,snyk,app,security,Snyk,YES,8200,4.8,22000000,v1,97,3
+app-slack,Slack + GitHub,integrations/slack,app,chat,GitHub,YES,4900,4.8,30000000,v2,98,3
+app-jira-software,Jira Software + GitHub,atlassian,app,project-management,Atlassian,YES,3500,4.7,25000000,v2,96,3
+app-coderabbit,CodeRabbit AI Code Reviewer,coderabbitai,app,code-review,CodeRabbit,YES,5800,4.9,9800000,v1,94,2
+app-linear,Linear GitHub Sync,linear,app,project-management,Linear,YES,4200,4.9,12000000,v1,97,3
+app-gitguardian,GitGuardian Security,gitguardian,app,security,GitGuardian,YES,3100,4.8,15000000,v1,96,3
+app-datadog,Datadog CI Visibility,datadog,app,monitoring,Datadog,YES,2800,4.8,8500000,v1,96,3
+app-stale,Stale Issue & PR Closer,probot/stale,app,utilities,Probot,YES,4500,4.8,22000000,v9,95,2
+api-management-paw-action,Paw API Tooling,api-management/paw-action,action,api-management,Paw,NO,3025,4.5,3025000,v3,97,2
+api-management-graphql-inspector-action,GraphQL Inspector,api-management/graphql-inspector-action,action,api-management,GraphQL,NO,4047,4.9,4635000,v3,93,2
+api-management-stoplight-prism,Stoplight Prism Mock Server,api-management/stoplight-prism,action,api-management,Stoplight,NO,3390,4.5,3600000,v3,93,2
+api-management-apollo-schema-check,Apollo Studio Schema Check,api-management/apollo-schema-check,action,api-management,Apollo,NO,3682,4.9,4060000,v3,97,2
+api-management-fern-api-generate,Fern SDK Generator,api-management/fern-api-generate,action,api-management,Fern,NO,3536,4.7,3830000,v3,95,2
+api-management-speakeasy-sdk-generation,Speakeasy SDK Platform,api-management/speakeasy-sdk-generation,action,api-management,Speakeasy,NO,4047,4.9,4635000,v3,93,2
+api-management-buf-setup-action,Buf Protocol Buffers CLI,api-management/buf-setup-action,action,api-management,Buf,NO,3463,4.6,3715000,v3,94,2
+api-management-openapi-diff-action,OpenAPI Diff Inspector,api-management/openapi-diff-action,action,api-management,OpenAPI,NO,3682,4.9,4060000,v3,97,2
+api-management-app-apimatic,APIMatic Developer Experience,api-management/app-apimatic,app,api-management,APIMatic,NO,3171,4.7,3255000,v1,90,1
+api-management-app-readmesdk,ReadMe Living Documentation,api-management/app-readmesdk,app,api-management,ReadMe,NO,3244,4.8,3370000,v1,91,1
+api-management-tyk-api-gateway,Tyk API Gateway Deploy,api-management/tyk-api-gateway,action,api-management,Tyk,NO,3390,4.5,3600000,v3,93,2
+api-management-kong-deck-sync,Kong decK Declarative Config,api-management/kong-deck-sync,action,api-management,Kong,NO,3317,4.9,3485000,v3,92,2
+api-management-microcks-test-action,Microcks API Mocking & Testing,api-management/microcks-test-action,action,api-management,Microcks,NO,3755,4.5,4175000,v3,98,2
+api-management-spectral-owasp-ruleset,OWASP API Security Ruleset,api-management/spectral-owasp-ruleset,action,api-management,OWASP,NO,3901,4.7,4405000,v3,91,2
+api-management-app-gravitee,Gravitee.io API Management,api-management/app-gravitee,app,api-management,Gravitee.io,NO,3171,4.7,3255000,v1,90,1
+api-management-app-apigee,Google Apigee Proxy Deployer,api-management/app-apigee,app,api-management,Google,YES,3025,4.5,3025000,v1,97,1
+api-management-soapui-test-runner,SoapUI Functional Test Runner,api-management/soapui-test-runner,action,api-management,SoapUI,NO,3609,4.8,3945000,v3,96,2
+api-management-rest-assured-runner,REST-assured Test Suite,api-management/rest-assured-runner,action,api-management,REST-assured,NO,3682,4.9,4060000,v3,97,2
+chat-slack-send-action,Slack Send Message Action,chat/slack-send-action,action,chat,Slack,NO,2806,4.7,2680000,v3,94,2
+chat-notify-slack-action,Notify Slack Multi-Channel,chat/notify-slack-action,action,chat,Notify,NO,2952,4.9,2910000,v3,96,2
+chat-discord-actions,Discord Rich Webhook Notifier,chat/discord-actions,action,chat,Discord,NO,2660,4.5,2450000,v3,92,2
+chat-telegram-action,Telegram Bot Dispatcher,chat/telegram-action,action,chat,Telegram,NO,2660,4.5,2450000,v3,92,2
+chat-mattermost-notify,Mattermost Secure Gateway,chat/mattermost-notify,action,chat,Mattermost,NO,2806,4.7,2680000,v3,94,2
+chat-app-slack-github,Slack Enterprise Connector,chat/app-slack-github,app,chat,Slack,NO,2733,4.6,2565000,v1,93,1
+chat-app-discord-bot,Discord Developer Bot,chat/app-discord-bot,app,chat,Discord,NO,2660,4.5,2450000,v1,92,1
+chat-app-teams-bot,Microsoft Teams DevOps Connector,chat/app-teams-bot,app,chat,Microsoft,YES,2514,4.8,2220000,v1,90,1
+chat-app-matrix-org,Matrix Synapse Webhook Gateway,chat/app-matrix-org,app,chat,Matrix,NO,2587,4.9,2335000,v1,91,1
+chat-chime-notify-action,Amazon Chime Webhook Alerts,chat/chime-notify-action,action,chat,Amazon,NO,2952,4.9,2910000,v3,96,2
+chat-zulip-send-notification,Zulip Stream Message Action,chat/zulip-send-notification,action,chat,Zulip,NO,3244,4.8,3370000,v3,91,2
+chat-webex-teams-action,Cisco Webex Adaptive Card,chat/webex-teams-action,action,chat,Cisco,NO,2879,4.8,2795000,v3,95,2
+chat-rocketchat-action,Rocket.Chat Message Notifier,chat/rocketchat-action,action,chat,Rocket.Chat,NO,2806,4.7,2680000,v3,94,2
+chat-line-notify-action,LINE Notify Messaging Action,chat/line-notify-action,action,chat,LINE,NO,2879,4.8,2795000,v3,95,2
+chat-app-flock,Flock Team Messenger,chat/app-flock,app,chat,Flock,NO,2222,4.9,1760000,v1,95,1
+chat-app-twist,Twist Async Team Chat,chat/app-twist,app,chat,Twist,NO,2222,4.9,1760000,v1,95,1
+chat-wechat-work-webhook,WeCom / WeChat Work Notifier,chat/wechat-work-webhook,action,chat,WeCom,NO,2952,4.9,2910000,v3,96,2
+chat-matrix-alertmanager,Matrix Alertmanager Bridge,chat/matrix-alertmanager,action,chat,Matrix,NO,2952,4.9,2910000,v3,96,2
+code-quality-flake8-action,Flake8 Python Style Checker,code-quality/flake8-action,action,code-quality,Flake8,NO,3098,4.6,3140000,v3,98,2
+code-quality-black-action,Black Code Formatter,code-quality/black-action,action,code-quality,Black,NO,3025,4.5,3025000,v3,97,2
+code-quality-isort-action,isort Import Sorter,code-quality/isort-action,action,code-quality,isort,NO,3025,4.5,3025000,v3,97,2
+code-quality-eslint-action,ESLint JavaScript Linter,code-quality/eslint-action,action,code-quality,ESLint,NO,3098,4.6,3140000,v3,98,2
+code-quality-stylelint-action,Stylelint CSS Linter,code-quality/stylelint-action,action,code-quality,Stylelint,NO,3317,4.9,3485000,v3,92,2
+code-quality-editorconfig-checker,EditorConfig Validator,code-quality/editorconfig-checker,action,code-quality,EditorConfig,NO,3609,4.8,3945000,v3,96,2
+code-quality-action-yamllint,yamllint YAML Validator,code-quality/action-yamllint,action,code-quality,yamllint,NO,3244,4.8,3370000,v3,91,2
+code-quality-action-terraform-fmt,Terraform Format Checker,code-quality/action-terraform-fmt,action,code-quality,Terraform,NO,3609,4.8,3945000,v3,96,2
+code-quality-detekt-action,detekt Kotlin Static Analyzer,code-quality/detekt-action,action,code-quality,detekt,NO,3098,4.6,3140000,v3,98,2
+code-quality-rubocop-action-fast,RuboCop Linter Action,code-quality/rubocop-action-fast,action,code-quality,RuboCop,NO,3536,4.7,3830000,v3,95,2
+code-quality-checkstyle-action,Checkstyle Java Code Analyzer,code-quality/checkstyle-action,action,code-quality,Checkstyle,NO,3390,4.5,3600000,v3,93,2
+code-quality-pmd-action,PMD Source Code Analyzer,code-quality/pmd-action,action,code-quality,PMD,NO,2879,4.8,2795000,v3,95,2
+code-quality-spotbugs-action,SpotBugs Static Analysis,code-quality/spotbugs-action,action,code-quality,SpotBugs,NO,3244,4.8,3370000,v3,91,2
+code-quality-mypy-action,Mypy Static Type Checker,code-quality/mypy-action,action,code-quality,Mypy,NO,2952,4.9,2910000,v3,96,2
+code-quality-pyright-action,Pyright Fast Type Checker,code-quality/pyright-action,action,code-quality,Pyright,NO,3171,4.7,3255000,v3,90,2
+code-quality-scalafmt-action,Scalafmt Code Formatter,code-quality/scalafmt-action,action,code-quality,Scalafmt,NO,3244,4.8,3370000,v3,91,2
+code-quality-ktlint-action,ktlint Kotlin Linter,code-quality/ktlint-action,action,code-quality,ktlint,NO,3098,4.6,3140000,v3,98,2
+code-quality-gofmt-action,gofmt Official Go Formatter,code-quality/gofmt-action,action,code-quality,gofmt,NO,3025,4.5,3025000,v3,97,2
+code-review-git-auto-commit-action,Git Auto Commit Action,code-review/git-auto-commit-action,action,code-review,Git,NO,3682,4.9,4060000,v3,97,2
+code-review-pr-lint-action,Semantic PR Title Linter,code-review/pr-lint-action,action,code-review,Semantic,NO,3098,4.6,3140000,v3,98,2
+code-review-label-actions,Automated Label Management,code-review/label-actions,action,code-review,Automated,NO,3025,4.5,3025000,v3,97,2
+code-review-octodns-sync,OctoDNS Configuration Sync,code-review/octodns-sync,action,code-review,OctoDNS,NO,2952,4.9,2910000,v3,96,2
+code-review-git-cliff-action,git-cliff Changelog Generator,code-review/git-cliff-action,action,code-review,git-cliff,NO,3244,4.8,3370000,v3,91,2
+code-review-app-ellipsis-ai,Ellipsis AI Developer Reviewer,code-review/app-ellipsis-ai,app,code-review,Ellipsis,NO,3171,4.7,3255000,v1,90,1
+code-review-app-sweep-ai,Sweep AI Junior Developer,code-review/app-sweep-ai,app,code-review,Sweep,NO,2952,4.9,2910000,v1,96,1
+code-review-app-sourcery,Sourcery Python AI Assistant,code-review/app-sourcery,app,code-review,Sourcery,NO,2952,4.9,2910000,v1,96,1
+code-review-app-codeclimate,Code Climate Quality Platform,code-review/app-codeclimate,app,code-review,Code,NO,3171,4.7,3255000,v1,90,1
+code-review-app-sonarcloud-ent,SonarCloud Enterprise Quality,code-review/app-sonarcloud-ent,app,code-review,SonarCloud,NO,3390,4.5,3600000,v1,93,1
+code-review-co-author-action,Co-Authors Commit Notifier,code-review/co-author-action,action,code-review,Co-Authors,NO,3244,4.8,3370000,v3,91,2
+code-review-pr-size-labeler,Pull Request Size Labeler,code-review/pr-size-labeler,action,code-review,Pull,NO,3171,4.7,3255000,v3,90,2
+code-review-auto-request-review,Auto Request PR Reviewers,code-review/auto-request-review,action,code-review,Auto,NO,3463,4.6,3715000,v3,94,2
+code-review-wip-limit-enforcer,Work-In-Progress Limit Enforcer,code-review/wip-limit-enforcer,action,code-review,Work-In-Progress,NO,3390,4.5,3600000,v3,93,2
+code-review-app-codacy,Codacy Automated Code Review,code-review/app-codacy,app,code-review,Codacy,NO,2806,4.7,2680000,v1,94,1
+code-review-app-deepscan,DeepScan JavaScript Analyzer,code-review/app-deepscan,app,code-review,DeepScan,NO,2952,4.9,2910000,v1,96,1
+code-review-app-bito-ai,Bito AI PR Code Reviewer,code-review/app-bito-ai,app,code-review,Bito,NO,2879,4.8,2795000,v1,95,1
+code-review-app-cursor-rules,Cursor Rules Continuous Sync,code-review/app-cursor-rules,app,code-review,Cursor,NO,3244,4.8,3370000,v1,91,1
+continuous-integration-setup-elixir,Setup Elixir & Erlang OTP,continuous-integration/setup-elixir,action,continuous-integration,Setup,NO,3755,4.5,4175000,v3,98,2
+continuous-integration-setup-haskell,Setup Haskell GHC & Cabal,continuous-integration/setup-haskell,action,continuous-integration,Setup,NO,3828,4.6,4290000,v3,90,2
+continuous-integration-setup-ocaml,Setup OCaml & opam,continuous-integration/setup-ocaml,action,continuous-integration,Setup,NO,3682,4.9,4060000,v3,97,2
+continuous-integration-setup-php,Setup PHP Environment,continuous-integration/setup-php,action,continuous-integration,Setup,NO,3536,4.7,3830000,v3,95,2
+continuous-integration-setup-ruby,Setup Ruby & Bundler,continuous-integration/setup-ruby,action,continuous-integration,Setup,NO,3609,4.8,3945000,v3,96,2
+continuous-integration-setup-rust-toolchain,Setup Rust Toolchain (dtolnay),continuous-integration/setup-rust-toolchain,action,continuous-integration,Setup,NO,4339,4.8,5095000,v3,97,2
+continuous-integration-setup-zig,Setup Zig Compiler,continuous-integration/setup-zig,action,continuous-integration,Setup,NO,3536,4.7,3830000,v3,95,2
+continuous-integration-setup-clojure,Setup Clojure CLI & Leiningen,continuous-integration/setup-clojure,action,continuous-integration,Setup,NO,3828,4.6,4290000,v3,90,2
+continuous-integration-setup-scala,Setup Scala & sbt,continuous-integration/setup-scala,action,continuous-integration,Setup,NO,3682,4.9,4060000,v3,97,2
+continuous-integration-setup-dotnet-core,Setup .NET Core SDK (Microsoft),continuous-integration/setup-dotnet-core,action,continuous-integration,Setup,YES,4120,4.5,4750000,v3,94,2
+continuous-integration-setup-gradle,Setup Gradle Build Environment,continuous-integration/setup-gradle,action,continuous-integration,Setup,NO,3755,4.5,4175000,v3,98,2
+continuous-integration-setup-maven,Setup Apache Maven Environment,continuous-integration/setup-maven,action,continuous-integration,Setup,NO,3682,4.9,4060000,v3,97,2
+continuous-integration-setup-sbt,Setup sbt Scala Toolchain,continuous-integration/setup-sbt,action,continuous-integration,Setup,NO,3536,4.7,3830000,v3,95,2
+continuous-integration-setup-perl,Setup Perl Language Runtime,continuous-integration/setup-perl,action,continuous-integration,Setup,NO,3609,4.8,3945000,v3,96,2
+continuous-integration-setup-r,Setup R Environment for Bio/Stats,continuous-integration/setup-r,action,continuous-integration,Setup,NO,3390,4.5,3600000,v3,93,2
+continuous-integration-setup-julia,Setup Julia Programming Language,continuous-integration/setup-julia,action,continuous-integration,Setup,NO,3682,4.9,4060000,v3,97,2
+continuous-integration-setup-dart,Setup Dart SDK Runtime,continuous-integration/setup-dart,action,continuous-integration,Setup,NO,3609,4.8,3945000,v3,96,2
+continuous-integration-setup-powershell,Setup PowerShell Core Environment,continuous-integration/setup-powershell,action,continuous-integration,Setup,NO,4047,4.9,4635000,v3,93,2
+dependency-management-dependabot-merge-action,Dependabot Auto-Merge,dependency-management/dependabot-merge-action,action,dependency-management,Dependabot,NO,4485,4.5,5325000,v3,90,2
+dependency-management-bundler-audit-action,bundler-audit Gem Scanner,dependency-management/bundler-audit-action,action,dependency-management,bundler-audit,NO,4266,4.7,4980000,v3,96,2
+dependency-management-nvd-cve-checker,NVD NIST CVE Checker,dependency-management/nvd-cve-checker,action,dependency-management,NVD,NO,3901,4.7,4405000,v3,91,2
+dependency-management-pipenv-verify-action,Pipenv Lockfile Verifier,dependency-management/pipenv-verify-action,action,dependency-management,Pipenv,NO,4266,4.7,4980000,v3,96,2
+dependency-management-poetry-check-action,Poetry Dependency Auditor,dependency-management/poetry-check-action,action,dependency-management,Poetry,NO,4193,4.6,4865000,v3,95,2
+dependency-management-app-fossa,FOSSA License & Security,dependency-management/app-fossa,app,dependency-management,FOSSA,NO,3463,4.6,3715000,v1,94,1
+dependency-management-app-whitesource,Mend Unified Security Agent,dependency-management/app-whitesource,app,dependency-management,Mend,NO,3901,4.7,4405000,v1,91,1
+dependency-management-app-blackduck,Synopsys Black Duck,dependency-management/app-blackduck,app,dependency-management,Synopsys,NO,3755,4.5,4175000,v1,98,1
+dependency-management-app-synopsys,Synopsys Polaris Platform,dependency-management/app-synopsys,app,dependency-management,Synopsys,NO,3682,4.9,4060000,v1,97,1
+dependency-management-app-debricked,Debricked Open Source Security,dependency-management/app-debricked,app,dependency-management,Debricked,NO,3755,4.5,4175000,v1,98,1
+dependency-management-npm-outdated-check,npm Outdated Version Check,dependency-management/npm-outdated-check,action,dependency-management,npm,NO,4120,4.5,4750000,v3,94,2
+dependency-management-pip-compile-action,pip-tools Compile Action,dependency-management/pip-compile-action,action,dependency-management,pip-tools,NO,4120,4.5,4750000,v3,94,2
+dependency-management-cargo-outdated-action,Cargo Outdated Crate Monitor,dependency-management/cargo-outdated-action,action,dependency-management,Cargo,NO,4339,4.8,5095000,v3,97,2
+dependency-management-go-mod-tidy-action,Go Mod Tidy Verification,dependency-management/go-mod-tidy-action,action,dependency-management,Go,NO,4120,4.5,4750000,v3,94,2
+dependency-management-app-dependabot-alerts,Dependabot Security Alerts,dependency-management/app-dependabot-alerts,app,dependency-management,Dependabot,NO,4339,4.8,5095000,v1,97,1
+dependency-management-app-anchore-engine,Anchore Enterprise Vulnerability,dependency-management/app-anchore-engine,app,dependency-management,Anchore,NO,4120,4.5,4750000,v1,94,1
+dependency-management-app-nexus-iq,Sonatype Nexus IQ Server,dependency-management/app-nexus-iq,app,dependency-management,Sonatype,NO,3682,4.9,4060000,v1,97,1
+dependency-management-app-revenera,Revenera Software Composition,dependency-management/app-revenera,app,dependency-management,Revenera,NO,3682,4.9,4060000,v1,97,1
+deployment-kubernetes-action,kubectl CLI Action,deployment/kubernetes-action,action,deployment,kubectl,NO,3244,4.8,3370000,v3,91,2
+deployment-helm-action,Helm CLI Deployment Action,deployment/helm-action,action,deployment,Helm,NO,2806,4.7,2680000,v3,94,2
+deployment-argocd-sync-action,ArgoCD Application Sync,deployment/argocd-sync-action,action,deployment,ArgoCD,NO,3317,4.9,3485000,v3,92,2
+deployment-aws-s3-sync,AWS S3 Bucket Synchronization,deployment/aws-s3-sync,action,deployment,AWS,YES,2806,4.7,2680000,v3,94,2
+deployment-google-cloud-run-deploy,Deploy to Cloud Run,deployment/google-cloud-run-deploy,action,deployment,Deploy,NO,3682,4.9,4060000,v3,97,2
+deployment-azure-aks-deploy,Azure Kubernetes Service Deploy,deployment/azure-aks-deploy,action,deployment,Azure,NO,3171,4.7,3255000,v3,90,2
+deployment-heroku-deploy,Deploy to Heroku Platform,deployment/heroku-deploy,action,deployment,Deploy,NO,2952,4.9,2910000,v3,96,2
+deployment-serverless-action,Serverless Framework Deploy,deployment/serverless-action,action,deployment,Serverless,NO,3244,4.8,3370000,v3,91,2
+deployment-terraform-action,HashiCorp Terraform Setup,deployment/terraform-action,action,deployment,HashiCorp,NO,3171,4.7,3255000,v3,90,2
+deployment-ansible-playbook-action,Ansible Playbook Runner,deployment/ansible-playbook-action,action,deployment,Ansible,NO,3682,4.9,4060000,v3,97,2
+deployment-setup-terraform,Setup HashiCorp Terraform,deployment/setup-terraform,action,deployment,Setup,NO,3098,4.6,3140000,v3,98,2
+deployment-setup-tofu,Setup OpenTofu CLI,deployment/setup-tofu,action,deployment,Setup,NO,2733,4.6,2565000,v3,93,2
+deployment-setup-packer,Setup HashiCorp Packer,deployment/setup-packer,action,deployment,Setup,NO,2879,4.8,2795000,v3,95,2
+deployment-aws-ecs-deploy-action,Amazon ECS Task Definition Deploy,deployment/aws-ecs-deploy-action,action,deployment,Amazon,NO,3536,4.7,3830000,v3,95,2
+deployment-google-gke-credentials,Get GKE Cluster Credentials,deployment/google-gke-credentials,action,deployment,Get,NO,3609,4.8,3945000,v3,96,2
+deployment-azure-appservice-deploy,Azure App Service Deployment,deployment/azure-appservice-deploy,action,deployment,Azure,NO,3682,4.9,4060000,v3,97,2
+deployment-deploy-pages-action,Deploy GitHub Pages Artifact,deployment/deploy-pages-action,action,deployment,Deploy,YES,3390,4.5,3600000,v3,93,2
+deployment-upload-pages-artifact,Upload GitHub Pages Artifact,deployment/upload-pages-artifact,action,deployment,Upload,YES,3536,4.7,3830000,v3,95,2
+ides-gitpod-prebuilds,Gitpod Workspace Prebuilds,ides/gitpod-prebuilds,action,ides,Gitpod,NO,2733,4.6,2565000,v3,93,2
+ides-sublime-text-linter,Sublime Text Package Verifier,ides/sublime-text-linter,action,ides,Sublime,NO,2952,4.9,2910000,v3,96,2
+ides-vim-plugin-test,Vim / Neovim Plugin Test Runner,ides/vim-plugin-test,action,ides,Vim,NO,2660,4.5,2450000,v3,92,2
+ides-eclipse-theia-build,Eclipse Theia Blueprint Build,ides/eclipse-theia-build,action,ides,Eclipse,NO,2952,4.9,2910000,v3,96,2
+ides-emacs-package-test,Emacs Lisp Package Verifier,ides/emacs-package-test,action,ides,Emacs,NO,2879,4.8,2795000,v3,95,2
+ides-app-gitpod,Gitpod Automated Workspaces,ides/app-gitpod,app,ides,Gitpod,NO,2295,4.5,1875000,v1,96,1
+ides-app-codespaces-audit,Codespaces Policy Auditor,ides/app-codespaces-audit,app,ides,Codespaces,NO,3025,4.5,3025000,v1,97,1
+ides-app-coder,Coder Enterprise Workspaces,ides/app-coder,app,ides,Coder,NO,2222,4.9,1760000,v1,95,1
+ides-app-replit,Replit Agent Sync,ides/app-replit,app,ides,Replit,NO,2295,4.5,1875000,v1,96,1
+ides-app-gitpod-enterprise,Gitpod Enterprise Private Cloud,ides/app-gitpod-enterprise,app,ides,Gitpod,NO,3098,4.6,3140000,v1,98,1
+ides-devpod-setup-action,DevPod Scratch Workspaces,ides/devpod-setup-action,action,ides,DevPod,NO,2952,4.9,2910000,v3,96,2
+ides-coder-templates-verify,Coder Infrastructure Template Lint,ides/coder-templates-verify,action,ides,Coder,NO,3171,4.7,3255000,v3,90,2
+ides-codespaces-secrets-sync,Codespaces Secret Synchronizer,ides/codespaces-secrets-sync,action,ides,Codespaces,NO,3244,4.8,3370000,v3,91,2
+ides-remote-ssh-runner,Remote SSH Development Tunnel,ides/remote-ssh-runner,action,ides,Remote,NO,2806,4.7,2680000,v3,94,2
+ides-app-codespaces-audit-pro,Codespaces Compliance Engine,ides/app-codespaces-audit-pro,app,ides,Codespaces,NO,3317,4.9,3485000,v1,92,1
+ides-app-gitpod-cloud,Gitpod SaaS Cloud Sync,ides/app-gitpod-cloud,app,ides,Gitpod,NO,2733,4.6,2565000,v1,93,1
+ides-app-idx,Project IDX by Google Workspace,ides/app-idx,app,ides,Project,YES,2076,4.7,1530000,v1,93,1
+ides-app-warp-terminal,Warp Terminal Team Workflows,ides/app-warp-terminal,app,ides,Warp,NO,2806,4.7,2680000,v1,94,1
+learning-classroom-eval-action,Classroom Assignment Verifier,learning/classroom-eval-action,action,learning,Classroom,NO,3390,4.5,3600000,v3,93,2
+learning-autograding-io-action,Autograding I/O Assertion Action,learning/autograding-io-action,action,learning,Autograding,NO,3390,4.5,3600000,v3,93,2
+learning-github-reading-list,GitHub Reading List Generator,learning/github-reading-list,action,learning,GitHub,YES,3244,4.8,3370000,v3,91,2
+learning-exercism-cli-action,Exercism Submission Verifier,learning/exercism-cli-action,action,learning,Exercism,NO,3244,4.8,3370000,v3,91,2
+learning-leetcode-sync-action,LeetCode Submission Sync,learning/leetcode-sync-action,action,learning,LeetCode,NO,3317,4.9,3485000,v3,92,2
+learning-app-classroom,GitHub Classroom Platform,learning/app-classroom,app,learning,GitHub,YES,2806,4.7,2680000,v1,94,1
+learning-app-exercism,Exercism Mentor Feedback,learning/app-exercism,app,learning,Exercism,NO,2733,4.6,2565000,v1,93,1
+learning-app-datacamp,DataCamp Engineering Sync,learning/app-datacamp,app,learning,DataCamp,NO,2733,4.6,2565000,v1,93,1
+learning-app-codewars,Codewars Kata Verification,learning/app-codewars,app,learning,Codewars,NO,2733,4.6,2565000,v1,93,1
+learning-app-edx,edX Computer Science Bridge,learning/app-edx,app,learning,edX,NO,2368,4.6,1990000,v1,97,1
+learning-github-stats-readme,GitHub Stats Readme Generator,learning/github-stats-readme,action,learning,GitHub,YES,3244,4.8,3370000,v3,91,2
+learning-readme-typing-svg,Readme Typing SVG Animator,learning/readme-typing-svg,action,learning,Readme,NO,3098,4.6,3140000,v3,98,2
+learning-wakatime-stats-action,WakaTime Developer Metrics,learning/wakatime-stats-action,action,learning,WakaTime,NO,3390,4.5,3600000,v3,93,2
+learning-markdown-link-check,Markdown Link Check Action,learning/markdown-link-check,action,learning,Markdown,NO,3244,4.8,3370000,v3,91,2
+learning-app-codier,Codier Coding Challenges,learning/app-codier,app,learning,Codier,NO,2587,4.9,2335000,v1,91,1
+learning-app-freecodecamp-sync,freeCodeCamp Certification Sync,learning/app-freecodecamp-sync,app,learning,freeCodeCamp,NO,3390,4.5,3600000,v1,93,1
+learning-app-kaggle-sync,Kaggle Kernel Synchronizer,learning/app-kaggle-sync,app,learning,Kaggle,NO,2952,4.9,2910000,v1,96,1
+learning-app-hackerrank-sync,HackerRank Problem Sync,learning/app-hackerrank-sync,app,learning,HackerRank,NO,3244,4.8,3370000,v1,91,1
+localization-poeditor-action,POEditor Translation Sync,localization/poeditor-action,action,localization,POEditor,NO,3244,4.8,3370000,v3,91,2
+localization-weblate-action,Weblate Continuous Localization,localization/weblate-action,action,localization,Weblate,NO,3171,4.7,3255000,v3,90,2
+localization-phrase-app-action,Phrase Localization CLI,localization/phrase-app-action,action,localization,Phrase,NO,3390,4.5,3600000,v3,93,2
+localization-transifex-client,Transifex TX Client Action,localization/transifex-client,action,localization,Transifex,NO,3317,4.9,3485000,v3,92,2
+localization-onesky-action,OneSky Localization Gateway,localization/onesky-action,action,localization,OneSky,NO,3098,4.6,3140000,v3,98,2
+localization-app-weblate,Weblate Translation Bot,localization/app-weblate,app,localization,Weblate,NO,2952,4.9,2910000,v1,96,1
+localization-app-poeditor,POEditor GitHub App,localization/app-poeditor,app,localization,POEditor,YES,3025,4.5,3025000,v1,97,1
+localization-app-phrase,Phrase Localization Suite,localization/app-phrase,app,localization,Phrase,NO,2879,4.8,2795000,v1,95,1
+localization-app-localazy,Localazy Automated Localization,localization/app-localazy,app,localization,Localazy,NO,3025,4.5,3025000,v1,97,1
+localization-app-smartling,Smartling Translation Cloud,localization/app-smartling,app,localization,Smartling,NO,3098,4.6,3140000,v1,98,1
+localization-android-strings-i18n,Android Strings XML Translator,localization/android-strings-i18n,action,localization,Android,NO,3609,4.8,3945000,v3,96,2
+localization-apple-strings-i18n,Apple Strings / String Catalogs,localization/apple-strings-i18n,action,localization,Apple,NO,3463,4.6,3715000,v3,94,2
+localization-json-i18n-sort,JSON Localization Key Sorter,localization/json-i18n-sort,action,localization,JSON,NO,3171,4.7,3255000,v3,90,2
+localization-flutter-arb-translator,Flutter ARB Locale Verifier,localization/flutter-arb-translator,action,localization,Flutter,NO,3755,4.5,4175000,v3,98,2
+localization-app-onesky-app,OneSky Crowdsourced Translation,localization/app-onesky-app,app,localization,OneSky,NO,3171,4.7,3255000,v1,90,1
+localization-app-lingohub,LingoHub Translation Engine,localization/app-lingohub,app,localization,LingoHub,NO,3025,4.5,3025000,v1,97,1
+localization-app-locize,Locize Bridge for i18next,localization/app-locize,app,localization,Locize,NO,2879,4.8,2795000,v1,95,1
+localization-app-tolgee,Tolgee Open-Source Localization,localization/app-tolgee,app,localization,Tolgee,NO,2879,4.8,2795000,v1,95,1
+mobile-bundle-install-action,Ruby Bundler Fastlane Cache,mobile/bundle-install-action,action,mobile,Ruby,NO,3244,4.8,3370000,v3,91,2
+mobile-cocoapods-action,CocoaPods Dependency Cache,mobile/cocoapods-action,action,mobile,CocoaPods,NO,2879,4.8,2795000,v3,95,2
+mobile-appcenter-deploy-action,Visual Studio App Center Deploy,mobile/appcenter-deploy-action,action,mobile,Visual,NO,3390,4.5,3600000,v3,93,2
+mobile-testflight-action,Apple TestFlight Uploader,mobile/testflight-action,action,mobile,Apple,NO,2952,4.9,2910000,v3,96,2
+mobile-google-play-action,Google Play Store Publisher,mobile/google-play-action,action,mobile,Google,YES,3025,4.5,3025000,v3,97,2
+mobile-app-bitrise,Bitrise Mobile CI/CD,mobile/app-bitrise,app,mobile,Bitrise,NO,2514,4.8,2220000,v1,90,1
+mobile-app-codemagic,Codemagic CI/CD for Mobile,mobile/app-codemagic,app,mobile,Codemagic,NO,2660,4.5,2450000,v1,92,1
+mobile-app-circleci-mobile,CircleCI Mobile Build Runner,mobile/app-circleci-mobile,app,mobile,CircleCI,NO,3098,4.6,3140000,v1,98,1
+mobile-app-appcenter,Microsoft App Center Platform,mobile/app-appcenter,app,mobile,Microsoft,YES,2660,4.5,2450000,v1,92,1
+mobile-app-detox,Detox E2E Mobile Testing,mobile/app-detox,app,mobile,Detox,NO,2368,4.6,1990000,v1,97,1
+mobile-sign-android-release,Sign Android Release (AAB/APK),mobile/sign-android-release,action,mobile,Sign,NO,3171,4.7,3255000,v3,90,2
+mobile-ios-build-action,Build iOS IPA Archive,mobile/ios-build-action,action,mobile,Build,NO,2879,4.8,2795000,v3,95,2
+mobile-unity-build-action,Unity Game Engine Build Runner,mobile/unity-build-action,action,mobile,Unity,NO,3025,4.5,3025000,v3,97,2
+mobile-capacitor-build-action,Capacitor Native Build Action,mobile/capacitor-build-action,action,mobile,Capacitor,NO,3317,4.9,3485000,v3,92,2
+mobile-app-firebase-app-distribution,Firebase App Distribution,mobile/app-firebase-app-distribution,app,mobile,Firebase,NO,3828,4.6,4290000,v1,90,1
+mobile-app-testfairy,TestFairy Mobile Testing,mobile/app-testfairy,app,mobile,TestFairy,NO,2660,4.5,2450000,v1,92,1
+mobile-app-nowsecure,NowSecure Mobile App Security,mobile/app-nowsecure,app,mobile,NowSecure,NO,2660,4.5,2450000,v1,92,1
+mobile-app-datadog-mobile,Datadog Mobile Real User Monitoring,mobile/app-datadog-mobile,app,mobile,Datadog,YES,3025,4.5,3025000,v1,97,1
+monitoring-newrelic-action,New Relic Deployment Marker,monitoring/newrelic-action,action,monitoring,New,NO,3098,4.6,3140000,v3,98,2
+monitoring-dynatrace-action,Dynatrace Deployment Event,monitoring/dynatrace-action,action,monitoring,Dynatrace,NO,3171,4.7,3255000,v3,90,2
+monitoring-datadog-metric-action,Datadog Custom Metric Pusher,monitoring/datadog-metric-action,action,monitoring,Datadog,YES,3536,4.7,3830000,v3,95,2
+monitoring-signalfx-action,Splunk Observability Deploy Event,monitoring/signalfx-action,action,monitoring,Splunk,NO,3098,4.6,3140000,v3,98,2
+monitoring-splunk-action,Splunk Enterprise Event Logger,monitoring/splunk-action,action,monitoring,Splunk,NO,2952,4.9,2910000,v3,96,2
+monitoring-app-datadog-agent,Datadog Infrastructure Monitor,monitoring/app-datadog-agent,app,monitoring,Datadog,YES,3244,4.8,3370000,v1,91,1
+monitoring-app-dynatrace,Dynatrace Software Intelligence,monitoring/app-dynatrace,app,monitoring,Dynatrace,NO,2952,4.9,2910000,v1,96,1
+monitoring-app-newrelic,New Relic Full Stack Observability,monitoring/app-newrelic,app,monitoring,New,NO,2879,4.8,2795000,v1,95,1
+monitoring-app-sumologic,Sumo Logic Continuous Intelligence,monitoring/app-sumologic,app,monitoring,Sumo,NO,2952,4.9,2910000,v1,96,1
+monitoring-app-logdna,Mezmo LogDNA Log Management,monitoring/app-logdna,app,monitoring,Mezmo,NO,2733,4.6,2565000,v1,93,1
+monitoring-uptime-robot-action,UptimeRobot Status Alert,monitoring/uptime-robot-action,action,monitoring,UptimeRobot,NO,3390,4.5,3600000,v3,93,2
+monitoring-betteruptime-action,Better Uptime Incident Creator,monitoring/betteruptime-action,action,monitoring,Better,NO,3390,4.5,3600000,v3,93,2
+monitoring-honeycomb-deployment-marker,Honeycomb Deployment Marker,monitoring/honeycomb-deployment-marker,action,monitoring,Honeycomb,NO,3974,4.8,4520000,v3,92,2
+monitoring-lightstep-deploy-event,Lightstep Distributed Tracing Marker,monitoring/lightstep-deploy-event,action,monitoring,Lightstep,NO,3609,4.8,3945000,v3,96,2
+monitoring-app-cloudwatch,AWS CloudWatch Metrics Integration,monitoring/app-cloudwatch,app,monitoring,AWS,YES,3025,4.5,3025000,v1,97,1
+monitoring-app-signoz,SigNoz Open Source Observability,monitoring/app-signoz,app,monitoring,SigNoz,NO,2733,4.6,2565000,v1,93,1
+monitoring-app-logz-io,Logz.io Cloud Observability,monitoring/app-logz-io,app,monitoring,Logz.io,NO,2806,4.7,2680000,v1,94,1
+monitoring-app-coralogix,Coralogix State-of-the-Art APM,monitoring/app-coralogix,app,monitoring,Coralogix,NO,2952,4.9,2910000,v1,96,1
+performance-artillery-action,Artillery Load & Stress Testing,performance/artillery-action,action,performance,Artillery,NO,3244,4.8,3370000,v3,91,2
+performance-locust-action,Locust Python Load Tester,performance/locust-action,action,performance,Locust,NO,3025,4.5,3025000,v3,97,2
+performance-autocannon-action,Autocannon HTTP Benchmarking,performance/autocannon-action,action,performance,Autocannon,NO,3317,4.9,3485000,v3,92,2
+performance-sitespeed-io-action,sitespeed.io Web Performance,performance/sitespeed-io-action,action,performance,sitespeed.io,NO,3463,4.6,3715000,v3,94,2
+performance-pagespeed-action,Google PageSpeed Insights Audit,performance/pagespeed-action,action,performance,Google,YES,3244,4.8,3370000,v3,91,2
+performance-app-artillery,Artillery Cloud Testing Platform,performance/app-artillery,app,performance,Artillery,NO,3025,4.5,3025000,v1,97,1
+performance-app-loadmill,Loadmill API Performance Testing,performance/app-loadmill,app,performance,Loadmill,NO,2952,4.9,2910000,v1,96,1
+performance-app-blackfire,Blackfire.io Application Profiler,performance/app-blackfire,app,performance,Blackfire.io,NO,3025,4.5,3025000,v1,97,1
+performance-app-trevor,Trevor Performance Regression Radar,performance/app-trevor,app,performance,Trevor,NO,2806,4.7,2680000,v1,94,1
+performance-app-speedcurve-lux,SpeedCurve UX & Core Web Vitals,performance/app-speedcurve-lux,app,performance,SpeedCurve,NO,3390,4.5,3600000,v1,93,1
+performance-benchmark-action,Continuous Benchmarking Action,performance/benchmark-action,action,performance,Continuous,NO,3244,4.8,3370000,v3,91,2
+performance-wrk-benchmark-action,wrk Modern HTTP Benchmarking,performance/wrk-benchmark-action,action,performance,wrk,NO,3536,4.7,3830000,v3,95,2
+performance-speedometer-action,Browser Speedometer Benchmark,performance/speedometer-action,action,performance,Browser,NO,3390,4.5,3600000,v3,93,2
+performance-vegeta-load-testing,Vegeta HTTP Load Testing Action,performance/vegeta-load-testing,action,performance,Vegeta,NO,3463,4.6,3715000,v3,94,2
+performance-app-posthog-metrics,PostHog Feature Flag Analytics,performance/app-posthog-metrics,app,performance,PostHog,NO,3463,4.6,3715000,v1,94,1
+performance-app-scout-apm,Scout APM Application Performance,performance/app-scout-apm,app,performance,Scout,NO,3025,4.5,3025000,v1,97,1
+performance-app-appsignal,AppSignal Performance Monitoring,performance/app-appsignal,app,performance,AppSignal,NO,3025,4.5,3025000,v1,97,1
+performance-app-skylight,Skylight Rails Performance,performance/app-skylight,app,performance,Skylight,NO,2952,4.9,2910000,v1,96,1
+project-management-milestone-tracker-action,Milestone Due Date Tracker,project-management/milestone-tracker-action,action,project-management,Milestone,NO,4339,4.8,5095000,v3,97,2
+project-management-issue-forms-action,Issue Forms Validator & Triage,project-management/issue-forms-action,action,project-management,Issue,NO,3901,4.7,4405000,v3,91,2
+project-management-backlog-sync-action,Backlog Priority Synchronizer,project-management/backlog-sync-action,action,project-management,Backlog,NO,3974,4.8,4520000,v3,92,2
+project-management-asana-action,Asana Task Synchronization,project-management/asana-action,action,project-management,Asana,NO,3463,4.6,3715000,v3,94,2
+project-management-monday-action,Monday.com Pulse Automation,project-management/monday-action,action,project-management,Monday.com,NO,3536,4.7,3830000,v3,95,2
+project-management-app-asana,Asana for GitHub Enterprise,project-management/app-asana,app,project-management,Asana,YES,3244,4.8,3370000,v1,91,1
+project-management-app-trello-board,Trello Power-Up for GitHub,project-management/app-trello-board,app,project-management,Trello,YES,3755,4.5,4175000,v1,98,1
+project-management-app-monday,Monday.com DevOps Integration,project-management/app-monday,app,project-management,Monday.com,NO,3317,4.9,3485000,v1,92,1
+project-management-app-shortcut,Shortcut (Clubhouse) Agile Engine,project-management/app-shortcut,app,project-management,Shortcut,NO,3463,4.6,3715000,v1,94,1
+project-management-app-basecamp,Basecamp 3 GitHub Notifier,project-management/app-basecamp,app,project-management,Basecamp,YES,3463,4.6,3715000,v1,94,1
+project-management-sync-issue-labels,Sync Issue & PR Labels,project-management/sync-issue-labels,action,project-management,Sync,NO,3828,4.6,4290000,v3,90,2
+project-management-lock-threads-action,Lock Inactive Conversations,project-management/lock-threads-action,action,project-management,Lock,NO,3974,4.8,4520000,v3,92,2
+project-management-github-board-sync,GitHub Board Card Automation,project-management/github-board-sync,action,project-management,GitHub,YES,3828,4.6,4290000,v3,90,2
+project-management-create-milestone-action,Automated Milestone Provisioning,project-management/create-milestone-action,action,project-management,Automated,NO,4266,4.7,4980000,v3,96,2
+project-management-app-clubhouse,Shortcut Agile Project Hub,project-management/app-clubhouse,app,project-management,Shortcut,NO,3536,4.7,3830000,v1,95,1
+project-management-app-targetprocess,Targetprocess Enterprise Agile,project-management/app-targetprocess,app,project-management,Targetprocess,NO,3828,4.6,4290000,v1,90,1
+project-management-app-planview,Planview Enterprise Portfolio,project-management/app-planview,app,project-management,Planview,NO,3463,4.6,3715000,v1,94,1
+project-management-app-clarizen,Planview AdaptiveWork Clarizen,project-management/app-clarizen,app,project-management,Planview,NO,3463,4.6,3715000,v1,94,1
+publishing-publish-docker-ghcr,Publish Image to GHCR,publishing/publish-docker-ghcr,action,publishing,Publish,NO,3390,4.5,3600000,v3,93,2
+publishing-nexus-publish-action,Sonatype Nexus Artifact Deploy,publishing/nexus-publish-action,action,publishing,Sonatype,NO,3463,4.6,3715000,v3,94,2
+publishing-artifactory-publish,JFrog Artifactory Publisher,publishing/artifactory-publish,action,publishing,JFrog,NO,3390,4.5,3600000,v3,93,2
+publishing-pkg-release-action,Multi-Arch Tarball Release,publishing/pkg-release-action,action,publishing,Multi-Arch,NO,3317,4.9,3485000,v3,92,2
+publishing-tarball-release-action,Debian & RPM Package Builder,publishing/tarball-release-action,action,publishing,Debian,NO,3609,4.8,3945000,v3,96,2
+publishing-app-artifactory,JFrog DevOps Platform,publishing/app-artifactory,app,publishing,JFrog,NO,3098,4.6,3140000,v1,98,1
+publishing-app-bintray,Cloudsmith Universal Package Management,publishing/app-bintray,app,publishing,Cloudsmith,NO,2806,4.7,2680000,v1,94,1
+publishing-app-nexus,Sonatype Nexus Lifecycle,publishing/app-nexus,app,publishing,Sonatype,NO,2660,4.5,2450000,v1,92,1
+publishing-app-cloudsmith,Cloudsmith Cloud Native Artifacts,publishing/app-cloudsmith,app,publishing,Cloudsmith,NO,3025,4.5,3025000,v1,97,1
+publishing-app-proget,Inedo ProGet Enterprise Packages,publishing/app-proget,app,publishing,Inedo,NO,2733,4.6,2565000,v1,93,1
+publishing-gh-pages-multi-dir,GitHub Pages Multi-Directory Deploy,publishing/gh-pages-multi-dir,action,publishing,GitHub,YES,3317,4.9,3485000,v3,92,2
+publishing-upload-release-asset,Upload Release Asset (Legacy),publishing/upload-release-asset,action,publishing,Upload,NO,3463,4.6,3715000,v3,94,2
+publishing-snapcraft-publish-action,Snapcraft Linux Package Deploy,publishing/snapcraft-publish-action,action,publishing,Snapcraft,NO,3755,4.5,4175000,v3,98,2
+publishing-flatpak-builder-action,Flatpak Linux Application Builder,publishing/flatpak-builder-action,action,publishing,Flatpak,NO,3609,4.8,3945000,v3,96,2
+publishing-app-packagist,Packagist PHP Package Index,publishing/app-packagist,app,publishing,Packagist,NO,2952,4.9,2910000,v1,96,1
+publishing-app-hex-pm,Hex.pm Erlang & Elixir Package,publishing/app-hex-pm,app,publishing,Hex.pm,NO,2733,4.6,2565000,v1,93,1
+publishing-app-luarocks,LuaRocks Package Manager Sync,publishing/app-luarocks,app,publishing,LuaRocks,NO,2879,4.8,2795000,v1,95,1
+publishing-app-pub-dev,Dart pub.dev Package Publisher,publishing/app-pub-dev,app,publishing,Dart,NO,2806,4.7,2680000,v1,94,1
+security-trufflehog-action,TruffleHog Secret Detector,security/trufflehog-action,action,security,TruffleHog,NO,3098,4.6,3140000,v3,98,2
+security-brakeman-action,Brakeman Ruby SAST Scanner,security/brakeman-action,action,security,Brakeman,NO,2952,4.9,2910000,v3,96,2
+security-bandit-action,Bandit Python Security Linter,security/bandit-action,action,security,Bandit,NO,2806,4.7,2680000,v3,94,2
+security-gosec-action,gosec Go Security Checker,security/gosec-action,action,security,gosec,NO,2733,4.6,2565000,v3,93,2
+security-safety-action,Safety Python CVE Scanner,security/safety-action,action,security,Safety,NO,2806,4.7,2680000,v3,94,2
+security-app-veracode,Veracode Cloud Security Platform,security/app-veracode,app,security,Veracode,NO,2733,4.6,2565000,v1,93,1
+security-app-checkmarx,Checkmarx One DevSecOps,security/app-checkmarx,app,security,Checkmarx,NO,2806,4.7,2680000,v1,94,1
+security-app-fortify,OpenText Fortify on Demand,security/app-fortify,app,security,OpenText,NO,2660,4.5,2450000,v1,92,1
+security-app-contrast,Contrast Security Runtime Agent,security/app-contrast,app,security,Contrast,NO,2733,4.6,2565000,v1,93,1
+security-app-whitehat,WhiteHat Dynamic Application Security,security/app-whitehat,app,security,WhiteHat,NO,2733,4.6,2565000,v1,93,1
+security-openvas-scan-action,OpenVAS Vulnerability Scanner,security/openvas-scan-action,action,security,OpenVAS,NO,3244,4.8,3370000,v3,91,2
+security-owasp-zap-action,OWASP ZAP Full Scan Action,security/owasp-zap-action,action,security,OWASP,NO,3025,4.5,3025000,v3,97,2
+security-kube-hunter-action,Kube-Hunter Kubernetes Security,security/kube-hunter-action,action,security,Kube-Hunter,NO,3171,4.7,3255000,v3,90,2
+security-kube-bench-action,Kube-Bench CIS Benchmark,security/kube-bench-action,action,security,Kube-Bench,NO,3098,4.6,3140000,v3,98,2
+security-app-tenable,Tenable.io Vulnerability Cloud,security/app-tenable,app,security,Tenable.io,NO,2660,4.5,2450000,v1,92,1
+security-app-rapid7,Rapid7 InsightVM DevOps Scan,security/app-rapid7,app,security,Rapid7,NO,2587,4.9,2335000,v1,91,1
+security-app-qualys,Qualys Cloud Platform DevSecOps,security/app-qualys,app,security,Qualys,NO,2587,4.9,2335000,v1,91,1
+security-app-lacework,Lacework Cloud Security Agent,security/app-lacework,app,security,Lacework,NO,2733,4.6,2565000,v1,93,1
+support-github-discussions-action,Discussions Triage & Answering,support/github-discussions-action,action,support,Discussions,NO,3609,4.8,3945000,v3,96,2
+support-slack-support-ticket,Create Slack Incident Channel,support/slack-support-ticket,action,support,Create,NO,3244,4.8,3370000,v3,91,2
+support-kayako-action,Kayako Support Ticket Bridge,support/kayako-action,action,support,Kayako,NO,2733,4.6,2565000,v3,93,2
+support-helpscout-action,Help Scout Conversation Linker,support/helpscout-action,action,support,Help,NO,2952,4.9,2910000,v3,96,2
+support-jira-service-action,Jira Service Management Escalation,support/jira-service-action,action,support,Jira,NO,3171,4.7,3255000,v3,90,2
+support-app-helpscout,Help Scout GitHub Integration,support/app-helpscout,app,support,Help,YES,2733,4.6,2565000,v1,93,1
+support-app-crisp,Crisp Live Chat DevOps Sync,support/app-crisp,app,support,Crisp,NO,2441,4.7,2105000,v1,98,1
+support-app-tidio,Tidio Customer Service Engine,support/app-tidio,app,support,Tidio,NO,2441,4.7,2105000,v1,98,1
+support-app-groove,Groove Customer Support Platform,support/app-groove,app,support,Groove,NO,2514,4.8,2220000,v1,90,1
+support-app-intercom-support,Intercom for Engineering Support,support/app-intercom-support,app,support,Intercom,NO,3244,4.8,3370000,v1,91,1
+support-github-support-bot,Automated First-Response Support,support/github-support-bot,action,support,Automated,NO,3098,4.6,3140000,v3,98,2
+support-escalate-urgent-issue,Urgent Issue SLA Escalator,support/escalate-urgent-issue,action,support,Urgent,NO,3317,4.9,3485000,v3,92,2
+support-survey-monkey-action,Customer CSAT Survey Dispatch,support/survey-monkey-action,action,support,Customer,NO,3244,4.8,3370000,v3,91,2
+support-discourse-sync-action,Discourse Community Forum Sync,support/discourse-sync-action,action,support,Discourse,NO,3317,4.9,3485000,v3,92,2
+support-app-kayako-live,Kayako Unified Customer Service,support/app-kayako-live,app,support,Kayako,NO,2879,4.8,2795000,v1,95,1
+support-app-helpspot,HelpSpot Ticket Management,support/app-helpspot,app,support,HelpSpot,NO,2660,4.5,2450000,v1,92,1
+support-app-osticket,osTicket Open Source Support,support/app-osticket,app,support,osTicket,NO,2660,4.5,2450000,v1,92,1
+support-app-zammad,Zammad Open Source Helpdesk,support/app-zammad,app,support,Zammad,NO,2514,4.8,2220000,v1,90,1
+testing-mocha-action,Mocha JavaScript Test Runner,testing/mocha-action,action,testing,Mocha,NO,2660,4.5,2450000,v3,92,2
+testing-karma-action,Karma Browser Test Runner,testing/karma-action,action,testing,Karma,NO,2660,4.5,2450000,v3,92,2
+testing-supertest-action,SuperTest HTTP Integration Tests,testing/supertest-action,action,testing,SuperTest,NO,2952,4.9,2910000,v3,96,2
+testing-playwright-report-action,Playwright HTML Report Publisher,testing/playwright-report-action,action,testing,Playwright,NO,3536,4.7,3830000,v3,95,2
+testing-allure-report-action,Allure Test Report Generator,testing/allure-report-action,action,testing,Allure,NO,3244,4.8,3370000,v3,91,2
+testing-app-saucelabs-runner,Sauce Labs Cloud Test Grid,testing/app-saucelabs-runner,app,testing,Sauce,NO,3244,4.8,3370000,v1,91,1
+testing-app-browserstack-agent,BrowserStack Automate Enterprise,testing/app-browserstack-agent,app,testing,BrowserStack,NO,3390,4.5,3600000,v1,93,1
+testing-app-lambdatest,LambdaTest Cross Browser Testing,testing/app-lambdatest,app,testing,LambdaTest,NO,2806,4.7,2680000,v1,94,1
+testing-app-percy,Percy Visual Testing & Review,testing/app-percy,app,testing,Percy,NO,2441,4.7,2105000,v1,98,1
+testing-app-applitools,Applitools Eyes Visual AI,testing/app-applitools,app,testing,Applitools,NO,2806,4.7,2680000,v1,94,1
+testing-robot-framework-action,Robot Framework Automation,testing/robot-framework-action,action,testing,Robot,NO,3390,4.5,3600000,v3,93,2
+testing-cucumber-test-action,Cucumber BDD Test Runner,testing/cucumber-test-action,action,testing,Cucumber,NO,3244,4.8,3370000,v3,91,2
+testing-selenium-grid-action,Selenium Grid Cloud Runner,testing/selenium-grid-action,action,testing,Selenium,NO,3244,4.8,3370000,v3,91,2
+testing-postman-cli-run,Postman CLI API Assertion Suite,testing/postman-cli-run,action,testing,Postman,NO,2879,4.8,2795000,v3,95,2
+testing-app-testrail,TestRail Test Management Sync,testing/app-testrail,app,testing,TestRail,NO,2660,4.5,2450000,v1,92,1
+testing-app-zephyr,Zephyr Scale Test Management,testing/app-zephyr,app,testing,Zephyr,NO,2514,4.8,2220000,v1,90,1
+testing-app-practitest,PractiTest End-to-End QA Hub,testing/app-practitest,app,testing,PractiTest,NO,2806,4.7,2680000,v1,94,1
+testing-app-qase,Qase Modern Test Management,testing/app-qase,app,testing,Qase,NO,2368,4.6,1990000,v1,97,1
+utilities-stale-repos-action,Stale Branch Cleaner,utilities/stale-repos-action,action,utilities,Stale,NO,3244,4.8,3370000,v3,91,2
+utilities-pr-release-notes,PR Description to Release Notes,utilities/pr-release-notes,action,utilities,PR,NO,3098,4.6,3140000,v3,98,2
+utilities-github-activity-readme,GitHub Activity Readme Updater,utilities/github-activity-readme,action,utilities,GitHub,YES,3536,4.7,3830000,v3,95,2
+utilities-repo-sync-action,Repository Mirror Synchronizer,utilities/repo-sync-action,action,utilities,Repository,NO,3098,4.6,3140000,v3,98,2
+utilities-git-tag-action,SemVer Git Tag Generator,utilities/git-tag-action,action,utilities,SemVer,NO,2952,4.9,2910000,v3,96,2
+utilities-app-allcontributors,All Contributors Bot,utilities/app-allcontributors,app,utilities,All,NO,3317,4.9,3485000,v1,92,1
+utilities-app-welcome-bot,Welcome First-Time Contributors,utilities/app-welcome-bot,app,utilities,Welcome,NO,3025,4.5,3025000,v1,97,1
+utilities-app-lock-threads,Lock Inactive Conversations,utilities/app-lock-threads,app,utilities,Lock,NO,3098,4.6,3140000,v1,98,1
+utilities-app-first-pr-merge,First PR Celebration Bot,utilities/app-first-pr-merge,app,utilities,First,NO,3244,4.8,3370000,v1,91,1
+utilities-app-auto-assign,Auto Assign Teams and Reviewers,utilities/app-auto-assign,app,utilities,Auto,NO,3025,4.5,3025000,v1,97,1

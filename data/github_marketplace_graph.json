@@ -1,0 +1,2339 @@
+{
+  "nodes": [
+    {
+      "id": "actions-checkout",
+      "name": "Checkout",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "actions-setup-node",
+      "name": "Setup Node.js environment",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "actions-setup-python",
+      "name": "Setup Python environment",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "actions-setup-go",
+      "name": "Setup Go environment",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "actions-cache",
+      "name": "Cache",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "actions-upload-artifact",
+      "name": "Upload a Build Artifact",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "actions-download-artifact",
+      "name": "Download a Build Artifact",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "actions-github-script",
+      "name": "GitHub Script",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "docker-build-push-action",
+      "name": "Build and push Docker images",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "docker-login-action",
+      "name": "Docker Login",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "docker-setup-buildx-action",
+      "name": "Docker Setup Buildx",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "aws-actions-configure-credentials",
+      "name": "Configure AWS Credentials",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "google-github-actions-auth",
+      "name": "Google Auth",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "azure-login",
+      "name": "Azure Login",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "cloudflare-wrangler-action",
+      "name": "Deploy to Cloudflare Workers with Wrangler",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "vercel-action",
+      "name": "Vercel Action",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "github-codeql-action",
+      "name": "CodeQL Analysis",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "aquasecurity-trivy-action",
+      "name": "Trivy Vulnerability Scanner",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "step-security-harden-runner",
+      "name": "Harden-Runner: GitHub Actions Security",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "ossf-scorecard-action",
+      "name": "OpenSSF Scorecard Monitor",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "gitleaks-action",
+      "name": "Gitleaks Secret Scanner",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "codecov-action",
+      "name": "Codecov",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "playwright-action",
+      "name": "Run Playwright Tests",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "cypress-action",
+      "name": "Cypress GitHub Action",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "sonarcloud-action",
+      "name": "SonarCloud Scan",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "golangci-lint-action",
+      "name": "golangci-lint",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "softprops-action-gh-release",
+      "name": "GitHub Release Action",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "goreleaser-action",
+      "name": "GoReleaser Action",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "pypa-gh-action-pypi-publish",
+      "name": "pypi-publish",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "app-dependabot",
+      "name": "Dependabot",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "app-renovate",
+      "name": "Mend Renovate",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "app-snyk",
+      "name": "Snyk Security",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "app-slack",
+      "name": "Slack + GitHub",
+      "type": "app",
+      "category": "chat"
+    },
+    {
+      "id": "app-jira-software",
+      "name": "Jira Software + GitHub",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "app-coderabbit",
+      "name": "CodeRabbit AI Code Reviewer",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "app-linear",
+      "name": "Linear GitHub Sync",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "app-gitguardian",
+      "name": "GitGuardian Security",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "app-datadog",
+      "name": "Datadog CI Visibility",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "app-stale",
+      "name": "Stale Issue & PR Closer",
+      "type": "app",
+      "category": "utilities"
+    },
+    {
+      "id": "api-management-paw-action",
+      "name": "Paw API Tooling",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-graphql-inspector-action",
+      "name": "GraphQL Inspector",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-stoplight-prism",
+      "name": "Stoplight Prism Mock Server",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-apollo-schema-check",
+      "name": "Apollo Studio Schema Check",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-fern-api-generate",
+      "name": "Fern SDK Generator",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-speakeasy-sdk-generation",
+      "name": "Speakeasy SDK Platform",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-buf-setup-action",
+      "name": "Buf Protocol Buffers CLI",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-openapi-diff-action",
+      "name": "OpenAPI Diff Inspector",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-app-apimatic",
+      "name": "APIMatic Developer Experience",
+      "type": "app",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-app-readmesdk",
+      "name": "ReadMe Living Documentation",
+      "type": "app",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-tyk-api-gateway",
+      "name": "Tyk API Gateway Deploy",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-kong-deck-sync",
+      "name": "Kong decK Declarative Config",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-microcks-test-action",
+      "name": "Microcks API Mocking & Testing",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-spectral-owasp-ruleset",
+      "name": "OWASP API Security Ruleset",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-app-gravitee",
+      "name": "Gravitee.io API Management",
+      "type": "app",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-app-apigee",
+      "name": "Google Apigee Proxy Deployer",
+      "type": "app",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-soapui-test-runner",
+      "name": "SoapUI Functional Test Runner",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "api-management-rest-assured-runner",
+      "name": "REST-assured Test Suite",
+      "type": "action",
+      "category": "api-management"
+    },
+    {
+      "id": "chat-slack-send-action",
+      "name": "Slack Send Message Action",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-notify-slack-action",
+      "name": "Notify Slack Multi-Channel",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-discord-actions",
+      "name": "Discord Rich Webhook Notifier",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-telegram-action",
+      "name": "Telegram Bot Dispatcher",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-mattermost-notify",
+      "name": "Mattermost Secure Gateway",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-app-slack-github",
+      "name": "Slack Enterprise Connector",
+      "type": "app",
+      "category": "chat"
+    },
+    {
+      "id": "chat-app-discord-bot",
+      "name": "Discord Developer Bot",
+      "type": "app",
+      "category": "chat"
+    },
+    {
+      "id": "chat-app-teams-bot",
+      "name": "Microsoft Teams DevOps Connector",
+      "type": "app",
+      "category": "chat"
+    },
+    {
+      "id": "chat-app-matrix-org",
+      "name": "Matrix Synapse Webhook Gateway",
+      "type": "app",
+      "category": "chat"
+    },
+    {
+      "id": "chat-chime-notify-action",
+      "name": "Amazon Chime Webhook Alerts",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-zulip-send-notification",
+      "name": "Zulip Stream Message Action",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-webex-teams-action",
+      "name": "Cisco Webex Adaptive Card",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-rocketchat-action",
+      "name": "Rocket.Chat Message Notifier",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-line-notify-action",
+      "name": "LINE Notify Messaging Action",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-app-flock",
+      "name": "Flock Team Messenger",
+      "type": "app",
+      "category": "chat"
+    },
+    {
+      "id": "chat-app-twist",
+      "name": "Twist Async Team Chat",
+      "type": "app",
+      "category": "chat"
+    },
+    {
+      "id": "chat-wechat-work-webhook",
+      "name": "WeCom / WeChat Work Notifier",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "chat-matrix-alertmanager",
+      "name": "Matrix Alertmanager Bridge",
+      "type": "action",
+      "category": "chat"
+    },
+    {
+      "id": "code-quality-flake8-action",
+      "name": "Flake8 Python Style Checker",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-black-action",
+      "name": "Black Code Formatter",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-isort-action",
+      "name": "isort Import Sorter",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-eslint-action",
+      "name": "ESLint JavaScript Linter",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-stylelint-action",
+      "name": "Stylelint CSS Linter",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-editorconfig-checker",
+      "name": "EditorConfig Validator",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-action-yamllint",
+      "name": "yamllint YAML Validator",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-action-terraform-fmt",
+      "name": "Terraform Format Checker",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-detekt-action",
+      "name": "detekt Kotlin Static Analyzer",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-rubocop-action-fast",
+      "name": "RuboCop Linter Action",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-checkstyle-action",
+      "name": "Checkstyle Java Code Analyzer",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-pmd-action",
+      "name": "PMD Source Code Analyzer",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-spotbugs-action",
+      "name": "SpotBugs Static Analysis",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-mypy-action",
+      "name": "Mypy Static Type Checker",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-pyright-action",
+      "name": "Pyright Fast Type Checker",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-scalafmt-action",
+      "name": "Scalafmt Code Formatter",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-ktlint-action",
+      "name": "ktlint Kotlin Linter",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-quality-gofmt-action",
+      "name": "gofmt Official Go Formatter",
+      "type": "action",
+      "category": "code-quality"
+    },
+    {
+      "id": "code-review-git-auto-commit-action",
+      "name": "Git Auto Commit Action",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-pr-lint-action",
+      "name": "Semantic PR Title Linter",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-label-actions",
+      "name": "Automated Label Management",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-octodns-sync",
+      "name": "OctoDNS Configuration Sync",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-git-cliff-action",
+      "name": "git-cliff Changelog Generator",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-ellipsis-ai",
+      "name": "Ellipsis AI Developer Reviewer",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-sweep-ai",
+      "name": "Sweep AI Junior Developer",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-sourcery",
+      "name": "Sourcery Python AI Assistant",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-codeclimate",
+      "name": "Code Climate Quality Platform",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-sonarcloud-ent",
+      "name": "SonarCloud Enterprise Quality",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-co-author-action",
+      "name": "Co-Authors Commit Notifier",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-pr-size-labeler",
+      "name": "Pull Request Size Labeler",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-auto-request-review",
+      "name": "Auto Request PR Reviewers",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-wip-limit-enforcer",
+      "name": "Work-In-Progress Limit Enforcer",
+      "type": "action",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-codacy",
+      "name": "Codacy Automated Code Review",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-deepscan",
+      "name": "DeepScan JavaScript Analyzer",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-bito-ai",
+      "name": "Bito AI PR Code Reviewer",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "code-review-app-cursor-rules",
+      "name": "Cursor Rules Continuous Sync",
+      "type": "app",
+      "category": "code-review"
+    },
+    {
+      "id": "continuous-integration-setup-elixir",
+      "name": "Setup Elixir & Erlang OTP",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-haskell",
+      "name": "Setup Haskell GHC & Cabal",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-ocaml",
+      "name": "Setup OCaml & opam",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-php",
+      "name": "Setup PHP Environment",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-ruby",
+      "name": "Setup Ruby & Bundler",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-rust-toolchain",
+      "name": "Setup Rust Toolchain (dtolnay)",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-zig",
+      "name": "Setup Zig Compiler",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-clojure",
+      "name": "Setup Clojure CLI & Leiningen",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-scala",
+      "name": "Setup Scala & sbt",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-dotnet-core",
+      "name": "Setup .NET Core SDK (Microsoft)",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-gradle",
+      "name": "Setup Gradle Build Environment",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-maven",
+      "name": "Setup Apache Maven Environment",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-sbt",
+      "name": "Setup sbt Scala Toolchain",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-perl",
+      "name": "Setup Perl Language Runtime",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-r",
+      "name": "Setup R Environment for Bio/Stats",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-julia",
+      "name": "Setup Julia Programming Language",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-dart",
+      "name": "Setup Dart SDK Runtime",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "continuous-integration-setup-powershell",
+      "name": "Setup PowerShell Core Environment",
+      "type": "action",
+      "category": "continuous-integration"
+    },
+    {
+      "id": "dependency-management-dependabot-merge-action",
+      "name": "Dependabot Auto-Merge",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-bundler-audit-action",
+      "name": "bundler-audit Gem Scanner",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-nvd-cve-checker",
+      "name": "NVD NIST CVE Checker",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-pipenv-verify-action",
+      "name": "Pipenv Lockfile Verifier",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-poetry-check-action",
+      "name": "Poetry Dependency Auditor",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-fossa",
+      "name": "FOSSA License & Security",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-whitesource",
+      "name": "Mend Unified Security Agent",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-blackduck",
+      "name": "Synopsys Black Duck",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-synopsys",
+      "name": "Synopsys Polaris Platform",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-debricked",
+      "name": "Debricked Open Source Security",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-npm-outdated-check",
+      "name": "npm Outdated Version Check",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-pip-compile-action",
+      "name": "pip-tools Compile Action",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-cargo-outdated-action",
+      "name": "Cargo Outdated Crate Monitor",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-go-mod-tidy-action",
+      "name": "Go Mod Tidy Verification",
+      "type": "action",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-dependabot-alerts",
+      "name": "Dependabot Security Alerts",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-anchore-engine",
+      "name": "Anchore Enterprise Vulnerability",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-nexus-iq",
+      "name": "Sonatype Nexus IQ Server",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "dependency-management-app-revenera",
+      "name": "Revenera Software Composition",
+      "type": "app",
+      "category": "dependency-management"
+    },
+    {
+      "id": "deployment-kubernetes-action",
+      "name": "kubectl CLI Action",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-helm-action",
+      "name": "Helm CLI Deployment Action",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-argocd-sync-action",
+      "name": "ArgoCD Application Sync",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-aws-s3-sync",
+      "name": "AWS S3 Bucket Synchronization",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-google-cloud-run-deploy",
+      "name": "Deploy to Cloud Run",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-azure-aks-deploy",
+      "name": "Azure Kubernetes Service Deploy",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-heroku-deploy",
+      "name": "Deploy to Heroku Platform",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-serverless-action",
+      "name": "Serverless Framework Deploy",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-terraform-action",
+      "name": "HashiCorp Terraform Setup",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-ansible-playbook-action",
+      "name": "Ansible Playbook Runner",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-setup-terraform",
+      "name": "Setup HashiCorp Terraform",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-setup-tofu",
+      "name": "Setup OpenTofu CLI",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-setup-packer",
+      "name": "Setup HashiCorp Packer",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-aws-ecs-deploy-action",
+      "name": "Amazon ECS Task Definition Deploy",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-google-gke-credentials",
+      "name": "Get GKE Cluster Credentials",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-azure-appservice-deploy",
+      "name": "Azure App Service Deployment",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-deploy-pages-action",
+      "name": "Deploy GitHub Pages Artifact",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "deployment-upload-pages-artifact",
+      "name": "Upload GitHub Pages Artifact",
+      "type": "action",
+      "category": "deployment"
+    },
+    {
+      "id": "ides-gitpod-prebuilds",
+      "name": "Gitpod Workspace Prebuilds",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-sublime-text-linter",
+      "name": "Sublime Text Package Verifier",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-vim-plugin-test",
+      "name": "Vim / Neovim Plugin Test Runner",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-eclipse-theia-build",
+      "name": "Eclipse Theia Blueprint Build",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-emacs-package-test",
+      "name": "Emacs Lisp Package Verifier",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-gitpod",
+      "name": "Gitpod Automated Workspaces",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-codespaces-audit",
+      "name": "Codespaces Policy Auditor",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-coder",
+      "name": "Coder Enterprise Workspaces",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-replit",
+      "name": "Replit Agent Sync",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-gitpod-enterprise",
+      "name": "Gitpod Enterprise Private Cloud",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-devpod-setup-action",
+      "name": "DevPod Scratch Workspaces",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-coder-templates-verify",
+      "name": "Coder Infrastructure Template Lint",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-codespaces-secrets-sync",
+      "name": "Codespaces Secret Synchronizer",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-remote-ssh-runner",
+      "name": "Remote SSH Development Tunnel",
+      "type": "action",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-codespaces-audit-pro",
+      "name": "Codespaces Compliance Engine",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-gitpod-cloud",
+      "name": "Gitpod SaaS Cloud Sync",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-idx",
+      "name": "Project IDX by Google Workspace",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "ides-app-warp-terminal",
+      "name": "Warp Terminal Team Workflows",
+      "type": "app",
+      "category": "ides"
+    },
+    {
+      "id": "learning-classroom-eval-action",
+      "name": "Classroom Assignment Verifier",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-autograding-io-action",
+      "name": "Autograding I/O Assertion Action",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-github-reading-list",
+      "name": "GitHub Reading List Generator",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-exercism-cli-action",
+      "name": "Exercism Submission Verifier",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-leetcode-sync-action",
+      "name": "LeetCode Submission Sync",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-classroom",
+      "name": "GitHub Classroom Platform",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-exercism",
+      "name": "Exercism Mentor Feedback",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-datacamp",
+      "name": "DataCamp Engineering Sync",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-codewars",
+      "name": "Codewars Kata Verification",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-edx",
+      "name": "edX Computer Science Bridge",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-github-stats-readme",
+      "name": "GitHub Stats Readme Generator",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-readme-typing-svg",
+      "name": "Readme Typing SVG Animator",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-wakatime-stats-action",
+      "name": "WakaTime Developer Metrics",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-markdown-link-check",
+      "name": "Markdown Link Check Action",
+      "type": "action",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-codier",
+      "name": "Codier Coding Challenges",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-freecodecamp-sync",
+      "name": "freeCodeCamp Certification Sync",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-kaggle-sync",
+      "name": "Kaggle Kernel Synchronizer",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "learning-app-hackerrank-sync",
+      "name": "HackerRank Problem Sync",
+      "type": "app",
+      "category": "learning"
+    },
+    {
+      "id": "localization-poeditor-action",
+      "name": "POEditor Translation Sync",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-weblate-action",
+      "name": "Weblate Continuous Localization",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-phrase-app-action",
+      "name": "Phrase Localization CLI",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-transifex-client",
+      "name": "Transifex TX Client Action",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-onesky-action",
+      "name": "OneSky Localization Gateway",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-weblate",
+      "name": "Weblate Translation Bot",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-poeditor",
+      "name": "POEditor GitHub App",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-phrase",
+      "name": "Phrase Localization Suite",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-localazy",
+      "name": "Localazy Automated Localization",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-smartling",
+      "name": "Smartling Translation Cloud",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-android-strings-i18n",
+      "name": "Android Strings XML Translator",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-apple-strings-i18n",
+      "name": "Apple Strings / String Catalogs",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-json-i18n-sort",
+      "name": "JSON Localization Key Sorter",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-flutter-arb-translator",
+      "name": "Flutter ARB Locale Verifier",
+      "type": "action",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-onesky-app",
+      "name": "OneSky Crowdsourced Translation",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-lingohub",
+      "name": "LingoHub Translation Engine",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-locize",
+      "name": "Locize Bridge for i18next",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "localization-app-tolgee",
+      "name": "Tolgee Open-Source Localization",
+      "type": "app",
+      "category": "localization"
+    },
+    {
+      "id": "mobile-bundle-install-action",
+      "name": "Ruby Bundler Fastlane Cache",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-cocoapods-action",
+      "name": "CocoaPods Dependency Cache",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-appcenter-deploy-action",
+      "name": "Visual Studio App Center Deploy",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-testflight-action",
+      "name": "Apple TestFlight Uploader",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-google-play-action",
+      "name": "Google Play Store Publisher",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-bitrise",
+      "name": "Bitrise Mobile CI/CD",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-codemagic",
+      "name": "Codemagic CI/CD for Mobile",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-circleci-mobile",
+      "name": "CircleCI Mobile Build Runner",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-appcenter",
+      "name": "Microsoft App Center Platform",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-detox",
+      "name": "Detox E2E Mobile Testing",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-sign-android-release",
+      "name": "Sign Android Release (AAB/APK)",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-ios-build-action",
+      "name": "Build iOS IPA Archive",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-unity-build-action",
+      "name": "Unity Game Engine Build Runner",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-capacitor-build-action",
+      "name": "Capacitor Native Build Action",
+      "type": "action",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-firebase-app-distribution",
+      "name": "Firebase App Distribution",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-testfairy",
+      "name": "TestFairy Mobile Testing",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-nowsecure",
+      "name": "NowSecure Mobile App Security",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "mobile-app-datadog-mobile",
+      "name": "Datadog Mobile Real User Monitoring",
+      "type": "app",
+      "category": "mobile"
+    },
+    {
+      "id": "monitoring-newrelic-action",
+      "name": "New Relic Deployment Marker",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-dynatrace-action",
+      "name": "Dynatrace Deployment Event",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-datadog-metric-action",
+      "name": "Datadog Custom Metric Pusher",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-signalfx-action",
+      "name": "Splunk Observability Deploy Event",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-splunk-action",
+      "name": "Splunk Enterprise Event Logger",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-datadog-agent",
+      "name": "Datadog Infrastructure Monitor",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-dynatrace",
+      "name": "Dynatrace Software Intelligence",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-newrelic",
+      "name": "New Relic Full Stack Observability",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-sumologic",
+      "name": "Sumo Logic Continuous Intelligence",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-logdna",
+      "name": "Mezmo LogDNA Log Management",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-uptime-robot-action",
+      "name": "UptimeRobot Status Alert",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-betteruptime-action",
+      "name": "Better Uptime Incident Creator",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-honeycomb-deployment-marker",
+      "name": "Honeycomb Deployment Marker",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-lightstep-deploy-event",
+      "name": "Lightstep Distributed Tracing Marker",
+      "type": "action",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-cloudwatch",
+      "name": "AWS CloudWatch Metrics Integration",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-signoz",
+      "name": "SigNoz Open Source Observability",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-logz-io",
+      "name": "Logz.io Cloud Observability",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "monitoring-app-coralogix",
+      "name": "Coralogix State-of-the-Art APM",
+      "type": "app",
+      "category": "monitoring"
+    },
+    {
+      "id": "performance-artillery-action",
+      "name": "Artillery Load & Stress Testing",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-locust-action",
+      "name": "Locust Python Load Tester",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-autocannon-action",
+      "name": "Autocannon HTTP Benchmarking",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-sitespeed-io-action",
+      "name": "sitespeed.io Web Performance",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-pagespeed-action",
+      "name": "Google PageSpeed Insights Audit",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-artillery",
+      "name": "Artillery Cloud Testing Platform",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-loadmill",
+      "name": "Loadmill API Performance Testing",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-blackfire",
+      "name": "Blackfire.io Application Profiler",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-trevor",
+      "name": "Trevor Performance Regression Radar",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-speedcurve-lux",
+      "name": "SpeedCurve UX & Core Web Vitals",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-benchmark-action",
+      "name": "Continuous Benchmarking Action",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-wrk-benchmark-action",
+      "name": "wrk Modern HTTP Benchmarking",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-speedometer-action",
+      "name": "Browser Speedometer Benchmark",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-vegeta-load-testing",
+      "name": "Vegeta HTTP Load Testing Action",
+      "type": "action",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-posthog-metrics",
+      "name": "PostHog Feature Flag Analytics",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-scout-apm",
+      "name": "Scout APM Application Performance",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-appsignal",
+      "name": "AppSignal Performance Monitoring",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "performance-app-skylight",
+      "name": "Skylight Rails Performance",
+      "type": "app",
+      "category": "performance"
+    },
+    {
+      "id": "project-management-milestone-tracker-action",
+      "name": "Milestone Due Date Tracker",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-issue-forms-action",
+      "name": "Issue Forms Validator & Triage",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-backlog-sync-action",
+      "name": "Backlog Priority Synchronizer",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-asana-action",
+      "name": "Asana Task Synchronization",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-monday-action",
+      "name": "Monday.com Pulse Automation",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-asana",
+      "name": "Asana for GitHub Enterprise",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-trello-board",
+      "name": "Trello Power-Up for GitHub",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-monday",
+      "name": "Monday.com DevOps Integration",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-shortcut",
+      "name": "Shortcut (Clubhouse) Agile Engine",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-basecamp",
+      "name": "Basecamp 3 GitHub Notifier",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-sync-issue-labels",
+      "name": "Sync Issue & PR Labels",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-lock-threads-action",
+      "name": "Lock Inactive Conversations",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-github-board-sync",
+      "name": "GitHub Board Card Automation",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-create-milestone-action",
+      "name": "Automated Milestone Provisioning",
+      "type": "action",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-clubhouse",
+      "name": "Shortcut Agile Project Hub",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-targetprocess",
+      "name": "Targetprocess Enterprise Agile",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-planview",
+      "name": "Planview Enterprise Portfolio",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "project-management-app-clarizen",
+      "name": "Planview AdaptiveWork Clarizen",
+      "type": "app",
+      "category": "project-management"
+    },
+    {
+      "id": "publishing-publish-docker-ghcr",
+      "name": "Publish Image to GHCR",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-nexus-publish-action",
+      "name": "Sonatype Nexus Artifact Deploy",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-artifactory-publish",
+      "name": "JFrog Artifactory Publisher",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-pkg-release-action",
+      "name": "Multi-Arch Tarball Release",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-tarball-release-action",
+      "name": "Debian & RPM Package Builder",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-artifactory",
+      "name": "JFrog DevOps Platform",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-bintray",
+      "name": "Cloudsmith Universal Package Management",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-nexus",
+      "name": "Sonatype Nexus Lifecycle",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-cloudsmith",
+      "name": "Cloudsmith Cloud Native Artifacts",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-proget",
+      "name": "Inedo ProGet Enterprise Packages",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-gh-pages-multi-dir",
+      "name": "GitHub Pages Multi-Directory Deploy",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-upload-release-asset",
+      "name": "Upload Release Asset (Legacy)",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-snapcraft-publish-action",
+      "name": "Snapcraft Linux Package Deploy",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-flatpak-builder-action",
+      "name": "Flatpak Linux Application Builder",
+      "type": "action",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-packagist",
+      "name": "Packagist PHP Package Index",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-hex-pm",
+      "name": "Hex.pm Erlang & Elixir Package",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-luarocks",
+      "name": "LuaRocks Package Manager Sync",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "publishing-app-pub-dev",
+      "name": "Dart pub.dev Package Publisher",
+      "type": "app",
+      "category": "publishing"
+    },
+    {
+      "id": "security-trufflehog-action",
+      "name": "TruffleHog Secret Detector",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-brakeman-action",
+      "name": "Brakeman Ruby SAST Scanner",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-bandit-action",
+      "name": "Bandit Python Security Linter",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-gosec-action",
+      "name": "gosec Go Security Checker",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-safety-action",
+      "name": "Safety Python CVE Scanner",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-app-veracode",
+      "name": "Veracode Cloud Security Platform",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-app-checkmarx",
+      "name": "Checkmarx One DevSecOps",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-app-fortify",
+      "name": "OpenText Fortify on Demand",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-app-contrast",
+      "name": "Contrast Security Runtime Agent",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-app-whitehat",
+      "name": "WhiteHat Dynamic Application Security",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-openvas-scan-action",
+      "name": "OpenVAS Vulnerability Scanner",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-owasp-zap-action",
+      "name": "OWASP ZAP Full Scan Action",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-kube-hunter-action",
+      "name": "Kube-Hunter Kubernetes Security",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-kube-bench-action",
+      "name": "Kube-Bench CIS Benchmark",
+      "type": "action",
+      "category": "security"
+    },
+    {
+      "id": "security-app-tenable",
+      "name": "Tenable.io Vulnerability Cloud",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-app-rapid7",
+      "name": "Rapid7 InsightVM DevOps Scan",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-app-qualys",
+      "name": "Qualys Cloud Platform DevSecOps",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "security-app-lacework",
+      "name": "Lacework Cloud Security Agent",
+      "type": "app",
+      "category": "security"
+    },
+    {
+      "id": "support-github-discussions-action",
+      "name": "Discussions Triage & Answering",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-slack-support-ticket",
+      "name": "Create Slack Incident Channel",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-kayako-action",
+      "name": "Kayako Support Ticket Bridge",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-helpscout-action",
+      "name": "Help Scout Conversation Linker",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-jira-service-action",
+      "name": "Jira Service Management Escalation",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-app-helpscout",
+      "name": "Help Scout GitHub Integration",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-app-crisp",
+      "name": "Crisp Live Chat DevOps Sync",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-app-tidio",
+      "name": "Tidio Customer Service Engine",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-app-groove",
+      "name": "Groove Customer Support Platform",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-app-intercom-support",
+      "name": "Intercom for Engineering Support",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-github-support-bot",
+      "name": "Automated First-Response Support",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-escalate-urgent-issue",
+      "name": "Urgent Issue SLA Escalator",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-survey-monkey-action",
+      "name": "Customer CSAT Survey Dispatch",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-discourse-sync-action",
+      "name": "Discourse Community Forum Sync",
+      "type": "action",
+      "category": "support"
+    },
+    {
+      "id": "support-app-kayako-live",
+      "name": "Kayako Unified Customer Service",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-app-helpspot",
+      "name": "HelpSpot Ticket Management",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-app-osticket",
+      "name": "osTicket Open Source Support",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "support-app-zammad",
+      "name": "Zammad Open Source Helpdesk",
+      "type": "app",
+      "category": "support"
+    },
+    {
+      "id": "testing-mocha-action",
+      "name": "Mocha JavaScript Test Runner",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-karma-action",
+      "name": "Karma Browser Test Runner",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-supertest-action",
+      "name": "SuperTest HTTP Integration Tests",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-playwright-report-action",
+      "name": "Playwright HTML Report Publisher",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-allure-report-action",
+      "name": "Allure Test Report Generator",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-saucelabs-runner",
+      "name": "Sauce Labs Cloud Test Grid",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-browserstack-agent",
+      "name": "BrowserStack Automate Enterprise",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-lambdatest",
+      "name": "LambdaTest Cross Browser Testing",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-percy",
+      "name": "Percy Visual Testing & Review",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-applitools",
+      "name": "Applitools Eyes Visual AI",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-robot-framework-action",
+      "name": "Robot Framework Automation",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-cucumber-test-action",
+      "name": "Cucumber BDD Test Runner",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-selenium-grid-action",
+      "name": "Selenium Grid Cloud Runner",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-postman-cli-run",
+      "name": "Postman CLI API Assertion Suite",
+      "type": "action",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-testrail",
+      "name": "TestRail Test Management Sync",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-zephyr",
+      "name": "Zephyr Scale Test Management",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-practitest",
+      "name": "PractiTest End-to-End QA Hub",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "testing-app-qase",
+      "name": "Qase Modern Test Management",
+      "type": "app",
+      "category": "testing"
+    },
+    {
+      "id": "utilities-stale-repos-action",
+      "name": "Stale Branch Cleaner",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-pr-release-notes",
+      "name": "PR Description to Release Notes",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-github-activity-readme",
+      "name": "GitHub Activity Readme Updater",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-repo-sync-action",
+      "name": "Repository Mirror Synchronizer",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-git-tag-action",
+      "name": "SemVer Git Tag Generator",
+      "type": "action",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-app-allcontributors",
+      "name": "All Contributors Bot",
+      "type": "app",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-app-welcome-bot",
+      "name": "Welcome First-Time Contributors",
+      "type": "app",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-app-lock-threads",
+      "name": "Lock Inactive Conversations",
+      "type": "app",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-app-first-pr-merge",
+      "name": "First PR Celebration Bot",
+      "type": "app",
+      "category": "utilities"
+    },
+    {
+      "id": "utilities-app-auto-assign",
+      "name": "Auto Assign Teams and Reviewers",
+      "type": "app",
+      "category": "utilities"
+    }
+  ],
+  "edges": [
+    {
+      "source": "actions-checkout",
+      "target": "actions-setup-node",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-setup-node",
+      "target": "codecov-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-checkout",
+      "target": "actions-setup-python",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-setup-python",
+      "target": "aquasecurity-trivy-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-checkout",
+      "target": "actions-setup-go",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-setup-go",
+      "target": "goreleaser-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-checkout",
+      "target": "docker-setup-buildx-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "docker-setup-buildx-action",
+      "target": "docker-login-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "docker-login-action",
+      "target": "docker-build-push-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "docker-build-push-action",
+      "target": "step-security-harden-runner",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-checkout",
+      "target": "github-codeql-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-checkout",
+      "target": "gitleaks-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-checkout",
+      "target": "ossf-scorecard-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "actions-checkout",
+      "target": "softprops-action-gh-release",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "app-dependabot",
+      "target": "actions-checkout",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "app-renovate",
+      "target": "actions-checkout",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "app-coderabbit",
+      "target": "actions-checkout",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "app-slack",
+      "target": "docker-build-push-action",
+      "relationship": "workflow_pipeline_sequence"
+    },
+    {
+      "source": "app-jira-software",
+      "target": "actions-checkout",
+      "relationship": "workflow_pipeline_sequence"
+    }
+  ]
+}

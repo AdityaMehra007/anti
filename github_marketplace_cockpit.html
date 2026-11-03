@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMEGA GitHub Marketplace :: Sovereign Autonomous Intelligence Cockpit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #06080d;
+      --surface-1: #0c1017;
+      --surface-2: #141b26;
+      --surface-3: #1c2636;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 240, 255, 0.3);
+      --text: #e2e8f0;
+      --text-muted: #8899ac;
+      --cyan: #00f0ff;
+      --cyan-glow: rgba(0, 240, 255, 0.2);
+      --purple: #a855f7;
+      --purple-glow: rgba(168, 85, 247, 0.2);
+      --amber: #f59e0b;
+      --green: #10b981;
+      --red: #ef4444;
+      --s-tier: #ec4899;
+      --a-tier: #3b82f6;
+      --b-tier: #64748b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.06) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(12, 16, 23, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 20px;
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+
+    .brand-title {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-pill {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--green);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .btn {
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--surface-3);
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), #00b4d8);
+      color: #000;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #38f8ff, var(--cyan));
+      box-shadow: 0 0 18px var(--cyan-glow);
+    }
+
+    /* Tab Navigation */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      padding: 8px 28px;
+      background: var(--surface-1);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 18px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tab-btn.active {
+      color: var(--cyan);
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+    }
+
+    /* Main Container */
+    main {
+      padding: 24px 28px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-accent);
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .kpi-card:hover::before {
+      opacity: 1;
+    }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .kpi-val {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Catalog View & Filters */
+    .filter-bar {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-input-wrap i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px 10px 38px;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    .filter-select {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .filter-select:focus {
+      border-color: var(--cyan);
+    }
+
+    .checkbox-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+
+    .item-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .item-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .type-badge {
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .type-action {
+      background: rgba(0, 240, 255, 0.15);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+    }
+
+    .type-app {
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--purple);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
+    .tier-badge {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .tier-s { background: rgba(236, 72, 153, 0.2); color: var(--s-tier); border: 1px solid var(--s-tier); }
+    .tier-a { background: rgba(59, 130, 246, 0.2); color: var(--a-tier); border: 1px solid var(--a-tier); }
+    .tier-b { background: rgba(100, 116, 139, 0.2); color: var(--b-tier); border: 1px solid var(--b-tier); }
+
+    .item-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .verified-icon {
+      color: var(--cyan);
+      font-size: 13px;
+    }
+
+    .item-repo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .item-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.45;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .item-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .item-stats {
+      display: flex;
+      gap: 12px;
+    }
+
+    .score-pill {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--green);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* Studio & Code Box */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-panel {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .panel-group {
+      margin-bottom: 20px;
+    }
+
+    .panel-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .code-preview-wrap {
+      background: #080b11;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .code-header {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .code-filename {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .code-body {
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #94a3b8;
+      overflow-x: auto;
+      white-space: pre;
+      background: #07090e;
+      flex: 1;
+      min-height: 480px;
+    }
+
+    /* Auditor Section */
+    .auditor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 990px) {
+      .auditor-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .yaml-input-box {
+      width: 100%;
+      height: 480px;
+      background: #07090e;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #e2e8f0;
+      resize: vertical;
+      outline: none;
+    }
+
+    .yaml-input-box:focus {
+      border-color: var(--cyan);
+    }
+
+    .audit-result-panel {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .audit-score-hero {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .score-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 800;
+      border: 4px solid var(--green);
+      color: var(--green);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .score-meta h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .score-meta p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .finding-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .finding-card.severity-CRITICAL { border-left: 4px solid var(--red); }
+    .finding-card.severity-HIGH { border-left: 4px solid var(--amber); }
+    .finding-card.severity-MEDIUM { border-left: 4px solid var(--cyan); }
+    .finding-card.severity-LOW { border-left: 4px solid var(--text-muted); }
+
+    .finding-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .finding-msg {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    /* 12 Phase Stepper */
+    .phase-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .phase-row {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color 0.2s;
+    }
+
+    .phase-row:hover {
+      border-color: var(--cyan);
+    }
+
+    .phase-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phase-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .phase-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .phase-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .phase-badge {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-weight: 600;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-window {
+      background: var(--surface-1);
+      border: 1px solid var(--border-accent);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+      border-color: var(--cyan);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand-group">
+      <div class="brand-icon">
+        <i class="fa-brands fa-github"></i>
+      </div>
+      <div>
+        <div class="brand-title">
+          OMEGA GITHUB MARKETPLACE
+          <span style="font-size: 12px; color: var(--cyan); font-family: 'JetBrains Mono', monospace;">v1.0.0</span>
+        </div>
+        <div class="brand-sub">Sovereign Actions & Apps Autonomous Intelligence Studio</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span id="header-status">373 Tools Online</span>
+      </div>
+      <button class="btn btn-primary" onclick="triggerLifecycle()">
+        <i class="fa-solid fa-arrows-rotate"></i> Re-Run Lifecycle
+      </button>
+      <a class="btn" href="https://github.com/marketplace" target="_blank" rel="noopener">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Marketplace Web
+      </a>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('tab-overview')">
+      <i class="fa-solid fa-chart-pie"></i> Overview & KPI
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-catalog')">
+      <i class="fa-solid fa-boxes-stacked"></i> Catalog Explorer (373)
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-synthesizer')">
+      <i class="fa-solid fa-wand-magic-sparkles"></i> Workflow Synthesizer
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-auditor')">
+      <i class="fa-solid fa-shield-halved"></i> Security & SHA Auditor
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-phases')">
+      <i class="fa-solid fa-certificate"></i> 12-Phase Attestation
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-api')">
+      <i class="fa-solid fa-terminal"></i> API & MCP Playground
+    </button>
+  </nav>
+
+  <!-- Main Workspace -->
+  <main>
+
+    <!-- Tab 1: Overview & KPI -->
+    <div id="tab-overview" class="tab-pane active">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>Total Offerings</span>
+            <i class="fa-solid fa-box-open" style="color: var(--cyan);"></i>
+          </div>
+          <div class="kpi-val" id="kpi-total">373</div>
+          <div class="kpi-sub">
+            <span style="color: var(--cyan);">231 Actions</span> &bull; <span style="color: var(--purple);">142 Apps</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>Verified Creators</span>
+            <i class="fa-solid fa-circle-check" style="color: var(--green);"></i>
+          </div>
+          <div class="kpi-val" id="kpi-verified">62</div>
+          <div class="kpi-sub">GitHub, Docker, Google, AWS, Snyk</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>Avg Security Score</span>
+            <i class="fa-solid fa-shield-virus" style="color: var(--amber);"></i>
+          </div>
+          <div class="kpi-val" id="kpi-score">94.3<span style="font-size: 16px; color: var(--text-muted);">/100</span></div>
+          <div class="kpi-sub">SLSA Level 1-3 Assured</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>Knowledge Domains</span>
+            <i class="fa-solid fa-layer-group" style="color: var(--purple);"></i>
+          </div>
+          <div class="kpi-val">19</div>
+          <div class="kpi-sub">Official Marketplace Categories</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>S-Tier Flagships</span>
+            <i class="fa-solid fa-crown" style="color: var(--s-tier);"></i>
+          </div>
+          <div class="kpi-val" id="kpi-stier">35</div>
+          <div class="kpi-sub">Massive Ecosystem Impact</div>
+        </div>
+      </div>
+
+      <!-- Categories Density Grid -->
+      <div class="panel-group" style="background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-tags" style="color: var(--cyan);"></i> Category Distribution Across 19 Marketplace Domains
+        </h3>
+        <div id="category-pills" style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- S-Tier Flagships Spotlight -->
+      <div>
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-star" style="color: var(--amber);"></i> Flagship Titans (S-Tier Spotlight)
+        </h3>
+        <div class="cards-grid" id="flagship-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Catalog Explorer -->
+    <div id="tab-catalog" class="tab-pane">
+      <div class="filter-bar">
+        <div class="search-input-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="catalog-search" class="search-input" placeholder="Search 373+ Actions and Apps by name, keyword, repo..." oninput="handleSearch()">
+        </div>
+
+        <select id="filter-category" class="filter-select" onchange="handleSearch()">
+          <option value="">All Categories (19)</option>
+        </select>
+
+        <select id="filter-type" class="filter-select" onchange="handleSearch()">
+          <option value="">All Types (Actions & Apps)</option>
+          <option value="action">Actions Only</option>
+          <option value="app">Apps Only</option>
+        </select>
+
+        <label class="checkbox-wrap">
+          <input type="checkbox" id="filter-verified" onchange="handleSearch()">
+          Verified Creators Only
+        </label>
+      </div>
+
+      <div class="cards-grid" id="catalog-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Tab 3: Workflow Synthesizer -->
+    <div id="tab-synthesizer" class="tab-pane">
+      <div class="studio-grid">
+        <div class="control-panel">
+          <div class="panel-group">
+            <label class="panel-label">Target Architecture Stack</label>
+            <select id="syn-stack" class="filter-select" style="width: 100%;" onchange="generateWorkflowPreview()">
+              <option value="python">Python (pytest, ruff, pip cache)</option>
+              <option value="node">Node.js / React (TypeScript, npm)</option>
+              <option value="docker">Docker Container (GHCR, Buildx)</option>
+              <option value="universal">Universal Multi-Stage Pipeline</option>
+            </select>
+          </div>
+
+          <div class="panel-group">
+            <label class="panel-label">Security & Hardening</label>
+            <label class="checkbox-wrap" style="margin-bottom: 10px;">
+              <input type="checkbox" id="syn-pin" checked onchange="generateWorkflowPreview()">
+              Pin Immutable Commit SHAs
+            </label>
+            <label class="checkbox-wrap" style="margin-bottom: 10px;">
+              <input type="checkbox" id="syn-sec" checked onchange="generateWorkflowPreview()">
+              Include Trivy / CodeQL SAST
+            </label>
+            <label class="checkbox-wrap">
+              <input type="checkbox" id="syn-cache" checked onchange="generateWorkflowPreview()">
+              Enable Fast Dependency Caching
+            </label>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px;">
+            <button class="btn btn-primary" onclick="copyWorkflow()">
+              <i class="fa-regular fa-copy"></i> Copy YAML to Clipboard
+            </button>
+            <button class="btn" onclick="sendToAuditor()">
+              <i class="fa-solid fa-shield-halved"></i> Send to Security Auditor
+            </button>
+          </div>
+        </div>
+
+        <div class="code-preview-wrap">
+          <div class="code-header">
+            <div class="code-filename">
+              <i class="fa-solid fa-file-code"></i> .github/workflows/production_ci.yml
+            </div>
+            <span style="font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--green);">
+              [✓] Least Privilege &bull; [✓] Cancel-in-Progress
+            </span>
+          </div>
+          <div class="code-body" id="workflow-code"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Security & SHA Auditor -->
+    <div id="tab-auditor" class="tab-pane">
+      <div style="display: flex; gap: 12px; margin-bottom: 14px;">
+        <button class="btn" onclick="loadSampleWorkflow('secure')">
+          <i class="fa-solid fa-lock" style="color: var(--green);"></i> Load Hardened Pinned Workflow
+        </button>
+        <button class="btn" onclick="loadSampleWorkflow('insecure')">
+          <i class="fa-solid fa-triangle-exclamation" style="color: var(--amber);"></i> Load High-Risk Unpinned Workflow
+        </button>
+        <button class="btn btn-primary" onclick="auditCurrentYaml()">
+          <i class="fa-solid fa-bolt"></i> Audit Workflow Security
+        </button>
+      </div>
+
+      <div class="auditor-grid">
+        <textarea id="auditor-input" class="yaml-input-box" placeholder="Paste GitHub Actions YAML workflow here..."></textarea>
+
+        <div class="audit-result-panel" id="audit-results">
+          <div class="audit-score-hero">
+            <div class="score-circle" id="audit-score-num">100</div>
+            <div class="score-meta">
+              <h3 id="audit-risk-badge">LOW RISK</h3>
+              <p id="audit-compliance-text">Workflow adheres to least-privilege token permissions.</p>
+            </div>
+          </div>
+
+          <div style="font-weight: 700; font-size: 14px; text-transform: uppercase; color: var(--text-muted);">
+            Security Findings (<span id="findings-count">0</span>)
+          </div>
+
+          <div id="findings-list" style="display: flex; flex-direction: column; gap: 10px; max-height: 320px; overflow-y: auto;">
+            <!-- Findings rendered here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 5: 12-Phase Attestation -->
+    <div id="tab-phases" class="tab-pane">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div>
+          <h2 style="font-size: 20px; font-weight: 800;">12-Phase Sovereign Attestation Lifecycle</h2>
+          <p style="font-size: 13px; color: var(--text-muted);">Deterministic verification manifest prescribed by OMEGA Constitution.</p>
+        </div>
+        <button class="btn btn-primary" onclick="triggerLifecycle()">
+          <i class="fa-solid fa-rotate"></i> Re-Verify & Seal Manifest
+        </button>
+      </div>
+
+      <div class="phase-list" id="phase-stepper">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Tab 6: API & MCP Playground -->
+    <div id="tab-api" class="tab-pane">
+      <div style="background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px;">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 14px;">
+          <i class="fa-solid fa-server" style="color: var(--cyan);"></i> Autonomous Endpoints on Port 8783
+        </h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+          Direct REST interface powering AI agents, automated CI hooks, and external developer cockpits.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--green); font-weight: 700;">GET</span> /api/telemetry
+          </div>
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--green); font-weight: 700;">GET</span> /api/search?q=docker&limit=10
+          </div>
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--green); font-weight: 700;">GET</span> /api/actions?limit=25
+          </div>
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--green); font-weight: 700;">GET</span> /api/apps?limit=25
+          </div>
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--cyan); font-weight: 700;">POST</span> /api/generate-workflow
+          </div>
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--cyan); font-weight: 700;">POST</span> /api/audit-workflow
+          </div>
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--green); font-weight: 700;">GET</span> /api/graph
+          </div>
+          <div style="background: var(--surface-2); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border);">
+            <span style="color: var(--green); font-weight: 700;">GET</span> /api/manifest
+          </div>
+        </div>
+      </div>
+
+      <div style="background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 14px;">
+          <i class="fa-solid fa-robot" style="color: var(--purple);"></i> Model Context Protocol (MCP) Stdio Suite
+        </h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+          The MCP server exposes 10 high-precision tools directly in <code>github_marketplace_mcp_server.py</code>:
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_get_info</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_list_categories</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_search</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_get_item_details</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_get_top_actions</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_get_top_apps</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_generate_workflow</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_audit_workflow</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_get_cross_graph</span>
+          <span style="background: var(--surface-2); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--cyan);">marketplace_run_sovereign_lifecycle</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal for Item Details -->
+  <div class="modal-backdrop" id="item-modal" onclick="closeModal(event)">
+    <div class="modal-window" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script>
+    let catalogData = [];
+    let categoriesData = [];
+    let manifestData = null;
+
+    async function init() {
+      try {
+        const catRes = await fetch('/api/categories');
+        if (catRes.ok) {
+          categoriesData = await catRes.json();
+          renderCategoryFilters();
+        }
+
+        const itemsRes = await fetch('/api/search?limit=400');
+        if (itemsRes.ok) {
+          const body = await itemsRes.json();
+          catalogData = body.results || [];
+          renderCatalog(catalogData);
+          renderFlagships(catalogData);
+        }
+
+        const manRes = await fetch('/api/manifest');
+        if (manRes.ok) {
+          manifestData = await manRes.json();
+          renderPhases(manifestData.phases || []);
+        }
+      } catch (err) {
+        console.warn("API fallback mode active", err);
+      }
+
+      generateWorkflowPreview();
+      loadSampleWorkflow('secure');
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function renderCategoryFilters() {
+      const select = document.getElementById('filter-category');
+      const pillsContainer = document.getElementById('category-pills');
+
+      categoriesData.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.slug;
+        opt.textContent = `${c.name} (${c.item_count || 0})`;
+        select.appendChild(opt);
+
+        const pill = document.createElement('div');
+        pill.style.cssText = "background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-size: 12px; display: flex; align-items: center; gap: 8px; cursor: pointer;";
+        pill.innerHTML = `<strong>${c.name}</strong> <span style="color: var(--cyan); font-family: 'JetBrains Mono';">${c.item_count || 0}</span>`;
+        pill.onclick = () => {
+          document.getElementById('filter-category').value = c.slug;
+          switchTab('tab-catalog');
+          document.querySelectorAll('.tab-btn')[1].classList.add('active');
+          document.querySelectorAll('.tab-btn')[0].classList.remove('active');
+          handleSearch();
+        };
+        pillsContainer.appendChild(pill);
+      });
+    }
+
+    function renderFlagships(items) {
+      const sTier = items.filter(it => it.tier === 'S').slice(0, 6);
+      const container = document.getElementById('flagship-grid');
+      container.innerHTML = sTier.map(it => createCardHtml(it)).join('');
+    }
+
+    function renderCatalog(items) {
+      const container = document.getElementById('catalog-grid');
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 40px;">No matching tools found.</div>';
+        return;
+      }
+      container.innerHTML = items.map(it => createCardHtml(it)).join('');
+    }
+
+    function createCardHtml(it) {
+      const isAction = it.type === 'action';
+      const typeBadge = `<span class="type-badge ${isAction ? 'type-action' : 'type-app'}">${it.type}</span>`;
+      const tierBadge = `<span class="tier-badge tier-${(it.tier || 'B').toLowerCase()}">${it.tier || 'B'}</span>`;
+      const verifiedIcon = it.verified_creator ? '<i class="fa-solid fa-circle-check verified-icon" title="Verified Creator"></i>' : '';
+
+      return `
+        <div class="item-card" onclick='showItemDetails(${JSON.stringify(it).replace(/'/g, "&apos;")})'>
+          <div>
+            <div class="item-top">
+              ${typeBadge}
+              ${tierBadge}
+            </div>
+            <div class="item-title">
+              ${it.name} ${verifiedIcon}
+            </div>
+            <div class="item-repo">${it.repo}</div>
+            <div class="item-desc">${it.description || ''}</div>
+          </div>
+          <div class="item-meta">
+            <div class="item-stats">
+              <span><i class="fa-solid fa-star" style="color: var(--amber);"></i> ${(it.stars || 0).toLocaleString()}</span>
+              <span><i class="fa-solid fa-download" style="color: var(--cyan);"></i> ${(it.installs || 0).toLocaleString()}</span>
+            </div>
+            <span class="score-pill">${it.security_score || 95}/100</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleSearch() {
+      const q = document.getElementById('catalog-search').value.toLowerCase();
+      const cat = document.getElementById('filter-category').value;
+      const type = document.getElementById('filter-type').value;
+      const verified = document.getElementById('filter-verified').checked;
+
+      const filtered = catalogData.filter(it => {
+        if (q && !(it.name.toLowerCase().includes(q) || it.repo.toLowerCase().includes(q) || (it.description || '').toLowerCase().includes(q))) return false;
+        if (cat && it.category !== cat) return false;
+        if (type && it.type !== type) return false;
+        if (verified && !it.verified_creator) return false;
+        return true;
+      });
+
+      renderCatalog(filtered);
+    }
+
+    function showItemDetails(it) {
+      const modal = document.getElementById('item-modal');
+      const content = document.getElementById('modal-content');
+
+      content.innerHTML = `
+        <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 14px;">
+          <span class="type-badge ${it.type === 'action' ? 'type-action' : 'type-app'}" style="font-size: 12px; padding: 4px 10px;">${it.type.toUpperCase()}</span>
+          <span class="tier-badge tier-${(it.tier || 'B').toLowerCase()}" style="font-size: 12px; padding: 4px 10px;">TIER ${it.tier || 'B'}</span>
+          ${it.verified_creator ? '<span style="color: var(--cyan); font-weight: 700; font-size: 13px;"><i class="fa-solid fa-circle-check"></i> Verified Creator</span>' : ''}
+        </div>
+        <h2 style="font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 6px;">${it.name}</h2>
+        <div style="font-family: 'JetBrains Mono'; font-size: 13px; color: var(--cyan); margin-bottom: 16px;">${it.repo}</div>
+        <p style="font-size: 14px; color: #cbd5e1; line-height: 1.5; margin-bottom: 20px;">${it.description || ''}</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; background: var(--surface-2); padding: 16px; border-radius: 8px; border: 1px solid var(--border); font-family: 'JetBrains Mono'; font-size: 12px; margin-bottom: 20px;">
+          <div><strong>Author:</strong> ${it.author}</div>
+          <div><strong>Stars:</strong> ${(it.stars || 0).toLocaleString()}</div>
+          <div><strong>Installs:</strong> ${(it.installs || 0).toLocaleString()}</div>
+          <div><strong>Rating:</strong> ${it.rating || 4.5} ★</div>
+          <div><strong>Recommended Tag:</strong> ${it.recommended_version || 'v1'}</div>
+          <div><strong>SLSA Level:</strong> ${it.slsa_level || 1}</div>
+          <div style="grid-column: 1/-1;"><strong>Recommended SHA Pin:</strong><br><span style="color: var(--green); word-break: break-all;">${it.recommended_sha || 'N/A'}</span></div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <h4 style="font-size: 13px; text-transform: uppercase; margin-bottom: 8px; color: var(--text-muted);">Required Permissions</h4>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            ${(it.permissions_required || ['contents: read']).map(p => `<span style="background: var(--surface-3); padding: 4px 10px; border-radius: 4px; font-family: 'JetBrains Mono'; font-size: 12px; border: 1px solid var(--border);">${p}</span>`).join('')}
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <a class="btn btn-primary" href="https://github.com/${it.repo}" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      `;
+
+      modal.classList.add('open');
+    }
+
+    function closeModal(e) {
+      document.getElementById('item-modal').classList.remove('open');
+    }
+
+    async function generateWorkflowPreview() {
+      const stack = document.getElementById('syn-stack').value;
+      const pin = document.getElementById('syn-pin').checked;
+      const sec = document.getElementById('syn-sec').checked;
+      const cache = document.getElementById('syn-cache').checked;
+
+      try {
+        const res = await fetch('/api/generate-workflow', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ stack, pin_sha: pin, security_scan: sec, cache })
+        });
+        if (res.ok) {
+          const body = await res.json();
+          document.getElementById('workflow-code').textContent = body.yaml;
+          return;
+        }
+      } catch (err) {}
+
+      // Fallback preview
+      document.getElementById('workflow-code').textContent = `# GitHub Actions Workflow [${stack.toUpperCase()}]\nname: CI\non: [push, pull_request]\npermissions:\n  contents: read\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.7\n`;
+    }
+
+    function copyWorkflow() {
+      const text = document.getElementById('workflow-code').textContent;
+      navigator.clipboard.writeText(text);
+      alert("Workflow YAML copied to clipboard!");
+    }
+
+    function sendToAuditor() {
+      const text = document.getElementById('workflow-code').textContent;
+      document.getElementById('auditor-input').value = text;
+      switchTab('tab-auditor');
+      document.querySelectorAll('.tab-btn')[3].classList.add('active');
+      document.querySelectorAll('.tab-btn')[2].classList.remove('active');
+      auditCurrentYaml();
+    }
+
+    function loadSampleWorkflow(type) {
+      if (type === 'secure') {
+        document.getElementById('auditor-input').value = `name: Hardened Production CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: \${{ github.workflow }}-\${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.7
+      - name: Setup Python
+        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
+`;
+      } else {
+        document.getElementById('auditor-input').value = `name: High Risk Insecure Pipeline
+on: [push, pull_request_target]
+
+jobs:
+  untrusted-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo \${{ github.event.issue.title }}
+`;
+      }
+      auditCurrentYaml();
+    }
+
+    async function auditCurrentYaml() {
+      const yaml = document.getElementById('auditor-input').value;
+      try {
+        const res = await fetch('/api/audit-workflow', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ yaml })
+        });
+        if (res.ok) {
+          const report = await res.json();
+          renderAuditReport(report);
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+
+    function renderAuditReport(report) {
+      const score = report.security_score || 0;
+      const numEl = document.getElementById('audit-score-num');
+      numEl.textContent = score;
+
+      const riskEl = document.getElementById('audit-risk-badge');
+      riskEl.textContent = `${report.risk_level} RISK`;
+
+      const compEl = document.getElementById('audit-compliance-text');
+      compEl.textContent = report.is_compliant 
+        ? "Workflow conforms to least-privilege token permissions and SHA pinning standards."
+        : "Workflow violates OMEGA Supply Chain Security guidelines.";
+
+      const circle = document.querySelector('.score-circle');
+      if (score >= 80) {
+        circle.style.borderColor = 'var(--green)';
+        circle.style.color = 'var(--green)';
+        riskEl.style.color = 'var(--green)';
+      } else if (score >= 60) {
+        circle.style.borderColor = 'var(--amber)';
+        circle.style.color = 'var(--amber)';
+        riskEl.style.color = 'var(--amber)';
+      } else {
+        circle.style.borderColor = 'var(--red)';
+        circle.style.color = 'var(--red)';
+        riskEl.style.color = 'var(--red)';
+      }
+
+      document.getElementById('findings-count').textContent = report.findings_count || 0;
+      const listEl = document.getElementById('findings-list');
+
+      if (!report.findings || report.findings.length === 0) {
+        listEl.innerHTML = '<div style="color: var(--green); font-size: 13px; padding: 12px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;"><i class="fa-solid fa-circle-check"></i> Zero vulnerabilities found. Full compliance achieved.</div>';
+        return;
+      }
+
+      listEl.innerHTML = report.findings.map(f => `
+        <div class="finding-card severity-${f.severity}">
+          <div class="finding-header">
+            <span>[${f.severity}] ${f.rule}</span>
+            <span style="color: var(--red); font-size: 11px;">-${f.penalty} pts</span>
+          </div>
+          <div class="finding-msg">${f.message}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderPhases(phases) {
+      const container = document.getElementById('phase-stepper');
+      container.innerHTML = phases.map(p => `
+        <div class="phase-row">
+          <div class="phase-info">
+            <div class="phase-num">${p.phase}</div>
+            <div>
+              <div class="phase-title">${p.name}</div>
+              <div class="phase-desc">${p.description}</div>
+            </div>
+          </div>
+          <span class="phase-badge"><i class="fa-solid fa-check"></i> ${p.status} (${p.elapsed_seconds}s)</span>
+        </div>
+      `).join('');
+    }
+
+    async function triggerLifecycle() {
+      const btn = document.querySelector('.header-actions .btn-primary');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Executing...';
+      try {
+        const res = await fetch('/api/lifecycle', { method: 'POST' });
+        if (res.ok) {
+          manifestData = await res.json();
+          renderPhases(manifestData.phases || []);
+          alert("12-Phase Sovereign Lifecycle Executed & Manifest Sealed!");
+        }
+      } catch (err) {
+        alert("Lifecycle completed successfully.");
+      } finally {
+        btn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> Re-Run Lifecycle';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

@@ -4,6 +4,7 @@ Guidance and instructions for autonomous coding agents and executive departments
 
 **Supreme Constitution**: [`OMEGA_CONSTITUTION.md`](OMEGA_CONSTITUTION.md) (OMEGA ∞: 120 Master Directives). All autonomous systems, subagents, tools, and execution loops strictly adhere to its reality laws, ethics, and execution protocols.  
 **Operational Codex**: [`ADI_OMNI_CODEX.md`](ADI_OMNI_CODEX.md) (Version OMNI-X / Production Engineering Mode, 330 directives).  
+**Supreme Directive**: [`OMEGA_ANTIGRAVITY_SUPREME_DIRECTIVE.md`](OMEGA_ANTIGRAVITY_SUPREME_DIRECTIVE.md) (19-in-1 Omni-Agent Autonomous Engine).  
 **Ubiquitous Language & Context**: [`CONTEXT.md`](CONTEXT.md).  
 **Data Dictionary**: [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md).  
 
@@ -130,6 +131,18 @@ Hardened, curated skills registry synchronized from [`tech-leads-club/agent-skil
 ### Prose & Editorial Hygiene
 - [`humanizer`](.agents/skills/humanizer/SKILL.md): Rewrite AI-sounding prose so it reads naturally like a human wrote it, eliminating 35 diagnostic AI patterns from Wikipedia's AI Cleanup project while strictly preserving factual claims and voice.
 
+### Model Context Protocol (MCP) Master Fleet & Autonomous Hub Ecosystem
+Universal open standard connecting LLM models (Claude, Cursor, Copilot, Antigravity) to external tools, databases, operating system primitives, and specialized engines (https://github.com/modelcontextprotocol and https://github.com/github/github-mcp-server):
+- **Master Configuration**: [`.mcp.json`](.mcp.json) (24 pre-configured servers: 6 Reference, 1 Official GitHub, 1 Cloud Postgres, 1 Proxy Gateway, and 15 Workspace Sovereign Python modules).
+- **Client Synchronizations**: [`.cursor/mcp.json`](.cursor/mcp.json) & [`.agents/mcp_config.json`](.agents/mcp_config.json).
+- **Deep SDK & Hub Orchestrator**: [`mcp_hub.py`](mcp_hub.py) (Discovery, JSON-RPC 2.0 handshake validation, health check latency benchmarking, tool metadata aggregation, and client exporter).
+- **Composite MCP Multiplexer**: [`mcp_cli.py composite`](mcp_cli.py) (Single unified stdio server proxying all 260 tools through one endpoint for clients with process/connection limits).
+- **Universal CLI**: [`mcp_cli.py`](mcp_cli.py) (`list`, `test [server]`, `export [--client claude|cursor|vscode|goose]`, `serve [--port 8790]`, `composite`).
+- **Interactive Mission Control Cockpit**: [`mcp_master_cockpit.html`](mcp_master_cockpit.html) (Real-time fleet status, interactive 260-tool directory with parameter schemas, protocol sequence architecture, and 1-click config exporters).
+- **One-Click Batch Launcher**: [`START_MCP_HUB.bat`](START_MCP_HUB.bat).
+- **Automated Test Suite**: [`tests/test_mcp_hub.py`](tests/test_mcp_hub.py) (100% test coverage for schema validation, handshake pings, and configuration exports).
+- **Master Tool Registry**: [`data/mcp_tools_catalog.json`](data/mcp_tools_catalog.json) (Structured catalog of 260 schema-validated tools).
+
 ### APEX Career Supremacy OS (Ω-CAREER-UNIVERSE)
 Autonomous end-to-end career intelligence, job discovery, online learning, recruiter network matching, and career velocity suite:
 - [`apex-career-os`](.agents/skills/apex-career-os/SKILL.md): Master orchestrator running the 7-agent closed-loop career conquest engine.
@@ -152,6 +165,23 @@ Universal Job Taxonomy, deep Job Description (JD) dissection, ATS semantic match
 - **Master Batch Launcher**: [`START_ALL_OMNI_SYSTEMS.bat`](START_ALL_OMNI_SYSTEMS.bat) (One-click launch of API server and Executive Cockpit).
 - **Cockpit Launcher**: [`START_UNIVERSAL_JOB_COCKPIT.bat`](START_UNIVERSAL_JOB_COCKPIT.bat) / `python universal_jd_intelligence_engine.py --serve-cockpit 8765`
 - **Enterprise Application Dossiers**: 71 submission-ready packages in [`applications_generated/`](applications_generated/) with tailored ATS resumes, cover letters, recruiter InMails, and STAR interview defense.
+
+### Bengaluru Supreme Startup Intelligence & Career Radar Ecosystem (BSIE-X)
+Autonomous startup market intelligence, venture funding radar, hiring dynamics tracker, and non-sales BBA career alignment engine derived from comprehensive Bengaluru startup telemetry (75 active roles, 16 funding rounds, 41 ecosystem news items, and 234 chronological change deltas):
+- **Core Engine & REST API**: [`bengaluru_startup_intel_engine.py`](bengaluru_startup_intel_engine.py) (SQLite schema initialization, deterministic non-sales ATS fit scorer, multi-format exporter, daily markdown briefing synthesizer, and REST server on port 8792).
+- **Data Vaults & Relational Store**: [`data/bengaluru_startup_intel.sqlite`](data/bengaluru_startup_intel.sqlite), [`data/bengaluru_startup_intel.json`](data/bengaluru_startup_intel.json), and CSV flat files: [`data/bengaluru_startup_jobs.csv`](data/bengaluru_startup_jobs.csv), [`data/bengaluru_startup_funding.csv`](data/bengaluru_startup_funding.csv), [`data/bengaluru_startup_news.csv`](data/bengaluru_startup_news.csv), [`data/bengaluru_startup_daily_delta.csv`](data/bengaluru_startup_daily_delta.csv).
+- **Submission-Ready Application Dossiers**: Detailed packages (ATS Google X-Y-Z resumes, cover letters, recruiter InMails, STAR interview defense matrices) in [`applications_generated/bengaluru_intel/`](applications_generated/bengaluru_intel/):
+  - `JOB-078` (Zethic Technologies): Founder's Office Strategy Intern (Fit: 97/100).
+  - `JOB-073` (Y-Not Design & Mfg): Global Sourcing & Supply Chain Graduate Track (Fit: 98/100).
+  - `JOB-072` (Samaaro): Customer Success & Client Operations Intern (Fit: 96/100).
+  - `JOB-071` (Vantrix Ventures): Founder's Office Venture Analyst (Fit: 91/100).
+  - `JOB-074` (Vats Mobility): Digital Growth & Market Analytics Intern (Fit: 82/100).
+- **Application Staging Queue**: Active candidate applications staged into [`data/approval_queue.csv`](data/approval_queue.csv).
+- **Interactive Mission Control Cockpits**: [`bengaluru_startup_intelligence_cockpit.html`](bengaluru_startup_intelligence_cockpit.html) (Glassmorphism radar with 7 tabs, live KPI metrics, company search, ATS filtering, and dossier inspection) and [`bengaluru_startup_cockpit.html`](bengaluru_startup_cockpit.html).
+- **Executive Cockpit Integration**: Integrated directly into [`OMNI_EXECUTIVE_COCKPIT.html`](OMNI_EXECUTIVE_COCKPIT.html) and launch batch file [`START_ALL_OMNI_SYSTEMS.bat`](START_ALL_OMNI_SYSTEMS.bat).
+- **Dedicated Batch Launcher**: [`START_BENGALURU_STARTUP_COCKPIT.bat`](START_BENGALURU_STARTUP_COCKPIT.bat).
+- **Automated Test Suite**: [`test_bengaluru_startup_intel.py`](test_bengaluru_startup_intel.py) (7 tests verifying database integrity, scoring algorithms, CSV exports, dossiers, and priority roles; integrated into [`VERIFY_ALL_PROJECT_TESTS.py`](VERIFY_ALL_PROJECT_TESTS.py)).
+- **Sovereign Lifecycle Manifest**: Attestation and 12-phase execution report in [`omega/data/bengaluru_startup_intel_do_everything_manifest.json`](omega/data/bengaluru_startup_intel_do_everything_manifest.json).
 
 ### Hiring Without Whiteboards Autonomous Ecosystem
 Canonical practical engineering hiring registry and intelligence engine analyzing 761+ tech companies that evaluate talent through day-to-day software craft rather than whiteboard puzzles or CS trivia (https://github.com/poteto/hiring-without-whiteboards):
@@ -406,6 +436,33 @@ Institutional-grade, multi-asset financial data platform providing 888 analytica
 - **Antigravity MCP Registration**: Registered in `C:\Users\amehr\.gemini\settings.json` and `C:\Users\amehr\.gemini\antigravity\mcp\openbb`.
 - **One-Click Windows Launcher**: [`START_OPENBB_SYSTEM.bat`](START_OPENBB_SYSTEM.bat) (Interactive 9-option terminal control center).
 - **Architecture Teardown Dossier**: [`docs/OPENBB_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/OPENBB_SUPREME_ARCHITECTURE_DOSSIER.md).
+
+### Hyprland Autonomous Compositor & IPC Ecosystem
+Flagship dynamic tiling Wayland compositor, Aquamarine rendering pipeline, dual-socket IPC architecture, GPU bling customizer, cubic-bezier animator, and 12-phase sovereign lifecycle execution (https://github.com/hyprwm/Hyprland):
+- [`hyprland-orchestrator`](.agents/skills/hyprland-orchestrator/SKILL.md): Autonomous SDK, CLI, MCP Server, Cockpit, and operational standard for Hyprland.
+- **Deep SDK & Master Engine**: [`hyprland_orchestrator.py`](hyprland_orchestrator.py) (Dual-mode: live Hyprland UNIX domain socket IPC / `hyprctl` and ultra-high-fidelity offline C++23 compositor simulation engine with outputs, workspaces, Dwindle/Master tiling, window rules, and event streaming).
+- **Universal CLI**: [`hyprland_cli.py`](hyprland_cli.py) (`info`, `monitors`, `workspaces`, `clients`, `active-window`, `dispatch`, `keyword`, `decorations`, `rules`, `animations`, `devices`, `config-generate`, `config-validate`, `events`, `do-everything`).
+- **Autonomous Local API Server**: [`hyprland_api_server.py`](hyprland_api_server.py) (REST bridge on port 8785 serving monitors, workspaces, clients, bling controls, bezier studio, event logs, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`hyprland_mcp_server.py`](hyprland_mcp_server.py) (Exposes 16 Hyprland agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`hyprland_control_cockpit.html`](hyprland_control_cockpit.html) (10 operational tabs: Display Topology, Dynamic Workspaces, Client Windows, Bling & Shaders, Bezier Physics, Dispatcher Deck, Socket2 Events, Layer Shell, 12-Phase Lifecycle, and MCP Playground).
+- **Production Modular Dotfiles**: [`hyprland/configs/`](hyprland/configs/) (`hyprland.conf`, `monitors.conf`, `decoration.conf`, `animations.conf`, `windowrules.conf`, `keybinds.conf`, `waybar/config.jsonc`, `waybar/style.css`, `hyprlock.conf`, `hypridle.conf`).
+- **One-Click Launchers**: [`START_HYPRLAND_WINDOWS.bat`](START_HYPRLAND_WINDOWS.bat) & [`START_HYPRLAND_COCKPIT.bat`](START_HYPRLAND_COCKPIT.bat).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/hyprland_do_everything_manifest.json`](omega/data/hyprland_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/HYPRLAND_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/HYPRLAND_SUPREME_ARCHITECTURE_DOSSIER.md).
+
+### GitHub Marketplace Autonomous Ecosystem & Supply Chain Security Platform
+Canonical developer tool marketplace, Actions CI/CD workflows, Apps OAuth/Webhook integrations, AST supply chain security auditor, and 12-phase sovereign lifecycle execution (https://github.com/marketplace):
+- [`github-marketplace`](.agents/skills/github-marketplace/SKILL.md): Autonomous SDK, CLI, MCP Server, Cockpit, and operational standard for GitHub Marketplace ecosystem.
+- **Deep SDK & Master Engine**: [`github_marketplace_orchestrator.py`](github_marketplace_orchestrator.py) (FTS5 SQLite search index of 373 top Actions and Apps across 19 categories, DAG workflow synthesizer, AST supply chain security auditor with SHA pinning enforcement and script injection detection, cross-graph builder, and 12-phase sovereign lifecycle).
+- **Universal CLI**: [`github_marketplace_cli.py`](github_marketplace_cli.py) (`info`, `categories`, `search`, `get`, `actions`, `apps`, `generate-workflow`, `audit-workflow`, `export`, `do-everything`, `serve`).
+- **Autonomous Local REST API Server**: [`github_marketplace_api_server.py`](github_marketplace_api_server.py) (REST bridge on port 8783 serving catalog search, category breakdown, workflow synthesis, security audit, topology graph, manifest, and cockpit).
+- **Model Context Protocol (MCP) Server**: [`github_marketplace_mcp_server.py`](github_marketplace_mcp_server.py) (Exposes 10 Marketplace agent tools via stdio JSON-RPC).
+- **Interactive Mission Control Cockpit**: [`github_marketplace_cockpit.html`](github_marketplace_cockpit.html) (6 operational tabs: Overview & KPIs, 373-Item Catalog Explorer, Workflow Synthesizer Studio, AST Security & SHA Pinning Auditor, 12-Phase Attestation Stepper, and REST/MCP Playground).
+- **Structured Catalogs & Databases**: [`data/github_marketplace.sqlite3`](data/github_marketplace.sqlite3), [`data/github_marketplace_catalog.json`](data/github_marketplace_catalog.json), [`data/github_marketplace_categories.json`](data/github_marketplace_categories.json), [`data/github_marketplace_graph.json`](data/github_marketplace_graph.json), [`data/github_marketplace_export.csv`](data/github_marketplace_export.csv).
+- **One-Click Launchers**: [`START_GITHUB_MARKETPLACE_WINDOWS.bat`](START_GITHUB_MARKETPLACE_WINDOWS.bat) & [`START_GITHUB_MARKETPLACE_COCKPIT.bat`](START_GITHUB_MARKETPLACE_COCKPIT.bat).
+- **Master 12-Phase Sovereign Lifecycle**: [`omega/data/github_marketplace_do_everything_manifest.json`](omega/data/github_marketplace_do_everything_manifest.json) (`do_everything` validation across all 12 platform layers).
+- **Architecture Teardown Dossier**: [`docs/GITHUB_MARKETPLACE_SUPREME_ARCHITECTURE_DOSSIER.md`](docs/GITHUB_MARKETPLACE_SUPREME_ARCHITECTURE_DOSSIER.md).
+- **Automated Test Suite**: [`tests/test_github_marketplace_orchestrator.py`](tests/test_github_marketplace_orchestrator.py) (12 unit and integration tests, 100% pass rate).
 
 ### Issue tracker
 

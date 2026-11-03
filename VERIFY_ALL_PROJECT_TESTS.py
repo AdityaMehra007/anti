@@ -25,8 +25,12 @@ TEST_TARGETS = [
     ("ApexAgentic Task Runtime", "projects/apex_agentic_task_runtime/tests"),
     ("APEX Career Supremacy OS", "tests/test_apex_career_os.py"),
     ("Universal Job & Skill Intelligence Engine", "test_universal_job_engine.py"),
+    ("Bengaluru Startup Intelligence Suite", "test_bengaluru_startup_intel.py"),
     ("OMEGA Omniverse REST API & Pitch Decks Suite", "tests/test_omega_omniverse_api.py"),
     ("Mode H Antifragile Red-Team & Chaos Harness", "tests/test_antifragile_chaos_harness.py"),
+    ("MCP Master Fleet & Hub Suite", "tests/test_mcp_hub.py"),
+    ("GitHub Marketplace Orchestrator Suite", "tests/test_github_marketplace_orchestrator.py"),
+    ("Hyprland Orchestrator Suite", "tests/test_hyprland_orchestrator.py"),
 ]
 
 def run_all_tests():

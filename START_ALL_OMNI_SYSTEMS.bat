@@ -59,6 +59,15 @@ start "Hummingbot API Server" cmd /k "python hummingbot_api_server.py --port 878
 echo [*] Starting Awesome Universe Autonomous Knowledge Graph on http://127.0.0.1:8782...
 start "Awesome Universe API Server" cmd /k "python awesome_api_server.py 8782"
 
+echo [*] Starting Hyprland Autonomous Compositor & IPC Cockpit on http://127.0.0.1:8785...
+start "Hyprland API Server" cmd /k "python hyprland_api_server.py --port 8785"
+
+echo [*] Starting GitHub Marketplace Autonomous Engine on http://127.0.0.1:8783...
+start "GitHub Marketplace API Server" cmd /k "python github_marketplace_api_server.py 8783"
+
+echo [*] Starting Bengaluru Startup Intelligence & Career Radar on http://127.0.0.1:8792...
+start "Bengaluru Startup Intel API" cmd /k "python bengaluru_startup_intel_engine.py --serve 8792"
+
 timeout /t 2 /nobreak >nul
 
 echo [*] Launching Master Executive Mission Control in browser...
@@ -87,5 +96,8 @@ echo   18. Hummingbot Trading API:   http://127.0.0.1:8781
 echo   19. Awesome Universe API:     http://127.0.0.1:8782
 echo   20. 7-Agent APEX Cockpit:     file:///e:/anti/apex_career_cockpit.html
 echo   21. Global Opportunity Map:   file:///e:/anti/master_job_universe_dashboard.html
+echo   22. Hyprland Compositor API:  http://127.0.0.1:8785
+echo   23. GitHub Marketplace API:   http://127.0.0.1:8783
+echo   24. Bengaluru Startup Radar:  http://127.0.0.1:8792/cockpit
 echo ==============================================================================
 pause
