@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADITYA MEHRA | THE CHRONICLES: PAST, PRESENT & FUTURE (2018–2031)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030611;
+      --surface: #080d22;
+      --card: #0e1535;
+      --card-hover: #15204d;
+      --border: #182654;
+      --cyan: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.3);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.3);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.3);
+      --rose: #f43f5e;
+      --rose-glow: rgba(244, 63, 94, 0.3);
+      --purple: #8b5cf6;
+      --purple-glow: rgba(139, 92, 246, 0.3);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-serif: 'Playfair Display', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    /* Master Top Bar */
+    .top-bar {
+      background: linear-gradient(135deg, rgba(14, 21, 53, 0.95), rgba(8, 13, 34, 0.95));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+    .top-title h1 {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 20%, var(--cyan) 70%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .top-title p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Epoch Selector Tabs */
+    .epoch-nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 800px) {
+      .epoch-nav { grid-template-columns: 1fr; }
+    }
+    .epoch-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .epoch-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: transparent;
+      transition: all 0.25s ease;
+    }
+    .epoch-btn:hover {
+      background: var(--card);
+      transform: translateY(-2px);
+    }
+    .epoch-btn.active {
+      background: var(--card);
+      border-color: var(--cyan);
+      box-shadow: 0 8px 25px rgba(0, 242, 254, 0.15);
+    }
+    .epoch-btn.past.active::before { background: var(--purple); }
+    .epoch-btn.present.active::before { background: var(--cyan); }
+    .epoch-btn.future.active::before { background: var(--emerald); }
+
+    .epoch-badge {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+    .epoch-btn.past .epoch-badge { background: rgba(139, 92, 246, 0.15); color: var(--purple); }
+    .epoch-btn.present .epoch-badge { background: rgba(0, 242, 254, 0.15); color: var(--cyan); }
+    .epoch-btn.future .epoch-badge { background: rgba(16, 185, 129, 0.15); color: var(--emerald); }
+
+    .epoch-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .epoch-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Fast Jump Buttons */
+    .link-rack {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-link {
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-link:hover { transform: translateY(-1px); }
+
+    /* Epoch Panes */
+    .epoch-pane { display: none; }
+    .epoch-pane.active { display: block; animation: fadeIn 0.3s ease forwards; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Narrative Hero Header */
+    .hero-card {
+      background: linear-gradient(135deg, rgba(14, 21, 53, 0.8), rgba(8, 13, 34, 0.9));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .hero-tag {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+    .hero-quote {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .hero-narrative {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    /* Timeline Container */
+    .timeline {
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 30px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 14px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--purple), var(--cyan), var(--emerald));
+    }
+
+    .t-node {
+      position: relative;
+      margin-bottom: 26px;
+    }
+    .t-marker {
+      position: absolute;
+      left: -36px;
+      top: 4px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-mono);
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
+    .t-marker.purple { border-color: var(--purple); box-shadow: 0 0 12px var(--purple-glow); color: var(--purple); }
+    .t-marker.emerald { border-color: var(--emerald); box-shadow: 0 0 12px var(--emerald-glow); color: var(--emerald); }
+    .t-marker.gold { border-color: var(--gold); box-shadow: 0 0 12px var(--gold-glow); color: var(--gold); }
+    .t-marker.rose { border-color: var(--rose); box-shadow: 0 0 12px var(--rose-glow); color: var(--rose); }
+
+    .t-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      transition: all 0.2s ease;
+    }
+    .t-content:hover {
+      background: var(--card);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .t-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .t-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .t-date {
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--cyan);
+      background: rgba(0, 242, 254, 0.1);
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 242, 254, 0.25);
+    }
+    .t-role {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .t-bullets {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .t-bullets li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .t-bullets li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: var(--emerald);
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    /* Metric Chips */
+    .chip-rack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .chip {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .chip-emerald { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: var(--emerald); }
+    .chip-cyan { background: rgba(0, 242, 254, 0.1); border-color: rgba(0, 242, 254, 0.3); color: var(--cyan); }
+    .chip-purple { background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3); color: var(--purple); }
+    .chip-gold { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: var(--gold); }
+    .chip-rose { background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.3); color: var(--rose); }
+
+    /* Identity Synthesis Box */
+    .synthesis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .s-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .s-title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .s-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-title">
+      <h1>ADITYA MEHRA | THE CHRONICLES: PAST, PRESENT & FUTURE</h1>
+      <p>The Complete Sovereign Odyssey (2018–2031) • From Ground Trials & ₹30L Debt to Enterprise Commercial Leadership</p>
+    </div>
+    <div class="link-rack">
+      <a href="ADITYA_MEHRA_GLOBAL_PORTFOLIO_AND_CROSS_CHECK_AUDIT.html" target="_blank" class="btn-link" style="background: linear-gradient(135deg, #00f2fe, #10b981); color: #030611;">🌐 Global Portfolio & Audit ↗</a>
+      <a href="ADITYA_LIFE_STABILITY_FORTRESS_COCKPIT.html" target="_blank" class="btn-link" style="background: linear-gradient(135deg, #10b981, #00f2fe); color: #030611;">🧘 Stability OS ↗</a>
+      <a href="ADITYA_MEHRA_PROOF_OF_WORK_GLOBAL_VAULT.html" target="_blank" class="btn-link" style="background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff;">🛡️ PoW Vault ↗</a>
+      <a href="ADITYA_MEHRA_PRINTABLE_A4_1PAGE_CV.html" target="_blank" class="btn-link" style="background: var(--emerald); color: #030611;">📄 1-Page CV (PDF) ↗</a>
+      <a href="ADITYA_DEBT_ZERO_30_LAKH_COCKPIT.html" target="_blank" class="btn-link" style="background: rgba(244, 63, 94, 0.2); border: 1px solid var(--rose); color: #fff;">💥 ₹30L Debt ↗</a>
+      <a href="ADITYA_MEHRA_EVERYTHING_MASTER_VAULT.html" target="_blank" class="btn-link" style="background: var(--cyan); color: #030611;">🏛️ Master Vault ↗</a>
+    </div>
+  </div>
+
+  <!-- Epoch Navigation -->
+  <div class="epoch-nav">
+    <div class="epoch-btn past active" onclick="switchEpoch('past', this)">
+      <span class="epoch-badge">2018 – OCT 2026</span>
+      <div class="epoch-title">🏛️ ERA 1: THE FORGE (PAST)</div>
+      <div class="epoch-sub">7-Yr Commercial Hustle, ₹80L GMV, IRDAI, Aero India & DSU BBA</div>
+    </div>
+    <div class="epoch-btn present" onclick="switchEpoch('present', this)">
+      <span class="epoch-badge">NOV 2026 – EARLY 2027</span>
+      <div class="epoch-title">⚔️ ERA 2: THE BATTLEFIELD (PRESENT)</div>
+      <div class="epoch-sub">BrightCHAMPS US Shift, ₹30L Debt War, Family Shield & Tech Hunt</div>
+    </div>
+    <div class="epoch-btn future" onclick="switchEpoch('future', this)">
+      <span class="epoch-badge">2027 – 2031 & BEYOND</span>
+      <div class="epoch-title">👑 ERA 3: THE EMPIRE (FUTURE)</div>
+      <div class="epoch-sub">₹0 Debt-Zero (Feb 2028), ₹25L+ Tech AE, GTM Leadership & Wealth</div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ERA 1: THE FORGE (PAST 2018–2026) -->
+  <!-- ========================================================================= -->
+  <div id="pane-past" class="epoch-pane active">
+    
+    <div class="hero-card">
+      <div class="hero-tag">THE FORGING OF A COMMERCIAL WARRIOR</div>
+      <div class="hero-quote">"They called me a 'fresher' because of my graduation certificate year. But while they were sitting in lecture halls, I was closing ₹80 Lakhs in commercial volume and commanding live event stages."</div>
+      <div class="hero-narrative">
+        Aditya Mehra’s past is not a conventional academic resume. It is a 7-year trial in real-world economics. Between the ages of 18 and 25, while navigating personal educational transitions (BDMI to NIOS senior secondary) and earning his BBA in International Business at Dayananda Sagar University (DSU '26), Aditya was in the field generating cash, negotiating supplier contracts, building distributor networks, and supporting his mother.
+      </div>
+    </div>
+
+    <div class="synthesis-grid">
+      <div class="s-card">
+        <div class="s-title" style="color: var(--emerald);"><span>📈 Commercial Dominance</span></div>
+        <div class="s-desc">Generated <strong>₹60,00,000 to ₹80,00,000+ in annual commercial GMV</strong> across 7 consecutive years with Oriflame India, achieving Senior Manager (21% Level) and managing 50+ Brand Partners.</div>
+      </div>
+      <div class="s-card">
+        <div class="s-title" style="color: var(--cyan);"><span>🛡️ Statutory Licensing</span></div>
+        <div class="s-desc">Licensed by the <strong>Insurance Regulatory and Development Authority of India (IRDAI)</strong> at Bajaj Allianz Life, maintaining a certified <strong>>85% persistency ratio</strong> through high-trust HNI advisory.</div>
+      </div>
+      <div class="s-card">
+        <div class="s-title" style="color: var(--purple);"><span>⚡ High-Stakes Operations</span></div>
+        <div class="s-desc">Directed end-to-end on-ground staging and AV logistics for 1,000+ pax events, culminating in serving as on-ground operations lead at <strong>Aero India 2025</strong> in Bengaluru.</div>
+      </div>
+    </div>
+
+    <!-- Timeline Nodes -->
+    <div class="timeline">
+
+      <!-- Node 1: Aero India 2025 -->
+      <div class="t-node">
+        <div class="t-marker purple">01</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Lead On-Ground Operations & Staging Producer</div>
+              <div class="t-role">Aero India 2025 (Asia's Premier Aerospace & Defense Exhibition) • Bengaluru</div>
+            </div>
+            <span class="t-date">Feb 2025</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Orchestrated full-scale logistical execution, AV engineering, and crowd staging for <strong>1,000+ high-profile attendees</strong> at Yelahanka Air Force Station.</li>
+            <li>Managed multi-vendor technical coordination under zero-fail military and protocol security standards.</li>
+            <li>Demonstrated calm crisis management when resolving on-site equipment and protocol bottlenecks in real time.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-purple">Aero India 2025</span>
+            <span class="chip chip-emerald">1,000+ Pax Scale</span>
+            <span class="chip chip-cyan">Zero-Fail Execution</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 2: Bajaj Allianz Life -->
+      <div class="t-node">
+        <div class="t-marker cyan">02</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Insurance Consultant (IRDAI Licensed)</div>
+              <div class="t-role">Bajaj Allianz Life Insurance Company • Bengaluru</div>
+            </div>
+            <span class="t-date">2023 – Present</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Passed rigorous statutory IRDAI licensing examinations for life and financial underwriting.</li>
+            <li>Maintained an extraordinary <strong>>85.0% client persistency ratio</strong>, outperforming national industry benchmarks through continuous relationship management.</li>
+            <li>Verified statutory earnings under Form 16A and Section 194D with unbroken compliance standing.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-cyan">IRDAI Licensed</span>
+            <span class="chip chip-emerald">>85% Persistency</span>
+            <span class="chip chip-gold">Form 16A / Sec 194D</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 3: Oriflame Senior Manager -->
+      <div class="t-node">
+        <div class="t-marker emerald">03</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Senior Commercial Sales Manager (Independent 21% Title)</div>
+              <div class="t-role">Oriflame India • Bengaluru & National Network</div>
+            </div>
+            <span class="t-date">2019 – Present (7 Years)</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Built, mentored, and scaled an active sales organization of <strong>50+ Brand Partners</strong> across India.</li>
+            <li>Consistently generated <strong>₹60,00,000 to ₹80,00,000+ in annual commercial turnover (GMV)</strong>, achieving 7,500+ Group BP monthly volume cycles.</li>
+            <li>Built automated digital WhatsApp funnels and landing pages, increasing downline recruitment and conversion velocity by 34%.</li>
+            <li>Backed by unbroken Form 26AS tax credits under Section 194H from 2019 to 2026.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-emerald">₹60L–₹80L+ Annual GMV</span>
+            <span class="chip chip-cyan">50+ Brand Partners</span>
+            <span class="chip chip-gold">Form 26AS / Sec 194H</span>
+            <span class="chip chip-purple">Senior Manager 21%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 4: Internships & Family Business -->
+      <div class="t-node">
+        <div class="t-marker gold">04</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Corporate Internships & Family Retail Enterprise</div>
+              <div class="t-role">Puma Sports India • Tata Communications • Family Business</div>
+            </div>
+            <span class="t-date">2018 – 2024</span>
+          </div>
+          <ul class="t-bullets">
+            <li><strong>Puma Sports India:</strong> Brand Operations & Retail Commercials Intern. Monitored store-level inventory flow, POS merchandising, and sales performance.</li>
+            <li><strong>Tata Communications:</strong> Global Infrastructure Asset Operations Intern. Conducted physical-to-digital IT asset audits across enterprise facilities.</li>
+            <li><strong>Family Business (2018–2021):</strong> 3 years managing store operations, supplier credit terms, cash registers, and physical stock auditing.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip">Puma Sports</span>
+            <span class="chip">Tata Communications</span>
+            <span class="chip">Retail Operations</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 5: Academic Completion -->
+      <div class="t-node">
+        <div class="t-marker rose">05</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">BBA in International Business (Class of 2026)</div>
+              <div class="t-role">Dayananda Sagar University (DSU) • Bengaluru</div>
+            </div>
+            <span class="t-date">Graduating 2026</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Completed degree in International Business with formal coursework in Global Supply Chain, Cross-Border Trade, Commercial Law, and Financial Accounting (CGPA: 6.33).</li>
+            <li>Balanced full-time college attendance while running commercial sales networks, building software, and servicing debt.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ERA 2: THE BATTLEFIELD (PRESENT NOV 2026 – EARLY 2027) -->
+  <!-- ========================================================================= -->
+  <div id="pane-present" class="epoch-pane">
+    
+    <div class="hero-card">
+      <div class="hero-tag">THE TRENCHES OF IMMEDIATE CONQUEST</div>
+      <div class="hero-quote">"Right now, I am operating a dual-engine machine. By night, I close deals in US dollars. By day, I build my pipeline into Tier-1 Bangalore tech and ringfence my family."</div>
+      <div class="hero-narrative">
+        This is where Aditya stands today. 25 years old (turning 26 in January 2027). Carrying an urgent ₹30,00,000 debt burden. Accepted into BrightCHAMPS US Shift inside sales (₹4.6 LPA CTC, starting Nov 12, 2026). Armed with the complete legal armor, 5 interactive cockpits, and a 1-page A4 PDF resume ready to conquer Bangalore's elite AI/Tech corridor.
+      </div>
+    </div>
+
+    <div class="synthesis-grid">
+      <div class="s-card" style="border-color: rgba(244, 63, 94, 0.4);">
+        <div class="s-title" style="color: var(--rose);"><span>💥 The Debt Front</span></div>
+        <div class="s-desc"><strong>₹30,00,000 principal</strong> locked into a deterministic 18-month reduction curve. Family living (₹35,000/mo) strictly ringfenced so family never feels financial panic.</div>
+      </div>
+      <div class="s-card" style="border-color: rgba(0, 242, 254, 0.4);">
+        <div class="s-title" style="color: var(--cyan);"><span>⚡ The Cash Front</span></div>
+        <div class="s-desc">Stacking <strong>BrightCHAMPS (₹32k) + Oriflame (₹45k) + Bajaj (₹20k) = ₹97,000/month</strong> baseline cash flow. Leaves ₹62,000/mo net surplus for safety buffers and debt reduction.</div>
+      </div>
+      <div class="s-card" style="border-color: rgba(16, 185, 129, 0.4);">
+        <div class="s-title" style="color: var(--emerald);"><span>🎯 The Opportunity Front</span></div>
+        <div class="s-desc">5.5 hours of protected daytime hours (12:00 PM – 5:30 PM) actively dedicated to outbound applications and interviews with <strong>DevRev, Sarvam AI, Razorpay, Yellow.ai, and Postman</strong>.</div>
+      </div>
+    </div>
+
+    <!-- Present Nodes -->
+    <div class="timeline">
+
+      <!-- Present Node 1 -->
+      <div class="t-node">
+        <div class="t-marker cyan">01</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Inside Sales Specialist (US Shift) — BrightCHAMPS</div>
+              <div class="t-role">International STEM/Tech Curricula • North America Hours (7:30 PM – 4:30 AM IST)</div>
+            </div>
+            <span class="t-date">Starts Nov 12, 2026</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Guarantees an immediate <strong>₹32,000/month in-hand salary</strong>, completely paying for household groceries and bills.</li>
+            <li>Conducting 60+ consultative discovery dials per shift to American parents, mastering high-velocity objections.</li>
+            <li>Leaves the entire daytime (12:00 PM – 5:30 PM) wide open for corporate interviews in Indiranagar, Koramangala, and Bellandur.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-cyan">₹4.6 LPA CTC Baseline</span>
+            <span class="chip chip-emerald">60+ Dials / Shift</span>
+            <span class="chip chip-purple">US Market Objections</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Present Node 2 -->
+      <div class="t-node">
+        <div class="t-marker rose">02</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Operation Debt-Zero (₹30 Lakh Liquidation Console)</div>
+              <div class="t-role">Multi-Engine Cash Sinking Fund & Legal Ringfencing</div>
+            </div>
+            <span class="t-date">Active Nov 2026 – Feb 2028</span>
+          </div>
+          <ul class="t-bullets">
+            <li><strong>Household Shield:</strong> ₹35,000 transferred automatically on the 1st of every month. Mother's medicines and family living are never touched.</li>
+            <li><strong>Emergency Buffer:</strong> First ₹50,000 emergency liquid cushion completed by December 31, 2026. Target ₹1.5L by April 2027.</li>
+            <li><strong>Principal Pre-Payment:</strong> All commissions and corporate surplus directed to high-interest principal tranches.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-rose">₹30L Outstanding</span>
+            <span class="chip chip-emerald">₹35k/mo Family Ringfence</span>
+            <span class="chip chip-gold">₹1.5L Emergency Buffer Target</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Present Node 3 -->
+      <div class="t-node">
+        <div class="t-marker emerald">03</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">The Legal War Shield & Moonlighting Safety</div>
+              <div class="t-role">Section 27 Indian Contract Act & EPFO Dual-Employment Verification</div>
+            </div>
+            <span class="t-date">Verified Nov 2026</span>
+          </div>
+          <ul class="t-bullets">
+            <li><strong>EPFO / UAN Cleanliness:</strong> Neither Oriflame nor Bajaj Allianz deposits EPF (they are non-salaried 194H/194D commission contracts). BrightCHAMPS is your <strong>only active corporate PF account</strong>—100% clean BGV.</li>
+            <li><strong>Section 27 Protection:</strong> Employment bonds or non-competes in probation are void under Indian contract law. Resignation requires only standard 15–30 day notice or pay-in-lieu.</li>
+            <li><strong>Pre-Drafted Resignation Toolkit:</strong> 3-sentence formal resignation email and AuthBridge BGV self-declaration ready in [`docs/LEGAL_RESIGNATION_HANDOVER_AND_BGV_TOOLKIT.md`](file:///e:/anti/docs/LEGAL_RESIGNATION_HANDOVER_AND_BGV_TOOLKIT.md).</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-emerald">100% EPFO Clean</span>
+            <span class="chip chip-cyan">Sec 27 Indian Contract Act</span>
+            <span class="chip chip-purple">Zero Moonlighting Risk</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ERA 3: THE EMPIRE (FUTURE 2027–2031 & BEYOND) -->
+  <!-- ========================================================================= -->
+  <div id="pane-future" class="epoch-pane">
+    
+    <div class="hero-card">
+      <div class="hero-tag">THE ASCENSION TO FINANCIAL & CAREER SOVEREIGNTY</div>
+      <div class="hero-quote">"By February 2028, my loan balance will be exactly ₹0.00. By 2030, I will be directing commercial GTM for premier tech enterprises with generational wealth protecting my mother."</div>
+      <div class="hero-narrative">
+        This is not wishful thinking; this is the mathematical consequence of compounding your unique strengths. When you combine 7 years of real commercial production, international US inside sales dialer speed, regulated financial trust, and AI vibe coding agility, you become the most formidable commercial leader in Bangalore.
+      </div>
+    </div>
+
+    <div class="synthesis-grid">
+      <div class="s-card" style="border-color: rgba(16, 185, 129, 0.4);">
+        <div class="s-title" style="color: var(--emerald);"><span>🎯 February 2028 Victory</span></div>
+        <div class="s-desc"><strong>₹0.00 Loan Balance:</strong> Total liquidation of ₹30 Lakhs debt in 18 months. Full No Objection Certificates (NOCs) collected from all lenders. ₹10 Lakhs+ liquid net worth.</div>
+      </div>
+      <div class="s-card" style="border-color: rgba(0, 242, 254, 0.4);">
+        <div class="s-title" style="color: var(--cyan);"><span>🚀 Tier-1 Tech Elevation</span></div>
+        <div class="s-desc">Transitioning from ₹4.6 LPA inside sales to <strong>₹14L–₹18L OTE in 2027</strong>, then advancing to <strong>₹25L–₹35L CTC as Enterprise Account Executive</strong> by 2029.</div>
+      </div>
+      <div class="s-card" style="border-color: rgba(139, 92, 246, 0.4);">
+        <div class="s-title" style="color: var(--purple);"><span>🏡 Family Legacy Protected</span></div>
+        <div class="s-desc">Your mother’s health, comfort, and peace of mind are permanently ringfenced. Private comprehensive medical insurance, zero financial anxiety, and total household sovereignty.</div>
+      </div>
+    </div>
+
+    <!-- Future Nodes -->
+    <div class="timeline">
+
+      <!-- Future Node 1: Q2 2027 -->
+      <div class="t-node">
+        <div class="t-marker cyan">01</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Land Tier-1 Tech GTM Role (₹14L – ₹18L OTE)</div>
+              <div class="t-role">DevRev / Sarvam AI / Razorpay / Yellow.ai • Bengaluru</div>
+            </div>
+            <span class="t-date">March – April 2027 (Age 26)</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Close enterprise tech role as Associate Solutions Consultant or Enterprise BDR using the Universal Proof of Work Vault.</li>
+            <li>Negotiate **₹1.5 Lakhs signing bonus** + ₹1,15,000 monthly in-hand compensation.</li>
+            <li>Execute smooth 15-day resignation handover from BrightCHAMPS using our Section 27 legal kit.</li>
+            <li>Monthly debt prepayment capacity surges to **₹1,45,000/month**.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-cyan">₹14L–₹18L OTE</span>
+            <span class="chip chip-gold">₹1.5L Signing Bonus</span>
+            <span class="chip chip-emerald">₹1,15,000 In-Hand / mo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future Node 2: Feb 2028 -->
+      <div class="t-node">
+        <div class="t-marker emerald">02</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">TOTAL DEBT ZERO (§0.00) — DAY OF ABSOLUTE FREEDOM</div>
+              <div class="t-role">All Bank & Personal Liabilities Completely Eradicated • 100% Free Man</div>
+            </div>
+            <span class="t-date">February 2028 (Age 27)</span>
+          </div>
+          <ul class="t-bullets">
+            <li>**The Milestone:** Exactly 18 months from starting BrightCHAMPS, all ₹30,00,000 in loan debt is liquidated to **₹0.00**.</li>
+            <li>Formal No Objection Certificates (NOCs) and cleared statements filed in your permanent physical and digital archive.</li>
+            <li>Your mother holds the cleared paperwork in her hands with tears of relief. The family is permanently safe.</li>
+            <li>Accumulated liquid savings: **₹5,00,000 – ₹10,00,000** in high-yield mutual fund SIPs and emergency cash.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-emerald">DEBT: ₹0.00 ZERO</span>
+            <span class="chip chip-gold">All NOCs Cleared</span>
+            <span class="chip chip-cyan">Age 27 Unbound</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future Node 3: 2029 - 2030 -->
+      <div class="t-node">
+        <div class="t-marker purple">03</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Enterprise Account Executive / GTM Lead (₹25L – ₹35L CTC)</div>
+              <div class="t-role">High-Growth AI Infrastructure & SaaS Corridors • Bengaluru & Global</div>
+            </div>
+            <span class="t-date">2029 – 2030 (Age 28–29)</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Promoted to full-cycle Enterprise Account Executive closing \$50k–\$250k ACV enterprise software contracts.</li>
+            <li>Leading sales engineering and commercial pilots using custom AI prototypes built in hours via vibe coding.</li>
+            <li>Generating personal surplus of ₹1,80,000+ monthly purely into wealth building, real estate, and equity index funds.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-purple">₹25L–₹35L CTC</span>
+            <span class="chip chip-cyan">Enterprise AE Title</span>
+            <span class="chip chip-emerald">Sovereign Wealth Compounding</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future Node 4: 2031 & Beyond -->
+      <div class="t-node">
+        <div class="t-marker gold">04</div>
+        <div class="t-content">
+          <div class="t-header">
+            <div>
+              <div class="t-title">Director of Commercial GTM / Venture Founder (₹50L+ CTC / Equity)</div>
+              <div class="t-role">Sovereign Commercial Leadership • Bangalore Tech Ecosystem</div>
+            </div>
+            <span class="t-date">2031 & Beyond (Age 30+)</span>
+          </div>
+          <ul class="t-bullets">
+            <li>Directing commercial revenue operations, leading sales teams, or scaling an independent tech venture.</li>
+            <li>Recognized as a powerhouse leader who forged his executive grit in the fire of real commercial warfare.</li>
+            <li>Complete intergenerational financial security established for your mother and family.</li>
+          </ul>
+          <div class="chip-rack">
+            <span class="chip chip-gold">₹50L+ Leadership Level</span>
+            <span class="chip chip-emerald">Generational Wealth</span>
+            <span class="chip chip-purple">Complete Mastery</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function switchEpoch(epochId, btn) {
+      const panes = document.getElementsByClassName('epoch-pane');
+      for (let i = 0; i < panes.length; i++) {
+        panes[i].classList.remove('active');
+      }
+      const btns = document.getElementsByClassName('epoch-btn');
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].classList.remove('active');
+      }
+      document.getElementById('pane-' + epochId).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADITYA MEHRA — THE DEFINITIVE DO'S AND DON'TS MASTER CODE</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #06080d;
+  --bg-card: #0c111c;
+  --bg-card-hover: #131a2b;
+  --gold: #f59e0b;
+  --gold-glow: rgba(245, 158, 11, 0.25);
+  --emerald: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.2);
+  --emerald-bg: rgba(16, 185, 129, 0.08);
+  --rose: #f43f5e;
+  --rose-glow: rgba(244, 63, 94, 0.2);
+  --rose-bg: rgba(244, 63, 94, 0.08);
+  --cyan: #06b6d4;
+  --purple: #8b5cf6;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(245, 158, 11, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(244, 63, 94, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 55%);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 24px; }
+
+/* Top Header */
+.top-nav {
+  background: rgba(12, 17, 28, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-gold {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #000;
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Hero */
+.hero {
+  padding: 44px 0 28px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 80%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+  max-width: 860px;
+  margin: 0 auto 32px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Filter Controls */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  color: #fff;
+  background: var(--bg-card-hover);
+}
+
+.filter-btn.active {
+  color: var(--gold);
+  background: rgba(245, 158, 11, 0.12);
+  border-color: var(--gold);
+}
+
+/* Master Columns Split (DO vs DONT) */
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 900px) {
+  .split-grid { grid-template-columns: 1fr; }
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 2px;
+}
+
+.column-header.dos {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-bottom: none;
+}
+
+.column-header.donts {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(244, 63, 94, 0.05));
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-bottom: none;
+}
+
+.column-header h2 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.column-header.dos h2 { color: var(--emerald); }
+.column-header.donts h2 { color: var(--rose); }
+
+.rule-count {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.rule-count.dos { background: var(--emerald); color: #000; }
+.rule-count.donts { background: var(--rose); color: #fff; }
+
+.column-body {
+  border-radius: 0 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Rule Card */
+.rule-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.rule-card:hover {
+  transform: translateY(-2px);
+}
+
+.rule-card.do {
+  border-left: 4px solid var(--emerald);
+}
+
+.rule-card.do:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.rule-card.dont {
+  border-left: 4px solid var(--rose);
+}
+
+.rule-card.dont:hover {
+  border-color: rgba(244, 63, 94, 0.4);
+  background: rgba(244, 63, 94, 0.04);
+}
+
+.rule-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.rule-category {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cat-career { background: rgba(245, 158, 11, 0.15); color: var(--gold); }
+.cat-finance { background: rgba(16, 185, 129, 0.15); color: var(--emerald); }
+.cat-legal { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+.cat-health { background: rgba(139, 92, 246, 0.15); color: var(--purple); }
+.cat-mindset { background: rgba(244, 63, 94, 0.15); color: #fda4af; }
+
+.rule-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.rule-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.rule-desc strong {
+  color: #e2e8f0;
+}
+
+/* Quick Dock Footer */
+.quick-dock {
+  background: rgba(12, 17, 28, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.dock-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.dock-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-dock {
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-dock:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="top-nav">
+  <div class="container top-nav-inner">
+    <div class="brand-badge">
+      <span class="badge-gold">TITAN CODE</span>
+      <span style="font-weight: 800; font-size: 0.95rem;">ADITYA MEHRA — THE DEFINITIVE DO'S & DON'TS</span>
+    </div>
+    <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">
+      Target: 100% Behavioral & Operational Invariance
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-subtitle">The Law of Execution</div>
+    <h1 class="hero-title">The Master List of What to Do & What Never to Do</h1>
+    <p class="hero-desc">
+      Clear, unfiltered boundaries across Career, ₹30L Debt Decimation, Legal Protection, Night Shift Circadian Biology, 
+      and Personal Stoic Leadership. Adhere to this code with zero exceptions.
+    </p>
+
+    <!-- Category Filters -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRules('all')">All Rules (24)</button>
+      <button class="filter-btn" onclick="filterRules('career')">💼 Career & Jobs</button>
+      <button class="filter-btn" onclick="filterRules('finance')">💰 Debt & Finance</button>
+      <button class="filter-btn" onclick="filterRules('legal')">⚖️ Legal & Tax</button>
+      <button class="filter-btn" onclick="filterRules('health')">🧬 Biology & Shift</button>
+      <button class="filter-btn" onclick="filterRules('mindset')">👑 Mindset & Family</button>
+    </div>
+  </section>
+
+  <!-- Split Grid (DO vs DON'T) -->
+  <section class="split-grid">
+
+    <!-- THE DO'S COLUMN -->
+    <div>
+      <div class="column-header dos">
+        <h2>✅ WHAT TO DO (THE MANDATES)</h2>
+        <span class="rule-count dos" id="doCount">12 Rules</span>
+      </div>
+      <div class="column-body">
+
+        <!-- DO 1 -->
+        <div class="rule-card do" data-cat="career">
+          <div class="rule-meta">
+            <span class="rule-category cat-career">Career & Jobs</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 01</span>
+          </div>
+          <div class="rule-title">Anchor Your 7 Years of Commercial Experience Everywhere</div>
+          <div class="rule-desc">
+            Frame your Oriflame (₹80L+ GMV, 21% level) and Bajaj Allianz work as <strong>verified on-ground commercial experience backed by Form 26AS</strong>. Deliver your word-for-word rebuttal immediately whenever anyone mentions "fresher".
+          </div>
+        </div>
+
+        <!-- DO 2 -->
+        <div class="rule-card do" data-cat="career">
+          <div class="rule-meta">
+            <span class="rule-category cat-career">Career & Jobs</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 02</span>
+          </div>
+          <div class="rule-title">Pitch Sales Leaders Directly via LinkedIn InMails</div>
+          <div class="rule-desc">
+            Bypass standard HR application portals. Send 5 customized InMails daily to <strong>VPs of Sales, CROs, and Founders</strong> at DevRev, Sarvam AI, Razorpay, and Samaaro with tailored 2-minute pipeline blueprints.
+          </div>
+        </div>
+
+        <!-- DO 3 -->
+        <div class="rule-card do" data-cat="career">
+          <div class="rule-meta">
+            <span class="rule-category cat-career">Career & Jobs</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 03</span>
+          </div>
+          <div class="rule-title">Treat BrightCHAMPS as a Tactical Cash-Flow Bunker</div>
+          <div class="rule-desc">
+            Clock in on Nov 12, 2026. Hit your numbers coldly and professionally. Take your <strong>₹32,000 net salary</strong> to cover base living and build an active corporate PF/UAN record while hunting your daytime tech job.
+          </div>
+        </div>
+
+        <!-- DO 4 -->
+        <div class="rule-card do" data-cat="finance">
+          <div class="rule-meta">
+            <span class="rule-category cat-finance">Debt & Finance</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 04</span>
+          </div>
+          <div class="rule-title">Ringfence ₹35,000/Month for Your Mother on the 1st</div>
+          <div class="rule-desc">
+            Transfer rent (₹18,000), groceries (₹12,000), and mother's healthcare buffer (₹5,000) on the <strong>first day of every single month</strong>. This fund is sacred and non-negotiable.
+          </div>
+        </div>
+
+        <!-- DO 5 -->
+        <div class="rule-card do" data-cat="finance">
+          <div class="rule-meta">
+            <span class="rule-category cat-finance">Debt & Finance</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 05</span>
+          </div>
+          <div class="rule-title">Prepay Directly Toward the Loan Principal</div>
+          <div class="rule-desc">
+            Every surplus rupee (₹62,000/mo in Phase 1 $\rightarrow$ ₹1,45,000/mo in Phase 2) must be paid directly as <strong>principal prepayment</strong> to collapse interest compounding and reach ₹0.00 debt by Feb 2028.
+          </div>
+        </div>
+
+        <!-- DO 6 -->
+        <div class="rule-card do" data-cat="finance">
+          <div class="rule-meta">
+            <span class="rule-category cat-finance">Debt & Finance</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 06</span>
+          </div>
+          <div class="rule-title">Build a Liquid ₹1,50,000 Emergency Shield</div>
+          <div class="rule-desc">
+            Accumulate ₹1.5 Lakhs in an instant-access liquid fund over Months 1–4 so an unexpected expense never forces you into high-interest credit cards or predatory loans again.
+          </div>
+        </div>
+
+        <!-- DO 7 -->
+        <div class="rule-card do" data-cat="legal">
+          <div class="rule-meta">
+            <span class="rule-category cat-legal">Legal & Tax</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 07</span>
+          </div>
+          <div class="rule-title">Maintain Only ONE Active Salaried EPFO Account</div>
+          <div class="rule-desc">
+            Ensure BrightCHAMPS (and later your daytime tech employer) is your <strong>sole employer depositing into PF</strong>. Keep independent agency income (Oriflame/Bajaj) strictly under TDS Sections 194H/194D.
+          </div>
+        </div>
+
+        <!-- DO 8 -->
+        <div class="rule-card do" data-cat="legal">
+          <div class="rule-meta">
+            <span class="rule-category cat-legal">Legal & Tax</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 08</span>
+          </div>
+          <div class="rule-title">File Taxes Under Section 44ADA Presumptive Scheme</div>
+          <div class="rule-desc">
+            Legally claim 50% standard expense deduction on your commercial and consultancy commissions under <strong>Section 44ADA</strong>, slashing your tax liability while remaining 100% compliant.
+          </div>
+        </div>
+
+        <!-- DO 9 -->
+        <div class="rule-card do" data-cat="health">
+          <div class="rule-meta">
+            <span class="rule-category cat-health">Biology & Shift</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 09</span>
+          </div>
+          <div class="rule-title">Enforce Blackout Sleep from 05:00 AM to 11:30 AM</div>
+          <div class="rule-desc">
+            Put on amber blue-blocking glasses at 4:30 AM. Sleep in 100% dark room with earplugs for <strong>6.5 hours of deep, uninterrupted circadian recovery</strong>.
+          </div>
+        </div>
+
+        <!-- DO 10 -->
+        <div class="rule-card do" data-cat="health">
+          <div class="rule-meta">
+            <span class="rule-category cat-health">Biology & Shift</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 10</span>
+          </div>
+          <div class="rule-title">Lift Heavy Weights 4x/Week and Eat 130g Protein</div>
+          <div class="rule-desc">
+            Hit the gym at 12:30 PM for compound lifts (Push/Pull/Legs). Maintain <strong>130g of daily protein</strong> to build stamina, testosterone, and mental resilience under pressure.
+          </div>
+        </div>
+
+        <!-- DO 11 -->
+        <div class="rule-card do" data-cat="mindset">
+          <div class="rule-meta">
+            <span class="rule-category cat-mindset">Mindset & Family</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 11</span>
+          </div>
+          <div class="rule-title">Spend 20 Calm Minutes with Mom Every Evening</div>
+          <div class="rule-desc">
+            Sit with your mother over dinner between 6:30 PM and 7:00 PM. Speak with warmth, reassurance, and confidence. Your calm presence gives her peace.
+          </div>
+        </div>
+
+        <!-- DO 12 -->
+        <div class="rule-card do" data-cat="mindset">
+          <div class="rule-meta">
+            <span class="rule-category cat-mindset">Mindset & Family</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--emerald);">RULE 12</span>
+          </div>
+          <div class="rule-title">Practice Radical Ownership and Emotional Invariance</div>
+          <div class="rule-desc">
+            Own your debt, your family duties, and your future 100%. When deal negotiations stall or managers yell, <strong>remain stoic and calm</strong>. Silence and competence are your greatest armor.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- THE DON'TS COLUMN -->
+    <div>
+      <div class="column-header donts">
+        <h2>❌ WHAT NOT TO DO (THE TRAPS)</h2>
+        <span class="rule-count donts" id="dontCount">12 Rules</span>
+      </div>
+      <div class="column-body">
+
+        <!-- DONT 1 -->
+        <div class="rule-card dont" data-cat="career">
+          <div class="rule-meta">
+            <span class="rule-category cat-career">Career & Jobs</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 01</span>
+          </div>
+          <div class="rule-title">NEVER Accept the "Fresher" Label or ₹3 LPA Salary</div>
+          <div class="rule-desc">
+            Never roll over when an HR recruiter offers you a ₹20k/month fresher package. <strong>Stand on your 7 years of Form 26AS records</strong>. If they refuse to acknowledge your track record, politely decline and move to high-tier founders.
+          </div>
+        </div>
+
+        <!-- DONT 2 -->
+        <div class="rule-card dont" data-cat="career">
+          <div class="rule-meta">
+            <span class="rule-category cat-career">Career & Jobs</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 02</span>
+          </div>
+          <div class="rule-title">NEVER Rely on LinkedIn "Easy Apply"</div>
+          <div class="rule-desc">
+            Do not waste hours spamming 1-click "Easy Apply" buttons where 3,000 applicants compete. <strong>Direct executive InMails and tailored video walkthroughs</strong> have a 40x higher conversion rate.
+          </div>
+        </div>
+
+        <!-- DONT 3 -->
+        <div class="rule-card dont" data-cat="career">
+          <div class="rule-meta">
+            <span class="rule-category cat-career">Career & Jobs</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 03</span>
+          </div>
+          <div class="rule-title">NEVER Engage in Office Politics or Gossip at BrightCHAMPS</div>
+          <div class="rule-desc">
+            Do not waste emotional bandwidth debating company policies, arguing with floor managers, or gossiping on Slack. You are an operational assassin: <strong>hit target, collect cash, build your future</strong>.
+          </div>
+        </div>
+
+        <!-- DONT 4 -->
+        <div class="rule-card dont" data-cat="finance">
+          <div class="rule-meta">
+            <span class="rule-category cat-finance">Debt & Finance</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 04</span>
+          </div>
+          <div class="rule-title">NEVER Gamble in Crypto, F&O, or "Get-Rich-Quick" Schemes</div>
+          <div class="rule-desc">
+            Do not gamble on intraday stocks, telegram crypto calls, or betting apps to "solve the debt quickly." <strong>Desperation leads to ruin</strong>. Mathematical prepayment from real business revenue is your only path.
+          </div>
+        </div>
+
+        <!-- DONT 5 -->
+        <div class="rule-card dont" data-cat="finance">
+          <div class="rule-meta">
+            <span class="rule-category cat-finance">Debt & Finance</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 05</span>
+          </div>
+          <div class="rule-title">NEVER Touch the Sacred Family Living Ringfence</div>
+          <div class="rule-desc">
+            Never divert the ₹35,000/month family budget to pay down extra debt. <strong>Your mother's health and home security are your psychological foundation</strong>. If home shakes, you break.
+          </div>
+        </div>
+
+        <!-- DONT 6 -->
+        <div class="rule-card dont" data-cat="finance">
+          <div class="rule-meta">
+            <span class="rule-category cat-finance">Debt & Finance</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 06</span>
+          </div>
+          <div class="rule-title">NEVER Take on New Personal Loans or Lifestyle EMIs</div>
+          <div class="rule-desc">
+            Do not buy new smartphones, luxury electronics, or bikes on EMI until the ₹30 Lakh debt is ₹0.00. <strong>Live lean and lethal</strong> until freedom is won.
+          </div>
+        </div>
+
+        <!-- DONT 7 -->
+        <div class="rule-card dont" data-cat="legal">
+          <div class="rule-meta">
+            <span class="rule-category cat-legal">Legal & Tax</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 07</span>
+          </div>
+          <div class="rule-title">NEVER Create a Second Salaried EPFO / PF Account</div>
+          <div class="rule-desc">
+            Do not take two simultaneous salaried full-time jobs that deposit into EPFO. Automated BGV portals will flag it as dual moonlighting. <strong>Run 1 corporate PF job + multiple independent agency streams</strong>.
+          </div>
+        </div>
+
+        <!-- DONT 8 -->
+        <div class="rule-card dont" data-cat="legal">
+          <div class="rule-meta">
+            <span class="rule-category cat-legal">Legal & Tax</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 08</span>
+          </div>
+          <div class="rule-title">NEVER Fear Illegal Non-Compete Clauses or Penalty Bonds</div>
+          <div class="rule-desc">
+            Do not let any HR team intimidate you with "training penalty bonds" or "2-year non-competes". <strong>Section 27 of the Indian Contract Act makes them legally void</strong>. Fulfill your standard notice period and walk out clean.
+          </div>
+        </div>
+
+        <!-- DONT 9 -->
+        <div class="rule-card dont" data-cat="health">
+          <div class="rule-meta">
+            <span class="rule-category cat-health">Biology & Shift</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 09</span>
+          </div>
+          <div class="rule-title">NEVER Drink Caffeine After 1:00 AM IST</div>
+          <div class="rule-desc">
+            No coffee, Red Bull, or strong chai after 1:00 AM. <strong>Caffeine has a 6-hour half-life</strong>; late stimulants prevent adenosine clearance and destroy your 5:00 AM restorative deep sleep.
+          </div>
+        </div>
+
+        <!-- DONT 10 -->
+        <div class="rule-card dont" data-cat="health">
+          <div class="rule-meta">
+            <span class="rule-category cat-health">Biology & Shift</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 10</span>
+          </div>
+          <div class="rule-title">NEVER Doomscroll Phones in Bed at 05:00 AM</div>
+          <div class="rule-desc">
+            Do not touch Instagram, YouTube Shorts, or news when getting into bed. Blue light and dopamine spikes trick your brain into thinking it's midday. <strong>Eyes closed, room dark, earplugs in</strong>.
+          </div>
+        </div>
+
+        <!-- DONT 11 -->
+        <div class="rule-card dont" data-cat="mindset">
+          <div class="rule-meta">
+            <span class="rule-category cat-mindset">Mindset & Family</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 11</span>
+          </div>
+          <div class="rule-title">NEVER Vent Work Frustration onto Your Family</div>
+          <div class="rule-desc">
+            Never bring sales pressure, cold call rejections, or shift fatigue into conversations with your mother. <strong>Be her protector and rock</strong>, not a source of anxiety.
+          </div>
+        </div>
+
+        <!-- DONT 12 -->
+        <div class="rule-card dont" data-cat="mindset">
+          <div class="rule-meta">
+            <span class="rule-category cat-mindset">Mindset & Family</span>
+            <span class="mono" style="font-size: 0.72rem; color: var(--rose);">TRAP 12</span>
+          </div>
+          <div class="rule-title">NEVER Compare Your Hard Path to Privileged Peers</div>
+          <div class="rule-desc">
+            Do not envy friends who inherited wealth or coast in easy jobs. <strong>Easy times create soft men</strong>. The trial you are conquering right now will make you unstoppable for the rest of your life.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Quick Dock Footer -->
+  <footer class="quick-dock">
+    <div class="dock-title">Direct Command Links to Complete System Cockpits:</div>
+    <div class="dock-buttons">
+      <a href="ADITYA_JOBS_AND_BUSINESS_EMPIRE_OS.html" class="btn-dock" target="_blank">🏢 Jobs & Business Empire</a>
+      <a href="ADITYA_APEX_2027_BEST_OF_THE_BEST_OS.html" class="btn-dock" target="_blank">🌟 Apex 2027 Titan OS</a>
+      <a href="ADITYA_MEHRA_GLOBAL_PORTFOLIO_AND_CROSS_CHECK_AUDIT.html" class="btn-dock" target="_blank">🔍 Portfolio Audit Vault</a>
+      <a href="ADITYA_LIFE_STABILITY_FORTRESS_COCKPIT.html" class="btn-dock" target="_blank">🛡️ Life Stability Fortress</a>
+      <a href="ADITYA_DEBT_ZERO_30_LAKH_COCKPIT.html" class="btn-dock" target="_blank">🎯 Debt-Zero War Room</a>
+      <a href="ADITYA_MEHRA_PRINTABLE_A4_1PAGE_CV.html" class="btn-dock" target="_blank">📄 Printable 1-Page CV</a>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+function filterRules(category) {
+  // Update buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  const cards = document.querySelectorAll('.rule-card');
+  let dosVisible = 0;
+  let dontsVisible = 0;
+
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-cat');
+    if (category === 'all' || cardCat === category) {
+      card.style.display = 'block';
+      if (card.classList.contains('do')) dosVisible++;
+      if (card.classList.contains('dont')) dontsVisible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  document.getElementById('doCount').innerText = dosVisible + ' Rules';
+  document.getElementById('dontCount').innerText = dontsVisible + ' Rules';
+}
+</script>
+</body>
+</html>

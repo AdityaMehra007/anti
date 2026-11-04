@@ -71,20 +71,20 @@
 
 ## 3. Ecosystem & State Policy Signals
 
-### NEWS-041 | Zen Technologies Approves ₹135.15 Cr Acquisition of Cogknit Semantics
-- **Category:** Mergers & Acquisitions | **Date:** 21 October 2026
-- **Briefing:** Defense technology leader Zen Technologies greenlit acquisition of 51.98% majority stake in Bengaluru-based Cogknit Semantics. Cogknit develops real-time tactical battlefield management systems that connect defense hardware with tactical AI.
-- **Source:** [https://financialexpress.com/business/defence-zen-technologies-cogknit-majority-stake](https://financialexpress.com/business/defence-zen-technologies-cogknit-majority-stake)
+### NEWS-BSM-019 | Udaan posts Rs 5,134 Cr gross revenue and Rs 852 Cr loss in FY26
+- **Category:** Other | **Date:** 2026-10-15
+- **Briefing:** Entrackr report: Udaan posts Rs 5,134 Cr gross revenue and Rs 852 Cr loss in FY26 (Entity: udaan)
+- **Source:** [https://entrackr.com/fintrackr/udaan-posts-rs-5134-cr-gross-revenue-and-rs-852-cr-loss-in-fy26-12678883](https://entrackr.com/fintrackr/udaan-posts-rs-5134-cr-gross-revenue-and-rs-852-cr-loss-in-fy26-12678883)
 
-### NEWS-040 | C-CAMP Selects 11 Bio-Startups for Climate Solutions Innovation Cohort
-- **Category:** Accelerator Cohort | **Date:** 1 October 2026
-- **Briefing:** C-CAMP and Ashraya Hastha Trust announced 11 biology-led startups receiving up to ₹50 Lakh each in non-dilutive grant funding, lab access, and commercialization mentoring.
-- **Source:** [https://timesofindia.indiatimes.com/city/bengaluru/c-camp-selects-11-startups-for-climate-solutions](https://timesofindia.indiatimes.com/city/bengaluru/c-camp-selects-11-startups-for-climate-solutions)
+### NEWS-BSM-018 | Flipkart super.money’s revenue triples to Rs 292 Cr in FY26; losses up 78%
+- **Category:** Other | **Date:** 2026-10-19
+- **Briefing:** Entrackr report: Flipkart super.money’s revenue triples to Rs 292 Cr in FY26; losses up 78% (Entity: flipkart)
+- **Source:** [https://entrackr.com/fintrackr/flipkart-supermoneys-revenue-triples-to-rs-292-cr-in-fy26-losses-up-78-12689749](https://entrackr.com/fintrackr/flipkart-supermoneys-revenue-triples-to-rs-292-cr-in-fy26-losses-up-78-12689749)
 
-### NEWS-039 | Bangalore Climate Data Week Concludes with Launch of Urban Heat & Decarbonization Tools
-- **Category:** Ecosystem & Policy | **Date:** 21 October 2026
-- **Briefing:** 5-day conclave brought together 200+ climate-tech startups, investors, and civic bodies. WRI India launched 'Data Lab Connect' and CSTEP unveiled 'BHRIGU-National + Heat Insights Explorer' for climate adaptation planning.
-- **Source:** [https://expresscomputer.in/news/bangalore-climate-data-week-recap](https://expresscomputer.in/news/bangalore-climate-data-week-recap)
+### NEWS-BSM-017 | Zetwerk’s IPO subscribed over 3 times on final day
+- **Category:** Other | **Date:** 2026-10-19
+- **Briefing:** Entrackr report: Zetwerk’s IPO subscribed over 3 times on final day (Entity: zetwerk)
+- **Source:** [https://entrackr.com/news/zetwerks-ipo-subscribed-over-3-times-on-final-day-12689940](https://entrackr.com/news/zetwerks-ipo-subscribed-over-3-times-on-final-day-12689940)
 
 ---
 
@@ -92,6 +92,7 @@
 
 | Delta ID | Status | Record | Key Finding |
 |---|---|---|---|
+| DELTA-BSM-001 | `INGESTED` | BangaloreStartupMap.com Master Directory Ingestion (1027 Startups, 74 VCs, 19 News) | Expanded Bengaluru ecosystem coverage by 1,011 startups and 74 venture capital firms with geolocation coordinates, LinkedIn founder profiles, and real-time funding headlines. |
 | DELTA-20261022-015 | `NEW` | JOB-078: Zethic Technologies | Direct BBA fresher eligibility; founder's office strategy & operations |
 | DELTA-20261022-013 | `NEW TO TRACKER` | NEWS-040: C-CAMP Cohort | 11 biology startups chosen for ₹50L climate grant support |
 | DELTA-20261022-012 | `NEW TO TRACKER` | NEWS-039: Climate Data Week | WRI Data Lab Connect and CSTEP heat resilience initiative launched |
@@ -101,4 +102,3 @@
 | DELTA-20261022-006 | `LOW FIT` | JOB-076: TrueFoundry | Requires CS degree + MBA; excluded from priority list |
 | DELTA-20261022-005 | `NEW` | JOB-075: Finifi | ₹20k/month + incentive; flagged for sales-heavy outreach duties |
 | DELTA-20261022-004 | `NEW` | JOB-074: Vats Mobility | Remote digital growth; performance-based reward structure |
-| DELTA-20261022-003 | `NEW TO TRACKER` | JOB-073: Y-Not | Official 6-month paid graduate program in global sourcing & supply chain |

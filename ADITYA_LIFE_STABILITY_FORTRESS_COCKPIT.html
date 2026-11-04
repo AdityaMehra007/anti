@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADITYA MEHRA | LIFE STABILITY & WEALTH FORTRESS OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #040714;
+      --surface: #0a0f26;
+      --card: #10183b;
+      --card-hover: #172352;
+      --border: #1a2754;
+      --cyan: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.25);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.25);
+      --rose: #f43f5e;
+      --rose-glow: rgba(244, 63, 94, 0.25);
+      --purple: #8b5cf6;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 24px;
+    }
+
+    /* Master Top Bar */
+    .top-bar {
+      background: linear-gradient(135deg, rgba(16, 24, 59, 0.95), rgba(10, 15, 38, 0.95));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 30px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .top-title h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .top-title p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Badges */
+    .badge-shelf {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-emerald { background: rgba(16, 185, 129, 0.12); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-cyan { background: rgba(0, 242, 254, 0.12); color: var(--cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+    .badge-gold { background: rgba(245, 158, 11, 0.12); color: var(--gold); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-rose { background: rgba(244, 63, 94, 0.12); color: var(--rose); border: 1px solid rgba(244, 63, 94, 0.3); }
+    .badge-purple { background: rgba(139, 92, 246, 0.12); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.3); }
+
+    /* Navigation Buttons */
+    .nav-btn-rack {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover { transform: translateY(-2px); }
+
+    /* KPI Summary Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      position: relative;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .kpi-card.c-emerald::before { background: var(--emerald); }
+    .kpi-card.c-cyan::before { background: var(--cyan); }
+    .kpi-card.c-gold::before { background: var(--gold); }
+    .kpi-card.c-rose::before { background: var(--rose); }
+
+    .kpi-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .kpi-val {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin: 4px 0 2px;
+      font-family: var(--font-mono);
+    }
+    .kpi-sub {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Tab Controls */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 8px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      color: #fff;
+      background: var(--card);
+    }
+    .tab-btn.active {
+      background: var(--cyan);
+      color: #040714;
+      border-color: var(--cyan);
+    }
+
+    /* Tab Panes */
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* Content Cards */
+    .content-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      margin-bottom: 24px;
+    }
+    .content-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .content-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* Two Column Layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* Action Panels */
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .panel-header {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Checklist Items (Interactive LocalStorage) */
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(4, 7, 20, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .checklist-item:hover {
+      border-color: var(--cyan);
+      background: rgba(16, 24, 59, 0.8);
+    }
+    .checklist-item.checked {
+      border-color: var(--emerald);
+      background: rgba(16, 185, 129, 0.08);
+      text-decoration: line-through;
+      color: #64748b;
+    }
+    .custom-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .checklist-item.checked .custom-check {
+      background: var(--emerald);
+      border-color: var(--emerald);
+    }
+    .checklist-item.checked .custom-check::after {
+      content: '✓';
+      color: #040714;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .check-text {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .check-tag {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+    th {
+      background: rgba(4, 7, 20, 0.8);
+      color: var(--text-muted);
+      font-weight: 700;
+      padding: 10px 14px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+    }
+    tr.win td {
+      background: rgba(16, 185, 129, 0.1);
+      color: #fff;
+      font-weight: 700;
+    }
+    tr.zero td {
+      background: rgba(0, 242, 254, 0.15);
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    /* Rules / Guidance Callouts */
+    .callout {
+      border-left: 4px solid var(--cyan);
+      background: rgba(0, 242, 254, 0.05);
+      padding: 16px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    .callout-emerald { border-left-color: var(--emerald); background: rgba(16, 185, 129, 0.06); }
+    .callout-rose { border-left-color: var(--rose); background: rgba(244, 63, 94, 0.06); }
+    .callout-gold { border-left-color: var(--gold); background: rgba(245, 158, 11, 0.06); }
+
+    /* Bio / Circadian Row */
+    .circ-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(4, 7, 20, 0.5);
+      border-left: 4px solid var(--border);
+      font-size: 12.5px;
+      margin-bottom: 8px;
+    }
+    .circ-row.sleep { border-left-color: var(--purple); background: rgba(139, 92, 246, 0.08); }
+    .circ-row.sun { border-left-color: var(--gold); background: rgba(245, 158, 11, 0.08); }
+    .circ-row.work { border-left-color: var(--cyan); background: rgba(0, 242, 254, 0.08); }
+    .circ-row.dialer { border-left-color: var(--emerald); background: rgba(16, 185, 129, 0.08); }
+
+    .time-badge {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #fff;
+    }
+    .circ-desc {
+      color: #cbd5e1;
+    }
+    .circ-desc strong {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-title">
+      <h1>ADITYA MEHRA | LIFE STABILITY & WEALTH FORTRESS OS</h1>
+      <p>The Comprehensive Operating System for Financial Freedom, Family Peace, Biological Resilience & Career Elevation</p>
+      <div class="badge-shelf">
+        <span class="badge badge-emerald">● Target: 100% Stability & Peace of Mind</span>
+        <span class="badge badge-rose">● ₹30L Debt Liquidation Engine</span>
+        <span class="badge badge-cyan">● Household Living Protected (₹35k/mo)</span>
+        <span class="badge badge-gold">● Emergency Fund Builder (₹1.5L Target)</span>
+        <span class="badge badge-purple">● US Shift Bio-Rhythm Optimization</span>
+      </div>
+    </div>
+    <div class="nav-btn-rack">
+      <a href="ADITYA_MEHRA_CHRONICLES_PAST_PRESENT_FUTURE.html" target="_blank" class="nav-link" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff;">📜 The Chronicles ↗</a>
+      <a href="ADITYA_MEHRA_PROOF_OF_WORK_GLOBAL_VAULT.html" target="_blank" class="nav-link" style="background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff;">🛡️ PoW Vault ↗</a>
+      <a href="ADITYA_MEHRA_PRINTABLE_A4_1PAGE_CV.html" target="_blank" class="nav-link" style="background: var(--emerald); color: #040714;">📄 Printable CV (PDF) ↗</a>
+      <a href="ADITYA_DEBT_ZERO_30_LAKH_COCKPIT.html" target="_blank" class="nav-link" style="background: rgba(244, 63, 94, 0.2); border: 1px solid var(--rose); color: #fff;">💥 ₹30L Debt ↗</a>
+      <a href="ADITYA_MEHRA_EVERYTHING_MASTER_VAULT.html" target="_blank" class="nav-link" style="background: var(--cyan); color: #040714;">🏛️ Master Vault ↗</a>
+    </div>
+  </div>
+
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card c-rose">
+      <div class="kpi-lbl">Current Debt Principal</div>
+      <div class="kpi-val" style="color: var(--rose);">₹30,00,000</div>
+      <div class="kpi-sub" style="color: var(--rose);">Target ₹0: Feb 2028 (18–22 Mo)</div>
+    </div>
+    <div class="kpi-card c-emerald">
+      <div class="kpi-lbl">Family Living Budget</div>
+      <div class="kpi-val" style="color: var(--emerald);">₹35,000/mo</div>
+      <div class="kpi-sub" style="color: var(--emerald);">100% Ringfenced & Non-Negotiable</div>
+    </div>
+    <div class="kpi-card c-gold">
+      <div class="kpi-lbl">Emergency Liquid Buffer</div>
+      <div class="kpi-val" style="color: var(--gold);">₹1,50,000</div>
+      <div class="kpi-sub" style="color: var(--gold);">Phase 1 Target (3 Mo Runway)</div>
+    </div>
+    <div class="kpi-card c-cyan">
+      <div class="kpi-lbl">Target Monthly Cashflow</div>
+      <div class="kpi-val" style="color: var(--cyan);">₹2,10,000</div>
+      <div class="kpi-sub" style="color: var(--cyan);">Corporate + Oriflame + Bajaj</div>
+    </div>
+  </div>
+
+  <!-- Tab Bar Navigation -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="openTab(event, 'tab-mindset')">🧘 1. The Stability Anchor & Mindset</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab-family')">🛡️ 2. Family Fortress & Budget Lock</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab-cashflow')">💰 3. Multi-Engine Cash Stacking</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab-bio')">⚡ 4. Night Shift Bio-Resilience</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab-daily')">✅ 5. Daily Stability Tracker (Live)</button>
+    <button class="tab-btn" onclick="openTab(event, 'tab-horizon')">🌟 6. The 2-Year Freedom Horizon</button>
+  </div>
+
+  <!-- TAB 1: THE STABILITY ANCHOR & MINDSET -->
+  <div id="tab-mindset" class="tab-pane active">
+    <div class="content-box">
+      <div class="content-title">🧘 The Stability Anchor: From Panic to Absolute Grounded Mastery</div>
+      <div class="content-desc">Why your current situation is completely solvable and how shifting from "overwhelmed" to "systems-driven" will restore your peace of mind starting today.</div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header">
+            <span>THE 3 TRUTHS ABOUT YOUR SITUATION</span>
+            <span class="badge badge-cyan">REALITY AUDIT</span>
+          </div>
+          <div class="callout callout-emerald">
+            <strong>1. ₹30 Lakh Debt is a Math Problem, Not a Death Sentence:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">At your earning potential (₹14L–₹20L OTE in Tier-1 Bangalore tech + ₹65k/mo passive commercial commissions), ₹30L is liquidated in <strong>18 to 22 months</strong>. You are 25 years old. By age 27, you can be 100% debt-free with superior financial resilience than 99% of your peers.</p>
+          </div>
+          <div class="callout callout-gold">
+            <strong>2. You Are Already an Exceptional Commercial Producer:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">You have built an independent sales network generating <strong>₹60L–₹80L+ GMV</strong>, managed 1,000+ pax logistics at <strong>Aero India 2025</strong>, and maintained a <strong>>85% IRDAI persistency</strong> rate. You are not starting from scratch. You already have the high-leverage closing skill that companies pay ₹20L+ for.</p>
+          </div>
+          <div class="callout callout-rose">
+            <strong>3. BrightCHAMPS is a Cashflow Bridge, Not Your Identity:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">Accepting ₹4.6 LPA at BrightCHAMPS gives you an immediate ₹32,000/mo cash baseline while keeping your daytime (12:00 PM – 5:30 PM) wide open to interview with Tier-1 AI startups. Treat it as a paid training ground in international dialer velocity.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <span>TACTICAL ANXIETY RESET (WHEN OVERWHELM STRIKES)</span>
+            <span class="badge badge-gold">3-MINUTE RESET</span>
+          </div>
+          <div class="callout">
+            <strong>Rule of Compartmentalization:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">You cannot solve 365 days of debt at 2:00 AM on a Tuesday. You can only execute the next 60 minutes. When your chest feels tight or anxiety creeps in:</p>
+          </div>
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 12px; display: flex; gap: 10px; font-size: 13px;">
+              <span style="color: var(--cyan); font-weight: 800;">[Step 1]</span>
+              <span><strong>Box Breathing (4-4-4-4):</strong> Inhale for 4s, hold for 4s, exhale for 4s, hold for 4s. Repeat 4 times to down-regulate your sympathetic nervous system.</span>
+            </li>
+            <li style="margin-bottom: 12px; display: flex; gap: 10px; font-size: 13px;">
+              <span style="color: var(--cyan); font-weight: 800;">[Step 2]</span>
+              <span><strong>Check the Banked Buffer:</strong> Remind yourself that family living for this month (₹35,000) is locked and protected. Your mother is safe.</span>
+            </li>
+            <li style="margin-bottom: 12px; display: flex; gap: 10px; font-size: 13px;">
+              <span style="color: var(--cyan); font-weight: 800;">[Step 3]</span>
+              <span><strong>Execute One Bite-Sized Task:</strong> Open Tab 5, check off one item (e.g., drink water, send 1 InMail, or do 10 minutes of walking). Motion kills anxiety.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: FAMILY FORTRESS & BUDGET LOCK -->
+  <div id="tab-family" class="tab-pane">
+    <div class="content-box">
+      <div class="content-title">🛡️ Family Fortress: Ringfencing Your Household & Mother's Wellbeing</div>
+      <div class="content-desc">Your family is your primary reason for fighting. Here is how we ensure zero financial stress penetrates your home while debt is systematically liquidated.</div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header">
+            <span>THE NON-NEGOTIABLE MONTHLY FAMILY BUDGET</span>
+            <span class="badge badge-emerald">₹35,000 RINGFENCED</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Monthly Allocation</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Household Groceries & Provisions</td>
+                <td>₹14,000</td>
+                <td><span style="color: var(--emerald);">● Essential</span></td>
+              </tr>
+              <tr>
+                <td>Utilities (Electricity, Water, Wi-Fi)</td>
+                <td>₹4,500</td>
+                <td><span style="color: var(--emerald);">● Essential</span></td>
+              </tr>
+              <tr>
+                <td>Mother's Health & Medicines Buffer</td>
+                <td>₹6,500</td>
+                <td><span style="color: var(--cyan);">● Ringfenced</span></td>
+              </tr>
+              <tr>
+                <td>Aditya's Commute & Nutrition</td>
+                <td>₹6,000</td>
+                <td><span style="color: var(--cyan);">● Protected</span></td>
+              </tr>
+              <tr>
+                <td>Miscellaneous Household Fund</td>
+                <td>₹4,000</td>
+                <td><span style="color: var(--gold);">● Buffer</span></td>
+              </tr>
+              <tr class="win">
+                <td>TOTAL PROTECTED LIVING</td>
+                <td>₹35,000 / month</td>
+                <td>LOCKED 1ST OF MONTH</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+            ⚠️ <strong>Golden Law:</strong> Never touch this ₹35,000 to prepay debt principal. Debt is only paid from surplus cashflow. If you compromise family groceries to pay an EMI, you create psychological burnout.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <span>EMERGENCY LIQUID SHIELD ROADMAP</span>
+            <span class="badge badge-gold">₹1.5L TARGET</span>
+          </div>
+          <div class="callout callout-gold">
+            <strong>Why an Emergency Fund is Mandatory During ₹30L Debt:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">If an emergency arises (medical bill, appliance repair) and you have zero cash in savings, you are forced to borrow more at high interest. Building a ₹1,50,000 liquid buffer stops the vicious debt cycle forever.</p>
+          </div>
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 12px; padding: 10px; background: rgba(4, 7, 20, 0.6); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700;">
+                <span style="color: var(--gold);">Milestone 1: ₹50,000 Safety Cushion</span>
+                <span>By Dec 31, 2026</span>
+              </div>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Funded via BrightCHAMPS first salary + Oriflame November bonus. Kept in a separate high-yield savings account (e.g. IDFC FIRST or Jupiter).</p>
+            </li>
+            <li style="margin-bottom: 12px; padding: 10px; background: rgba(4, 7, 20, 0.6); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700;">
+                <span style="color: var(--cyan);">Milestone 2: ₹1,00,000 Family Armor</span>
+                <span>By Feb 28, 2027</span>
+              </div>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Provides a solid 3-month living expense buffer for your mother. Zero fear of job disruption.</p>
+            </li>
+            <li style="padding: 10px; background: rgba(4, 7, 20, 0.6); border-radius: 8px; border: 1px solid var(--border);">
+              <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700;">
+                <span style="color: var(--emerald);">Milestone 3: ₹1,50,000 Fortress Complete</span>
+                <span>By April 30, 2027</span>
+              </div>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Locked permanently in fixed deposits / liquid funds. Once this is hit, 100% of remaining surplus goes into crushing the debt principal.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: MULTI-ENGINE CASH STACKING -->
+  <div id="tab-cashflow" class="tab-pane">
+    <div class="content-box">
+      <div class="content-title">💰 Multi-Engine Cash Stacking: The Path from ₹30L to ₹0 Debt</div>
+      <div class="content-desc">How stacking your four independent income streams creates an unstoppable cash tsunami that wipes out ₹30,00,000 by February 2028.</div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header">
+            <span>PHASE 1 CASH ENGINE (NOV 2026 – MAR 2027)</span>
+            <span class="badge badge-emerald">SURVIVAL & FOUNDATION</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Cash Stream</th>
+                <th>Monthly Inflow</th>
+                <th>Allocation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BrightCHAMPS (US Shift Inside Sales)</td>
+                <td>₹32,000</td>
+                <td>Family Living & Food</td>
+              </tr>
+              <tr>
+                <td>Oriflame India (Senior Manager 21%)</td>
+                <td>₹45,000</td>
+                <td>Emergency Fund + Debt Prepay</td>
+              </tr>
+              <tr>
+                <td>Bajaj Allianz Life (IRDAI Commissions)</td>
+                <td>₹20,000</td>
+                <td>Debt EMI & Pre-payment</td>
+              </tr>
+              <tr class="win">
+                <td>TOTAL MONTHLY INFLOW (PHASE 1)</td>
+                <td>₹97,000</td>
+                <td>Living ₹35k | Debt/Buffer ₹62k</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="callout callout-cyan" style="margin-top: 14px;">
+            <strong>Phase 1 Velocity:</strong> Even before landing your Tier-1 tech role, you are generating <strong>₹97,000/month</strong>, leaving over ₹62,000 every month for family safety and debt reduction.
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <span>PHASE 2 CASH ENGINE (APR 2027 – FEB 2028)</span>
+            <span class="badge badge-cyan">HYPER-PREPAYMENT SPEED</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Cash Stream</th>
+                <th>Monthly Inflow</th>
+                <th>Allocation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tier-1 Bangalore Tech (₹14L–₹16L CTC)</td>
+                <td>₹1,15,000</td>
+                <td>₹85k Debt | ₹30k Savings</td>
+              </tr>
+              <tr>
+                <td>Oriflame India (Sustained Commissions)</td>
+                <td>₹45,000</td>
+                <td>100% Debt Pre-payment</td>
+              </tr>
+              <tr>
+                <td>Bajaj Allianz Life (Renewals & Persistency)</td>
+                <td>₹20,000</td>
+                <td>100% Debt Pre-payment</td>
+              </tr>
+              <tr>
+                <td>Tier-1 Joining Bonus (Lump Sum)</td>
+                <td>₹1,50,000</td>
+                <td>Immediate Principal Sinking Fund</td>
+              </tr>
+              <tr class="zero">
+                <td>TOTAL MONTHLY CAPACITY (PHASE 2)</td>
+                <td>₹1,80,000+</td>
+                <td>₹1,45,000/mo DIRECT TO DEBT</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="callout callout-emerald" style="margin-top: 14px;">
+            <strong>The Result:</strong> At ₹1,45,000/mo debt allocation + ₹2.52L Oriflame annual cash awards (\$1k+\$2k) + ₹1.5L sign-on bonus, <strong>₹30 Lakhs hits exactly ₹0.00 in February 2028</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: NIGHT SHIFT BIO-RESILIENCE -->
+  <div id="tab-bio" class="tab-pane">
+    <div class="content-box">
+      <div class="content-title">⚡ Night Shift Bio-Resilience: Staying Energized, Sharp & Calm</div>
+      <div class="content-desc">Working 7:30 PM to 4:30 AM requires surgical circadian management. If you master your sleep, food, and light exposure, you will outwork everyone without frying your brain.</div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header">
+            <span>24-HOUR CIRCADIAN MASTER SCHEDULE</span>
+            <span class="badge badge-purple">LOCKED DAILY</span>
+          </div>
+          <div class="circ-row sleep">
+            <span class="time-badge">05:00 – 11:30</span>
+            <span class="circ-desc"><strong>Blackout Sleep (6.5 Hrs Non-Negotiable):</strong> Earplugs, eye mask, phone on Do-Not-Disturb. Zero light leaks.</span>
+          </div>
+          <div class="circ-row sun">
+            <span class="time-badge">11:30 – 12:30</span>
+            <span class="circ-desc"><strong>Sunlight & High-Protein Breakfast:</strong> 15 mins direct sunlight to reset circadian clock. Eggs/paneer + electrolyte water.</span>
+          </div>
+          <div class="circ-row work">
+            <span class="time-badge">12:30 – 17:30</span>
+            <span class="circ-desc"><strong>The Empire & Interview Slot (5 Hrs):</strong> Send 5 InMails, attend corporate interviews, manage Oriflame downline.</span>
+          </div>
+          <div class="circ-row sun">
+            <span class="time-badge">17:30 – 18:30</span>
+            <span class="circ-desc"><strong>Physical Exercise / Gym / Walk:</strong> 45 mins weight training or brisk walking. Elevates dopamine and prevents physical fatigue.</span>
+          </div>
+          <div class="circ-row dialer">
+            <span class="time-badge">19:30 – 04:30</span>
+            <span class="circ-desc"><strong>BrightCHAMPS US Shift:</strong> High-velocity consultative closing. Keep water bottle at desk. Avoid heavy carbs after 01:00 AM.</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <span>BIO-HACKING RULES FOR US SHIFTS</span>
+            <span class="badge badge-gold">ENERGY MASTERY</span>
+          </div>
+          <div class="callout callout-gold">
+            <strong>Rule 1: Caffeine Cutoff at 01:00 AM:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">Caffeine has a 6-hour half-life. Coffee drank at 03:00 AM ruins your 05:00 AM deep sleep cycle. Drink green tea or black coffee between 07:30 PM and 12:30 AM only; switch to warm water/mint tea after 01:00 AM.</p>
+          </div>
+          <div class="callout callout-purple">
+            <strong>Rule 2: Blue-Light Blocking from 04:00 AM:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">At 04:00 AM, switch computer screen to 100% Night Light (f.lux or Windows Night Light) or wear amber glasses. When your shift ends at 04:30 AM, immediately avoid bright screens so melatonin releases naturally.</p>
+          </div>
+          <div class="callout callout-emerald">
+            <strong>Rule 3: Clean Fuel, No Junk at 02:00 AM:</strong>
+            <p style="margin-top: 4px; color: #cbd5e1;">Night shifts create false cravings for chips and biscuits. Keep roasted almonds, makhana, or curd near your desk. Digesting heavy greasy food at night causes brain fog and morning fatigue.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: DAILY STABILITY TRACKER (LIVE) -->
+  <div id="tab-daily" class="tab-pane">
+    <div class="content-box">
+      <div class="content-title">✅ Daily Stability Tracker: Your 7 Non-Negotiable Habits (Live)</div>
+      <div class="content-desc">Clicking each habit marks it complete and automatically saves to your local browser storage. Win each day one checkbox at a time.</div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span>TODAY'S STABILITY CHECKLIST</span>
+          <button onclick="resetHabits()" style="background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;">Reset for Tomorrow</button>
+        </div>
+
+        <div id="habit-list">
+          <div class="checklist-item" onclick="toggleHabit(this, 'h1')">
+            <div class="custom-check"></div>
+            <div class="check-text">
+              <strong>1. Protected Sleep Window:</strong> Slept between 05:00 AM and 11:30 AM with zero screen interruptions.
+              <span class="check-tag badge-purple">BIO-SHIELD</span>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleHabit(this, 'h2')">
+            <div class="custom-check"></div>
+            <div class="check-text">
+              <strong>2. Sunlight & Hydration:</strong> Took 15 minutes of direct morning sunlight and drank 1 liter of water upon waking.
+              <span class="check-tag badge-gold">CIRCADIAN</span>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleHabit(this, 'h3')">
+            <div class="custom-check"></div>
+            <div class="check-text">
+              <strong>3. Corporate Tier-1 Outbound:</strong> Sent at least 3 customized InMails / applications to Bangalore tech leaders (DevRev, Sarvam, Razorpay).
+              <span class="check-tag badge-cyan">CAREER</span>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleHabit(this, 'h4')">
+            <div class="custom-check"></div>
+            <div class="check-text">
+              <strong>4. Oriflame & Network Maintenance:</strong> Checked in on core Brand Partners, reviewed group BP target, shared promotional material.
+              <span class="check-tag badge-emerald">CASH ENGINE</span>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleHabit(this, 'h5')">
+            <div class="custom-check"></div>
+            <div class="check-text">
+              <strong>5. Physical Movement / Exercise:</strong> Completed 40 minutes of weight lifting, gym session, or outdoor brisk walk.
+              <span class="check-tag badge-gold">STRENGTH</span>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleHabit(this, 'h6')">
+            <div class="custom-check"></div>
+            <div class="check-text">
+              <strong>6. BrightCHAMPS Dialing Excellence:</strong> Delivered 60+ energetic, high-converting discovery & closing calls with US parents.
+              <span class="check-tag badge-emerald">INSIDE SALES</span>
+            </div>
+          </div>
+
+          <div class="checklist-item" onclick="toggleHabit(this, 'h7')">
+            <div class="custom-check"></div>
+            <div class="check-text">
+              <strong>7. Mental Peace & Gratitude:</strong> Spent 5 minutes acknowledging progress, hugging mother, and letting go of debt anxiety.
+              <span class="check-tag badge-purple">PEACE OF MIND</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px; padding: 12px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--emerald); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 13px; font-weight: 700; color: #fff;">Today's Stability Completion Rate:</span>
+          <span id="score-display" style="font-size: 16px; font-weight: 800; color: var(--emerald); font-family: var(--font-mono);">0 / 7 Completed (0%)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 6: THE 2-YEAR FREEDOM HORIZON -->
+  <div id="tab-horizon" class="tab-pane">
+    <div class="content-box">
+      <div class="content-title">🌟 The 2-Year Freedom Horizon: Aditya Mehra at Age 27</div>
+      <div class="content-desc">Look ahead to February 2028. Here is the exact life you are building through this discipline.</div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-header">
+            <span>YOUR FINANCIAL REALITY (FEB 2028)</span>
+            <span class="badge badge-emerald">TOTAL FREEDOM</span>
+          </div>
+          <ul style="list-style: none; padding-left: 0; font-size: 13.5px;">
+            <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+              <span style="color: var(--emerald); font-weight: 800;">✔</span>
+              <span><strong>Outstanding Loan Debt: ₹0.00 ZERO:</strong> All bank loans, personal loans, and private commitments completely settled with official No Objection Certificates (NOC).</span>
+            </li>
+            <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+              <span style="color: var(--emerald); font-weight: 800;">✔</span>
+              <span><strong>Liquid Savings Reserve: ₹10,00,000+:</strong> Healthy emergency fund, mutual fund SIP portfolio, and gold reserve protecting your family.</span>
+            </li>
+            <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+              <span style="color: var(--emerald); font-weight: 800;">✔</span>
+              <span><strong>Mother's Peace of Mind: 100%:</strong> High-grade medical insurance coverage, zero stress about household bills, Oriflame Director title recognized.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <span>YOUR PROFESSIONAL STATUS (FEB 2028)</span>
+            <span class="badge badge-cyan">TIER-1 LEADER</span>
+          </div>
+          <ul style="list-style: none; padding-left: 0; font-size: 13.5px;">
+            <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+              <span style="color: var(--cyan); font-weight: 800;">✔</span>
+              <span><strong>Enterprise GTM / Account Executive Title:</strong> Established at a high-growth Bangalore tech leader (DevRev, Postman, Razorpay, or Sarvam AI).</span>
+            </li>
+            <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+              <span style="color: var(--cyan); font-weight: 800;">✔</span>
+              <span><strong>Annual Compensation: ₹22,00,000 – ₹28,00,000 CTC:</strong> Senior commercial package reflecting your unique hybrid of inside sales speed, enterprise event staging, and AI vibe coding.</span>
+            </li>
+            <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+              <span style="color: var(--cyan); font-weight: 800;">✔</span>
+              <span><strong>Reputation:</strong> Universally respected in the Bangalore tech corridor as an unstoppable commercial producer who turned adversity into supremacy.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabId) {
+      const panes = document.getElementsByClassName('tab-pane');
+      for (let i = 0; i < panes.length; i++) {
+        panes[i].classList.remove('active');
+      }
+      const btns = document.getElementsByClassName('tab-btn');
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].classList.remove('active');
+      }
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    function toggleHabit(el, habitId) {
+      el.classList.toggle('checked');
+      saveHabits();
+    }
+
+    function saveHabits() {
+      const habits = document.querySelectorAll('.checklist-item');
+      let completed = 0;
+      habits.forEach((item, index) => {
+        const isChecked = item.classList.contains('checked');
+        localStorage.setItem('aditya_habit_' + index, isChecked ? '1' : '0');
+        if (isChecked) completed++;
+      });
+      const pct = Math.round((completed / habits.length) * 100);
+      document.getElementById('score-display').textContent = `${completed} / ${habits.length} Completed (${pct}%)`;
+    }
+
+    function loadHabits() {
+      const habits = document.querySelectorAll('.checklist-item');
+      let completed = 0;
+      habits.forEach((item, index) => {
+        const val = localStorage.getItem('aditya_habit_' + index);
+        if (val === '1') {
+          item.classList.add('checked');
+          completed++;
+        } else {
+          item.classList.remove('checked');
+        }
+      });
+      const pct = Math.round((completed / habits.length) * 100);
+      document.getElementById('score-display').textContent = `${completed} / ${habits.length} Completed (${pct}%)`;
+    }
+
+    function resetHabits() {
+      const habits = document.querySelectorAll('.checklist-item');
+      habits.forEach((item, index) => {
+        item.classList.remove('checked');
+        localStorage.removeItem('aditya_habit_' + index);
+      });
+      document.getElementById('score-display').textContent = `0 / ${habits.length} Completed (0%)`;
+    }
+
+    window.onload = function() {
+      loadHabits();
+    };
+  </script>
+</body>
+</html>

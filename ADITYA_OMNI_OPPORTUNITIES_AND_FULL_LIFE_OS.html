@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADITYA MEHRA — OMNI OPPORTUNITIES RADAR & 360° FULL LIFE COMMAND OS</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #05070c;
+  --bg-card: #0b101b;
+  --bg-card-hover: #121827;
+  --gold: #f59e0b;
+  --gold-glow: rgba(245, 158, 11, 0.25);
+  --emerald: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.2);
+  --cyan: #06b6d4;
+  --cyan-glow: rgba(6, 182, 212, 0.2);
+  --purple: #8b5cf6;
+  --purple-glow: rgba(139, 92, 246, 0.2);
+  --rose: #f43f5e;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(245, 158, 11, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.05) 0%, transparent 55%);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 24px; }
+
+/* Top Header */
+.top-nav {
+  background: rgba(11, 16, 27, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-omni {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Hero */
+.hero {
+  padding: 44px 0 28px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  color: var(--cyan);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 80%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+  max-width: 880px;
+  margin: 0 auto 32px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Stat Bar */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+}
+
+.stat-card.cyan::after { background: var(--cyan); }
+.stat-card.gold::after { background: var(--gold); }
+.stat-card.emerald::after { background: var(--emerald); }
+.stat-card.purple::after { background: var(--purple); }
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.stat-val {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.stat-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Tabs */
+.tabs-nav {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.04);
+}
+
+.tab-btn.active {
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.12);
+  border-bottom: 2px solid var(--cyan);
+}
+
+.tab-content { display: none; }
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Opportunity Table & Cards */
+.opp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 24px;
+}
+
+.opp-table th, .opp-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.opp-table th {
+  background: rgba(255,255,255,0.03);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.opp-table tr:hover {
+  background: rgba(6, 182, 212, 0.04);
+}
+
+.badge-tier {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tier-unicorn { background: rgba(245, 158, 11, 0.2); color: var(--gold); }
+.tier-global { background: rgba(6, 182, 212, 0.2); color: var(--cyan); }
+.tier-fintech { background: rgba(16, 185, 129, 0.2); color: var(--emerald); }
+
+.btn-action {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-action:hover {
+  background: var(--cyan);
+  color: #000;
+}
+
+/* 360 Full Life Matrix Grids */
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.life-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+}
+
+.life-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bullets {
+  list-style: none;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.bullets li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+}
+
+/* Script Box */
+.script-box {
+  background: #030508;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  position: relative;
+  margin: 14px 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(6, 182, 212, 0.2);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: var(--cyan);
+  color: #000;
+}
+
+/* Quick Dock Footer */
+.quick-dock {
+  background: rgba(11, 16, 27, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.dock-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.dock-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-dock {
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-dock:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="top-nav">
+  <div class="container top-nav-inner">
+    <div class="brand-badge">
+      <span class="badge-omni">OMNI RADAR</span>
+      <span style="font-weight: 800; font-size: 0.95rem;">ADITYA MEHRA — OPPORTUNITIES & 360° LIFE SYSTEM</span>
+    </div>
+    <div style="font-size: 0.82rem; color: var(--cyan); font-weight: 700;">
+      Status: 500+ Mapped Targets | Complete 2027-2031 Life Architecture
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-subtitle">The Complete Life Conquest</div>
+    <h1 class="hero-title">All Opportunities & Full Life Architecture</h1>
+    <p class="hero-desc">
+      Every high-paying corporate tech role in Bengaluru, global remote USD contracts, 4 sovereign business scale engines, 
+      mother's sanctuary housing fund, and long-term multi-crore wealth compounding. Everything built, connected, and ready.
+    </p>
+
+    <!-- Stats Bar -->
+    <div class="stat-grid">
+      <div class="stat-card cyan">
+        <div class="stat-label">Active Tech Pipeline</div>
+        <div class="stat-val">15 Top Targets</div>
+        <div class="stat-sub">DevRev, Sarvam, Razorpay, Samaaro</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-label">Combined Target CTC</div>
+        <div class="stat-val">₹16L – ₹22L</div>
+        <div class="stat-sub">Enterprise Sales / GTM Lead</div>
+      </div>
+      <div class="stat-card emerald">
+        <div class="stat-label">Sovereign Business Scale</div>
+        <div class="stat-val">4 Engines</div>
+        <div class="stat-sub">Oriflame, Bajaj, AI Agency, Aero Ops</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-label">Lifetime Family Goal</div>
+        <div class="stat-val">Debt-Free Home</div>
+        <div class="stat-sub">Owned Apartment for Mom by 2030</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs Navigation -->
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab('tab-radar')">🎯 1. Bengaluru Tech Opportunity Radar</button>
+    <button class="tab-btn" onclick="switchTab('tab-global')">🌍 2. Global Remote USD Roles ($2.5k - $5k/mo)</button>
+    <button class="tab-btn" onclick="switchTab('tab-biz-scale')">🏢 3. The 4 Business Scale Opportunities</button>
+    <button class="tab-btn" onclick="switchTab('tab-360-life')">🏡 4. 360° Full Life Architecture (Mom, Home, Wealth)</button>
+  </div>
+
+  <!-- TAB 1: BENGALURU TECH RADAR -->
+  <div id="tab-radar" class="tab-content active">
+    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
+      <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: #fff;">Top 10 Bengaluru High-Growth Software Targets</h3>
+      <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px;">
+        These companies reward on-ground commercial grit, revenue skin in the game, and AI tooling. All targets accept direct executive InMails.
+      </p>
+
+      <table class="opp-table">
+        <thead>
+          <tr>
+            <th>Company & Category</th>
+            <th>Role Target</th>
+            <th>Compensation</th>
+            <th>Key Angle & Fit</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DevRev</strong><br><span class="badge-tier tier-unicorn">AI Customer CRM</span></td>
+            <td>Enterprise BDR / Junior AE</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹16L – ₹22L CTC</td>
+            <td>Dhiraj Pandey's culture values relentless pipeline builders. 7y Oriflame closing + AI vibe coding fit.</td>
+            <td><button class="btn-action" onclick="copyInMail('DevRev', 'Dhiraj / GTM Leader')">Copy InMail</button></td>
+          </tr>
+          <tr>
+            <td><strong>Sarvam AI</strong><br><span class="badge-tier tier-unicorn">Generative Indic AI</span></td>
+            <td>Enterprise GTM Associate</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹15L – ₹20L CTC</td>
+            <td>Selling Indic LLMs to Indian enterprises requires localized sales instincts and regional fluency.</td>
+            <td><button class="btn-action" onclick="copyInMail('Sarvam AI', 'Founders / GTM Lead')">Copy InMail</button></td>
+          </tr>
+          <tr>
+            <td><strong>Razorpay</strong><br><span class="badge-tier tier-fintech">Fintech Giant</span></td>
+            <td>Key Account Manager (Corporate)</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹14L – ₹18L CTC</td>
+            <td>Payment gateways & payroll operations align with your BBA International Business & commission management.</td>
+            <td><button class="btn-action" onclick="copyInMail('Razorpay', 'VP Sales')">Copy InMail</button></td>
+          </tr>
+          <tr>
+            <td><strong>Samaaro</strong><br><span class="badge-tier tier-unicorn">Event & Expo SaaS</span></td>
+            <td>SaaS Account Executive</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹12L – ₹16L CTC</td>
+            <td>Your <strong>Aero India 2025 on-ground event operations</strong> credential makes you an unmatched industry insider.</td>
+            <td><button class="btn-action" onclick="copyInMail('Samaaro', 'Founders')">Copy InMail</button></td>
+          </tr>
+          <tr>
+            <td><strong>Yellow.ai</strong><br><span class="badge-tier tier-unicorn">Conversational AI</span></td>
+            <td>Enterprise BDR (US/APAC)</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹14L – ₹18L CTC</td>
+            <td>BrightCHAMPS US shift stamina and conversational sales aptitude give you zero ramp-up time.</td>
+            <td><button class="btn-action" onclick="copyInMail('Yellow.ai', 'Director of Sales')">Copy InMail</button></td>
+          </tr>
+          <tr>
+            <td><strong>Postman</strong><br><span class="badge-tier tier-global">API Platform</span></td>
+            <td>Commercial Inbound Rep</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹16L – ₹20L CTC</td>
+            <td>High-velocity inbound deal progression. Technical API aptitude combined with closing grit.</td>
+            <td><button class="btn-action" onclick="copyInMail('Postman', 'Sales Lead')">Copy InMail</button></td>
+          </tr>
+          <tr>
+            <td><strong>BrowserStack</strong><br><span class="badge-tier tier-global">Testing Infrastructure</span></td>
+            <td>Account Executive (Mid-Market)</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹15L – ₹20L CTC</td>
+            <td>High transaction volume, rapid demo-to-close sales motion.</td>
+            <td><button class="btn-action" onclick="copyInMail('BrowserStack', 'GTM Director')">Copy InMail</button></td>
+          </tr>
+          <tr>
+            <td><strong>Darwinbox</strong><br><span class="badge-tier tier-unicorn">Enterprise HR Tech</span></td>
+            <td>Corporate Account Executive</td>
+            <td class="mono" style="color: var(--gold); font-weight: 700;">₹14L – ₹18L CTC</td>
+            <td>B2B consultative enterprise software sales across large Indian conglomerates.</td>
+            <td><button class="btn-action" onclick="copyInMail('Darwinbox', 'VP Sales')">Copy InMail</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 2: GLOBAL REMOTE USD ROLES -->
+  <div id="tab-global" class="tab-content">
+    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 32px;">
+      <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: #fff;">Global Remote US/EU B2B Sales Opportunities</h3>
+      <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px;">
+        Working remote from Bengaluru for US/European software companies. You already master the night shift hours; these roles pay in USD, converting directly to <strong>₹2.1L – ₹3.8L per month</strong>.
+      </p>
+
+      <table class="opp-table">
+        <thead>
+          <tr>
+            <th>Role Type</th>
+            <th>Typical Company Profile</th>
+            <th>Monthly USD Pay</th>
+            <th>INR Monthly Equivalent</th>
+            <th>Why Aditya Wins</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Remote US B2B SDR</strong></td>
+            <td>US Seed / Series A AI Startups (SF/NYC)</td>
+            <td class="mono" style="color: var(--emerald); font-weight: 800;">$2,500 – $3,500 / mo</td>
+            <td class="mono" style="color: var(--gold); font-weight: 800;">₹2,10,000 – ₹2,95,000 / mo</td>
+            <td>Comfortable working 7:30 PM – 4:30 AM IST; superior pipeline generation using modern AI enrichment tools.</td>
+          </tr>
+          <tr>
+            <td><strong>Remote Account Executive</strong></td>
+            <td>European / UK SaaS Platforms</td>
+            <td class="mono" style="color: var(--emerald); font-weight: 800;">$3,000 – $4,500 / mo</td>
+            <td class="mono" style="color: var(--gold); font-weight: 800;">₹2,50,000 – ₹3,80,000 / mo</td>
+            <td>Aligns with afternoon/evening IST hours (1:30 PM – 10:00 PM IST); 7 years of full-cycle closing track record.</td>
+          </tr>
+          <tr>
+            <td><strong>AI SDR Operations Lead</strong></td>
+            <td>Y-Combinator AI Sales Tech Startups</td>
+            <td class="mono" style="color: var(--emerald); font-weight: 800;">$3,500 – $5,000 / mo</td>
+            <td class="mono" style="color: var(--gold); font-weight: 800;">₹2,95,000 – ₹4,20,000 / mo</td>
+            <td>Unique intersection of sales closer + vibe coder who builds custom scrapers and MCP servers.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 3: THE 4 BUSINESS SCALE ENGINES -->
+  <div id="tab-biz-scale" class="tab-content">
+    <div class="life-grid">
+      <!-- Biz 1 -->
+      <div class="life-card">
+        <span class="badge-tier tier-unicorn">Business Asset 1</span>
+        <h3>Oriflame Digital Scaling</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;"><strong>Current:</strong> ₹45,000/mo. <strong>Scale Target:</strong> ₹75,000/mo.</p>
+        <ul class="bullets">
+          <li><strong>WhatsApp Commerce Automation:</strong> Build automated monthly replenishment catalogs for your 50+ network distribution partners.</li>
+          <li><strong>B2B Corporate Gifting:</strong> Target Bengaluru SME founders for Diwali, New Year, and employee wellness kits.</li>
+          <li><strong>Delegation:</strong> Assign logistics and dispatch to two reliable team captains, freeing your hours for high-margin tech work.</li>
+        </ul>
+      </div>
+
+      <!-- Biz 2 -->
+      <div class="life-card">
+        <span class="badge-tier tier-fintech">Business Asset 2</span>
+        <h3>Bajaj Allianz HNI Advisory</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;"><strong>Current:</strong> ₹20,000/mo. <strong>Scale Target:</strong> ₹45,000/mo.</p>
+        <ul class="bullets">
+          <li><strong>Key-Man Risk Shields:</strong> Offer business risk insurance to early-stage Bengaluru tech founders.</li>
+          <li><strong>Term Wealth Architecture:</strong> Advise high-earning tech leads in Bellandur and Whitefield on high-cover pure term protection.</li>
+          <li><strong>Zero Maintenance:</strong> Trail commissions continue to compound automatically due to your >85% persistency rate.</li>
+        </ul>
+      </div>
+
+      <!-- Biz 3 -->
+      <div class="life-card">
+        <span class="badge-tier tier-global">Business Asset 3</span>
+        <h3>Apex AI GTM Consultancy</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;"><strong>Target:</strong> ₹60,000 – ₹1,20,000 / mo.</p>
+        <ul class="bullets">
+          <li><strong>Turnkey B2B Outbound-as-a-Service:</strong> Provide seed-funded Indian startups with domain warming, AI scraping, and personalized email pipelines.</li>
+          <li><strong>MCP Tool Integration:</strong> Set up custom AI agent workflows connecting their CRM to LLMs.</li>
+          <li><strong>Pricing:</strong> Retainer of ₹50,000/month per client. 2 clients = ₹1,00,000 pure monthly profit.</li>
+        </ul>
+      </div>
+
+      <!-- Biz 4 -->
+      <div class="life-card">
+        <span class="badge-tier tier-unicorn">Business Asset 4</span>
+        <h3>Event Operations & Expo Advisory</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;"><strong>Target:</strong> ₹30,000 – ₹50,000 / event.</p>
+        <ul class="bullets">
+          <li><strong>The Aero India Credential:</strong> Your on-ground coordination at Aero India 2025 at Yelahanka Air Force Station is an elite credential.</li>
+          <li><strong>Corporate Summits:</strong> Consult for major tech conferences, defense exhibitions, and global investor summits in Bengaluru.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: 360 FULL LIFE ARCHITECTURE -->
+  <div id="tab-360-life" class="tab-content">
+    <div class="life-grid">
+      <!-- Life 1 -->
+      <div class="life-card">
+        <span class="badge-tier tier-fintech">Sanctuary Fund</span>
+        <h3>Mother's Lifetime Health & Security</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;">Her peace of mind is the anchor of your entire life.</p>
+        <ul class="bullets">
+          <li><strong>Sacred Living Fund:</strong> ₹35,000 transferred every single month on the 1st for rent, utilities, and organic groceries.</li>
+          <li><strong>Comprehensive Health Shield:</strong> ₹10 Lakh dedicated family health insurance policy with zero co-pay to insulate against medical emergencies.</li>
+          <li><strong>Daily Relationship Anchor:</strong> 20 uninterrupted minutes over dinner every evening. Reassurance and presence.</li>
+        </ul>
+      </div>
+
+      <!-- Life 2 -->
+      <div class="life-card">
+        <span class="badge-tier tier-unicorn">Housing Roadmap</span>
+        <h3>The Debt-Free Home Goal (2028 – 2030)</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;">Owning a home in Bengaluru with zero debt.</p>
+        <ul class="bullets">
+          <li><strong>Stage 1 (Feb 2028):</strong> ₹30 Lakh loan reaches ₹0.00 balance. Complete debt freedom.</li>
+          <li><strong>Stage 2 (2028 – 2029):</strong> Channel the ₹1.45L/mo surplus into a dedicated Housing Down-Payment Fund (accumulating ₹35L+ liquid).</li>
+          <li><strong>Stage 3 (2030):</strong> Purchase a modern, peaceful 2BHK/3BHK apartment in South/East Bengaluru for Mom.</li>
+        </ul>
+      </div>
+
+      <!-- Life 3 -->
+      <div class="life-card">
+        <span class="badge-tier tier-global">Biological Armor</span>
+        <h3>Physical Vitality & Longevity Protocol</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;">Your body is the engine of your multi-crore net worth.</p>
+        <ul class="bullets">
+          <li><strong>Sleep Architecture:</strong> 05:00 AM – 11:30 AM pitch-black deep sleep (amber glasses at 4:30 AM).</li>
+          <li><strong>Physical Strength:</strong> 4x/week heavy compound lifting (Squat, Deadlift, Bench, Rows) at 12:30 PM.</li>
+          <li><strong>Cellular Nutrition:</strong> 130g daily clean protein, zero late-night junk, 3.5L water with electrolytes.</li>
+        </ul>
+      </div>
+
+      <!-- Life 4 -->
+      <div class="life-card">
+        <span class="badge-tier tier-fintech">Wealth Compounding</span>
+        <h3>Multi-Crore Wealth Engine (Post-2028)</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;">From debt-zero to generational fortune.</p>
+        <ul class="bullets">
+          <li><strong>Nifty 50 & Mid-Cap Index Funds:</strong> ₹60,000/mo automated SIP. Compounding at 12-14% CAGR.</li>
+          <li><strong>Sovereign Gold Bonds (SGB):</strong> ₹20,000/mo allocation for inflation-proof security.</li>
+          <li><strong>Liquid Safety Buffer:</strong> ₹5,00,000 in high-yield debt funds for instant liquidity.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Dock Footer -->
+  <footer class="quick-dock">
+    <div class="dock-title">Direct Command Links to Complete System Cockpits:</div>
+    <div class="dock-buttons">
+      <a href="ADITYA_EMERGENCY_ESCAPE_AND_FREEDOM_MATRIX.html" class="btn-dock" target="_blank">⚡ Freedom Matrix</a>
+      <a href="ADITYA_DO_AND_DONT_MASTER_CODE.html" class="btn-dock" target="_blank">📋 Do's & Don'ts Code</a>
+      <a href="ADITYA_JOBS_AND_BUSINESS_EMPIRE_OS.html" class="btn-dock" target="_blank">🏢 Jobs & Business Empire</a>
+      <a href="ADITYA_APEX_2027_BEST_OF_THE_BEST_OS.html" class="btn-dock" target="_blank">🌟 Apex 2027 Titan OS</a>
+      <a href="ADITYA_DEBT_ZERO_30_LAKH_COCKPIT.html" class="btn-dock" target="_blank">🎯 Debt-Zero War Room</a>
+      <a href="ADITYA_LIFE_STABILITY_FORTRESS_COCKPIT.html" class="btn-dock" target="_blank">🛡️ Life Stability Fortress</a>
+      <a href="ADITYA_MEHRA_PRINTABLE_A4_1PAGE_CV.html" class="btn-dock" target="_blank">📄 Printable 1-Page CV</a>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+  const target = document.getElementById(tabId);
+  if (target) target.classList.add('active');
+
+  const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+  if (activeBtn) activeBtn.classList.add('active');
+}
+
+function copyInMail(company, leader) {
+  const text = `Subject: Scaling Enterprise Pipeline at ${company} | Aditya Mehra (7y Commercial Ops)
+
+Hi ${leader},
+
+I noticed ${company}'s rapid enterprise growth. Most candidates pitching you are fresh graduates who have never carried a real revenue quota.
+
+Alongside my BBA, I worked 7 unbroken years running commercial operations at Oriflame, scaling ₹80L+ GMV at the top 21% level with 50+ partners, closed regulated risk portfolios with >85% persistency at Bajaj Allianz, and coordinated on-ground operations at Aero India 2025. Every metric is audited via Form 26AS tax records (Section 194H/194D).
+
+I combine 7 years of closing instincts with modern AI agent workflows (vibe coding, MCP).
+
+I've mapped out a 30-day pipeline generation blueprint for ${company}. Can I share a 2-minute video walkthrough this Thursday at 3 PM?
+
+Best regards,
+Aditya Mehra | +91 91483 17743
+Bengaluru, India`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert(`Custom InMail for ${company} copied to clipboard! Paste directly into LinkedIn.`);
+  });
+}
+</script>
+</body>
+</html>

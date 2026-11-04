@@ -1,11 +1,11 @@
 {
-  "execution_id": "GHM-SOVEREIGN-D8A3862907",
+  "execution_id": "GHM-SOVEREIGN-CCC968E5A0",
   "status": "PASSED",
   "overall_status": "ALL 12 PHASES PASSED :: SOVEREIGN GITHUB MARKETPLACE ATTESTED",
   "total_phases_executed": 12,
   "total_phases": 12,
-  "total_elapsed_seconds": 1.5148,
-  "timestamp": "2026-11-03T06:50:26.321969+00:00",
+  "total_elapsed_seconds": 0.8097,
+  "timestamp": "2026-11-03T07:37:16.406035+00:00",
   "telemetry": {
     "total_items": 373,
     "total_actions": 231,
@@ -122,7 +122,7 @@
       "name": "SQLite FTS5 Relational Compilation & Indexing",
       "description": "Compiled and indexed 373 items in E:\\anti\\data\\github_marketplace.sqlite3 with sub-millisecond FTS5 search.",
       "status": "PASSED",
-      "elapsed_seconds": 1.4833,
+      "elapsed_seconds": 0.7647,
       "evidence": {
         "db_path": "E:\\anti\\data\\github_marketplace.sqlite3",
         "db_size_bytes": 348160,
@@ -173,7 +173,7 @@
       "name": "Multi-Format Data Vault Generation",
       "description": "Generated immutable data vault exports in JSON, SQLite, CSV, and Markdown formats.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0307,
+      "elapsed_seconds": 0.044,
       "evidence": {
         "json_vault": "E:\\anti\\data\\github_marketplace_catalog.json",
         "csv_vault": "E:\\anti\\data\\github_marketplace_export.csv",
@@ -198,7 +198,7 @@
       "name": "Mission Control Cockpit Interface & Telemetry Synthesis",
       "description": "Verified responsive single-page executive mission control cockpit at E:\\anti\\github_marketplace_cockpit.html.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.0001,
       "evidence": {
         "cockpit_file": "E:\\anti\\github_marketplace_cockpit.html",
         "features": [
@@ -212,14 +212,14 @@
     {
       "phase": 12,
       "name": "End-to-End Sovereign Verification & Manifest Attestation",
-      "description": "All 12 lifecycle phases successfully passed in 1.5148s. Attestation sealed.",
+      "description": "All 12 lifecycle phases successfully passed in 0.8097s. Attestation sealed.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "evidence": {
-        "execution_id": "GHM-SOVEREIGN-D8A3862907",
+        "execution_id": "GHM-SOVEREIGN-CCC968E5A0",
         "total_phases": 12,
         "passed_phases": 12,
-        "sealed_at": "2026-11-03T06:50:26.321956+00:00"
+        "sealed_at": "2026-11-03T07:37:16.406019+00:00"
       }
     }
   ]

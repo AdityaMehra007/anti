@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADITYA MEHRA | OPERATION DEBT-ZERO (₹30 LAKH LIQUIDATION CONSOLE)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060813;
+      --surface: #0c1024;
+      --card: #121936;
+      --card-hover: #1a244d;
+      --border: #1e2b58;
+      --cyan: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.25);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --purple: #8b5cf6;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    /* War Banner */
+    .war-banner {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(12, 16, 36, 0.95));
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      border-radius: 16px;
+      padding: 24px 30px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 0 30px rgba(244, 63, 94, 0.12);
+    }
+    .war-title h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .war-title p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .war-badge {
+      background: rgba(244, 63, 94, 0.2);
+      border: 1px solid var(--rose);
+      color: #ff6b81;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      position: relative;
+    }
+    .kpi-card.urgent::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--rose);
+    }
+    .kpi-card.cash::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--emerald);
+    }
+    .kpi-card.target::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--cyan);
+    }
+    .kpi-card.countdown::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--amber);
+    }
+
+    .kpi-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .kpi-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin: 6px 0 2px;
+      font-family: var(--font-mono);
+    }
+    .kpi-sub {
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .sub-rose { color: var(--rose); }
+    .sub-emerald { color: var(--emerald); }
+    .sub-cyan { color: var(--cyan); }
+    .sub-amber { color: var(--amber); }
+
+    /* Main Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Card Panels */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .panel-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Amortization Table */
+    .table-box {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+    th {
+      background: var(--card);
+      color: var(--text-muted);
+      font-weight: 700;
+      padding: 10px 14px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+    }
+    tr.highlight {
+      background: rgba(16, 185, 129, 0.1);
+      font-weight: 700;
+    }
+    tr.highlight td {
+      color: #fff;
+    }
+    tr.zero {
+      background: rgba(0, 242, 254, 0.15);
+      font-weight: 800;
+    }
+    tr.zero td {
+      color: var(--cyan);
+    }
+
+    /* Cash Flow Stacker */
+    .cash-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cash-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .cash-status {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .cash-amount {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--emerald);
+      font-family: var(--font-mono);
+      text-align: right;
+    }
+
+    /* Action Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-emerald { background: var(--emerald); color: #060813; }
+    .btn-emerald:hover { box-shadow: 0 0 15px var(--emerald-glow); transform: translateY(-1px); }
+    .btn-cyan { background: var(--cyan); color: #060813; }
+    .btn-cyan:hover { box-shadow: 0 0 15px var(--cyan-glow); transform: translateY(-1px); }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+    .btn-outline:hover { border-color: var(--cyan); color: #fff; }
+
+    /* Script Box */
+    .script-box {
+      background: #090c1a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 12.5px;
+      color: #cbd5e1;
+      font-family: var(--font-mono);
+      line-height: 1.6;
+      white-space: pre-wrap;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: var(--cyan); color: #060813; }
+  </style>
+</head>
+<body>
+
+  <!-- War Banner -->
+  <div class="war-banner">
+    <div class="war-title">
+      <h1>💥 OPERATION DEBT-ZERO: ₹30,00,000 WAR ROOM</h1>
+      <p>Target Timeline: 18–22 Months | Elimination Strategy: Multi-Engine Cash Stacking + Tier-1 Tech Compensation</p>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="ADITYA_MEHRA_CHRONICLES_PAST_PRESENT_FUTURE.html" target="_blank" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 5px;">📜 The Chronicles ↗</a>
+      <a href="ADITYA_LIFE_STABILITY_FORTRESS_COCKPIT.html" target="_blank" style="background: linear-gradient(135deg, #10b981, #00f2fe); color: #060813; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 5px;">🧘 Stability OS ↗</a>
+      <a href="ADITYA_MEHRA_PROOF_OF_WORK_GLOBAL_VAULT.html" target="_blank" style="background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 5px;">🛡️ PoW Vault ↗</a>
+      <a href="ADITYA_MEHRA_PRINTABLE_A4_1PAGE_CV.html" target="_blank" style="background: var(--emerald); color: #060813; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 5px;">📄 1-Page CV ↗</a>
+      <a href="ADITYA_MEHRA_EVERYTHING_MASTER_VAULT.html" target="_blank" style="background: var(--cyan); color: #060813; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 5px;">🏛️ Master Vault ↗</a>
+      <span class="war-badge">BATTLE STATIONS ACTIVE</span>
+    </div>
+  </div>
+
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card urgent">
+      <div class="kpi-label">Outstanding Debt Principal</div>
+      <div class="kpi-value" style="color: var(--rose);">₹30,00,000</div>
+      <div class="kpi-sub sub-rose">Standard 5-Yr EMI: ~₹66,000/mo</div>
+    </div>
+    <div class="kpi-card cash">
+      <div class="kpi-label">Target Monthly Net Inflow</div>
+      <div class="kpi-value" style="color: var(--emerald);">₹2,10,000</div>
+      <div class="kpi-sub sub-emerald">Corporate + Oriflame + Bajaj</div>
+    </div>
+    <div class="kpi-card target">
+      <div class="kpi-label">Monthly Debt Prepayment</div>
+      <div class="kpi-value" style="color: var(--cyan);">₹1,45,000</div>
+      <div class="kpi-sub sub-cyan">Living Capped at ₹35,000/mo</div>
+    </div>
+    <div class="kpi-card countdown">
+      <div class="kpi-label">Projected Debt-Free Date</div>
+      <div class="kpi-value" style="color: var(--amber);">FEB 2028</div>
+      <div class="kpi-sub sub-amber">Age 27.1 — 100% DEBT-FREE!</div>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="main-grid">
+
+    <!-- Left Column: Master Amortization & Strategy -->
+    <div>
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">📊 Accelerated 18-Month Debt Liquidation Curve</span>
+          <span style="font-size: 11px; color: var(--emerald); font-family: var(--font-mono);">Saves ₹6,00,000+ in Interest</span>
+        </div>
+
+        <div class="table-box">
+          <table>
+            <thead>
+              <tr>
+                <th>Timeline</th>
+                <th>Phase / Event</th>
+                <th>Monthly Net</th>
+                <th>Debt Payment</th>
+                <th>Lump Prepayment</th>
+                <th>Remaining Debt</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nov 2026</td>
+                <td>BrightCHAMPS Start + Oriflame + Bajaj</td>
+                <td>₹95,000</td>
+                <td>₹65,000</td>
+                <td>₹0</td>
+                <td style="color: var(--rose);">₹29,65,000</td>
+              </tr>
+              <tr>
+                <td>Dec 2026</td>
+                <td>BrightCHAMPS US Shift Full Month</td>
+                <td>₹98,000</td>
+                <td>₹68,000</td>
+                <td>₹0</td>
+                <td style="color: var(--rose);">₹29,25,000</td>
+              </tr>
+              <tr class="highlight">
+                <td>Jan 2027</td>
+                <td><strong>Tier-1 Offer Signed + Sign-on Bonus</strong></td>
+                <td>₹2,10,000</td>
+                <td>₹1,40,000</td>
+                <td style="color: var(--emerald);"><strong>₹1,50,000</strong></td>
+                <td style="color: #fff;">₹26,10,000</td>
+              </tr>
+              <tr>
+                <td>Feb 2027</td>
+                <td>Full Corporate Salary + Streams</td>
+                <td>₹2,15,000</td>
+                <td>₹1,45,000</td>
+                <td>₹0</td>
+                <td>₹24,40,000</td>
+              </tr>
+              <tr class="highlight">
+                <td>Mar 2027</td>
+                <td><strong>Oriflame Director ($1k + $2k Awards)</strong></td>
+                <td>₹2,20,000</td>
+                <td>₹1,45,000</td>
+                <td style="color: var(--emerald);"><strong>₹2,50,000</strong></td>
+                <td style="color: #fff;">₹20,20,000</td>
+              </tr>
+              <tr>
+                <td>Apr 2027</td>
+                <td>Amortization Month 4</td>
+                <td>₹2,15,000</td>
+                <td>₹1,45,000</td>
+                <td>₹0</td>
+                <td>₹18,55,000</td>
+              </tr>
+              <tr>
+                <td>Jun 2027</td>
+                <td>Q2 Corporate Variable Bonus</td>
+                <td>₹2,45,000</td>
+                <td>₹1,50,000</td>
+                <td style="color: var(--emerald);">₹60,000</td>
+                <td>₹14,60,000</td>
+              </tr>
+              <tr>
+                <td>Sep 2027</td>
+                <td>Q3 Corporate Variable Bonus</td>
+                <td>₹2,45,000</td>
+                <td>₹1,50,000</td>
+                <td style="color: var(--emerald);">₹60,000</td>
+                <td>₹8,90,000</td>
+              </tr>
+              <tr>
+                <td>Dec 2027</td>
+                <td>Annual Appraisal & Corporate Incentive</td>
+                <td>₹2,60,000</td>
+                <td>₹1,60,000</td>
+                <td style="color: var(--emerald);">₹75,000</td>
+                <td>₹3,00,000</td>
+              </tr>
+              <tr class="zero">
+                <td>FEB 2028</td>
+                <td><strong>FINAL PAYMENT — 100% DEBT FREE!</strong></td>
+                <td>₹2,20,000</td>
+                <td>₹1,30,000</td>
+                <td>₹0</td>
+                <td style="color: var(--cyan); font-weight: 800;">₹0.00 ZERO!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Salary Negotiation Script for Debt Liquidation -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">🛡️ Unyielding Salary Negotiation Script (No Lowball Tolerance)</span>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 12px;">
+          When an HR asks for your CTC expectations, use this script. Your debt means you <strong>cannot</strong> accept ₹5L or ₹6L. You anchor high and demand a transition bonus:
+        </p>
+        <div class="script-box">
+          <button class="copy-btn" onclick="copyScript()">Copy Script</button>
+<span id="salary-script">"Given my 7 years of commercial sales leadership driving ₹60L+ in annual GMV, my IRDAI compliance background, and my active performance closing US prospects on night shifts at BrightCHAMPS, I am evaluating roles at a fixed base of ₹11 to ₹14 Lakhs, with an OTE of ₹15 to ₹18 Lakhs+.
+
+Because I am transitioning mid-cycle and leaving accrued international performance incentives on the table, I would also require a standard one-time signing bonus of ₹1.5 Lakhs to bridge that gap. 
+
+At this compensation structure, you have my complete, undivided commitment to dominate pipeline from week two."</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Cash Engines & Quick Launch -->
+    <div>
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">⚡ The 4 Cash Inflow Cylinders</span>
+        </div>
+
+        <div class="cash-item">
+          <div>
+            <div class="cash-name">1. Tier-1 Corporate (Target Jan '27)</div>
+            <div class="cash-status">Sarvam / DevRev / Razorpay</div>
+          </div>
+          <div class="cash-amount">₹1,15,000<span style="font-size: 11px; color: var(--text-muted);">/mo net</span></div>
+        </div>
+
+        <div class="cash-item">
+          <div>
+            <div class="cash-name">2. Oriflame Commercial Network</div>
+            <div class="cash-status">7,500 BP (Mother + Downline)</div>
+          </div>
+          <div class="cash-amount">₹45,000<span style="font-size: 11px; color: var(--text-muted);">/mo net</span></div>
+        </div>
+
+        <div class="cash-item">
+          <div>
+            <div class="cash-name">3. Bajaj Allianz Life Insurance</div>
+            <div class="cash-status">IRDAI >85% Persistency Renewals</div>
+          </div>
+          <div class="cash-amount">₹20,000<span style="font-size: 11px; color: var(--text-muted);">/mo net</span></div>
+        </div>
+
+        <div class="cash-item">
+          <div>
+            <div class="cash-name">4. BrightCHAMPS (Interim Shield)</div>
+            <div class="cash-status">US Shift Inside Sales (Nov 12 Start)</div>
+          </div>
+          <div class="cash-amount">₹32,000<span style="font-size: 11px; color: var(--text-muted);">/mo net</span></div>
+        </div>
+
+        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--emerald); border-radius: 10px; padding: 14px; margin-top: 14px; text-align: center;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--emerald); text-transform: uppercase;">Total Stacked Cash Capacity</div>
+          <div style="font-size: 24px; font-weight: 800; color: #fff; font-family: var(--font-mono); margin-top: 2px;">₹2,10,000 / mo</div>
+        </div>
+      </div>
+
+      <!-- Quick Launchpad -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">🎯 Tier-1 Target Applications</span>
+        </div>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Pre-built dossiers ready for immediate submission:</p>
+
+        <div style="display: grid; gap: 8px;">
+          <a href="applications_generated/APX-009_DevRev_AI_Bangalore/ATS_RESUME.md" target="_blank" class="btn btn-cyan" style="justify-content: center; width: 100%;">1. DevRev (AI Solutions BDR — ₹14L OTE) ↗</a>
+          <a href="applications_generated/APX-010_Sarvam_AI_Bangalore/ATS_RESUME.md" target="_blank" class="btn btn-emerald" style="justify-content: center; width: 100%;">2. Sarvam AI (GenAI GTM — ₹16L OTE) ↗</a>
+          <a href="applications_generated/APX-011_Razorpay_Commercial_Bangalore/ATS_RESUME.md" target="_blank" class="btn btn-cyan" style="justify-content: center; width: 100%;">3. Razorpay (FinTech Key Accts — ₹14L OTE) ↗</a>
+          <a href="ADITYA_APEX_2027_MISSION_CONTROL.html" target="_blank" class="btn btn-outline" style="justify-content: center; width: 100%; margin-top: 6px;">Open Mission Control Cockpit ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function copyScript() {
+      const text = document.getElementById('salary-script').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        btn.innerText = "COPIED!";
+        setTimeout(() => btn.innerText = "Copy Script", 2000);
+      });
+    }
+  </script>
+</body>
+</html>

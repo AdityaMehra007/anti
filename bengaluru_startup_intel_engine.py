@@ -57,18 +57,59 @@ def init_database():
     conn = get_db()
     c = conn.cursor()
 
+    # Create startups table with extended metadata for 1,000+ ecosystem directory
     c.execute("""
     CREATE TABLE IF NOT EXISTS startups (
         id TEXT PRIMARY KEY,
         name TEXT UNIQUE NOT NULL,
+        slug TEXT,
         sector TEXT,
         stage TEXT,
         blr_location TEXT,
+        area TEXT,
+        address TEXT,
+        lat REAL,
+        lng REAL,
         website TEXT,
         founder TEXT,
+        founder_links TEXT,
+        tags TEXT,
+        founded_year INTEGER,
         verified_active BOOLEAN DEFAULT 1
     );
     """)
+
+    # Create dedicated venture capital directory table
+    c.execute("""
+    CREATE TABLE IF NOT EXISTS venture_capital_firms (
+        id TEXT PRIMARY KEY,
+        name TEXT UNIQUE NOT NULL,
+        slug TEXT,
+        tagline TEXT,
+        description TEXT,
+        area TEXT,
+        address TEXT,
+        lat REAL,
+        lng REAL,
+        website TEXT,
+        partners TEXT,
+        founder_links TEXT,
+        tags TEXT,
+        founded_year INTEGER,
+        active BOOLEAN DEFAULT 1
+    );
+    """)
+
+    # Ensure missing columns exist if table was previously created with older schema
+    existing_cols = [r[1] for r in c.execute("PRAGMA table_info(startups)").fetchall()]
+    needed_cols = [
+        ("slug", "TEXT"), ("area", "TEXT"), ("address", "TEXT"),
+        ("lat", "REAL"), ("lng", "REAL"), ("founder_links", "TEXT"),
+        ("tags", "TEXT"), ("founded_year", "INTEGER")
+    ]
+    for col_name, col_type in needed_cols:
+        if col_name not in existing_cols:
+            c.execute(f"ALTER TABLE startups ADD COLUMN {col_name} {col_type}")
 
     c.execute("""
     CREATE TABLE IF NOT EXISTS jobs (
@@ -134,10 +175,30 @@ def init_database():
             seed = json.load(f)
 
         for s in seed.get("startups", []):
+            founder_links_str = json.dumps(s.get("founder_links", [])) if isinstance(s.get("founder_links"), (list, dict)) else str(s.get("founder_links") or "")
+            tags_str = json.dumps(s.get("tags", [])) if isinstance(s.get("tags"), list) else str(s.get("tags") or "")
             c.execute("""
-            INSERT OR REPLACE INTO startups (id, name, sector, stage, blr_location, website, founder, verified_active)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """, (s["id"], s["name"], s["sector"], s["stage"], s["blr_location"], s["website"], s["founder"], s["verified_active"]))
+            INSERT OR REPLACE INTO startups (id, name, slug, sector, stage, blr_location, area, address, lat, lng, website, founder, founder_links, tags, founded_year, verified_active)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                s["id"], s["name"], s.get("slug", ""), s.get("sector", ""), s.get("stage", ""),
+                s.get("blr_location", ""), s.get("area", s.get("blr_location", "")), s.get("address", ""),
+                s.get("lat"), s.get("lng"), s.get("website", ""), s.get("founder", ""),
+                founder_links_str, tags_str, s.get("founded_year"), 1 if s.get("verified_active", True) else 0
+            ))
+
+        for v in seed.get("vcs", []):
+            founder_links_str = json.dumps(v.get("founder_links", [])) if isinstance(v.get("founder_links"), (list, dict)) else str(v.get("founder_links") or "")
+            tags_str = json.dumps(v.get("tags", [])) if isinstance(v.get("tags"), list) else str(v.get("tags") or "")
+            c.execute("""
+            INSERT OR REPLACE INTO venture_capital_firms (id, name, slug, tagline, description, area, address, lat, lng, website, partners, founder_links, tags, founded_year, active)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                v["id"], v["name"], v.get("slug", ""), v.get("tagline", ""), v.get("description", ""),
+                v.get("area", ""), v.get("address", ""), v.get("lat"), v.get("lng"),
+                v.get("website", ""), v.get("partners", ""), founder_links_str, tags_str,
+                v.get("founded_year"), 1 if v.get("active", True) else 0
+            ))
 
         for j in seed.get("jobs", []):
             c.execute("""
@@ -178,6 +239,8 @@ def export_csvs():
         ("funding_rounds", os.path.join(DATA_DIR, "bengaluru_startup_funding.csv")),
         ("ecosystem_news", os.path.join(DATA_DIR, "bengaluru_startup_news.csv")),
         ("change_log", os.path.join(DATA_DIR, "bengaluru_startup_daily_delta.csv")),
+        ("startups", os.path.join(DATA_DIR, "bengaluru_startup_directory_1000.csv")),
+        ("venture_capital_firms", os.path.join(DATA_DIR, "bengaluru_startup_vcs.csv")),
     ]
 
     for table_name, out_path in tables:
@@ -398,6 +461,18 @@ class IntelApiHandler(BaseHTTPRequestHandler):
         c = conn.cursor()
 
         if path == "/api/stats":
+            c.execute("SELECT COUNT(*) FROM startups")
+            total_startups = c.fetchone()[0]
+
+            c.execute("SELECT COUNT(*) FROM venture_capital_firms")
+            total_vcs = c.fetchone()[0]
+
+            c.execute("SELECT COUNT(*) FROM startups WHERE lat IS NOT NULL AND lng IS NOT NULL")
+            geocoded_startups = c.fetchone()[0]
+
+            c.execute("SELECT COUNT(*) FROM venture_capital_firms WHERE lat IS NOT NULL AND lng IS NOT NULL")
+            geocoded_vcs = c.fetchone()[0]
+
             c.execute("SELECT COUNT(*) FROM jobs")
             total_jobs = c.fetchone()[0]
 
@@ -417,6 +492,10 @@ class IntelApiHandler(BaseHTTPRequestHandler):
                 "status": "online",
                 "timestamp": datetime.now().isoformat(),
                 "metrics": {
+                    "total_startups": total_startups,
+                    "total_vcs": total_vcs,
+                    "total_ecosystem_entities": total_startups + total_vcs,
+                    "geocoded_locations": geocoded_startups + geocoded_vcs,
                     "total_jobs": total_jobs,
                     "high_fit_jobs": high_fit_jobs,
                     "total_funding_deals": total_funding,
@@ -425,6 +504,73 @@ class IntelApiHandler(BaseHTTPRequestHandler):
                 },
                 "target_candidate": CANDIDATE_PROFILE
             })
+
+        elif path == "/api/startups":
+            query = "SELECT * FROM startups WHERE 1=1"
+            args = []
+            if "area" in params:
+                query += " AND (area LIKE ? OR blr_location LIKE ?)"
+                args.extend([f"%{params['area'][0]}%", f"%{params['area'][0]}%"])
+            if "sector" in params:
+                query += " AND sector LIKE ?"
+                args.append(f"%{params['sector'][0]}%")
+            if "stage" in params:
+                query += " AND stage LIKE ?"
+                args.append(f"%{params['stage'][0]}%")
+            if "search" in params:
+                s_term = f"%{params['search'][0]}%"
+                query += " AND (name LIKE ? OR founder LIKE ? OR tags LIKE ? OR address LIKE ?)"
+                args.extend([s_term, s_term, s_term, s_term])
+
+            limit = int(params["limit"][0]) if "limit" in params and params["limit"][0].isdigit() else 200
+            offset = int(params["offset"][0]) if "offset" in params and params["offset"][0].isdigit() else 0
+            query += f" ORDER BY name ASC LIMIT {limit} OFFSET {offset}"
+
+            c.execute(query, args)
+            startups = [dict(r) for r in c.fetchall()]
+            for s in startups:
+                if s.get("founder_links") and isinstance(s["founder_links"], str) and s["founder_links"].startswith("["):
+                    try: s["founder_links"] = json.loads(s["founder_links"])
+                    except: pass
+                if s.get("tags") and isinstance(s["tags"], str) and s["tags"].startswith("["):
+                    try: s["tags"] = json.loads(s["tags"])
+                    except: pass
+            self._send_json({"count": len(startups), "startups": startups})
+
+        elif path == "/api/vcs":
+            query = "SELECT * FROM venture_capital_firms WHERE 1=1"
+            args = []
+            if "area" in params:
+                query += " AND (area LIKE ? OR address LIKE ?)"
+                args.extend([f"%{params['area'][0]}%", f"%{params['area'][0]}%"])
+            if "search" in params:
+                s_term = f"%{params['search'][0]}%"
+                query += " AND (name LIKE ? OR partners LIKE ? OR tags LIKE ? OR description LIKE ?)"
+                args.extend([s_term, s_term, s_term, s_term])
+
+            limit = int(params["limit"][0]) if "limit" in params and params["limit"][0].isdigit() else 100
+            query += f" ORDER BY name ASC LIMIT {limit}"
+            c.execute(query, args)
+            vcs = [dict(r) for r in c.fetchall()]
+            for v in vcs:
+                if v.get("founder_links") and isinstance(v["founder_links"], str) and v["founder_links"].startswith("["):
+                    try: v["founder_links"] = json.loads(v["founder_links"])
+                    except: pass
+                if v.get("tags") and isinstance(v["tags"], str) and v["tags"].startswith("["):
+                    try: v["tags"] = json.loads(v["tags"])
+                    except: pass
+            self._send_json({"count": len(vcs), "vcs": vcs})
+
+        elif path == "/api/map_pins":
+            c.execute("""
+            SELECT id, name, slug, sector, stage, blr_location as area, address, lat, lng, website, 'startup' as kind
+            FROM startups WHERE lat IS NOT NULL AND lng IS NOT NULL
+            UNION ALL
+            SELECT id, name, slug, 'VC / Investor' as sector, 'Fund' as stage, area, address, lat, lng, website, 'vc' as kind
+            FROM venture_capital_firms WHERE lat IS NOT NULL AND lng IS NOT NULL
+            """)
+            pins = [dict(r) for r in c.fetchall()]
+            self._send_json({"count": len(pins), "pins": pins})
 
         elif path == "/api/jobs":
             query = "SELECT * FROM jobs WHERE 1=1"

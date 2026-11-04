@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADITYA MEHRA | Universal Proof of Work (PoW) & Executive Evidence Ledger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050813;
+      --surface: #0b1026;
+      --card: #111736;
+      --card-hover: #18224d;
+      --border: #1a2754;
+      --cyan: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.25);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --purple: #8b5cf6;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    /* Verification Header */
+    .header-box {
+      background: linear-gradient(135deg, rgba(17, 23, 54, 0.95), rgba(11, 16, 38, 0.95));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .header-text h1 {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Trust Seals */
+    .seal-rack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .seal {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .seal-emerald { background: rgba(16, 185, 129, 0.12); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.35); }
+    .seal-cyan { background: rgba(0, 242, 254, 0.12); color: var(--cyan); border: 1px solid rgba(0, 242, 254, 0.35); }
+    .seal-purple { background: rgba(139, 92, 246, 0.12); color: var(--purple); border: 1px solid rgba(139, 92, 246, 0.35); }
+    .seal-amber { background: rgba(245, 158, 11, 0.12); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.35); }
+
+    /* Top KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      position: relative;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .kpi-card.c1::before { background: var(--emerald); }
+    .kpi-card.c2::before { background: var(--cyan); }
+    .kpi-card.c3::before { background: var(--purple); }
+    .kpi-card.c4::before { background: var(--amber); }
+
+    .kpi-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .kpi-val {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin: 6px 0 2px;
+      font-family: var(--font-mono);
+    }
+    .kpi-sub {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Main Grid */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      height: fit-content;
+    }
+    .sidebar-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--cyan);
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 13px;
+      font-weight: 700;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-item:hover, .nav-item.active {
+      background: var(--card-hover);
+      border-color: var(--cyan);
+      color: #fff;
+      transform: translateX(4px);
+    }
+
+    /* Content Area */
+    .content-area {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    /* Panes */
+    .pane { display: none; }
+    .pane.active { display: block; }
+
+    /* Case Study Card */
+    .case-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .case-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .case-meta {
+      font-size: 12px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      margin-top: 4px;
+    }
+
+    .case-section {
+      margin-bottom: 20px;
+    }
+    .case-section h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+    .case-section p {
+      font-size: 13.5px;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    .case-bullets {
+      list-style-type: none;
+      margin-top: 8px;
+    }
+    .case-bullets li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .case-bullets li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: var(--emerald);
+      font-weight: 800;
+    }
+
+    /* Result Box */
+    .result-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid var(--emerald);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .result-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    /* Rebuttal Box */
+    .script-card {
+      background: #080c1d;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .script-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+    .script-text {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .btn-copy {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-copy:hover {
+      background: var(--cyan);
+      color: #050813;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-box">
+    <div class="header-text">
+      <h1>ADITYA MEHRA | PROOF OF WORK (PoW) GLOBAL VAULT</h1>
+      <p>Institutional Evidence Ledger & Commercial Case Studies • Neutralizing the "Fresher" Label Universally</p>
+      <div class="seal-rack">
+        <span class="seal seal-emerald">✔ Form 26AS Verified (Section 194H)</span>
+        <span class="seal seal-emerald">✔ IRDAI License Verified (>85% Persistency)</span>
+        <span class="seal seal-purple">✔ Aero India 2025 Operations Lead</span>
+        <span class="seal seal-cyan">✔ Active US Inside Sales Dialer (BrightCHAMPS)</span>
+        <span class="seal seal-amber">✔ Dayananda Sagar University BBA '26</span>
+      </div>
+    </div>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <a href="ADITYA_MEHRA_CHRONICLES_PAST_PRESENT_FUTURE.html" target="_blank" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; text-decoration: none; padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);">📜 The Chronicles ↗</a>
+      <a href="ADITYA_LIFE_STABILITY_FORTRESS_COCKPIT.html" target="_blank" style="background: linear-gradient(135deg, #10b981, #00f2fe); color: #050813; text-decoration: none; padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);">🧘 Stability OS ↗</a>
+      <a href="ADITYA_MEHRA_PRINTABLE_A4_1PAGE_CV.html" target="_blank" style="background: var(--emerald); color: #050813; text-decoration: none; padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">📄 Printable CV (PDF) ↗</a>
+      <a href="ADITYA_DEBT_ZERO_30_LAKH_COCKPIT.html" target="_blank" style="background: rgba(244, 63, 94, 0.2); border: 1px solid var(--rose); color: #fff; text-decoration: none; padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">💥 ₹30L Debt Cockpit ↗</a>
+      <a href="ADITYA_MEHRA_EVERYTHING_MASTER_VAULT.html" target="_blank" style="background: var(--cyan); color: #050813; text-decoration: none; padding: 10px 16px; border-radius: 8px; font-size: 12.5px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">🏛️ Master Vault ↗</a>
+    </div>
+  </div>
+
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card c1">
+      <div class="kpi-label">Commercial GMV Closed</div>
+      <div class="kpi-val" style="color: var(--emerald);">₹60L – ₹80L+</div>
+      <div class="kpi-sub" style="color: var(--emerald);">7 Consecutive Years (Oriflame 21%)</div>
+    </div>
+    <div class="kpi-card c2">
+      <div class="kpi-label">Client Persistency Rate</div>
+      <div class="kpi-val" style="color: var(--cyan);">>85.0%</div>
+      <div class="kpi-sub" style="color: var(--cyan);">IRDAI Certified (Bajaj Allianz Life)</div>
+    </div>
+    <div class="kpi-card c3">
+      <div class="kpi-label">Live Event Scale</div>
+      <div class="kpi-val" style="color: var(--purple);">1,000+ Pax</div>
+      <div class="kpi-sub" style="color: var(--purple);">Aero India 2025 Staging Lead</div>
+    </div>
+    <div class="kpi-card c4">
+      <div class="kpi-label">US Shift Call Volume</div>
+      <div class="kpi-val" style="color: var(--amber);">60+ / Shift</div>
+      <div class="kpi-sub" style="color: var(--amber);">High-Velocity International Inside Sales</div>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="main-grid">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-title">
+        <span>Evidence Navigation</span>
+      </div>
+
+      <div class="nav-item active" onclick="switchPane('case-oriflame')">
+        <span>📈 1. ₹80L GMV Commercial Scale</span>
+      </div>
+      <div class="nav-item" onclick="switchPane('case-bajaj')">
+        <span>🛡️ 2. IRDAI Advisory (>85% Persistency)</span>
+      </div>
+      <div class="nav-item" onclick="switchPane('case-aero')">
+        <span>✈️ 3. Aero India 2025 Operations</span>
+      </div>
+      <div class="nav-item" onclick="switchPane('case-sales')">
+        <span>📞 4. US Inside Sales (BrightCHAMPS)</span>
+      </div>
+      <div class="nav-item" onclick="switchPane('case-ai')">
+        <span>🤖 5. AI Vibe-Coding & Prototyping</span>
+      </div>
+      <div class="nav-item" onclick="switchPane('pane-rebuttals')" style="border-color: var(--cyan); color: var(--cyan); margin-top: 16px;">
+        <span>⚡ "Kill the Fresher Label" Scripts</span>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+
+      <!-- Case 1: Oriflame -->
+      <div id="case-oriflame" class="pane active">
+        <div class="case-header">
+          <div class="case-title">Case Study 1: Scaling a ₹80,00,000+ Direct Commercial Organization</div>
+          <div class="case-meta">ORIFLAME INDIA PVT. LTD. • 2019 – PRESENT (7 CONSECUTIVE YEARS) • SECTION 194H VERIFIED</div>
+        </div>
+
+        <div class="case-section">
+          <h4>The Operational Challenge</h4>
+          <p>Direct commercial organizations experience severe drop-off rates, with over 80% of distributor networks collapsing within their first 12 months due to a lack of pipeline, manual processes, and zero sales training.</p>
+        </div>
+
+        <div class="case-section">
+          <h4>Execution & Systems Architecture</h4>
+          <ul class="case-bullets">
+            <li><strong>Automated Digital Lead Intake:</strong> Replaced physical catalogs with vibe-coded digital landing pages and automated WhatsApp workflows, cutting downline customer onboarding friction by 40%.</li>
+            <li><strong>Team Leadership & Mentorship:</strong> Recruited, trained, and scaled an active sales force of 50+ Brand Partners across South and East India.</li>
+            <li><strong>Quota Discipline:</strong> Consistently drove 7,500+ Group Business Points (BP) per monthly cycle (~₹4.5L–₹5.5L GMV/cycle), maintaining Senior Manager (21%) status unbroken.</li>
+          </ul>
+        </div>
+
+        <div class="result-box">
+          <div class="result-title">Empirical Evidence & Impact</div>
+          <p style="font-size: 13px; color: #fff;">
+            <strong>Annual Commercial Turnover:</strong> ₹60,00,000 to ₹80,00,000+ GMV.<br>
+            <strong>Statutory Proof:</strong> Verified 7-year continuous tax credits under Section 194H of the Income Tax Act via Form 26AS/AIS.
+          </p>
+        </div>
+      </div>
+
+      <!-- Case 2: Bajaj Allianz -->
+      <div id="case-bajaj" class="pane">
+        <div class="case-header">
+          <div class="case-title">Case Study 2: Regulated Financial Advisory & >85% Client Persistency</div>
+          <div class="case-meta">BAJAJ ALLIANZ LIFE INSURANCE CO. LTD. • 2023 – PRESENT • IRDAI IC CERTIFIED • SECTION 194D</div>
+        </div>
+
+        <div class="case-section">
+          <h4>The Operational Challenge</h4>
+          <p>Life insurance and long-term wealth instruments are high-friction, legally scrutinised contracts. Across India, the industry average 13th-month persistency hovers around 65%, with widespread customer attrition and mis-selling complaints.</p>
+        </div>
+
+        <div class="case-section">
+          <h4>Execution & Systems Architecture</h4>
+          <ul class="case-bullets">
+            <li><strong>Needs-Based Financial Underwriting:</strong> Advised HNI and retail clients by analyzing cash flow volatility, debt exposure, and estate protection rather than transactional sales.</li>
+            <li><strong>Proactive Review Cadence:</strong> Instituted mandatory 60-day policyholder reviews for portfolio rebalancing, tax reporting documentation, and claim readiness.</li>
+            <li><strong>Regulatory Compliance:</strong> Maintained 100% compliance with IRDAI code of conduct with zero customer grievances or regulatory infractions.</li>
+          </ul>
+        </div>
+
+        <div class="result-box">
+          <div class="result-title">Empirical Evidence & Impact</div>
+          <p style="font-size: 13px; color: #fff;">
+            <strong>Client Persistency Ratio:</strong> >85.0% (Top Quartile of Financial Advisors).<br>
+            <strong>Statutory Proof:</strong> Verified Form 16A certificates under Section 194D with unbroken compliance standing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Case 3: Aero India 2025 -->
+      <div id="case-aero" class="pane">
+        <div class="case-header">
+          <div class="case-title">Case Study 3: High-Stakes Live Staging & Logistics at Aero India 2025</div>
+          <div class="case-meta">ASIA'S PREMIER AEROSPACE EXPO • YELAHANKA AIR FORCE STATION, BENGALURU • 1,000+ ATTENDEES</div>
+        </div>
+
+        <div class="case-section">
+          <h4>The Operational Challenge</h4>
+          <p>Coordinating live production, AV hardware, vendor procurement, and crowd dynamics for 1,000+ international defense delegates, ministers, and corporate executives under strict military airfield security protocols with zero margin for failure.</p>
+        </div>
+
+        <div class="case-section">
+          <h4>Execution & Systems Architecture</h4>
+          <ul class="case-bullets">
+            <li><strong>Hardware Redundancy:</strong> Engineered dual-redundant audio-visual switching setups and backup power lines, eliminating single points of failure.</li>
+            <li><strong>Crisis Mitigation:</strong> Successfully resolved a major power-surge hardware feed failure 30 minutes before keynote commencement, rerouting video lines through backup switchers in under 90 seconds.</li>
+            <li><strong>Multi-Vendor Governance:</strong> Managed 15+ external suppliers across staging, camera crews, lighting, and stage security under intense time constraints.</li>
+          </ul>
+        </div>
+
+        <div class="result-box">
+          <div class="result-title">Empirical Evidence & Impact</div>
+          <p style="font-size: 13px; color: #fff;">
+            <strong>Scale:</strong> 1,000+ Live Attendees Managed Seamlessly.<br>
+            <strong>Reliability:</strong> 100% on-time keynote delivery with zero visual downtime.
+          </p>
+        </div>
+      </div>
+
+      <!-- Case 4: BrightCHAMPS -->
+      <div id="case-sales" class="pane">
+        <div class="case-header">
+          <div class="case-title">Case Study 4: High-Velocity North American Inside Sales</div>
+          <div class="case-meta">BRIGHTCHAMPS EDTECH PVT. LTD. • US SHIFT (7:30 PM – 4:30 AM IST) • 60+ CALLS/SHIFT</div>
+        </div>
+
+        <div class="case-section">
+          <h4>The Operational Challenge</h4>
+          <p>Cold-calling discerning North American (US/Canada) parents during overnight shifts to diagnose learning gaps, overcome skepticism, and close high-ticket STEM and Next-Gen Tech programs.</p>
+        </div>
+
+        <div class="case-section">
+          <h4>Execution & Systems Architecture</h4>
+          <ul class="case-bullets">
+            <li><strong>High-Velocity Discovery:</strong> Executed 60+ discovery and qualification calls per shift, analyzing student learning challenges within the first 3 minutes.</li>
+            <li><strong>Objection Defense:</strong> Systematically mapped and dismantled price, curriculum, and spouse-approval objections using value-anchored ROI frameworks.</li>
+          </ul>
+        </div>
+
+        <div class="result-box">
+          <div class="result-title">Empirical Evidence & Impact</div>
+          <p style="font-size: 13px; color: #fff;">
+            <strong>Performance:</strong> Top-tier conversion velocity and dialer discipline during US market hours.
+          </p>
+        </div>
+      </div>
+
+      <!-- Case 5: AI Vibe-Coding -->
+      <div id="case-ai" class="pane">
+        <div class="case-header">
+          <div class="case-title">Case Study 5: AI Vibe-Coding & Automated Digital Systems</div>
+          <div class="case-meta">FULL-STACK WEB APPS • TAILWIND CSS • NEXT.JS • AI SDKs • AUTOMATED VIDEO</div>
+        </div>
+
+        <div class="case-section">
+          <h4>The Operational Challenge</h4>
+          <p>Modern enterprises cannot wait weeks for design and frontend engineering tickets to ship customer-facing lead funnels, PoC dashboards, or interactive tools.</p>
+        </div>
+
+        <div class="case-section">
+          <h4>Execution & Systems Architecture</h4>
+          <ul class="case-bullets">
+            <li><strong>Rapid Full-Stack Prototyping:</strong> Vibe-coded single-page responsive applications, debt calculation engines, and interactive portfolio cockpits with zero dependencies.</li>
+            <li><strong>AI Content Workflows:</strong> Configured prompt engineering pipelines to produce automated commercial video assets and personalized email outreach sequences.</li>
+          </ul>
+        </div>
+
+        <div class="result-box">
+          <div class="result-title">Empirical Evidence & Impact</div>
+          <p style="font-size: 13px; color: #fff;">
+            <strong>Velocity:</strong> Concepts converted into live production URLs in under 48 hours.
+          </p>
+        </div>
+      </div>
+
+      <!-- Rebuttals Pane -->
+      <div id="pane-rebuttals" class="pane">
+        <div class="case-header">
+          <div class="case-title">⚡ Word-for-Word "Kill the Fresher Label" Scripts</div>
+          <div class="case-meta">USE THESE IN RECRUITER PHONE SCREENS AND SALARY NEGOTIATIONS</div>
+        </div>
+
+        <!-- Script 1 -->
+        <div class="script-card">
+          <button class="btn-copy" onclick="copyRebuttal('reb-1')">Copy</button>
+          <div class="script-title">1. When HR says: "Since you graduated in 2026, our campus fresher budget is ₹4.5 LPA..."</div>
+          <div class="script-text" id="reb-1">"I completely understand why your automated system defaults to that bracket based on my 2026 graduation date. A typical campus fresher has zero years of quota pressure, has never closed a rupee of revenue, and has never managed people.
+
+In contrast, here is my Government Form 26AS and IRDAI ledger. Over the past 7 years alongside my degree, I have driven over ₹60 Lakhs in annual GMV, led a team of 50+ partners, managed operations for 1,000 people at Aero India 2025, and maintained an 85%+ persistency rate in financial sales. Currently, I am closing US prospects every single night at BrightCHAMPS.
+
+A company hires a fresher when they want to spend 6 months training someone who is afraid to make a cold call. You hire me when you want an experienced commercial operator who understands software and starts building and closing enterprise pipeline from week two. That is why my benchmark is ₹14L to ₹18L OTE, not campus fresher budgets."</div>
+        </div>
+
+        <!-- Script 2 -->
+        <div class="script-card">
+          <button class="btn-copy" onclick="copyRebuttal('reb-2')">Copy</button>
+          <div class="script-title">2. When they question: "Is direct selling or insurance real tech sales experience?"</div>
+          <div class="script-text" id="reb-2">"Direct sales and regulated insurance are not side hustles—they are the world's most rigorous master's degrees in commercial grit. In direct sales, there is no marketing team handing you inbound leads; you have to build pipeline from scratch. In insurance, you have to pass IRDAI exams, handle legal underwriting, and retain customers year after year.
+
+If I could generate ₹60L+ in annual GMV and maintain >85% persistency in those demanding environments, imagine the velocity I bring when armed with your Tier-1 enterprise product, brand reputation, and sales engineering support."</div>
+        </div>
+
+        <!-- Script 3 -->
+        <div class="script-card">
+          <button class="btn-copy" onclick="copyRebuttal('reb-3')">Copy</button>
+          <div class="script-title">3. For US / Global Remote Tech Companies</div>
+          <div class="script-text" id="reb-3">"Global tech companies evaluate candidates on Proof of Work and execution velocity, not tenure in cubicles. I have a live code portfolio, verified tax proof of ₹60L+ commercial GMV, active daily repetitions closing North American prospects in fluent English on night shifts, and the technical fluency to vibe-code full applications. I offer the closing maturity of an experienced operator with the raw energy and hunger of someone building their career in Tier-1 tech."</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function switchPane(paneId) {
+      document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.pane').forEach(el => el.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(paneId).classList.add('active');
+    }
+
+    function copyRebuttal(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        btn.innerText = "COPIED!";
+        setTimeout(() => btn.innerText = "Copy", 2000);
+      });
+    }
+  </script>
+</body>
+</html>

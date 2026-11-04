@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADITYA MEHRA | APEX 2027 Mission Control & Career Conquest Cockpit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070913;
+      --surface: #0e1326;
+      --card: #141c38;
+      --card-hover: #1c274e;
+      --border: #1f2d59;
+      --cyan: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.25);
+      --emerald: #10b981;
+      --purple: #8b5cf6;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, rgba(14, 19, 38, 0.95), rgba(20, 28, 56, 0.95));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .candidate-info h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .candidate-info p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .badge-rack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      font-family: var(--font-mono);
+    }
+    .badge-emerald { background: rgba(16, 185, 129, 0.1); color: var(--emerald); border-color: rgba(16, 185, 129, 0.3); }
+    .badge-purple { background: rgba(139, 92, 246, 0.1); color: var(--purple); border-color: rgba(139, 92, 246, 0.3); }
+    .badge-amber { background: rgba(245, 158, 11, 0.1); color: var(--amber); border-color: rgba(245, 158, 11, 0.3); }
+
+    /* Top KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+    }
+    .kpi-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin: 6px 0 2px;
+      font-family: var(--font-mono);
+    }
+    .kpi-sub {
+      font-size: 11px;
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    /* Main Grid Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Sidebar / Targets */
+    .sidebar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      height: fit-content;
+    }
+    .sidebar-title {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .target-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .target-item:hover, .target-item.active {
+      border-color: var(--cyan);
+      background: var(--card-hover);
+      transform: translateX(4px);
+    }
+    .target-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .target-company {
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .target-score {
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .target-role {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .target-comp {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--amber);
+      font-family: var(--font-mono);
+    }
+
+    /* Content Area */
+    .content-area {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    /* Navigation Tabs */
+    .tab-bar {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      color: #fff;
+      border-color: var(--cyan);
+    }
+    .tab-btn.active {
+      background: var(--cyan);
+      color: #070913;
+      border-color: var(--cyan);
+    }
+
+    /* Tab Panes */
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* Code & Markdown Viewers */
+    .code-box {
+      background: #090c18;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.6;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      position: relative;
+      max-height: 520px;
+      overflow-y: auto;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s ease;
+    }
+    .copy-btn:hover {
+      background: var(--cyan);
+      color: #070913;
+    }
+
+    /* Schedule Timeline */
+    .schedule-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: var(--card);
+      border-left: 4px solid var(--border);
+      font-size: 13px;
+    }
+    .schedule-item.sleep { border-left-color: var(--purple); }
+    .schedule-item.interview { border-left-color: var(--emerald); background: rgba(16, 185, 129, 0.08); }
+    .schedule-item.work { border-left-color: var(--cyan); background: rgba(0, 242, 254, 0.06); }
+    .schedule-item.prep { border-left-color: var(--amber); }
+
+    .schedule-time {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #fff;
+    }
+    .schedule-desc {
+      color: var(--text-muted);
+    }
+    .schedule-desc strong {
+      color: #fff;
+    }
+
+    /* Income Calculator */
+    .calc-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .calc-row:last-child {
+      border-bottom: none;
+      padding-top: 18px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--emerald);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="candidate-info">
+      <h1>ADITYA MEHRA | APEX 2027 COCKPIT</h1>
+      <p>BBA in International Business (Dayananda Sagar University '26) | 7-Yr Commercial Leader | AI Vibe Coder | Inside Sales @ BrightCHAMPS</p>
+      <div class="badge-rack">
+        <span class="badge badge-emerald">● Commercial GMV: ₹60L–₹80L+</span>
+        <span class="badge">● IRDAI Certified (Bajaj Allianz, >85% Persistency)</span>
+        <span class="badge badge-purple">● Puma Sports & Tata Comms Internships</span>
+        <span class="badge badge-amber">● Aero India 2025 Operations Lead</span>
+        <span class="badge badge-emerald">● US Inside Sales (BrightCHAMPS)</span>
+      </div>
+    </div>
+    <div>
+      <a href="ADITYA_MEHRA_EXECUTIVE_PORTFOLIO.html" target="_blank" style="background: var(--cyan); color: #070913; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 800; display: inline-block;">Open Live Portfolio ↗</a>
+    </div>
+  </div>
+
+  <!-- KPI Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Market Fit Score</div>
+      <div class="kpi-value">92.5 / 100</div>
+      <div class="kpi-sub">Grade A+ (Top 2% Talent)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Target Tier-1 OTE</div>
+      <div class="kpi-value">₹14L – ₹20L</div>
+      <div class="kpi-sub">Bangalore AI / FinTech</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Monthly Stacked Cash</div>
+      <div class="kpi-value">₹1.8L – ₹2.4L</div>
+      <div class="kpi-sub">Corporate + Oriflame + Bajaj</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Daytime Interview Slot</div>
+      <div class="kpi-value">12:00 – 17:30</div>
+      <div class="kpi-sub">5.5 Hours Protected Daily</div>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="main-grid">
+    <!-- Sidebar: High-Yield Targets -->
+    <div class="sidebar">
+      <div class="sidebar-title">
+        <span>Target Enterprises</span>
+        <span style="font-size: 11px; color: var(--emerald);">Active Pipeline</span>
+      </div>
+
+      <div class="target-item active" onclick="loadTarget('devrev')">
+        <div class="target-header">
+          <span class="target-company">1. DevRev (AI Unicorn)</span>
+          <span class="target-score">95/100</span>
+        </div>
+        <div class="target-role">Associate Solutions Consultant / BDR</div>
+        <div class="target-comp">₹14.0L OTE (₹10L + ₹4L)</div>
+      </div>
+
+      <div class="target-item" onclick="loadTarget('sarvam')">
+        <div class="target-header">
+          <span class="target-company">2. Sarvam AI (GenAI Lab)</span>
+          <span class="target-score">96/100</span>
+        </div>
+        <div class="target-role">Commercial GTM & Partnerships Associate</div>
+        <div class="target-comp">₹16.0L OTE (₹11L + ₹5L)</div>
+      </div>
+
+      <div class="target-item" onclick="loadTarget('razorpay')">
+        <div class="target-header">
+          <span class="target-company">3. Razorpay (FinTech Titan)</span>
+          <span class="target-score">95/100</span>
+        </div>
+        <div class="target-role">Key Account Growth & Merchant GTM</div>
+        <div class="target-comp">₹14.0L OTE (₹9.5L + ₹4.5L)</div>
+      </div>
+
+      <div class="target-item" onclick="loadTarget('samaaro')">
+        <div class="target-header">
+          <span class="target-company">4. Samaaro (Event SaaS)</span>
+          <span class="target-score">96/100</span>
+        </div>
+        <div class="target-role">Customer Success & Enterprise Ops</div>
+        <div class="target-comp">₹12.0L OTE (₹9.0L + ₹3.0L)</div>
+      </div>
+
+      <div class="target-item" onclick="loadTarget('zethic')">
+        <div class="target-header">
+          <span class="target-company">5. Zethic Technologies</span>
+          <span class="target-score">97/100</span>
+        </div>
+        <div class="target-role">Founder's Office (Strategy & Scale)</div>
+        <div class="target-comp">₹11.2L – ₹11.8L Listed</div>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+      <!-- Tabs -->
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('dossier')">Target Dossier (InMail & Pitch)</button>
+        <button class="tab-btn" onclick="switchTab('schedule')">24-Hr Daily Battle Routine</button>
+        <button class="tab-btn" onclick="switchTab('defense')">STAR Interview Defense</button>
+        <button class="tab-btn" onclick="switchTab('wealth')">Income Stacking Model</button>
+      </div>
+
+      <!-- Tab 1: Dossier -->
+      <div id="tab-dossier" class="tab-pane active">
+        <h3 id="target-title" style="margin-bottom: 12px; font-size: 18px; color: #fff;">DevRev — Cold Outreach InMail & Strategic Angle</h3>
+        <div class="code-box">
+          <button class="copy-btn" onclick="copyCode('dossier-code')">Copy Script</button>
+          <div id="dossier-code">Subject: Commercial BDR / Solutions Consultant with ₹60L+ GMV Closed + Vibe-Coding Fluency
+
+Hi [First Name],
+
+Noticed DevRev is accelerating its AI-native customer CRM & developer workflow expansion across APAC & global markets.
+
+Most candidates applying for commercial BDR or Solutions Consultant roles are either engineers who cannot sell, or sales reps who don't understand code.
+
+Over the past 7 years alongside my BBA, I have operated at the exact intersection of both:
+1. Commercial Track Record: Scaled a direct sales team of 50+ partners driving ₹60L–₹80L+ annual GMV at Oriflame India (Senior Manager 21%).
+2. Technical Fluency: Actively vibe-code full web applications and digital workflow funnels using modern AI tools.
+3. High-Velocity Pipeline Discipline: Currently conducting consultative inside sales discovery calls with North American prospects at BrightCHAMPS.
+4. Regulated Consultative Selling: Maintained >85% persistency selling high-ticket financial instruments at Bajaj Allianz Life.
+
+I am based in Bangalore and looking to bring high-conviction pipeline generation to DevRev.
+
+Could we schedule a quick 10-minute introductory call this week between 1:00 PM and 3:30 PM IST?
+
+Best regards,  
+Aditya Mehra
+Bangalore, India | [Portfolio Link] | [LinkedIn Link]</div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Schedule -->
+      <div id="tab-schedule" class="tab-pane">
+        <h3 style="margin-bottom: 16px; font-size: 18px; color: #fff;">The Circadian Rhythm (BrightCHAMPS US Shift + Daytime Interviews)</h3>
+        <div class="schedule-grid">
+          <div class="schedule-item sleep">
+            <span class="schedule-time">05:00 AM – 11:30 AM</span>
+            <span class="schedule-desc"><strong>Deep REM Sleep Block (6.5 hrs)</strong> — Blackout room, zero phone disturbance. Non-negotiable.</span>
+          </div>
+          <div class="schedule-item interview">
+            <span class="schedule-time">12:00 PM – 02:30 PM</span>
+            <span class="schedule-desc"><strong>PRIME SLOT 1: Bangalore Corporate Interviews</strong> — Take HR phone screens, 1st round video calls.</span>
+          </div>
+          <div class="schedule-item prep">
+            <span class="schedule-time">02:30 PM – 03:30 PM</span>
+            <span class="schedule-desc"><strong>Lunch & Oriflame Quick Sync</strong> — 15-minute phone call with Mother & core leaders to review daily orders.</span>
+          </div>
+          <div class="schedule-item interview">
+            <span class="schedule-time">03:30 PM – 05:30 PM</span>
+            <span class="schedule-desc"><strong>PRIME SLOT 2: Technical & VP Rounds</strong> — Founder syncs, LinkedIn InMail outbound connects.</span>
+          </div>
+          <div class="schedule-item prep">
+            <span class="schedule-time">05:30 PM – 06:45 PM</span>
+            <span class="schedule-desc"><strong>Physical Workout & Gym</strong> — Cardio / strength training to charge physical energy for the night shift.</span>
+          </div>
+          <div class="schedule-item work">
+            <span class="schedule-time">07:30 PM – 04:30 AM</span>
+            <span class="schedule-desc"><strong>BRIGHTCHAMPS US SHIFT</strong> — International cold calling, US parent discovery, master objection handling.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Defense -->
+      <div id="tab-defense" class="tab-pane">
+        <h3 style="margin-bottom: 12px; font-size: 18px; color: #fff;">STAR Interview Objections — Flawless Framing</h3>
+        <div class="code-box">
+          <button class="copy-btn" onclick="copyCode('defense-code')">Copy Defense</button>
+          <div id="defense-code">QUESTION 1: "Why did you join BrightCHAMPS, and why look elsewhere now?"
+ANSWER: 
+"I accepted BrightCHAMPS specifically to sharpen my high-velocity, international cold-calling skills and international objection handling on the US shift. It gives me incredible daily repetitions with sophisticated English-speaking parents. However, my long-term mission and deepest passion lie in enterprise AI infrastructure and developer platforms. When I saw this role, I knew my combination of commercial closing track record (₹60L+ GMV) and technical vibe coding would create 10x more leverage here than selling transactional consumer courses."
+
+QUESTION 2: "How did you manage 7 years of Oriflame alongside college?"
+ANSWER:
+"Starting at age 18, I treated Oriflame as a distributed sales organization. I built a team of 50+ partners, automated our lead intake via digital landing pages and WhatsApp workflows, and maintained 7,500+ Group BP per cycle, generating over ₹60L+ in annual GMV. Today, that organization is co-led and maintained by my mother (who is an Oriflame Director) and my core leaders, which allowed me to complete my BBA, earn my IRDAI license, and focus 100% of my professional career on enterprise tech."
+
+QUESTION 3: "You have a BBA, not a Computer Science degree. Can you handle technical solutions?"
+ANSWER:
+"In 2026, the best technical communicators are systems thinkers who understand user workflows. I build functional web applications and automation funnels using modern developer tools, Tailwind, JavaScript, and AI coding assistants. I understand APIs, error codes, and developer ergonomics. Because I understand both the developer's daily workflow and business ROI, I bridge the exact gap that purely theoretical engineers or non-technical sales reps fail to navigate."</div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Wealth -->
+      <div id="tab-wealth" class="tab-pane">
+        <h3 style="margin-bottom: 16px; font-size: 18px; color: #fff;">Multi-Stream Income Stacking Model (January 2027)</h3>
+        <div class="calc-box">
+          <div class="calc-row">
+            <span>1. Tier-1 Corporate Role (Sarvam / DevRev / Razorpay)</span>
+            <strong style="color: #fff; font-family: var(--font-mono);">₹1,00,000 – ₹1,35,000 / mo</strong>
+          </div>
+          <div class="calc-row">
+            <span>2. Oriflame Commercial Sales (Automated via Mom & Downline)</span>
+            <strong style="color: #fff; font-family: var(--font-mono);">₹40,000 – ₹55,000 / mo</strong>
+          </div>
+          <div class="calc-row">
+            <span>3. Bajaj Allianz Life (Annual Policy Renewals under IRDAI)</span>
+            <strong style="color: #fff; font-family: var(--font-mono);">₹15,000 – ₹25,000 / mo</strong>
+          </div>
+          <div class="calc-row">
+            <span>4. Vibe-Coded Web Funnels & Automation Services</span>
+            <strong style="color: #fff; font-family: var(--font-mono);">₹10,000 – ₹20,000 / mo</strong>
+          </div>
+          <div class="calc-row">
+            <span>TOTAL MONTHLY NET CASH TAKE-HOME:</span>
+            <span style="font-family: var(--font-mono);">₹1,65,000 – ₹2,35,000 / mo</span>
+          </div>
+        </div>
+        <p style="margin-top: 14px; font-size: 12px; color: var(--text-muted);">
+          *This translates to an annualized net cash run-rate of <strong>₹20,00,000 to ₹28,00,000+</strong> by your 26th birthday.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const targets = {
+      devrev: {
+        title: "DevRev (AI CRM & Developer OS) — Outreach InMail",
+        code: `Subject: Commercial BDR / Solutions Consultant with ₹60L+ GMV Closed + Vibe-Coding Fluency
+
+Hi [First Name],
+
+Noticed DevRev is accelerating its AI-native customer CRM & developer workflow expansion across APAC & global markets.
+
+Most candidates applying for commercial BDR or Solutions Consultant roles are either engineers who cannot sell, or sales reps who don't understand code.
+
+Over the past 7 years alongside my BBA, I have operated at the exact intersection of both:
+1. Commercial Track Record: Scaled a direct sales team of 50+ partners driving ₹60L–₹80L+ annual GMV at Oriflame India (Senior Manager 21%).
+2. Technical Fluency: Actively vibe-code full web applications and digital workflow funnels using modern AI tools.
+3. High-Velocity Pipeline Discipline: Currently conducting consultative inside sales discovery calls with North American prospects at BrightCHAMPS.
+4. Regulated Consultative Selling: Maintained >85% persistency selling high-ticket financial instruments at Bajaj Allianz Life.
+
+I am based in Bangalore and looking to bring high-conviction pipeline generation to DevRev.
+
+Could we schedule a quick 10-minute introductory call this week between 1:00 PM and 3:30 PM IST?
+
+Best regards,  
+Aditya Mehra
+Bangalore, India | [Portfolio Link] | [LinkedIn Link]`
+      },
+      sarvam: {
+        title: "Sarvam AI (Sovereign GenAI Lab) — Outreach InMail",
+        code: `Subject: Enterprise GTM Operator (₹60L+ GMV Closed) + AI Vibe Coder for Sarvam AI
+
+Hi [First Name],
+
+Watching Sarvam AI lead India's sovereign GenAI foundation model ecosystem with incredible admiration.
+
+As you expand enterprise pilots across BFSI, telecom, and consumer enterprises, the bottleneck often isn't the model's capabilities—it's having commercial operators who understand both deep tech and the ground reality of Indian enterprise sales cycles.
+
+Over the past 7 years alongside my BBA, I have operated right in the trenches:
+1. Commercial Sales Track Record: Scaled a direct sales network of 50+ partners driving ₹60L–₹80L+ in annual GMV at Oriflame India (Senior Manager 21%).
+2. High-Trust Consultative Selling: Maintained >85% client persistency in regulated financial wealth planning at Bajaj Allianz Life.
+3. AI Fluency: Actively vibe-code full web applications and digital automation funnels using modern developer tools.
+4. Outbound Stamina: Currently executing international inside sales cold calls for BrightCHAMPS on US shifts.
+
+I am based in Bangalore and want to dedicate my commercial grit to driving enterprise adoption and PoC conversions for Sarvam AI.
+
+Could we schedule a 10-minute introductory conversation this week?
+
+Warm regards,  
+Aditya Mehra
+Bangalore, India | [Portfolio Link] | [LinkedIn Link]`
+      },
+      razorpay: {
+        title: "Razorpay (FinTech Titan) — Outreach InMail",
+        code: `Subject: Commercial FinTech Operator (₹60L+ GMV / IRDAI Certified) for Razorpay Key Accounts
+
+Hi [First Name],
+
+Noticed Razorpay is continuing its aggressive expansion across omnichannel payments, POS, and corporate banking suites in South India.
+
+Many candidates applying for Key Account or Merchant Growth roles have either academic theory or pure cold-calling experience without financial compliance maturity.
+
+Over the past 7 years alongside my BBA, I have operated right in the commercial and financial trenches:
+1. Regulated Financial Services: IRDAI-licensed Insurance Consultant at Bajaj Allianz Life maintaining >85% persistency on long-term financial instruments.
+2. Commercial Sales Scale: Built a 50+ person distributor network driving ₹60L–₹80L+ in annual GMV at Oriflame India (Senior Manager 21%).
+3. Technical & Vibe-Coding Fluency: Build full web applications, test checkout funnels, and understand payment gateway API architectures.
+4. Outbound Stamina: Currently closing international prospects on high-velocity calls at BrightCHAMPS.
+
+I'm based here in Bangalore and want to bring my closing velocity and merchant empathy to Razorpay.
+
+Could we connect for a brief 10-minute sync this Wednesday or Thursday between 1:30 PM and 3:30 PM IST?
+
+Warm regards,  
+Aditya Mehra
+Bangalore, India | [Portfolio Link] | [LinkedIn Link]`
+      },
+      samaaro: {
+        title: "Samaaro (Enterprise Event SaaS) — Outreach InMail",
+        code: `Subject: Event Production Lead (1,000+ Attendees) + SaaS Client Ops for Samaaro
+
+Hi [First Name],
+
+Loved seeing Samaaro's momentum in powering hybrid and virtual enterprise summits globally.
+
+Having led live event production and staging for 100 to 1,000+ attendees in Bangalore (including Aero India 2025 logistics), I know the exact panic organizers face when attendee data is messy or virtual streams drop.
+
+Alongside my event production background and BBA:
+1. I have managed multi-vendor logistics, AV hardware, and live customer check-ins under zero-defect pressure.
+2. I built automated digital lead funnels and vibe-coded web applications.
+3. I understand SaaS retention metrics and customer onboarding workflows.
+
+I am based in Bangalore and would love to support Samaaro's enterprise client onboarding and customer success operations.
+
+Are you open to a brief chat this week?
+
+Best,  
+Aditya Mehra
+Bangalore, India | [Portfolio Link] | [LinkedIn Link]`
+      },
+      zethic: {
+        title: "Zethic Technologies (Founder's Office) — Outreach InMail",
+        code: `Subject: Commercial Operator (₹60L+ GMV Closed / DSU '26) for Founder's Office
+
+Hi [First Name],
+
+Noticed the Founder's Office opening at Zethic Technologies focused on strategy and new commercial initiatives.
+
+Founders need generalists who can execute without hand-holding. Over the past 7 years alongside my BBA at Dayananda Sagar University:
+1. Scaled an independent sales organization of 50+ partners driving ₹60L+ annual GMV.
+2. Handled regulated financial advisory at Bajaj Allianz with >85% persistency.
+3. Directed operations and staging for live events of up to 1,000 attendees.
+4. Vibe-code web applications and build automated digital pipelines.
+
+I understand both high-level business strategy and the daily grind of execution.
+
+Would love to hop on a 10-minute sync to see where I can take operational weight off the leadership team's shoulders.
+
+Best,  
+Aditya Mehra
+Bangalore, India | [Portfolio Link] | [LinkedIn Link]`
+      }
+    };
+
+    function loadTarget(key) {
+      document.querySelectorAll('.target-item').forEach(el => el.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const data = targets[key];
+      if (data) {
+        document.getElementById('target-title').innerText = data.title;
+        document.getElementById('dossier-code').innerText = data.code;
+        switchTab('dossier');
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+      event.target?.classList.add('active') || document.querySelector(`[onclick="switchTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(`tab-${tabId}`).classList.add('active');
+    }
+
+    function copyCode(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        btn.innerText = "Copied!";
+        setTimeout(() => btn.innerText = "Copy Script", 2000);
+      });
+    }
+  </script>
+</body>
+</html>

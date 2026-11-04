@@ -103,7 +103,9 @@ class TestBengaluruStartupIntel(unittest.TestCase):
             os.path.join(DATA_DIR, "bengaluru_startup_jobs.csv"),
             os.path.join(DATA_DIR, "bengaluru_startup_funding.csv"),
             os.path.join(DATA_DIR, "bengaluru_startup_news.csv"),
-            os.path.join(DATA_DIR, "bengaluru_startup_daily_delta.csv")
+            os.path.join(DATA_DIR, "bengaluru_startup_daily_delta.csv"),
+            os.path.join(DATA_DIR, "bengaluru_startup_directory_1000.csv"),
+            os.path.join(DATA_DIR, "bengaluru_startup_vcs.csv")
         ]
         for path in csv_files:
             self.assertTrue(os.path.exists(path), f"File missing: {path}")
@@ -111,6 +113,35 @@ class TestBengaluruStartupIntel(unittest.TestCase):
                 reader = csv.reader(f)
                 rows = list(reader)
                 self.assertGreater(len(rows), 1, f"CSV should have header and at least 1 data row: {path}")
+
+    def test_bangalore_startup_map_ecosystem(self):
+        """Verify complete 1,000+ startups and 70+ VCs from Bangalore Startup Map."""
+        conn = get_db()
+        c = conn.cursor()
+
+        c.execute("SELECT COUNT(*) FROM startups")
+        total_startups = c.fetchone()[0]
+        self.assertGreaterEqual(total_startups, 1000, "Should have 1,000+ startups indexed")
+
+        c.execute("SELECT COUNT(*) FROM venture_capital_firms")
+        total_vcs = c.fetchone()[0]
+        self.assertGreaterEqual(total_vcs, 70, "Should have 70+ VC firms indexed")
+
+        # Verify key geographic clusters exist
+        c.execute("SELECT COUNT(*) FROM startups WHERE area LIKE '%HSR%' OR blr_location LIKE '%HSR%'")
+        hsr_count = c.fetchone()[0]
+        self.assertGreaterEqual(hsr_count, 150, "HSR cluster should have 150+ startups")
+
+        c.execute("SELECT COUNT(*) FROM startups WHERE area LIKE '%Koramangala%' OR blr_location LIKE '%Koramangala%'")
+        kora_count = c.fetchone()[0]
+        self.assertGreaterEqual(kora_count, 100, "Koramangala cluster should have 100+ startups")
+
+        # Verify geocoding coordinates
+        c.execute("SELECT COUNT(*) FROM startups WHERE lat IS NOT NULL AND lng IS NOT NULL")
+        geocoded = c.fetchone()[0]
+        self.assertGreaterEqual(geocoded, 500, "At least 500 startups should be geocoded with coordinates")
+
+        conn.close()
 
     def test_dossiers_exist_and_complete(self):
         """Verify all 5 enterprise application dossiers are generated."""
