@@ -1,11 +1,11 @@
 {
-  "execution_id": "GHM-SOVEREIGN-CCC968E5A0",
+  "execution_id": "GHM-SOVEREIGN-C5F7261228",
   "status": "PASSED",
   "overall_status": "ALL 12 PHASES PASSED :: SOVEREIGN GITHUB MARKETPLACE ATTESTED",
   "total_phases_executed": 12,
   "total_phases": 12,
-  "total_elapsed_seconds": 0.8097,
-  "timestamp": "2026-11-03T07:37:16.406035+00:00",
+  "total_elapsed_seconds": 0.6649,
+  "timestamp": "2026-11-04T07:16:35.624532+00:00",
   "telemetry": {
     "total_items": 373,
     "total_actions": 231,
@@ -122,7 +122,7 @@
       "name": "SQLite FTS5 Relational Compilation & Indexing",
       "description": "Compiled and indexed 373 items in E:\\anti\\data\\github_marketplace.sqlite3 with sub-millisecond FTS5 search.",
       "status": "PASSED",
-      "elapsed_seconds": 0.7647,
+      "elapsed_seconds": 0.5359,
       "evidence": {
         "db_path": "E:\\anti\\data\\github_marketplace.sqlite3",
         "db_size_bytes": 348160,
@@ -161,7 +161,7 @@
       "name": "Supply Chain Security, Permissions & SHA Auditor",
       "description": "Executed static AST security audit evaluating tag pinning, script injection, and token permissions.",
       "status": "PASSED",
-      "elapsed_seconds": 0.0001,
+      "elapsed_seconds": 0.0002,
       "evidence": {
         "audit_score": 100,
         "risk_level": "LOW",
@@ -173,7 +173,7 @@
       "name": "Multi-Format Data Vault Generation",
       "description": "Generated immutable data vault exports in JSON, SQLite, CSV, and Markdown formats.",
       "status": "PASSED",
-      "elapsed_seconds": 0.044,
+      "elapsed_seconds": 0.1278,
       "evidence": {
         "json_vault": "E:\\anti\\data\\github_marketplace_catalog.json",
         "csv_vault": "E:\\anti\\data\\github_marketplace_export.csv",
@@ -212,14 +212,14 @@
     {
       "phase": 12,
       "name": "End-to-End Sovereign Verification & Manifest Attestation",
-      "description": "All 12 lifecycle phases successfully passed in 0.8097s. Attestation sealed.",
+      "description": "All 12 lifecycle phases successfully passed in 0.6649s. Attestation sealed.",
       "status": "PASSED",
       "elapsed_seconds": 0.0,
       "evidence": {
-        "execution_id": "GHM-SOVEREIGN-CCC968E5A0",
+        "execution_id": "GHM-SOVEREIGN-C5F7261228",
         "total_phases": 12,
         "passed_phases": 12,
-        "sealed_at": "2026-11-03T07:37:16.406019+00:00"
+        "sealed_at": "2026-11-04T07:16:35.624516+00:00"
       }
     }
   ]
