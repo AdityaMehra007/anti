@@ -31,6 +31,7 @@ TEST_TARGETS = [
     ("MCP Master Fleet & Hub Suite", "tests/test_mcp_hub.py"),
     ("GitHub Marketplace Orchestrator Suite", "tests/test_github_marketplace_orchestrator.py"),
     ("Hyprland Orchestrator Suite", "tests/test_hyprland_orchestrator.py"),
+    ("CareerOps Sovereign Orchestrator Suite", "tests/test_career_ops_orchestrator.py"),
 ]
 
 def run_all_tests():

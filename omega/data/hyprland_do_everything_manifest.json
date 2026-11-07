@@ -1,7 +1,7 @@
 {
   "system": "HYPRLAND_AUTONOMOUS_ORCHESTRATOR",
-  "execution_id": "exec-hypr-879706db3dc2",
-  "timestamp": "2026-11-04T07:16:40.390337+00:00",
+  "execution_id": "exec-hypr-9e4d357cdea4",
+  "timestamp": "2026-11-07T18:49:51.007383+00:00",
   "total_phases": 12,
   "passed_phases": 12,
   "total_duration_seconds": 0.0005,
@@ -50,7 +50,7 @@
       "phase": 3,
       "name": "Dynamic Workspaces & Spatial Navigation Verification",
       "status": "PASSED",
-      "duration_ms": 0.03,
+      "duration_ms": 0.02,
       "details": {
         "workspaces_count": 5,
         "workspace_ids": [
@@ -84,7 +84,7 @@
       "phase": 5,
       "name": "Window Rules & Placement Matrix Certification",
       "status": "PASSED",
-      "duration_ms": 0.03,
+      "duration_ms": 0.02,
       "details": {
         "total_rules": 6,
         "sample_rules": [
@@ -100,7 +100,7 @@
       "phase": 6,
       "name": "Visual Aesthetics, Bling & Shader Pipeline Audit",
       "status": "PASSED",
-      "duration_ms": 0.05,
+      "duration_ms": 0.04,
       "details": {
         "rounding": 12,
         "blur_enabled": true,
@@ -159,7 +159,7 @@
       "phase": 9,
       "name": "Comprehensive Keybinding & Dispatcher Matrix Verification",
       "status": "PASSED",
-      "duration_ms": 0.05,
+      "duration_ms": 0.04,
       "details": {
         "dispatcher_dispatch_status": "ok",
         "supported_dispatchers": [
@@ -214,7 +214,7 @@
       "phase": 11,
       "name": "Real-Time IPC Socket2 Event Stream & Reactor Validation",
       "status": "PASSED",
-      "duration_ms": 0.0,
+      "duration_ms": 0.02,
       "details": {
         "buffered_events_count": 9,
         "latest_event": "changefloatingmode>>0x55a9b802,0",
@@ -225,7 +225,7 @@
       "phase": 12,
       "name": "Plugin Subsystem & Ecosystem Extension Audit",
       "status": "PASSED",
-      "duration_ms": 0.13,
+      "duration_ms": 0.12,
       "details": {
         "generated_configs_count": 6,
         "config_validation": {
@@ -234,9 +234,9 @@
           "sections_count": 4,
           "sections": [
             "misc",
-            "master",
+            "general",
             "dwindle",
-            "general"
+            "master"
           ],
           "errors": [],
           "warnings": []

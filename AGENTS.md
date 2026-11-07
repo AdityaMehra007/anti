@@ -143,6 +143,17 @@ Universal open standard connecting LLM models (Claude, Cursor, Copilot, Antigrav
 - **Automated Test Suite**: [`tests/test_mcp_hub.py`](tests/test_mcp_hub.py) (100% test coverage for schema validation, handshake pings, and configuration exports).
 - **Master Tool Registry**: [`data/mcp_tools_catalog.json`](data/mcp_tools_catalog.json) (Structured catalog of 260 schema-validated tools).
 
+### CareerOps Sovereign AI Job Search Ecosystem (v1.39.0 Integration)
+Open-source local-first AI job search agent ecosystem by @santifer (3,279 files, 3,965 commits, 700+ contributors, featured in WIRED & Business Insider, Vercel OSS Program):
+- **Core Orchestrator & REST Engine**: [`career_ops_orchestrator.py`](career_ops_orchestrator.py) (138 public ATS providers, 45 prompt modes, deterministic A-H evaluation rubric, REST server on port 8794).
+- **Universal CLI**: [`career_ops_cli.py`](career_ops_cli.py) (`stats`, `providers`, `modes`, `templates`, `evaluate`, `serve`, `audit`).
+- **Mission Control Cockpit**: [`career_ops_control_cockpit.html`](career_ops_control_cockpit.html) (Glassmorphism radar with 7 tabs, provider directory, prompt mode viewer, live A-H JD evaluator, and REST API playground).
+- **Dedicated Batch Launcher**: [`START_CAREER_OPS_COCKPIT.bat`](START_CAREER_OPS_COCKPIT.bat).
+- **Agent Skill**: [`.agents/skills/career-ops-orchestrator/SKILL.md`](.agents/skills/career-ops-orchestrator/SKILL.md).
+- **Automated Test Suite**: [`tests/test_career_ops_orchestrator.py`](tests/test_career_ops_orchestrator.py) (6 automated tests, integrated into [`VERIFY_ALL_PROJECT_TESTS.py`](VERIFY_ALL_PROJECT_TESTS.py)).
+- **Sovereign Lifecycle Manifest**: [`omega/data/career_ops_do_everything_manifest.json`](omega/data/career_ops_do_everything_manifest.json) (12-phase sovereign attestation).
+- **Executive Cockpit Integration**: Integrated directly into [`OMNI_EXECUTIVE_COCKPIT.html`](OMNI_EXECUTIVE_COCKPIT.html).
+
 ### APEX Career Supremacy OS (Ω-CAREER-UNIVERSE)
 Autonomous end-to-end career intelligence, job discovery, online learning, recruiter network matching, and career velocity suite:
 - [`apex-career-os`](.agents/skills/apex-career-os/SKILL.md): Master orchestrator running the 7-agent closed-loop career conquest engine.
